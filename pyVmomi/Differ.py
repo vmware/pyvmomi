@@ -29,12 +29,12 @@ def LogIf(condition, message):
 
 def IsPrimitiveType(obj):
    """See if the passed in type is a Primitive Type"""
-   return (isinstance(obj, types.bool) or isinstance(obj, types.byte) or 
-      isinstance(obj, types.short) or isinstance(obj, types.int) or 
+   return (isinstance(obj, types.bool) or isinstance(obj, types.byte) or
+      isinstance(obj, types.short) or isinstance(obj, types.int) or
       isinstance(obj, types.double) or isinstance(obj, types.float) or
       isinstance(obj, types.long) or isinstance(obj, types.str) or
       isinstance(obj, unicode) or
-      isinstance(obj, types.PropertyPath) or 
+      isinstance(obj, types.PropertyPath) or
       isinstance(obj, types.ManagedMethod) or
       isinstance(obj, types.datetime) or
       isinstance(obj, types.URI) or isinstance(obj, type))
@@ -94,13 +94,13 @@ class Differ:
    def DiffDoArrays(self, oldObj, newObj, isElementLinks):
       """Diff two DataObject arrays"""
       if len(oldObj) != len(newObj):
-         __Log__.debug('DiffDoArrays: Array lengths do not match %d != %d' 
+         __Log__.debug('DiffDoArrays: Array lengths do not match %d != %d'
             % (len(oldObj), len(newObj)))
          return False
       for i, j in itertools.izip(oldObj, newObj):
          if isElementLinks:
             if i.GetKey() != j.GetKey():
-               __Log__.debug('DiffDoArrays: Keys do not match %s != %s' 
+               __Log__.debug('DiffDoArrays: Keys do not match %s != %s'
                   % (i.GetKey(), j.GetKey()))
                return False
          else:
@@ -113,7 +113,7 @@ class Differ:
    def DiffAnyArrays(self, oldObj, newObj, isElementLinks):
       """Diff two arrays which contain Any objects"""
       if len(oldObj) != len(newObj):
-         __Log__.debug('DiffAnyArrays: Array lengths do not match. %d != %d' 
+         __Log__.debug('DiffAnyArrays: Array lengths do not match. %d != %d'
             % (len(oldObj), len(newObj)))
          return False
       for i, j in itertools.izip(oldObj, newObj):
@@ -125,7 +125,7 @@ class Differ:
    def DiffPrimitiveArrays(self, oldObj, newObj):
       """Diff two primitive arrays"""
       if len(oldObj) != len(newObj):
-         __Log__.debug('DiffDoArrays: Array lengths do not match %d != %d' 
+         __Log__.debug('DiffDoArrays: Array lengths do not match %d != %d'
             % (len(oldObj), len(newObj)))
          return False
       match = True
@@ -152,7 +152,7 @@ class Differ:
       if not oldObj or not newObj:
          return False
       if len(oldObj) != len(newObj):
-         __Log__.debug('DiffArrayObjects: Array lengths do not match %d != %d' 
+         __Log__.debug('DiffArrayObjects: Array lengths do not match %d != %d'
             % (len(oldObj), len(newObj)))
          return False
       firstObj = oldObj[0]
@@ -164,8 +164,8 @@ class Differ:
          return self.DiffDoArrays(oldObj, newObj, isElementLinks)
       else:
          raise TypeError("Unknown type: %s" % oldObj.__class__)
-      
-      
+
+
    def DiffDataObjects(self, oldObj, newObj):
       """Diff Data Objects"""
       if oldObj == newObj:
@@ -177,7 +177,7 @@ class Differ:
       newType = Type(newObj)
       if oldType != newType:
          __Log__.debug(
-            'DiffDataObjects: Types do not match for dataobjects. %s != %s' 
+            'DiffDataObjects: Types do not match for dataobjects. %s != %s'
             % (oldObj._wsdlName, newObj._wsdlName))
          return False
       for prop in oldObj._GetPropertyList():
@@ -186,12 +186,12 @@ class Differ:
          propType = oldObj._GetPropertyInfo(prop.name).type
          if not oldProp and not newProp:
             continue
-         elif ((prop.flags & VmomiSupport.F_OPTIONAL) and 
+         elif ((prop.flags & VmomiSupport.F_OPTIONAL) and
                self._looseMatch and (not newProp or not oldProp)):
             continue
          elif not oldProp or not newProp:
             __Log__.debug(
-               'DiffDataObjects: One of the objects has property %s unset' 
+               'DiffDataObjects: One of the objects has property %s unset'
                % prop.name)
             return False
 
@@ -199,24 +199,24 @@ class Differ:
          if IsPrimitiveType(oldProp):
             bMatch = oldProp == newProp
          elif isinstance(oldProp, types.ManagedObject):
-            bMatch = self.DiffAnyObjects(oldProp, newProp, prop.flags 
+            bMatch = self.DiffAnyObjects(oldProp, newProp, prop.flags
                & VmomiSupport.F_LINK)
          elif isinstance(oldProp, types.DataObject):
             if prop.flags & VmomiSupport.F_LINK:
                bMatch = oldObj.GetKey() == newObj.GetKey()
-               LogIf(not bMatch, 'DiffDataObjects: Key match failed %s != %s' 
+               LogIf(not bMatch, 'DiffDataObjects: Key match failed %s != %s'
                   % (oldObj.GetKey(), newObj.GetKey()))
             else:
-               bMatch = self.DiffAnyObjects(oldProp, newProp, prop.flags 
+               bMatch = self.DiffAnyObjects(oldProp, newProp, prop.flags
                   & VmomiSupport.F_LINK)
          elif isinstance(oldProp, list):
-            bMatch = self.DiffArrayObjects(oldProp, newProp, prop.flags 
+            bMatch = self.DiffArrayObjects(oldProp, newProp, prop.flags
                & VmomiSupport.F_LINK)
          else:
             raise TypeError("Unknown type: "+repr(propType))
 
          if not bMatch:
-            __Log__.debug('DiffDataObjects: Objects differ in property %s' 
+            __Log__.debug('DiffDataObjects: Objects differ in property %s'
                % prop.name)
             return False
       return True
