@@ -19,40 +19,26 @@
 Python program for powering on vms on a host on which hostd is running
 """
 
-from optparse import OptionParser, make_option
 from pyVim.connect import SmartConnect, Disconnect
 from pyVmomi import vim, vmodl
-import sys
-import atexit
 
-def GetOptions():
+import argparse
+import atexit
+import sys
+
+def GetArgs():
    """
    Supports the command-line arguments listed below.
    """
 
-   _CMD_OPTIONS_LIST = [
-      make_option("-h", "--host",
-                  help="remote host to connect to"),
-      make_option("-o", "--port",
-                  default=443,
-                  help="Port"),
-      make_option("-u", "--user",
-                  default="root",
-                  help="User name to use when connecting to host"),
-      make_option("-p", "--password",
-                  help="Password to use when connecting to host"),
-      make_option("-v", "--vmname", default=[], action="append",
-                  help="Name of the Virtual Machine to power on"),
-      make_option("-?", "--help", action="store_true",
-                  help="Help"),
-   ]
-   _STR_USAGE = "%prog [options]"
-
-   parser = OptionParser(option_list=_CMD_OPTIONS_LIST,
-                         usage=_STR_USAGE,
-                         add_help_option=False)
-   (options, _) = parser.parse_args()
-   return options
+   parser = argparse.ArgumentParser(description='Process args for powering on a Virtual Machine')
+   parser.add_argument('-s', '--host', required=True, action='store', help='Remote host to connect to')
+   parser.add_argument('-o', '--port', required=True, action='store', help='Port to connect on')
+   parser.add_argument('-u', '--user', required=True, action='store', help='User name to use when connecting to host')
+   parser.add_argument('-p', '--password', required=True, action='store', help='Password to use when connecting to host')
+   parser.add_argument('-v', '--vmname', required=True, action='append', help='Names of the Virtual Machines to power on')
+   args = parser.parse_args()
+   return args
 
 def WaitForTasks(tasks, si):
    """
@@ -111,19 +97,23 @@ def main():
    Simple command-line program for powering on virtual machines on a system.
    """
 
-   options = GetOptions()
+   args = GetArgs()
    try:
-      vmnames = options.vmname
+      vmnames = args.vmname
       if not len(vmnames):
          print "No virtual machine specified for poweron"
          sys.exit()
 
-      si = SmartConnect(host=options.host,
-                user=options.user,
-                pwd=options.password,
-                port=int(options.port))
+      si = None
+      try:
+         si = SmartConnect(host=args.host,
+                           user=args.user,
+                           pwd=args.password,
+                           port=int(args.port))
+      except IOError, e:
+         pass
       if not si:
-         print "Cannot connect to Host"
+         print "Cannot connect to specified host using specified username and password"
          sys.exit()
 
       atexit.register(Disconnect, si)
