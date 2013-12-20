@@ -33,7 +33,7 @@ def GetArgs():
 
    parser = argparse.ArgumentParser(description='Process args for powering on a Virtual Machine')
    parser.add_argument('-s', '--host', required=True, action='store', help='Remote host to connect to')
-   parser.add_argument('-o', '--port', required=True, action='store', help='Port to connect on')
+   parser.add_argument('-o', '--port', type=int, default=443, action='store', help='Port to connect on')
    parser.add_argument('-u', '--user', required=True, action='store', help='User name to use when connecting to host')
    parser.add_argument('-p', '--password', required=True, action='store', help='Password to use when connecting to host')
    parser.add_argument('-v', '--vmname', required=True, action='append', help='Names of the Virtual Machines to power on')
