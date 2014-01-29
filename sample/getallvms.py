@@ -40,10 +40,20 @@ def GetArgs():
    return args
 
 
-def PrintVmInfo(vm):
+def PrintVmInfo(vm, depth=1):
    """
-   Print information for a particular virtual machine.
+   Print information for a particular virtual machine or recurse into a folder with depth protection
    """
+   maxdepth = 10
+
+   # if this is a group it will have children. if it does, recurse into them and then return
+   if (hasattr(vm, 'childEntity')):
+      if (depth > maxdepth):
+         return
+      vmList = vm.childEntity
+      for c in vmList:
+         PrintVmInfo(c, depth+1)
+      return
 
    summary = vm.summary
    print "Name       : ", summary.config.name
