@@ -24,8 +24,8 @@ from pyVmomi import vmodl
 
 import argparse
 import atexit
-import sys
 import getpass
+import sys
 
 
 def GetArgs():
