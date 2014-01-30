@@ -37,6 +37,7 @@ def GetArgs():
    parser.add_argument('-o', '--port', type=int, default=443, action='store', help='Port to connect on')
    parser.add_argument('-u', '--user', required=True, action='store', help='User name to use when connecting to host')
    parser.add_argument('-v', '--vmname', required=True, action='append', help='Names of the Virtual Machines to power on')
+   parser.add_argument('-p', '--password', required=False, action='store', help='Password to use when connecting to host')
    args = parser.parse_args()
    return args
 
@@ -98,7 +99,10 @@ def main():
    """
 
    args = GetArgs()
-   password = getpass.getpass(prompt='Enter password for host %s and user %s: ' % (args.host,args.user))
+   if args.password:
+      password = args.password
+   else:
+      password = getpass.getpass(prompt='Enter password for host %s and user %s: ' % (args.host,args.user))
 
    try:
       vmnames = args.vmname
