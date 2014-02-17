@@ -427,8 +427,6 @@ def __GetServiceVersionDescription(protocol, server, port, path):
 
    tree = ElementTree()
 
-   import urllib2
-
    url = "%s://%s:%s/%s/vimServiceVersions.xml" % (protocol, server, port, path)
    try:
       with closing(urllib2.urlopen(url)) as sock:
