@@ -41,7 +41,7 @@ try:
 except ImportError:
    from elementtree.ElementTree import ElementTree
 from xml.parsers.expat import ExpatError
-import urllib
+import urllib2
 
 
 """
@@ -429,7 +429,7 @@ def __GetServiceVersionDescription(protocol, server, port, path):
 
    url = "%s://%s:%s/%s/vimServiceVersions.xml" % (protocol, server, port, path)
    try:
-      with closing(urllib.urlopen(url)) as sock:
+      with closing(urllib2.urlopen(url)) as sock:
          if sock.getcode() == 200:
             tree.parse(sock)
             return tree
@@ -438,7 +438,7 @@ def __GetServiceVersionDescription(protocol, server, port, path):
 
    url = "%s://%s:%s/%s/vimService.wsdl" % (protocol, server, port, path)
    try:
-      with closing(urllib.urlopen(url)) as sock:
+      with closing(urllib2.urlopen(url)) as sock:
          if sock.getcode() == 200:
             tree.parse(sock)
             return tree
