@@ -1,3 +1,6 @@
 *.pyc
 build
 dist
+.idea/
+*.swp
+.DS_Store
