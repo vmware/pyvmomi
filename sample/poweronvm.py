@@ -24,6 +24,7 @@ from pyVmomi import vim, vmodl
 
 import argparse
 import atexit
+import getpass
 import sys
 
 def GetArgs():
@@ -35,7 +36,7 @@ def GetArgs():
    parser.add_argument('-s', '--host', required=True, action='store', help='Remote host to connect to')
    parser.add_argument('-o', '--port', type=int, default=443, action='store', help='Port to connect on')
    parser.add_argument('-u', '--user', required=True, action='store', help='User name to use when connecting to host')
-   parser.add_argument('-p', '--password', required=True, action='store', help='Password to use when connecting to host')
+   parser.add_argument('-p', '--password', required=False, action='store', help='Password to use when connecting to host')
    parser.add_argument('-v', '--vmname', required=True, action='append', help='Names of the Virtual Machines to power on')
    args = parser.parse_args()
    return args
@@ -98,6 +99,11 @@ def main():
    """
 
    args = GetArgs()
+   if args.password:
+      password = args.password
+   else:
+      password = getpass.getpass(prompt='Enter password for host %s and user %s: ' % (args.host,args.user))
+
    try:
       vmnames = args.vmname
       if not len(vmnames):
@@ -108,7 +114,7 @@ def main():
       try:
          si = SmartConnect(host=args.host,
                            user=args.user,
-                           pwd=args.password,
+                           pwd=password,
                            port=int(args.port))
       except IOError, e:
          pass
