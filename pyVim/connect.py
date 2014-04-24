@@ -41,7 +41,7 @@ try:
 except ImportError:
    from elementtree.ElementTree import ElementTree
 from xml.parsers.expat import ExpatError
-import urllib
+import urllib2
 
 
 """
@@ -429,7 +429,7 @@ def __GetServiceVersionDescription(protocol, server, port, path):
 
    url = "%s://%s:%s/%s/vimServiceVersions.xml" % (protocol, server, port, path)
    try:
-      with closing(urllib.urlopen(url)) as sock:
+      with closing(urllib2.urlopen(url)) as sock:
          if sock.getcode() == 200:
             tree.parse(sock)
             return tree
@@ -438,7 +438,7 @@ def __GetServiceVersionDescription(protocol, server, port, path):
 
    url = "%s://%s:%s/%s/vimService.wsdl" % (protocol, server, port, path)
    try:
-      with closing(urllib.urlopen(url)) as sock:
+      with closing(urllib2.urlopen(url)) as sock:
          if sock.getcode() == 200:
             tree.parse(sock)
             return tree
@@ -593,7 +593,6 @@ def OpenUrlWithBasicAuth(url, user='root', pwd=''):
    the specified credentials to the server as part of the request.
    Returns the response as a file-like object.
    """
-   import urllib2
    pwMgr = urllib2.HTTPPasswordMgrWithDefaultRealm()
    pwMgr.add_password(None, url, user, pwd)
    handler = urllib2.HTTPBasicAuthHandler(pwMgr)
@@ -608,7 +607,6 @@ def OpenPathWithStub(path, stub):
    file-like object.
    """
    import httplib
-   import urllib2
    if not hasattr(stub, 'scheme'):
       raise vmodl.fault.NotSupported()
    elif stub.scheme == httplib.HTTPConnection:
