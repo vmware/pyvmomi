@@ -21,7 +21,7 @@ This module is a converter from dynamic type to pyVmomi type
 __author__ = "VMware, Inc."
 
 from pyVmomi import VmomiSupport, vmodl
-from Cache import Cache
+from Cache import cache
 
 ## Dynamic type importer
 #
@@ -38,7 +38,7 @@ class DynamicTypeImporter:
    ## Get dynamic type manager
    #
    # @return moRef to dynamic type manager
-   @Cache
+   @cache
    def GetTypeManager(self):
       """ Get dynamic type manager """
       dynTypeMgr = None
@@ -59,7 +59,7 @@ class DynamicTypeImporter:
    #
    # @param  prefix Only types with the specified prefix are imported
    # @return dynamic types
-   @Cache
+   @cache
    def ImportTypes(self, prefix=''):
       """ Build dynamic types """
       # Use QueryTypeInfo to get all types
