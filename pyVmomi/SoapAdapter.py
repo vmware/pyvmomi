@@ -1452,18 +1452,14 @@ class SessionOrientedStub(StubAdapterBase):
       self.retryCount = retryCount
 
    def InvokeMethod(self, mo, info, args):
+      # This retry logic is replicated in InvokeAccessor and the two copies need
+      # to be in sync
       retriesLeft = self.retryCount
       while retriesLeft > 0:
          try:
             if self.state == self.STATE_UNAUTHENTICATED:
-               try:
-                  self.lock.acquire()
-                  if self.state == self.STATE_UNAUTHENTICATED:
-                     self.loginMethod(self.soapStub)
-                     self.state = self.STATE_AUTHENTICATED
-               finally:
-                  self.lock.release()
-
+               self._CallLoginMethod()
+            # Invoke the method
             status, obj = self.soapStub.InvokeMethod(mo, info, args, self)
          except (socket.error, httplib.HTTPException, ExpatError):
             if self.retryDelay and retriesLeft:
@@ -1478,13 +1474,60 @@ class SessionOrientedStub(StubAdapterBase):
          # An exceptional return from the server
          if isinstance(obj, self.SESSION_EXCEPTIONS):
             # Our session might've timed out, change our state and retry.
-            self.lock.acquire()
-            if self.state == self.STATE_AUTHENTICATED:
-               self.state = self.STATE_UNAUTHENTICATED
-            self.lock.release()
+            self._SetStateUnauthenticated()
          else:
             # It's an exception from the method that was called, send it up.
             raise obj
 
       # Raise any socket/httplib errors caught above.
       raise
+
+   ## Retrieve a managed property
+   #
+   # @param self self
+   # @param mo managed object
+   # @param info property info
+   def InvokeAccessor(self, mo, info):
+      # This retry logic is replicated in InvokeMethod and the two copies need
+      # to be in sync
+      retriesLeft = self.retryCount
+      while retriesLeft > 0:
+         try:
+            if self.state == self.STATE_UNAUTHENTICATED:
+               self._CallLoginMethod()
+            # Invoke the method
+            obj = StubAdapterBase.InvokeAccessor(self, mo, info)
+         except (socket.error, httplib.HTTPException, ExpatError):
+            if self.retryDelay and retriesLeft:
+               time.sleep(self.retryDelay)
+            retriesLeft -= 1
+            continue
+         except Exception, e:
+            if isinstance(e, self.SESSION_EXCEPTIONS):
+               # Our session might've timed out, change our state and retry.
+               self._SetStateUnauthenticated()
+            else:
+               raise e
+         return obj
+      # Raise any socket/httplib errors caught above.
+      raise
+
+   ## Handle the login method call
+   #
+   #  This method calls the login method on the soap stub and changes the state
+   #  to authenticated
+   def _CallLoginMethod(self):
+      try:
+         self.lock.acquire()
+         if self.state == self.STATE_UNAUTHENTICATED:
+            self.loginMethod(self.soapStub)
+            self.state = self.STATE_AUTHENTICATED
+      finally:
+         self.lock.release()
+
+   ## Change the state to unauthenticated
+   def _SetStateUnauthenticated(self):
+      self.lock.acquire()
+      if self.state == self.STATE_AUTHENTICATED:
+         self.state = self.STATE_UNAUTHENTICATED
+      self.lock.release()
