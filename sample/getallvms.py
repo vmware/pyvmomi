@@ -57,19 +57,22 @@ def PrintVmInfo(vm, depth=1):
       return
 
    summary = vm.summary
-   print "Name       : ", summary.config.name
-   print "Path       : ", summary.config.vmPathName
-   print "Guest      : ", summary.config.guestFullName
+   print "Name           : ", summary.config.name
+   print "Path           : ", summary.config.vmPathName
+   print "Guest          : ", summary.config.guestFullName
+   print "Instance UUID  : ", vm.summary.config.instanceUuid
+   print "BIOS UUID      : ", vm.summary.config.uuid
+
    annotation = summary.config.annotation
    if annotation != None and annotation != "":
-      print "Annotation : ", annotation
-   print "State      : ", summary.runtime.powerState
+      print "Annotation     : ", annotation
+   print "State          : ", summary.runtime.powerState
    if summary.guest != None:
       ip = summary.guest.ipAddress
       if ip != None and ip != "":
-         print "IP         : ", ip
+         print "IP             : ", ip
    if summary.runtime.question != None:
-      print "Question  : ", summary.runtime.question.text
+      print "Question       : ", summary.runtime.question.text
    print ""
 
 def main():
