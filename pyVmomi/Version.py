@@ -5,7 +5,7 @@
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+# http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -17,20 +17,21 @@ from VmomiSupport import nsMap, versionMap, versionIdMap, serviceNsMap, parentMa
 
 ## Add an API version
 def AddVersion(version, ns, versionId='', isLegacy=0, serviceNs=''):
-  if not ns:
-     ns = serviceNs
-  if not (version in parentMap):
-      nsMap[version] = ns
-      if len(versionId) > 0:
-         versionMap[ns + '/' + versionId] = version
-      if isLegacy or ns is "":
-         versionMap[ns] = version
-      versionIdMap[version] = versionId
-      if not serviceNs:
-         serviceNs = ns
-      serviceNsMap[version] = serviceNs
-      parentMap[version] = {}
+    if not ns:
+        ns = serviceNs
+    if not (version in parentMap):
+        nsMap[version] = ns
+        if len(versionId) > 0:
+            versionMap[ns + '/' + versionId] = version
+        if isLegacy or ns is "":
+            versionMap[ns] = version
+        versionIdMap[version] = versionId
+        if not serviceNs:
+            serviceNs = ns
+        serviceNsMap[version] = serviceNs
+        parentMap[version] = {}
+
 
 ## Check if a version is a child of another
 def IsChildVersion(child, parent):
-   return child == parent or parent in parentMap[child]
+    return child == parent or parent in parentMap[child]
