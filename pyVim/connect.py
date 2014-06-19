@@ -33,15 +33,18 @@ import socket
 import time
 import itertools
 import re
+try:
+   from xml.etree import ElementTree
+except ImportError:
+   from elementtree import ElementTree
+from xml.parsers.expat import ExpatError
+
+import requests
+from requests.auth import HTTPBasicAuth
+
 from pyVmomi import vim, vmodl, SoapStubAdapter, SessionOrientedStub
 from pyVmomi.VmomiSupport import nsMap, versionIdMap, versionMap, IsChildVersion
 from pyVmomi.VmomiSupport import GetServiceVersions
-try:
-   from xml.etree.ElementTree import ElementTree
-except ImportError:
-   from elementtree.ElementTree import ElementTree
-from xml.parsers.expat import ExpatError
-import urllib2
 
 
 """
@@ -56,7 +59,6 @@ Global (thread-shared) ServiceInstance
 
 @todo: Get rid of me?
 """
-
 
 class closing(object):
    """
@@ -417,7 +419,7 @@ class SmartConnection(object):
 
 def __GetServiceVersionDescription(protocol, server, port, path):
    """
-   Private method that returns an ElementTree describing the API versions
+   Private method that returns a root from an ElementTree describing the API versions
    supported by the specified server.  The result will be vimServiceVersions.xml
    if it exists, otherwise vimService.wsdl if it exists, otherwise None.
 
@@ -431,26 +433,23 @@ def __GetServiceVersionDescription(protocol, server, port, path):
    @type  path: string
    """
 
-   tree = ElementTree()
-
    url = "%s://%s:%s/%s/vimServiceVersions.xml" % (protocol, server, port, path)
    try:
-      with closing(urllib2.urlopen(url)) as sock:
-         if sock.getcode() == 200:
-            tree.parse(sock)
-            return tree
+      sock = requests.get(url, verify=False)
+      if sock.status_code == 200:
+         tree = ElementTree.fromstring(sock.content)
+         return tree
    except ExpatError:
       pass
 
    url = "%s://%s:%s/%s/vimService.wsdl" % (protocol, server, port, path)
    try:
-      with closing(urllib2.urlopen(url)) as sock:
-         if sock.getcode() == 200:
-            tree.parse(sock)
-            return tree
+      sock = requests.get(url, verify=False)
+      if sock.status_code == 200:
+         tree = ElementTree.fromstring(sock.content)
+         return tree
    except ExpatError:
       pass
-
    return None
 
 
@@ -465,12 +464,12 @@ def __VersionIsSupported(desiredVersion, serviceVersionDescription):
    @param desiredVersion: The version we want to see if the server supports
                           (eg. vim.version.version2.
    @type  desiredVersion: string
-   @param serviceVersionDescription: An ElementTree for vimServiceVersions.xml
+   @param serviceVersionDescription: A root ElementTree for vimServiceVersions.xml
                                      or vimService.wsdl.
-   @type  serviceVersionDescription: ElementTree
+   @type  serviceVersionDescription: root ElementTree
    """
 
-   root = serviceVersionDescription.getroot()
+   root = serviceVersionDescription
    if root.tag == 'namespaces':
       # serviceVersionDescription appears to be a vimServiceVersions.xml document
       if root.get('version') <> '1.0':
@@ -599,11 +598,7 @@ def OpenUrlWithBasicAuth(url, user='root', pwd=''):
    the specified credentials to the server as part of the request.
    Returns the response as a file-like object.
    """
-   pwMgr = urllib2.HTTPPasswordMgrWithDefaultRealm()
-   pwMgr.add_password(None, url, user, pwd)
-   handler = urllib2.HTTPBasicAuthHandler(pwMgr)
-   opener = urllib2.build_opener(handler)
-   return opener.open(url)
+   return requests.get(url, auth=HTTPBasicAuth(user, pwd), verify=False)
 
 def OpenPathWithStub(path, stub):
    """
@@ -623,8 +618,8 @@ def OpenPathWithStub(path, stub):
       raise vmodl.fault.NotSupported()
    hostPort = stub.host
    url = '%s://%s%s' % (protocol, hostPort, path)
-   request = urllib2.Request(url)
+   headers = {}
    if stub.cookie:
-      request.add_header('Cookie', stub.cookie)
-   return urllib2.urlopen(request)
+       headers["Cookie"] = stub.cookie
+   return requests.get(url, headers=headers, verify=False)
 
