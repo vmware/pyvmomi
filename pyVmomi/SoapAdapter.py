@@ -13,25 +13,28 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from __future__ import unicode_literals
+import base64
+import copy
+import contextlib
 import httplib
-import sys
 import os
-import time
 import socket
 import subprocess
+import sys
 import thread
+import time
 import urlparse
 from xml.parsers.expat import ParserCreate
 # We have our own escape functionality.
 # from xml.sax.saxutils import escape
 from cStringIO import StringIO
-from VmomiSupport import *
-from StubAdapterAccessorImpl import StubAdapterAccessorMixin
+
+from .VmomiSupport import *
+from .StubAdapterAccessorImpl import StubAdapterAccessorMixin
 import Iso8601
-import base64
+
 from xml.parsers.expat import ExpatError
-import copy
-import contextlib
 
 # Timeout value used for idle connections in client connection pool.
 # Default value is 900 seconds (15 minutes).
@@ -40,41 +43,41 @@ CONNECTION_POOL_IDLE_TIMEOUT_SEC = 900
 NS_SEP = " "
 
 XML_ENCODING = 'UTF-8'
-XML_HEADER = '<?xml version="1.0" encoding="%s"?>' % XML_ENCODING
+XML_HEADER = '<?xml version="1.0" encoding="{0}"?>'.format(XML_ENCODING)
 
 XMLNS_SOAPENC = "http://schemas.xmlsoap.org/soap/encoding/"
 XMLNS_SOAPENV = "http://schemas.xmlsoap.org/soap/envelope/"
 
-XSI_TYPE = XMLNS_XSI + NS_SEP + u'type'
+XSI_TYPE = XMLNS_XSI + NS_SEP + 'type'
 
 # Note: Must make a copy to use the SOAP_NSMAP
 # TODO: Change to frozendict, if available
 SOAP_NSMAP = {XMLNS_SOAPENC: 'soapenc', XMLNS_SOAPENV: 'soapenv',
               XMLNS_XSI: 'xsi', XMLNS_XSD: 'xsd'}
 
-SOAP_ENVELOPE_TAG = "%s:Envelope" % SOAP_NSMAP[XMLNS_SOAPENV]
-SOAP_HEADER_TAG = "%s:Header" % SOAP_NSMAP[XMLNS_SOAPENV]
-SOAP_FAULT_TAG = "%s:Fault" % SOAP_NSMAP[XMLNS_SOAPENV]
-SOAP_BODY_TAG = "%s:Body" % SOAP_NSMAP[XMLNS_SOAPENV]
+SOAP_ENVELOPE_TAG = "{0}:Envelope".format(SOAP_NSMAP[XMLNS_SOAPENV])
+SOAP_HEADER_TAG = "{0}:Header".format(SOAP_NSMAP[XMLNS_SOAPENV])
+SOAP_FAULT_TAG = "{0}:Fault".format(SOAP_NSMAP[XMLNS_SOAPENV])
+SOAP_BODY_TAG = "{0}:Body".format(SOAP_NSMAP[XMLNS_SOAPENV])
 
-SOAP_ENVELOPE_START = '<%s ' % SOAP_ENVELOPE_TAG + \
-                      ' '.join(['xmlns:' + prefix + '="' + urn + '"' \
+SOAP_ENVELOPE_START = '<{0} '.format(SOAP_ENVELOPE_TAG) + \
+                      ' '.join(['xmlns:' + prefix + '="' + urn + '"'
                                 for urn, prefix in SOAP_NSMAP.iteritems()]) + \
                       '>\n'
-SOAP_ENVELOPE_END = "\n</%s>" % (SOAP_ENVELOPE_TAG)
-SOAP_HEADER_START = "<%s>" % SOAP_HEADER_TAG
-SOAP_HEADER_END = "</%s>" % SOAP_HEADER_TAG
-SOAP_BODY_START = "<%s>" % SOAP_BODY_TAG
-SOAP_BODY_END = "</%s>" % SOAP_BODY_TAG
+SOAP_ENVELOPE_END = "\n</{0}>".format(SOAP_ENVELOPE_TAG)
+SOAP_HEADER_START = "<{0}>".format(SOAP_HEADER_TAG)
+SOAP_HEADER_END = "</{0}>".format(SOAP_HEADER_TAG)
+SOAP_BODY_START = "<{0}>".format(SOAP_BODY_TAG)
+SOAP_BODY_END = "</{0}>".format(SOAP_BODY_TAG)
 SOAP_START = SOAP_ENVELOPE_START + SOAP_BODY_START + '\n'
 SOAP_END = '\n' + SOAP_BODY_END + SOAP_ENVELOPE_END
 
 WSSE_PREFIX = "wsse"
-WSSE_HEADER_TAG = "%s:Security" % WSSE_PREFIX
+WSSE_HEADER_TAG = "{0}:Security".format(WSSE_PREFIX)
 WSSE_NS_URL = "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
-WSSE_NS = 'xmlns:%s="%s"' % (WSSE_PREFIX, WSSE_NS_URL)
-WSSE_HEADER_START = "<%s %s>" % (WSSE_HEADER_TAG, WSSE_NS)
-WSSE_HEADER_END = "</%s>" % WSSE_HEADER_TAG
+WSSE_NS = 'xmlns:{0}="{1}"'.format(WSSE_PREFIX, WSSE_NS_URL)
+WSSE_HEADER_START = "<{0} {1}>".format(WSSE_HEADER_TAG, WSSE_NS)
+WSSE_HEADER_END = "</{0}>".format(WSSE_HEADER_TAG)
 
 ## MethodFault type
 MethodFault = GetVmodlType("vmodl.MethodFault")
@@ -150,7 +153,7 @@ def SerializeFaultDetail(val, info=None, version=None, nsMap=None, encoding=None
     if version is None:
         try:
             if not isinstance(val, MethodFault):
-                raise TypeError('%s is not a MethodFault' % str(val))
+                raise TypeError('{0} is not a MethodFault'.format(str(val)))
             version = val._version
         except AttributeError:
             version = BASE_VERSION
@@ -193,11 +196,10 @@ class SoapSerializer:
             prefix = self.nsMap.get(ns)
             if not prefix:
                 prefix = nsPrefix
-                self.outermostAttrs += ' xmlns:%s="%s"' % (prefix, ns)
+                self.outermostAttrs += ' xmlns:{0}="{1}"'.format(prefix, ns)
                 self.nsMap = self.nsMap.copy()
                 self.nsMap[ns] = prefix
             setattr(self, attrName, prefix + ":")
-
 
     ## Serialize an object
     #
@@ -239,7 +241,7 @@ class SoapSerializer:
             except KeyError:
                 # We have not seen this ns before
                 prefix = ns.split(':', 1)[-1]
-                attr = ' xmlns:%s="%s"' % (prefix, ns)
+                attr = ' xmlns:{0}="{1}"'.format(prefix, ns)
         return attr, prefix and prefix + ':' + name or name
 
     ## Serialize an object (internal)
@@ -247,7 +249,7 @@ class SoapSerializer:
     # @param val the value to serialize
     # @param info the field
     # @param defNS the default namespace
-    def _Serialize(self, val, info, defNS):
+    def _Serialize(self, val, info, def_ns):
         """ Serialize an object """
         if not IsChildVersion(self.version, info.version):
             return
@@ -256,127 +258,126 @@ class SoapSerializer:
             if info.flags & F_OPTIONAL:
                 return
             else:
-                raise TypeError('Field "%s" is not optional' % info.name)
+                raise TypeError('Field "{0}" not optional'.format(info.name))
         elif isinstance(val, list) and len(val) == 0:
             if info.type is object:
                 # Make sure an empty array assigned to Any is typed
                 if not isinstance(val, Array):
-                    raise TypeError('Field "%s": Cannot assign empty native python array to an Any' % info.name)
+                    raise TypeError(
+                        'Field "{0}": Cannot assign empty native python array '
+                        'to an Any'.format(info.name))
             elif info.flags & F_OPTIONAL:
                 # Skip optional non-Any
                 return
             else:
-                raise TypeError('Field "%s" is not optional' % info.name)
+                raise TypeError('Field "{0}" not optional'.format(info.name))
 
         if self.outermostAttrs:
             attr = self.outermostAttrs
             self.outermostAttrs = None
         else:
             attr = ''
-        currDefNS = defNS
+        currdefns = def_ns
         # Emit default ns if tag ns is not the same
-        currTagNS = GetWsdlNamespace(info.version)
-        if currTagNS != defNS:
-            attr += ' xmlns="%s"' % currTagNS
-            currDefNS = currTagNS
+        currtagns = GetWsdlNamespace(info.version)
+        if currtagns != def_ns:
+            attr += ' xmlns="{0}"'.format(currtagns)
+            currdefns = currtagns
 
         if isinstance(val, DataObject):
             if isinstance(val, MethodFault):
-                newVal = LocalizedMethodFault(fault=val, localizedMessage=val.msg)
+                newval = LocalizedMethodFault(fault=val, localizedMessage=val.msg)
                 if info.type is object:
-                    faultType = object
+                    faulttype = object
                 else:
-                    faultType = LocalizedMethodFault
-                newInfo = Object(name=info.name, type=faultType,
+                    faulttype = LocalizedMethodFault
+                newinfo = Object(name=info.name, type=faulttype,
                                  version=info.version, flags=info.flags)
-                self._SerializeDataObject(newVal, newInfo, attr, currDefNS)
+                self._SerializeDataObject(newval, newinfo, attr, currdefns)
             else:
-                self._SerializeDataObject(val, info, attr, currDefNS)
+                self._SerializeDataObject(val, info, attr, currdefns)
         elif isinstance(val, ManagedObject):
             if info.type is object:
-                nsattr, qName = self._QName(ManagedObject, currDefNS)
-                attr += '%s %stype="%s"' % (nsattr, self.xsiPrefix, qName)
+                nsattr, qname = self._QName(ManagedObject, currdefns)
+                attr += '{0} {1}type="{2}"'.format(nsattr, self.xsiPrefix, qname)
             if val._serverGuid is not None:
-                attr += ' serverGuid="%s"' % (val._serverGuid)
+                attr += ' serverGuid="{0}"'.format(val._serverGuid)
             # val in vim type attr is not namespace qualified
             # TODO: Add a new "typens" attr?
             ns, name = GetQualifiedWsdlName(Type(val))
-            attr += ' type="%s"' % (name)
-            self.writer.write('<%s%s>%s</%s>' % (info.name, attr,
-                                                 val._moId.encode(self.encoding),
-                                                 info.name))
+            attr += ' type="{0}"'.format(name)
+            self.writer.write('<{0}{1}>{2}</{3}>'.format(info.name, attr,
+                                                         val._moId.encode(
+                                                             self.encoding),
+                                                         info.name))
         elif isinstance(val, list):
             if info.type is object:
-                itemType = val.Item
-                if (itemType is ManagedMethod or itemType is PropertyPath
-                    or itemType is type):
+                itemtype = val.Item
+                if itemtype is ManagedMethod or itemtype is PropertyPath or itemtype is type:
                     tag = 'string'
                     typ = GetVmodlType("string[]")
-                elif issubclass(itemType, ManagedObject):
+                elif issubclass(itemtype, ManagedObject):
                     tag = 'ManagedObjectReference'
                     typ = ManagedObject.Array
                 else:
-                    tag = GetWsdlName(itemType)
+                    tag = GetWsdlName(itemtype)
                     typ = Type(val)
-                nsattr, qName = self._QName(typ, currDefNS)
+                nsattr, qname = self._QName(typ, currdefns)
 
                 # For WSDL, since we set tag of ManagedObjects to ManagedObjectReferences,
                 # the name of its array should be ArrayOfManagedObjectReference
-                if qName.endswith("ArrayOfManagedObject"):
-                    qName += "Reference"
+                if qname.endswith("ArrayOfManagedObject"):
+                    qname += "Reference"
 
-                attr += '%s %stype="%s"' % (nsattr, self.xsiPrefix, qName)
-                self.writer.write('<%s%s>' % (info.name, attr))
+                attr += '{0} {1}type="{2}"'.format(nsattr, self.xsiPrefix, qname)
+                self.writer.write('<{0}{1}>'.format(info.name, attr))
 
-                itemInfo = Object(name=tag, type=itemType,
+                iteminfo = Object(name=tag, type=itemtype,
                                   version=info.version, flags=info.flags)
                 for it in val:
-                    self._Serialize(it, itemInfo, currDefNS)
-                self.writer.write('</%s>' % info.name)
+                    self._Serialize(it, iteminfo, currdefns)
+                self.writer.write('</{0}>'.format(info.name))
             else:
-                itemType = info.type.Item
-                itemInfo = Object(name=info.name, type=itemType,
+                itemtype = info.type.Item
+                iteminfo = Object(name=info.name, type=itemtype,
                                   version=info.version, flags=info.flags)
                 for it in val:
-                    self._Serialize(it, itemInfo, defNS)
+                    self._Serialize(it, iteminfo, def_ns)
         elif isinstance(val, type) or isinstance(val, type(Exception)):
             if info.type is object:
-                attr += ' %stype="%sstring"' % (self.xsiPrefix, self.xsdPrefix)
-            self.writer.write('<%s%s>%s</%s>' %
-                              (info.name, attr, GetWsdlName(val), info.name))
+                attr += ' {0}type="{1}string"'.format(self.xsiPrefix, self.xsdPrefix)
+            self.writer.write('<{0}{1}>{2}</{0}>'.format(
+                              info.name, attr, GetWsdlName(val)))
         elif isinstance(val, ManagedMethod):
             if info.type is object:
-                attr += ' %stype="%sstring"' % (self.xsiPrefix, self.xsdPrefix)
-            self.writer.write('<%s%s>%s</%s>' %
-                              (info.name, attr, val.info.wsdlName, info.name))
+                attr += ' {0}type="{1}string"'.format(self.xsiPrefix, self.xsdPrefix)
+            self.writer.write('<{0}{1}>{2}</{0}>'.format(
+                              (info.name, attr, val.info.wsdlName)))
         elif isinstance(val, datetime):
             if info.type is object:
-                nsattr, qName = self._QName(Type(val), currDefNS)
-                attr += '%s %stype="%s"' % (nsattr, self.xsiPrefix, qName)
+                nsattr, qname = self._QName(Type(val), currdefns)
+                attr += '{0} {1}type="{2}"'.format(nsattr, self.xsiPrefix, qname)
             result = Iso8601.ISO8601Format(val)
-            self.writer.write('<%s%s>%s</%s>' % (info.name, attr, result,
-                                                 info.name))
+            self.writer.write('<{0}{1}>{2}</{0}>'.format(info.name, attr, result))
         elif isinstance(val, binary):
             if info.type is object:
-                nsattr, qName = self._QName(Type(val), currDefNS)
-                attr += '%s %stype="%s"' % (nsattr, self.xsiPrefix, qName)
+                nsattr, qname = self._QName(Type(val), currdefns)
+                attr += '{0} {1}type="{2}"'.format(nsattr, self.xsiPrefix, qname)
             result = base64.b64encode(val)
-            self.writer.write('<%s%s>%s</%s>' % (info.name, attr, result,
-                                                 info.name))
+            self.writer.write('<{0}{1}>{2}</{0}>'.format(info.name, attr, result))
         elif isinstance(val, bool):
             if info.type is object:
-                nsattr, qName = self._QName(Type(val), currDefNS)
-                attr += '%s %stype="%s"' % (nsattr, self.xsiPrefix, qName)
+                nsattr, qname = self._QName(Type(val), currdefns)
+                attr += '{0} {1}type="{2}"'.format(nsattr, self.xsiPrefix, qname)
             result = val and "true" or "false"
-            self.writer.write('<%s%s>%s</%s>' % (info.name, attr, result,
-                                                 info.name))
+            self.writer.write('<{0}{1}>{2}</{0}>'.format(info.name, attr, result))
         else:
             if info.type is object:
                 if isinstance(val, PropertyPath):
-                    attr += ' %stype="%sstring"' % (self.xsiPrefix, self.xsdPrefix)
+                    attr += ' {0}type="{1}string"'.format(self.xsiPrefix, self.xsdPrefix)
                 else:
-                    nsattr, qName = self._QName(Type(val), currDefNS)
-                    attr += '%s %stype="%s"' % (nsattr, self.xsiPrefix, qName)
+                    nsattr, qname = self._QName(Type(val), currdefns)
+                    attr += '{0} {1}type="{2}"'.format(nsattr, self.xsiPrefix, qname)
             if not isinstance(val, unicode):
                 # Use UTF-8 rather than self.encoding.  self.encoding is for
                 # output of serializer, while 'val' is our input.  And regardless
@@ -386,9 +387,9 @@ class SoapSerializer:
                 # a bug.
                 val = str(val).decode('UTF-8')
             result = XmlEscape(val)
-            self.writer.write('<%s%s>%s</%s>' % (info.name, attr,
-                                                 result.encode(self.encoding),
-                                                 info.name))
+            self.writer.write('<{0}{1}>{2}</{0}>'.format(info.name,
+                                                         attr,
+                                                         result.encode(self.encoding)))
 
     ## Serialize a a data object (internal)
     #
@@ -405,8 +406,8 @@ class SoapSerializer:
         dynType = GetCompatibleType(Type(val), self.version)
         if dynType != info.type:
             nsattr, qName = self._QName(dynType, currDefNS)
-            attr += '%s %stype="%s"' % (nsattr, self.xsiPrefix, qName)
-        self.writer.write('<%s%s>' % (info.name, attr))
+            attr += '{0} {1}type="{2}"'.format(nsattr, self.xsiPrefix, qName)
+        self.writer.write('<{0}{1}>'.format(info.name, attr))
         if dynType is LocalizedMethodFault:
             # Serialize a MethodFault as LocalizedMethodFault on wire
             # See PR 670229
@@ -422,7 +423,7 @@ class SoapSerializer:
             for prop in val._GetPropertyList():
                 self._Serialize(getattr(val, prop.name), prop, currDefNS)
 
-        self.writer.write('</%s>' % info.name)
+        self.writer.write('</{0}>'.format(info.name))
 
 
 ## Deserialize an object from a file or string
@@ -581,13 +582,13 @@ class SoapDeserializer(ExpatDeserializerNSHandlers):
             if name == "fault" and isinstance(self.stack[-1], LocalizedMethodFault):
                 deserializeAsLocalizedMethodFault = False
         else:
-            raise TypeError("Invalid type for tag %s" % tag)
+            raise TypeError("Invalid type for tag {0}".format(tag))
 
         xsiType = attr.get(XSI_TYPE)
         if xsiType:
             # Ignore dynamic type for TypeName, MethodName, PropertyPath
             # @bug 150459
-            if not (objType is type or objType is ManagedMethod or \
+            if not (objType is type or objType is ManagedMethod or
                                 objType is PropertyPath):
                 ns, name = self.GetNSAndWsdlname(xsiType)
                 dynType = self.LookupWsdlType(ns, name, allowManagedObjectReference=True)
@@ -603,13 +604,13 @@ class SoapDeserializer(ExpatDeserializerNSHandlers):
         if self.version:
             objType = GetCompatibleType(objType, self.version)
         if issubclass(objType, ManagedObject):
-            typeAttr = attr[u'type']
+            typeAttr = attr['type']
             # val in vim type attr is not namespace qualified
             # However, this doesn't hurt to strip out namespace
             # TODO: Get the ns from "typens" attr?
             ns, name = self.GetNSAndWsdlname(typeAttr)
-            if u'serverGuid' in attr:
-                self.serverGuid = attr[u'serverGuid']
+            if 'serverGuid' in attr:
+                self.serverGuid = attr['serverGuid']
             self.stack.append(GuessWsdlType(name))
         elif issubclass(objType, DataObject) or issubclass(objType, list):
             if deserializeAsLocalizedMethodFault and issubclass(objType, Exception):
@@ -789,7 +790,7 @@ class StubAdapterBase(StubAdapterAccessorMixin):
     def ComputeVersionInfo(self, version):
         versionNS = GetVersionNamespace(version)
         if versionNS.find("/") >= 0:
-            self.versionId = '"urn:%s"' % versionNS
+            self.versionId = '"urn:{0}"'.format(versionNS)
         else:
             self.versionId = ''
         self.version = version
@@ -826,14 +827,14 @@ class SoapStubAdapterBase(StubAdapterBase):
             for key, val in reqContexts.iteritems():
                 # Note: Support req context of string type only
                 if not isinstance(val, basestring):
-                    raise TypeError("Request context key (%s) has non-string value (%s) of %s" % (key, val, type(val)))
+                    raise TypeError("Request context key ({0}) has non-string value ({1}) of {2}".format(key, val, type(val)))
                 ret = Serialize(val,
                                 Object(name=key, type=str, version=self.version),
                                 self.version,
                                 nsMap)
                 result.append(ret)
             if samlToken:
-                result.append('%s %s %s' % (WSSE_HEADER_START,
+                result.append('{0} {1} {2}'.format(WSSE_HEADER_START,
                                             samlToken,
                                             WSSE_HEADER_END))
             result.append(SOAP_HEADER_END)
@@ -841,7 +842,7 @@ class SoapStubAdapterBase(StubAdapterBase):
 
         # Serialize soap body
         result.extend([SOAP_BODY_START,
-                       '<%s xmlns="%s">' % (info.wsdlName, defaultNS),
+                       '<{0} xmlns="{1}">'.format(info.wsdlName, defaultNS),
                        Serialize(mo, Object(name="_this", type=ManagedObject,
                                             version=self.version),
                                  self.version, nsMap)])
@@ -849,7 +850,7 @@ class SoapStubAdapterBase(StubAdapterBase):
         # Serialize soap request parameters
         for (param, arg) in zip(info.params, args):
             result.append(Serialize(arg, param, self.version, nsMap))
-        result.extend(['</%s>' % info.wsdlName, SOAP_BODY_END, SOAP_ENVELOPE_END])
+        result.extend(['</{0}>'.format(info.wsdlName), SOAP_BODY_END, SOAP_ENVELOPE_END])
         return ''.join(result)
 
 
@@ -895,8 +896,8 @@ try:
             sha1.update(derCert)
             sha1Digest = sha1.hexdigest().lower()
             if sha1Digest != thumbprint:
-                raise Exception("Server has wrong SHA1 thumbprint: %s "
-                                "(required) != %s (server)" % (
+                raise Exception("Server has wrong SHA1 thumbprint: {0} "
+                                "(required) != {1} (server)".format(
                                     thumbprint, sha1Digest))
 
     # Function used to wrap sockets with SSL
@@ -994,7 +995,7 @@ class SSLTunnelConnection(object):
         resp = tunnel.getresponse()
         tunnelSocket = resp.fp
         if resp.status != 200:
-            raise httplib.HTTPException("%d %s" % (resp.status, resp.reason))
+            raise httplib.HTTPException("{0} {1}".format(resp.status, resp.reason))
         retval = httplib.HTTPSConnection(path)
         retval.sock = _SocketWrapper(tunnelSocket,
                                      keyfile=key_file, certfile=cert_file)
@@ -1134,13 +1135,13 @@ class SoapStubAdapter(SoapStubAdapterBase):
                                 or (port, _HTTPSConnection)
             if host.find(':') != -1:  # is IPv6?
                 host = '[' + host + ']'
-            self.host = '%s:%d' % (host, port)
+            self.host = '{0}:{1}'.format(host, port)
 
         self.path = path
         if thumbprint:
             self.thumbprint = thumbprint.replace(":", "").lower()
             if len(self.thumbprint) != 40:
-                raise Exception("Invalid SHA1 thumbprint -- %s" % thumbprint)
+                raise Exception("Invalid SHA1 thumbprint -- {0}".format(thumbprint))
         else:
             self.thumbprint = None
 
@@ -1153,9 +1154,9 @@ class SoapStubAdapter(SoapStubAdapterBase):
                 if url:
                     self.path = url
                 else:
-                    self.path = "http://%s/%s" % (self.host, path)
+                    self.path = "http://{0}/{1}".format(self.host, path)
             # Swap the actual host with the proxy.
-            self.host = "%s:%d" % (httpProxyHost, httpProxyPort)
+            self.host = "{0}:{1}".format(httpProxyHost, httpProxyPort)
         self.poolSize = poolSize
         self.pool = []
         self.connectionPoolTimeout = connectionPoolTimeout
@@ -1203,7 +1204,7 @@ class SoapStubAdapter(SoapStubAdapterBase):
 
         headers = {'Cookie': self.cookie,
                    'SOAPAction': self.versionId,
-                   'Content-Type': 'text/xml; charset=%s' % XML_ENCODING}
+                   'Content-Type': 'text/xml; charset={0}'.format(XML_ENCODING)}
         if self._acceptCompressedResponses:
             headers['Accept-Encoding'] = 'gzip, deflate'
         req = self.SerializeRequest(mo, info, args)
@@ -1248,7 +1249,7 @@ class SoapStubAdapter(SoapStubAdapterBase):
                 raise obj  # pylint: disable-msg=E0702
         else:
             conn.close()
-            raise httplib.HTTPException("%d %s" % (resp.status, resp.reason))
+            raise httplib.HTTPException("{0} {1}".format(resp.status, resp.reason))
 
     ## Clean up connection pool to throw away idle timed-out connections
     #  SoapStubAdapter lock must be acquired before this method is called.
@@ -1383,14 +1384,14 @@ class SoapCmdStubAdapter(SoapStubAdapterBase):
         (outText, errText) = p.communicate(req)
         if p.returncode < 0:
             # Process died with a signal
-            errText = "Process terminated with signal %d\n%s" % (-p.returncode, errText)
+            errText = "Process terminated with signal {0}\n{1}".format(-p.returncode, errText)
             raise self.systemError(msg=errText, reason=errText)
 
         try:
             (responseHeaders, responseBody) = ParseHttpResponse(outText)
             obj = SoapResponseDeserializer(self).Deserialize(responseBody, info.result)
         except:
-            errText = "Failure parsing SOAP response (%s)\n%s" % (outText, errText)
+            errText = "Failure parsing SOAP response ({0})\n{1}}".format(outText, errText)
             raise self.systemError(msg=errText, reason=errText)
 
         if p.returncode == 0:
