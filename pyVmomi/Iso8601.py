@@ -177,7 +177,7 @@ def ParseISO8601(datetimeStr):
          datetimeVal = datetime(**dt)
          if delta:
             datetimeVal += delta
-      except Exception, e:
+      except Exception as e:
          pass
    return datetimeVal
 

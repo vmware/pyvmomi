@@ -222,7 +222,7 @@ def Connect(host='localhost', port=443, user='root', pwd='',
             host = info.group(1)[1:-1]
          if info.group(2) is not None:
             port = int(info.group(2)[1:])
-   except ValueError, ve:
+   except ValueError as ve:
       pass
 
    if namespace:
@@ -251,7 +251,7 @@ def Disconnect(si):
 def GetLocalTicket(si, user):
    try:
       sessionManager = si.content.sessionManager
-   except Exception, e:
+   except Exception as e:
       if type(e).__name__ == 'ExpatError':
          msg = 'Malformed response while querying for local ticket: "%s"' % e
          raise vim.fault.HostConnectFault(msg=msg)
@@ -329,7 +329,7 @@ def __Login(host, port, user, pwd, service, adapter, version, path,
       x = content.sessionManager.Login(user, pwd, None)
    except vim.fault.InvalidLogin:
       raise
-   except Exception, e:
+   except Exception as e:
       raise
    return si, stub
 
@@ -345,7 +345,7 @@ def __Logout(si):
       if si:
          content = si.RetrieveContent()
          content.sessionManager.Logout()
-   except Exception, e:
+   except Exception as e:
       pass
 
 
@@ -465,7 +465,7 @@ def __VersionIsSupported(desiredVersion, serviceVersionDescription):
    root = serviceVersionDescription
    if root.tag == 'namespaces':
       # serviceVersionDescription appears to be a vimServiceVersions.xml document
-      if root.get('version') <> '1.0':
+      if root.get('version') != '1.0':
          raise RuntimeError('vimServiceVersions.xml has version %s,' \
              ' which is not understood' % (root.get('version')))
       desiredVersionId = versionIdMap[desiredVersion]
