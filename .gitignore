@@ -3,3 +3,4 @@ build
 dist
 .idea
 *.iml
+*.egg-info

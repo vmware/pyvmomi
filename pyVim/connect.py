@@ -23,20 +23,39 @@ Connect to a VMOMI ServiceInstance.
 
 Detailed description (for [e]pydoc goes here).
 """
+
+import sys
+import threading
+
+try:
+    import thread
+except ImportError:
+    # NOTE (hartsock): Py3K compat.
+    import _thread as thread
+
+import types
+
+try:
+    import httplib
+except ImportError:
+    # NOTE (hartsock): Py3K compat.
+    import http.client as httplib
+
+import socket
+import time
+import itertools
 import re
+from pyVmomi import vim, vmodl, SoapStubAdapter, SessionOrientedStub
+from pyVmomi.VmomiSupport import nsMap, versionIdMap, versionMap, IsChildVersion
+from pyVmomi.VmomiSupport import GetServiceVersions
 try:
    from xml.etree import ElementTree
 except ImportError:
-   from elementtree import ElementTree
+   from elementtree.ElementTree import ElementTree
 from xml.parsers.expat import ExpatError
 
 import requests
 from requests.auth import HTTPBasicAuth
-
-from pyVmomi import vim, vmodl, SoapStubAdapter, SessionOrientedStub
-from pyVmomi.VmomiSupport import nsMap, versionIdMap, versionMap, IsChildVersion
-from pyVmomi.VmomiSupport import GetServiceVersions
-
 
 """
 Global regular expression for parsing host and port connection
@@ -257,7 +276,7 @@ def GetLocalTicket(si, user):
          msg = 'Failed to query for local ticket: "%s"' % e
          raise vim.fault.HostConnectFault(msg=msg)
    localTicket = sessionManager.AcquireLocalTicket(userName=user)
-   return (localTicket.userName, file(localTicket.passwordFilePath).read())
+   return (localTicket.userName, open(localTicket.passwordFilePath).read())
 
 
 ## Private method that performs the actual Connect and returns a
@@ -592,7 +611,12 @@ def OpenPathWithStub(path, stub):
    it is included with the HTTP request.  Returns the response as a
    file-like object.
    """
-   import httplib
+   try:
+      import httplib
+   except ImportError:
+      # NOTE (hartsock): Py3K compat.
+      import http.client as httplib
+
    if not hasattr(stub, 'scheme'):
       raise vmodl.fault.NotSupported()
    elif stub.scheme == httplib.HTTPConnection:

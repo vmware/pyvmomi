@@ -22,8 +22,16 @@ if sys.version_info < (2,5):
    sys.stderr.write("You need Python 2.5 or later to import pyVmomi module\n")
    sys.exit(1)
 
-import VmomiSupport
-import CoreTypes
+try:
+    import VmomiSupport
+except ImportError:
+    import pyVmomi.VmomiSupport
+
+try:
+    import CoreTypes
+except ImportError:
+    import pyVmomi.CoreTypes
+
 try:
    import ReflectTypes
 except ImportError:
@@ -196,8 +204,12 @@ except ImportError:
 # some fault types
 VmomiSupport.GetVmodlType("vmodl.DynamicData")
 
-from SoapAdapter import SoapStubAdapter, StubAdapterBase, SoapCmdStubAdapter, \
-    SessionOrientedStub
+try:
+    from SoapAdapter import SoapStubAdapter, StubAdapterBase, SoapCmdStubAdapter, \
+        SessionOrientedStub
+except ImportError:
+    from pyVmomi.SoapAdapter import SoapStubAdapter, StubAdapterBase, SoapCmdStubAdapter, \
+        SessionOrientedStub
 
 types = VmomiSupport.types
 

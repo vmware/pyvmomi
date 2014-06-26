@@ -17,9 +17,30 @@
 from __future__ import with_statement # 2.5 only
 
 from datetime import datetime
-import Iso8601
+
+import sys
+# NOTE (hartsock): this is a temporary compatibility fix for python3
+# a future version should drop this kind of namespace patching.
+if sys.version > '3':
+    long = int
+    unicode = str
+    basestring = str
+
+try:
+    import Iso8601
+except ImportError:
+    pass
+
 import base64
+
+try:
+    import thread
+except ImportError:
+    # NOTE (hartsock): Py3K compat.
+    import _thread as thread
+
 import threading
+
 NoneType = type(None)
 try:
    from pyVmomiSettings import allowGetSet
@@ -52,7 +73,7 @@ XMLNS_VMODL_BASE = "urn:vim25"
 _lazyLock = threading.RLock()
 
 # Also referenced in __init__.py
-_topLevelNames = set()
+_topLevelNames = set(['vim','vmodl'])
 
 # Maps to store parameters to create the type for each vmodlName
 _managedDefMap = {}
@@ -176,6 +197,7 @@ class LazyObject(Object):
          else:
             raise AttributeError(attr)
 
+# TODO (hartsock): This is bad and should be refactored away. Kept for compat.
 class Link(unicode):
    def __new__(cls, obj):
       if isinstance(obj, basestring):
@@ -1218,7 +1240,7 @@ def GetCompatibleType(type, version):
 
 ## Invert an injective mapping
 def InverseMap(map):
-   return dict([ (v, k) for (k, v) in map.iteritems() ])
+   return dict([(v, k) for (k, v) in map.items()])
 
 types = Object()
 nsMap = {}
@@ -1227,7 +1249,10 @@ versionMap = {}
 serviceNsMap = { BASE_VERSION : XMLNS_VMODL_BASE.split(":")[-1] }
 parentMap = {}
 
-from Version import AddVersion, IsChildVersion
+try:
+    from Version import AddVersion, IsChildVersion
+except ImportError:
+    from pyVmomi.Version import AddVersion, IsChildVersion
 
 if not isinstance(bool, type): # bool not a type in python <= 2.2
    bool = type("bool", (int,),
@@ -1263,7 +1288,7 @@ _wsdlTypeMap = {
 }
 _wsdlNameMap = InverseMap(_wsdlTypeMap)
 
-for ((ns, name), typ) in _wsdlTypeMap.items():
+for ((ns, name), typ) in dict(_wsdlTypeMap).items():
    if typ is not NoneType:
       setattr(types, typ.__name__, typ)
       _wsdlTypeMapNSs.add(ns)
@@ -1322,7 +1347,7 @@ vmodlTypes = {
 vmodlNames = {}
 
 ## Add array type into special names
-for name, typ in vmodlTypes.copy().iteritems():
+for name, typ in vmodlTypes.copy().items():
    if typ is not NoneType:
       try:
          arrayType = typ.Array

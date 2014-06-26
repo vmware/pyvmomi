@@ -21,7 +21,7 @@ def read(fname):
 
 setup(
    name='pyvmomi',
-   version='5.5.0_2014.dev',
+   version='5.5.0_2014.1.dev',
    description='VMware vSphere Python SDK',
    author='VMware, Inc.',
    author_email='jhu@vmware.com',

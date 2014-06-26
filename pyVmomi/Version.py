@@ -13,7 +13,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from VmomiSupport import nsMap, versionMap, versionIdMap, serviceNsMap, parentMap
+try:
+    from VmomiSupport import nsMap, versionMap, versionIdMap, serviceNsMap, parentMap
+except ImportError:
+    from pyVmomi.VmomiSupport import nsMap, versionMap, versionIdMap, serviceNsMap, parentMap
 
 ## Add an API version
 def AddVersion(version, ns, versionId='', isLegacy=0, serviceNs=''):
