@@ -318,12 +318,7 @@ def __Login(host, port, user, pwd, service, adapter, version, path,
               # with an empty password is fine in debug builds
 
    # Login
-   try:
-      content.sessionManager.Login(user, pwd, None)
-   except vim.fault.InvalidLogin:
-      raise
-   except Exception, e:
-      raise
+   content.sessionManager.Login(user, pwd, None)
    return si, stub
 
 
