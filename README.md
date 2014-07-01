@@ -18,5 +18,15 @@ For general language neutral documentation of vSphere Management API see:
 http://pubs.vmware.com/vsphere-55/index.jsp#com.vmware.wssdk.apiref.doc/right-pane.html
 
 
+Releases
+========
+* [5.1.0](https://github.com/vmware/pyvmomi/tree/v5.1.0)
+* [5.5.0](https://github.com/vmware/pyvmomi/tree/v5.5.0)
+* Next release in progress [5.5.0_2014.1](https://github.com/vmware/pyvmomi/issues?milestone=1&state=open)
+
+Related Projects
+================
+* Feature Incubator: [pyvmomi-tools](https://github.com/vmware/pyvmomi-tools)
+* Samples Project: [pyvmomi-community-samples](https://github.com/vmware/pyvmomi-community-samples)
 
 Have fun!
