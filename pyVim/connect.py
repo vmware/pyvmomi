@@ -24,17 +24,9 @@ Connect to a VMOMI ServiceInstance.
 Detailed description (for [e]pydoc goes here).
 """
 
-import sys
-import threading
-import thread
-import types
-import httplib
-import socket
-import time
-import itertools
 import re
 from pyVmomi import vim, vmodl, SoapStubAdapter, SessionOrientedStub
-from pyVmomi.VmomiSupport import nsMap, versionIdMap, versionMap, IsChildVersion
+from pyVmomi.VmomiSupport import versionIdMap, versionMap, IsChildVersion
 from pyVmomi.VmomiSupport import GetServiceVersions
 try:
    from xml.etree.ElementTree import ElementTree
@@ -42,6 +34,8 @@ except ImportError:
    from elementtree.ElementTree import ElementTree
 from xml.parsers.expat import ExpatError
 import urllib2
+
+import httplib
 
 
 """
@@ -227,7 +221,7 @@ def Connect(host='localhost', port=443, user='root', pwd='',
             host = info.group(1)[1:-1]
          if info.group(2) is not None:
             port = int(info.group(2)[1:])
-   except ValueError, ve:
+   except ValueError:
       pass
 
    if namespace:
@@ -324,12 +318,7 @@ def __Login(host, port, user, pwd, service, adapter, version, path,
               # with an empty password is fine in debug builds
 
    # Login
-   try:
-      x = content.sessionManager.Login(user, pwd, None)
-   except vim.fault.InvalidLogin:
-      raise
-   except Exception, e:
-      raise
+   content.sessionManager.Login(user, pwd, None)
    return si, stub
 
 
@@ -344,7 +333,7 @@ def __Logout(si):
       if si:
          content = si.RetrieveContent()
          content.sessionManager.Logout()
-   except Exception, e:
+   except Exception:
       pass
 
 
@@ -606,7 +595,6 @@ def OpenPathWithStub(path, stub):
    it is included with the HTTP request.  Returns the response as a
    file-like object.
    """
-   import httplib
    if not hasattr(stub, 'scheme'):
       raise vmodl.fault.NotSupported()
    elif stub.scheme == httplib.HTTPConnection:
