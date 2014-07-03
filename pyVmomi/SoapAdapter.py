@@ -1441,10 +1441,10 @@ class SessionOrientedStub(StubAdapterBase):
       '''
       assert callable(loginMethod)
       assert retryCount >= 0
+      StubAdapterBase.__init__(self, version=soapStub.version)
 
       self.lock = threading.Lock()
       self.soapStub = soapStub
-      self.version = soapStub.version
       self.state = self.STATE_UNAUTHENTICATED
 
       self.loginMethod = loginMethod
