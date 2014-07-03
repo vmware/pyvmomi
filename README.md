@@ -15,6 +15,10 @@ There are other bindings of this API in other languages. See:
 For general language neutral documentation of vSphere Management API see:
 http://pubs.vmware.com/vsphere-55/index.jsp#com.vmware.wssdk.apiref.doc/right-pane.html
 
+Python Support
+==============
+pyVmomi currently supports Python 2.6 and 2.7; support for Python 3.x is currently in progress.
+
 Releases
 ========
 * [5.1.0](https://github.com/vmware/pyvmomi/tree/v5.1.0)
