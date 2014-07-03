@@ -5,8 +5,7 @@ To get started, check out the samples project at http://vmware.github.io/pyvmomi
 
 * community discussion on IRC freenode.net channels [#pyvmomi and #pyvmomi-dev](http://webchat.freenode.net/?channels=#pyvmomi,#pyvmomi-dev)
 
-You can install this as a package. Just run `python setup.py bdist_egg`
-and then use `pip` or `easy_install` to deploy it on your system.
+You can install this as a package. The official release is availabe using pip, just run `pip install pyvmomi`. To install the version listed here use `python setup.py develop` for development install or `python setup.py install`. The master is code that is in development, official releases are tagged and posted to [pypi](https://pypi.python.org/pypi/pyvmomi/).
 
 There are other bindings of this API in other languages. See:
 
@@ -16,7 +15,6 @@ There are other bindings of this API in other languages. See:
 
 For general language neutral documentation of vSphere Management API see:
 http://pubs.vmware.com/vsphere-55/index.jsp#com.vmware.wssdk.apiref.doc/right-pane.html
-
 
 Releases
 ========
