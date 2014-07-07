@@ -14,6 +14,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+from __future__ import print_function
 
 """
 This module is for ISO 8601 parsing
@@ -118,7 +119,7 @@ def ParseISO8601(datetimeStr):
    if match:
       try:
          dt = {}
-         for key, defaultVal in _dtExprKeyDefValMap.iteritems():
+         for key, defaultVal in _dtExprKeyDefValMap.items():
             val = match.group(key)
             if val:
                if key == 'microsecond':

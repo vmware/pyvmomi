@@ -12,13 +12,14 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+from __future__ import absolute_import
 
 try:
     import httplib
 except ImportError:
     # NOTE (hartsock): Py3K compat.
     import http.client as httplib
-import sys
+
 import os
 import time
 import socket
@@ -44,20 +45,9 @@ try:
 except ImportError:
    from io import StringIO
 
-try:
-   from VmomiSupport import *
-except ImportError:
-   from pyVmomi.VmomiSupport import *
-
-try:
-   from StubAdapterAccessorImpl import StubAdapterAccessorMixin
-except ImportError:
-   from pyVmomi.StubAdapterAccessorImpl import StubAdapterAccessorMixin
-
-try:
-   import Iso8601
-except ImportError:
-   import pyVmomi.Iso8601
+from pyVmomi.VmomiSupport import *
+from pyVmomi.StubAdapterAccessorImpl import StubAdapterAccessorMixin
+from pyVmomi import Iso8601
 
 import base64
 from xml.parsers.expat import ExpatError
@@ -213,7 +203,7 @@ class SoapSerializer:
         self.version = version
         self.nsMap = nsMap and nsMap or {}
         self.encoding = encoding and encoding or XML_ENCODING
-        for ns, prefix in self.nsMap.iteritems():
+        for ns, prefix in self.nsMap.items():
             if prefix == '':
                 self.defaultNS = ns
                 break
@@ -339,9 +329,12 @@ class SoapSerializer:
             # TODO: Add a new "typens" attr?
             ns, name = GetQualifiedWsdlName(Type(val))
             attr += ' type="{0}"'.format(name)
-            self.writer.write('<{0}{1}>{2}</{3}>'.format(info.name, attr,
-                                                         val._moId.encode(
-                                                             self.encoding),
+
+            moId = val._moId
+            if sys.version < '3':
+               moId = val._moId.encode(self.encoding)
+
+            self.writer.write('<{0}{1}>{2}</{3}>'.format(info.name, attr, moId,
                                                          info.name))
         elif isinstance(val, list):
             if info.type is object:
@@ -420,9 +413,12 @@ class SoapSerializer:
                 # a bug.
                 val = str(val).decode('UTF-8')
             result = XmlEscape(val)
+            result_string = result
+            if sys.version < '3':
+                result_string = result.encode(self.encoding)
             self.writer.write('<{0}{1}>{2}</{0}>'.format(info.name,
                                                          attr,
-                                                         result.encode(self.encoding)))
+                                                         result_string))
 
     ## Serialize a a data object (internal)
     #
@@ -857,7 +853,7 @@ class SoapStubAdapterBase(StubAdapterBase):
 
         if reqContexts or samlToken:
             result.append(SOAP_HEADER_START)
-            for key, val in reqContexts.iteritems():
+            for key, val in reqContexts.items():
                 # Note: Support req context of string type only
                 if not isinstance(val, basestring):
                     raise TypeError("Request context key ({0}) has non-string value ({1}) of {2}".format(key, val, type(val)))
@@ -1529,6 +1525,3 @@ class SessionOrientedStub(StubAdapterBase):
             else:
                 # It's an exception from the method that was called, send it up.
                 raise obj
-
-        # Raise any socket/httplib errors caught above.
-        raise
