@@ -17,175 +17,177 @@
 # wrapped around using a meta type which can intercept attribute access and
 # load the necessary nested classes. This can be implemented only in python 2.5
 # version or more.
+from __future__ import absolute_import
+
 import sys
 if sys.version_info < (2,5):
    sys.stderr.write("You need Python 2.5 or later to import pyVmomi module\n")
    sys.exit(1)
 
-import VmomiSupport
-import CoreTypes
+import pyVmomi.VmomiSupport
+import pyVmomi.CoreTypes
+
 try:
    import ReflectTypes
 except ImportError:
    pass
+
+import pyVmomi.ServerObjects
+
 try:
-   import ServerObjects
-except ImportError:
-   pass
-try:
-   import InternalServerObjects
+   import pyVmomi.InternalServerObjects
 except ImportError:
    pass
 
 # Import all the known product-specific types
 # XXX: Make this search the package for types?
 try:
-   import DrObjects
+   import pyVmomi.DrObjects
 except ImportError:
    pass
 
 try:
-   import DrextObjects
+   import pyVmomi.DrextObjects
 except ImportError:
    pass
 
 try:
-   import HbrReplicaTypes
+   import pyVmomi.HbrReplicaTypes
 except ImportError:
    pass
 try:
-   import HmsObjects
+   import pyVmomi.HmsObjects
 except ImportError:
    pass
 try:
-   import HostdObjects
+   import pyVmomi.HostdObjects
 except ImportError:
    pass
 try:
-   import VpxObjects
+   import pyVmomi.VpxObjects
 except ImportError:
    pass
 try:
-   import VorbTypes
+   import pyVmomi.VorbTypes
 except ImportError:
    pass
 try:
-   import DodoTypes
+   import pyVmomi.DodoTypes
 except ImportError:
    pass
 try:
-   import VmwauthproxyTypes
+   import pyVmomi.VmwauthproxyTypes
 except ImportError:
    pass
 try:
-   import DmsTypes
+   import pyVmomi.DmsTypes
 except ImportError:
    pass
 try:
-   import OmsTypes
+   import pyVmomi.OmsTypes
 except ImportError:
    pass
 try:
-   import HmoTypes
+   import pyVmomi.HmoTypes
 except ImportError:
    pass
 try:
-   import CimsfccTypes
+   import pyVmomi.CimsfccTypes
 except ImportError:
    pass
 try:
-   import TaskupdaterTypes
+   import pyVmomi.TaskupdaterTypes
 except ImportError:
    pass
 try:
-   import ImgFactTypes
-except ImportError:
-   pass
-
-try:
-   import VpxapiTypes
-except ImportError:
-   pass
-try:
-   import CsiObjects
+   import pyVmomi.ImgFactTypes
 except ImportError:
    pass
 
 try:
-   import HostdTypes
+   import pyVmomi.VpxapiTypes
+except ImportError:
+   pass
+try:
+   import pyVmomi.CsiObjects
 except ImportError:
    pass
 
 try:
-   import TaggingObjects
+   import pyVmomi.HostdTypes
 except ImportError:
    pass
 
 try:
-   import NfcTypes
+   import pyVmomi.TaggingObjects
 except ImportError:
    pass
 
 try:
-   import SmsObjects
+   import pyVmomi.NfcTypes
 except ImportError:
    pass
 
 try:
-   import SpsObjects
+   import pyVmomi.SmsObjects
 except ImportError:
    pass
 
 try:
-   import DataserviceObjects
+   import pyVmomi.SpsObjects
+except ImportError:
+   pass
+
+try:
+   import pyVmomi.DataserviceObjects
 except ImportError:
    pass
 
 # Start of update manager specific types
 try:
-   import IntegrityObjects
+   import pyVmomi.IntegrityObjects
 except ImportError:
    pass
 
 try:
-   import SysimageObjects
+   import pyVmomi.SysimageObjects
 except ImportError:
    pass
 # End of update manager specific types
 
 try:
-   import RbdTypes
+   import pyVmomi.RbdTypes
 except ImportError:
    pass
 
 # Import Profile based management specific VMODL
 try:
-   import PbmObjects
+   import pyVmomi.PbmObjects
 except ImportError:
    pass
 
 try:
-   import CisLicenseTypes
+   import pyVmomi.CisLicenseTypes
 except ImportError:
    pass
 
 try:
-   import TestTypes
+   import pyVmomi.TestTypes
 except ImportError:
    pass
 
 try:
-   import SsoTypes
+   import pyVmomi.SsoTypes
 except ImportError:
    pass
 
 try:
-   import CisCmTypes
+   import pyVmomi.CisCmTypes
 except ImportError:
     pass
 
 try:
-   import DataserviceTypes
+   import pyVmomi.DataserviceTypes
 except ImportError:
    pass
 
@@ -196,16 +198,15 @@ except ImportError:
 # some fault types
 VmomiSupport.GetVmodlType("vmodl.DynamicData")
 
-from SoapAdapter import SoapStubAdapter, StubAdapterBase, SoapCmdStubAdapter, \
-    SessionOrientedStub
+try:
+    from SoapAdapter import SoapStubAdapter, StubAdapterBase, SoapCmdStubAdapter, \
+        SessionOrientedStub
+except ImportError:
+    from pyVmomi.SoapAdapter import SoapStubAdapter, StubAdapterBase, SoapCmdStubAdapter, \
+        SessionOrientedStub
 
 types = VmomiSupport.types
 
-# This will allow files to use Create** functions
-# directly from pyVmomi
-CreateEnumType = VmomiSupport.CreateEnumType
-CreateDataType = VmomiSupport.CreateDataType
-CreateManagedType = VmomiSupport.CreateManagedType
 
 # For all the top level names, creating a LazyModule object
 # in the global namespace of pyVmomi. Files can just import the

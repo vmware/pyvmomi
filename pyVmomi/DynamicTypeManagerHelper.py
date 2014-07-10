@@ -45,7 +45,7 @@ class DynamicTypeImporter:
       if self.hostSystem:
          try:
             dynTypeMgr = self.hostSystem.RetrieveDynamicTypeManager()
-         except vmodl.fault.MethodNotFound, err:
+         except vmodl.fault.MethodNotFound as err:
             pass
 
       if not dynTypeMgr:
@@ -133,13 +133,13 @@ class DynamicTypeConstructor:
          VmomiSupport.AddVersionParent(version, version)
 
       # Create partial types
-      for fn, infos in (VmomiSupport.CreateEnumType, enumTypes), \
-                       (VmomiSupport.CreateDataType, dataTypes), \
-                       (VmomiSupport.CreateManagedType, managedTypes):
+      for fn, infos in [(VmomiSupport.CreateEnumType, enumTypes), \
+                        (VmomiSupport.CreateDataType, dataTypes), \
+                        (VmomiSupport.CreateManagedType, managedTypes)]:
          for typeInfo in infos:
             try:
                fn(*typeInfo)
-            except Exception, err:
+            except Exception as err:
                #Ignore errors due to duplicate importing
                pass
 
