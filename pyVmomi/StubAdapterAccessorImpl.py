@@ -13,7 +13,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from VmomiSupport import GetVmodlType
+try:
+    from VmomiSupport import GetVmodlType
+except ImportError:
+    from pyVmomi.VmomiSupport import GetVmodlType
 
 class StubAdapterAccessorMixin:
    def __init__(self):

@@ -14,21 +14,43 @@
 # limitations under the License.
 
 ## VMOMI support code
+from __future__ import absolute_import
 from __future__ import with_statement # 2.5 only
 
 from datetime import datetime
-import Iso8601
+
+import sys
+# NOTE (hartsock): this is a temporary compatibility fix for python3
+# a future version should drop this kind of namespace patching.
+if sys.version_info > (3,0,0):
+    long = int
+    unicode = str
+    basestring = str
+
+try:
+    import pyVmomi.Iso8601
+except ImportError:
+    pass
+
 import base64
+
+try:
+    import thread
+except ImportError:
+    # NOTE (hartsock): Py3K compat.
+    import _thread as thread
+
 import threading
+
 NoneType = type(None)
 try:
-   from pyVmomiSettings import allowGetSet
+   from pyVmomi.pyVmomiSettings import allowGetSet
    _allowGetSet = allowGetSet
 except:
    _allowGetSet = True
 
 try:
-   from pyVmomiSettings import allowCapitalizedNames
+   from pyVmomi.pyVmomiSettings import allowCapitalizedNames
    _allowCapitalizedNames = allowCapitalizedNames
 except:
    _allowCapitalizedNames = True
@@ -52,7 +74,7 @@ XMLNS_VMODL_BASE = "urn:vim25"
 _lazyLock = threading.RLock()
 
 # Also referenced in __init__.py
-_topLevelNames = set()
+_topLevelNames = set(['vim','vmodl'])
 
 # Maps to store parameters to create the type for each vmodlName
 _managedDefMap = {}
@@ -176,6 +198,7 @@ class LazyObject(Object):
          else:
             raise AttributeError(attr)
 
+# TODO (hartsock): This is bad and should be refactored away. Kept for compat.
 class Link(unicode):
    def __new__(cls, obj):
       if isinstance(obj, basestring):
@@ -627,6 +650,7 @@ def CreateDataType(vmodlName, wsdlName, parent, version, props):
       names = vmodlName.split(".")
       if _allowCapitalizedNames:
          vmodlName = ".".join(name[0].lower() + name[1:] for name in names)
+
       _AddToDependencyMap(names)
       typeNs = GetWsdlNamespace(version)
 
@@ -692,19 +716,6 @@ def LoadDataType(vmodlName, wsdlName, parent, version, props):
                         ])
 
       return _CheckNestedClasses(result, parent)
-
-## Create and Load a managed object type at once
-#
-# @param vmodlName the VMODL name of the type
-# @param wsdlName the WSDL name of the type
-# @param parent the VMODL name of the parent type
-# @param version the version of the type
-# @param props properties of the type
-# @param methods methods of the type
-# @return vmodl type
-def CreateAndLoadManagedType(vmodlName, wsdlName, parent, version, props, methods):
-   CreateManagedType(vmodlName, wsdlName, parent, version, props, methods)
-   return LoadManagedType(vmodlName, wsdlName, parent, version, props, methods)
 
 ## Create a managed object type
 #
@@ -1026,7 +1037,7 @@ def GetWsdlTypes():
    with _lazyLock:
       for ns, name in _wsdlDefMap:
          GetWsdlType(ns, name)
-      return _wsdlTypeMap.itervalues()
+      return _wsdlTypeMap.values()
 
 ## Get the qualified XML schema name (ns, name) of a type
 def GetQualifiedWsdlName(type):
@@ -1113,21 +1124,21 @@ def GetServiceVersions(namespace):
    by compatibility (i.e. any version in the list that is compatible with some version
    v in the list will preceed v)
    """
-   versions = dict((v, True) for (v, n) in serviceNsMap.iteritems() if n == namespace)
+   versions = dict((v, True) for (v, n) in serviceNsMap.items() if n == namespace)
    mappings = {}
-   for v in versions.iterkeys():
-      mappings[v] = set(parent for parent in parentMap[v].iterkeys()
-                        if parent != v and versions.has_key(parent))
+   for v in versions.keys():
+      mappings[v] = set(parent for parent in parentMap[v].keys()
+                        if parent != v and parent in versions.keys())
    res = []
    while True:
-      el = [ k for (k, v) in mappings.iteritems() if len(v) == 0 ]
+      el = [ k for (k, v) in mappings.items() if len(v) == 0 ]
       if len(el) == 0:
          return res
       el.sort()
       for k in el:
          res.insert(0, k)
          del mappings[k]
-         for values in mappings.itervalues():
+         for values in mappings.values():
             values.discard(k)
 
 
@@ -1218,7 +1229,7 @@ def GetCompatibleType(type, version):
 
 ## Invert an injective mapping
 def InverseMap(map):
-   return dict([ (v, k) for (k, v) in map.iteritems() ])
+   return dict([(v, k) for (k, v) in map.items()])
 
 types = Object()
 nsMap = {}
@@ -1227,13 +1238,18 @@ versionMap = {}
 serviceNsMap = { BASE_VERSION : XMLNS_VMODL_BASE.split(":")[-1] }
 parentMap = {}
 
-from Version import AddVersion, IsChildVersion
+try:
+    from Version import AddVersion, IsChildVersion
+except ImportError:
+    from pyVmomi.Version import AddVersion, IsChildVersion
 
 if not isinstance(bool, type): # bool not a type in python <= 2.2
    bool = type("bool", (int,),
                {"__new__": lambda cls, val=0: int.__new__(cls, val and 1 or 0)})
 byte  = type("byte", (int,), {})
 short  = type("short", (int,), {})
+if sys.version > '3':
+    long = int
 double = type("double", (float,), {})
 URI = type("URI", (str,), {})
 binary = type("binary", (str,), {})
@@ -1263,7 +1279,7 @@ _wsdlTypeMap = {
 }
 _wsdlNameMap = InverseMap(_wsdlTypeMap)
 
-for ((ns, name), typ) in _wsdlTypeMap.items():
+for ((ns, name), typ) in dict(_wsdlTypeMap).items():
    if typ is not NoneType:
       setattr(types, typ.__name__, typ)
       _wsdlTypeMapNSs.add(ns)
@@ -1322,7 +1338,7 @@ vmodlTypes = {
 vmodlNames = {}
 
 ## Add array type into special names
-for name, typ in vmodlTypes.copy().iteritems():
+for name, typ in vmodlTypes.copy().items():
    if typ is not NoneType:
       try:
          arrayType = typ.Array
@@ -1454,7 +1470,7 @@ class StringDict(dict):
 
    # Same as dict setdefault, except this will call through our __setitem__
    def update(self, *args, **kwargs):
-      for k, v in dict(*args, **kwargs).iteritems():
+      for k, v in dict(*args, **kwargs).items():
          self[k] = v
 
    # Same as dict setdefault, except this will call through our __setitem__

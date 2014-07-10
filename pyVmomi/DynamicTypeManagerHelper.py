@@ -133,9 +133,9 @@ class DynamicTypeConstructor:
          VmomiSupport.AddVersionParent(version, version)
 
       # Create partial types
-      for fn, infos in (VmomiSupport.CreateEnumType, enumTypes), \
-                       (VmomiSupport.CreateDataType, dataTypes), \
-                       (VmomiSupport.CreateManagedType, managedTypes):
+      for fn, infos in [(VmomiSupport.CreateEnumType, enumTypes), \
+                        (VmomiSupport.CreateDataType, dataTypes), \
+                        (VmomiSupport.CreateManagedType, managedTypes)]:
          for typeInfo in infos:
             try:
                fn(*typeInfo)
