@@ -28,8 +28,8 @@ import sys
 import threading
 import thread
 import types
-import httplib
 import socket
+import six
 import time
 import itertools
 import re
@@ -41,7 +41,7 @@ try:
 except ImportError:
    from elementtree.ElementTree import ElementTree
 from xml.parsers.expat import ExpatError
-import urllib
+from six.moves.urllib.request import urlopen
 
 
 """
@@ -312,8 +312,6 @@ def __Login(host, port, user, pwd, service, adapter, version, path,
       content = si.RetrieveContent()
    except vmodl.MethodFault:
       raise
-   except Exception, e:
-      raise vim.fault.HostConnectFault(msg=str(e))
 
    # Get a ticket if we're connecting to localhost and password is not specified
    if host == 'localhost' and not pwd:
@@ -429,7 +427,7 @@ def __GetServiceVersionDescription(protocol, server, port, path):
 
    url = "%s://%s:%s/%s/vimServiceVersions.xml" % (protocol, server, port, path)
    try:
-      with closing(urllib.urlopen(url)) as sock:
+      with closing(urlopen(url)) as sock:
          if sock.getcode() == 200:
             tree.parse(sock)
             return tree
@@ -438,7 +436,7 @@ def __GetServiceVersionDescription(protocol, server, port, path):
 
    url = "%s://%s:%s/%s/vimService.wsdl" % (protocol, server, port, path)
    try:
-      with closing(urllib.urlopen(url)) as sock:
+      with closing(urlopen(url)) as sock:
          if sock.getcode() == 200:
             tree.parse(sock)
             return tree
@@ -622,5 +620,5 @@ def OpenPathWithStub(path, stub):
    request = urllib2.Request(url)
    if stub.cookie:
       request.add_header('Cookie', stub.cookie)
-   return urllib2.urlopen(request)
+   return urlopen(request)
 
