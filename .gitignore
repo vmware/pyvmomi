@@ -3,3 +3,5 @@ build
 dist
 .idea
 *.iml
+*.patch
+*.diff
