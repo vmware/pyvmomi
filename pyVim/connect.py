@@ -23,7 +23,7 @@ Connect to a VMOMI ServiceInstance.
 
 Detailed description (for [e]pydoc goes here).
 """
-
+from six import reraise
 import sys
 import threading
 import thread
@@ -313,7 +313,13 @@ def __Login(host, port, user, pwd, service, adapter, version, path,
    except vmodl.MethodFault:
       raise
    except Exception, e:
-      raise vim.fault.HostConnectFault(msg=str(e))
+      # NOTE (hartsock): preserve the traceback for diagnostics
+      # pulling and preserving the traceback makes diagnosing connection
+      # failures easier since the fault will also include where inside the
+      # library the fault occurred. Without the traceback we have no idea
+      # why the connection failed beyond the message string.
+      (type, value, traceback) = sys.exc_info()
+      reraise(vim.fault.HostConnectFault(msg=str(e)), None, traceback)
 
    # Get a ticket if we're connecting to localhost and password is not specified
    if host == 'localhost' and not pwd:
