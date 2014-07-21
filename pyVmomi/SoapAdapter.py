@@ -304,7 +304,7 @@ class SoapSerializer:
          ns, name = GetQualifiedWsdlName(Type(val))
          attr += ' type="%s"' % (name)
          self.writer.write('<%s%s>%s</%s>' % (info.name, attr,
-                                              val._moId.encode(self.encoding),
+                                              str(val._moId),
                                               info.name))
       elif isinstance(val, list):
          if info.type is object:
@@ -385,10 +385,10 @@ class SoapSerializer:
             # it means that if you emit output in other encoding than UTF-8,
             # you cannot serialize it again once more.  That's feature, not
             # a bug.
-            val = str(val).decode('UTF-8')
+            val = str(val)
          result = XmlEscape(val)
          self.writer.write('<%s%s>%s</%s>' % (info.name, attr,
-                                              result.encode(self.encoding),
+                                              result,
                                               info.name))
 
    ## Serialize a a data object (internal)

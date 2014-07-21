@@ -38,5 +38,6 @@ setup(
       "Topic :: Software Development :: Libraries :: Python Modules",
       "Topic :: System :: Distributed Computing"
    ],
-   zip_safe=True
+   zip_safe=True,
+   use_2to3=True
 )
