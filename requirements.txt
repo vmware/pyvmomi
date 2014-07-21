@@ -1,0 +1,4 @@
+PyYAML>=3.11
+requests>=2.3.0
+six>=1.7.3
+httplib2

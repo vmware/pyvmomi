@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import httplib
+from six.moves import http_client
 import sys
 import os
 import time
@@ -854,7 +854,7 @@ class SoapStubAdapterBase(StubAdapterBase):
 ## Subclass of HTTPConnection that connects over a Unix domain socket
 ## instead of a TCP port.  The path of the socket is passed in place of
 ## the hostname.  Fairly gross but does the job.
-class UnixSocketConnection(httplib.HTTPConnection):
+class UnixSocketConnection(http_client.HTTPConnection):
    # The HTTPConnection ctor expects a single argument, which it interprets
    # as the host to connect to; for UnixSocketConnection, we instead interpret
    # the parameter as the filesystem path of the Unix domain socket.
@@ -862,7 +862,7 @@ class UnixSocketConnection(httplib.HTTPConnection):
       # Pass '' as the host to HTTPConnection; it doesn't really matter
       # what we pass (since we've overridden the connect method) as long
       # as it's a valid string.
-      httplib.HTTPConnection.__init__(self, '')
+      http_client.HTTPConnection.__init__(self, '')
       self.path = path
 
    def connect(self):
@@ -884,7 +884,7 @@ try:
       '''If there is a thumbprint, connect to the server and verify that the
       SSL certificate matches the given thumbprint.  An exception is thrown
       if there is a mismatch.'''
-      if thumbprint and isinstance(connection, httplib.HTTPSConnection):
+      if thumbprint and isinstance(connection, http_client.HTTPSConnection):
          if not connection.sock:
             connection.connect()
          derCert = connection.sock.getpeercert(True)
@@ -903,21 +903,22 @@ except ImportError:
    SSL_THUMBPRINTS_SUPPORTED = False
 
    def _VerifyThumbprint(thumbprint, connection):
-      if thumbprint and isinstance(connection, httplib.HTTPSConnection):
+      if thumbprint and isinstance(connection, http_client.HTTPSConnection):
          raise Exception(
             "Thumbprint verification not supported on python < 2.6")
 
    def _SocketWrapper(rawSocket, keyfile, certfile, *args, **kwargs):
       wrappedSocket = socket.ssl(rawSocket, keyfile, certfile)
-      return httplib.FakeSocket(rawSocket, wrappedSocket)
+      return http_client.FakeSocket(rawSocket, wrappedSocket)
 
 ## Internal version of https connection
 #
 # Support ssl.wrap_socket params which are missing from httplib
 # HTTPSConnection (e.g. ca_certs)
 # Note: Only works iff the ssl params are passing in as kwargs
-class _HTTPSConnection(httplib.HTTPSConnection):
+class HTTPSConnectionWrapper(object):
    def __init__(self, *args, **kwargs):
+      wrapped = http_client.HTTPSConnection(*args, **kwargs)
       # Extract ssl.wrap_socket param unknown to httplib.HTTPConnection,
       # and push back the params in connect()
       self._sslArgs = {}
@@ -927,15 +928,14 @@ class _HTTPSConnection(httplib.HTTPSConnection):
                   "ciphers"]:
          if key in tmpKwargs:
             self._sslArgs[key] = tmpKwargs.pop(key)
-      httplib.HTTPSConnection.__init__(self, *args, **tmpKwargs)
+      self._wrapped = wrapped
 
    ## Override connect to allow us to pass in additional ssl paramters to
    #  ssl.wrap_socket (e.g. cert_reqs, ca_certs for ca cert verification)
-   def connect(self):
-      if len(self._sslArgs) == 0:
+   def connect(self, wrapped):
+      if len(self._sslArgs) == 0 or hasattr(self, '_baseclass'):
          # No override
-         httplib.HTTPSConnection.connect(self)
-         return
+         return wrapped.connect
 
       # Big hack. We have to copy and paste the httplib connect fn for
       # each python version in order to handle extra ssl paramters. Yuk!
@@ -943,18 +943,16 @@ class _HTTPSConnection(httplib.HTTPSConnection):
          # Python 2.7
          sock = socket.create_connection((self.host, self.port),
                                          self.timeout, self.source_address)
-         if self._tunnel_host:
-            self.sock = sock
-            self._tunnel()
-         self.sock = ssl.wrap_socket(sock, self.key_file, self.cert_file, **self._sslArgs)
+         if wrapped._tunnel_host:
+            wrapped.sock = sock
+            wrapped._tunnel()
+         wrapped.sock = ssl.wrap_socket(sock, self.key_file, self.cert_file, **self._sslArgs)
       elif hasattr(self, "timeout"):
          # Python 2.6
          sock = socket.create_connection((self.host, self.port), self.timeout)
-         self.sock = ssl.wrap_socket(sock, self.key_file, self.cert_file, **self._sslArgs)
-      else:
-         # Unknown python version. Do nothing
-         httplib.HTTPSConnection.connect(self)
-         return
+         wrapped.sock = ssl.wrap_socket(sock, self.key_file, self.cert_file, **self._sslArgs)
+
+      return wrapped.connect
 
       # TODO: Additional verification of peer cert if needed
       #cert_reqs = self._sslArgs.get("cert_reqs", ssl.CERT_NONE)
@@ -964,6 +962,12 @@ class _HTTPSConnection(httplib.HTTPSConnection):
       #      # TODO: verify peer cert
       #      dercert = self.sock.getpeercert(False)
       #      # pemcert = ssl.DER_cert_to_PEM_cert(dercert)
+
+   def __getattr__(self, item):
+       if item == 'connect':
+           return self.connect(self._wrapped)
+       else:
+           return getattr(self._wrapped, item)
 
 ## Stand-in for the HTTPSConnection class that will connect to a proxy and
 ## issue a CONNECT command to start an SSL tunnel.
@@ -985,13 +989,13 @@ class SSLTunnelConnection(object):
       for arg in kwargs.keys():
          if arg not in ("port", "strict", "timeout", "source_address"):
             del kwargs[arg]
-      tunnel = httplib.HTTPConnection(path, **kwargs)
+      tunnel = http_client.HTTPConnection(path, **kwargs)
       tunnel.request('CONNECT', self.proxyPath)
       resp = tunnel.getresponse()
       tunnelSocket = resp.fp
       if resp.status != 200:
-         raise httplib.HTTPException("%d %s" % (resp.status, resp.reason))
-      retval = httplib.HTTPSConnection(path)
+         raise http_client.HTTPException("%d %s" % (resp.status, resp.reason))
+      retval = http_client.HTTPSConnection(path)
       retval.sock = _SocketWrapper(tunnelSocket,
                                    keyfile=key_file, certfile=cert_file)
       return retval
@@ -1121,11 +1125,11 @@ class SoapStubAdapter(SoapStubAdapterBase):
          # keyword argument as passed in.
          if urlpath not in ('', '/'):
             path = urlpath
-         self.scheme = scheme == "http" and httplib.HTTPConnection \
-                    or scheme == "https" and _HTTPSConnection
+         self.scheme = scheme == "http" and http_client.HTTPConnection \
+                    or scheme == "https" and HTTPSConnectionWrapper
       else:
-         port, self.scheme = port < 0 and (-port, httplib.HTTPConnection) \
-                                       or (port, _HTTPSConnection)
+         port, self.scheme = port < 0 and (-port, http_client.HTTPConnection) \
+                                       or (port, HTTPSConnectionWrapper)
          if host.find(':') != -1:  # is IPv6?
             host = '[' + host + ']'
          self.host = '%s:%d' % (host, port)
@@ -1141,7 +1145,7 @@ class SoapStubAdapter(SoapStubAdapterBase):
       if sslProxyPath:
          self.scheme = SSLTunnelConnection(sslProxyPath)
       elif httpProxyHost:
-         if self.scheme == _HTTPSConnection:
+         if self.scheme == HTTPSConnectionWrapper:
             self.scheme = SSLTunnelConnection(self.host)
          else:
             if url:
@@ -1206,7 +1210,7 @@ class SoapStubAdapter(SoapStubAdapterBase):
       try:
          conn.request('POST', self.path, req, headers)
          resp = conn.getresponse()
-      except (socket.error, httplib.HTTPException):
+      except (socket.error, http_client.HTTPException):
          # The server is probably sick, drop all of the cached connections.
          self.DropConnections()
          raise
@@ -1240,7 +1244,7 @@ class SoapStubAdapter(SoapStubAdapterBase):
             raise obj # pylint: disable-msg=E0702
       else:
          conn.close()
-         raise httplib.HTTPException("%d %s" % (resp.status, resp.reason))
+         raise http_client.HTTPException("%d %s" % (resp.status, resp.reason))
 
    ## Clean up connection pool to throw away idle timed-out connections
    #  SoapStubAdapter lock must be acquired before this method is called.
@@ -1268,6 +1272,9 @@ class SoapStubAdapter(SoapStubAdapterBase):
          self.lock.release()
       else:
          self.lock.release()
+
+         # NOTE (hartsock): test environment differences
+         # NOTE (hartsock): python 2.x and python 3.x differences in SSL
          result = self.scheme(self.host, **self.schemeArgs)
 
          # Always disable NAGLE algorithm
@@ -1461,7 +1468,7 @@ class SessionOrientedStub(StubAdapterBase):
                self._CallLoginMethod()
             # Invoke the method
             status, obj = self.soapStub.InvokeMethod(mo, info, args, self)
-         except (socket.error, httplib.HTTPException, ExpatError):
+         except (socket.error, http_client.HTTPException, ExpatError):
             if self.retryDelay and retriesLeft:
                time.sleep(self.retryDelay)
             retriesLeft -= 1
@@ -1497,7 +1504,7 @@ class SessionOrientedStub(StubAdapterBase):
                self._CallLoginMethod()
             # Invoke the method
             obj = StubAdapterBase.InvokeAccessor(self, mo, info)
-         except (socket.error, httplib.HTTPException, ExpatError):
+         except (socket.error, http_client.HTTPException, ExpatError):
             if self.retryDelay and retriesLeft:
                time.sleep(self.retryDelay)
             retriesLeft -= 1
