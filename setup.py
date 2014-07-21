@@ -38,5 +38,6 @@ setup(
       "Topic :: Software Development :: Libraries :: Python Modules",
       "Topic :: System :: Distributed Computing"
    ],
+   test_suite='tests',
    zip_safe=True
 )
