@@ -57,23 +57,23 @@ def PrintVmInfo(vm, depth=1):
       return
 
    summary = vm.summary
-   print "Name           : ", summary.config.name
-   print "Path           : ", summary.config.vmPathName
-   print "Guest          : ", summary.config.guestFullName
-   print "Instance UUID  : ", vm.summary.config.instanceUuid
-   print "BIOS UUID      : ", vm.summary.config.uuid
+   print("Name           : ", summary.config.name)
+   print("Path           : ", summary.config.vmPathName)
+   print("Guest          : ", summary.config.guestFullName)
+   print("Instance UUID  : ", vm.summary.config.instanceUuid)
+   print("BIOS UUID      : ", vm.summary.config.uuid)
 
    annotation = summary.config.annotation
    if annotation != None and annotation != "":
-      print "Annotation     : ", annotation
-   print "State          : ", summary.runtime.powerState
+      print("Annotation     : ", annotation)
+   print("State          : ", summary.runtime.powerState)
    if summary.guest != None:
       ip = summary.guest.ipAddress
       if ip != None and ip != "":
-         print "IP             : ", ip
+         print("IP             : ", ip)
    if summary.runtime.question != None:
-      print "Question       : ", summary.runtime.question.text
-   print ""
+      print("Question       : ", summary.runtime.question.text)
+   print("")
 
 def main():
    """
@@ -93,10 +93,10 @@ def main():
                 user=args.user,
                 pwd=password,
                 port=int(args.port))
-      except IOError, e:
+      except IOError as e:
         pass
       if not si:
-         print "Could not connect to the specified host using specified username and password"
+         print("Could not connect to the specified host using specified username and password")
          return -1
 
       atexit.register(Disconnect, si)
@@ -107,11 +107,11 @@ def main():
       vmList = vmFolder.childEntity
       for vm in vmList:
          PrintVmInfo(vm)
-   except vmodl.MethodFault, e:
-      print "Caught vmodl fault : " + e.msg
+   except vmodl.MethodFault as e:
+      print("Caught vmodl fault : " + e.msg)
       return -1
-   except Exception, e:
-      print "Caught exception : " + str(e)
+   except Exception as e:
+      print("Caught exception : " + str(e))
       return -1
 
    return 0

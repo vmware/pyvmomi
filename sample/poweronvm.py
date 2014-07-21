@@ -107,7 +107,7 @@ def main():
    try:
       vmnames = args.vmname
       if not len(vmnames):
-         print "No virtual machine specified for poweron"
+         print("No virtual machine specified for poweron")
          sys.exit()
 
       si = None
@@ -116,10 +116,10 @@ def main():
                            user=args.user,
                            pwd=password,
                            port=int(args.port))
-      except IOError, e:
+      except IOError as e:
          pass
       if not si:
-         print "Cannot connect to specified host using specified username and password"
+         print("Cannot connect to specified host using specified username and password")
          sys.exit()
 
       atexit.register(Disconnect, si)
@@ -139,11 +139,11 @@ def main():
       # Wait for power on to complete
       WaitForTasks(tasks, si)
 
-      print "Virtual Machine(s) have been powered on successfully"
-   except vmodl.MethodFault, e:
-      print "Caught vmodl fault : " + e.msg
-   except Exception, e:
-      print "Caught Exception : " + str(e)
+      print("Virtual Machine(s) have been powered on successfully")
+   except vmodl.MethodFault as e:
+      print("Caught vmodl fault : " + e.msg)
+   except Exception as e:
+      print("Caught Exception : " + str(e))
 
 # Start program
 if __name__ == "__main__":
