@@ -1,0 +1,6 @@
+mock
+pytest
+pytest-localserver
+testtools>=0.9.34
+fixtures>=0.3.14
+vcrpy>=1.0.2

@@ -313,7 +313,8 @@ def __Login(host, port, user, pwd, service, adapter, version, path,
    except vmodl.MethodFault:
       raise
    except Exception, e:
-      raise vim.fault.HostConnectFault(msg=str(e))
+      (type, value, traceback) = sys.exc_info()
+      raise vim.fault.HostConnectFault(msg=str(e)), None, traceback
 
    # Get a ticket if we're connecting to localhost and password is not specified
    if host == 'localhost' and not pwd:
