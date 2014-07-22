@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/vmware/pyvmomi.svg?branch=master)](https://travis-ci.org/vmware/pyvmomi) 
+[![Downloads](https://pypip.in/download/pyvmomi/badge.png)](https://pypi.python.org/pypi/pyvmomi/)
+
 pyVmomi is the Python SDK for the VMware vSphere API that allows you to manipulate ESX, ESXi, and vCenter.
 
 To get started, check out the samples project at http://vmware.github.io/pyvmomi-community-samples/
