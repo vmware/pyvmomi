@@ -16,8 +16,15 @@
 from setuptools import setup
 import os
 
+
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
+
+with open('requirements.txt') as f:
+    required = f.read().splitlines()
+
+with open('test-requirements.txt') as f:
+    required_for_tests = f.read().splitlines()
 
 setup(
    name='pyvmomi',
@@ -27,6 +34,7 @@ setup(
    author_email='jhu@vmware.com',
    url='https://github.com/vmware/pyvmomi',
    packages=['pyVmomi', 'pyVim'],
+   install_requires=required,
    license='Apache',
    long_description=read('README.md'),
    classifiers=[
@@ -38,5 +46,7 @@ setup(
       "Topic :: Software Development :: Libraries :: Python Modules",
       "Topic :: System :: Distributed Computing"
    ],
+   test_suite='tests',
+   tests_require= required_for_tests,
    zip_safe=True
 )
