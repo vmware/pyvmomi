@@ -50,3 +50,15 @@ class ConnectionTests(unittest.TestCase):
                             pwd='bad_password')
 
         self.assertRaises(vim.fault.InvalidLogin, should_fail)
+
+    @vcr.use_cassette('smart_connection.yaml',
+                      cassette_library_dir=fixtures_path, record_mode='none')
+    def test_smart_connection(self):
+        # see: http://python3porting.com/noconv.html
+        si = connect.SmartConnect(host='vcsa',
+                                  user='my_user',
+                                  pwd='my_password')
+        session_id = si.content.sessionManager.currentSession.key
+        # NOTE (hartsock): assertIsNotNone does not work in Python 2.6
+        self.assertTrue(session_id is not None)
+        self.assertEqual('52773cd3-35c6-b40a-17f1-fe664a9f08f3', session_id)
