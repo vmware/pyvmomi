@@ -261,7 +261,6 @@ def GetLocalTicket(si, user):
    localTicket = sessionManager.AcquireLocalTicket(userName=user)
    return (localTicket.userName, file(localTicket.passwordFilePath).read())
 
-
 ## Private method that performs the actual Connect and returns a
 ## connected service instance object.
 
@@ -530,7 +529,7 @@ def __FindSupportedVersion(protocol, server, port, path, preferredApiVersions):
 
 
 def SmartConnect(protocol='https', host='localhost', port=443, user='root', pwd='',
-                 service="hostd", path="/sdk",
+                 service="hostd", path="/sdk", no_proxy=False,
                  preferredApiVersions=None):
    """
    Determine the most preferred API version supported by the specified server,
@@ -558,6 +557,8 @@ def SmartConnect(protocol='https', host='localhost', port=443, user='root', pwd=
    @type  service: string
    @param path: Path
    @type  path: string
+   @param no_proxy: don't use proxy
+   @type  no_proxy: boolean
    @param preferredApiVersions: Acceptable API version(s) (e.g. vim.version.version3)
                                 If a list of versions is specified the versions should
                                 be ordered from most to least preferred.  If None is
@@ -568,6 +569,11 @@ def SmartConnect(protocol='https', host='localhost', port=443, user='root', pwd=
 
    if preferredApiVersions is None:
       preferredApiVersions = GetServiceVersions('vim25')
+
+   if no_proxy is True:
+       import urllib2
+       proxy_handler = urllib2.ProxyHandler({})
+       urllib2.install_opener(urllib2.build_opener(proxy_handler))
 
    supportedVersion = __FindSupportedVersion(protocol,
                                              host,
