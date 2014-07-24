@@ -1513,7 +1513,7 @@ class SessionOrientedStub(StubAdapterBase):
                time.sleep(self.retryDelay)
             retriesLeft -= 1
             continue
-         except Exception, e:
+         except Exception as e:
             if isinstance(e, self.SESSION_EXCEPTIONS):
                # Our session might've timed out, change our state and retry.
                self._SetStateUnauthenticated()

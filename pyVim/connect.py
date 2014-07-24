@@ -307,7 +307,7 @@ def __Login(host, port, user, pwd, service, adapter, version, path,
       content = si.RetrieveContent()
    except vmodl.MethodFault:
       raise
-   except Exception, e:
+   except Exception as e:
       # NOTE (hartsock): preserve the traceback for diagnostics
       # pulling and preserving the traceback makes diagnosing connection
       # failures easier since the fault will also include where inside the
