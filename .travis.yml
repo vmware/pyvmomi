@@ -3,6 +3,8 @@ python:
     - "2.6"
     - "2.7"
     - "pypy"
+    - "3.3"
+    - "3.4"
 
 before_install:
     - if [[ $TRAVIS_PYTHON_VERSION == '2.6' ]]; then pip install unittest2; fi
