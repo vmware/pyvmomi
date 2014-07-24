@@ -14,6 +14,9 @@
 # limitations under the License.
 from __future__ import absolute_import
 from six.moves import http_client
+from six import text_type
+from six import u
+
 import sys
 import os
 import time
@@ -378,7 +381,7 @@ class SoapSerializer:
             else:
                nsattr, qName = self._QName(Type(val), currDefNS)
                attr += '%s %stype="%s"' % (nsattr, self.xsiPrefix, qName)
-         if not isinstance(val, unicode):
+         if not isinstance(val, text_type):
             # Use UTF-8 rather than self.encoding.  self.encoding is for
             # output of serializer, while 'val' is our input.  And regardless
             # of what our output is, our input should be always UTF-8.  Yes,
@@ -662,7 +665,7 @@ class SoapDeserializer(ExpatDeserializerNSHandlers):
          elif obj is str:
             try:
                obj = str(data)
-            except UnicodeError:
+            except ValueError:
                obj = data
          elif obj is datetime:
             obj = pyVmomi.Iso8601.ParseISO8601(data)
@@ -772,7 +775,7 @@ class SoapResponseDeserializer(ExpatDeserializerNSHandlers):
       if self.isFault and tag == "faultstring":
          try:
             self.msg = str(self.data)
-         except UnicodeError:
+         except ValueError:
             self.msg = self.data
 
 ## Base class that implements common functionality for stub adapters.

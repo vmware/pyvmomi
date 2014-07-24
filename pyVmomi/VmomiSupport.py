@@ -17,6 +17,9 @@
 from __future__ import absolute_import
 from __future__ import with_statement # 2.5 only
 
+from six import text_type
+from six import u
+
 from datetime import datetime
 import pyVmomi.Iso8601
 import base64
@@ -177,13 +180,13 @@ class LazyObject(Object):
          else:
             raise AttributeError(attr)
 
-class Link(unicode):
+class Link(text_type):
    def __new__(cls, obj):
       if isinstance(obj, basestring):
-         return unicode.__new__(cls, obj)
+         return text_type.__new__(cls, obj)
       elif isinstance(obj, DataObject):
          if obj.key:
-            return unicode.__new__(cls, obj.key)
+            return text_type.__new__(cls, obj.key)
          raise AttributeError("DataObject does not have a key to link")
       else:
          raise ValueError
@@ -1238,7 +1241,7 @@ short  = type("short", (int,), {})
 double = type("double", (float,), {})
 URI = type("URI", (str,), {})
 binary = type("binary", (str,), {})
-PropertyPath = type("PropertyPath", (unicode,), {})
+PropertyPath = type("PropertyPath", (text_type,), {})
 
 # _wsdlTypeMapNSs store namespaces added to _wsdlTypeMap in _SetWsdlType
 _wsdlTypeMapNSs = set()
@@ -1278,8 +1281,8 @@ del name, typ
 
 # unicode is mapped to wsdl name 'string' (Cannot put in wsdlTypeMap or name
 # collision with non-unicode string)
-_wsdlNameMap[unicode] = (XMLNS_XSD, 'string')
-_wsdlNameMap[CreateArrayType(unicode)] = (XMLNS_VMODL_BASE, 'ArrayOfString')
+_wsdlNameMap[text_type] = (XMLNS_XSD, 'string')
+_wsdlNameMap[CreateArrayType(text_type)] = (XMLNS_VMODL_BASE, 'ArrayOfString')
 
 # _wsdlMethodNSs store namespaces added to _wsdlMethodMap in _SetWsdlMethod
 _wsdlMethodNSs = set()
