@@ -25,13 +25,6 @@ Detailed description (for [e]pydoc goes here).
 """
 from six import reraise
 import sys
-import threading
-import thread
-import types
-import httplib
-import socket
-import time
-import itertools
 import re
 try:
    from xml.etree import ElementTree
