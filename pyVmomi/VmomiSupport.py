@@ -14,21 +14,22 @@
 # limitations under the License.
 
 ## VMOMI support code
+from __future__ import absolute_import
 from __future__ import with_statement # 2.5 only
 
 from datetime import datetime
-import Iso8601
+import pyVmomi.Iso8601
 import base64
 import threading
 NoneType = type(None)
 try:
-   from pyVmomiSettings import allowGetSet
+   from pyVmomi.pyVmomiSettings import allowGetSet
    _allowGetSet = allowGetSet
 except:
    _allowGetSet = True
 
 try:
-   from pyVmomiSettings import allowCapitalizedNames
+   from pyVmomi.pyVmomiSettings import allowCapitalizedNames
    _allowCapitalizedNames = allowCapitalizedNames
 except:
    _allowCapitalizedNames = True
@@ -1227,7 +1228,7 @@ versionMap = {}
 serviceNsMap = { BASE_VERSION : XMLNS_VMODL_BASE.split(":")[-1] }
 parentMap = {}
 
-from Version import AddVersion, IsChildVersion
+from pyVmomi.Version import AddVersion, IsChildVersion
 
 if not isinstance(bool, type): # bool not a type in python <= 2.2
    bool = type("bool", (int,),

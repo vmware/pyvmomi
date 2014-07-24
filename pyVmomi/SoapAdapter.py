@@ -12,7 +12,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
+from __future__ import absolute_import
 from six.moves import http_client
 import sys
 import os
@@ -26,9 +26,9 @@ from xml.parsers.expat import ParserCreate
 # We have our own escape functionality.
 # from xml.sax.saxutils import escape
 from cStringIO import StringIO
-from VmomiSupport import *
-from StubAdapterAccessorImpl import StubAdapterAccessorMixin
-import Iso8601
+from pyVmomi.VmomiSupport import *
+from pyVmomi.StubAdapterAccessorImpl import StubAdapterAccessorMixin
+import pyVmomi.Iso8601
 import base64
 from xml.parsers.expat import ExpatError
 import copy
@@ -665,7 +665,7 @@ class SoapDeserializer(ExpatDeserializerNSHandlers):
             except UnicodeError:
                obj = data
          elif obj is datetime:
-            obj = Iso8601.ParseISO8601(data)
+            obj = pyVmomi.Iso8601.ParseISO8601(data)
             if not obj:
                raise TypeError(data)
          # issubclass is very expensive. Test last
