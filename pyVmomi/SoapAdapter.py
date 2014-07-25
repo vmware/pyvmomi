@@ -27,10 +27,6 @@ import sys
 import os
 import socket
 import subprocess
-if PY2:
-    from thread import allocate_lock
-if PY3:
-    from _thread import allocate_lock
 import time
 
 from xml.parsers.expat import ParserCreate
@@ -1177,7 +1173,7 @@ class SoapStubAdapter(SoapStubAdapterBase):
       self.poolSize = poolSize
       self.pool = []
       self.connectionPoolTimeout = connectionPoolTimeout
-      self.lock = allocate_lock()
+      self.lock = threading.Lock()
       self.schemeArgs = {}
       if certKeyFile:
          self.schemeArgs['key_file'] = certKeyFile
