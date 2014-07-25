@@ -62,3 +62,6 @@ class ConnectionTests(unittest.TestCase):
         # NOTE (hartsock): assertIsNotNone does not work in Python 2.6
         self.assertTrue(session_id is not None)
         self.assertEqual('52773cd3-35c6-b40a-17f1-fe664a9f08f3', session_id)
+
+if __name__ == '__main__':
+    unittest.main()

@@ -1,5 +1,4 @@
 contextdecorator
-mock
 PyYAML>=3.11
 testtools>=0.9.34
 vcrpy
