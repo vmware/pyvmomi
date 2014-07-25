@@ -22,14 +22,17 @@ from six import iterkeys
 from six import itervalues
 from six import text_type
 from six import PY3
-if PY3:
-    long = int
-    basestring = str
-
 from datetime import datetime
 import pyVmomi.Iso8601
 import base64
 import threading
+
+if PY3:
+    # python3 removed long, it's the same as int
+    long = int
+    # python3 removed basestring, use str instead.
+    basestring = str
+
 NoneType = type(None)
 try:
    from pyVmomi.pyVmomiSettings import allowGetSet
@@ -358,7 +361,7 @@ class ManagedObject(object):
       args = list(posargs) + [None] * (len(info.params) - len(posargs))
       if len(kwargs) > 0:
          paramNames = [param.name for param in info.params]
-         for (k, v) in kwargs.items():
+         for (k, v) in list(kwargs.items()):
             try:
                idx = paramNames.index(k)
             except ValueError:
@@ -1332,7 +1335,7 @@ vmodlTypes = {
 vmodlNames = {}
 
 ## Add array type into special names
-for name, typ in iteritems(vmodlTypes.copy()):
+for name, typ in vmodlTypes.copy().items():
    if typ is not NoneType:
       try:
          arrayType = typ.Array
