@@ -17,6 +17,7 @@ from tests import fixtures_path
 import logging
 import unittest
 import vcr
+import os
 
 from pyVim import connect
 from pyVmomi import vim
@@ -58,6 +59,23 @@ class ConnectionTests(unittest.TestCase):
         si = connect.SmartConnect(host='vcsa',
                                   user='my_user',
                                   pwd='my_password')
+
+
+    def test_proxy(self):
+        os.environ['https_proxy']='localhost:443'
+        self.assertRaises(vim.fault.HostConnectFault,connect.Connect,host='vcsa',
+                             user='my_user',
+                             pwd='my_password')
+
+    @vcr.use_cassette('basic_connection.yaml',
+                      cassette_library_dir=fixtures_path, record_mode='none')
+    def test_proxy_set(self):
+        os.environ['https_proxy']='localhost:443'
+        # see: http://python3porting.com/noconv.html
+        si = connect.Connect(host='vcsa',
+                             user='my_user',
+                             pwd='my_password',
+                             no_proxy=True)
         session_id = si.content.sessionManager.currentSession.key
         # NOTE (hartsock): assertIsNotNone does not work in Python 2.6
         self.assertTrue(session_id is not None)

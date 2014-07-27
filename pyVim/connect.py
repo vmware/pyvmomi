@@ -179,7 +179,7 @@ class VimSessionOrientedStub(SessionOrientedStub):
 
 def Connect(host='localhost', port=443, user='root', pwd='',
             service="hostd", adapter="SOAP", namespace=None, path="/sdk",
-            version=None, keyFile=None, certFile=None):
+            version=None, no_proxy=False, keyFile=None, certFile=None):
    """
    Connect to the specified server, login and return the service
    instance object.
@@ -209,6 +209,10 @@ def Connect(host='localhost', port=443, user='root', pwd='',
    @type  path: string
    @param version: Version
    @type  version: string
+   @param no_proxy: don't use proxy
+   @type  no_proxy: boolean
+   @param no_: Version
+   @type  version: string
    @param keyFile: ssl key file path
    @type  keyFile: string
    @param certFile: ssl cert file path
@@ -224,6 +228,11 @@ def Connect(host='localhost', port=443, user='root', pwd='',
             port = int(info.group(2)[1:])
    except ValueError as ve:
       pass
+
+   if no_proxy is True:
+      import urllib2
+      proxy_handler = urllib2.ProxyHandler({})
+      urllib2.install_opener(urllib2.build_opener(proxy_handler))
 
    if namespace:
       assert(version is None)
