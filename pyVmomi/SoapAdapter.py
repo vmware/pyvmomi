@@ -576,7 +576,15 @@ class SoapDeserializer(ExpatDeserializerNSHandlers):
       if not self.stack:
          if self.isFault:
             ns, name = self.SplitTag(tag)
-            objType = self.LookupWsdlType(ns, name[:-5])
+            try:
+                objType = self.LookupWsdlType(ns, name[:-5])
+            except:
+                fault_name = name[:-5]
+                vmodl_name = "vmodl.fault." + fault_name
+                CreateDataType(str(vmodl_name), str(fault_name),
+                               "vmodl.RuntimeFault", "vmodl.version.version0",
+                               None)
+                objType = self.LookupWsdlType(ns, fault_name)
             # Only top level soap fault should be deserialized as method fault
             deserializeAsLocalizedMethodFault = False
          else:
