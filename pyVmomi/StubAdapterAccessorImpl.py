@@ -12,8 +12,8 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-from VmomiSupport import GetVmodlType
+from __future__ import absolute_import
+from pyVmomi.VmomiSupport import GetVmodlType
 
 class StubAdapterAccessorMixin:
    def __init__(self):
