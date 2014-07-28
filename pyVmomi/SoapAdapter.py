@@ -13,22 +13,34 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 from __future__ import absolute_import
-from six.moves import http_client
-from six import text_type
-from six import u
 
+from six import PY2
+from six import PY3
+
+from six.moves import http_client
+
+if PY3:
+    long = int
+    basestring = str
+from six import u
 import sys
 import os
 import socket
 import subprocess
-import thread
+if PY2:
+    from thread import allocate_lock
+if PY3:
+    from _thread import allocate_lock
 import time
-import urlparse
-from datetime import datetime
+
 from xml.parsers.expat import ParserCreate
 # We have our own escape functionality.
 # from xml.sax.saxutils import escape
-from cStringIO import StringIO
+if PY2:
+    from cStringIO import StringIO
+
+if PY3:
+    from io import StringIO
 from pyVmomi.VmomiSupport import *
 from pyVmomi.StubAdapterAccessorImpl import StubAdapterAccessorMixin
 import pyVmomi.Iso8601
@@ -68,7 +80,7 @@ SOAP_BODY_TAG = "{0}:Body".format(SOAP_NSMAP[XMLNS_SOAPENV])
 
 SOAP_ENVELOPE_START = '<{0} '.format(SOAP_ENVELOPE_TAG) + \
                       ' '.join(['xmlns:' + prefix + '="' + urn + '"' \
-                                for urn, prefix in SOAP_NSMAP.iteritems()]) + \
+                                for urn, prefix in iteritems(SOAP_NSMAP)]) + \
                       '>\n'
 SOAP_ENVELOPE_END = "\n</{0}>".format(SOAP_ENVELOPE_TAG)
 SOAP_HEADER_START = "<{0}>".format(SOAP_HEADER_TAG)
@@ -181,7 +193,7 @@ class SoapSerializer:
       self.version = version
       self.nsMap = nsMap and nsMap or {}
       self.encoding = encoding and encoding or XML_ENCODING
-      for ns, prefix in self.nsMap.iteritems():
+      for ns, prefix in iteritems(self.nsMap):
          if prefix == '':
             self.defaultNS = ns
             break
@@ -385,7 +397,9 @@ class SoapSerializer:
             # it means that if you emit output in other encoding than UTF-8,
             # you cannot serialize it again once more.  That's feature, not
             # a bug.
-            val = str(val).decode('UTF-8')
+            val = str(val)
+            if PY2:
+               val = val.decode('UTF-8')
          result = XmlEscape(val)
          self.writer.write('<{0}{1}>{2}</{0}>'.format(info.name, attr,
                                                       result.encode(self.encoding)))
@@ -821,7 +835,7 @@ class SoapStubAdapterBase(StubAdapterBase):
 
       if reqContexts or samlToken:
          result.append(SOAP_HEADER_START)
-         for key, val in reqContexts.iteritems():
+         for key, val in iteritems(reqContexts):
             # Note: Support req context of string type only
             if not isinstance(val, basestring):
                raise TypeError("Request context key ({0}) has non-string value ({1}) of {2}".format(key, val, type(val)))
@@ -1126,7 +1140,7 @@ class SoapStubAdapter(SoapStubAdapterBase):
          # the UnixSocketConnection ctor expects to find it -- see above
          self.host = sock
       elif url:
-         scheme, self.host, urlpath = urlparse.urlparse(url)[:3]
+         scheme, self.host, urlpath = urlparse(url)[:3]
          # Only use the URL path if it's sensible, otherwise use the path
          # keyword argument as passed in.
          if urlpath not in ('', '/'):
@@ -1163,7 +1177,7 @@ class SoapStubAdapter(SoapStubAdapterBase):
       self.poolSize = poolSize
       self.pool = []
       self.connectionPoolTimeout = connectionPoolTimeout
-      self.lock = thread.allocate_lock()
+      self.lock = allocate_lock()
       self.schemeArgs = {}
       if certKeyFile:
          self.schemeArgs['key_file'] = certKeyFile
@@ -1490,7 +1504,7 @@ class SessionOrientedStub(StubAdapterBase):
             raise obj
 
       # Raise any socket/httplib errors caught above.
-      raise
+      raise SystemError()
 
    ## Retrieve a managed property
    #
@@ -1520,7 +1534,7 @@ class SessionOrientedStub(StubAdapterBase):
                raise e
          return obj
       # Raise any socket/httplib errors caught above.
-      raise
+      raise SystemError()
 
    ## Handle the login method call
    #

@@ -21,6 +21,7 @@ This module is for ISO 8601 parsing
 """
 __author__ = 'VMware, Inc.'
 
+from six import iteritems
 import time
 from datetime import datetime, timedelta, tzinfo
 import re
@@ -119,7 +120,7 @@ def ParseISO8601(datetimeStr):
    if match:
       try:
          dt = {}
-         for key, defaultVal in _dtExprKeyDefValMap.iteritems():
+         for key, defaultVal in iteritems(_dtExprKeyDefValMap):
             val = match.group(key)
             if val:
                if key == 'microsecond':

@@ -314,7 +314,10 @@ def __Login(host, port, user, pwd, service, adapter, version, path,
       # library the fault occurred. Without the traceback we have no idea
       # why the connection failed beyond the message string.
       (type, value, traceback) = sys.exc_info()
-      reraise(vim.fault.HostConnectFault(msg=str(e)), None, traceback)
+      if traceback:
+         reraise(vim.fault.HostConnectFault(msg=str(e)), None, traceback)
+      else:
+          raise vim.fault.HostConnectFault(msg=str(e))
 
    # Get a ticket if we're connecting to localhost and password is not specified
    if host == 'localhost' and not pwd:
