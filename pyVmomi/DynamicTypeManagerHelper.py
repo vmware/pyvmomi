@@ -45,7 +45,7 @@ class DynamicTypeImporter:
       if self.hostSystem:
          try:
             dynTypeMgr = self.hostSystem.RetrieveDynamicTypeManager()
-         except vmodl.fault.MethodNotFound, err:
+         except vmodl.fault.MethodNotFound as err:
             pass
 
       if not dynTypeMgr:
@@ -139,7 +139,7 @@ class DynamicTypeConstructor:
          for typeInfo in infos:
             try:
                fn(*typeInfo)
-            except Exception, err:
+            except Exception as err:
                #Ignore errors due to duplicate importing
                pass
 
