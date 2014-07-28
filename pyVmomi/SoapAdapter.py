@@ -99,6 +99,11 @@ MethodFault = GetVmodlType("vmodl.MethodFault")
 ## Localized MethodFault type
 LocalizedMethodFault = GetVmodlType("vmodl.LocalizedMethodFault")
 
+def encode(string, encoding):
+    if PY2:
+        return string.encode(encoding)
+    return u(string)
+
 ## Escape <, >, &
 def XmlEscape(xmlStr):
     escaped = xmlStr.replace("&", "&amp;").replace(">", "&gt;").replace("<", "&lt;")
@@ -316,7 +321,7 @@ class SoapSerializer:
          ns, name = GetQualifiedWsdlName(Type(val))
          attr += ' type="{0}"'.format(name)
          self.writer.write('<{0}{1}>{2}</{3}>'.format(info.name, attr,
-                                              val._moId.encode(self.encoding),
+                                              encode(val._moId, self.encoding),
                                               info.name))
       elif isinstance(val, list):
          if info.type is object:
@@ -399,7 +404,8 @@ class SoapSerializer:
                val = val.decode('UTF-8')
          result = XmlEscape(val)
          self.writer.write('<{0}{1}>{2}</{0}>'.format(info.name, attr,
-                                                      result.encode(self.encoding)))
+                                                      encode(result,
+                                                             self.encoding)))
 
    ## Serialize a a data object (internal)
    #
@@ -576,7 +582,11 @@ class SoapDeserializer(ExpatDeserializerNSHandlers):
       if not self.stack:
          if self.isFault:
             ns, name = self.SplitTag(tag)
-            objType = self.LookupWsdlType(ns, name[:-5])
+            try:
+               objType = self.LookupWsdlType(ns, name[:-5])
+            except KeyError:
+               message = "{0} was not found in the WSDL".format(name[:-5])
+               raise VmomiMessageFault(message)
             # Only top level soap fault should be deserialized as method fault
             deserializeAsLocalizedMethodFault = False
          else:
