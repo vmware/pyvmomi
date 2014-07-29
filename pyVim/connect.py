@@ -231,7 +231,7 @@ def Connect(host='localhost', port=443, user='root', pwd='',
 
    if no_proxy is True:
       import sys
-      if sys.version_info.major < 3:
+      if sys.version_info[0] < 3:
          import urllib2
          proxy_handler = urllib2.ProxyHandler({})
          urllib2.install_opener(urllib2.build_opener(proxy_handler))
