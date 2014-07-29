@@ -315,7 +315,8 @@ def __Login(host, port, user, pwd, service, adapter, version, path,
       # why the connection failed beyond the message string.
       (type, value, traceback) = sys.exc_info()
       if traceback:
-         reraise(vim.fault.HostConnectFault(msg=str(e)), None, traceback)
+         fault = vim.fault.HostConnectFault(msg=str(e))
+         reraise(vim.fault.HostConnectFault, fault, traceback)
       else:
           raise vim.fault.HostConnectFault(msg=str(e))
 
