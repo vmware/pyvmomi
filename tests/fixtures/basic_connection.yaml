@@ -52,7 +52,7 @@ interactions:
       content-length: ['3332']
       content-type: [text/xml; charset=utf-8]
       date: ['Mon, 21 Jul 2014 22:31:05 GMT']
-      set-cookie: [vmware_soap_session="52970dd3-2b0f-647b-22b3-44bda6d49983"; Path=/;
+      set-cookie: [vmware_soap_session="52773cd3-35c6-b40a-17f1-fe664a9f08f3"; Path=/;
           HttpOnly; Secure;]
     status: {code: 200, message: OK}
 - request:
@@ -68,7 +68,7 @@ interactions:
     headers:
       Accept-Encoding: ['gzip, deflate']
       Content-Type: [text/xml; charset=UTF-8]
-      Cookie: [vmware_soap_session="52970dd3-2b0f-647b-22b3-44bda6d49983"; Path=/;
+      Cookie: [vmware_soap_session="52773cd3-35c6-b40a-17f1-fe664a9f08f3"; Path=/;
           HttpOnly; Secure;]
       SOAPAction: ['"urn:vim25/4.1"']
     method: POST
@@ -99,7 +99,7 @@ interactions:
     headers:
       Accept-Encoding: ['gzip, deflate']
       Content-Type: [text/xml; charset=UTF-8]
-      Cookie: [vmware_soap_session="52970dd3-2b0f-647b-22b3-44bda6d49983"; Path=/;
+      Cookie: [vmware_soap_session="52773cd3-35c6-b40a-17f1-fe664a9f08f3"; Path=/;
           HttpOnly; Secure;]
       SOAPAction: ['"urn:vim25/4.1"']
     method: POST
@@ -155,7 +155,7 @@ interactions:
     headers:
       Accept-Encoding: ['gzip, deflate']
       Content-Type: [text/xml; charset=UTF-8]
-      Cookie: [vmware_soap_session="52970dd3-2b0f-647b-22b3-44bda6d49983"; Path=/;
+      Cookie: [vmware_soap_session="52773cd3-35c6-b40a-17f1-fe664a9f08f3"; Path=/;
           HttpOnly; Secure;]
       SOAPAction: ['"urn:vim25/4.1"']
     method: POST
@@ -212,7 +212,7 @@ interactions:
     headers:
       Accept-Encoding: ['gzip, deflate']
       Content-Type: [text/xml; charset=UTF-8]
-      Cookie: [vmware_soap_session="52970dd3-2b0f-647b-22b3-44bda6d49983"; Path=/;
+      Cookie: [vmware_soap_session="52773cd3-35c6-b40a-17f1-fe664a9f08f3"; Path=/;
           HttpOnly; Secure;]
       SOAPAction: ['"urn:vim25/4.1"']
     method: POST

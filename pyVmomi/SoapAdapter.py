@@ -1241,7 +1241,10 @@ class SoapStubAdapter(SoapStubAdapterBase):
          # The server is probably sick, drop all of the cached connections.
          self.DropConnections()
          raise
-      cookie = resp.getheader('set-cookie')
+      cookie = resp.getheader('Set-Cookie')
+      if cookie is None:
+          # try lower-case header for backwards compat. with old vSphere
+          cookie = resp.getheader('set-cookie')
       status = resp.status
 
       if cookie:

@@ -37,10 +37,15 @@ class ConnectionTests(unittest.TestCase):
         si = connect.Connect(host='vcsa',
                              user='my_user',
                              pwd='my_password')
+        cookie = si._stub.cookie
         session_id = si.content.sessionManager.currentSession.key
+        # NOTE (hartsock): The cookie value should never change during
+        # a connected session. That should be verifiable in these tests.
+        self.assertEqual(cookie, si._stub.cookie)
         # NOTE (hartsock): assertIsNotNone does not work in Python 2.6
         self.assertTrue(session_id is not None)
         self.assertEqual('52773cd3-35c6-b40a-17f1-fe664a9f08f3', session_id)
+        self.assertTrue(session_id in cookie)
 
     @vcr.use_cassette('basic_connection_bad_password.yaml',
                       cassette_library_dir=fixtures_path, record_mode='none')
