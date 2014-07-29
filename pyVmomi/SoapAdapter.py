@@ -16,7 +16,7 @@ from __future__ import absolute_import
 
 from six import PY2
 from six import PY3
-
+from six import reraise
 from six.moves import http_client
 
 if PY3:
@@ -442,6 +442,23 @@ class SoapSerializer:
       self.writer.write('</{0}>'.format(info.name))
 
 
+class ParserError(KeyError):
+    def __init__(self, *args, **kwargs):
+        super(ParserError, self).__init__(*args, **kwargs)
+
+
+def Parse(parser, data):
+   if not isinstance(data, str):
+       data = data.read()
+   try:
+      parser.Parse(data)
+   except Exception as ex:
+       (ec, ev, tb) = sys.exc_info()
+       line = parser.CurrentLineNumber
+       col = parser.CurrentColumnNumber
+       pe = ParserError("xml document: {0} parse error at: line:{1}, col:{2}".format(data, line, col))
+       reraise(ParserError, pe, tb)
+
 ## Deserialize an object from a file or string
 #
 # This function will deserialize one top-level XML node.
@@ -453,10 +470,7 @@ def Deserialize(data, resultType=object, stub=None):
    parser = ParserCreate(namespace_separator=NS_SEP)
    ds = SoapDeserializer(stub)
    ds.Deserialize(parser, resultType)
-   if isinstance(data, str):
-      parser.Parse(data)
-   else:
-      parser.ParseFile(data)
+   Parse(parser, data)
    return ds.GetResult()
 
 
@@ -582,11 +596,7 @@ class SoapDeserializer(ExpatDeserializerNSHandlers):
       if not self.stack:
          if self.isFault:
             ns, name = self.SplitTag(tag)
-            try:
-               objType = self.LookupWsdlType(ns, name[:-5])
-            except KeyError:
-               message = "{0} was not found in the WSDL".format(name[:-5])
-               raise VmomiMessageFault(message)
+            objType = self.LookupWsdlType(ns, name[:-5])
             # Only top level soap fault should be deserialized as method fault
             deserializeAsLocalizedMethodFault = False
          else:
@@ -761,10 +771,7 @@ class SoapResponseDeserializer(ExpatDeserializerNSHandlers):
          nsMap = {}
       self.nsMap = nsMap
       SetHandlers(self.parser, GetHandlers(self))
-      if isinstance(response, str):
-         self.parser.Parse(response)
-      else:
-         self.parser.ParseFile(response)
+      Parse(self.parser, response)
       result = self.deser.GetResult()
       if self.isFault:
          if result is None:
@@ -1241,10 +1248,10 @@ class SoapStubAdapter(SoapStubAdapterBase):
          # The server is probably sick, drop all of the cached connections.
          self.DropConnections()
          raise
-      cookie = resp.getheader('Set-Cookie')
+      cookie = resp.getheader('set-cookie')
       if cookie is None:
-          # try lower-case header for backwards compat. with old vSphere
-          cookie = resp.getheader('set-cookie')
+          # try case-sensitive header for compatibility
+          cookie = resp.getheader('Set-Cookie')
       status = resp.status
 
       if cookie:
@@ -1257,12 +1264,13 @@ class SoapStubAdapter(SoapStubAdapterBase):
                fd = GzipReader(resp, encoding=GzipReader.GZIP)
             elif encoding == 'deflate':
                fd = GzipReader(resp, encoding=GzipReader.DEFLATE)
-            obj = SoapResponseDeserializer(outerStub).Deserialize(fd, info.result)
-         except:
+            deserializer = SoapResponseDeserializer(outerStub)
+            obj = deserializer.Deserialize(fd, info.result)
+         except Exception as exc:
             conn.close()
             # The server might be sick, drop all of the cached connections.
             self.DropConnections()
-            raise
+            raise exc
          else:
             resp.read()
             self.ReturnConnection(conn)
