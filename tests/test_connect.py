@@ -59,14 +59,21 @@ class ConnectionTests(unittest.TestCase):
         si = connect.SmartConnect(host='vcsa',
                                   user='my_user',
                                   pwd='my_password')
+        session_id = si.content.sessionManager.currentSession.key
+        # NOTE (hartsock): assertIsNotNone does not work in Python 2.6
+        self.assertTrue(session_id is not None)
+        self.assertEqual('52773cd3-35c6-b40a-17f1-fe664a9f08f3', session_id)
 
 
+    # should return HostConnectionFault as no host is reachable via proxy
     def test_proxy(self):
         os.environ['https_proxy']='localhost:443'
         self.assertRaises(vim.fault.HostConnectFault,connect.Connect,host='vcsa',
                              user='my_user',
                              pwd='my_password')
+        os.environ['https_proxy']=''
 
+    # use vcr mock up as no vcenter is available
     @vcr.use_cassette('basic_connection.yaml',
                       cassette_library_dir=fixtures_path, record_mode='none')
     def test_proxy_set(self):
@@ -80,6 +87,7 @@ class ConnectionTests(unittest.TestCase):
         # NOTE (hartsock): assertIsNotNone does not work in Python 2.6
         self.assertTrue(session_id is not None)
         self.assertEqual('52773cd3-35c6-b40a-17f1-fe664a9f08f3', session_id)
+        os.environ['https_proxy']=''
 
 if __name__ == '__main__':
     unittest.main()

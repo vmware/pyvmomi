@@ -579,11 +579,6 @@ def SmartConnect(protocol='https', host='localhost', port=443, user='root', pwd=
    if preferredApiVersions is None:
       preferredApiVersions = GetServiceVersions('vim25')
 
-   if no_proxy is True:
-       import urllib2
-       proxy_handler = urllib2.ProxyHandler({})
-       urllib2.install_opener(urllib2.build_opener(proxy_handler))
-
    supportedVersion = __FindSupportedVersion(protocol,
                                              host,
                                              port,
@@ -601,7 +596,8 @@ def SmartConnect(protocol='https', host='localhost', port=443, user='root', pwd=
                   service=service,
                   adapter='SOAP',
                   version=supportedVersion,
-                  path=path)
+                  path=path,
+                  no_proxy=no_proxy)
 
 def OpenUrlWithBasicAuth(url, user='root', pwd=''):
    """
