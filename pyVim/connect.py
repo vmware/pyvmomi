@@ -179,7 +179,7 @@ class VimSessionOrientedStub(SessionOrientedStub):
 
 def Connect(host='localhost', port=443, user='root', pwd='',
             service="hostd", adapter="SOAP", namespace=None, path="/sdk",
-            version=None, keyFile=None, certFile=None):
+            version=None, no_proxy=False, keyFile=None, certFile=None):
    """
    Connect to the specified server, login and return the service
    instance object.
@@ -209,6 +209,10 @@ def Connect(host='localhost', port=443, user='root', pwd='',
    @type  path: string
    @param version: Version
    @type  version: string
+   @param no_proxy: don't use proxy
+   @type  no_proxy: boolean
+   @param no_: Version
+   @type  version: string
    @param keyFile: ssl key file path
    @type  keyFile: string
    @param certFile: ssl cert file path
@@ -224,6 +228,17 @@ def Connect(host='localhost', port=443, user='root', pwd='',
             port = int(info.group(2)[1:])
    except ValueError as ve:
       pass
+
+   if no_proxy is True:
+      import sys
+      if sys.version_info[0] < 3:
+         import urllib2
+         proxy_handler = urllib2.ProxyHandler({})
+         urllib2.install_opener(urllib2.build_opener(proxy_handler))
+      else:
+         import urllib
+         proxy_handler = urllib.request.ProxyHandler({})
+         urllib.request.install_opener(urllib.request.install_opener(proxy_handler))
 
    if namespace:
       assert(version is None)
@@ -260,7 +275,6 @@ def GetLocalTicket(si, user):
          raise vim.fault.HostConnectFault(msg=msg)
    localTicket = sessionManager.AcquireLocalTicket(userName=user)
    return (localTicket.userName, file(localTicket.passwordFilePath).read())
-
 
 ## Private method that performs the actual Connect and returns a
 ## connected service instance object.
@@ -531,7 +545,7 @@ def __FindSupportedVersion(protocol, server, port, path, preferredApiVersions):
 
 
 def SmartConnect(protocol='https', host='localhost', port=443, user='root', pwd='',
-                 service="hostd", path="/sdk",
+                 service="hostd", path="/sdk", no_proxy=False,
                  preferredApiVersions=None):
    """
    Determine the most preferred API version supported by the specified server,
@@ -559,6 +573,8 @@ def SmartConnect(protocol='https', host='localhost', port=443, user='root', pwd=
    @type  service: string
    @param path: Path
    @type  path: string
+   @param no_proxy: don't use proxy
+   @type  no_proxy: boolean
    @param preferredApiVersions: Acceptable API version(s) (e.g. vim.version.version3)
                                 If a list of versions is specified the versions should
                                 be ordered from most to least preferred.  If None is
@@ -587,7 +603,8 @@ def SmartConnect(protocol='https', host='localhost', port=443, user='root', pwd=
                   service=service,
                   adapter='SOAP',
                   version=supportedVersion,
-                  path=path)
+                  path=path,
+                  no_proxy=no_proxy)
 
 def OpenUrlWithBasicAuth(url, user='root', pwd=''):
    """

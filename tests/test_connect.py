@@ -17,6 +17,7 @@ from tests import fixtures_path
 import logging
 import unittest
 import vcr
+import os
 
 from pyVim import connect
 from pyVmomi import vim
@@ -67,6 +68,31 @@ class ConnectionTests(unittest.TestCase):
         # NOTE (hartsock): assertIsNotNone does not work in Python 2.6
         self.assertTrue(session_id is not None)
         self.assertEqual('52773cd3-35c6-b40a-17f1-fe664a9f08f3', session_id)
+
+
+    # should return HostConnectionFault as no host is reachable via proxy
+    def test_proxy(self):
+        os.environ['https_proxy']='localhost:443'
+        self.assertRaises(vim.fault.HostConnectFault,connect.Connect,host='vcsa',
+                             user='my_user',
+                             pwd='my_password')
+        os.environ['https_proxy']=''
+
+    # use vcr mock up as no vcenter is available
+    @vcr.use_cassette('basic_connection.yaml',
+                      cassette_library_dir=fixtures_path, record_mode='none')
+    def test_proxy_set(self):
+        os.environ['https_proxy']='localhost:443'
+        # see: http://python3porting.com/noconv.html
+        si = connect.Connect(host='vcsa',
+                             user='my_user',
+                             pwd='my_password',
+                             no_proxy=True)
+        session_id = si.content.sessionManager.currentSession.key
+        # NOTE (hartsock): assertIsNotNone does not work in Python 2.6
+        self.assertTrue(session_id is not None)
+        self.assertEqual('52773cd3-35c6-b40a-17f1-fe664a9f08f3', session_id)
+        os.environ['https_proxy']=''
 
 if __name__ == '__main__':
     unittest.main()
