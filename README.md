@@ -20,7 +20,8 @@ http://pubs.vmware.com/vsphere-55/index.jsp#com.vmware.wssdk.apiref.doc/right-pa
 
 Python Support
 ==============
-pyVmomi currently supports Python 2.6 and 2.7; support for Python 3.x is currently in progress.
+* pyVmomi 5.5.0_2014.1 and above supports Python 2.6, 2.7, 3.3 and 3.4
+* pyVmomi 5.5.0 and below supports Python 2.6 and 2.7
 
 Releases
 ========
