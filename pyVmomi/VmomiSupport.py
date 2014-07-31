@@ -991,7 +991,7 @@ def _SetWsdlType(ns, wsdlName, typ):
 # @return type if found else throws KeyError
 def GetWsdlType(ns, name):
    if ns is None or name is None:
-      raise KeyError("%s %s" % (ns, name))
+      raise KeyError("{0} {1}".format(ns, name))
 
    with _lazyLock:
       # Check if the type is loaded in the map
@@ -1003,14 +1003,14 @@ def GetWsdlType(ns, name):
          try:
             return GetWsdlType(ns, name[7:]).Array
          except KeyError:
-            raise KeyError("%s %s" % (ns, name))
+            raise KeyError("{0} {1}".format(ns, name))
       else:
          # Type is not loaded yet, load it
          typ = _LoadVmodlType(_wsdlDefMap[(ns, name)][0])
          if typ:
             return typ
 
-      raise KeyError("%s %s" % (ns, name))
+      raise KeyError("{0} {1}".format(ns, name))
 
 ## Guess the type from wsdlname with no ns
 #  WARNING! This should not be used in general, as there is no guarantee for
@@ -1203,7 +1203,7 @@ def GetWsdlMethod(ns, wsdlName):
          LoadManagedType(*method)
          return _wsdlMethodMap[(ns, wsdlName)]
       else:
-         raise KeyError("%s %s" % (ns, name))
+         raise KeyError("{0} {1}".format(ns, name))
 
 ## Guess the method from wsdlname with no ns
 #  WARNING! This should not be used in general, as there is no guarantee for
