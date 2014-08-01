@@ -1012,6 +1012,12 @@ def GetWsdlType(ns, name):
 
       raise KeyError("{0} {1}".format(ns, name))
 
+
+class UnknownWsdlTypeError(KeyError):
+    def __init__(self, *args, **kwargs):
+        super(UnknownWsdlTypeError, self).__init__(*args, **kwargs)
+
+
 ## Guess the type from wsdlname with no ns
 #  WARNING! This should not be used in general, as there is no guarantee for
 #  the correctness of the guessing type
@@ -1026,8 +1032,8 @@ def GuessWsdlType(name):
          try:
             return GetWsdlType(ns, name)
          except KeyError:
-            pass
-      raise KeyError(name)
+             pass
+      raise UnknownWsdlTypeError(name)
 
 ## Return a map that contains all the wsdl types
 # This function is rarely used
