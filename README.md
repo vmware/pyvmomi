@@ -8,6 +8,7 @@ Getting Started
 To get started, check out the samples project at http://vmware.github.io/pyvmomi-community-samples/
 
 * community discussion on IRC freenode.net channels [#pyvmomi and #pyvmomi-dev](http://webchat.freenode.net/?channels=#pyvmomi,#pyvmomi-dev)
+* community email is on [nabble](http://pyvmomi.2338814.n4.nabble.com)
 
 Installing
 ==========
