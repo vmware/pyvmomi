@@ -38,14 +38,25 @@ http://pubs.vmware.com/vsphere-55/index.jsp#com.vmware.wssdk.apiref.doc/right-pa
 
 Python Support
 ==============
-* pyVmomi 5.5.0_2014.1 (first 2014 release) and above supports Python 2.6, 2.7, 3.3 and 3.4
-* pyVmomi 5.5.0 and below supports Python 2.6 and 2.7
+* pyVmomi 5.5.0_2014.1 and later support Python 2.6, 2.7, 3.3 and 3.4
+* pyVmomi 5.5.0 and below support Python 2.6 and 2.7
+
+Compatibility Policy
+====================
+pyVmomi versions are marked **vSphere version** _separator_ **release version**. Pyvmomi maintains minimum backward compatibility
+with the previous _four_ releases of *vSphere* and it's own previous four releases. Compatibility with much older versions may
+continue to work but will not be actively supported.
+
+For example, version **v5.5.0**__2014.1_ is most compatible with vSphere 5.5, 5.1, 5.0, and 4.1 and was the first release in
+2014. Initial releases compatible with a version of vSphere will bare a naked version number of **v5.5.0** indicating that
+2015. version of pyVmomi was released simultaneously with the _GA_ version of vSphere with the same version number.
 
 Releases
 ========
 * [5.1.0](https://github.com/vmware/pyvmomi/tree/v5.1.0)
-* [5.5.0](https://github.com/vmware/pyvmomi/tree/v5.5.0)
-* Next release in progress [5.5.0_2014.1](https://github.com/vmware/pyvmomi/issues?milestone=1&state=open)
+* [5.5.0](https://github.com/vmware/pyvmomi/tree/v5.5.0) [release notes](https://github.com/vmware/pyvmomi/compare/v5.1.0...v5.5.0)
+* [5.5.0_2014.1](https://github.com/vmware/pyvmomi/tree/v5.5.0_2014.1) [release notes](https://github.com/vmware/pyvmomi/compare/v5.5.0...5.5.0_2014.1)
+* Next release in progress [5.5.0_2014.2](https://github.com/vmware/pyvmomi/issues?milestone=2&state=open)
 
 Related Projects
 ================
