@@ -9,6 +9,6 @@ vim.vm.device.VirtualDisk.PartitionedRawDiskVer2BackingInfo
 :extends: vim.vm.device.VirtualDisk.RawDiskVer2BackingInfo_
 
 Attributes:
-    partition (`int`_):
+    partition ([`int`_]):
 
        Array of partition indexes. This array identifies the partitions that are used on the physical disk drive.

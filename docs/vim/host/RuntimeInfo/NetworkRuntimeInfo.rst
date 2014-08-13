@@ -12,6 +12,6 @@ vim.host.RuntimeInfo.NetworkRuntimeInfo
 :since: `vSphere API 5.5`_
 
 Attributes:
-    netStackInstanceRuntimeInfo (`vim.host.RuntimeInfo.NetStackInstanceRuntimeInfo`_, optional):
+    netStackInstanceRuntimeInfo ([`vim.host.RuntimeInfo.NetStackInstanceRuntimeInfo`_], optional):
 
        The list of network stack runtime info

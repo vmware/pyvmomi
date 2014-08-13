@@ -24,6 +24,6 @@ Attributes:
     dataKey (`int`_):
 
        Key to the snapshot data file in `file`_ .
-    disk (`vim.vm.FileLayoutEx.DiskLayout`_, optional):
+    disk ([`vim.vm.FileLayoutEx.DiskLayout`_], optional):
 
        Layout of each virtual disk of the virtual machine when the snapshot was taken.

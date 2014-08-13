@@ -51,6 +51,6 @@ Attributes:
         * 
         * `VirtualDiskSeSparseBackingInfo`_
         * (ESX 5.1 or later)
-    profile (`vim.vm.ProfileSpec`_, optional):
+    profile ([`vim.vm.ProfileSpec`_], optional):
 
        Virtual Disk Profile requirement. Profiles are solution specific. Profile Based Storage Management is a vSphere server extension. The API users who want to provision VMs using Storage Profiles, need to interact with it. This is an optional parameter and if user doesn't specify profile, the default behavior will apply.

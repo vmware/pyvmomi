@@ -13,6 +13,6 @@ vim.vm.customization.GuiRunOnce
 :extends: vmodl.DynamicData_
 
 Attributes:
-    commandList (`str`_):
+    commandList ([`str`_]):
 
        A list of commands to run at first user logon, after guest customization.

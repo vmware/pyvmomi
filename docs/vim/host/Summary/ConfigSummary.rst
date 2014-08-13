@@ -39,7 +39,7 @@ Attributes:
     faultToleranceEnabled (`bool`_):
 
        The flag to indicate whether or not Fault Tolerance logging is enabled on this host.
-    featureVersion (`vim.host.FeatureVersionInfo`_, optional):
+    featureVersion ([`vim.host.FeatureVersionInfo`_], optional):
 
        List of feature-specific version information. Each element refers to the version information for a specific feature.
     agentVmDatastore (`vim.Datastore`_, optional):

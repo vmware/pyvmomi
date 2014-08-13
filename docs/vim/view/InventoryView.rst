@@ -84,7 +84,7 @@ OpenInventoryViewFolder(entity):
 
 
   Returns:
-    `vim.ManagedEntity`_:
+    [`vim.ManagedEntity`_]:
          A list containing any entities in the argument could not be resolved.
 
 
@@ -104,7 +104,7 @@ CloseInventoryViewFolder(entity):
 
 
   Returns:
-    `vim.ManagedEntity`_:
+    [`vim.ManagedEntity`_]:
          A list containing any entities in the argument could not be resolved.
 
 

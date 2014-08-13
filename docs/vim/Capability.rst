@@ -24,7 +24,7 @@ Attributes:
     userShellAccessSupported (`bool`_):
 
        Flag indicating whether host user accounts should have the option to be granted shell access
-    supportedEVCMode (`vim.EVCMode`_, optional):
+    supportedEVCMode ([`vim.EVCMode`_], optional):
 
        All supported Enhanced VMotion Compatibility modes.
     networkBackupAndRestoreSupported (`bool`_, optional):

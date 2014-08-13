@@ -29,6 +29,6 @@ Attributes:
     hostPowerActionRate (`int`_, optional):
 
        DPM generates only those recommendations that are above the specified rating. Ratings vary from 1 to 5. This setting applies to both manual and automated (@link DpmBehavior) DPM clusters.
-    option (`vim.option.OptionValue`_, optional):
+    option ([`vim.option.OptionValue`_], optional):
 
        Advanced settings.

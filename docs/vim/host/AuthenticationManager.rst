@@ -40,7 +40,7 @@ Attributes
 ----------
     info (`vim.host.AuthenticationManagerInfo`_):
        Information about Active Directory membership.
-    supportedStore (`vim.host.AuthenticationStore`_):
+    supportedStore ([`vim.host.AuthenticationStore`_]):
        An array that can contain managed object references to local and Active Directory authentication managed objects.supportedStoredata implies a connection to a system that stores information about accounts. ThesupportedStorearray can include the following objects:
         * 
         * `HostLocalAuthentication`_

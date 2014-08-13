@@ -19,6 +19,6 @@ Attributes:
     configSpec (`vim.host.ConfigSpec`_, optional):
 
        Set of configuration changes to be applied to the host.
-    taskDescription (`vmodl.LocalizableMessage`_, optional):
+    taskDescription ([`vmodl.LocalizableMessage`_], optional):
 
        Description of tasks that will be performed on the host to carry out HostProfile application.

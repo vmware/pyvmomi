@@ -41,7 +41,7 @@ QueryModules():
 
 
   Returns:
-    `vim.host.KernelModuleSystem.ModuleInfo`_:
+    [`vim.host.KernelModuleSystem.ModuleInfo`_]:
          
 
 

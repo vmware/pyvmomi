@@ -28,7 +28,7 @@ Attributes:
     required (`bool`_):
 
        Flag indicating whether the ruleset is required and cannot be disabled.
-    rule (`vim.host.Ruleset.Rule`_):
+    rule ([`vim.host.Ruleset.Rule`_]):
 
        List of rules within the ruleset.
     service (`str`_, optional):

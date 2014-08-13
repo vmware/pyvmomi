@@ -22,6 +22,6 @@ Attributes:
     stats (`vim.dvs.PortStatistics`_):
 
        Statistics of the port.
-    vendorSpecificState (`vim.dvs.KeyedOpaqueBlob`_, optional):
+    vendorSpecificState ([`vim.dvs.KeyedOpaqueBlob`_], optional):
 
        Opaque binary blob that stores vendor-specific runtime state data.

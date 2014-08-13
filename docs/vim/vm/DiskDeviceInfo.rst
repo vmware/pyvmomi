@@ -14,6 +14,6 @@ Attributes:
     capacity (`long`_, optional):
 
        Size of disk
-    vm (`vim.VirtualMachine`_, optional):
+    vm ([`vim.VirtualMachine`_], optional):
 
        List of known virtual machines using this physical disk as a backing

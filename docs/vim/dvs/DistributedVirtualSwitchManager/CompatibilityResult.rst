@@ -17,6 +17,6 @@ Attributes:
     host (`vim.HostSystem`_):
 
        The host for which results are annotated. The whole object will be filtered out if the caller did not have view permissions on the host entity.
-    error (`vmodl.LocalizedMethodFault`_, optional):
+    error ([`vmodl.LocalizedMethodFault`_], optional):
 
        This property contains the faults that makes the host not compatible with a given DvsProductSpec. For example, a host might not be compatible because it's an older version of ESX that doesn't support DVS.

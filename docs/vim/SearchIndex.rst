@@ -237,7 +237,7 @@ FindAllByUuid(datacenter, uuid, vmSearch, instanceUuid):
 
 
   Returns:
-    `vim.ManagedEntity`_:
+    [`vim.ManagedEntity`_]:
          The list of all virtual machines or hosts that are matching with the given UUID. If no managed entities are found, an empty list is returned. If there are multiple matches, all matching entities are returned.
 
 
@@ -267,7 +267,7 @@ FindAllByDnsName(datacenter, dnsName, vmSearch):
 
 
   Returns:
-    `vim.ManagedEntity`_:
+    [`vim.ManagedEntity`_]:
          The list of all virtual machines or hosts that are found. If no managed entities are found, an empty list is returned. If there are multiple matches, all matching entities are returned.
 
 
@@ -297,7 +297,7 @@ FindAllByIp(datacenter, ip, vmSearch):
 
 
   Returns:
-    `vim.ManagedEntity`_:
+    [`vim.ManagedEntity`_]:
          The list of all virtual machines or hosts that are found. If no managed entities are found, an empty list is returned. If there are multiple matches, all matching entities are returned.
 
 

@@ -18,6 +18,6 @@ vim.vm.FileLayoutEx.DiskUnit
 :since: `vSphere API 4.0`_
 
 Attributes:
-    fileKey (`int`_):
+    fileKey ([`int`_]):
 
        Array of keys of the files that make up the disk unit. Values here correspond to property `key`_ in `file`_ .At least one entry always exists in this array. Property `type`_ of the referenced file can be used to distinguish the disk descriptor (type `diskDescriptor`_ ) from the extents.

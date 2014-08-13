@@ -46,7 +46,7 @@ Attributes:
     blocked (`bool`_):
 
        Indicates whether the port is blocked by switch implementation.
-    vlanIds (`vim.NumericRange`_, optional):
+    vlanIds ([`vim.NumericRange`_], optional):
 
        VLAN ID of the port.
     trunkingMode (`bool`_, optional):
@@ -67,10 +67,10 @@ Attributes:
     vmDirectPathGen2Active (`bool`_, optional):
 
        Indicates whether VMDirectPath Gen 2 is active on this port. If false, the reason(s) for inactivity will be provided in one or more of `vmDirectPathGen2InactiveReasonNetwork`_ , `vmDirectPathGen2InactiveReasonOther`_ , and `vmDirectPathGen2InactiveReasonExtended`_ .If the host software is not capable of VMDirectPath Gen 2, this property will be unset. See `HostCapability`_ . `vmDirectPathGen2Supported`_ .
-    vmDirectPathGen2InactiveReasonNetwork (`str`_, optional):
+    vmDirectPathGen2InactiveReasonNetwork ([`str`_], optional):
 
        If `vmDirectPathGen2Active`_ is false, this array will be populated with reasons for the inactivity that are related to network state or configuration. The reasons are chosen from the `DVPortStatusVmDirectPathGen2InactiveReasonNetwork`_ values.Other reasons for inactivity will be provided in `vmDirectPathGen2InactiveReasonOther`_ . If there is a reason for inactivity that cannot be described by the available constants, `vmDirectPathGen2InactiveReasonExtended`_ will be populated with an additional explanation provided by the platform.Note that this list of reasons is not guaranteed to be exhaustive.
-    vmDirectPathGen2InactiveReasonOther (`str`_, optional):
+    vmDirectPathGen2InactiveReasonOther ([`str`_], optional):
 
        If `vmDirectPathGen2Active`_ is false, this array will be populated with reasons for the inactivity that are not related to network state or configuration. The reasons are chosen from the `DVPortStatusVmDirectPathGen2InactiveReasonOther`_ values.Network-related reasons for inactivity will be provided in `vmDirectPathGen2InactiveReasonNetwork`_ . If there is a reason for inactivity that cannot be described by the available constants, `vmDirectPathGen2InactiveReasonExtended`_ will be populated with an additional explanation provided by the platform.Note that this list of reasons is not guaranteed to be exhaustive.See `vmDirectPathGen2Supported`_ 
     vmDirectPathGen2InactiveReasonExtended (`str`_, optional):

@@ -48,6 +48,6 @@ Attributes:
     overallStatus (`vim.ManagedEntity.Status`_):
 
        Overall alarm status on this node. In releases after vSphere API 5.0, vSphere Servers might not generate property collector update notifications for this property. To obtain the latest value of the property, you can use PropertyCollector methods RetrievePropertiesEx or WaitForUpdatesEx. If you use the PropertyCollector.WaitForUpdatesEx method, specify an empty string for the version parameter. Since this property is on a DataObject, an update returned by WaitForUpdatesEx may contain values for this property when some other property on the DataObject changes. If this update is a result of a call to WaitForUpdatesEx with a non-empty version parameter, the value for this property may not be current.
-    customValue (`vim.CustomFieldsManager.Value`_, optional):
+    customValue ([`vim.CustomFieldsManager.Value`_], optional):
 
        Custom field values.

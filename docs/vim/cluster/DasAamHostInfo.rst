@@ -24,9 +24,9 @@ vim.cluster.DasAamHostInfo
 
 
 Attributes:
-    hostDasState (`vim.cluster.DasAamNodeState`_, optional):
+    hostDasState ([`vim.cluster.DasAamNodeState`_], optional):
 
        The state of HA on the hosts.
-    primaryHosts (`str`_, optional):
+    primaryHosts ([`str`_], optional):
 
        The list of primary hosts.

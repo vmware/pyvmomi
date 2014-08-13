@@ -24,6 +24,6 @@ Attributes:
     array (`bool`_):
 
        Flag indicating whether this property is an array of profiles.
-    profile (`vim.profile.ApplyProfile`_, optional):
+    profile ([`vim.profile.ApplyProfile`_], optional):
 
        Subprofiles that define policies and nested subprofiles.

@@ -16,7 +16,7 @@ Attributes:
     typeId (`int`_):
 
        Zero-based NUMA ID for the node.
-    cpuID (`short`_):
+    cpuID ([`short`_]):
 
        Information about each of the CPUs associated with the node.
     memoryRangeBegin (`long`_):

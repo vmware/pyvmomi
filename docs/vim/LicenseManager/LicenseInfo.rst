@@ -36,9 +36,9 @@ Attributes:
     costUnit (`str`_):
 
        The cost unit for this license
-    properties (`vmodl.KeyAnyValue`_, optional):
+    properties ([`vmodl.KeyAnyValue`_], optional):
 
        Additional properties associated with this license
-    labels (`vim.KeyValue`_, optional):
+    labels ([`vim.KeyValue`_], optional):
 
        Key-value lables for this license

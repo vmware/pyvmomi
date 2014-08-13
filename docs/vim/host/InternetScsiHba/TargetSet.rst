@@ -14,7 +14,7 @@ vim.host.InternetScsiHba.TargetSet
 :since: `vSphere API 4.0`_
 
 Attributes:
-    staticTargets (`vim.host.InternetScsiHba.StaticTarget`_, optional):
+    staticTargets ([`vim.host.InternetScsiHba.StaticTarget`_], optional):
 
-    sendTargets (`vim.host.InternetScsiHba.SendTarget`_, optional):
+    sendTargets ([`vim.host.InternetScsiHba.SendTarget`_], optional):
 

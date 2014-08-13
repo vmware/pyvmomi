@@ -29,7 +29,7 @@ Attributes:
     controllerType (`str`_, optional):
 
        The controller type suitable for this virtual disk.
-    diskExtents (`str`_, optional):
+    diskExtents ([`str`_], optional):
 
        The extents of this virtual disk specified in absolute DS paths
     thin (`bool`_, optional):

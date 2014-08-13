@@ -12,6 +12,6 @@ vim.event.VmPoweringOnWithCustomizedDVPortEvent
 :since: `vSphere API 4.0`_
 
 Attributes:
-    vnic (`vim.event.VnicPortArgument`_):
+    vnic ([`vim.event.VnicPortArgument`_]):
 
        The list of Virtual NIC that were using the DVports.

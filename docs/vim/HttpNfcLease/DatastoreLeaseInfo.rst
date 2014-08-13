@@ -17,6 +17,6 @@ Attributes:
     datastoreKey (`str`_):
 
        Datastore key.
-    hosts (`vim.HttpNfcLease.HostInfo`_):
+    hosts ([`vim.HttpNfcLease.HostInfo`_]):
 
        List of hosts connected to this datastore and covered by this lease. The hosts in this list are multi-POST-capable, and any one of them can be used to transfer disks on this datastore.

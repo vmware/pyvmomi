@@ -72,10 +72,10 @@ Attributes:
     ipProperties (`vim.host.InternetScsiHba.IPProperties`_):
 
        The IP settings for this host bus adapter.
-    supportedAdvancedOptions (`vim.option.OptionDef`_, optional):
+    supportedAdvancedOptions ([`vim.option.OptionDef`_], optional):
 
        A list of supported key/value pair advanced options for the host bus adapter including their type information.
-    advancedOptions (`vim.host.InternetScsiHba.ParamValue`_, optional):
+    advancedOptions ([`vim.host.InternetScsiHba.ParamValue`_], optional):
 
        A list of the current options settings for the host bus adapter.
     iScsiName (`str`_):
@@ -84,10 +84,10 @@ Attributes:
     iScsiAlias (`str`_, optional):
 
        The iSCSI alias of this host bus adapter.
-    configuredSendTarget (`vim.host.InternetScsiHba.SendTarget`_, optional):
+    configuredSendTarget ([`vim.host.InternetScsiHba.SendTarget`_], optional):
 
        The configured iSCSI send target entries.
-    configuredStaticTarget (`vim.host.InternetScsiHba.StaticTarget`_, optional):
+    configuredStaticTarget ([`vim.host.InternetScsiHba.StaticTarget`_], optional):
 
        The configured iSCSI static target entries.
     maxSpeedMb (`int`_, optional):

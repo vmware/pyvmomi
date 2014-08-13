@@ -13,6 +13,6 @@ vim.host.ScsiTopology
 :extends: vmodl.DynamicData_
 
 Attributes:
-    adapter (`vim.host.ScsiTopology.Interface`_, optional):
+    adapter ([`vim.host.ScsiTopology.Interface`_], optional):
 
        The list of SCSI interfaces.

@@ -12,9 +12,9 @@ vim.event.VmWwnAssignedEvent
 :since: `VI API 2.5`_
 
 Attributes:
-    nodeWwns (`long`_):
+    nodeWwns ([`long`_]):
 
        The new node WWN.
-    portWwns (`long`_):
+    portWwns ([`long`_]):
 
        The new port WWN.

@@ -20,7 +20,7 @@ vim.host.GraphicsManager
 
 Attributes
 ----------
-    graphicsInfo (`vim.host.GraphicsInfo`_):
+    graphicsInfo ([`vim.host.GraphicsInfo`_]):
       privilege: System.Read
        Array of graphics information
 

@@ -51,7 +51,7 @@ Attributes:
     recommendedColorDepth (`int`_):
 
        Recommended default color depth for this guest.
-    supportedDiskControllerList (`str`_):
+    supportedDiskControllerList ([`str`_]):
 
        List of supported disk controller types for this guest.
     recommendedSCSIController (`str`_, optional):
@@ -69,7 +69,7 @@ Attributes:
     recommendedCdromController (`str`_):
 
        Recommended default CD-ROM type for this guest.
-    supportedEthernetCard (`str`_):
+    supportedEthernetCard ([`str`_]):
 
        List of supported ethernet cards for this guest.
     recommendedEthernetCard (`str`_, optional):
@@ -78,7 +78,7 @@ Attributes:
     supportsSlaveDisk (`bool`_, optional):
 
        Flag to indicate whether or not this guest can support a disk configured as a slave.
-    cpuFeatureMask (`vim.host.CpuIdInfo`_, optional):
+    cpuFeatureMask ([`vim.host.CpuIdInfo`_], optional):
 
        Specifies the CPU feature compatibility masks.
     smcRequired (`bool`_):
@@ -99,13 +99,13 @@ Attributes:
     supportsCpuHotRemove (`bool`_):
 
        Whether virtual CPUs can be removed from this guest while the virtual machine is running.
-    supportedFirmware (`str`_):
+    supportedFirmware ([`str`_]):
 
        Supported firmware types for this guest. Possible values are described in `GuestOsDescriptorFirmwareType`_ 
     recommendedFirmware (`str`_):
 
        Recommended firmware type for this guest. Possible values are described in `GuestOsDescriptorFirmwareType`_ 
-    supportedUSBControllerList (`str`_, optional):
+    supportedUSBControllerList ([`str`_], optional):
 
        List of supported USB controllers for this guest.
     recommendedUSBController (`str`_, optional):

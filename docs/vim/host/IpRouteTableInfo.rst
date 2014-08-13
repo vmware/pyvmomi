@@ -12,8 +12,8 @@ vim.host.IpRouteTableInfo
 :since: `vSphere API 4.0`_
 
 Attributes:
-    ipRoute (`vim.host.IpRouteEntry`_, optional):
+    ipRoute ([`vim.host.IpRouteEntry`_], optional):
 
        The array of IpRouteEntry
-    ipv6Route (`vim.host.IpRouteEntry`_, optional):
+    ipv6Route ([`vim.host.IpRouteEntry`_], optional):
 

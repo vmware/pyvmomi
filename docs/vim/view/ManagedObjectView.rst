@@ -18,7 +18,7 @@ vim.view.ManagedObjectView
 
 Attributes
 ----------
-    view (`vmodl.ManagedObject`_):
+    view ([`vmodl.ManagedObject`_]):
        The list of references to objects mapped by this view.
 
 

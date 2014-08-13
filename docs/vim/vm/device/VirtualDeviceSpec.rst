@@ -26,6 +26,6 @@ Attributes:
     device (`vim.vm.device.VirtualDevice`_):
 
        Device specification, with all necessary properties set.
-    profile (`vim.vm.ProfileSpec`_, optional):
+    profile ([`vim.vm.ProfileSpec`_], optional):
 
        Virtual Device Profile requirement. Profiles are solution specifics. Storage Profile Based Management(SPBM) is a vSphere server extension. The API users who want to provision VMs using Storage Profiles, need to interact with SPBM service. This is an optional parameter and if user doesn't specify profile, the default behavior will apply.

@@ -39,7 +39,7 @@ Attributes:
     cpuInfo (`vim.host.CpuInfo`_):
 
        Overall CPU information.
-    cpuPkg (`vim.host.CpuPackage`_):
+    cpuPkg ([`vim.host.CpuPackage`_]):
 
        Information about each of the physical CPU packages on the host.
     memorySize (`long`_):
@@ -51,10 +51,10 @@ Attributes:
     smcPresent (`bool`_):
 
        Presence of System Management Controller, indicates the host is Apple hardware, and thus capable of running Mac OS guest as VM.
-    pciDevice (`vim.host.PciDevice`_, optional):
+    pciDevice ([`vim.host.PciDevice`_], optional):
 
        The list of Peripheral Component Interconnect (PCI) devices available on this host.
-    cpuFeature (`vim.host.CpuIdInfo`_, optional):
+    cpuFeature ([`vim.host.CpuIdInfo`_], optional):
 
        CPU feature set that is supported by the hardware. This is the intersection of the feature sets supported by the individual CPU packages. This feature set is modified by the `supportedCpuFeature`_ array in the host capabilities to obtain the feature set supported by the virtualization platform.
     biosInfo (`vim.host.BIOSInfo`_, optional):

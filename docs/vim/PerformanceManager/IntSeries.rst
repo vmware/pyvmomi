@@ -15,6 +15,6 @@ vim.PerformanceManager.IntSeries
 :extends: vim.PerformanceManager.MetricSeries_
 
 Attributes:
-    value (`long`_, optional):
+    value ([`long`_], optional):
 
        An array of 64-bit integer values. The size of the array matches the size as the `PerfSampleInfo`_ , because the values can only be interpreted in the context of the sample that generated the value.

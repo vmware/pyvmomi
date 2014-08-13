@@ -35,6 +35,6 @@ Attributes:
     statusDetail (`str`_, optional):
 
        Additional information regarding the current membership status of the host. This property replaces the deprecated `DistributedVirtualSwitchHostMember`_ . `statusDetail`_ .
-    healthCheckResult (`vim.dvs.HostMember.HealthCheckResult`_, optional):
+    healthCheckResult ([`vim.dvs.HostMember.HealthCheckResult`_], optional):
 
        Health check result for the host that joined the distributed virtual switch.

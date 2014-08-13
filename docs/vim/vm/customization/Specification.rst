@@ -26,9 +26,9 @@ Attributes:
     globalIPSettings (`vim.vm.customization.GlobalIPSettings`_):
 
        Global IP settings constitute the IP settings that are not specific to a particular virtual network adapter.
-    nicSettingMap (`vim.vm.customization.AdapterMapping`_, optional):
+    nicSettingMap ([`vim.vm.customization.AdapterMapping`_], optional):
 
        IP settings that are specific to a particular virtual network adapter. The AdapterMapping object maps a network adapter's MAC address to its Adapter settings object. May be empty if there are no network adapters, else should match number of network adapters in the VM.
-    encryptionKey (`int`_, optional):
+    encryptionKey ([`int`_], optional):
 
        Byte array containing the public key used to encrypt any passwords stored in the specification. Both the client and the server can use this to determine if stored passwords can be decrypted by the server or if the passwords need to be re-entered and re-encrypted before the specification can be used.

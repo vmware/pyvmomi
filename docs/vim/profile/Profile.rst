@@ -54,7 +54,7 @@ Attributes
        Time at which the profile was created.
     modifiedTime (`datetime`_):
        Time at which the profile was last modified.
-    entity (`vim.ManagedEntity`_):
+    entity ([`vim.ManagedEntity`_]):
        List of managed entities associated with the profile.
     complianceStatus (`str`_):
        Overall compliance of entities associated with this profile. If one of the entities is out of compliance, the profile isnonCompliant. If all entities are in compliance, the profile iscompliant. If the compliance status of one of the entities is not known, compliance status of the profile isunknown. See `ComplianceResultStatus`_ .

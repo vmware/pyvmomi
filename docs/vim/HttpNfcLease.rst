@@ -60,7 +60,7 @@ HttpNfcLeaseGetManifest():
 
 
   Returns:
-    `vim.HttpNfcLease.ManifestEntry`_:
+    [`vim.HttpNfcLease.ManifestEntry`_]:
          
 
   Raises:

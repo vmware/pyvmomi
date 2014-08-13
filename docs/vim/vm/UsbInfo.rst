@@ -32,10 +32,10 @@ Attributes:
     physicalPath (`str`_):
 
        An autoconnect pattern which describes the device's physical path. This is the path to the specific port on the host where the USB device is attached.
-    family (`str`_, optional):
+    family ([`str`_], optional):
 
        The device class families. For possible values see `VirtualMachineUsbInfoFamily`_ 
-    speed (`str`_, optional):
+    speed ([`str`_], optional):
 
        The possible device speeds detected by server. For possible values see `VirtualMachineUsbInfoSpeed`_ 
     summary (`vim.vm.Summary`_, optional):

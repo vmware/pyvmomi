@@ -156,7 +156,7 @@ ListProcessesInGuest(vm, auth, pids):
 
 
   Returns:
-    `vim.vm.guest.ProcessManager.ProcessInfo`_:
+    [`vim.vm.guest.ProcessManager.ProcessInfo`_]:
          The list running processes is returned in an array of `GuestProcessInfo`_ structures.
 
   Raises:
@@ -279,7 +279,7 @@ ReadEnvironmentVariableInGuest(vm, auth, names):
 
 
   Returns:
-    `str`_:
+    [`str`_]:
          A string array containing the value of the variables, or all environment variables if nothing is specified. The format of each string is "name=value". If any specified environment variable isn't set, then nothing is returned for that variable.
 
   Raises:

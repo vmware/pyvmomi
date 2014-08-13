@@ -62,11 +62,11 @@ Attributes
        Current state of the license source. License sources that are LocalSource are always available.
     diagnostics (`vim.LicenseManager.DiagnosticInfo`_):
        Return current diagnostic information.
-    featureInfo (`vim.LicenseManager.FeatureInfo`_):
+    featureInfo ([`vim.LicenseManager.FeatureInfo`_]):
        The list of features that can be licensed.
     licensedEdition (`str`_):
        The product's license edition. The edition defines which product license the server requires. This, in turn, determines the core set of functionalities provided by the product and the additional features that can be licensed. If no edition is set the property is set to the empty string (""). To set the edition use `SetLicenseEdition`_ .
-    licenses (`vim.LicenseManager.LicenseInfo`_):
+    licenses ([`vim.LicenseManager.LicenseInfo`_]):
       privilege: dynamic
        Get information about all the licenses avaiable.
     licenseAssignmentManager (`vim.LicenseAssignmentManager`_):
@@ -99,7 +99,7 @@ QuerySupportedFeatures(host):
 
 
   Returns:
-    `vim.LicenseManager.FeatureInfo`_:
+    [`vim.LicenseManager.FeatureInfo`_]:
          
 
 
@@ -120,7 +120,7 @@ QueryLicenseSourceAvailability(host):
 
 
   Returns:
-    `vim.LicenseManager.AvailabilityInfo`_:
+    [`vim.LicenseManager.AvailabilityInfo`_]:
          
 
 

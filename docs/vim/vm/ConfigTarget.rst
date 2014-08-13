@@ -73,49 +73,49 @@ Attributes:
     smcPresent (`bool`_):
 
        Presence of System Management Controller, indicates the host is Apple hardware, and thus capable of running Mac OS guest as VM.
-    datastore (`vim.vm.DatastoreInfo`_, optional):
+    datastore ([`vim.vm.DatastoreInfo`_], optional):
 
        List of datastores available for virtual disks and associated storage.
-    network (`vim.vm.NetworkInfo`_, optional):
+    network ([`vim.vm.NetworkInfo`_], optional):
 
        List of networks available for virtual network adapters.
-    opaqueNetwork (`vim.vm.OpaqueNetworkInfo`_, optional):
+    opaqueNetwork ([`vim.vm.OpaqueNetworkInfo`_], optional):
 
        List of opaque networks available for virtual network adapters.
-    distributedVirtualPortgroup (`vim.dvs.DistributedVirtualPortgroupInfo`_, optional):
+    distributedVirtualPortgroup ([`vim.dvs.DistributedVirtualPortgroupInfo`_], optional):
 
        List of networks available from DistributedVirtualSwitch for virtual network adapters.
-    distributedVirtualSwitch (`vim.dvs.DistributedVirtualSwitchInfo`_, optional):
+    distributedVirtualSwitch ([`vim.dvs.DistributedVirtualSwitchInfo`_], optional):
 
        List of distributed virtual switch available for virtual network adapters.
-    cdRom (`vim.vm.CdromInfo`_, optional):
+    cdRom ([`vim.vm.CdromInfo`_], optional):
 
        List of CD-ROM devices available for use by virtual CD-ROMs. Used for `VirtualCdromAtapiBackingInfo`_ .
-    serial (`vim.vm.SerialInfo`_, optional):
+    serial ([`vim.vm.SerialInfo`_], optional):
 
        List of serial devices available to support virtualization. Used for `VirtualSerialPortDeviceBackingInfo`_ .
-    parallel (`vim.vm.ParallelInfo`_, optional):
+    parallel ([`vim.vm.ParallelInfo`_], optional):
 
        List of parallel devices available to support virtualization. Used for `VirtualParallelPortDeviceBackingInfo`_ .
-    sound (`vim.vm.SoundInfo`_, optional):
+    sound ([`vim.vm.SoundInfo`_], optional):
 
        List of sound devices available to support virtualization. Used for `VirtualSoundCardDeviceBackingInfo`_ .
-    usb (`vim.vm.UsbInfo`_, optional):
+    usb ([`vim.vm.UsbInfo`_], optional):
 
        List of USB devices on the host that are available to support virtualization. Used for `VirtualUSBUSBBackingInfo`_ .
-    floppy (`vim.vm.FloppyInfo`_, optional):
+    floppy ([`vim.vm.FloppyInfo`_], optional):
 
        List of floppy devices available for use by virtual floppies. Used for `VirtualFloppyDeviceBackingInfo`_ .
-    legacyNetworkInfo (`vim.vm.LegacyNetworkSwitchInfo`_, optional):
+    legacyNetworkInfo ([`vim.vm.LegacyNetworkSwitchInfo`_], optional):
 
        Legacy switch names when using the LegacyNetworkBacking types.
-    scsiPassthrough (`vim.vm.ScsiPassthroughInfo`_, optional):
+    scsiPassthrough ([`vim.vm.ScsiPassthroughInfo`_], optional):
 
        List of generic SCSI devices.
-    scsiDisk (`vim.vm.ScsiDiskDeviceInfo`_, optional):
+    scsiDisk ([`vim.vm.ScsiDiskDeviceInfo`_], optional):
 
        List of physical SCSI disks that can be used as targets for raw disk mapping backings.
-    ideDisk (`vim.vm.IdeDiskDeviceInfo`_, optional):
+    ideDisk ([`vim.vm.IdeDiskDeviceInfo`_], optional):
 
        List of physical IDE disks that can be used as targets for raw disk backings.
     maxMemMBOptimalPerf (`int`_):
@@ -127,12 +127,12 @@ Attributes:
     autoVmotion (`bool`_, optional):
 
        Information whether a virtual machine with this ConfigTarget can auto vmotion. This field is only populated from an Environment browser obtained from a virtual machine.
-    pciPassthrough (`vim.vm.PciPassthroughInfo`_, optional):
+    pciPassthrough ([`vim.vm.PciPassthroughInfo`_], optional):
 
        List of generic PCI devices.
-    sriov (`vim.vm.SriovInfo`_, optional):
+    sriov ([`vim.vm.SriovInfo`_], optional):
 
        List of SRIOV devices.
-    vFlashModule (`vim.vm.VFlashModuleInfo`_, optional):
+    vFlashModule ([`vim.vm.VFlashModuleInfo`_], optional):
 
        List of vFlash modules.

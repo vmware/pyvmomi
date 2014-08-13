@@ -12,6 +12,6 @@ vim.dvs.DistributedVirtualPort.VendorSpecificConfig
 :since: `vSphere API 4.0`_
 
 Attributes:
-    keyValue (`vim.dvs.KeyedOpaqueBlob`_, optional):
+    keyValue ([`vim.dvs.KeyedOpaqueBlob`_], optional):
 
        An opaque binary blob that stores vendor specific configuration.

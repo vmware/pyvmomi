@@ -15,7 +15,7 @@ vim.host.VirtualSwitch.BondBridge
 :extends: vim.host.VirtualSwitch.Bridge_
 
 Attributes:
-    nicDevice (`str`_):
+    nicDevice ([`str`_]):
 
        The list of keys of the physical network adapters to be bridged.
     beacon (`vim.host.VirtualSwitch.BeaconConfig`_, optional):

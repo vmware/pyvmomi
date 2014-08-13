@@ -17,9 +17,9 @@ Attributes:
     role (`int`_):
 
        The index of the current VM in instanceUuids array starting from 1, so 1 means that it is the primary VM.
-    instanceUuids (`str`_):
+    instanceUuids ([`str`_]):
 
        The instanceUuid of all the VMs in this fault tolerance group. The first element is the instanceUuid of the primary VM.
-    configPaths (`str`_):
+    configPaths ([`str`_]):
 
        The configuration file path for all the VMs in this fault tolerance group.

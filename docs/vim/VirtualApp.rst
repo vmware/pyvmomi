@@ -96,10 +96,10 @@ Attributes
     parentFolder (`vim.Folder`_):
       privilege: System.View
        A reference to the parent folder in the VM and Template folder hierarchy. This is only set for a root vApp. A root vApp is a vApp that is not a child of another vApp.
-    datastore (`vim.Datastore`_):
+    datastore ([`vim.Datastore`_]):
       privilege: System.View
        A collection of references to the subset of datastore objects used by this vApp.
-    network (`vim.Network`_):
+    network ([`vim.Network`_]):
       privilege: System.View
        A collection of references to the subset of network objects that is used by this virtual machine.
     vAppConfig (`vim.vApp.VAppConfigInfo`_):
@@ -107,7 +107,7 @@ Attributes
        Configuration of this package.
     parentVApp (`vim.ManagedEntity`_):
        Reference to the parent vApp.
-    childLink (`vim.VirtualApp.LinkInfo`_):
+    childLink ([`vim.VirtualApp.LinkInfo`_]):
        List of linked children.
 
 

@@ -16,7 +16,7 @@ vim.vm.StorageInfo
 :since: `vSphere API 4.0`_
 
 Attributes:
-    perDatastoreUsage (`vim.vm.StorageInfo.UsageOnDatastore`_, optional):
+    perDatastoreUsage ([`vim.vm.StorageInfo.UsageOnDatastore`_], optional):
 
        Storage space used by this virtual machine on all datastores that it is located on.Total storage space committed to this virtual machine across all datastores is simply an aggregate of the property `committed`_ .See `committed`_ 
     timestamp (`datetime`_):

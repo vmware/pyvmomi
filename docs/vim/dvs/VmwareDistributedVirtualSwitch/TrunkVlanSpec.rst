@@ -12,6 +12,6 @@ vim.dvs.VmwareDistributedVirtualSwitch.TrunkVlanSpec
 :since: `vSphere API 4.0`_
 
 Attributes:
-    vlanId (`vim.NumericRange`_):
+    vlanId ([`vim.NumericRange`_]):
 
        The VlanId range for the trunk port. The valid VlanId range is from 0 to 4094. Overlapping ranges are allowed.

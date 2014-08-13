@@ -19,18 +19,18 @@ vim.scheduler.ScheduledTaskDescription
 :extends: vmodl.DynamicData_
 
 Attributes:
-    action (`vim.TypeDescription`_):
+    action ([`vim.TypeDescription`_]):
 
        Action class descriptions for a scheduled task.
-    schedulerInfo (`vim.scheduler.ScheduledTaskDescription.SchedulerDetail`_):
+    schedulerInfo ([`vim.scheduler.ScheduledTaskDescription.SchedulerDetail`_]):
 
        Scheduler class description details.
-    state (`vim.ElementDescription`_):
+    state ([`vim.ElementDescription`_]):
 
         `TaskInfo State enum`_ 
-    dayOfWeek (`vim.ElementDescription`_):
+    dayOfWeek ([`vim.ElementDescription`_]):
 
         `MonthlyByWeekdayTaskScheduler Days of the week enum description`_ 
-    weekOfMonth (`vim.ElementDescription`_):
+    weekOfMonth ([`vim.ElementDescription`_]):
 
         `MonthlyByWeekdayTaskScheduler Week of the month enum description`_ 

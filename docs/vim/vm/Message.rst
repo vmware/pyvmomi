@@ -53,7 +53,7 @@ Attributes:
     id (`str`_):
 
        A unique identifier for this particular message. This field is a key for looking up format strings in the locmsg catalog.
-    argument (`object`_, optional):
+    argument ([`object`_], optional):
 
        Substitution arguments for variables in the localized message. Substitution variables in the format string identified by `id`_ are 1-based indexes into this array. Substitution variable {1} corresponds to argument[0], etc.
     text (`str`_, optional):

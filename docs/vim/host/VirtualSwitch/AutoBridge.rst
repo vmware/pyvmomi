@@ -9,6 +9,6 @@ vim.host.VirtualSwitch.AutoBridge
 :extends: vim.host.VirtualSwitch.Bridge_
 
 Attributes:
-    excludedNicDevice (`str`_, optional):
+    excludedNicDevice ([`str`_], optional):
 
        List of physical network adapters that have been excluded from participating in the AutoBridge

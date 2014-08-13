@@ -32,13 +32,13 @@ Attributes:
     hwVersion (`int`_):
 
        The virtual hardware version.
-    virtualDeviceOption (`vim.vm.device.VirtualDeviceOption`_):
+    virtualDeviceOption ([`vim.vm.device.VirtualDeviceOption`_]):
 
        Array of virtual device options valid for this virtual machine configuration. The list is unordered.
     deviceListReadonly (`bool`_):
 
        Whether the set of virtual devices can be changed, e.g., can devices be added or removed. This does not preclude changing devices.
-    numCPU (`int`_):
+    numCPU ([`int`_]):
 
        List of acceptable values for the number of CPUs supported by this `ConfigOption`_ . This is usually superceded by the information available in the guest operating system descriptors. The guest operating system descriptor describes a maximum CPU count, but the acceptable values are still constrained to the set specified here. The default value is stored at index 0 in the list.
     numCoresPerSocket (`vim.option.IntOption`_):
@@ -68,7 +68,7 @@ Attributes:
     numPS2Controllers (`vim.option.IntOption`_):
 
        The minimum, maximum, and default number of PS2 controllers for this virtual machine configuration.
-    licensingLimit (`str`_, optional):
+    licensingLimit ([`str`_], optional):
 
        List of propery names which limits are given be a licensing restriction of the underlying product, e.g., a limit that is not derived based on the product or hardware features. For example, the property name "numCPU"
     numSupportedWwnPorts (`vim.option.IntOption`_, optional):

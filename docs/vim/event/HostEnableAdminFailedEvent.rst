@@ -12,5 +12,5 @@ vim.event.HostEnableAdminFailedEvent
 :since: `VI API 2.5`_
 
 Attributes:
-    permissions (`vim.AuthorizationManager.Permission`_):
+    permissions ([`vim.AuthorizationManager.Permission`_]):
 

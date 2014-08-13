@@ -18,10 +18,10 @@ vim.vsan.host.VsanRuntimeInfo
 :since: `vSphere API 5.5`_
 
 Attributes:
-    membershipList (`vim.vsan.host.MembershipInfo`_, optional):
+    membershipList ([`vim.vsan.host.MembershipInfo`_], optional):
 
        This property reports host membership information.
-    diskIssues (`vim.vsan.host.VsanRuntimeInfo.DiskIssue`_, optional):
+    diskIssues ([`vim.vsan.host.VsanRuntimeInfo.DiskIssue`_], optional):
 
        List of disk issues detected on this host.To retrieve more information on the issues, use `QueryDisksForVsan`_ .
     accessGenNo (`int`_, optional):

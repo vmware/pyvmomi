@@ -27,7 +27,7 @@ Attributes:
     message (`str`_, optional):
 
        An arbitrary message string, not localized.
-    arguments (`vmodl.KeyAnyValue`_, optional):
+    arguments ([`vmodl.KeyAnyValue`_], optional):
 
        The event arguments associated with the event
     objectId (`str`_, optional):

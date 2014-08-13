@@ -70,7 +70,7 @@ vim.SessionManager
 
 Attributes
 ----------
-    sessionList (`vim.UserSession`_):
+    sessionList ([`vim.UserSession`_]):
       privilege: Sessions.TerminateSession
        The list of currently active sessions.
     currentSession (`vim.UserSession`_):
@@ -79,10 +79,10 @@ Attributes
     message (`str`_):
       privilege: System.View
        The system global message from the server.
-    messageLocaleList (`str`_):
+    messageLocaleList ([`str`_]):
       privilege: System.Anonymous
        Provides the list of locales for which the server has localized messages.
-    supportedLocaleList (`str`_):
+    supportedLocaleList ([`str`_]):
       privilege: System.Anonymous
        Provides the list of locales that the server supports. Listing a locale ensures that some standardized information such as dates appear in the appropriate format. Other localized information, such as error messages, are displayed, if available. If localized information is not available, the message is returned using the system locale.
     defaultLocale (`str`_):

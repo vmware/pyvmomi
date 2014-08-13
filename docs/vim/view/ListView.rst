@@ -46,7 +46,7 @@ ModifyListView(add, remove):
 
 
   Returns:
-    `vmodl.ManagedObject`_:
+    [`vmodl.ManagedObject`_]:
          A list containing any objects in 'add' that could not be resolved.
 
 
@@ -66,7 +66,7 @@ ResetListView(obj):
 
 
   Returns:
-    `vmodl.ManagedObject`_:
+    [`vmodl.ManagedObject`_]:
          A list containing any objects in 'obj' that could not be resolved.
 
 

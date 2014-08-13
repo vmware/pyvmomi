@@ -24,6 +24,6 @@ Attributes:
     totalSectors (`long`_, optional):
 
        Disk dimensions expressed in total number of 512-byte sectors.
-    partition (`vim.host.DiskPartitionInfo.Partition`_, optional):
+    partition ([`vim.host.DiskPartitionInfo.Partition`_], optional):
 
        List of partitions on the disk.

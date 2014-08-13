@@ -20,12 +20,12 @@ vim.dvs.DistributedVirtualSwitchManager.ImportResult
 :since: `vSphere API 5.1`_
 
 Attributes:
-    distributedVirtualSwitch (`vim.DistributedVirtualSwitch`_, optional):
+    distributedVirtualSwitch ([`vim.DistributedVirtualSwitch`_], optional):
 
        List of distributed virtual switches.
-    distributedVirtualPortgroup (`vim.dvs.DistributedVirtualPortgroup`_, optional):
+    distributedVirtualPortgroup ([`vim.dvs.DistributedVirtualPortgroup`_], optional):
 
        List of distributed virtual portgroups.
-    importFault (`vim.fault.ImportOperationBulkFault.FaultOnImport`_, optional):
+    importFault ([`vim.fault.ImportOperationBulkFault.FaultOnImport`_], optional):
 
        Faults that occurred on the entities during the import operation.

@@ -14,7 +14,7 @@ Attributes:
     key (`str`_, optional):
 
        The linkable identifier.
-    mac (`str`_, optional):
+    mac ([`str`_], optional):
 
        The Media Access Control (MAC) address of network service of the virtual machine connected on this port.
     type (`str`_):

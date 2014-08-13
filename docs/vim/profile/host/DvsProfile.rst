@@ -26,6 +26,6 @@ Attributes:
     name (`str`_):
 
        Unique identifier for the distributed virtual switch.
-    uplink (`vim.profile.host.PnicUplinkProfile`_, optional):
+    uplink ([`vim.profile.host.PnicUplinkProfile`_], optional):
 
        List of subprofiles that map physical NICs to uplink ports. Use the `key`_ property to access subprofiles in the list.

@@ -9,9 +9,9 @@ vim.AuthorizationDescription
 :extends: vmodl.DynamicData_
 
 Attributes:
-    privilege (`vim.ElementDescription`_):
+    privilege ([`vim.ElementDescription`_]):
 
        Description of the privilege.
-    privilegeGroup (`vim.ElementDescription`_):
+    privilegeGroup ([`vim.ElementDescription`_]):
 
        Description of a category of similar privileges, grouped together for convenience.

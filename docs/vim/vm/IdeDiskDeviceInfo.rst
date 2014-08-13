@@ -9,5 +9,5 @@ vim.vm.IdeDiskDeviceInfo
 :extends: vim.vm.DiskDeviceInfo_
 
 Attributes:
-    partitionTable (`vim.vm.IdeDiskDeviceInfo.PartitionInfo`_, optional):
+    partitionTable ([`vim.vm.IdeDiskDeviceInfo.PartitionInfo`_], optional):
 

@@ -15,6 +15,6 @@ vim.host.MultipathInfo
 :extends: vmodl.DynamicData_
 
 Attributes:
-    lun (`vim.host.MultipathInfo.LogicalUnit`_, optional):
+    lun ([`vim.host.MultipathInfo.LogicalUnit`_], optional):
 
        List of logical units that can be configured for multipathing.

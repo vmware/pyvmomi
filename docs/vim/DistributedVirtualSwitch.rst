@@ -290,9 +290,9 @@ Attributes
        Summary of the switch.
     config (`vim.DistributedVirtualSwitch.ConfigInfo`_):
        Switch configuration data.
-    networkResourcePool (`vim.dvs.NetworkResourcePool`_):
+    networkResourcePool ([`vim.dvs.NetworkResourcePool`_]):
        Network resource pool information for the switch.
-    portgroup (`vim.dvs.DistributedVirtualPortgroup`_):
+    portgroup ([`vim.dvs.DistributedVirtualPortgroup`_]):
        Portgroups that are defined on the switch.
     runtime (`vim.DistributedVirtualSwitch.RuntimeInfo`_):
        Runtime information of the distributed virtual switch.
@@ -319,7 +319,7 @@ FetchDVPortKeys(criteria):
 
 
   Returns:
-    `str`_:
+    [`str`_]:
          
 
 
@@ -340,7 +340,7 @@ FetchDVPorts(criteria):
 
 
   Returns:
-    `vim.dvs.DistributedVirtualPort`_:
+    [`vim.dvs.DistributedVirtualPort`_]:
          
 
 
@@ -357,7 +357,7 @@ QueryUsedVlanIdInDvs():
 
 
   Returns:
-    `int`_:
+    [`int`_]:
          
 
 

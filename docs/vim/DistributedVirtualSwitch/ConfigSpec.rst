@@ -53,13 +53,13 @@ Attributes:
     uplinkPortPolicy (`vim.DistributedVirtualSwitch.UplinkPortPolicy`_, optional):
 
        The uplink port policy.
-    uplinkPortgroup (`vim.dvs.DistributedVirtualPortgroup`_, optional):
+    uplinkPortgroup ([`vim.dvs.DistributedVirtualPortgroup`_], optional):
 
        The uplink portgroups.
     defaultPortConfig (`vim.dvs.DistributedVirtualPort.Setting`_, optional):
 
        The default configuration for ports.
-    host (`vim.dvs.HostMember.ConfigSpec`_, optional):
+    host ([`vim.dvs.HostMember.ConfigSpec`_], optional):
 
        The host member specification. A particular host should have only one entry in this array. Duplicate entries for the same host will raise a fault. The host version should be compatible with the version of `DistributedVirtualSwitch`_ . Use `QueryDvsCheckCompatibility`_ to check for compatibility.
     extensionKey (`str`_, optional):
@@ -71,7 +71,7 @@ Attributes:
     policy (`vim.DistributedVirtualSwitch.SwitchPolicy`_, optional):
 
        The usage policy of the switch.
-    vendorSpecificConfig (`vim.dvs.KeyedOpaqueBlob`_, optional):
+    vendorSpecificConfig ([`vim.dvs.KeyedOpaqueBlob`_], optional):
 
        Set the opaque blob that stores vendor specific configuration.
     contact (`vim.DistributedVirtualSwitch.ContactInfo`_, optional):

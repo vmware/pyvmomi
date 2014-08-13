@@ -12,9 +12,9 @@ vim.dvs.VmwareDistributedVirtualSwitch.UplinkPortOrderPolicy
 :since: `vSphere API 4.0`_
 
 Attributes:
-    activeUplinkPort (`str`_, optional):
+    activeUplinkPort ([`str`_], optional):
 
        List of active uplink ports used for load balancing.
-    standbyUplinkPort (`str`_, optional):
+    standbyUplinkPort ([`str`_], optional):
 
        Standby uplink ports used for failover.

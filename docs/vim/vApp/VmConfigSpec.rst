@@ -28,22 +28,22 @@ vim.vApp.VmConfigSpec
 :since: `vSphere API 4.0`_
 
 Attributes:
-    product (`vim.vApp.ProductSpec`_, optional):
+    product ([`vim.vApp.ProductSpec`_], optional):
 
        Information about the product.Reconfigure privilege: VApp.ApplicationConfig
-    property (`vim.vApp.PropertySpec`_, optional):
+    property ([`vim.vApp.PropertySpec`_], optional):
 
        List of properties.Adding and editing properties requires various privileges depending on which fields are affected. See `VAppPropertyInfo`_ for details.Deleting properties requires the privilege VApp.ApplicationConfig.
     ipAssignment (`vim.vApp.IPAssignmentInfo`_, optional):
 
        IP assignment policy and DHCP support configuration.Reconfigure privilege: See `VAppIPAssignmentInfo`_ 
-    eula (`str`_, optional):
+    eula ([`str`_], optional):
 
        End User Liceses Agreements.If this list is set, it replaces all exiting licenses. An empty list will not make any changes to installed licenses. A list with a single element {""} will remove all licenses and leave an empty list.Reconfigure privilege: VApp.ApplicationConfig
-    ovfSection (`vim.vApp.OvfSectionSpec`_, optional):
+    ovfSection ([`vim.vApp.OvfSectionSpec`_], optional):
 
        List of uninterpreted OVF meta-data sections.Reconfigure privilege: VApp.ApplicationConfig
-    ovfEnvironmentTransport (`str`_, optional):
+    ovfEnvironmentTransport ([`str`_], optional):
 
        List the transports to use for properties. Supported values are: iso and com.vmware.guestInfo.If this list is set, it replaces all exiting entries. An empty list will not make any changes. A list with a single element {""} will clear the list of transports.Reconfigure privilege: VApp.ApplicationConfig
     installBootRequired (`bool`_, optional):

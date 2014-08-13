@@ -32,6 +32,6 @@ Attributes:
     nodeState (`vim.vsan.host.ClusterStatus.State`_):
 
        VSAN node state for this host.
-    memberUuid (`str`_, optional):
+    memberUuid ([`str`_], optional):
 
        List of UUIDs for VSAN nodes known to this host.

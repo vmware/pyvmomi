@@ -15,6 +15,6 @@ Attributes:
     dvsUuid (`str`_):
 
        vSphere Distributed Switch uuid
-    portgroupKey (`str`_):
+    portgroupKey ([`str`_]):
 
        List of vNetwork Distributed Portgroup keys

@@ -26,7 +26,7 @@ Attributes:
     numSCSIPassthrough (`vim.option.IntOption`_):
 
        Three properties (numSCSIPassthrough.min, numSCSIPassthrough.max, and numSCSIPassthrough.defaultValue) define the minimum, maximum, and default number of VirtualSCSIPassthrough instances available have at any given time in the SCSI controller. The number of VirtualSCSIPassthrough instances is also limited by the number of available slots in the SCSI controller.
-    sharing (`vim.vm.device.VirtualSCSIController.Sharing`_):
+    sharing ([`vim.vm.device.VirtualSCSIController.Sharing`_]):
 
        Supported shared bus modes.
     defaultSharedIndex (`int`_):

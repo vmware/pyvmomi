@@ -12,6 +12,6 @@ vim.net.IpRouteConfigSpec
 :since: `vSphere API 4.1`_
 
 Attributes:
-    ipRoute (`vim.net.IpRouteConfigSpec.IpRouteSpec`_, optional):
+    ipRoute ([`vim.net.IpRouteConfigSpec.IpRouteSpec`_], optional):
 
        The set of updates to apply to the routing table.

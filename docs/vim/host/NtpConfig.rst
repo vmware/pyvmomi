@@ -12,6 +12,6 @@ vim.host.NtpConfig
 :since: `VI API 2.5`_
 
 Attributes:
-    server (`str`_, optional):
+    server ([`str`_], optional):
 
        List of time servers, specified as either IP addresses or fully qualified domain names (FQDNs).

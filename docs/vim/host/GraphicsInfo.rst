@@ -31,6 +31,6 @@ Attributes:
     memorySizeInKB (`long`_):
 
        Memory capacity of graphics device or zero if not available.
-    vm (`vim.VirtualMachine`_, optional):
+    vm ([`vim.VirtualMachine`_], optional):
 
        Virtual machines using this graphics device.

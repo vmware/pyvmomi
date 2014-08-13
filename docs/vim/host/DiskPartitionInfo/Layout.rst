@@ -14,6 +14,6 @@ Attributes:
     total (`vim.host.DiskDimensions.Lba`_, optional):
 
        Total number of blocks on a disk.
-    partition (`vim.host.DiskPartitionInfo.BlockRange`_):
+    partition ([`vim.host.DiskPartitionInfo.BlockRange`_]):
 
        List of block ranges on the disk.

@@ -176,30 +176,30 @@ Attributes:
     dasConfig (`vim.cluster.DasConfigInfo`_, optional):
 
        HA configuration; includes default settings for virtual machines.
-    dasVmConfigSpec (`vim.cluster.DasVmConfigSpec`_, optional):
+    dasVmConfigSpec ([`vim.cluster.DasVmConfigSpec`_], optional):
 
        HA configuration for individual virtual machines. The entries in this array override the cluster default settings ( `ClusterDasConfigInfo`_ . `defaultVmSettings`_ ). You cannot specify an HA override for a secondary FT virtual machine. The secondary virtual machine will inherit whatever settings apply to its primary virtual machine. If you include an entry for a secondary, the reconfigure method will throw the fault `CannotChangeHaSettingsForFtSecondary`_ .
     drsConfig (`vim.cluster.DrsConfigInfo`_, optional):
 
        DRS configuration; includes default settings for virtual machines.
-    drsVmConfigSpec (`vim.cluster.DrsVmConfigSpec`_, optional):
+    drsVmConfigSpec ([`vim.cluster.DrsVmConfigSpec`_], optional):
 
        DRS configuration for individual virtual machines. The entries in this array override the cluster default settings ( `ClusterDrsConfigInfo`_ . `defaultVmBehavior`_ ). You cannot specify a DRS override for a secondary FT virtual machine. The secondary virtual machine will inherit whatever setting applies to its primary virtual machine. If you include an entry for a secondary, the reconfigure method will throw the fault `CannotChangeDrsBehaviorForFtSecondary`_ .
-    rulesSpec (`vim.cluster.RuleSpec`_, optional):
+    rulesSpec ([`vim.cluster.RuleSpec`_], optional):
 
        Cluster affinity and anti-affinity rule configuration.
     dpmConfig (`vim.cluster.DpmConfigInfo`_, optional):
 
        DPM configuration; includes default settings for hosts.
-    dpmHostConfigSpec (`vim.cluster.DpmHostConfigSpec`_, optional):
+    dpmHostConfigSpec ([`vim.cluster.DpmHostConfigSpec`_], optional):
 
        DPM configuration for individual hosts. The entries in this array override the cluster default settings ( `ClusterDpmConfigInfo`_ . `defaultDpmBehavior`_ ).
     vsanConfig (`vim.vsan.cluster.ConfigInfo`_, optional):
 
        VSAN configuration; includes default settings for hosts.
-    vsanHostConfigSpec (`vim.vsan.host.ConfigInfo`_, optional):
+    vsanHostConfigSpec ([`vim.vsan.host.ConfigInfo`_], optional):
 
        VSAN configuration for individual hosts. The entries in this array override the cluster default settings as specified in `VsanClusterConfigInfo`_ .
-    groupSpec (`vim.cluster.GroupSpec`_, optional):
+    groupSpec ([`vim.cluster.GroupSpec`_], optional):
 
        Cluster-wide group configuration. The array contains one or more group specification objects. A group specification object contains a virtual machine group ( `ClusterVmGroup`_ ) or a host group ( `ClusterHostGroup`_ ). Groups can be related; see `ClusterVmHostRuleInfo`_ .

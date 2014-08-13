@@ -165,10 +165,10 @@ Attributes:
     replayUnsupportedReason (`str`_, optional):
 
        For a host whose CPU doesn't support replay, indicates the reason for the incompatibility. `HostReplayUnsupportedReason`_ represents the set of possible values.
-    replayCompatibilityIssues (`str`_, optional):
+    replayCompatibilityIssues ([`str`_], optional):
 
        For a host which doesn't support replay, indicates all the reasons for the incompatibility. `HostReplayUnsupportedReason`_ lists the set of possible values.
-    ftCompatibilityIssues (`str`_, optional):
+    ftCompatibilityIssues ([`str`_], optional):
 
        For a host which doesn't support Fault Tolerance, indicates all the reasons for the incompatibility. `HostCapabilityFtUnsupportedReason`_ lists the set of possible values.
     loginBySSLThumbprintSupported (`bool`_, optional):
@@ -186,7 +186,7 @@ Attributes:
     tpmSupported (`bool`_):
 
        Flag indicating whether this host supports the integrity measurement using a TPM device.
-    supportedCpuFeature (`vim.host.CpuIdInfo`_, optional):
+    supportedCpuFeature ([`vim.host.CpuIdInfo`_], optional):
 
        CPU feature set that is supported by the virtualization platform. This feature set may reflect characteristics of the product capabilities and licensing. For any feature marked '-', reference the `cpuFeature`_ array of the host's HardwareInfo to determine the correct value.
     virtualExecUsageSupported (`bool`_):
@@ -198,13 +198,13 @@ Attributes:
     vmDirectPathGen2Supported (`bool`_):
 
        Indicates whether the host supports network passthrough using VMDirectPath Gen 2. Note that this is a general capability for the host and is independent of support by a given physical NIC. If false, the reason(s) for lack of support will be provided in `vmDirectPathGen2UnsupportedReason`_ and/or in `vmDirectPathGen2UnsupportedReasonExtended`_ .See `vmDirectPathGen2Supported`_ 
-    vmDirectPathGen2UnsupportedReason (`str`_, optional):
+    vmDirectPathGen2UnsupportedReason ([`str`_], optional):
 
        If `vmDirectPathGen2Supported`_ is false, this array will be populated with reasons for the lack of support (chosen from VmDirectPathGen2UnsupportedReason). If there is a reason for the lack of support that cannot be described by the available constants, `vmDirectPathGen2UnsupportedReasonExtended`_ will be populated with an additional explanation provided by the platform.Note that this list of reasons is not guaranteed to be exhaustive.If the reason "hostNptIncompatibleProduct" is provided, then that will be the only provided reason, as the host software is incapable of providing additional information.
     vmDirectPathGen2UnsupportedReasonExtended (`str`_, optional):
 
        If `vmDirectPathGen2Supported`_ is false, this property may contain an explanation provided by the platform, beyond the reasons (if any) enumerated in `vmDirectPathGen2UnsupportedReason`_ .
-    supportedVmfsMajorVersion (`int`_, optional):
+    supportedVmfsMajorVersion ([`int`_], optional):
 
        List of VMFS major versions supported by the host.
     vStorageCapable (`bool`_):

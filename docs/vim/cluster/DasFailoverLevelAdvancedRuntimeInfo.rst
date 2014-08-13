@@ -45,8 +45,8 @@ Attributes:
     totalGoodHosts (`int`_):
 
        The total number of connected hosts that are not in maintance mode and that do not have any DAS-related config issues on them.
-    hostSlots (`vim.cluster.DasFailoverLevelAdvancedRuntimeInfo.HostSlots`_, optional):
+    hostSlots ([`vim.cluster.DasFailoverLevelAdvancedRuntimeInfo.HostSlots`_], optional):
 
-    vmsRequiringMultipleSlots (`vim.cluster.DasFailoverLevelAdvancedRuntimeInfo.VmSlots`_, optional):
+    vmsRequiringMultipleSlots ([`vim.cluster.DasFailoverLevelAdvancedRuntimeInfo.VmSlots`_], optional):
 
        The list of virtual machines whose reservations and memory overhead are not satisfied by a single slot.

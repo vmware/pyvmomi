@@ -28,10 +28,10 @@ vim.dvs.VmwareDistributedVirtualSwitch.ConfigInfo
 :since: `vSphere API 4.0`_
 
 Attributes:
-    vspanSession (`vim.dvs.VmwareDistributedVirtualSwitch.VspanSession`_, optional):
+    vspanSession ([`vim.dvs.VmwareDistributedVirtualSwitch.VspanSession`_], optional):
 
        The Distributed Port Mirroring sessions in the switch.
-    pvlanConfig (`vim.dvs.VmwareDistributedVirtualSwitch.PvlanMapEntry`_, optional):
+    pvlanConfig ([`vim.dvs.VmwareDistributedVirtualSwitch.PvlanMapEntry`_], optional):
 
        The PVLAN configured in the switch.
     maxMtu (`int`_):
@@ -43,7 +43,7 @@ Attributes:
     ipfixConfig (`vim.dvs.VmwareDistributedVirtualSwitch.IpfixConfig`_, optional):
 
        Configuration for ipfix monitoring of the switch traffic. This must be set before ipfix monitoring can be enabled for the switch, or for any portgroup or port of the switch.See `ipfixEnabled`_ 
-    lacpGroupConfig (`vim.dvs.VmwareDistributedVirtualSwitch.LacpGroupConfig`_, optional):
+    lacpGroupConfig ([`vim.dvs.VmwareDistributedVirtualSwitch.LacpGroupConfig`_], optional):
 
        The Link Aggregation Control Protocol groups in the switch.
     lacpApiVersion (`str`_, optional):

@@ -17,6 +17,6 @@ Attributes:
     profileTypeName (`str`_):
 
        Identifier for the profile type
-    child (`vim.profile.ProfileStructureProperty`_, optional):
+    child ([`vim.profile.ProfileStructureProperty`_], optional):
 
        SubProfile properties available for this profile

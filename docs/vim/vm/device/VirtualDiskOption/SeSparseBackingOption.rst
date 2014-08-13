@@ -52,6 +52,6 @@ Attributes:
     uuid (`bool`_):
 
        Flag to indicate whether this backing supports disk UUID property.
-    deltaDiskFormatsSupported (`vim.vm.device.VirtualDiskOption.DeltaDiskFormatsSupported`_):
+    deltaDiskFormatsSupported ([`vim.vm.device.VirtualDiskOption.DeltaDiskFormatsSupported`_]):
 
        Delta disk formats supported for each datastore type.

@@ -16,7 +16,7 @@ vim.host.IpConfig.IpV6AddressConfiguration
 :since: `vSphere API 4.0`_
 
 Attributes:
-    ipV6Address (`vim.host.IpConfig.IpV6Address`_, optional):
+    ipV6Address ([`vim.host.IpConfig.IpV6Address`_], optional):
 
        Ipv6 adrresses configured on the interface. The global addresses can be configured through DHCP, stateless or manual configuration. Link local addresses can be only configured with the origin set to `other`_ .
     autoConfigurationEnabled (`bool`_, optional):

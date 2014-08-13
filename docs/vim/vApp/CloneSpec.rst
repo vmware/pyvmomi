@@ -42,13 +42,13 @@ Attributes:
     vmFolder (`vim.Folder`_, privilege: VApp.Create, optional):
 
        The VM Folder to associate the vApp with
-    networkMapping (`vim.vApp.CloneSpec.NetworkMappingPair`_, optional):
+    networkMapping ([`vim.vApp.CloneSpec.NetworkMappingPair`_], optional):
 
        Network mappings. See NetworkMappingPair.
-    property (`vim.KeyValue`_, optional):
+    property ([`vim.KeyValue`_], optional):
 
        A set of property values to override.
-    resourceMapping (`vim.vApp.CloneSpec.ResourceMap`_, optional):
+    resourceMapping ([`vim.vApp.CloneSpec.ResourceMap`_], optional):
 
        The resource configuration for the cloned vApp.
     provisioning (`str`_, optional):

@@ -17,9 +17,9 @@ Attributes:
     adminPassword (`str`_, optional):
 
        Administrator password to configure
-    removePermission (`vim.AuthorizationManager.Permission`_, optional):
+    removePermission ([`vim.AuthorizationManager.Permission`_], optional):
 
        Permissions to remove
-    addPermission (`vim.AuthorizationManager.Permission`_, optional):
+    addPermission ([`vim.AuthorizationManager.Permission`_], optional):
 
        Permissions to add

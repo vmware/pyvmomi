@@ -11,9 +11,9 @@ vim.PerformanceDescription
 :extends: vmodl.DynamicData_
 
 Attributes:
-    counterType (`vim.ElementDescription`_):
+    counterType ([`vim.ElementDescription`_]):
 
        Identifies the `type`_ of the counter.
-    statsType (`vim.ElementDescription`_):
+    statsType ([`vim.ElementDescription`_]):
 
        Identifies the `type`_ of statistic.

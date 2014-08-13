@@ -43,6 +43,6 @@ Attributes:
     perDeviceLevel (`int`_, optional):
 
        Minimum level at which the per device metrics of this type will be collected by vCenter Server. The value for this property for any performance counter is a number from 1 to 4. By default all per device metrics are calculated at level 3 or more. If a certain per device counter is collected at a certain level, the aggregate metric is also calculated at that level, i.e., perDeviceLevel is greater than or equal to level.
-    associatedCounterId (`int`_, optional):
+    associatedCounterId ([`int`_], optional):
 
        The counter IDs associated with the same performance counter name for the same device type. For example, the rollup types for CPU Usage for a host are average, minimum, and maximumTherefore, their counter IDs are associated.

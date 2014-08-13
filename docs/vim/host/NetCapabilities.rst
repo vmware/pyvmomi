@@ -19,7 +19,7 @@ Attributes:
     supportsNicTeaming (`bool`_):
 
        The flag to indicate whether or not network adapter teaming is available. Multiple network adapters can be bridged to a virtual switch through a BondBridge. Also, network adapter teaming policies such as failover order and detection are enabled.
-    nicTeamingPolicy (`str`_, optional):
+    nicTeamingPolicy ([`str`_], optional):
 
        The available teaming policies if the platform supports network adapter teaming.
     supportsVlan (`bool`_):

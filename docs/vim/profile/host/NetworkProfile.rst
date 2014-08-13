@@ -42,16 +42,16 @@ vim.profile.host.NetworkProfile
 :since: `vSphere API 4.0`_
 
 Attributes:
-    vswitch (`vim.profile.host.VirtualSwitchProfile`_, optional):
+    vswitch ([`vim.profile.host.VirtualSwitchProfile`_], optional):
 
        List of virtual switch subprofiles. Use the `key`_ property to access a subprofile in the list.
-    vmPortGroup (`vim.profile.host.VmPortGroupProfile`_, optional):
+    vmPortGroup ([`vim.profile.host.VmPortGroupProfile`_], optional):
 
        List of port groups for use by virtual machines. Use the `VmPortGroupProfile`_ . `key`_ property to access a port group in the list.
-    hostPortGroup (`vim.profile.host.HostPortGroupProfile`_, optional):
+    hostPortGroup ([`vim.profile.host.HostPortGroupProfile`_], optional):
 
        List of port groups for use by the host. Use the `HostPortGroupProfile`_ . `key`_ property to access port groups in the list.
-    serviceConsolePortGroup (`vim.profile.host.ServiceConsolePortGroupProfile`_, optional):
+    serviceConsolePortGroup ([`vim.profile.host.ServiceConsolePortGroupProfile`_], optional):
 
        List of port groups for use by the service console. The Profile Engine uses this field only when applying a profile to a host that has a service console.
     dnsConfig (`vim.profile.host.NetworkProfile.DnsConfigProfile`_, optional):
@@ -63,18 +63,18 @@ Attributes:
     consoleIpRouteConfig (`vim.profile.host.IpRouteProfile`_, optional):
 
        Subprofile that describes the IP Route configuration for the Service Console gateway.
-    pnic (`vim.profile.host.PhysicalNicProfile`_, optional):
+    pnic ([`vim.profile.host.PhysicalNicProfile`_], optional):
 
        List of subprofiles that represent physical NIC configuration. Use the `key`_ property to access a subprofile in the list.
-    dvswitch (`vim.profile.host.DvsProfile`_, optional):
+    dvswitch ([`vim.profile.host.DvsProfile`_], optional):
 
        List of subprofiles for distributed virtual switches to which this host is connected. Use the `key`_ property to access a subprofile in the list.
-    dvsServiceConsoleNic (`vim.profile.host.DvsServiceConsoleVNicProfile`_, optional):
+    dvsServiceConsoleNic ([`vim.profile.host.DvsServiceConsoleVNicProfile`_], optional):
 
        List of subprofiles for service console Virtual NICs connected to a distributed virtual switch. Use the `DvsServiceConsoleVNicProfile`_ . `key`_ property to access a subprofile in the list.
-    dvsHostNic (`vim.profile.host.DvsHostVNicProfile`_, optional):
+    dvsHostNic ([`vim.profile.host.DvsHostVNicProfile`_], optional):
 
        List of subprofiles for host Virtual NICs connected to a distributed virtual switch. Use the `DvsHostVNicProfile`_ . `key`_ property to access a subprofile in the list.
-    netStackInstance (`vim.profile.host.NetStackInstanceProfile`_, optional):
+    netStackInstance ([`vim.profile.host.NetStackInstanceProfile`_], optional):
 
        List of NetStackInstance subprofiles. Use the `key`_ property to access a subprofile in the list.

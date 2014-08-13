@@ -28,7 +28,7 @@ Attributes:
     dnsTimeout (`int`_):
 
        The time (in seconds) before retrying a DNS request to an external network.
-    dnsNameServer (`str`_, optional):
+    dnsNameServer ([`str`_], optional):
 
        The list of DNS servers.
     nbdsTimeout (`int`_):

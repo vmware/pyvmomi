@@ -59,7 +59,7 @@ Attributes:
     key (`str`_):
 
        Unique key identifying the message in the localized message catalog.
-    arg (`vmodl.KeyAnyValue`_, optional):
+    arg ([`vmodl.KeyAnyValue`_], optional):
 
        Substitution arguments for variables in the localized message.
     message (`str`_, optional):

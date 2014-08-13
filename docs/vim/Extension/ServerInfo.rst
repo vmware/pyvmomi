@@ -26,7 +26,7 @@ Attributes:
     type (`str`_):
 
        Type of server (examples may include SOAP, REST, HTTP, etc.).
-    adminEmail (`str`_):
+    adminEmail ([`str`_]):
 
        Extension administrator email addresses.
     serverThumbprint (`str`_, optional):

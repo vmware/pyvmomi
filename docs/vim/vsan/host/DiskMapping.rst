@@ -21,6 +21,6 @@ Attributes:
     ssd (`vim.host.ScsiDisk`_):
 
        SSD ScsiDisk.
-    nonSsd (`vim.host.ScsiDisk`_):
+    nonSsd ([`vim.host.ScsiDisk`_]):
 
        Set of non-SSD backing ScsiDisk.

@@ -12,6 +12,6 @@ vim.host.PowerSystem.Capability
 :since: `vSphere API 4.1`_
 
 Attributes:
-    availablePolicy (`vim.host.PowerSystem.PowerPolicy`_):
+    availablePolicy ([`vim.host.PowerSystem.PowerPolicy`_]):
 
        List of available host power policies.

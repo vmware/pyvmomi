@@ -11,6 +11,6 @@ Attributes:
     dynamicType (`str`_, optional):
 
        Reserved.
-    val (`object`_):
+    val ([`object`_]):
 
        Array of dynamic values.

@@ -16,18 +16,18 @@ vim.dvs.VmwareDistributedVirtualSwitch.VspanPorts
 :since: `vSphere API 5.0`_
 
 Attributes:
-    portKey (`str`_, optional):
+    portKey ([`str`_], optional):
 
        Individual ports to participate in the Distributed Port Mirroring session.
-    uplinkPortName (`str`_, optional):
+    uplinkPortName ([`str`_], optional):
 
        Uplink ports used as destination ports to participate in the Distributed Port Mirroring session. A fault will be raised if uplinkPortName is used as source ports in any Distributed Port Mirroring session.
-    wildcardPortConnecteeType (`str`_, optional):
+    wildcardPortConnecteeType ([`str`_], optional):
 
        Wild card specification for source ports participating in the Distributed Port Mirroring session. See `DistributedVirtualSwitchPortConnecteeConnecteeType`_ for valid values. Any port that has a connectee of the specified type has its receive traffic mirrored. A fault will be raised if wildcards are specified as destination ports or source ports mirroring traffic on the transmit side. It is to be not used.
-    vlans (`int`_, optional):
+    vlans ([`int`_], optional):
 
        Vlan Ids for ingress source of Remote Mirror destination session.
-    ipAddress (`str`_, optional):
+    ipAddress ([`str`_], optional):
 
        IP address for the destination of encapsulated remote mirror source session, IPv4 address is specified using dotted decimal notation. For example, "192.0.2.1". IPv6 addresses are 128-bit addresses represented as eight fields of up to four hexadecimal digits. A colon separates each field (:). For example, 2001:DB8:101::230:6eff:fe04:d9ff.

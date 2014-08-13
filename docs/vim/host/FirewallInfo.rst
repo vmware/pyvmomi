@@ -14,6 +14,6 @@ Attributes:
     defaultPolicy (`vim.host.FirewallInfo.DefaultPolicy`_):
 
        Default firewall policy.
-    ruleset (`vim.host.Ruleset`_, optional):
+    ruleset ([`vim.host.Ruleset`_], optional):
 
        List of configured rulesets.

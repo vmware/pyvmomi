@@ -14,6 +14,6 @@ Attributes:
     systemUser (`bool`_):
 
        Whether or not to filter by system user. If set to true, filters for system user event.
-    userList (`str`_, optional):
+    userList ([`str`_], optional):
 
        Specifies the username list to use in the filter. If not set, then all regular user tasks are collected.

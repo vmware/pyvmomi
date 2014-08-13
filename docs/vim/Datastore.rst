@@ -81,9 +81,9 @@ Attributes
        Specific information about the datastore.
     summary (`vim.Datastore.Summary`_):
        Global properties of the datastore.
-    host (`vim.Datastore.HostMount`_):
+    host ([`vim.Datastore.HostMount`_]):
        Hosts attached to this datastore.
-    vm (`vim.VirtualMachine`_):
+    vm ([`vim.VirtualMachine`_]):
        Virtual machines stored on this datastore.
     browser (`vim.host.DatastoreBrowser`_):
        DatastoreBrowser used to browse this datastore.

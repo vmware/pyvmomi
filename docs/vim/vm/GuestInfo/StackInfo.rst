@@ -24,7 +24,7 @@ Attributes:
     ipRouteConfig (`vim.net.IpRouteConfigInfo`_, optional):
 
        IP route table configuration.
-    ipStackConfig (`vim.KeyValue`_, optional):
+    ipStackConfig ([`vim.KeyValue`_], optional):
 
        Report Kernel IP configuration settings. The key part contains a unique number in the report. The value part contains the 'key=value' as provided by the underlying provider. For example on Linux, BSD, the systcl -a output would be reported as: key='5', value='net.ipv4.tcp_keepalive_time = 7200'
     dhcpConfig (`vim.net.DhcpConfigInfo`_, optional):

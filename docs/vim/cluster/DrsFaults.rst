@@ -17,6 +17,6 @@ Attributes:
     reason (`str`_):
 
        A reason code explaining why this set of recommendations were attempted by DRS when it generated the faults.
-    faultsByVm (`vim.cluster.DrsFaults.FaultsByVm`_):
+    faultsByVm ([`vim.cluster.DrsFaults.FaultsByVm`_]):
 
        The faults grouped by VMs that DRS was trying to migrate.

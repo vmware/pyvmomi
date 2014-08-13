@@ -20,6 +20,6 @@ Attributes:
     uuid (`str`_):
 
        Hardware BIOS identification.
-    otherIdentifyingInfo (`vim.host.SystemIdentificationInfo`_, optional):
+    otherIdentifyingInfo ([`vim.host.SystemIdentificationInfo`_], optional):
 
        Other System identification information. This information may be vendor specific

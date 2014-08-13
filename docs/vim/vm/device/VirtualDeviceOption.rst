@@ -38,13 +38,13 @@ Attributes:
     autoAssignController (`vim.option.BoolOption`_, optional):
 
        Flag to indicate whether or not this device will be auto-assigned a controller if one is required. If this is true, then a client need not explicitly create the controller that this device will plug into.
-    backingOption (`vim.vm.device.VirtualDeviceOption.BackingOption`_, optional):
+    backingOption ([`vim.vm.device.VirtualDeviceOption.BackingOption`_], optional):
 
        A list of backing options that can be used to map the virtual device to the host. The list is optional, since some devices exist only within the virtual machine; for example, a VirtualController.
     defaultBackingOptionIndex (`int`_, optional):
 
        Index into the backingOption list, indicating the default backing.
-    licensingLimit (`str`_, optional):
+    licensingLimit ([`str`_], optional):
 
        List of property names enforced by a licensing restriction of the underlying product. For example, a limit that is not derived based on the product or hardware features; the property name "numCPU".
     deprecated (`bool`_):

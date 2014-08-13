@@ -32,10 +32,10 @@ Attributes:
     mtu (`int`_, optional):
 
        The maximum transmission unit (MTU) associated with this virtual switch in bytes.
-    portgroup (`vim.host.PortGroup`_, optional):
+    portgroup ([`vim.host.PortGroup`_], optional):
 
        The list of port groups configured for this virtual switch.
-    pnic (`vim.host.PhysicalNic`_, optional):
+    pnic ([`vim.host.PhysicalNic`_], optional):
 
        The set of physical network adapters associated with this bridge.
     spec (`vim.host.VirtualSwitch.Specification`_):

@@ -77,7 +77,7 @@ Attributes:
     uuid (`str`_):
 
        Universally unique identifier for the LUN used to identify ScsiLun across multiple servers.This identifier can be used to identify analogous objects in other views such as `HostMultipathInfoLogicalUnit`_ and `HostScsiTopologyLun`_ .See `HostMultipathInfoLogicalUnit`_ See `HostScsiTopologyLun`_ 
-    descriptor (`vim.host.ScsiLun.Descriptor`_, optional):
+    descriptor ([`vim.host.ScsiLun.Descriptor`_], optional):
 
        List of descriptors that can be used to identify the LUN object. The uuid will also appear as a descriptor.The id field in the descriptor is a string that can be used to correlate the ScsiLun across multiple servers. A ScsiLun may have multiple descriptors. The choice and order of these descriptors may be different on different servers.Not all descriptors are suitable for correlation. Some descriptors are only sufficient to identify the ScsiLun within a single host. Each descriptor contains a quality property that indicates whether or not the descriptor is suitable for correlation.
     canonicalName (`str`_, optional):
@@ -107,16 +107,16 @@ Attributes:
     durableName (`vim.host.ScsiLun.DurableName`_, optional):
 
        The durable name of the SCSI device. For a SCSI-3 compliant device this property is derived from the payloads of pages 80h and 83h of the Vital Product Data (VPD) as defined by the T10 and SMI standards. For devices that do not provide this information, this property is not defined.
-    alternateName (`vim.host.ScsiLun.DurableName`_, optional):
+    alternateName ([`vim.host.ScsiLun.DurableName`_], optional):
 
        Alternate durable names. Records all available durable names derived from page 80h of the Vital Product Data (VPD) and the Identification Vital Product Data (VPD) page 83h as defined by the SCSI-3 Primary Commands. For devices that are not SCSI-3 compliant this property is not defined.
-    standardInquiry (`int`_, optional):
+    standardInquiry ([`int`_], optional):
 
        Standard Inquiry payload. For a SCSI-3 compliant device this property is derived from the standard inquiry data. For devices that are not SCSI-3 compliant this property is not defined.
     queueDepth (`int`_, optional):
 
        The queue depth of SCSI device.
-    operationalState (`str`_):
+    operationalState ([`str`_]):
 
        The operational states of the LUN. When more than one item is present in the array, the first state should be considered the primary state. For example, a LUN may be "ok" and "degraded" indicating I/O is still possible to the LUN, but it is operating in a degraded mode.See `ScsiLunState`_ 
     capabilities (`vim.host.ScsiLun.Capabilities`_, optional):

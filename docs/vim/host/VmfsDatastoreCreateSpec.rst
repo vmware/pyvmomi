@@ -19,6 +19,6 @@ Attributes:
     vmfs (`vim.host.VmfsVolume.Specification`_):
 
        The VMFS creation specification.
-    extent (`vim.host.ScsiDisk.Partition`_, optional):
+    extent ([`vim.host.ScsiDisk.Partition`_], optional):
 
        Extents to append to VMFS.

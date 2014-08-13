@@ -26,22 +26,22 @@ vim.vApp.VmConfigInfo
 :since: `vSphere API 4.0`_
 
 Attributes:
-    product (`vim.vApp.ProductInfo`_, optional):
+    product ([`vim.vApp.ProductInfo`_], optional):
 
        Information about the package content.
-    property (`vim.vApp.PropertyInfo`_, optional):
+    property ([`vim.vApp.PropertyInfo`_], optional):
 
        List of properties
     ipAssignment (`vim.vApp.IPAssignmentInfo`_):
 
        IP assignment policy and DHCP support configuration.
-    eula (`str`_, optional):
+    eula ([`str`_], optional):
 
        End User Liceses Agreements.
-    ovfSection (`vim.vApp.OvfSectionInfo`_, optional):
+    ovfSection ([`vim.vApp.OvfSectionInfo`_], optional):
 
        List of uninterpreted OVF meta-data sections.
-    ovfEnvironmentTransport (`str`_, optional):
+    ovfEnvironmentTransport ([`str`_], optional):
 
        List the transports to use for properties. Supported values are: iso and com.vmware.guestInfo.
     installBootRequired (`bool`_):

@@ -20,6 +20,6 @@ vim.profile.UserInputRequiredParameterMetadata
 :since: `vSphere API 4.0`_
 
 Attributes:
-    userInputParameter (`vim.profile.ParameterMetadata`_, optional):
+    userInputParameter ([`vim.profile.ParameterMetadata`_], optional):
 
        Metadata for user input options.

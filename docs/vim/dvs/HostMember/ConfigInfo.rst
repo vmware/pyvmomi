@@ -26,7 +26,7 @@ Attributes:
     maxProxySwitchPorts (`int`_):
 
        Maximum number of ports than can be created in the proxy switch.ESXi 5.0 and earlier hosts: If you change the maximum number of ports, you must reboot the host for the new value to take effect.
-    vendorSpecificConfig (`vim.dvs.KeyedOpaqueBlob`_, optional):
+    vendorSpecificConfig ([`vim.dvs.KeyedOpaqueBlob`_], optional):
 
        Opaque binary blob that stores vendor specific configuration.
     backing (`vim.dvs.HostMember.Backing`_):

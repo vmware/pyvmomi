@@ -24,9 +24,9 @@ Attributes:
     multiSelectAllowed (`bool`_):
 
        Whether multiple nics can be selected for this nicType.
-    candidateVnic (`vim.host.VirtualNic`_, optional):
+    candidateVnic ([`vim.host.VirtualNic`_], optional):
 
        List of VirtualNic objects that may be used. This will be a subset of the list of VirtualNics in `vnic`_ .
-    selectedVnic (`vim.host.VirtualNic`_, optional):
+    selectedVnic ([`vim.host.VirtualNic`_], optional):
 
        List of VirtualNic objects that are selected for use.

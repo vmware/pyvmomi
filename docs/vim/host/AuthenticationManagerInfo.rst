@@ -18,7 +18,7 @@ vim.host.AuthenticationManagerInfo
 :since: `vSphere API 4.1`_
 
 Attributes:
-    authConfig (`vim.host.AuthenticationStoreInfo`_):
+    authConfig ([`vim.host.AuthenticationStoreInfo`_]):
 
        An array containing entries for local authentication and host Active Directory authentication.
         * `HostLocalAuthenticationInfo`_

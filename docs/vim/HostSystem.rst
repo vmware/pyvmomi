@@ -151,12 +151,12 @@ Attributes
        Host configuration systems. In releases after vSphere API 5.0, vSphere Servers might not generate property collector update notifications for this property. To obtain the latest value of the property, you can use PropertyCollector methods RetrievePropertiesEx or WaitForUpdatesEx. If you use the PropertyCollector.WaitForUpdatesEx method, specify an empty string for the version parameter. Any other version value will not produce any property values as no updates are generated.
     config (`vim.host.ConfigInfo`_):
        Host configuration information. This might not be available for a disconnected host.
-    vm (`vim.VirtualMachine`_):
+    vm ([`vim.VirtualMachine`_]):
        List of virtual machines associated with this host.
-    datastore (`vim.Datastore`_):
+    datastore ([`vim.Datastore`_]):
       privilege: System.View
        A collection of references to the subset of datastore objects in the datacenter that are available in this HostSystem.
-    network (`vim.Network`_):
+    network ([`vim.Network`_]):
       privilege: System.View
        A collection of references to the subset of network objects in the datacenter that are available in this HostSystem.
     datastoreBrowser (`vim.host.DatastoreBrowser`_):

@@ -14,7 +14,7 @@ vim.host.FirewallConfig
 :since: `vSphere API 4.0`_
 
 Attributes:
-    rule (`vim.host.FirewallConfig.RuleSetConfig`_, optional):
+    rule ([`vim.host.FirewallConfig.RuleSetConfig`_], optional):
 
        Rules determining firewall settings.
     defaultBlockingPolicy (`vim.host.FirewallInfo.DefaultPolicy`_):

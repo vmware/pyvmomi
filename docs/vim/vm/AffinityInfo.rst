@@ -9,6 +9,6 @@ vim.vm.AffinityInfo
 :extends: vmodl.DynamicData_
 
 Attributes:
-    affinitySet (`int`_, optional):
+    affinitySet ([`int`_], optional):
 
        List of nodes (processors for CPU, NUMA nodes for memory) that may be used by the virtual machine. If the array is empty when modifying the affinity setting, then any existing affinity is removed.

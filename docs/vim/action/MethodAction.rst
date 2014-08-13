@@ -14,6 +14,6 @@ Attributes:
     name (`str`_):
 
        Name of the operation.
-    argument (`vim.action.MethodActionArgument`_, optional):
+    argument ([`vim.action.MethodActionArgument`_], optional):
 
        An array consisting of the arguments for the operation.

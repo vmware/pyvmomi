@@ -171,7 +171,7 @@ Attributes
        Host storage information up to the device level.
     fileSystemVolumeInfo (`vim.host.FileSystemVolumeInfo`_):
        File system volume information for the host. See the `FileSystemVolumeInfo`_ data object type for more information.
-    systemFile (`str`_):
+    systemFile ([`str`_]):
        Datastore paths of files used by the host system on mounted volumes, for instance, the COS vmdk file of the host. For information on datastore paths, see `Datastore`_ .
     multipathStateInfo (`vim.host.MultipathStateInfo`_):
        Runtime information about the state of a multipath path. A null value will be returned if path state information is not available for this system.In systems prior to the plug-store architecture, the state of a path may be accessible on the `HostMultipathInfo`_ data object of the `storageDeviceInfo`_ property.
@@ -198,7 +198,7 @@ RetrieveDiskPartitionInfo(devicePath):
 
 
   Returns:
-    `vim.host.DiskPartitionInfo`_:
+    [`vim.host.DiskPartitionInfo`_]:
          An array of information about the partitions.
 
 
@@ -617,7 +617,7 @@ QueryUnresolvedVmfsVolume():
 
 
   Returns:
-    `vim.host.UnresolvedVmfsVolume`_:
+    [`vim.host.UnresolvedVmfsVolume`_]:
          An array of unbound VMFS volumes.
 
 
@@ -639,7 +639,7 @@ ResolveMultipleUnresolvedVmfsVolumes(resolutionSpec):
 
 
   Returns:
-    `vim.host.UnresolvedVmfsResolutionResult`_:
+    [`vim.host.UnresolvedVmfsResolutionResult`_]:
          A data object that represents the VMFS file system and return status value.
 
   Raises:
@@ -1285,7 +1285,7 @@ QueryPathSelectionPolicyOptions():
 
 
   Returns:
-    `vim.host.PathSelectionPolicyOption`_:
+    [`vim.host.PathSelectionPolicyOption`_]:
          The list of path selection policy descriptions that match the search criteria. Details about the policies will also be provided in accordance to the query specification.
 
   Raises:
@@ -1308,7 +1308,7 @@ QueryStorageArrayTypePolicyOptions():
 
 
   Returns:
-    `vim.host.StorageArrayTypePolicyOption`_:
+    [`vim.host.StorageArrayTypePolicyOption`_]:
          The list of storage array type policy descriptions.
 
   Raises:
@@ -1828,7 +1828,7 @@ QueryAvailableSsds(vffsPath):
 
 
   Returns:
-    `vim.host.ScsiDisk`_:
+    [`vim.host.ScsiDisk`_]:
          An array of data objects descrbing SSD disks.
 
   Raises:

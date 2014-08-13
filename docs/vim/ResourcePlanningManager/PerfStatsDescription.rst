@@ -12,6 +12,6 @@ vim.ResourcePlanningManager.PerfStatsDescription
 :since: `vSphere API 4.0`_
 
 Attributes:
-    intervals (`vim.HistoricalInterval`_, optional):
+    intervals ([`vim.HistoricalInterval`_], optional):
 
        Historic interval setting. Default value is the same as the historic interval settings of the current instance of running VC.

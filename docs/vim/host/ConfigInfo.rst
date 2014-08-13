@@ -127,7 +127,7 @@ Attributes:
     fileSystemVolume (`vim.host.FileSystemVolumeInfo`_, optional):
 
        Storage system file system volume information.
-    systemFile (`str`_, optional):
+    systemFile ([`str`_], optional):
 
        Datastore paths of files used by the host system on mounted volumes, for instance, the COS vmdk file of the host. For information on datastore paths, see `Datastore`_ .
     network (`vim.host.NetworkInfo`_, optional):
@@ -160,10 +160,10 @@ Attributes:
     activeDiagnosticPartition (`vim.host.DiagnosticPartition`_, optional):
 
        The diagnostic partition that will be set as the current diagnostic partition on the host.
-    option (`vim.option.OptionValue`_, optional):
+    option ([`vim.option.OptionValue`_], optional):
 
        Host configuration options as defined by the `OptionValue`_ data object type.
-    optionDef (`vim.option.OptionDef`_, optional):
+    optionDef ([`vim.option.OptionDef`_], optional):
 
        A list of supported options.
     datastorePrincipal (`str`_, optional):
@@ -193,19 +193,19 @@ Attributes:
     sslThumbprintInfo (`vim.host.SslThumbprintInfo`_, optional):
 
        SSL Thumbprint info for hosts registered on this host.
-    sslThumbprintData (`vim.host.SslThumbprintInfo`_, optional):
+    sslThumbprintData ([`vim.host.SslThumbprintInfo`_], optional):
 
        SSL Thumbprints registered on this host.
-    certificate (`int`_, optional):
+    certificate ([`int`_], optional):
 
        Full Host Certificate in PEM format, if known
-    pciPassthruInfo (`vim.host.PciPassthruInfo`_, optional):
+    pciPassthruInfo ([`vim.host.PciPassthruInfo`_], optional):
 
        PCI passthrough information.
     authenticationManagerInfo (`vim.host.AuthenticationManagerInfo`_, optional):
 
        Current authentication configuration.
-    featureVersion (`vim.host.FeatureVersionInfo`_, optional):
+    featureVersion ([`vim.host.FeatureVersionInfo`_], optional):
 
        List of feature-specific version information. Each element refers to the version information for a specific feature.
     powerSystemCapability (`vim.host.PowerSystem.Capability`_, optional):
@@ -214,16 +214,16 @@ Attributes:
     powerSystemInfo (`vim.host.PowerSystem.Info`_, optional):
 
        Host power management information.
-    cacheConfigurationInfo (`vim.host.CacheConfigurationManager.CacheConfigurationInfo`_, optional):
+    cacheConfigurationInfo ([`vim.host.CacheConfigurationManager.CacheConfigurationInfo`_], optional):
 
        Host solid stats drive cache configuration information.
     wakeOnLanCapable (`bool`_, optional):
 
        Indicates if a host is wake on lan capable. A host is deemed wake on lan capable if there exists at least one physical network card that is both backing the vmotion interface and is itself wake on lan capable.
-    featureCapability (`vim.host.FeatureCapability`_, optional):
+    featureCapability ([`vim.host.FeatureCapability`_], optional):
 
        Array of the feature capabilities that the host has. This is not expected to change after the host boots. It may change between reboots in the case BIOS options are changed, or hardware, or firmware is changed or upgraded.
-    maskedFeatureCapability (`vim.host.FeatureCapability`_, optional):
+    maskedFeatureCapability ([`vim.host.FeatureCapability`_], optional):
 
        Array of the feature capabilities that the host has after the mask has been applied.
     vFlashConfigInfo (`vim.host.VFlashManager.VFlashConfigInfo`_, optional):
@@ -232,6 +232,6 @@ Attributes:
     vsanHostConfig (`vim.vsan.host.ConfigInfo`_, optional):
 
        VSAN configuration for a host.
-    graphicsInfo (`vim.host.GraphicsInfo`_, optional):
+    graphicsInfo ([`vim.host.GraphicsInfo`_], optional):
 
        The list of graphics devices available on this host.

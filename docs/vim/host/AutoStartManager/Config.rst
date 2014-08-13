@@ -14,6 +14,6 @@ Attributes:
     defaults (`vim.host.AutoStartManager.SystemDefaults`_, optional):
 
        System defaults for auto-start/auto-stop.
-    powerInfo (`vim.host.AutoStartManager.AutoPowerInfo`_, optional):
+    powerInfo ([`vim.host.AutoStartManager.AutoPowerInfo`_], optional):
 
        Lists the auto-start/auto-stop configuration. If a virtual machine is not mentioned in this array, it does not participate in auto-start/auto-stop operations.

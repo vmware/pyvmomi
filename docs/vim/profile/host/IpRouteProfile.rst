@@ -18,6 +18,6 @@ vim.profile.host.IpRouteProfile
 :since: `vSphere API 4.0`_
 
 Attributes:
-    staticRoute (`vim.profile.host.StaticRouteProfile`_, optional):
+    staticRoute ([`vim.profile.host.StaticRouteProfile`_], optional):
 
        List of static routes to be configured.

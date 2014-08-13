@@ -17,6 +17,6 @@ Attributes:
     expressionId (`vim.ExtendedElementDescription`_):
 
        Id of the SimpleExpression
-    parameter (`vim.profile.ParameterMetadata`_, optional):
+    parameter ([`vim.profile.ParameterMetadata`_], optional):
 
        Parameters that can be specified for this SimpleExpression

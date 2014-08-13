@@ -9,6 +9,6 @@ vim.host.ServiceInfo
 :extends: vmodl.DynamicData_
 
 Attributes:
-    service (`vim.host.Service`_, optional):
+    service ([`vim.host.Service`_], optional):
 
        List of configured services.

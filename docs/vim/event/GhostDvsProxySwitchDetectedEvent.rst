@@ -12,6 +12,6 @@ vim.event.GhostDvsProxySwitchDetectedEvent
 :since: `vSphere API 4.0`_
 
 Attributes:
-    switchUuid (`str`_):
+    switchUuid ([`str`_]):
 
        The list of ghost DVS proxy switch uuids that were found.

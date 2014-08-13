@@ -25,13 +25,13 @@ vim.vm.FileLayoutEx
 :since: `vSphere API 4.0`_
 
 Attributes:
-    file (`vim.vm.FileLayoutEx.FileInfo`_, optional):
+    file ([`vim.vm.FileLayoutEx.FileInfo`_], optional):
 
        Information about all the files that constitute the virtual machine including configuration files, disks, swap file, suspend file, log files, core files, memory file etc. `VirtualMachineFileLayoutExFileType`_ lists the different file-types that make a virtual machine.
-    disk (`vim.vm.FileLayoutEx.DiskLayout`_, optional):
+    disk ([`vim.vm.FileLayoutEx.DiskLayout`_], optional):
 
        Layout of each virtual disk attached to the virtual machine.For a virtual machine with snaphots, this property gives only those disks that are attached to it at the current point of running.
-    snapshot (`vim.vm.FileLayoutEx.SnapshotLayout`_, optional):
+    snapshot ([`vim.vm.FileLayoutEx.SnapshotLayout`_], optional):
 
        Layout of each snapshot of the virtual machine.
     timestamp (`datetime`_):

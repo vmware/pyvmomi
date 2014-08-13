@@ -19,6 +19,6 @@ Attributes:
     adapter (`vim.host.HostBusAdapter`_):
 
        The link to data for this SCSI interface.
-    target (`vim.host.ScsiTopology.Target`_, optional):
+    target ([`vim.host.ScsiTopology.Target`_], optional):
 
        The list of targets to which the SCSI interface is associated.

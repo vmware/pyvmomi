@@ -78,7 +78,7 @@ RetrieveArgumentDescription(eventTypeId):
 
 
   Returns:
-    `vim.event.EventDescription.EventArgDesc`_:
+    [`vim.event.EventDescription.EventArgDesc`_]:
          
 
 
@@ -157,7 +157,7 @@ QueryEvents(filter):
 
 
   Returns:
-    `vim.event.Event`_:
+    [`vim.event.Event`_]:
          The events matching the filter.
 
   Raises:

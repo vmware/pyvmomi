@@ -12,5 +12,5 @@ vim.vm.FaultTolerancePrimaryConfigInfo
 :since: `vSphere API 4.0`_
 
 Attributes:
-    secondaries (`vim.VirtualMachine`_):
+    secondaries ([`vim.VirtualMachine`_]):
 

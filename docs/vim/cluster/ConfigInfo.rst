@@ -22,15 +22,15 @@ Attributes:
     dasConfig (`vim.cluster.DasConfigInfo`_):
 
        Cluster-wide configuration of the vSphere HA service.
-    dasVmConfig (`vim.cluster.DasVmConfigInfo`_, optional):
+    dasVmConfig ([`vim.cluster.DasVmConfigInfo`_], optional):
 
        List of virtual machine configurations for the vSphere HA service. Each entry applies to one virtual machine.If a virtual machine is not specified in this array, the service uses the default settings for that virtual machine.
     drsConfig (`vim.cluster.DrsConfigInfo`_):
 
        Cluster-wide configuration of the VMware DRS service.
-    drsVmConfig (`vim.cluster.DrsVmConfigInfo`_, optional):
+    drsVmConfig ([`vim.cluster.DrsVmConfigInfo`_], optional):
 
        List of virtual machine configurations for the VMware DRS service. Each entry applies to one virtual machine.If a virtual machine is not specified in this array, the service uses the default settings for that virtual machine.
-    rule (`vim.cluster.RuleInfo`_, optional):
+    rule ([`vim.cluster.RuleInfo`_], optional):
 
        Cluster-wide rules.

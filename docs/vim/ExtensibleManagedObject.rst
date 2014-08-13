@@ -26,10 +26,10 @@ vim.ExtensibleManagedObject
 
 Attributes
 ----------
-    value (`vim.CustomFieldsManager.Value`_):
+    value ([`vim.CustomFieldsManager.Value`_]):
       privilege: System.View
        List of custom field values. Each value uses a key to associate an instance of a `CustomFieldStringValue`_ with a custom field definition.
-    availableField (`vim.CustomFieldsManager.FieldDef`_):
+    availableField ([`vim.CustomFieldsManager.FieldDef`_]):
       privilege: System.View
        List of custom field definitions that are valid for the object's type. The fields are sorted by `name`_ .
 

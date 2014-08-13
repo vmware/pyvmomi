@@ -36,10 +36,10 @@ vim.CustomizationSpecManager
 
 Attributes
 ----------
-    info (`vim.CustomizationSpecInfo`_):
+    info ([`vim.CustomizationSpecInfo`_]):
       privilege: VirtualMachine.Provisioning.ReadCustSpecs
        Gets a list of information on available specifications.
-    encryptionKey (`int`_):
+    encryptionKey ([`int`_]):
       privilege: System.View
        Gets a binary public encryption key that can be used to encrypt passwords in stored specifications.
 

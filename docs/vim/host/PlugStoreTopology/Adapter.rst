@@ -22,6 +22,6 @@ Attributes:
     adapter (`vim.host.HostBusAdapter`_):
 
        The link to the host bus adapter for this inebtrface.
-    path (`vim.host.PlugStoreTopology.Path`_, optional):
+    path ([`vim.host.PlugStoreTopology.Path`_], optional):
 
        The list of paths to which the host bus adapter is associated.

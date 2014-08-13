@@ -14,6 +14,6 @@ Attributes:
     devices (`vim.option.IntOption`_):
 
        The minimum and maximum number of devices this controller can control at run time.
-    supportedDevice (`str`_, optional):
+    supportedDevice ([`str`_], optional):
 
        Array of supported device options for this controller.

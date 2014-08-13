@@ -27,5 +27,5 @@ Attributes:
     reasonText (`str`_):
 
        Text that provides more information about the reason code for the suggested set of migrations.
-    migrationList (`vim.cluster.DrsMigration`_):
+    migrationList ([`vim.cluster.DrsMigration`_]):
 

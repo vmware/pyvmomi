@@ -14,6 +14,6 @@ vim.profile.host.ProfileManager.AnswerFileOptionsCreateSpec
 :since: `vSphere API 5.0`_
 
 Attributes:
-    userInput (`vim.profile.DeferredPolicyOptionParameter`_, optional):
+    userInput ([`vim.profile.DeferredPolicyOptionParameter`_], optional):
 
        List of parameters that contain host-specific data.

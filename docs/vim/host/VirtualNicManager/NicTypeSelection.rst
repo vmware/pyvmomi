@@ -19,5 +19,5 @@ Attributes:
     vnic (`vim.host.VirtualNicConnection`_):
 
        VirtualNic for the selection is being made
-    nicType (`str`_, optional):
+    nicType ([`str`_], optional):
 

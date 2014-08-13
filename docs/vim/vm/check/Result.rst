@@ -26,9 +26,9 @@ Attributes:
     host (`vim.HostSystem`_, optional):
 
        The host involved in the testing.
-    warning (`vmodl.LocalizedMethodFault`_, optional):
+    warning ([`vmodl.LocalizedMethodFault`_], optional):
 
        A list of faults representing problems which may require attention, but which are not fatal.
-    error (`vmodl.LocalizedMethodFault`_, optional):
+    error ([`vmodl.LocalizedMethodFault`_], optional):
 
        A list of faults representing problems which are fatal to the operation. For `VirtualMachineProvisioningChecker`_ an error means that the given provisioning operation would fail. For `VirtualMachineCompatibilityChecker`_ an error means that either a power-on of this virtual machine would fail, or that the virtual machine would not run correctly once powered-on.

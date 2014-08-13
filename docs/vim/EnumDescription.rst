@@ -17,6 +17,6 @@ Attributes:
     key (`str`_):
 
        Type of enumeration being described.
-    tags (`vim.ElementDescription`_):
+    tags ([`vim.ElementDescription`_]):
 
        Element descriptions of all the tags for that enumerated type.

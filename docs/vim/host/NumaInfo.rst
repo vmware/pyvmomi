@@ -19,6 +19,6 @@ Attributes:
     numNodes (`int`_):
 
        The number of NUMA nodes on the host. The value is 0 if the host is not NUMA-capable.
-    numaNode (`vim.host.NumaNode`_, optional):
+    numaNode ([`vim.host.NumaNode`_], optional):
 
        Information about each of the NUMA nodes on the host. The array is empty if the host is not NUMA-capable.

@@ -25,6 +25,6 @@ Attributes:
     uuid (`str`_):
 
        The universally unique identifier assigned to VFFS.
-    extent (`vim.host.ScsiDisk.Partition`_):
+    extent ([`vim.host.ScsiDisk.Partition`_]):
 
        The list of partition names that comprise this disk's VFFS extents.

@@ -56,15 +56,15 @@ Attributes:
         * if resource pool is specified, and the target pool represents a DRS-enabled cluster, a host selected by DRS is used.
         * if resource pool is specified and the target pool represents a cluster without DRS enabled, an InvalidArgument exception be thrown.
         * 
-    disk (`vim.vm.RelocateSpec.DiskLocator`_, optional):
+    disk ([`vim.vm.RelocateSpec.DiskLocator`_], optional):
 
        An optional list that allows specifying the datastore location for each virtual disk.
     transform (`vim.vm.RelocateSpec.Transformation`_, optional):
 
        Transformation to perform on the disks. The backend is free to ignore this hint if it is not valid for the current operation. This can be used by clients, for example, to create sparse disks for templates.See `VirtualMachineRelocateTransformation`_ 
-    deviceChange (`vim.vm.device.VirtualDeviceSpec`_, optional):
+    deviceChange ([`vim.vm.device.VirtualDeviceSpec`_], optional):
 
        An optional list of virtual device specs that allow specifying the migrate options for the relocate operation. The supported device type is `VirtualDisk`_ For VirtualDisk device, `VirtualDiskConfigSpec`_ has to be used to specify migrateCache option for disk with vFlash cache.
-    profile (`vim.vm.ProfileSpec`_, optional):
+    profile ([`vim.vm.ProfileSpec`_], optional):
 
        Storage profile requirement for Virtual Machine's home directory. Profiles are solution specific. Storage Profile Based Management(SPBM) is a vSphere server extension. The API users who want to provision VMs using Storage Profiles, need to interact with SPBM. This is an optional parameter and if user doesn't specify profile, the default behavior will apply.

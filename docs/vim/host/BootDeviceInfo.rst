@@ -14,7 +14,7 @@ vim.host.BootDeviceInfo
 :since: `VI API 2.5`_
 
 Attributes:
-    bootDevices (`vim.host.BootDeviceSystem.BootDevice`_, optional):
+    bootDevices ([`vim.host.BootDeviceSystem.BootDevice`_], optional):
 
        The list of boot devices present on the host
     currentBootDeviceKey (`str`_, optional):

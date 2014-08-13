@@ -32,12 +32,12 @@ Attributes:
     scope (`vim.ManagedEntity`_, optional):
 
        If set, only the ports of which the scope covers the entity are qualified.
-    portgroupKey (`str`_, optional):
+    portgroupKey ([`str`_], optional):
 
        The keys of the portgroup that is used for the scope of `inside`_ . If this property is unset, it means any portgroup. If `inside`_ is unset, this property is ignored.
     inside (`bool`_, optional):
 
        If unset, all ports in the switch are qualified. If set to true, only ports inside `portgroupKey`_ or any portgroup, if not set, are qualified. If set to false, only ports outside `portgroupKey`_ or any portgroup, if not set, are qualified.
-    portKey (`str`_, optional):
+    portKey ([`str`_], optional):
 
        If set, only the ports of which the key is in the array are qualified.

@@ -22,7 +22,7 @@ Attributes:
     key (`str`_, optional):
 
        The linkable identifier.
-    port (`vim.host.PortGroup.Port`_, optional):
+    port ([`vim.host.PortGroup.Port`_], optional):
 
        The ports that currently exist and are used on this port group.
     vswitch (`vim.host.VirtualSwitch`_, optional):

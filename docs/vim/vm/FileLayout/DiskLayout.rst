@@ -16,6 +16,6 @@ Attributes:
     key (`int`_):
 
        Identification of the disk in `config`_ .
-    diskFile (`str`_):
+    diskFile ([`str`_]):
 
        List of files that makes up the virtual disk. At least one entry always exists in this array. The first entry is the main descriptor of the virtual disk (the one used when adding the disk to a virtual machine). These are complete datastore paths, not relative paths.

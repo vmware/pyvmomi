@@ -18,6 +18,6 @@ Attributes:
     currentSnapshot (`vim.vm.Snapshot`_, optional):
 
        Current snapshot of the virtual machineThis property is set by calling `Snapshot.revert`_ or `VirtualMachine.createSnapshot`_ . This property will be empty when the working snapshot is at the root of the snapshot tree.
-    rootSnapshotList (`vim.vm.SnapshotTree`_):
+    rootSnapshotList ([`vim.vm.SnapshotTree`_]):
 
        Data for the entire set of snapshots for one virtual machine.

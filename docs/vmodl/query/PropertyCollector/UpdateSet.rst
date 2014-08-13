@@ -34,7 +34,7 @@ Attributes:
     version (`str`_):
 
        New data version to pass in the next call to `CheckForUpdates`_ , `WaitForUpdates`_ , or `WaitForUpdatesEx`_ . These versions, although they are opaque, are strongly ordered in the sense that passing a version to `WaitForUpdates`_ , `CheckForUpdates`_ or `WaitForUpdatesEx`_ requests updates that reflect changes in the objects selected by the Filter that happened after the specified version.
-    filterSet (`vmodl.query.PropertyCollector.FilterUpdate`_, optional):
+    filterSet ([`vmodl.query.PropertyCollector.FilterUpdate`_], optional):
 
        Set of managed object updates detected by specific filters. Updates are reported in sets. Each set is associated with a reference to a filter that detected the updates in the set.
     truncated (`bool`_, optional):

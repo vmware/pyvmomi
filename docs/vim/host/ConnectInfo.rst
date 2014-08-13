@@ -30,7 +30,7 @@ Attributes:
     host (`vim.host.Summary`_):
 
        Summary information about the host. The status fields and managed object reference is not set when an object of this type is created. These fields and references are typically set later when these objects are associated with a host.
-    vm (`vim.vm.Summary`_, optional):
+    vm ([`vim.vm.Summary`_], optional):
 
        The list of virtual machines on the host.
     vimAccountNameRequired (`bool`_, optional):
@@ -39,10 +39,10 @@ Attributes:
     clusterSupported (`bool`_, optional):
 
        Whether or not the host supports clustering capabilities such as HA or DRS and therefore can be added to a cluster. If false, the host must be added as a standalone host.
-    network (`vim.host.ConnectInfo.NetworkInfo`_, optional):
+    network ([`vim.host.ConnectInfo.NetworkInfo`_], optional):
 
        The list of network information for networks configured on this host.
-    datastore (`vim.host.ConnectInfo.DatastoreInfo`_, optional):
+    datastore ([`vim.host.ConnectInfo.DatastoreInfo`_], optional):
 
        The list of datastores on the host.
     license (`vim.host.ConnectInfo.LicenseInfo`_, optional):

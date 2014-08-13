@@ -37,7 +37,7 @@ vim.ExtensionManager
 
 Attributes
 ----------
-    extensionList (`vim.Extension`_):
+    extensionList ([`vim.Extension`_]):
       privilege: System.View
        The list of currently registered extensions.
 
@@ -250,7 +250,7 @@ QueryManagedBy(extensionKey):
 
 
   Returns:
-    `vim.ManagedEntity`_:
+    [`vim.ManagedEntity`_]:
          List of entities managed by the extension.
 
 
@@ -272,7 +272,7 @@ QueryExtensionIpAllocationUsage(extensionKeys):
 
 
   Returns:
-    `vim.ExtensionManager.IpAllocationUsage`_:
+    [`vim.ExtensionManager.IpAllocationUsage`_]:
          List of IP allocation usage.
 
 

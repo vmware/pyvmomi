@@ -12,6 +12,6 @@ vim.LicenseManager.EvaluationInfo
 :since: `vSphere API 4.0`_
 
 Attributes:
-    properties (`vmodl.KeyAnyValue`_):
+    properties ([`vmodl.KeyAnyValue`_]):
 
        Evaluation properties

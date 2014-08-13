@@ -20,9 +20,9 @@ Attributes:
     editionKey (`str`_, optional):
 
        License edition to use
-    disabledFeatureKey (`str`_, optional):
+    disabledFeatureKey ([`str`_], optional):
 
        Disabled features. When an edition is set, all the features in it are enabled by default. The following parameter gives a finer control on which features are disabled.
-    enabledFeatureKey (`str`_, optional):
+    enabledFeatureKey ([`str`_], optional):
 
        Enabled features

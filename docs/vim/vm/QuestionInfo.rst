@@ -22,6 +22,6 @@ Attributes:
     choice (`vim.option.ChoiceOption`_):
 
        List of key-value pairs that specify possible answers.
-    message (`vim.vm.Message`_, optional):
+    message ([`vim.vm.Message`_], optional):
 
        The message data for the individual messages that comprise the question. Only available on servers that support localization.

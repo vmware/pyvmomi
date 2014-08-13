@@ -39,9 +39,9 @@ Attributes:
     ipfix (`vim.dvs.VmwareDistributedVirtualSwitch.LagIpfixConfig`_, optional):
 
        Ipfix configuration of the Link Aggregation Control Protocol group.
-    uplinkName (`str`_, optional):
+    uplinkName ([`str`_], optional):
 
        Names for the Uplink Ports in the group. This property is ignored in an update operation.
-    uplinkPortKey (`str`_, optional):
+    uplinkPortKey ([`str`_], optional):
 
        Keys for the Uplink Ports in the group. This property is ignored in an update operation.

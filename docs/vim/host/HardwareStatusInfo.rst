@@ -14,12 +14,12 @@ vim.host.HardwareStatusInfo
 :since: `VI API 2.5`_
 
 Attributes:
-    memoryStatusInfo (`vim.host.HardwareStatusInfo.HardwareElementInfo`_, optional):
+    memoryStatusInfo ([`vim.host.HardwareStatusInfo.HardwareElementInfo`_], optional):
 
        Status of the physical memory
-    cpuStatusInfo (`vim.host.HardwareStatusInfo.HardwareElementInfo`_, optional):
+    cpuStatusInfo ([`vim.host.HardwareStatusInfo.HardwareElementInfo`_], optional):
 
        Status of the CPU packages
-    storageStatusInfo (`vim.host.HardwareStatusInfo.StorageStatusInfo`_, optional):
+    storageStatusInfo ([`vim.host.HardwareStatusInfo.StorageStatusInfo`_], optional):
 
        Status of the physical storage system

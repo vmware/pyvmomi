@@ -14,6 +14,6 @@ Attributes:
     id (`str`_):
 
        Unique identifier of the prerequisite update.
-    installState (`str`_, optional):
+    installState ([`str`_], optional):
 
        The requirement on the server or services running on the server pertaining to the prerequisite update. For example, this update could require the server to be rebooted after the prerequisite update is installed. Unset if there is no additional requirement on the prerequisite update.See `HostPatchManagerInstallState`_ 

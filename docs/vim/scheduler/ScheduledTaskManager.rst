@@ -28,7 +28,7 @@ vim.scheduler.ScheduledTaskManager
 
 Attributes
 ----------
-    scheduledTask (`vim.scheduler.ScheduledTask`_):
+    scheduledTask ([`vim.scheduler.ScheduledTask`_]):
       privilege: System.View
        All available scheduled tasks.
     description (`vim.scheduler.ScheduledTaskDescription`_):
@@ -92,7 +92,7 @@ RetrieveEntityScheduledTask(entity):
 
 
   Returns:
-    `vim.scheduler.ScheduledTask`_:
+    [`vim.scheduler.ScheduledTask`_]:
          The scheduled tasks.
 
 
@@ -150,7 +150,7 @@ RetrieveObjectScheduledTask(obj):
 
 
   Returns:
-    `vim.scheduler.ScheduledTask`_:
+    [`vim.scheduler.ScheduledTask`_]:
          The scheduled tasks.
 
 

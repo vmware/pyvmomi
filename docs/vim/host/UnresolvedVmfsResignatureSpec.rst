@@ -12,6 +12,6 @@ vim.host.UnresolvedVmfsResignatureSpec
 :since: `vSphere API 4.0`_
 
 Attributes:
-    extentDevicePath (`str`_):
+    extentDevicePath ([`str`_]):
 
        List of device path each specifying VMFS extents.

@@ -12,6 +12,6 @@ vim.cluster.FailoverHostAdmissionControlInfo
 :since: `vSphere API 4.0`_
 
 Attributes:
-    hostStatus (`vim.cluster.FailoverHostAdmissionControlInfo.HostStatus`_, optional):
+    hostStatus ([`vim.cluster.FailoverHostAdmissionControlInfo.HostStatus`_], optional):
 
        Status of the failover hosts in the cluster.

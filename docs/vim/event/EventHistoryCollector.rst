@@ -21,7 +21,7 @@ vim.event.EventHistoryCollector
 
 Attributes
 ----------
-    latestPage (`vim.event.Event`_):
+    latestPage ([`vim.event.Event`_]):
        The items in the 'viewable latest page'. As new events that match the collector's `EventFilterSpec`_ are created, they are added to this page, and the oldest events are removed from the collector to keep the size of the page to that allowed by HistoryCollector#setLatestPageSize.The "oldest event" is the one with the smallest key (event ID). The events in the returned page are unordered.
 
 
@@ -45,7 +45,7 @@ ReadNextEvents(maxCount):
 
 
   Returns:
-    `vim.event.Event`_:
+    [`vim.event.Event`_]:
          
 
   Raises:
@@ -70,7 +70,7 @@ ReadPreviousEvents(maxCount):
 
 
   Returns:
-    `vim.event.Event`_:
+    [`vim.event.Event`_]:
          
 
   Raises:

@@ -27,6 +27,6 @@ Attributes:
     info (`vim.Description`_):
 
        Displayable role information.
-    privilege (`str`_, optional):
+    privilege ([`str`_], optional):
 
        Privileges provided by this role, by privilege identifier.

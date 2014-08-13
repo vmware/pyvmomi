@@ -90,7 +90,7 @@ vim.view.ViewManager
 
 Attributes
 ----------
-    viewList (`vim.view.View`_):
+    viewList ([`vim.view.View`_]):
       privilege: System.View
        An array of view references. Each array entry is a managed object reference to a view created by this ViewManager.
 

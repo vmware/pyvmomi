@@ -14,7 +14,7 @@ vim.ext.SolutionManagerInfo
 :since: `vSphere API 5.0`_
 
 Attributes:
-    tab (`vim.ext.SolutionManagerInfo.TabInfo`_, optional):
+    tab ([`vim.ext.SolutionManagerInfo.TabInfo`_], optional):
 
        List of tabs that must be shown in the Solution Manager for this extension. Tabs are shown ordered by their position in this array.
     smallIconUrl (`str`_, optional):

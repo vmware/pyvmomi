@@ -22,6 +22,6 @@ Attributes:
     length (`long`_):
 
        Length (in bytes) of disk area described by this data structure.
-    changedArea (`vim.VirtualMachine.DiskChangeInfo.DiskChangeExtent`_, optional):
+    changedArea ([`vim.VirtualMachine.DiskChangeInfo.DiskChangeExtent`_], optional):
 
        Modified disk areas. Might be empty if no parts of the disk between startOffset and startOffset + length were modified.

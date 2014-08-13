@@ -33,7 +33,7 @@ Attributes:
     dvPortOperationSupported (`bool`_, optional):
 
        Indicates whether this switch allows vCenter users to modify the switch configuration at the port level, except for host member, policy, and scope operations.
-    compatibleHostComponentProductInfo (`vim.dvs.HostProductSpec`_, optional):
+    compatibleHostComponentProductInfo ([`vim.dvs.HostProductSpec`_], optional):
 
        List of host component product information that is compatible with the current switch implementation.
     featuresSupported (`vim.DistributedVirtualSwitch.FeatureCapability`_, optional):

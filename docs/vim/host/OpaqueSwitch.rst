@@ -20,6 +20,6 @@ Attributes:
     name (`str`_, optional):
 
        The opaque switch name.
-    pnic (`vim.host.PhysicalNic`_, optional):
+    pnic ([`vim.host.PhysicalNic`_], optional):
 
        The set of physical network adapters associated with this switch.

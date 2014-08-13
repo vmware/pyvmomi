@@ -17,6 +17,6 @@ Attributes:
     namespaceId (`int`_):
 
        The byte used by the ESX Server product to represent the namespace.
-    data (`int`_, optional):
+    data ([`int`_], optional):
 
        The variable length byte array containing the namespace-specific data. For a SCSI-3 compliant device this field is the descriptor header along with the payload for data obtained from page 83h, and is the payload for data obtained from page 80h of the Vital Product Data (VPD).

@@ -35,7 +35,7 @@ Attributes:
     name (`str`_, optional):
 
        The name of the port.
-    scope (`vim.ManagedEntity`_, optional):
+    scope ([`vim.ManagedEntity`_], optional):
 
        The eligible entities that can connect to the port, for detail see `scope`_ .
     description (`str`_, optional):

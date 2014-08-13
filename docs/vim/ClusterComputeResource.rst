@@ -93,16 +93,16 @@ Attributes
 ----------
     configuration (`vim.cluster.ConfigInfo`_):
        Configuration of the cluster.
-    recommendation (`vim.cluster.Recommendation`_):
+    recommendation ([`vim.cluster.Recommendation`_]):
       privilege: System.Read
        List of recommended actions for the cluster. It is possible that the current set of recommendations may be empty, either due to not having any running dynamic recommendation generation module, or since there may be no recommended actions at this time.
-    drsRecommendation (`vim.cluster.DrsRecommendation`_):
+    drsRecommendation ([`vim.cluster.DrsRecommendation`_]):
        If DRS is enabled, this returns the set of recommended migrations from the DRS module. The current set of recommendations may be empty, since there may be no recommended migrations at this time, or it is possible that DRS is not enabled.
-    migrationHistory (`vim.cluster.DrsMigration`_):
+    migrationHistory ([`vim.cluster.DrsMigration`_]):
        The set of migration decisions that have recently been performed.This list is populated only when DRS is in automatic mode.
-    actionHistory (`vim.cluster.ActionHistory`_):
+    actionHistory ([`vim.cluster.ActionHistory`_]):
        The set of actions that have been performed recently.
-    drsFault (`vim.cluster.DrsFaults`_):
+    drsFault ([`vim.cluster.DrsFaults`_]):
       privilege: System.Read
        A collection of the DRS faults generated in the last DRS invocation. Each element of the collection is the set of faults generated in one recommendation. DRS faults are generated when DRS tries to make recommendations for rule enforcement, power management, etc., and indexed in a tree structure with reason for recommendations and VM to migrate (optional) as the index keys. In releases after vSphere API 5.0, vSphere Servers might not generate property collector update notifications for this property. To obtain the latest value of the property, you can use PropertyCollector methods RetrievePropertiesEx or WaitForUpdatesEx. If you use the PropertyCollector.WaitForUpdatesEx method, specify an empty string for the version parameter. Any other version value will not produce any property values as no updates are generated.
 
@@ -215,7 +215,7 @@ RecommendHostsForVm(vm, pool):
 
 
   Returns:
-    `vim.cluster.HostRecommendation`_:
+    [`vim.cluster.HostRecommendation`_]:
          An array of HostRecommendation ordered by their rating.
 
   Raises:

@@ -9,6 +9,6 @@ vim.host.VmfsDatastoreOption.MultipleExtentInfo
 :extends: vim.host.VmfsDatastoreOption.Info_
 
 Attributes:
-    vmfsExtent (`vim.host.DiskPartitionInfo.BlockRange`_):
+    vmfsExtent ([`vim.host.DiskPartitionInfo.BlockRange`_]):
 
        The block ranges to be used as extents in a VMFS datastore. The first block range will be the head partition.

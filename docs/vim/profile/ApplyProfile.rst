@@ -31,7 +31,7 @@ Attributes:
     enabled (`bool`_):
 
        Indicates whether the profile is enabled.
-    policy (`vim.profile.Policy`_, optional):
+    policy ([`vim.profile.Policy`_], optional):
 
        The list of policies comprising the profile. A `ProfilePolicy`_ stores one or more configuration data values in a `PolicyOption`_ . The policy option is one of the configuration options from the `ProfilePolicyMetadata`_ . `possibleOption`_ list.
     profileTypeName (`str`_, optional):
@@ -40,6 +40,6 @@ Attributes:
     profileVersion (`str`_, optional):
 
        Profile engine version.
-    property (`vim.profile.ApplyProfileProperty`_, optional):
+    property ([`vim.profile.ApplyProfileProperty`_], optional):
 
        List of subprofiles for this profile. This list can change depending on which profile plug-ins are available in the system. Subprofiles can be nested to arbitrary depths to represent host capabilities.

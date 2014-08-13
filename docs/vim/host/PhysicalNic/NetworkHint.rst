@@ -22,10 +22,10 @@ Attributes:
     device (`str`_):
 
        The physical network adapter device to which this hint applies.
-    subnet (`vim.host.PhysicalNic.NetworkHint.IpNetwork`_, optional):
+    subnet ([`vim.host.PhysicalNic.NetworkHint.IpNetwork`_], optional):
 
        The list of subnets that were detected on this physical network adapter.
-    network (`vim.host.PhysicalNic.NetworkHint.NamedNetwork`_, optional):
+    network ([`vim.host.PhysicalNic.NetworkHint.NamedNetwork`_], optional):
 
        The list of network names that were detected on this physical network adapter.
     connectedSwitchPort (`vim.host.PhysicalNic.CdpInfo`_, optional):

@@ -38,7 +38,7 @@ Attributes:
     uuid (`str`_):
 
        The universally unique identifier assigned to VMFS.
-    extent (`vim.host.ScsiDisk.Partition`_):
+    extent ([`vim.host.ScsiDisk.Partition`_]):
 
        The list of partition names that comprise this disk's VMFS extents.This property can be accessed via various enclosing objects. In VirtualCenter, where it can be accessed from multiple hosts, the value of this property may differ according to the context in which it is accessed. When accessed from the `VmfsDatastoreInfo`_ object, in VirtualCenter, this property reflects the extent information of any one of the hosts visible to the datastore.For a VirtualCenter system which manages ESX Server 2.x and ESX Server 3.x hosts, this extent information is only correlatable across hosts if the extents are exposed on the same adapter on all hosts which can access them. To find the extent names for a specific host, this same property should be accessed via the host's `HostFileSystemVolume`_ object, by correlating the uuid of the VMFS datastore in the VmfsDatastoreInfo object to the uuid in the FileSystemVolume object.For a Virtual Center system which manages only ESX Server hosts with versions 4.0 onwards , this extent information is correlatable across hosts, irrespective of the adapters the extents are exposed on.
     vmfsUpgradable (`bool`_):

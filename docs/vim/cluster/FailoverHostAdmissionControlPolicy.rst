@@ -20,6 +20,6 @@ vim.cluster.FailoverHostAdmissionControlPolicy
 :since: `vSphere API 4.0`_
 
 Attributes:
-    failoverHosts (`vim.HostSystem`_, optional):
+    failoverHosts ([`vim.HostSystem`_], optional):
 
        List of managed object references to failover hosts.

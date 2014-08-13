@@ -12,6 +12,6 @@ vim.host.SystemHealthInfo
 :since: `VI API 2.5`_
 
 Attributes:
-    numericSensorInfo (`vim.host.NumericSensorInfo`_, optional):
+    numericSensorInfo ([`vim.host.NumericSensorInfo`_], optional):
 
        Health information provided by the power probes.

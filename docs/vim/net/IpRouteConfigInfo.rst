@@ -12,6 +12,6 @@ vim.net.IpRouteConfigInfo
 :since: `vSphere API 4.1`_
 
 Attributes:
-    ipRoute (`vim.net.IpRouteConfigInfo.IpRoute`_, optional):
+    ipRoute ([`vim.net.IpRouteConfigInfo.IpRoute`_], optional):
 
        IP routing table for all address families.

@@ -14,6 +14,6 @@ Attributes:
     busNumber (`int`_):
 
        Bus number associated with this controller.
-    device (`int`_, optional):
+    device ([`int`_], optional):
 
        List of devices currently controlled by this controller. Each entry contains the `key`_ property of the corresponding device object.

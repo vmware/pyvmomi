@@ -14,6 +14,6 @@ vim.DistributedVirtualSwitch.RuntimeInfo
 :since: `vSphere API 5.1`_
 
 Attributes:
-    hostMemberRuntime (`vim.dvs.HostMember.RuntimeInfo`_, optional):
+    hostMemberRuntime ([`vim.dvs.HostMember.RuntimeInfo`_], optional):
 
        Runtime information of the hosts that joined the switch.

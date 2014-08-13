@@ -60,22 +60,22 @@ vim.EVCMode
 :since: `vSphere API 4.0`_
 
 Attributes:
-    guaranteedCPUFeatures (`vim.host.CpuIdInfo`_, optional):
+    guaranteedCPUFeatures ([`vim.host.CpuIdInfo`_], optional):
 
        Describes the CPU feature baseline associated with the EVC mode. On the cluster where a particular EVC mode is configured, those CPU features are guaranteed, either because the host hardware naturally matches those features or because CPU feature override is used to mask out differences and enforce a match.
-    featureCapability (`vim.host.FeatureCapability`_, optional):
+    featureCapability ([`vim.host.FeatureCapability`_], optional):
 
        Describes the feature capability baseline associated with the EVC mode. On the cluster where a particular EVC mode is configured, these features capabilities are guaranteed, either because the host hardware naturally matches those features or because feature masks are used to mask out differences and enforce a match.
-    featureMask (`vim.host.FeatureMask`_, optional):
+    featureMask ([`vim.host.FeatureMask`_], optional):
 
        The masks (modifications to a host's feature capabilities) that limit a host's capabilities to that of the EVC mode baseline.
-    featureRequirement (`vim.vm.FeatureRequirement`_, optional):
+    featureRequirement ([`vim.vm.FeatureRequirement`_], optional):
 
        The conditions that must be true of a host's feature capabilities in order for the host to meet the minimum requirements of the EVC mode baseline.
     vendor (`str`_):
 
        CPU hardware vendor required for this mode.
-    track (`str`_):
+    track ([`str`_]):
 
        Identifiers for feature groups that are at least partially present in the `guaranteedCPUFeatures`_ array for this mode. Use this property to compare track values from two modes. Do not use this property to determine the presence or absence of specific features.
     vendorTier (`int`_):

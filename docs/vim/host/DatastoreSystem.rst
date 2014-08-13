@@ -76,7 +76,7 @@ vim.host.DatastoreSystem
 
 Attributes
 ----------
-    datastore (`vim.Datastore`_):
+    datastore ([`vim.Datastore`_]):
       privilege: System.View
        List of datastores on this host.
     capabilities (`vim.host.DatastoreSystem.Capabilities`_):
@@ -137,7 +137,7 @@ QueryAvailableDisksForVmfs(datastore):
 
 
   Returns:
-    `vim.host.ScsiDisk`_:
+    [`vim.host.ScsiDisk`_]:
          An array of data objects describing SCSI disks.
 
   Raises:
@@ -176,7 +176,7 @@ QueryVmfsDatastoreCreateOptions(devicePath, vmfsMajorVersion):
 
 
   Returns:
-    `vim.host.VmfsDatastoreOption`_:
+    [`vim.host.VmfsDatastoreOption`_]:
          An array of VMFS datastore provisioning options that can be applied on a disk.
 
   Raises:
@@ -251,7 +251,7 @@ QueryVmfsDatastoreExtendOptions(datastore, devicePath, suppressExpandCandidates)
 
 
   Returns:
-    `vim.host.VmfsDatastoreOption`_:
+    [`vim.host.VmfsDatastoreOption`_]:
          An array of VMFS datastore provisioning options that can be applied on a disk.
 
   Raises:
@@ -284,7 +284,7 @@ QueryVmfsDatastoreExpandOptions(datastore):
 
 
   Returns:
-    `vim.host.VmfsDatastoreOption`_:
+    [`vim.host.VmfsDatastoreOption`_]:
          An array of VMFS datastore expansion options that can be applied.
 
   Raises:
@@ -537,7 +537,7 @@ QueryUnresolvedVmfsVolumes():
 
 
   Returns:
-    `vim.host.UnresolvedVmfsVolume`_:
+    [`vim.host.UnresolvedVmfsVolume`_]:
          An array of unbound VMFS datastore
 
 

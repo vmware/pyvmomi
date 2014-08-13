@@ -16,6 +16,6 @@ Attributes:
     sampleInfoCSV (`str`_):
 
        The `PerfSampleInfo`_ encoded in the following CSV format: [interval1], [date1], [interval2], [date2], and so on.
-    value (`vim.PerformanceManager.MetricSeriesCSV`_, optional):
+    value ([`vim.PerformanceManager.MetricSeriesCSV`_], optional):
 
        Metric values corresponding to the samples collected in this list.

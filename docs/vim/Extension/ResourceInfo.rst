@@ -19,5 +19,5 @@ Attributes:
     module (`str`_):
 
        Module for a resource type and other message or fault resources. Examples: "task" for task, "event" for event and "auth" for "privilege".
-    data (`vim.KeyValue`_):
+    data ([`vim.KeyValue`_]):
 

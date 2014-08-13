@@ -71,7 +71,7 @@ QueryAvailableTimeZones():
 
 
   Returns:
-    `vim.host.DateTimeSystem.TimeZone`_:
+    [`vim.host.DateTimeSystem.TimeZone`_]:
          List of available timezones on the host.
 
 

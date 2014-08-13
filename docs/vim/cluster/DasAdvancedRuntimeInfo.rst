@@ -17,6 +17,6 @@ Attributes:
     dasHostInfo (`vim.cluster.DasHostInfo`_, optional):
 
        The information pertaining to the HA agents on the hosts
-    heartbeatDatastoreInfo (`vim.cluster.DasAdvancedRuntimeInfo.HeartbeatDatastoreInfo`_, optional):
+    heartbeatDatastoreInfo ([`vim.cluster.DasAdvancedRuntimeInfo.HeartbeatDatastoreInfo`_], optional):
 
        The map of a datastore to the set of hosts that are using the datastore for storage heartbeating.

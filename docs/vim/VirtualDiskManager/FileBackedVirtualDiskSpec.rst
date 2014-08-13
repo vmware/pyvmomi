@@ -17,6 +17,6 @@ Attributes:
     capacityKb (`long`_):
 
        Specify the capacity of the virtual disk in Kb.
-    profile (`vim.vm.ProfileSpec`_, optional):
+    profile ([`vim.vm.ProfileSpec`_], optional):
 
        Virtual Disk Profile requirement. Profiles are solution specifics. Profile Based Storage Management is a vSphere server extension. The API users who want to provision VMs using Storage Profiles, need to interact with it. This is an optional parameter and if user doesn't specify profile, the default behavior will apply.

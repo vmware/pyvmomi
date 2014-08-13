@@ -12,9 +12,9 @@ vim.dvs.VmwareDistributedVirtualSwitch.VlanHealthCheckResult
 :since: `vSphere API 5.1`_
 
 Attributes:
-    trunkedVlan (`vim.NumericRange`_, optional):
+    trunkedVlan ([`vim.NumericRange`_], optional):
 
        The vlans which are trunked by the physical switch connected to the uplink port. If the vlan is not a range, but a single Id, both start and end have the same value with the single vlan Id.
-    untrunkedVlan (`vim.NumericRange`_, optional):
+    untrunkedVlan ([`vim.NumericRange`_], optional):
 
        The vlans which are not trunked by the physical switch connected to the uplink port. If the vlan is not a range, but a single Id, both start and end have the same value with the single vlan Id.

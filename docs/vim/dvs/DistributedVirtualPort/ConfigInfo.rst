@@ -19,7 +19,7 @@ Attributes:
     name (`str`_, optional):
 
        The name of the port.
-    scope (`vim.ManagedEntity`_, optional):
+    scope ([`vim.ManagedEntity`_], optional):
 
        The eligible entities that can connect to the port. If unset, there is no restriction on which entity can connect to the port. If set, only the entities in the specified list or their child entities are allowed to connect to the port. If scopes are defined at both port and portgroup level, they are taken as an "AND" relationship. If such a relationship doesn't make sense, the reconfigure operation will raise an exception.
     description (`str`_, optional):

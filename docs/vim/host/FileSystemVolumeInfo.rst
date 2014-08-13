@@ -13,9 +13,9 @@ vim.host.FileSystemVolumeInfo
 :extends: vmodl.DynamicData_
 
 Attributes:
-    volumeTypeList (`str`_, optional):
+    volumeTypeList ([`str`_], optional):
 
        The list of supported file system volume types.
-    mountInfo (`vim.host.FileSystemMountInfo`_, optional):
+    mountInfo ([`vim.host.FileSystemMountInfo`_], optional):
 
        The list of file system volumes mounted on the host.

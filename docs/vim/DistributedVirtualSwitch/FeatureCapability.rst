@@ -66,7 +66,7 @@ Attributes:
     vmDirectPathGen2Supported (`bool`_):
 
        Indicates whether VMDirectPath Gen 2 is supported on the distributed virtual switch. See `HostCapability`_ . `vmDirectPathGen2Supported`_ and `PhysicalNic`_ . `vmDirectPathGen2Supported`_ .For a third-party distributed switch implementation, you can specify this property during switch creation or when you call the `UpdateDvsCapability`_ method.VMDirectPath Gen 2 is supported in vSphere Distributed Switch Version 4.1 or later.
-    nicTeamingPolicy (`str`_, optional):
+    nicTeamingPolicy ([`str`_], optional):
 
        The available teaming modes for the vSphere Distributed Switch. The value can be one or more of `DistributedVirtualSwitchNicTeamingPolicyMode`_ .
     networkResourcePoolHighShareValue (`int`_, optional):

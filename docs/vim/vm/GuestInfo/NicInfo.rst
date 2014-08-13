@@ -22,7 +22,7 @@ Attributes:
     network (`str`_, optional):
 
        Name of the virtual switch portgroup or dvPort connected to this adapter.
-    ipAddress (`str`_, optional):
+    ipAddress ([`str`_], optional):
 
     macAddress (`str`_, optional):
 

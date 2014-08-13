@@ -25,6 +25,6 @@ Attributes:
     token (`str`_, optional):
 
        A token used to retrieve further retrieve results.If set, the token should be passed to `ContinueRetrievePropertiesEx`_ to retrieve more results. Each token may be passed to continueRetrievePropertiesEx only once, and only in the same session in which it was returned and to the same `PropertyCollector`_ object that returned it.If unset, there are no further results to retrieve after this `RetrieveResult`_ .
-    objects (`vmodl.query.PropertyCollector.ObjectContent`_):
+    objects ([`vmodl.query.PropertyCollector.ObjectContent`_]):
 
        retrieved objects.

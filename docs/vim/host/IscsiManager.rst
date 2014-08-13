@@ -127,7 +127,7 @@ QueryBoundVnics(iScsiHbaName):
 
 
   Returns:
-    `vim.host.IscsiManager.IscsiPortInfo`_:
+    [`vim.host.IscsiManager.IscsiPortInfo`_]:
          An array of IscsiPortInfo containing detailed information on the list of Virtual NICs bound to the adapter
 
   Raises:
@@ -156,7 +156,7 @@ QueryCandidateNics(iScsiHbaName):
 
 
   Returns:
-    `vim.host.IscsiManager.IscsiPortInfo`_:
+    [`vim.host.IscsiManager.IscsiPortInfo`_]:
          Array of IscsiPortInfo containing detailed information on list of eligible Virtual NICs that can be bound to the adapter. This list will also include details on the eligible Physical NICs that are not associated with any Virtual NICs.
 
   Raises:

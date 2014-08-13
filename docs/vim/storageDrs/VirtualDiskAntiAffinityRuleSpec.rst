@@ -12,6 +12,6 @@ vim.storageDrs.VirtualDiskAntiAffinityRuleSpec
 :since: `vSphere API 5.0`_
 
 Attributes:
-    diskId (`int`_):
+    diskId ([`int`_]):
 
        The list of virtual disks.

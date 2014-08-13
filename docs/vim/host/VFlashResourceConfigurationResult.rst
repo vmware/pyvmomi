@@ -16,12 +16,12 @@ vim.host.VFlashResourceConfigurationResult
 :since: `vSphere API 5.5`_
 
 Attributes:
-    devicePath (`str`_, optional):
+    devicePath ([`str`_], optional):
 
        The original array of device path which user had specified
     vffs (`vim.host.VffsVolume`_, optional):
 
        Newly configured VffsVolume
-    diskConfigurationResult (`vim.host.DiskConfigurationResult`_, optional):
+    diskConfigurationResult ([`vim.host.DiskConfigurationResult`_], optional):
 
        Array of device operation results.

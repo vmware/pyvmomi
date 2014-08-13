@@ -81,7 +81,7 @@ QueryDisksForVsan(canonicalName):
 
 
   Returns:
-    `vim.vsan.host.DiskResult`_:
+    [`vim.vsan.host.DiskResult`_]:
          a list of populated `VsanHostDiskResult`_ entries
 
 
