@@ -44,7 +44,7 @@ Attributes:
     httpProxy (`str`_, optional):
 
        The HTTP proxy to use on this network, e.g.,:
-    networkAssociation (`vim.vApp.IpPool.Association`_, optional):
+    networkAssociation ([`vim.vApp.IpPool.Association`_], optional):
 
        The networks that are associated with this IP pool
     availableIpv4Addresses (`int`_, optional):

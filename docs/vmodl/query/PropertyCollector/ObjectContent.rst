@@ -18,9 +18,9 @@ Attributes:
     obj (`vmodl.ManagedObject`_):
 
        Reference to the managed object that contains properties of interest.
-    propSet (`vmodl.DynamicProperty`_, optional):
+    propSet ([`vmodl.DynamicProperty`_], optional):
 
        Set of name-value pairs for the properties of the managed object.
-    missingSet (`vmodl.query.PropertyCollector.MissingProperty`_, optional):
+    missingSet ([`vmodl.query.PropertyCollector.MissingProperty`_], optional):
 
        Properties for which values could not be retrieved and the associated fault.

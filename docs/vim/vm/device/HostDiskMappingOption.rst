@@ -11,7 +11,7 @@ vim.vm.device.HostDiskMappingOption
 :extends: vmodl.DynamicData_
 
 Attributes:
-    physicalPartition (`vim.vm.device.HostDiskMappingOption.PartitionOption`_, optional):
+    physicalPartition ([`vim.vm.device.HostDiskMappingOption.PartitionOption`_], optional):
 
        Array of valid partitions on this physical disk. There is no default for this array.
     name (`str`_):

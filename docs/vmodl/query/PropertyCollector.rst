@@ -78,7 +78,7 @@ vmodl.query.PropertyCollector
 
 Attributes
 ----------
-    filter (`vmodl.query.PropertyCollector.Filter`_):
+    filter ([`vmodl.query.PropertyCollector.Filter`_]):
       privilege: System.View
        The filters that this `PropertyCollector`_ uses to determine the list of properties for which it detects incremental changes.
 
@@ -146,7 +146,7 @@ RetrieveProperties(specSet):
 
 
   Returns:
-    `vmodl.query.PropertyCollector.ObjectContent`_:
+    [`vmodl.query.PropertyCollector.ObjectContent`_]:
          The data contents of the specified objects.
 
   Raises:

@@ -16,7 +16,7 @@ Attributes:
     action (`vim.action.Action`_):
 
        The action to be done when the alarm is triggered.
-    transitionSpecs (`vim.alarm.AlarmTriggeringAction.TransitionSpec`_, optional):
+    transitionSpecs ([`vim.alarm.AlarmTriggeringAction.TransitionSpec`_], optional):
 
        Indicates on which transitions this action executes and repeats. This is optional only for backwards compatibility.
     green2yellow (`bool`_):

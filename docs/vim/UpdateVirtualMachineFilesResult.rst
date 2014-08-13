@@ -14,6 +14,6 @@ vim.UpdateVirtualMachineFilesResult
 :since: `vSphere API 4.1`_
 
 Attributes:
-    failedVmFile (`vim.UpdateVirtualMachineFilesResult.FailedVmFileInfo`_, optional):
+    failedVmFile ([`vim.UpdateVirtualMachineFilesResult.FailedVmFileInfo`_], optional):
 
        The list of virtual machines files the server has attempted to update but failed to update.

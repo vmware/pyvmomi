@@ -27,7 +27,7 @@ Attributes:
     mapping (`vim.vsan.host.DiskMapping`_):
 
        DiskMapping for this result.
-    diskResult (`vim.vsan.host.DiskResult`_, optional):
+    diskResult ([`vim.vsan.host.DiskResult`_], optional):
 
        List of results for each disk in the mapping.
     error (`vmodl.LocalizedMethodFault`_, optional):

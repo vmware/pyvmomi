@@ -14,6 +14,6 @@ Attributes:
     systemUser (`bool`_):
 
        filter by system user true for system user event
-    userList (`str`_, optional):
+    userList ([`str`_], optional):
 
        all interested username list If this property is not set, then all regular user events are collected

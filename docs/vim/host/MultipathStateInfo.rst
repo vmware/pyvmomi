@@ -12,6 +12,6 @@ vim.host.MultipathStateInfo
 :since: `vSphere API 4.0`_
 
 Attributes:
-    path (`vim.host.MultipathStateInfo.Path`_, optional):
+    path ([`vim.host.MultipathStateInfo.Path`_], optional):
 
        List of paths on the system and their path states.

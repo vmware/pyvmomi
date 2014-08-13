@@ -15,6 +15,6 @@ Attributes:
     iScsiAlias (`str`_):
 
        The iSCSI alias of the target.
-    address (`str`_, optional):
+    address ([`str`_], optional):
 
        The IP addresses through which the target may be reached.

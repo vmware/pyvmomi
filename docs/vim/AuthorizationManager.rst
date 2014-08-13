@@ -57,10 +57,10 @@ vim.AuthorizationManager
 
 Attributes
 ----------
-    privilegeList (`vim.AuthorizationManager.Privilege`_):
+    privilegeList ([`vim.AuthorizationManager.Privilege`_]):
       privilege: System.View
        The list of system-defined privileges.
-    roleList (`vim.AuthorizationManager.Role`_):
+    roleList ([`vim.AuthorizationManager.Role`_]):
       privilege: System.View
        The currently defined roles in the system, including static system-defined roles.
     description (`vim.AuthorizationDescription`_):
@@ -244,7 +244,7 @@ RetrieveRolePermissions(roleId):
 
 
   Returns:
-    `vim.AuthorizationManager.Permission`_:
+    [`vim.AuthorizationManager.Permission`_]:
          
 
   Raises:
@@ -272,7 +272,7 @@ RetrieveEntityPermissions(entity, inherited):
 
 
   Returns:
-    `vim.AuthorizationManager.Permission`_:
+    [`vim.AuthorizationManager.Permission`_]:
          
 
   Raises:
@@ -294,7 +294,7 @@ RetrieveAllPermissions():
 
 
   Returns:
-    `vim.AuthorizationManager.Permission`_:
+    [`vim.AuthorizationManager.Permission`_]:
          
 
 
@@ -454,7 +454,7 @@ HasPrivilegeOnEntity(entity, sessionId, privId):
 
 
   Returns:
-    `bool`_:
+    [`bool`_]:
          a boolean value for each privilege indicating whether the session holds the privilege.
 
   Raises:
@@ -489,7 +489,7 @@ HasPrivilegeOnEntities(entity, sessionId, privId):
 
 
   Returns:
-    `vim.AuthorizationManager.EntityPrivilege`_:
+    [`vim.AuthorizationManager.EntityPrivilege`_]:
          The privilege check result.
 
   Raises:

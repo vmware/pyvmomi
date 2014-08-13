@@ -64,7 +64,7 @@ Attributes:
     dasHostState (`vim.cluster.DasFdmHostState`_, optional):
 
        The availability state of an active host in a vSphere HA enabled cluster. A host is inactive if it is in maintenance or standby mode, or it has been disconnected from vCenter Server. The active hosts in a cluster form a vSphere HA fault domain.The property is unset if vSphere HA is disabled, the host is in maintenance or standby mode, or the host is disconnected from vCenter Server.
-    tpmPcrValues (`vim.host.TpmDigestInfo`_, optional):
+    tpmPcrValues ([`vim.host.TpmDigestInfo`_], optional):
 
        The array of PCR digest values stored in the TPM device since the last host boot time.
     vsanRuntimeInfo (`vim.vsan.host.VsanRuntimeInfo`_, optional):

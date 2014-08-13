@@ -7,6 +7,6 @@ vim.alarm.GroupAlarmAction
 :extends: vim.alarm.AlarmAction_
 
 Attributes:
-    action (`vim.alarm.AlarmAction`_):
+    action ([`vim.alarm.AlarmAction`_]):
 
        The list of alarm actions that occur when the alarm is triggered.

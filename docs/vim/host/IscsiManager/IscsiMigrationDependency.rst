@@ -22,6 +22,6 @@ Attributes:
     disallowReason (`vim.host.IscsiManager.IscsiStatus`_, optional):
 
        Reasons for not allowing migration. Unset if migrationAllowed is true.
-    dependency (`vim.host.IscsiManager.IscsiDependencyEntity`_, optional):
+    dependency ([`vim.host.IscsiManager.IscsiDependencyEntity`_], optional):
 
        Details of all the resources affected by migration.

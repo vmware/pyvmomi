@@ -11,7 +11,7 @@ vim.option.ChoiceOption
 :extends: vim.option.OptionType_
 
 Attributes:
-    choiceInfo (`vim.ElementDescription`_):
+    choiceInfo ([`vim.ElementDescription`_]):
 
        The set of possible selections and descriptions.
     defaultIndex (`int`_, optional):

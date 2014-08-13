@@ -12,6 +12,6 @@ vim.vsan.host.ConfigInfo.NetworkInfo
 :since: `vSphere API 5.5`_
 
 Attributes:
-    port (`vim.vsan.host.ConfigInfo.NetworkInfo.PortConfig`_, optional):
+    port ([`vim.vsan.host.ConfigInfo.NetworkInfo.PortConfig`_], optional):
 
        Set of PortConfig entries for use by the VSAN service, one per "virtual network" as used by VSAN.

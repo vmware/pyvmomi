@@ -55,7 +55,7 @@ QueryDescriptions(host):
 
 
   Returns:
-    `vim.DiagnosticManager.LogDescriptor`_:
+    [`vim.DiagnosticManager.LogDescriptor`_]:
          
 
   Raises:

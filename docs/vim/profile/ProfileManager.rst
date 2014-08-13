@@ -29,7 +29,7 @@ vim.profile.ProfileManager
 
 Attributes
 ----------
-    profile (`vim.profile.Profile`_):
+    profile ([`vim.profile.Profile`_]):
       privilege: Profile.View
        A list of profiles known to this ProfileManager.
 
@@ -88,7 +88,7 @@ QueryPolicyMetadata(policyName, profile):
 
 
   Returns:
-    `vim.profile.PolicyMetadata`_:
+    [`vim.profile.PolicyMetadata`_]:
          The metadata information for the policy.
 
   Raises:
@@ -117,7 +117,7 @@ FindAssociatedProfile(entity):
 
 
   Returns:
-    `vim.profile.Profile`_:
+    [`vim.profile.Profile`_]:
          
 
 

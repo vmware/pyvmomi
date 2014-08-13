@@ -16,6 +16,6 @@ vim.DistributedVirtualSwitch.NameArrayUplinkPortPolicy
 :since: `vSphere API 4.0`_
 
 Attributes:
-    uplinkPortName (`str`_):
+    uplinkPortName ([`str`_]):
 
        The uniform name of uplink ports on each host.

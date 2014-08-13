@@ -154,10 +154,10 @@ Attributes
     description (`vim.PerformanceDescription`_):
       privilege: System.View
        The static description strings.
-    historicalInterval (`vim.HistoricalInterval`_):
+    historicalInterval ([`vim.HistoricalInterval`_]):
       privilege: System.View
        A list of `intervals`_ configured on the system.
-    perfCounter (`vim.PerformanceManager.CounterInfo`_):
+    perfCounter ([`vim.PerformanceManager.CounterInfo`_]):
       privilege: System.View
        A list of all supported performance counters in the system.
 
@@ -226,7 +226,7 @@ QueryAvailablePerfMetric(entity, beginTime, endTime, intervalId):
 
 
   Returns:
-    `vim.PerformanceManager.MetricId`_:
+    [`vim.PerformanceManager.MetricId`_]:
          An array of metrics, each of which comprises a `counterId`_ and an `name`_ .
 
   Raises:
@@ -252,7 +252,7 @@ QueryPerfCounter(counterId):
 
 
   Returns:
-    `vim.PerformanceManager.CounterInfo`_:
+    [`vim.PerformanceManager.CounterInfo`_]:
          An array consisting of performance counter information for the specified counterIds.
 
   Raises:
@@ -279,7 +279,7 @@ QueryPerfCounterByLevel(level):
 
 
   Returns:
-    `vim.PerformanceManager.CounterInfo`_:
+    [`vim.PerformanceManager.CounterInfo`_]:
          An array of `PerfCounterInfo`_ objects that define the set of counters having the specified level number available for the entity.
 
   Raises:
@@ -305,7 +305,7 @@ QueryPerf(querySpec):
 
 
   Returns:
-    `vim.PerformanceManager.EntityMetricBase`_:
+    [`vim.PerformanceManager.EntityMetricBase`_]:
          The metric values for the specified entity or entities.
 
   Raises:

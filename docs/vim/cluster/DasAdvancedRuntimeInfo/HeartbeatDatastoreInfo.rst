@@ -16,5 +16,5 @@ vim.cluster.DasAdvancedRuntimeInfo.HeartbeatDatastoreInfo
 Attributes:
     datastore (`vim.Datastore`_):
 
-    hosts (`vim.HostSystem`_):
+    hosts ([`vim.HostSystem`_]):
 

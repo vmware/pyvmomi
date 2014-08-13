@@ -40,13 +40,13 @@ Attributes
     resourcePool (`vim.ResourcePool`_):
       privilege: System.View
        Reference to root resource pool.
-    host (`vim.HostSystem`_):
+    host ([`vim.HostSystem`_]):
       privilege: System.View
        List of hosts that are part of this compute resource. If the compute resource is a standalone type, then this list contains just one element.
-    datastore (`vim.Datastore`_):
+    datastore ([`vim.Datastore`_]):
       privilege: System.View
        The datastore property is the subset of datastore objects in the datacenter available in this ComputeResource.This property is computed as the aggregate set of datastores available from all the hosts that are part of this compute resource.
-    network (`vim.Network`_):
+    network ([`vim.Network`_]):
       privilege: System.View
        The subset of network objects available in the datacenter that is available in this ComputeResource.This property is computed as the aggregate set of networks available from all the hosts that are part of this compute resource.
     summary (`vim.ComputeResource.Summary`_):

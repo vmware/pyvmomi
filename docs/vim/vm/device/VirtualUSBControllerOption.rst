@@ -19,6 +19,6 @@ Attributes:
     ehciSupported (`vim.option.BoolOption`_):
 
        Flag to indicate whether or not enhanced host controller interface (USB 2.0) is available on this virtual USB controller.
-    supportedSpeeds (`str`_):
+    supportedSpeeds ([`str`_]):
 
        Range of USB device speeds supported by this USB controller type. Acceptable values are specified at `VirtualMachineUsbInfoSpeed`_ .

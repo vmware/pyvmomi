@@ -23,7 +23,7 @@ Attributes:
     enable (`bool`_, optional):
 
        Enable or disable dhcp for IPv4.
-    config (`vim.KeyValue`_):
+    config ([`vim.KeyValue`_]):
 
        Platform specific settings for DHCP Client. The key part is a unique number, the value part is the platform specific configuration command. See `NetDhcpConfigInfo`_ for value formatting.
     operation (`str`_):

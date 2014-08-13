@@ -15,6 +15,6 @@ Attributes:
     operator (`str`_):
 
        Logical operator to be applied between the expressions in the composite expression. e.g: or, and
-    expressionName (`str`_):
+    expressionName ([`str`_]):
 
        List of expression names that will be used for this composition. The individual expressions will return a boolean. The return values of the individual expressions will be used to compute the final return value of the CompositeExpression. The expressions specified in the list can themselves be CompositeExpressions.

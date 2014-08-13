@@ -49,7 +49,7 @@ Attributes
 ----------
     config (`vim.vm.ConfigInfo`_):
        Information about the configuration of this virtual machine when this snapshot was taken.The datastore paths for the virtual machine disks point to the head of the disk chain that represents the disk at this given snapshot. The fileInfo.fileLayout field is not set.
-    childSnapshot (`vim.vm.Snapshot`_):
+    childSnapshot ([`vim.vm.Snapshot`_]):
        All snapshots for which this snapshot is the parent.
 
 

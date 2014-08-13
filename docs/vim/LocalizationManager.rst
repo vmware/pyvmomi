@@ -50,7 +50,7 @@ vim.LocalizationManager
 
 Attributes
 ----------
-    catalog (`vim.LocalizationManager.MessageCatalog`_):
+    catalog ([`vim.LocalizationManager.MessageCatalog`_]):
       privilege: System.View
        Fetches the descriptions of all the client-side localization message catalogs available for the current session locale.
 

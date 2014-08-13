@@ -42,7 +42,7 @@ Attributes:
     linkSpeed (`vim.host.PhysicalNic.LinkSpeedDuplex`_, optional):
 
        The current link state of the physical network adapter. If this object is not set, then the link is down.
-    validLinkSpecification (`vim.host.PhysicalNic.LinkSpeedDuplex`_, optional):
+    validLinkSpecification ([`vim.host.PhysicalNic.LinkSpeedDuplex`_], optional):
 
        The valid combinations of speed and duplexity for this physical network adapter. The speed and the duplex settings usually must be configured as a pair. This array lists all the valid combinations available for a physical network adapter.Autonegotiate is not listed as one of the combinations supported. If is implicitly supported by the physical network adapter unless `autoNegotiateSupported`_ is set to false.
     spec (`vim.host.PhysicalNic.Specification`_):
@@ -66,7 +66,7 @@ Attributes:
     resourcePoolSchedulerAllowed (`bool`_, optional):
 
        Flag indicating whether the NIC allows resource pool based scheduling for network I/O control.
-    resourcePoolSchedulerDisallowedReason (`str`_, optional):
+    resourcePoolSchedulerDisallowedReason ([`str`_], optional):
 
        If `resourcePoolSchedulerAllowed`_ is false, this property advertises the reason for disallowing resource scheduling on this NIC. The reasons may be one of `PhysicalNicResourcePoolSchedulerDisallowedReason`_ 
     autoNegotiateSupported (`bool`_, optional):

@@ -17,6 +17,6 @@ Attributes:
     expressionType (`str`_):
 
        Type of the simple expression to instantiate. The expressionType should be derived from the available expressions as listed in the metadata.
-    parameter (`vmodl.KeyAnyValue`_, optional):
+    parameter ([`vmodl.KeyAnyValue`_], optional):
 
        The parameters for the expressionType. The list of parameters needed for a simple expression can be obtained from the metadata.

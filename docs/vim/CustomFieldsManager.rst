@@ -26,7 +26,7 @@ vim.CustomFieldsManager
 
 Attributes
 ----------
-    field (`vim.CustomFieldsManager.FieldDef`_):
+    field ([`vim.CustomFieldsManager.FieldDef`_]):
       privilege: System.View
        List of custom fields defined on this server. The fields are sorted by name.
 

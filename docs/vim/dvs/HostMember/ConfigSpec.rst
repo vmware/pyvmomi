@@ -42,6 +42,6 @@ Attributes:
     maxProxySwitchPorts (`int`_, optional):
 
        Maximum number of ports allowed in the `HostProxySwitch`_ .ESXi 5.0 and earlier hosts: If you are reconfiguring an existing host membership, that is, the proxy switch already exists, you must reboot the host for the new setting to take effect.
-    vendorSpecificConfig (`vim.dvs.KeyedOpaqueBlob`_, optional):
+    vendorSpecificConfig ([`vim.dvs.KeyedOpaqueBlob`_], optional):
 
        Opaque binary blob that stores vendor specific configuration.

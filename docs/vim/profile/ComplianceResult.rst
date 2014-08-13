@@ -32,6 +32,6 @@ Attributes:
     checkTime (`datetime`_, optional):
 
        Time at which compliance check was last run on the entity
-    failure (`vim.profile.ComplianceResult.ComplianceFailure`_, optional):
+    failure ([`vim.profile.ComplianceResult.ComplianceFailure`_], optional):
 
        If complianceStatus is non-compliant, failure will contain additional information about the compliance errors.

@@ -52,7 +52,7 @@ Attributes:
     hostSystem (`vim.HostSystem`_, optional):
 
        The host to validate the OVF descriptor against, if it cannot be deduced from the resource pool.The privilege System.Read is required on the host.
-    networkMapping (`vim.OvfManager.NetworkMapping`_, optional):
+    networkMapping ([`vim.OvfManager.NetworkMapping`_], optional):
 
        The mapping of network identifiers from the descriptor to networks in the VI infrastructure.The privilege Network.Assign is required on all networks in the list.
     ipAllocationPolicy (`str`_, optional):
@@ -61,10 +61,10 @@ Attributes:
     ipProtocol (`str`_, optional):
 
        The IP protocol chosen by the caller.See `VAppIPAssignmentInfo`_ .
-    propertyMapping (`vim.KeyValue`_, optional):
+    propertyMapping ([`vim.KeyValue`_], optional):
 
        The assignment of values to the properties found in the descriptor. If no value is specified for an option, the default value from the descriptor is used.
-    resourceMapping (`vim.OvfManager.ResourceMap`_, optional):
+    resourceMapping ([`vim.OvfManager.ResourceMap`_], optional):
 
        The resource configuration for the created vApp. This can be used to distribute a vApp across multiple resource pools (and create linked children).
     diskProvisioning (`str`_, optional):

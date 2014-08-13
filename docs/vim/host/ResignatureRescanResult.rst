@@ -18,7 +18,7 @@ vim.host.ResignatureRescanResult
 :since: `vSphere API 4.0`_
 
 Attributes:
-    rescan (`vim.host.VmfsRescanResult`_, optional):
+    rescan ([`vim.host.VmfsRescanResult`_], optional):
 
        List of VMFS Rescan operation results.
     result (`vim.Datastore`_):

@@ -106,10 +106,10 @@ Attributes:
     instanceUuid (`str`_, optional):
 
        VirtualCenter-specific 128-bit UUID of a virtual machine, represented as a hexademical string. This identifier is used by VirtualCenter to uniquely identify all virtual machine instances, including those that may share the same SMBIOS UUID.
-    npivNodeWorldWideName (`long`_, optional):
+    npivNodeWorldWideName ([`long`_], optional):
 
        A 64-bit node WWN (World Wide Name). These WWNs are paired with the `npivPortWorldWideName`_ to be used by the NPIV VPORTs instantiated for the virtual machine on the physical HBAs of the host. A pair of node and port WWNs serves as a unique identifier in accessing a LUN, so that it can be monitored or controlled by the storage administrator.If this property contains a single node WWN, the same node WWN is used to pair with all port WWNs listed in `npivPortWorldWideName`_ . If this property or `npivPortWorldWideName`_ is empty or unset, NPIV WWN is disabled for the virtual machine.
-    npivPortWorldWideName (`long`_, optional):
+    npivPortWorldWideName ([`long`_], optional):
 
        A 64-bit port WWN (World Wide Name). For detail description on WWN, see `npivNodeWorldWideName`_ .
     npivWorldWideNameType (`str`_, optional):
@@ -193,13 +193,13 @@ Attributes:
     networkShaper (`vim.vm.NetworkShaperInfo`_, optional):
 
        Resource limits for network.
-    extraConfig (`vim.option.OptionValue`_, optional):
+    extraConfig ([`vim.option.OptionValue`_], optional):
 
        Additional configuration information for the virtual machine.
-    cpuFeatureMask (`vim.host.CpuIdInfo`_, optional):
+    cpuFeatureMask ([`vim.host.CpuIdInfo`_], optional):
 
        Specifies CPU feature compatibility masks that override the defaults from the `GuestOsDescriptor`_ of the virtual machine's guest OS.
-    datastoreUrl (`vim.vm.ConfigInfo.DatastoreUrlPair`_, optional):
+    datastoreUrl ([`vim.vm.ConfigInfo.DatastoreUrlPair`_], optional):
 
        Enumerates the set of datastores that this virtual machine is stored on, as well as the URL identification for each of these.Changes to datastores do not generate property updates on this property. However, when this property is retrieved it returns the current datastore information.
     swapPlacement (`str`_, optional):

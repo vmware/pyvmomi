@@ -88,9 +88,9 @@ Attributes:
     product (`int`_, optional):
 
        Product ID of the USB device.
-    family (`str`_, optional):
+    family ([`str`_], optional):
 
        Device class families. For possible values see `VirtualMachineUsbInfoFamily`_ .
-    speed (`str`_, optional):
+    speed ([`str`_], optional):
 
        Device speeds detected by server. For possible values see `VirtualMachineUsbInfoSpeed`_ .

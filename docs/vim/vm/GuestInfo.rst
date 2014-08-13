@@ -65,13 +65,13 @@ Attributes:
     ipAddress (`str`_, optional):
 
        Primary IP address assigned to the guest operating system, if known.
-    net (`vim.vm.GuestInfo.NicInfo`_, optional):
+    net ([`vim.vm.GuestInfo.NicInfo`_], optional):
 
        Guest information about network adapters, if known.
-    ipStack (`vim.vm.GuestInfo.StackInfo`_, optional):
+    ipStack ([`vim.vm.GuestInfo.StackInfo`_], optional):
 
        Guest information about IP networking stack, if known.
-    disk (`vim.vm.GuestInfo.DiskInfo`_, optional):
+    disk ([`vim.vm.GuestInfo.DiskInfo`_], optional):
 
        Guest information about disks.You can obtain Linux guest disk information for the following file system types only: Ext2, Ext3, Ext4, ReiserFS, ZFS, NTFS, VFAT, UFS, PCFS, HFS, and MS-DOS.
     screen (`vim.vm.GuestInfo.ScreenInfo`_, optional):
@@ -99,6 +99,6 @@ Attributes:
     interactiveGuestOperationsReady (`bool`_, optional):
 
        Interactive Guest Operations availability. If true, the vitrual machine is ready to process guest operations as the user interacting with the guest desktop.
-    generationInfo (`vim.vm.GuestInfo.NamespaceGenerationInfo`_, privilege: VirtualMachine.Namespace.EventNotify, optional):
+    generationInfo ([`vim.vm.GuestInfo.NamespaceGenerationInfo`_, privilege: VirtualMachine.Namespace.EventNotify], optional):
 
        A list of namespaces and their corresponding generation numbers. Only namespaces with non-zero `maxSizeEventsFromGuest`_ are guaranteed to be present here. Use `ListNamespaces`_ to retrieve list of namespaces.

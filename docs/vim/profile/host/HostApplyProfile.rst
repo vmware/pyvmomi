@@ -56,16 +56,16 @@ Attributes:
     security (`vim.profile.host.SecurityProfile`_, optional):
 
        Security Configuration of the host. The security subprofile can include data such as administrator passwords.
-    service (`vim.profile.host.ServiceProfile`_, optional):
+    service ([`vim.profile.host.ServiceProfile`_], optional):
 
        Host configuration for services. Use the `key`_ property to access a subprofile in the list.
-    option (`vim.profile.host.OptionProfile`_, optional):
+    option ([`vim.profile.host.OptionProfile`_], optional):
 
        List of subprofiles representing advanced configuration options. Use the `key`_ property to access a subprofile in the list.
-    userAccount (`vim.profile.host.UserProfile`_, optional):
+    userAccount ([`vim.profile.host.UserProfile`_], optional):
 
        List of subprofiles for user accounts to be configured on the host. Use the `key`_ property to access a subprofile in the list.
-    usergroupAccount (`vim.profile.host.UserGroupProfile`_, optional):
+    usergroupAccount ([`vim.profile.host.UserGroupProfile`_], optional):
 
        List of subprofiles for user groups to be configured on the host. Use the `key`_ property to access a subprofile in the list.
     authentication (`vim.profile.host.AuthenticationProfile`_, optional):

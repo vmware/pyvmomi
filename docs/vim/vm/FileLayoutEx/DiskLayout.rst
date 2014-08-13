@@ -19,6 +19,6 @@ Attributes:
     key (`int`_):
 
        Identifier for the virtual disk in `device`_ .
-    chain (`vim.vm.FileLayoutEx.DiskUnit`_, optional):
+    chain ([`vim.vm.FileLayoutEx.DiskUnit`_], optional):
 
        The disk-unit chain that makes up this virtual disk.

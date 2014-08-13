@@ -16,6 +16,6 @@ vim.cluster.HostGroup
 :since: `vSphere API 4.1`_
 
 Attributes:
-    host (`vim.HostSystem`_, optional):
+    host ([`vim.HostSystem`_], optional):
 
        List of hosts that are part of this group. A host group can contain zero or more hosts.

@@ -23,12 +23,12 @@ Attributes:
     storagePod (`vim.StoragePod`_):
 
        The pod that this initial configuration applies to. Since there could be multiple pods in a single placement request, we may need to specify multiple initial VM configurations, one per pod.
-    disk (`vim.storageDrs.PodSelectionSpec.DiskLocator`_, optional):
+    disk ([`vim.storageDrs.PodSelectionSpec.DiskLocator`_], optional):
 
        Array of PodDiskLocator objects.
     vmConfig (`vim.storageDrs.VmConfigInfo`_, optional):
 
        The VM configuration for the VM that is being placed.
-    interVmRule (`vim.cluster.RuleInfo`_, optional):
+    interVmRule ([`vim.cluster.RuleInfo`_], optional):
 
        The initial interVmRules that should during placement of this virtual machine. It may not always be possible to specify that the virtual machine being placed is part of the rule because the virtual machine may not have been created yet. So for simplicity, we assume the virtual machine being placed is always implicitly part of any rule specified. It will be explicitly added to the rule before it is saved to the pod config.

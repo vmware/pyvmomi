@@ -12,6 +12,6 @@ vim.host.HardwareStatusInfo.StorageStatusInfo
 :since: `VI API 2.5`_
 
 Attributes:
-    operationalInfo (`vim.host.HardwareStatusInfo.StorageStatusInfo.OperationalInfo`_, optional):
+    operationalInfo ([`vim.host.HardwareStatusInfo.StorageStatusInfo.OperationalInfo`_], optional):
 
        Other information regarding the operational state of the storage element.

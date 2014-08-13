@@ -34,16 +34,16 @@ Attributes:
     productInfo (`vim.dvs.ProductSpec`_, optional):
 
        The product information for the implementation of the switch.
-    hostMember (`vim.HostSystem`_, optional):
+    hostMember ([`vim.HostSystem`_], optional):
 
        The names of the hosts that join the switch.
-    vm (`vim.VirtualMachine`_, optional):
+    vm ([`vim.VirtualMachine`_], optional):
 
        The Virtual Machines with Virtual NICs that connect to the switch. In releases after vSphere API 5.0, vSphere Servers might not generate property collector update notifications for this property. To obtain the latest value of the property, you can use PropertyCollector methods RetrievePropertiesEx or WaitForUpdatesEx. If you use the PropertyCollector.WaitForUpdatesEx method, specify an empty string for the version parameter. Since this property is on a DataObject, an update returned by WaitForUpdatesEx may contain values for this property when some other property on the DataObject changes. If this update is a result of a call to WaitForUpdatesEx with a non-empty version parameter, the value for this property may not be current.
-    host (`vim.HostSystem`_, optional):
+    host ([`vim.HostSystem`_], optional):
 
        The hosts with Virtual NICs that connect to the switch.
-    portgroupName (`str`_, optional):
+    portgroupName ([`str`_], optional):
 
        The names of the portgroups that are defined on the switch.
     description (`str`_, optional):

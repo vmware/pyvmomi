@@ -61,10 +61,10 @@ Attributes:
     portNameFormat (`str`_, optional):
 
        If set, a name will be automatically generated based on this format string for a port when it is created in or moved into the portgroup. The format string can contain meta tags that will be resolved to the corresponding values in generating a name, if applicable for the port at the time of name generation.To insert a meta tag in the format string, enclose the names defined as meta tag names inside angle brackets. See `DistributedVirtualPortgroupMetaTagName`_ for a list of currently available meta tags. For example, "redNetwork-portIndex" and "dvsName-pnicportIndex" result in generated port names like "redNetwork-2" and "switch-pnic3".If a meta tag is recognized, but there is no applicable value, the tag will be expanded to empty string. If an arbitrary name appears inside a "" pair and is not recognized as one of the defined meta tags, the substring is treated as-is and appear unchanged in the generated name.To prevent a meta tag from being expanded, prefix the meta tag with a '\' (backslash). For example, the format string "abc\portIndexdef" results in the generated port name "abcportIndexdef".
-    scope (`vim.ManagedEntity`_, optional):
+    scope ([`vim.ManagedEntity`_], optional):
 
        Eligible entities that can connect to the portgroup. If unset, there is no restriction on which entity can connect to the portgroup. If set, only the entities in the specified list or their child entities are allowed to connect to the portgroup. If scopes are defined at both port and portgroup level, they are taken as an "AND" relationship. If such a relationship doesn't make sense, the reconfigure operation will raise an exception.
-    vendorSpecificConfig (`vim.dvs.KeyedOpaqueBlob`_, optional):
+    vendorSpecificConfig ([`vim.dvs.KeyedOpaqueBlob`_], optional):
 
        Opaque binary blob that stores vendor specific configuration.
     configVersion (`str`_, optional):

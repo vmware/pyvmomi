@@ -21,7 +21,7 @@ Attributes:
     target (`int`_):
 
        The target identifier.
-    lun (`vim.host.ScsiTopology.Lun`_, optional):
+    lun ([`vim.host.ScsiTopology.Lun`_], optional):
 
        The list of SCSI logical units with which a target is associated.
     transport (`vim.host.TargetTransport`_, optional):

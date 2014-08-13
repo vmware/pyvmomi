@@ -19,6 +19,6 @@ Attributes:
     folderPath (`str`_, optional):
 
        Relative path to the top-level folder.
-    file (`vim.host.DatastoreBrowser.FileInfo`_, optional):
+    file ([`vim.host.DatastoreBrowser.FileInfo`_], optional):
 
        Set of matching files, if any.

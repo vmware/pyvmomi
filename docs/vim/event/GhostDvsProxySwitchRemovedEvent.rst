@@ -12,6 +12,6 @@ vim.event.GhostDvsProxySwitchRemovedEvent
 :since: `vSphere API 4.0`_
 
 Attributes:
-    switchUuid (`str`_):
+    switchUuid ([`str`_]):
 
        The list of ghost DVS proxy switch uuid that were removed.

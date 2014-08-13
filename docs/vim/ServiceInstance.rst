@@ -194,7 +194,7 @@ ValidateMigration(vm, state, testType, pool, host):
 
 
   Returns:
-    `vim.event.Event`_:
+    [`vim.event.Event`_]:
          A set of events that describe the warnings or errors that would apply if the proposed set of migrations were executed.
 
   Raises:
@@ -237,7 +237,7 @@ QueryVMotionCompatibility(vm, host, compatibility):
 
 
   Returns:
-    `vim.ServiceInstance.HostVMotionCompatibility`_:
+    [`vim.ServiceInstance.HostVMotionCompatibility`_]:
          An array where each element, associated with one of the input hosts, specifies which of the requested compatibility types applies to that host. If an input host has never been connected and therefore has no information available for determining its compatibility, it is omitted from the return list.
 
 
@@ -255,7 +255,7 @@ RetrieveProductComponents():
 
 
   Returns:
-    `vim.ServiceInstance.ProductComponentInfo`_:
+    [`vim.ServiceInstance.ProductComponentInfo`_]:
          
 
 

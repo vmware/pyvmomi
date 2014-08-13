@@ -29,33 +29,33 @@ vim.alarm.AlarmDescription
 :extends: vmodl.DynamicData_
 
 Attributes:
-    expr (`vim.TypeDescription`_):
+    expr ([`vim.TypeDescription`_]):
 
        Descriptions of expression types for a trigger.
-    stateOperator (`vim.ElementDescription`_):
+    stateOperator ([`vim.ElementDescription`_]):
 
         `State Operator enum description`_ 
-    metricOperator (`vim.ElementDescription`_):
+    metricOperator ([`vim.ElementDescription`_]):
 
         `MetricAlarmExpression Metric Operator enum description`_ 
-    hostSystemConnectionState (`vim.ElementDescription`_):
+    hostSystemConnectionState ([`vim.ElementDescription`_]):
 
         `Host System Connection State enum description`_ 
-    virtualMachinePowerState (`vim.ElementDescription`_):
+    virtualMachinePowerState ([`vim.ElementDescription`_]):
 
         `Virtual Machine Power State enum description`_ 
-    datastoreConnectionState (`vim.ElementDescription`_):
+    datastoreConnectionState ([`vim.ElementDescription`_]):
 
         `accessible`_ and `description`_ 
-    hostSystemPowerState (`vim.ElementDescription`_):
+    hostSystemPowerState ([`vim.ElementDescription`_]):
 
         `Host System Power State enum description`_ 
-    virtualMachineGuestHeartbeatStatus (`vim.ElementDescription`_):
+    virtualMachineGuestHeartbeatStatus ([`vim.ElementDescription`_]):
 
         `Guest Heartbeat Status enum description`_ 
-    entityStatus (`vim.ElementDescription`_):
+    entityStatus ([`vim.ElementDescription`_]):
 
         `ManagedEntity Status enum description`_ 
-    action (`vim.TypeDescription`_):
+    action ([`vim.TypeDescription`_]):
 
        Action class descriptions for an alarm.

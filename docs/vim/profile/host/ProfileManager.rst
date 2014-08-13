@@ -199,7 +199,7 @@ QueryHostProfileMetadata(profileName, profile):
 
 
   Returns:
-    `vim.profile.ProfileMetadata`_:
+    [`vim.profile.ProfileMetadata`_]:
          List of profile metadata objects.
 
   Raises:
@@ -447,7 +447,7 @@ QueryAnswerFileStatus(host):
 
 
   Returns:
-    `vim.profile.host.AnswerFileStatusResult`_:
+    [`vim.profile.host.AnswerFileStatusResult`_]:
          List of answer file status objects.
 
 

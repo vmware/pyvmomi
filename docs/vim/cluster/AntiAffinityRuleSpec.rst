@@ -11,6 +11,6 @@ vim.cluster.AntiAffinityRuleSpec
 :extends: vim.cluster.RuleInfo_
 
 Attributes:
-    vm (`vim.VirtualMachine`_):
+    vm ([`vim.VirtualMachine`_]):
 
        List of virtual machine references.

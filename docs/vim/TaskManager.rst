@@ -46,7 +46,7 @@ vim.TaskManager
 
 Attributes
 ----------
-    recentTask (`vim.Task`_):
+    recentTask ([`vim.Task`_]):
       privilege: System.View
        A list of `Task`_ managed objects that completed recently, that are currently running, or that are queued to run.The list contains only `Task`_ objects that the client has permission to access, which is determined by having permission to access the `Task`_ object's managed `entity`_ .The completed `Task`_ objects by default include only `Task`_ objects that completed within the past 10 minutes. When connected to vCenter Server, there is an additional default limitation that each of the completed `Task`_ objects in this list is one of the last 200 completed `Task`_ objects.This property should not be used for tracking `Task`_ completion. Generally, a `ListView`_ is a better way to monitor a specific set of `Task`_ objects. In releases after vSphere API 5.0, vSphere Servers might not generate property collector update notifications for this property. To obtain the latest value of the property, you can use PropertyCollector methods RetrievePropertiesEx or WaitForUpdatesEx. If you use the PropertyCollector.WaitForUpdatesEx method, specify an empty string for the version parameter. Any other version value will not produce any property values as no updates are generated.
     description (`vim.TaskDescription`_):

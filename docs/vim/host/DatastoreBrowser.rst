@@ -53,10 +53,10 @@ vim.host.DatastoreBrowser
 
 Attributes
 ----------
-    datastore (`vim.Datastore`_):
+    datastore ([`vim.Datastore`_]):
       privilege: System.View
        Set of datastores that can be searched on this DatastoreBrowser.The list of datastores available to browse on this DatastoreBrowser is contextual information that depends on the object being browsed. If the host is being browsed, the host's datastores are used. If the Datacenter is being browsed, the Datacenter's list of datastores is used.
-    supportedType (`vim.host.DatastoreBrowser.Query`_):
+    supportedType ([`vim.host.DatastoreBrowser.Query`_]):
        The list of supported file types. The supported file types are represented as items in this list. For each supported file type, there is an object in the list whose dynamic type is one of the types derived from the `FileQuery`_ data object type. In general, the properties in this query type are not set.Use the Query of the desired file type in the SearchSpec.query to indicate the desired file types.This property is used by clients to determine what kinds of file types are supported. Clients should consult this list to avoid querying for types of virtual machine components that are not supported.
 
 

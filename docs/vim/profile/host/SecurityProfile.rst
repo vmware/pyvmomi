@@ -18,6 +18,6 @@ vim.profile.host.SecurityProfile
 :since: `vSphere API 4.0`_
 
 Attributes:
-    permission (`vim.profile.host.PermissionProfile`_, optional):
+    permission ([`vim.profile.host.PermissionProfile`_], optional):
 
        Permission configuration.

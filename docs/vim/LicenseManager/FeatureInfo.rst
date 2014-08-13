@@ -37,7 +37,7 @@ Attributes:
     sourceRestriction (`str`_, optional):
 
        Describe any restriction on the source of a license for this feature.See `LicenseFeatureInfoSourceRestriction`_ 
-    dependentKey (`str`_, optional):
+    dependentKey ([`str`_], optional):
 
        Report List of feature keys used by this edition.
     edition (`bool`_, optional):

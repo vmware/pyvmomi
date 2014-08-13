@@ -11,9 +11,9 @@ vim.PerformanceManager.EntityMetric
 :extends: vim.PerformanceManager.EntityMetricBase_
 
 Attributes:
-    sampleInfo (`vim.PerformanceManager.SampleInfo`_, optional):
+    sampleInfo ([`vim.PerformanceManager.SampleInfo`_], optional):
 
        A list of objects containing information (an interval and a timestamp) about the samples collected.
-    value (`vim.PerformanceManager.MetricSeries`_, optional):
+    value ([`vim.PerformanceManager.MetricSeries`_], optional):
 
        A list of values that corresponds to the samples collected.

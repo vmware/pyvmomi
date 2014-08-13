@@ -27,7 +27,7 @@ Attributes:
     description (`str`_, optional):
 
        A description of the configOption object.
-    host (`vim.HostSystem`_, optional):
+    host ([`vim.HostSystem`_], optional):
 
        List of hosts to which this descriptor applies. List of hosts is not set when descriptor is returned from `queryDatacenterConfigOptionDescriptor`_ .
     createSupported (`bool`_):

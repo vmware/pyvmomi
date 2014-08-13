@@ -30,7 +30,7 @@ Attributes:
     lun (`vim.host.ScsiLun`_):
 
        SCSI device corresponding to logical unit.
-    path (`vim.host.MultipathInfo.Path`_):
+    path ([`vim.host.MultipathInfo.Path`_]):
 
        Array of paths available to access this LogicalUnit.
     policy (`vim.host.MultipathInfo.LogicalUnitPolicy`_):

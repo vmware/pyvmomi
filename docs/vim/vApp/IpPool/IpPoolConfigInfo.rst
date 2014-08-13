@@ -34,7 +34,7 @@ Attributes:
        IP range. This is specified as a set of ranges separated with commas. One range is given by a start address, a hash (#), and the length of the range.For example:
         * 192.0.2.235 # 20 is the IPv4 range from 192.0.2.235 to 192.0.2.254
         * 2001::7334 # 20 is the IPv6 range from 2001::7334 to 2001::7347
-    dns (`str`_, optional):
+    dns ([`str`_], optional):
 
        DNS serversFor example:
         * IPv4: ["10.20.0.1", "10.20.0.2"]

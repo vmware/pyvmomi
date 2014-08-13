@@ -36,9 +36,9 @@ Attributes
        Name of this network.
     summary (`vim.Network.Summary`_):
        Properties of a network.
-    host (`vim.HostSystem`_):
+    host ([`vim.HostSystem`_]):
        Hosts attached to this network.
-    vm (`vim.VirtualMachine`_):
+    vm ([`vim.VirtualMachine`_]):
        Virtual machines using this network.
 
 

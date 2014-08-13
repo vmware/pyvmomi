@@ -22,7 +22,7 @@ vim.host.PciPassthruSystem
 
 Attributes
 ----------
-    pciPassthruInfo (`vim.host.PciPassthruInfo`_):
+    pciPassthruInfo ([`vim.host.PciPassthruInfo`_]):
       privilege: System.Read
        Array of PciPassthru information
 

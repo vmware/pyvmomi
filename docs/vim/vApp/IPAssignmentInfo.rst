@@ -19,13 +19,13 @@ vim.vApp.IPAssignmentInfo
 :since: `vSphere API 4.0`_
 
 Attributes:
-    supportedAllocationScheme (`str`_, optional):
+    supportedAllocationScheme ([`str`_], optional):
 
        Specifies the IP allocation schemes supported by the guest software.When updating this field, an empty array will be interpreted as no changes. An array of the form [""] will clear all settings. Otherwise, the supplied value will overwrite the current setting.Reconfigure privilege: VApp.ApplicationConfig
     ipAllocationPolicy (`str`_, optional):
 
        Specifies how IP allocation should be managed by the VI platform. This is typically specified by the deployer. The set of valid options for the policy is based on the capabilities of the vApp software, as specified by the supportedAllocationSchemes property.Reconfigure privilege: VApp.InstanceConfig
-    supportedIpProtocol (`str`_, optional):
+    supportedIpProtocol ([`str`_], optional):
 
        Specifies the IP protocols supported by the guest software.When updating this field, an empty array will be interpreted as no changes. An array of the form [""] will clear all settings. Otherwise, the supplied value will overwrite the current setting.Reconfigure privilege: VApp.ApplicationConfig
     ipProtocol (`str`_, optional):

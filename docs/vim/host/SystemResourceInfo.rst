@@ -21,6 +21,6 @@ Attributes:
     config (`vim.ResourceConfigSpec`_, optional):
 
        Configuration of this system resource group.
-    child (`vim.host.SystemResourceInfo`_, optional):
+    child ([`vim.host.SystemResourceInfo`_], optional):
 
        List of child resource groups.

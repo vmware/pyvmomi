@@ -31,10 +31,10 @@ Attributes:
     digestProperties (`vim.host.InternetScsiHba.DigestProperties`_, optional):
 
        The digest settings for this discovery target. All static targets discovered via this target will inherit the use of these settings unless the static target's digest settings are explicitly set.
-    supportedAdvancedOptions (`vim.option.OptionDef`_, optional):
+    supportedAdvancedOptions ([`vim.option.OptionDef`_], optional):
 
        A list of supported key/value pair advanced options for the host bus adapter including their type information.
-    advancedOptions (`vim.host.InternetScsiHba.ParamValue`_, optional):
+    advancedOptions ([`vim.host.InternetScsiHba.ParamValue`_], optional):
 
        A list of the current options settings for the host bus adapter.
     parent (`str`_, optional):

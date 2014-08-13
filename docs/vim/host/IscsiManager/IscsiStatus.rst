@@ -14,6 +14,6 @@ vim.host.IscsiManager.IscsiStatus
 :since: `vSphere API 5.0`_
 
 Attributes:
-    reason (`vmodl.LocalizedMethodFault`_, optional):
+    reason ([`vmodl.LocalizedMethodFault`_], optional):
 
        List of failure reason and associated remedy. An array of fault codes associated with the failure. The fault itself will provide an indication of the actual failure code and `faultMessage`_ will indicate the remedy that needs to be taken to correct the failure.

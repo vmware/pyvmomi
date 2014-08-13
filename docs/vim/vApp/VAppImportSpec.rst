@@ -33,6 +33,6 @@ Attributes:
     resourcePoolSpec (`vim.ResourceConfigSpec`_):
 
        Resource pool specification.If resourcePoolSpec.entity is specified, that resource pool is used as the parent resource pool and the vApp will be made a linked child to the parent vApp. This field is ignored for the root node in an ImportSpec tree. Use of resourcePoolSpec.entity for creating linked children is deprecated as of vSphere API 5.1.
-    child (`vim.ImportSpec`_, optional):
+    child ([`vim.ImportSpec`_], optional):
 
        Contains a list of children ( `VirtualMachine`_ s and `VirtualApp`_ s).

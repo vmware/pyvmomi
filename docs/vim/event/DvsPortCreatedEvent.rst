@@ -12,6 +12,6 @@ vim.event.DvsPortCreatedEvent
 :since: `vSphere API 4.0`_
 
 Attributes:
-    portKey (`str`_):
+    portKey ([`str`_]):
 
        The key of the ports that are created.

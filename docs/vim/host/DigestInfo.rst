@@ -19,7 +19,7 @@ Attributes:
     digestMethod (`str`_):
 
        Method in which the digest value is calculated. The set of possible values is described in `HostDigestInfoDigestMethodType`_ .
-    digestValue (`int`_):
+    digestValue ([`int`_]):
 
        The variable length byte array containing the digest value calculated by the specified digestMethod.
     objectName (`str`_, optional):

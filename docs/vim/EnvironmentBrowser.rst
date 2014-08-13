@@ -59,7 +59,7 @@ QueryConfigOptionDescriptor():
 
 
   Returns:
-    `vim.vm.ConfigOptionDescriptor`_:
+    [`vim.vm.ConfigOptionDescriptor`_]:
          
 
 

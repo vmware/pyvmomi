@@ -20,7 +20,7 @@ vim.vApp.VAppConfigSpec
 :since: `vSphere API 4.0`_
 
 Attributes:
-    entityConfig (`vim.vApp.EntityConfigInfo`_, optional):
+    entityConfig ([`vim.vApp.EntityConfigInfo`_], optional):
 
        Configuration of sub-entities (virtual machine or vApp container).Reconfigure privilege: See EntityConfigInfo
     annotation (`str`_, optional):

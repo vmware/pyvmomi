@@ -38,7 +38,7 @@ Attributes:
     udpTimeout (`int`_):
 
        The time allotted for UDP packets.
-    portForward (`vim.host.NatService.PortForwardSpecification`_, optional):
+    portForward ([`vim.host.NatService.PortForwardSpecification`_], optional):
 
        The port forwarding specifications to allow network connections to be initiated from outside the firewall.
     nameService (`vim.host.NatService.NameServiceSpec`_, optional):

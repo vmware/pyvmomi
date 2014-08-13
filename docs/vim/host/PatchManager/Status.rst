@@ -27,7 +27,7 @@ Attributes:
     applicable (`bool`_):
 
        Whether or not this update is applicable to this host. An update may not be applicable to the ESX host for many reasons--for example, it is obsolete, it conflicts with other installed patches or libraries, and so on. The `reason`_ shows some of the reasons why the update is not applicable. An update could be inapplicable with no reason listed. This is because the prerequisite install state is not correct. For example, update A is one of the prerequisites of update B. B not only requires A to be installed, but also requires the host is rebooted after A is installed. When A is installed and the host has not been restarted after the installation, B will not be applicable. In such a case, the scan on both updates A and B would yield a whole picture of the update applicable status.
-    reason (`str`_, optional):
+    reason ([`str`_], optional):
 
        Possible reasons why an update is not applicable to the ESX host.See `HostPatchManagerReason`_ 
     integrity (`str`_, optional):
@@ -36,10 +36,10 @@ Attributes:
     installed (`bool`_):
 
        Whether the update is installed on the server.
-    installState (`str`_, optional):
+    installState ([`str`_], optional):
 
        The installation state of the update. Unset if the update is not installed on the server.See `HostPatchManagerInstallState`_ 
-    prerequisitePatch (`vim.host.PatchManager.Status.PrerequisitePatch`_, optional):
+    prerequisitePatch ([`vim.host.PatchManager.Status.PrerequisitePatch`_], optional):
 
        Prerequisite update.
     restartRequired (`bool`_):
@@ -51,6 +51,6 @@ Attributes:
     vmOffRequired (`bool`_):
 
        Whether or not this update requires the host in maintenance mode.
-    supersededPatchIds (`str`_, optional):
+    supersededPatchIds ([`str`_], optional):
 
        Patches that are superseded by this update.

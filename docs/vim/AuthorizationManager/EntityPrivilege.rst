@@ -17,6 +17,6 @@ Attributes:
     entity (`vim.ManagedEntity`_):
 
        The entity on which the privileges are checked.
-    privAvailability (`vim.AuthorizationManager.PrivilegeAvailability`_):
+    privAvailability ([`vim.AuthorizationManager.PrivilegeAvailability`_]):
 
        whether a set of privileges are granted for the managed entity.

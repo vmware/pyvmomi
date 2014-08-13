@@ -22,9 +22,9 @@ Attributes:
     name (`str`_):
 
        The name of the plugin.
-    device (`vim.host.PlugStoreTopology.Device`_, optional):
+    device ([`vim.host.PlugStoreTopology.Device`_], optional):
 
        The set of devices formed by this plugin.
-    claimedPath (`vim.host.PlugStoreTopology.Path`_, optional):
+    claimedPath ([`vim.host.PlugStoreTopology.Path`_], optional):
 
        The set of paths claimed by this plugin. Not every claimed path will necessarily appear as part of a Device. Claimed paths will only appear under Devices if the device identifier of the path matches up with the device identifier exposed by the Device.

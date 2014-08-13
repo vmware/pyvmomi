@@ -25,12 +25,12 @@ Attributes:
     importSpec (`vim.ImportSpec`_, optional):
 
        The ImportSpec contains information about which `VirtualMachine`_ s and `VirtualApp`_ s are present in the entity and how they relate to each other.
-    fileItem (`vim.OvfManager.FileItem`_, optional):
+    fileItem ([`vim.OvfManager.FileItem`_], optional):
 
        The files that must be uploaded by the caller as part of importing the entity.The files must be uploaded in order, because some of them may be delta files that patch already-uploaded files.
-    warning (`vmodl.LocalizedMethodFault`_, optional):
+    warning ([`vmodl.LocalizedMethodFault`_], optional):
 
        Non-fatal warnings from the processing. The ImportSpec will be valid, but the user may choose to reject it based on these warnings.
-    error (`vmodl.LocalizedMethodFault`_, optional):
+    error ([`vmodl.LocalizedMethodFault`_], optional):
 
        Errors that happened during processing. Something will be wrong with the ImportSpec, or it is not present.

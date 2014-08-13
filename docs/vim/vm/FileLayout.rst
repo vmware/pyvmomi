@@ -21,16 +21,16 @@ vim.vm.FileLayout
 
 
 Attributes:
-    configFile (`str`_, optional):
+    configFile ([`str`_], optional):
 
        A list of files that makes up the configuration of the virtual machine (excluding the .vmx file, since that file is represented in the FileInfo). These are relative paths from the configuration directory. A slash is always used as a separator. This list will typically include the NVRAM file, but could also include other meta-data files.
-    logFile (`str`_, optional):
+    logFile ([`str`_], optional):
 
        A list of files stored in the virtual machine's log directory. These are relative paths from the logDirectory. A slash is always used as a separator.
-    disk (`vim.vm.FileLayout.DiskLayout`_, optional):
+    disk ([`vim.vm.FileLayout.DiskLayout`_], optional):
 
        Files making up each virtual disk.
-    snapshot (`vim.vm.FileLayout.SnapshotLayout`_, optional):
+    snapshot ([`vim.vm.FileLayout.SnapshotLayout`_], optional):
 
        Files of each snapshot.
     swapFile (`str`_, optional):

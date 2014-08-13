@@ -67,10 +67,10 @@ vim.OvfManager
 
 Attributes
 ----------
-    ovfImportOption (`vim.OvfManager.OvfOptionInfo`_):
+    ovfImportOption ([`vim.OvfManager.OvfOptionInfo`_]):
       privilege: System.View
        Returns an array of `OvfOptionInfo`_ object that specifies what options the server support for modifing/relaxing the OVF import process.
-    ovfExportOption (`vim.OvfManager.OvfOptionInfo`_):
+    ovfExportOption ([`vim.OvfManager.OvfOptionInfo`_]):
       privilege: System.View
        Returns an array of `OvfOptionInfo`_ object that specifies what options the server support for exporting an OVF descriptor.
 

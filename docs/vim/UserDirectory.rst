@@ -29,7 +29,7 @@ vim.UserDirectory
 
 Attributes
 ----------
-    domainList (`str`_):
+    domainList ([`str`_]):
       privilege: System.View
        List of Windows domains available for user searches, if the underlying system supports windows domain membership.
 
@@ -88,7 +88,7 @@ RetrieveUserGroups(domain, searchStr, belongsToGroup, belongsToUser, exactMatch,
 
 
   Returns:
-    `vim.UserSearchResult`_:
+    [`vim.UserSearchResult`_]:
          
 
   Raises:

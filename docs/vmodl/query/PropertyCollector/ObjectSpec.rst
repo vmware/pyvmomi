@@ -29,6 +29,6 @@ Attributes:
     skip (`bool`_, optional):
 
        Flag to specify whether or not to report this managed object's properties. If the flag is true, the filter will not report this managed object's properties.
-    selectSet (`vmodl.query.PropertyCollector.SelectionSpec`_, optional):
+    selectSet ([`vmodl.query.PropertyCollector.SelectionSpec`_], optional):
 
        Set of selections to specify additional objects to filter.

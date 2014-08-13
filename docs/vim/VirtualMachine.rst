@@ -245,10 +245,10 @@ Attributes
         * basic configuration
         * alarms
         * performance information
-    datastore (`vim.Datastore`_):
+    datastore ([`vim.Datastore`_]):
       privilege: System.View
        A collection of references to the subset of datastore objects in the datacenter that is used by this virtual machine.
-    network (`vim.Network`_):
+    network ([`vim.Network`_]):
       privilege: System.View
        A collection of references to the subset of network objects in the datacenter that is used by this virtual machine.
     snapshot (`vim.vm.SnapshotInfo`_):
@@ -258,7 +258,7 @@ Attributes
         * `RemoveSnapshot_Task`_
         * `RevertToSnapshot_Task`_
         * `RemoveAllSnapshots_Task`_
-    rootSnapshot (`vim.vm.Snapshot`_):
+    rootSnapshot ([`vim.vm.Snapshot`_]):
        The roots of all snapshot trees for the virtual machine.
     guestHeartbeatStatus (`vim.ManagedEntity.Status`_):
        The guest heartbeat. The heartbeat status is classified as:
@@ -2135,7 +2135,7 @@ QueryUnownedFiles():
 
 
   Returns:
-    `str`_:
+    [`str`_]:
          The list of file paths for vm files whose ownership is not correct. Use `FileManager.ChangeOwner`_ to set the file ownership.
 
 
@@ -2197,7 +2197,7 @@ QueryFaultToleranceCompatibility():
 
 
   Returns:
-    `vmodl.MethodFault`_:
+    [`vmodl.MethodFault`_]:
          
 
   Raises:

@@ -14,9 +14,9 @@ vim.vm.customization.IPSettings.IpV6AddressSpec
 :since: `vSphere API 4.0`_
 
 Attributes:
-    ip (`vim.vm.customization.IpV6Generator`_):
+    ip ([`vim.vm.customization.IpV6Generator`_]):
 
        ipv6 address generators
-    gateway (`str`_, optional):
+    gateway ([`str`_], optional):
 
        gateways

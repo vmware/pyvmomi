@@ -22,6 +22,6 @@ Attributes:
     managedObject (`vmodl.ManagedObject`_):
 
        The object on which the event was logged.
-    data (`vim.event.ExtendedEvent.Pair`_, optional):
+    data ([`vim.event.ExtendedEvent.Pair`_], optional):
 
        Key/value pairs associated with event.

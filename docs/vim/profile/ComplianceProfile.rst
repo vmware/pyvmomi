@@ -14,7 +14,7 @@ vim.profile.ComplianceProfile
 :since: `vSphere API 4.0`_
 
 Attributes:
-    expression (`vim.profile.Expression`_):
+    expression ([`vim.profile.Expression`_]):
 
        List of expressions that make up the ComplianceChecks.
     rootExpression (`str`_):

@@ -22,6 +22,6 @@ Attributes:
     lun (`vim.host.ScsiLun`_):
 
        The SCSI device corresponding to logical unit.
-    path (`vim.host.PlugStoreTopology.Path`_, optional):
+    path ([`vim.host.PlugStoreTopology.Path`_], optional):
 
        The array of paths available to access this LogicalUnit.

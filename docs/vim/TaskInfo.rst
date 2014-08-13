@@ -50,7 +50,7 @@ Attributes:
     entityName (`str`_, optional):
 
        The name of the managed entity, locale-specific, retained for the history collector database.
-    locked (`vim.ManagedEntity`_, optional):
+    locked ([`vim.ManagedEntity`_], optional):
 
        If the state of the task is "running", then this property is a list of managed entities that the operation has locked, with a shared lock.
     state (`vim.TaskInfo.State`_):

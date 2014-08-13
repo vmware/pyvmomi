@@ -25,6 +25,6 @@ Attributes:
     id (`vim.ExtendedElementDescription`_):
 
        Identifier for the policy.
-    possibleOption (`vim.profile.PolicyOptionMetadata`_):
+    possibleOption ([`vim.profile.PolicyOptionMetadata`_]):
 
        Possible policy options that can be set for a policy of the given kind. `HostProfile`_ s and subprofiles will contain selected policy options from this list. See `PolicyOption`_ .

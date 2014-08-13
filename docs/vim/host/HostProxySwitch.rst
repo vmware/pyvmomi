@@ -42,19 +42,19 @@ Attributes:
     numPortsAvailable (`int`_):
 
        The number of ports that are available on this virtual switch.
-    uplinkPort (`vim.KeyValue`_, optional):
+    uplinkPort ([`vim.KeyValue`_], optional):
 
        The list of ports that can be potentially used by physical nics. This property contains the keys and names of such ports.
     mtu (`int`_, optional):
 
        The maximum transmission unit (MTU) associated with this switch in bytes.
-    pnic (`vim.host.PhysicalNic`_, optional):
+    pnic ([`vim.host.PhysicalNic`_], optional):
 
        The set of physical network adapters associated with this switch.
     spec (`vim.host.HostProxySwitch.Specification`_):
 
        The specification of the switch.
-    hostLag (`vim.host.HostProxySwitch.HostLagConfig`_, optional):
+    hostLag ([`vim.host.HostProxySwitch.HostLagConfig`_], optional):
 
        The Link Aggregation Control Protocol group and Uplink ports in the group.
     networkReservationSupported (`bool`_, optional):

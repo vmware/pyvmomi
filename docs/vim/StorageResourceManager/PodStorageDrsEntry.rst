@@ -23,12 +23,12 @@ Attributes:
     storageDrsConfig (`vim.storageDrs.ConfigInfo`_):
 
        Storage DRS configuration.
-    recommendation (`vim.cluster.Recommendation`_, optional):
+    recommendation ([`vim.cluster.Recommendation`_], optional):
 
        List of recommended actions for the Storage Pod. It is possible that the current set of recommendations may be empty, either due to not having any running dynamic recommendation generation module, or since there may be no recommended actions at this time.
-    drsFault (`vim.cluster.DrsFaults`_, optional):
+    drsFault ([`vim.cluster.DrsFaults`_], optional):
 
        A collection of the DRS faults generated in the last Storage DRS invocation. Each element of the collection is the set of faults generated in one recommendation.
-    actionHistory (`vim.cluster.ActionHistory`_, optional):
+    actionHistory ([`vim.cluster.ActionHistory`_], optional):
 
        The set of actions that have been performed recently.

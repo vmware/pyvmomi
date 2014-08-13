@@ -16,6 +16,6 @@ vim.cluster.VmGroup
 :since: `vSphere API 4.1`_
 
 Attributes:
-    vm (`vim.VirtualMachine`_, optional):
+    vm ([`vim.VirtualMachine`_], optional):
 
        List of virtual machines that are part of this group. A virtual machine group can contain zero or more virtual machines.

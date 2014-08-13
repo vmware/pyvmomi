@@ -19,7 +19,7 @@ vim.ServiceManager
 
 Attributes
 ----------
-    service (`vim.ServiceManager.ServiceInfo`_):
+    service ([`vim.ServiceManager.ServiceInfo`_]):
       privilege: Global.ServiceManagers
        The full list of services available in this directory.
 
@@ -49,7 +49,7 @@ QueryServiceList(serviceName, location):
 
 
   Returns:
-    `vim.ServiceManager.ServiceInfo`_:
+    [`vim.ServiceManager.ServiceInfo`_]:
          
 
   Raises:

@@ -16,10 +16,10 @@ vim.host.TpmAttestationReport
 :since: `vSphere API 5.1`_
 
 Attributes:
-    tpmPcrValues (`vim.host.TpmDigestInfo`_):
+    tpmPcrValues ([`vim.host.TpmDigestInfo`_]):
 
        The array of PCR digest values stored in the TPM device since the last host boot time.
-    tpmEvents (`vim.host.TpmEventLogEntry`_):
+    tpmEvents ([`vim.host.TpmEventLogEntry`_]):
 
        Log of TPM software stack attestation events.
     tpmLogReliable (`bool`_):

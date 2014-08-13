@@ -21,9 +21,9 @@ Attributes:
     mtuMismatch (`bool`_):
 
        True if the MTU configured in the vSphere Distributed Switch is different from the value configured in the Physical NIC, else false. If it is true, MTU health check is stopped. In this case, `vlanSupportSwitchMtu`_ and `vlanNotSupportSwitchMtu`_ will not have values.
-    vlanSupportSwitchMtu (`vim.NumericRange`_, optional):
+    vlanSupportSwitchMtu ([`vim.NumericRange`_], optional):
 
        The vlan's MTU setting on physical switch allows vSphere Distributed Switch max MTU size packets passing. If the vlan is not a range, but a single Id, both start and end have the same value with the single vlan Id.
-    vlanNotSupportSwitchMtu (`vim.NumericRange`_, optional):
+    vlanNotSupportSwitchMtu ([`vim.NumericRange`_], optional):
 
        The vlan's MTU setting on physical switch does not allow vSphere Distributed Switch max MTU size packets passing. If the vlan is not a range, but a single Id, both start and end have the same value with the single vlan Id.

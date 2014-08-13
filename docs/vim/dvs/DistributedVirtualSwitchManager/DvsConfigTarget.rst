@@ -14,9 +14,9 @@ vim.dvs.DistributedVirtualSwitchManager.DvsConfigTarget
 :since: `vSphere API 4.0`_
 
 Attributes:
-    distributedVirtualPortgroup (`vim.dvs.DistributedVirtualPortgroupInfo`_, optional):
+    distributedVirtualPortgroup ([`vim.dvs.DistributedVirtualPortgroupInfo`_], optional):
 
        List of any DistributedVirtualPortgroup available for host Virtual NIC connection.
-    distributedVirtualSwitch (`vim.dvs.DistributedVirtualSwitchInfo`_, optional):
+    distributedVirtualSwitch ([`vim.dvs.DistributedVirtualSwitchInfo`_], optional):
 
        List of any DistributedVirtualSwitch available for host Virtual NIC connection.

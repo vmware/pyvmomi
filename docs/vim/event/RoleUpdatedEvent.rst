@@ -9,6 +9,6 @@ vim.event.RoleUpdatedEvent
 :extends: vim.event.RoleEvent_
 
 Attributes:
-    privilegeList (`str`_, optional):
+    privilegeList ([`str`_], optional):
 
        The privileges granted to the role.

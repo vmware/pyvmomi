@@ -53,7 +53,7 @@ vim.profile.host.AnswerFile
 :since: `vSphere API 5.0`_
 
 Attributes:
-    userInput (`vim.profile.DeferredPolicyOptionParameter`_, optional):
+    userInput ([`vim.profile.DeferredPolicyOptionParameter`_], optional):
 
        List containing host-specific configuration data.
     createdTime (`datetime`_):

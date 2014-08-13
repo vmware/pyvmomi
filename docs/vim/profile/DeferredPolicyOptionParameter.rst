@@ -52,6 +52,6 @@ Attributes:
     inputPath (`vim.profile.ProfilePropertyPath`_):
 
        Complete path to the `PolicyOption`_ that defines the parameters.
-    parameter (`vmodl.KeyAnyValue`_, optional):
+    parameter ([`vmodl.KeyAnyValue`_], optional):
 
        List that contains values for the policy parameters.During parameter verification, this property is unspecified if the client has not provided the values for this parameter. See `ProfileExecuteResult`_ . `requireInput`_ .

@@ -12,6 +12,6 @@ vim.dvs.DistributedVirtualSwitchManager.HostArrayFilter
 :since: `vSphere API 4.1`_
 
 Attributes:
-    host (`vim.HostSystem`_):
+    host ([`vim.HostSystem`_]):
 
        List of hosts to consider.

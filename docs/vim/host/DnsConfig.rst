@@ -25,9 +25,9 @@ Attributes:
     domainName (`str`_):
 
        The domain name portion of the DNS name. For example, "vmware.com".Note: When DHCP is not enabled, the property can be set explicitly. When DHCP is enabled, the property reflects the current DNS configuration, but cannot be set.
-    address (`str`_, optional):
+    address ([`str`_], optional):
 
        The IP addresses of the DNS servers, placed in order of preference.Note: When DHCP is not enabled, the property can be set explicitly. When DHCP is enabled, the property reflects the current DNS configuration, but cannot be set.
-    searchDomain (`str`_, optional):
+    searchDomain ([`str`_], optional):
 
        The domain in which to search for hosts, placed in order of preference.Note: When DHCP is not enabled, the property can be set explicitly. When DHCP is enabled, the property reflects the current DNS configuration, but cannot be set.

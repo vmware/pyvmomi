@@ -16,7 +16,7 @@ vim.net.IpConfigSpec
 :since: `vSphere API 4.1`_
 
 Attributes:
-    ipAddress (`vim.net.IpConfigSpec.IpAddressSpec`_, optional):
+    ipAddress ([`vim.net.IpConfigSpec.IpAddressSpec`_], optional):
 
        A set of manual (static) IP addresses to be configured on a given interface.
     dhcp (`vim.net.DhcpConfigSpec`_, optional):

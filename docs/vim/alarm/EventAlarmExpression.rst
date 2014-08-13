@@ -38,7 +38,7 @@ vim.alarm.EventAlarmExpression
 :since: `VI API 2.5`_
 
 Attributes:
-    comparisons (`vim.alarm.EventAlarmExpression.Comparison`_, optional):
+    comparisons ([`vim.alarm.EventAlarmExpression.Comparison`_], optional):
 
        The attributes/values to compare.
     eventType (`str`_):

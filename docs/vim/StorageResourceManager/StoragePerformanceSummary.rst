@@ -17,22 +17,22 @@ Attributes:
     interval (`int`_):
 
        Time period over which statistics are aggregated The reported time unit is in seconds
-    percentile (`int`_):
+    percentile ([`int`_]):
 
        Metric percentile specification. A percentile is a value between 1 and 100. The metric value reported in the aggregated statistics corresponds with the percentile values in this field. For example, if the value of percentile[0] is P, and the value of the datastoreReadLatency[0] is L, then P% of all the read IOs performed during observation interval is less than L milliseconds.
-    datastoreReadLatency (`double`_):
+    datastoreReadLatency ([`double`_]):
 
        Aggregated datastore latency in milliseconds for read operations
-    datastoreWriteLatency (`double`_):
+    datastoreWriteLatency ([`double`_]):
 
        Aggregated datastore latency in milliseconds for write operations
-    datastoreVmLatency (`double`_):
+    datastoreVmLatency ([`double`_]):
 
        Aggregated datastore latency as observed by Vms using the datastore The reported latency is in milliseconds.
-    datastoreReadIops (`double`_):
+    datastoreReadIops ([`double`_]):
 
        Aggregated datastore Read IO rate (Reads/second)
-    datastoreWriteIops (`double`_):
+    datastoreWriteIops ([`double`_]):
 
        Aggregated datastore Write IO rate (Writes/second)
     siocActivityDuration (`int`_):

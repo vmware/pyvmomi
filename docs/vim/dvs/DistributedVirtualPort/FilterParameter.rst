@@ -12,6 +12,6 @@ vim.dvs.DistributedVirtualPort.FilterParameter
 :since: `vSphere API 5.5`_
 
 Attributes:
-    parameters (`str`_, optional):
+    parameters ([`str`_], optional):
 
        List of parameters for a Network Filter.

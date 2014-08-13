@@ -12,6 +12,6 @@ vim.event.OutOfSyncDvsHost
 :since: `vSphere API 4.0`_
 
 Attributes:
-    hostOutOfSync (`vim.event.DvsOutOfSyncHostArgument`_):
+    hostOutOfSync ([`vim.event.DvsOutOfSyncHostArgument`_]):
 
        The host that went out of sync.

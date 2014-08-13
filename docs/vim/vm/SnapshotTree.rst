@@ -50,7 +50,7 @@ Attributes:
     backupManifest (`str`_, optional):
 
        The relative path from the snapshotDirectory pointing to the backup manifest. Available for certain quiesced snapshots only.
-    childSnapshotList (`vim.vm.SnapshotTree`_, optional):
+    childSnapshotList ([`vim.vm.SnapshotTree`_], optional):
 
        The snapshot data for all snapshots for which this snapshot is the parent.
     replaySupported (`bool`_, optional):

@@ -23,9 +23,9 @@ Attributes:
     domainName (`str`_, optional):
 
        The domain name portion of the DNS name. This would be the "example.com" part of esx01.example.com. The rules for forming a domain name are defined in RFC 1034.
-    ipAddress (`str`_, optional):
+    ipAddress ([`str`_], optional):
 
        Unicast IP address(s) of one or more DNS servers in order of use. IPv4 addresses are specified using dotted decimal notation. For example, "192.0.2.1". IPv6 addresses are 128-bit addresses represented as eight fields of up to four hexadecimal digits. A colon separates each field (:). For example, 2001:DB8:101::230:6eff:fe04:d9ff. The address can also consist of the symbol '::' to represent multiple 16-bit groups of contiguous 0's only once in an address as described in RFC 2373.
-    searchDomain (`str`_, optional):
+    searchDomain ([`str`_], optional):
 
        The domain in which to search for hosts in order of preference.

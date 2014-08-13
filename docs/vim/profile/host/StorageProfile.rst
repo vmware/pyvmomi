@@ -18,6 +18,6 @@ vim.profile.host.StorageProfile
 :since: `vSphere API 4.0`_
 
 Attributes:
-    nasStorage (`vim.profile.host.NasStorageProfile`_, optional):
+    nasStorage ([`vim.profile.host.NasStorageProfile`_], optional):
 
        List of NAS storage subprofiles. Use the `key`_ property to access a subprofile in the list.

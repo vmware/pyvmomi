@@ -25,6 +25,6 @@ Attributes:
     timeToLive (`int`_):
 
        It is the duration of time in seconds for which information contained in the received LLDP frame shall be valid. If a value of zero is sent it can also identify a device that has shut down or is no longer transmitting, prompting deletion of the record from the local database.
-    parameter (`vmodl.KeyAnyValue`_, optional):
+    parameter ([`vmodl.KeyAnyValue`_], optional):
 
        LLDP parameters

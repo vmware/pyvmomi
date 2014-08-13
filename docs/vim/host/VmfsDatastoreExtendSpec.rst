@@ -14,6 +14,6 @@ Attributes:
     partition (`vim.host.DiskPartitionInfo.Specification`_):
 
        Partitioning specification.
-    extent (`vim.host.ScsiDisk.Partition`_):
+    extent ([`vim.host.ScsiDisk.Partition`_]):
 
        Extents to append to VMFS.

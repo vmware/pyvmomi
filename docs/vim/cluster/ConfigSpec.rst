@@ -22,15 +22,15 @@ Attributes:
     dasConfig (`vim.cluster.DasConfigInfo`_, optional):
 
        Changes to the configuration of vSphere HA.
-    dasVmConfigSpec (`vim.cluster.DasVmConfigSpec`_, optional):
+    dasVmConfigSpec ([`vim.cluster.DasVmConfigSpec`_], optional):
 
        Changes to the per-virtual-machine vSphere HA settings.
     drsConfig (`vim.cluster.DrsConfigInfo`_, optional):
 
        Changes to the configuration of the VMware DRS service.
-    drsVmConfigSpec (`vim.cluster.DrsVmConfigSpec`_, optional):
+    drsVmConfigSpec ([`vim.cluster.DrsVmConfigSpec`_], optional):
 
        Changes to the per-virtual-machine DRS settings.
-    rulesSpec (`vim.cluster.RuleSpec`_, optional):
+    rulesSpec ([`vim.cluster.RuleSpec`_], optional):
 
        Changes to the set of rules.

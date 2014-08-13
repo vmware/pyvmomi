@@ -14,6 +14,6 @@ Attributes:
     key (`vim.vm.Snapshot`_):
 
        Identification of the snapshot
-    snapshotFile (`str`_):
+    snapshotFile ([`str`_]):
 
        A list of files that make up the snapshot state. These are relative paths from the snapshotDirectory. A slash is always used as a separator.

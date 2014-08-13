@@ -26,18 +26,18 @@ vim.host.PlugStoreTopology
 :since: `vSphere API 4.0`_
 
 Attributes:
-    adapter (`vim.host.PlugStoreTopology.Adapter`_, optional):
+    adapter ([`vim.host.PlugStoreTopology.Adapter`_], optional):
 
        List of host bus adapters in the plug store inventory.
-    path (`vim.host.PlugStoreTopology.Path`_, optional):
+    path ([`vim.host.PlugStoreTopology.Path`_], optional):
 
        List of paths in the plug store inventory.
-    target (`vim.host.PlugStoreTopology.Target`_, optional):
+    target ([`vim.host.PlugStoreTopology.Target`_], optional):
 
        Partial list of targets as seen by the host. The list of targets may not be exhaustive on the host.
-    device (`vim.host.PlugStoreTopology.Device`_, optional):
+    device ([`vim.host.PlugStoreTopology.Device`_], optional):
 
        List of devices in the plug store inventory.
-    plugin (`vim.host.PlugStoreTopology.Plugin`_, optional):
+    plugin ([`vim.host.PlugStoreTopology.Plugin`_], optional):
 
        List of plugins in the plug store inventory.

@@ -546,7 +546,7 @@ QueryNetworkHint(device):
 
 
   Returns:
-    `vim.host.PhysicalNic.NetworkHint`_:
+    [`vim.host.PhysicalNic.NetworkHint`_]:
          
 
   Raises:

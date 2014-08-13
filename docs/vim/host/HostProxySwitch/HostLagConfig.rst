@@ -18,6 +18,6 @@ Attributes:
 
     lagName (`str`_, optional):
 
-    uplinkPort (`vim.KeyValue`_, optional):
+    uplinkPort ([`vim.KeyValue`_], optional):
 
        The list of Uplink Ports in the Link Aggregation Control Protocol group. This property contains the keys and names of such ports.

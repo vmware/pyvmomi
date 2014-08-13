@@ -104,7 +104,7 @@ QueryAssignedLicenses(entityId):
 
 
   Returns:
-    `vim.LicenseAssignmentManager.LicenseAssignment`_:
+    [`vim.LicenseAssignmentManager.LicenseAssignment`_]:
          
 
 

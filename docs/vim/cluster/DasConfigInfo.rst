@@ -97,10 +97,10 @@ Attributes:
     defaultVmSettings (`vim.cluster.DasVmSettings`_, optional):
 
        Cluster-wide defaults for virtual machine HA settings. When a virtual machine has no HA configuration ( `ClusterDasVmConfigSpec`_ ), it uses the values specified here.
-    option (`vim.option.OptionValue`_, optional):
+    option ([`vim.option.OptionValue`_], optional):
 
        Advanced settings.
-    heartbeatDatastore (`vim.Datastore`_, optional):
+    heartbeatDatastore ([`vim.Datastore`_], optional):
 
        The list of preferred datastores to use for storage heartbeating. Each of the specified datastores should be active and mounted by more than one host. There is no limit on the number of specified datastores and no priority among them. The specified datastores will replace those previously specified and an empty list will delete all such earlier specified ones.vCenter Server chooses the heartbeat datastores for a host from the set specified by `hBDatastoreCandidatePolicy`_ . The choice is made based on datastore connectivity and storage array redundancy (in case of VMFS).The final set of selected heartbeat datastores is reported via `heartbeatDatastoreInfo`_ .
     hBDatastoreCandidatePolicy (`str`_, optional):

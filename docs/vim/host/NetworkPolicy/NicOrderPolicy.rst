@@ -9,9 +9,9 @@ vim.host.NetworkPolicy.NicOrderPolicy
 :extends: vmodl.DynamicData_
 
 Attributes:
-    activeNic (`str`_, optional):
+    activeNic ([`str`_], optional):
 
        List of active network adapters used for load balancing.
-    standbyNic (`str`_, optional):
+    standbyNic ([`str`_], optional):
 
        Standby network adapters used for failover.

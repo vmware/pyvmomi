@@ -19,6 +19,6 @@ Attributes:
     autoConnectDevices (`vim.option.BoolOption`_):
 
        Flag to indicate whether or not the ability to autoconnect devices is enabled for this virtual USB controller.
-    supportedSpeeds (`str`_):
+    supportedSpeeds ([`str`_]):
 
        Range of USB device speeds supported by this USB controller type. Acceptable values are specified at `VirtualMachineUsbInfoSpeed`_ .

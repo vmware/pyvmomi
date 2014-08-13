@@ -59,7 +59,7 @@ Attributes:
     maxSample (`int`_, optional):
 
        Limits the number of samples returned. Defaults to the most recent sample (or samples), unless a time range is specified. Use this property only in conjunction with the `intervalId`_ to obtain real-time statistics (set the `intervalId`_ to the `refreshRate`_ . This property is ignored for historical statistics, and is not valid for the `QueryPerfComposite`_ operation.
-    metricId (`vim.PerformanceManager.MetricId`_, optional):
+    metricId ([`vim.PerformanceManager.MetricId`_], optional):
 
        The performance metrics to be retrieved. This property is required for the `QueryPerfComposite`_ operation.
     intervalId (`int`_, optional):

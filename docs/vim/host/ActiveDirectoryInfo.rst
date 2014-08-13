@@ -23,7 +23,7 @@ Attributes:
     joinedDomain (`str`_, optional):
 
        The domain that this host joined.
-    trustedDomain (`str`_, optional):
+    trustedDomain ([`str`_], optional):
 
        List of domains with which thejoinedDomainhas a trust. ThejoinedDomainis not included in thetrustedDomainlist.
     domainMembershipStatus (`str`_, optional):

@@ -23,9 +23,9 @@ vim.option.OptionManager
 
 Attributes
 ----------
-    supportedOption (`vim.option.OptionDef`_):
+    supportedOption ([`vim.option.OptionDef`_]):
        A list of supported key/value pair options including their type information.
-    setting (`vim.option.OptionValue`_):
+    setting ([`vim.option.OptionValue`_]):
        A list of the current settings for the key/value pair options.
 
 
@@ -57,7 +57,7 @@ QueryOptions(name):
 
 
   Returns:
-    `vim.option.OptionValue`_:
+    [`vim.option.OptionValue`_]:
          The option with the given name. If the name ends with a dot, all options for that subtree are returned.
 
   Raises:

@@ -14,6 +14,6 @@ vim.profile.Profile.Description
 :since: `vSphere API 4.0`_
 
 Attributes:
-    section (`vim.profile.Profile.Description.Section`_):
+    section ([`vim.profile.Profile.Description.Section`_]):
 
        Sections which make up the profile description.

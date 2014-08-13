@@ -65,25 +65,25 @@ Attributes:
     subjectName (`str`_, optional):
 
        Subject name from client certificate.
-    server (`vim.Extension.ServerInfo`_, optional):
+    server ([`vim.Extension.ServerInfo`_], optional):
 
        Servers for this extension.
-    client (`vim.Extension.ClientInfo`_, optional):
+    client ([`vim.Extension.ClientInfo`_], optional):
 
        Clients for this extension.
-    taskList (`vim.Extension.TaskTypeInfo`_, optional):
+    taskList ([`vim.Extension.TaskTypeInfo`_], optional):
 
        Definitions of tasks defined by this extension.
-    eventList (`vim.Extension.EventTypeInfo`_, optional):
+    eventList ([`vim.Extension.EventTypeInfo`_], optional):
 
        Definitions of events defined by this extension.
-    faultList (`vim.Extension.FaultTypeInfo`_, optional):
+    faultList ([`vim.Extension.FaultTypeInfo`_], optional):
 
        Definitions of faults defined by this extension.
-    privilegeList (`vim.Extension.PrivilegeInfo`_, optional):
+    privilegeList ([`vim.Extension.PrivilegeInfo`_], optional):
 
        Definitions privileges defined by this extension.
-    resourceList (`vim.Extension.ResourceInfo`_, optional):
+    resourceList ([`vim.Extension.ResourceInfo`_], optional):
 
        Resource data for all locales
     lastHeartbeatTime (`datetime`_):
@@ -98,7 +98,7 @@ Attributes:
     extendedProductInfo (`vim.ext.ExtendedProductInfo`_, optional):
 
        Extended product information, such as URLs to vendor, product, etc.
-    managedEntityInfo (`vim.ext.ManagedEntityInfo`_, optional):
+    managedEntityInfo ([`vim.ext.ManagedEntityInfo`_], optional):
 
        Information about entities managed by this extension. An extension can register virtual machines as managed by itself, by setting the `managedBy`_ property of the virtual machine.
     shownInSolutionManager (`bool`_, optional):

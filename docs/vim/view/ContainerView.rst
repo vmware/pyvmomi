@@ -45,7 +45,7 @@ Attributes
 ----------
     container (`vim.ManagedEntity`_):
        The Folder, Datacenter, ComputeResource, ResourcePool, or HostSystem instance that provides the objects that the view presents.
-    type (`str`_):
+    type ([`str`_]):
        An optional list of types to be applied to the set of objects in the view. The list of types indicates objects that are included in the view. If empty, all types are included.
     recursive (`bool`_):
        Whether to include only the immediate children of the container instance, or to include additional objects by following the paths beyond the immediate children.For information about recursive behavior, see the description of `CreateContainerView`_ .

@@ -22,7 +22,7 @@ Attributes:
     state (`str`_, optional):
 
        State of the instance See State for valid values.
-    vmknicKeys (`str`_, optional):
+    vmknicKeys ([`str`_], optional):
 
        The keys of vmknics that are using this stack
     maxNumberOfConnections (`int`_, optional):

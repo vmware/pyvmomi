@@ -58,13 +58,13 @@ Attributes:
     uplinkPortPolicy (`vim.DistributedVirtualSwitch.UplinkPortPolicy`_):
 
        Uplink port policy.
-    uplinkPortgroup (`vim.dvs.DistributedVirtualPortgroup`_, optional):
+    uplinkPortgroup ([`vim.dvs.DistributedVirtualPortgroup`_], optional):
 
        List of uplink portgroups. When adding host members, the server uses the `uplinkPortPolicy`_ to create a number of uplink ports for the host. If portgroups are shown here, those uplink ports will be added to the portgroups, with uplink ports evenly spread among the portgroups.
     defaultPortConfig (`vim.dvs.DistributedVirtualPort.Setting`_):
 
        Default configuration for the ports in the switch, if the port does not inherit configuration from the parent portgroup or has its own configuration.
-    host (`vim.dvs.HostMember`_, optional):
+    host ([`vim.dvs.HostMember`_], optional):
 
        Hosts that join the switch.
     productInfo (`vim.dvs.ProductSpec`_):
@@ -76,7 +76,7 @@ Attributes:
     extensionKey (`str`_, optional):
 
        Key of the extension registered by the remote server that controls the switch.
-    vendorSpecificConfig (`vim.dvs.KeyedOpaqueBlob`_, optional):
+    vendorSpecificConfig ([`vim.dvs.KeyedOpaqueBlob`_], optional):
 
        Opaque binary blob that stores vendor specific configuration.
     policy (`vim.DistributedVirtualSwitch.SwitchPolicy`_, optional):
@@ -103,6 +103,6 @@ Attributes:
     defaultProxySwitchMaxNumPorts (`int`_, optional):
 
        Default host proxy switch maximum port number
-    healthCheckConfig (`vim.DistributedVirtualSwitch.HealthCheckConfig`_, optional):
+    healthCheckConfig ([`vim.DistributedVirtualSwitch.HealthCheckConfig`_], optional):
 
        VDS health check configuration.

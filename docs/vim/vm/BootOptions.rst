@@ -34,6 +34,6 @@ Attributes:
     bootRetryDelay (`long`_, optional):
 
        Delay in milliseconds before a boot retry. The boot retry delay specifies a time interval between virtual machine boot failure and the subsequent attempt to boot again. The virtual machine uses this value only if `bootRetryEnabled`_ is true.
-    bootOrder (`vim.vm.BootOptions.BootableDevice`_, optional):
+    bootOrder ([`vim.vm.BootOptions.BootableDevice`_], optional):
 
        Boot order. Listed devices are used for booting. After list is exhausted, default BIOS boot device algorithm is used for booting. Note that order of the entries in the list is important: device listed first is used for boot first, if that one fails second entry is used, and so on. Platform may have some internal limit on the number of devices it supports. If bootable device is not reached before platform's limit is hit, boot will fail. At least single entry is supported by all products supporting boot order settings.

@@ -14,6 +14,6 @@ Attributes:
     host (`vim.HostSystem`_):
 
        The prospective host for the virtual machine.
-    compatibility (`str`_, optional):
+    compatibility ([`str`_], optional):
 
        Ways in which the host is compatible with the designated virtual machine that is a candidate for VMotion. This array will be a subset of the set of VMotionCompatibilityType strings that were input to queryVMotionCompatibility.

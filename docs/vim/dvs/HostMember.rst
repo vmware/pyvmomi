@@ -37,7 +37,7 @@ Attributes:
     productInfo (`vim.dvs.ProductSpec`_, optional):
 
        Vendor, product and version information for the proxy switch module.
-    uplinkPortKey (`str`_, optional):
+    uplinkPortKey ([`str`_], optional):
 
        Port keys of the uplink ports created for the host member. These ports will be deleted after the host leaves the switch.
     status (`str`_):

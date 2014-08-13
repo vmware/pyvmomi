@@ -36,7 +36,7 @@ vim.alarm.AlarmManager
 
 Attributes
 ----------
-    defaultExpression (`vim.alarm.AlarmExpression`_):
+    defaultExpression ([`vim.alarm.AlarmExpression`_]):
       privilege: System.View
        The default setting for each alarm expression, used to populate the initial client wizard screen.
     description (`vim.alarm.AlarmDescription`_):
@@ -100,7 +100,7 @@ GetAlarm(entity):
 
 
   Returns:
-    `vim.alarm.Alarm`_:
+    [`vim.alarm.Alarm`_]:
          A reference to the Alarm objects returned by the operation.
 
 
@@ -166,7 +166,7 @@ GetAlarmState(entity):
 
 
   Returns:
-    `vim.alarm.AlarmState`_:
+    [`vim.alarm.AlarmState`_]:
          The state of instantiated alarms.
 
   Raises:

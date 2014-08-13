@@ -27,6 +27,6 @@ Attributes:
     id (`str`_):
 
        Identifier for the policy option. This value matches one of the keys from the list of possible options in the policy metadata ( `ProfilePolicyMetadata`_ . `possibleOption`_ []. `id`_ . `key`_ ).
-    parameter (`vmodl.KeyAnyValue`_, optional):
+    parameter ([`vmodl.KeyAnyValue`_], optional):
 
        Parameters for the policy option. This list must include all parameters that are not marked as optional in the policy option metadata parameter list ( `ProfilePolicyMetadata`_ . `possibleOption`_ []. `parameter`_ []. `optional`_ ).

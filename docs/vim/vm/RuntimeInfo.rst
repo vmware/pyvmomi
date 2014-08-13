@@ -49,7 +49,7 @@ vim.vm.RuntimeInfo
 :extends: vmodl.DynamicData_
 
 Attributes:
-    device (`vim.vm.DeviceRuntimeInfo`_, optional):
+    device ([`vim.vm.DeviceRuntimeInfo`_], optional):
 
        Per-device runtime info. This array will be empty if the host software does not provide runtime info for any of the device types currently in use by the virtual machine. In releases after vSphere API 5.0, vSphere Servers might not generate property collector update notifications for this property. To obtain the latest value of the property, you can use PropertyCollector methods RetrievePropertiesEx or WaitForUpdatesEx. If you use the PropertyCollector.WaitForUpdatesEx method, specify an empty string for the version parameter. Since this property is on a DataObject, an update returned by WaitForUpdatesEx may contain values for this property when some other property on the DataObject changes. If this update is a result of a call to WaitForUpdatesEx with a non-empty version parameter, the value for this property may not be current.
     host (`vim.HostSystem`_, optional):
@@ -112,13 +112,13 @@ Attributes:
     consolidationNeeded (`bool`_):
 
        Whether any disk of the virtual machine requires consolidation. This can happen for example when a snapshot is deleted but its associated disk is not committed back to the base disk. Use `ConsolidateVMDisks_Task`_ to consolidate if needed.
-    offlineFeatureRequirement (`vim.vm.FeatureRequirement`_, optional):
+    offlineFeatureRequirement ([`vim.vm.FeatureRequirement`_], optional):
 
        These requirements must have equivalent host capabilities `featureCapability`_ in order to power on.
-    featureRequirement (`vim.vm.FeatureRequirement`_, optional):
+    featureRequirement ([`vim.vm.FeatureRequirement`_], optional):
 
        These requirements must have equivalent host capabilities `featureCapability`_ in order to power on, resume, or migrate to the host.
-    featureMask (`vim.host.FeatureMask`_, optional):
+    featureMask ([`vim.host.FeatureMask`_], optional):
 
        The masks applied to an individual virtual machine as a result of its configuration.
     vFlashCacheAllocation (`long`_, optional):

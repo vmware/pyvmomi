@@ -17,7 +17,7 @@ Attributes:
     version (`str`_):
 
        The version of the scan result schema.
-    status (`vim.host.PatchManager.Status`_, optional):
+    status ([`vim.host.PatchManager.Status`_], optional):
 
        The scan results for each patch.
     xmlResult (`str`_, optional):

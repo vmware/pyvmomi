@@ -25,6 +25,6 @@ Attributes:
     dstFilename (`str`_):
 
        Name of the destination snapshot file in datastore path.
-    disk (`vim.host.LowLevelProvisioningManager.DiskLayoutSpec`_, optional):
+    disk ([`vim.host.LowLevelProvisioningManager.DiskLayoutSpec`_], optional):
 
        Layout of each virtual disk of the virtual machine when the snapshot was taken.

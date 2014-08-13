@@ -32,7 +32,7 @@ Attributes:
     description (`str`_):
 
        A description string for this configOption.
-    guestOSDescriptor (`vim.vm.GuestOsDescriptor`_):
+    guestOSDescriptor ([`vim.vm.GuestOsDescriptor`_]):
 
        List of supported guest operating systems. The choice of guest operating system may limit the set of valid devices. For example, you cannot select Vmxnet with all guest operating systems.
     guestOSDefaultIndex (`int`_):
@@ -47,15 +47,15 @@ Attributes:
     datastore (`vim.vm.DatastoreOption`_):
 
        The datastore options for this virtual machine.
-    defaultDevice (`vim.vm.device.VirtualDevice`_, optional):
+    defaultDevice ([`vim.vm.device.VirtualDevice`_], optional):
 
        The list of virtual devices that are created on a virtual machine by default. Clients should not create these devices.
-    supportedMonitorType (`str`_):
+    supportedMonitorType ([`str`_]):
 
        The monitor types supported by a host. The acceptable monitor types are enumerated by `VirtualMachineFlagInfoMonitorType`_ .
-    supportedOvfEnvironmentTransport (`str`_, optional):
+    supportedOvfEnvironmentTransport ([`str`_], optional):
 
        Specifies the supported property transports that are available for the OVF environment
-    supportedOvfInstallTransport (`str`_, optional):
+    supportedOvfInstallTransport ([`str`_], optional):
 
        Specifies the supported transports for the OVF installation phase.

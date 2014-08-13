@@ -25,10 +25,10 @@ vmodl.query.PropertyCollector.FilterSpec
 :extends: vmodl.DynamicData_
 
 Attributes:
-    propSet (`vmodl.query.PropertyCollector.PropertySpec`_):
+    propSet ([`vmodl.query.PropertyCollector.PropertySpec`_]):
 
        Set of properties to include in the filter, specified for each object type.
-    objectSet (`vmodl.query.PropertyCollector.ObjectSpec`_):
+    objectSet ([`vmodl.query.PropertyCollector.ObjectSpec`_]):
 
        Set of specifications that determine the objects to filter.
     reportMissingObjectsInResults (`bool`_, optional):

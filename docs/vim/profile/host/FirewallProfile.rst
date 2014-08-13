@@ -18,6 +18,6 @@ vim.profile.host.FirewallProfile
 :since: `vSphere API 4.0`_
 
 Attributes:
-    ruleset (`vim.profile.host.FirewallProfile.RulesetProfile`_, optional):
+    ruleset ([`vim.profile.host.FirewallProfile.RulesetProfile`_], optional):
 
        List of Rulesets that will be configured for the firewall subprofile.

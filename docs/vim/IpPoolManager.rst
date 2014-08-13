@@ -57,7 +57,7 @@ QueryIpPools(dc):
 
 
   Returns:
-    `vim.vApp.IpPool`_:
+    [`vim.vApp.IpPool`_]:
          The resulting list of pools.
 
 
@@ -281,7 +281,7 @@ QueryIPAllocations(dc, poolId, extensionKey):
 
 
   Returns:
-    `vim.IpPoolManager.IpAllocation`_:
+    [`vim.IpPoolManager.IpAllocation`_]:
          The resulting list of
 
   Raises:

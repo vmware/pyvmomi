@@ -48,7 +48,7 @@ Attributes:
     rebootRequired (`bool`_):
 
        Indicates whether or not the host requires a reboot due to a configuration change.
-    customValue (`vim.CustomFieldsManager.Value`_, optional):
+    customValue ([`vim.CustomFieldsManager.Value`_], optional):
 
        The customized field values.
     managementServerIp (`str`_, optional):

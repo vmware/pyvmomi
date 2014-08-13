@@ -68,7 +68,7 @@ Attributes
        Generated UUID of the portgroup.
     config (`vim.dvs.DistributedVirtualPortgroup.ConfigInfo`_):
        Configuration of the portgroup.
-    portKeys (`str`_):
+    portKeys ([`str`_]):
        Port keys for the set of ports in the portgroup.
 
 

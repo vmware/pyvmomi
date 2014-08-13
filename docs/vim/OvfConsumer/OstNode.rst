@@ -24,10 +24,10 @@ Attributes:
     type (`str`_):
 
        The type of the node. Possible values are defined in the OstNodeType enum.Since the OstNode tree structure mirrors the structure of the OVF descriptor, only one Envelope node is defined, and it is always the root of the tree.
-    section (`vim.OvfConsumer.OvfSection`_, optional):
+    section ([`vim.OvfConsumer.OvfSection`_], optional):
 
        The list of sections on this node.
-    child (`vim.OvfConsumer.OstNode`_, optional):
+    child ([`vim.OvfConsumer.OstNode`_], optional):
 
        The list of child nodes. As dictated by OVF, this list is subject to the following rules:
         * The Envelope node must have exactly one child.

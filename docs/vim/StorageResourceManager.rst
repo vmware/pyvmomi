@@ -146,7 +146,7 @@ QueryDatastorePerformanceSummary(datastore):
 
 
   Returns:
-    `vim.StorageResourceManager.StoragePerformanceSummary`_:
+    [`vim.StorageResourceManager.StoragePerformanceSummary`_]:
          Summary performance statistics for the datastore. The summary contains latency, throughput, and SIOC activity.
 
   Raises:

@@ -28,6 +28,6 @@ Attributes:
     virtualSMCPresent (`bool`_, optional):
 
        Does this virtual machine have System Management Controller
-    device (`vim.vm.device.VirtualDevice`_, optional):
+    device ([`vim.vm.device.VirtualDevice`_], optional):
 
        The set of virtual devices belonging to the virtual machine. This list is unordered.

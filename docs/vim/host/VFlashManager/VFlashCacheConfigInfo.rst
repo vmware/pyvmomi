@@ -18,7 +18,7 @@ vim.host.VFlashManager.VFlashCacheConfigInfo
 :since: `vSphere API 5.5`_
 
 Attributes:
-    vFlashModuleConfigOption (`vim.host.VFlashManager.VFlashCacheConfigInfo.VFlashModuleConfigOption`_, optional):
+    vFlashModuleConfigOption ([`vim.host.VFlashManager.VFlashCacheConfigInfo.VFlashModuleConfigOption`_], optional):
 
        Cache configuration options for the supported vFlash modules.
     defaultVFlashModule (`str`_, optional):

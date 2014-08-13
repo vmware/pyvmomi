@@ -40,10 +40,10 @@ vim.dvs.VmwareDistributedVirtualSwitch.ConfigSpec
 :since: `vSphere API 4.0`_
 
 Attributes:
-    pvlanConfigSpec (`vim.dvs.VmwareDistributedVirtualSwitch.PvlanConfigSpec`_, optional):
+    pvlanConfigSpec ([`vim.dvs.VmwareDistributedVirtualSwitch.PvlanConfigSpec`_], optional):
 
        The PVLAN configuration specification.A `VMwareDVSPvlanMapEntry`_ that has the same value for `primaryVlanId`_ and `secondaryVlanId`_ is referred to as a primary PVLAN entry. Otherwise, the `VMwareDVSPvlanMapEntry`_ is referred to as a secondary PVLAN entry.The `pvlanType`_ of a primary PVLAN entry must be `promiscuous`_ . A secondary PVLAN entry can have a `pvlanType`_ of either `community`_ or `isolated`_ .Primary PVLAN entries must be explicitly added. If there is no primary PVLAN entry corresponding to the `primaryVlanId`_ of a secondary PVLAN entry, a fault is thrown.While deleting a primary PVLAN entry, any associated secondary PVLAN entries must be explicitly deleted.
-    vspanConfigSpec (`vim.dvs.VmwareDistributedVirtualSwitch.VspanConfigSpec`_, optional):
+    vspanConfigSpec ([`vim.dvs.VmwareDistributedVirtualSwitch.VspanConfigSpec`_], optional):
 
        The Distributed Port Mirroring configuration specification. The VSPAN sessions in the array cannot be of the same key.
     maxMtu (`int`_, optional):

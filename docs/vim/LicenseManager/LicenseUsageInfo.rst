@@ -25,9 +25,9 @@ Attributes:
     sourceAvailable (`bool`_):
 
        Returns whether or not the source is currently available.See `sourceAvailable`_ 
-    reservationInfo (`vim.LicenseManager.ReservationInfo`_, optional):
+    reservationInfo ([`vim.LicenseManager.ReservationInfo`_], optional):
 
        A list of feature reservations.
-    featureInfo (`vim.LicenseManager.FeatureInfo`_, optional):
+    featureInfo ([`vim.LicenseManager.FeatureInfo`_], optional):
 
        Includes all the features that are referenced in the reservation array.

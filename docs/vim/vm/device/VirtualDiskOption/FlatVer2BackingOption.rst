@@ -73,6 +73,6 @@ Attributes:
         * 
         * 
         * 
-    deltaDiskFormatsSupported (`vim.vm.device.VirtualDiskOption.DeltaDiskFormatsSupported`_):
+    deltaDiskFormatsSupported ([`vim.vm.device.VirtualDiskOption.DeltaDiskFormatsSupported`_]):
 
        Delta disk formats supported for each datastore type.

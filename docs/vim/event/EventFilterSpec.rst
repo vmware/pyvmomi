@@ -54,16 +54,16 @@ Attributes:
     disableFullMessage (`bool`_, optional):
 
        Flag to specify whether or not to prepare the full formatted message for each event. If the property is not set, the collected events do not include the full formatted message.
-    category (`str`_, optional):
+    category ([`str`_], optional):
 
        This property, if set, limits the set of collected events to those associated with the specified category. If the property is not set, events are collected regardless of their association with any category. "category" here is the same as Event.severity.
-    type (`str`_, optional):
+    type ([`str`_], optional):
 
        This property, if set, limits the set of collected events to those specified types. If the property is not set, events are collected regardless of their types.
-    tag (`str`_, optional):
+    tag ([`str`_], optional):
 
        This property, if set, limits the set of filtered events to those that have it. If not set, or the size of it 0, the tag of an event is disregarded. A blank string indicates events without tags.
-    eventTypeId (`str`_, optional):
+    eventTypeId ([`str`_], optional):
 
        This property, if set, limits the set of collected events to those specified types.Note: if both `eventTypeId`_ and `type`_ are specified, an exception may be thrown by `CreateCollectorForEvents`_ .The semantics of how eventTypeId matching is done is as follows:
         * If the event being collected is of type

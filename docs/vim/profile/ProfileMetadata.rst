@@ -31,7 +31,7 @@ Attributes:
     description (`vim.ExtendedDescription`_, optional):
 
        Property which describes the profile
-    sortSpec (`vim.profile.ProfileMetadata.ProfileSortSpec`_, optional):
+    sortSpec ([`vim.profile.ProfileMetadata.ProfileSortSpec`_], optional):
 
        Property that determines a sorting order for display purposes. If the list contains more than one sort spec, then the precedence should be determined by the list order (i.e. sort first by the first spec in the list, then sort by the second spec in the list, etc).
     profileCategory (`str`_, optional):

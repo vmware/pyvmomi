@@ -16,7 +16,7 @@ vim.vm.guest.FileManager.ListFileInfo
 :since: `vSphere API 5.0`_
 
 Attributes:
-    files (`vim.vm.guest.FileManager.FileInfo`_, optional):
+    files ([`vim.vm.guest.FileManager.FileInfo`_], optional):
 
        A list of `GuestFileInfo`_ data objects containing information for all the matching files.
     remaining (`int`_):

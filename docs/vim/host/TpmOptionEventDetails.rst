@@ -17,6 +17,6 @@ Attributes:
     optionsFileName (`str`_):
 
        Name of the file containing the boot options.
-    bootOptions (`int`_, optional):
+    bootOptions ([`int`_], optional):
 
        Options set by the boot option package.This array exposes the raw contents of the settings file (or files) that were passed to kernel during the boot up process, and, therefore, should be treated accordingly.

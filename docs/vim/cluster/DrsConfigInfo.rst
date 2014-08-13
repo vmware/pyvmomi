@@ -43,6 +43,6 @@ Attributes:
     vmotionRate (`int`_, optional):
 
        Threshold for generated `ClusterRecommendation`_ s. DRS generates only those recommendations that are above the specified vmotionRate. Ratings vary from 1 to 5. This setting applies to manual, partiallyAutomated, and fullyAutomated DRS clusters. See `DrsBehavior`_ .
-    option (`vim.option.OptionValue`_, optional):
+    option ([`vim.option.OptionValue`_], optional):
 
        Advanced settings.

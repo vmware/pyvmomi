@@ -30,7 +30,7 @@ Attributes:
     running (`bool`_):
 
        Flag indicating whether the service is currently running.
-    ruleset (`str`_, optional):
+    ruleset ([`str`_], optional):
 
        List of firewall rulesets used by this service. Must come from the list of rulesets in `ruleset`_ .
     policy (`str`_):

@@ -100,7 +100,7 @@ QueryAvailableDvsSpec():
 
 
   Returns:
-    `vim.dvs.ProductSpec`_:
+    [`vim.dvs.ProductSpec`_]:
          
 
 
@@ -129,7 +129,7 @@ QueryCompatibleHostForNewDvs(container, recursive, switchProductSpec):
 
 
   Returns:
-    `vim.HostSystem`_:
+    [`vim.HostSystem`_]:
          
 
   Raises:
@@ -163,7 +163,7 @@ QueryCompatibleHostForExistingDvs(container, recursive, dvs):
 
 
   Returns:
-    `vim.HostSystem`_:
+    [`vim.HostSystem`_]:
          
 
   Raises:
@@ -189,7 +189,7 @@ QueryDvsCompatibleHostSpec(switchProductSpec):
 
 
   Returns:
-    `vim.dvs.HostProductSpec`_:
+    [`vim.dvs.HostProductSpec`_]:
          
 
   Raises:
@@ -304,7 +304,7 @@ QueryDvsCheckCompatibility(hostContainer, dvsProductSpec, hostFilterSpec):
 
 
   Returns:
-    `vim.dvs.DistributedVirtualSwitchManager.CompatibilityResult`_:
+    [`vim.dvs.DistributedVirtualSwitchManager.CompatibilityResult`_]:
          
 
   Raises:

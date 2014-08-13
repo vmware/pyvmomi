@@ -22,6 +22,6 @@ Attributes:
     skip (`bool`_, optional):
 
        Flag to indicate whether or not to filter the object in the "path" field.
-    selectSet (`vmodl.query.PropertyCollector.SelectionSpec`_, optional):
+    selectSet ([`vmodl.query.PropertyCollector.SelectionSpec`_], optional):
 
        Optional set of selections to specify additional objects to filter.

@@ -11,9 +11,9 @@ vim.host.NetworkConfig.Result
 :extends: vmodl.DynamicData_
 
 Attributes:
-    vnicDevice (`str`_, optional):
+    vnicDevice ([`str`_], optional):
 
        Virtual network adapter keys.
-    consoleVnicDevice (`str`_, optional):
+    consoleVnicDevice ([`str`_], optional):
 
        Service console virtual network adapter keys.

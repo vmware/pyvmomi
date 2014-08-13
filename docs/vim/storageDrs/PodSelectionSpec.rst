@@ -14,7 +14,7 @@ vim.storageDrs.PodSelectionSpec
 :since: `vSphere API 5.0`_
 
 Attributes:
-    initialVmConfig (`vim.storageDrs.PodSelectionSpec.VmPodConfig`_, optional):
+    initialVmConfig ([`vim.storageDrs.PodSelectionSpec.VmPodConfig`_], optional):
 
        An optional list that allows specifying the storage pod location for each virtual disk and the VM configurations and overrides to be used during placement.
     storagePod (`vim.StoragePod`_, optional):

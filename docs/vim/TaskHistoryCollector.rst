@@ -23,7 +23,7 @@ vim.TaskHistoryCollector
 
 Attributes
 ----------
-    latestPage (`vim.TaskInfo`_):
+    latestPage ([`vim.TaskInfo`_]):
        The items in the 'viewable latest page'. As new tasks that match the collector's `TaskFilterSpec`_ are created, they are added to this page, and the oldest tasks are removed from the collector to keep the size of the page to that allowed by `SetCollectorPageSize`_ .The "oldest task" is the one with the oldest creation time. The tasks in the returned page are unordered.
 
 
@@ -47,7 +47,7 @@ ReadNextTasks(maxCount):
 
 
   Returns:
-    `vim.TaskInfo`_:
+    [`vim.TaskInfo`_]:
          
 
   Raises:
@@ -72,7 +72,7 @@ ReadPreviousTasks(maxCount):
 
 
   Returns:
-    `vim.TaskInfo`_:
+    [`vim.TaskInfo`_]:
          
 
   Raises:

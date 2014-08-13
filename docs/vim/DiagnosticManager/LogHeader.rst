@@ -17,6 +17,6 @@ Attributes:
     lineEnd (`int`_):
 
        The last line of this log segment.
-    lineText (`str`_, optional):
+    lineText ([`str`_], optional):
 
        Log entries, listed by line, for this log segment.

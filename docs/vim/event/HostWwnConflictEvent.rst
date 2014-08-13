@@ -16,10 +16,10 @@ vim.event.HostWwnConflictEvent
 :since: `VI API 2.5`_
 
 Attributes:
-    conflictedVms (`vim.event.VmEventArgument`_, optional):
+    conflictedVms ([`vim.event.VmEventArgument`_], optional):
 
        The virtual machine whose WWN conflicts with the current host's WWN.
-    conflictedHosts (`vim.event.HostEventArgument`_, optional):
+    conflictedHosts ([`vim.event.HostEventArgument`_], optional):
 
        The host whose physical WWN conflicts with the current host's WWN.
     wwn (`long`_):

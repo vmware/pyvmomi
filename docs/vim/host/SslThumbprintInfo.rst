@@ -18,6 +18,6 @@ Attributes:
     ownerTag (`str`_):
 
        The tag associated with this registration. Owner tags allow multiple entities to register the same thumbprint without interfering with each other on the life cycle of the thumbprint with their unique tags. Each solution should use a unique tag to identify itself.
-    sslThumbprints (`str`_, optional):
+    sslThumbprints ([`str`_], optional):
 
        Specify the SSL thumbprints to register on the host.

@@ -19,10 +19,10 @@ Attributes:
     ovfDescriptor (`str`_):
 
        The OVF descriptor for the entity.
-    error (`vmodl.LocalizedMethodFault`_, optional):
+    error ([`vmodl.LocalizedMethodFault`_], optional):
 
        Errors that happened during processing.For example, unknown or unsupported devices could be found (in which case this array will contain one or more instances of Unsupported-/UnknownDevice).
-    warning (`vmodl.LocalizedMethodFault`_, optional):
+    warning ([`vmodl.LocalizedMethodFault`_], optional):
 
        Non-fatal warnings from the processing.The result will be valid, but the user may choose to reject it based on these warnings.
     includeImageFiles (`bool`_, optional):

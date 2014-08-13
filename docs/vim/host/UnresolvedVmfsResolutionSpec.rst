@@ -12,7 +12,7 @@ vim.host.UnresolvedVmfsResolutionSpec
 :since: `vSphere API 4.0`_
 
 Attributes:
-    extentDevicePath (`str`_):
+    extentDevicePath ([`str`_]):
 
        List of device paths each specifying a VMFS extent.One extent must be specified. This property is represented as a list to enable future enhancements to the interface.
     uuidResolution (`str`_):

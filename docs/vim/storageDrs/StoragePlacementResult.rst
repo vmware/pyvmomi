@@ -20,7 +20,7 @@ vim.storageDrs.StoragePlacementResult
 :since: `vSphere API 5.0`_
 
 Attributes:
-    recommendations (`vim.cluster.Recommendation`_, optional):
+    recommendations ([`vim.cluster.Recommendation`_], optional):
 
        The list of recommendations that the client needs to approve manually.
     drsFault (`vim.cluster.DrsFaults`_, optional):

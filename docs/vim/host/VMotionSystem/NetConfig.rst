@@ -11,7 +11,7 @@ vim.host.VMotionSystem.NetConfig
 :extends: vmodl.DynamicData_
 
 Attributes:
-    candidateVnic (`vim.host.VirtualNic`_, optional):
+    candidateVnic ([`vim.host.VirtualNic`_], optional):
 
        List of VirtualNic objects that may be used for VMotion. This will be a subset of the list of VirtualNics in `vnic`_ .
     selectedVnic (`vim.host.VirtualNic`_, optional):

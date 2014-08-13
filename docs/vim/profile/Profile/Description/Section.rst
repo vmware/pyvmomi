@@ -19,6 +19,6 @@ Attributes:
     description (`vim.ExtendedElementDescription`_):
 
        Localized message data.
-    message (`vmodl.LocalizableMessage`_, optional):
+    message ([`vmodl.LocalizableMessage`_], optional):
 
        List of messages that make up the section.

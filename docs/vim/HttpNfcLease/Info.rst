@@ -36,7 +36,7 @@ Attributes:
     entity (`vim.ManagedEntity`_):
 
        The `VirtualMachine`_ or `VirtualApp`_ this lease covers.
-    deviceUrl (`vim.HttpNfcLease.DeviceUrl`_, optional):
+    deviceUrl ([`vim.HttpNfcLease.DeviceUrl`_], optional):
 
        The deviceUrl property contains a mapping from logical device keys to URLs.
     totalDiskCapacityInKB (`long`_):
@@ -45,6 +45,6 @@ Attributes:
     leaseTimeout (`int`_):
 
        Number of seconds before the lease times out. The client extends the lease by calling `HttpNfcLeaseProgress`_ before the timeout has expired.
-    hostMap (`vim.HttpNfcLease.DatastoreLeaseInfo`_, optional):
+    hostMap ([`vim.HttpNfcLease.DatastoreLeaseInfo`_], optional):
 
        Map of URLs for leased hosts for a given datastore. This is used to look up multi-POST-capable hosts for a datastore.

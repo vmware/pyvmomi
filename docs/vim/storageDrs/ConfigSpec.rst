@@ -19,6 +19,6 @@ Attributes:
     podConfigSpec (`vim.storageDrs.PodConfigSpec`_, optional):
 
        Changes to the configuration of the storage DRS service.
-    vmConfigSpec (`vim.storageDrs.VmConfigSpec`_, optional):
+    vmConfigSpec ([`vim.storageDrs.VmConfigSpec`_], optional):
 
        Changes to the per-virtual-machine storage DRS settings.

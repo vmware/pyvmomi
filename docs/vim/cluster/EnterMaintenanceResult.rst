@@ -20,7 +20,7 @@ vim.cluster.EnterMaintenanceResult
 :since: `vSphere API 5.0`_
 
 Attributes:
-    recommendations (`vim.cluster.Recommendation`_, optional):
+    recommendations ([`vim.cluster.Recommendation`_], optional):
 
        The list of recommendations for hosts that Virtual Center will be able to evacuate. Each recommendation consists of a host maintenance action `ClusterAction`_ for a host, along with zero or more vmotions for evacuation. Application of the recommendations is not supported currently. The client will have to put the hosts into maintenance mode by calling the separate method `EnterMaintenanceMode_Task`_ .
     fault (`vim.cluster.DrsFaults`_, optional):

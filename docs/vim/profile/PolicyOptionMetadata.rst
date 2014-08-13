@@ -50,6 +50,6 @@ Attributes:
         * ) contains a localizable summary of the policy option. Summary information can contain embedded variable names which can be replaced with values from the
         * parameter
         * property.
-    parameter (`vim.profile.ParameterMetadata`_, optional):
+    parameter ([`vim.profile.ParameterMetadata`_], optional):
 
        Metadata about the parameters for the policy option.

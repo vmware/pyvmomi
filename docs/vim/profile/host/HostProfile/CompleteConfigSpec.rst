@@ -45,7 +45,7 @@ Attributes:
     disabledExpressionListChanged (`bool`_):
 
        Flag indicating if this configuration specification contains changes in the `disabledExpressionList`_ . If False, the Profile Engine ignores the contents of the disabled expression list.
-    disabledExpressionList (`str`_, optional):
+    disabledExpressionList ([`str`_], optional):
 
        List of expressions to be disabled. Each entry in the list specifies a `ProfileExpression`_ . `id`_ . All expressions are enabled by default.If you set `disabledExpressionListChanged`_ to True, the Profile Engine uses the contents of this list to replace the contents of the `HostProfile`_ . `config`_ . `disabledExpressionList`_ .The expression list is contained in the `defaultComplyProfile`_ . The Profile Engine automatically generates the default compliance profile when you create a host profile.
     validatorHost (`vim.HostSystem`_, optional):

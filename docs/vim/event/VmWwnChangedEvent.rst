@@ -12,15 +12,15 @@ vim.event.VmWwnChangedEvent
 :since: `VI API 2.5`_
 
 Attributes:
-    oldNodeWwns (`long`_, optional):
+    oldNodeWwns ([`long`_], optional):
 
        The old node WWN.
-    oldPortWwns (`long`_, optional):
+    oldPortWwns ([`long`_], optional):
 
        The old port WWN.
-    newNodeWwns (`long`_, optional):
+    newNodeWwns ([`long`_], optional):
 
        The new node WWN.
-    newPortWwns (`long`_, optional):
+    newPortWwns ([`long`_], optional):
 
        The new port WWN.

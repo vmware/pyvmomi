@@ -24,9 +24,9 @@ Attributes:
 
     port (`int`_, optional):
 
-    readOnlyCommunities (`str`_, optional):
+    readOnlyCommunities ([`str`_], optional):
 
-    trapTargets (`vim.host.SnmpSystem.SnmpConfigSpec.Destination`_, optional):
+    trapTargets ([`vim.host.SnmpSystem.SnmpConfigSpec.Destination`_], optional):
 
-    option (`vim.KeyValue`_, optional):
+    option ([`vim.KeyValue`_], optional):
 

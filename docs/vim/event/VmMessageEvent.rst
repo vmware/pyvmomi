@@ -14,5 +14,5 @@ Attributes:
     message (`str`_):
 
        A raw message returned by the virtualization platform.
-    messageInfo (`vim.vm.Message`_, optional):
+    messageInfo ([`vim.vm.Message`_], optional):
 

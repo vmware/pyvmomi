@@ -38,10 +38,10 @@ Attributes:
     reasonText (`str`_):
 
        Text that provides more information about the reason code for the suggested set of migrations.
-    prerequisite (`str`_, optional):
+    prerequisite ([`str`_], optional):
 
        This recommendation may depend on some other recommendations. The prerequisite recommendations are listed by their keys.
-    action (`vim.cluster.Action`_, optional):
+    action ([`vim.cluster.Action`_], optional):
 
        List of actions that are executed as part of this recommendation
     target (`vmodl.ManagedObject`_, optional):

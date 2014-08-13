@@ -25,12 +25,12 @@ Attributes:
     sparseDeploymentSize (`long`_, optional):
 
        The total amount of space required to deploy the entity using sparse disks, if known.
-    error (`vmodl.LocalizedMethodFault`_, optional):
+    error ([`vmodl.LocalizedMethodFault`_], optional):
 
        Errors that happened during validation. The presence of faults in this list indicates that the validation failed.
-    warning (`vmodl.LocalizedMethodFault`_, optional):
+    warning ([`vmodl.LocalizedMethodFault`_], optional):
 
        Non-fatal warnings from the validation.
-    supportedDiskProvisioning (`str`_, optional):
+    supportedDiskProvisioning ([`str`_], optional):
 
        An array of the disk provisioning type supported by the target host system.

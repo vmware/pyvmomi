@@ -21,7 +21,7 @@ vim.host.CacheConfigurationManager
 
 Attributes
 ----------
-    cacheConfigurationInfo (`vim.host.CacheConfigurationManager.CacheConfigurationInfo`_):
+    cacheConfigurationInfo ([`vim.host.CacheConfigurationManager.CacheConfigurationInfo`_]):
       privilege: Host.Config.AdvancedConfig
        The swap performance configuration for the ESX host. This includes configuration information for each datastore enabled for this purpose.
 

@@ -115,9 +115,9 @@ Attributes
     networkFolder (`vim.Folder`_):
       privilege: System.View
        A reference to the folder hierarchy that contains the network entities for this datacenter. The folder can include `Network`_ , `DistributedVirtualSwitch`_ , and `DistributedVirtualPortgroup`_ objects.This folder is guaranteed to exist.
-    datastore (`vim.Datastore`_):
+    datastore ([`vim.Datastore`_]):
        A collection of references to the datastore objects available in this datacenter.
-    network (`vim.Network`_):
+    network ([`vim.Network`_]):
        A collection of references to the network objects available in this datacenter.
     configuration (`vim.Datacenter.ConfigInfo`_):
       privilege: System.View
@@ -236,7 +236,7 @@ queryDatacenterConfigOptionDescriptor():
 
 
   Returns:
-    `vim.vm.ConfigOptionDescriptor`_:
+    [`vim.vm.ConfigOptionDescriptor`_]:
          
 
 

@@ -61,13 +61,13 @@ Attributes:
     type (`str`_, optional):
 
        Type of portgroup. See `DistributedVirtualPortgroup`_ . `DistributedVirtualPortgroupPortgroupType`_ for possible values.
-    scope (`vim.ManagedEntity`_, optional):
+    scope ([`vim.ManagedEntity`_], optional):
 
        Eligible entities that can connect to the port. See `DVPortgroupConfigInfo`_ . `scope`_ .
     policy (`vim.dvs.DistributedVirtualPortgroup.PortgroupPolicy`_, optional):
 
        Portgroup policy.
-    vendorSpecificConfig (`vim.dvs.KeyedOpaqueBlob`_, optional):
+    vendorSpecificConfig ([`vim.dvs.KeyedOpaqueBlob`_], optional):
 
        Opaque binary blob that stores vendor specific configuration.
     autoExpand (`bool`_, optional):

@@ -23,9 +23,9 @@ Attributes:
     obj (`vmodl.ManagedObject`_):
 
        Reference to the managed object to which this update applies.
-    changeSet (`vmodl.query.PropertyCollector.Change`_, optional):
+    changeSet ([`vmodl.query.PropertyCollector.Change`_], optional):
 
        Optional set of changes to the object. Present only if the "kind" is either "modify" or "enter".
-    missingSet (`vmodl.query.PropertyCollector.MissingProperty`_, optional):
+    missingSet ([`vmodl.query.PropertyCollector.MissingProperty`_], optional):
 
        Properties whose value could not be retrieved and their associated faults. Present only if the "kind" is either "modify" or "enter".

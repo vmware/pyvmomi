@@ -31,6 +31,6 @@ Attributes:
     status (`str`_):
 
        Status of the answer file. See `HostProfileManagerAnswerFileStatus`_ for valid values.
-    error (`vim.profile.host.AnswerFileStatusResult.AnswerFileStatusError`_, optional):
+    error ([`vim.profile.host.AnswerFileStatusResult.AnswerFileStatusError`_], optional):
 
        Ifstatusisinvalid, this property contains a list of status error objects.

@@ -44,22 +44,22 @@ vim.host.ConfigSpec
 :since: `vSphere API 4.0`_
 
 Attributes:
-    nasDatastore (`vim.host.NasVolume.Config`_, optional):
+    nasDatastore ([`vim.host.NasVolume.Config`_], optional):
 
        Configurations to create NAS datastores.
     network (`vim.host.NetworkConfig`_, optional):
 
        Network system information.
-    nicTypeSelection (`vim.host.VirtualNicManager.NicTypeSelection`_, optional):
+    nicTypeSelection ([`vim.host.VirtualNicManager.NicTypeSelection`_], optional):
 
        Type selection for different VirtualNics.
-    service (`vim.host.ServiceConfig`_, optional):
+    service ([`vim.host.ServiceConfig`_], optional):
 
        Host service configuration.
     firewall (`vim.host.FirewallConfig`_, optional):
 
        Firewall configuration.
-    option (`vim.option.OptionValue`_, optional):
+    option ([`vim.option.OptionValue`_], optional):
 
        Host configuration options as defined by the `OptionValue`_ data object type.
     datastorePrincipal (`str`_, optional):
@@ -80,18 +80,18 @@ Attributes:
     security (`vim.host.SecuritySpec`_, optional):
 
        Security specification.
-    userAccount (`vim.host.LocalAccountManager.AccountSpecification`_, optional):
+    userAccount ([`vim.host.LocalAccountManager.AccountSpecification`_], optional):
 
        List of users to create/update with new password.
-    usergroupAccount (`vim.host.LocalAccountManager.AccountSpecification`_, optional):
+    usergroupAccount ([`vim.host.LocalAccountManager.AccountSpecification`_], optional):
 
        List of users to create/update with new password.
     memory (`vim.host.MemorySpec`_, optional):
 
        Memory configuration for the host.
-    activeDirectory (`vim.host.ActiveDirectorySpec`_, optional):
+    activeDirectory ([`vim.host.ActiveDirectorySpec`_], optional):
 
        Active Directory configuration change.
-    genericConfig (`vmodl.KeyAnyValue`_, optional):
+    genericConfig ([`vmodl.KeyAnyValue`_], optional):
 
        Advanced configuration.

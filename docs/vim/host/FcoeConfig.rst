@@ -26,7 +26,7 @@ Attributes:
     sourceMac (`str`_):
 
        Source MAC address used for FCoE traffic. This MAC address is associated with the logical construct that is a physical NIC's associated underlying FCoE Controller, as defined in the FC-BB-5 standard. This MAC address should be of the form "xx:xx:xx:xx:xx:xx", where 'x' is a hexadecimal digit. Valid MAC addresses are unicast addresses.
-    vlanRange (`vim.host.FcoeConfig.VlanRange`_):
+    vlanRange ([`vim.host.FcoeConfig.VlanRange`_]):
 
        VLAN ranges associated with this FcoeConfig.
     capabilities (`vim.host.FcoeConfig.FcoeCapabilities`_):

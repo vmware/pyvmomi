@@ -21,6 +21,6 @@ Attributes:
     podConfig (`vim.storageDrs.PodConfigInfo`_):
 
        Pod-wide configuration of the storage DRS service.
-    vmConfig (`vim.storageDrs.VmConfigInfo`_, optional):
+    vmConfig ([`vim.storageDrs.VmConfigInfo`_], optional):
 
        List of virtual machine configurations for the storage DRS service. Each entry applies to all the virtual disks of the virtual machine on this pod.If a virtual machine is not specified in this array, the service uses the default settings for that virtual machine.

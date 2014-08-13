@@ -18,6 +18,6 @@ vim.dvs.HostMember.PnicBacking
 :since: `vSphere API 4.0`_
 
 Attributes:
-    pnicSpec (`vim.dvs.HostMember.PnicSpec`_, optional):
+    pnicSpec ([`vim.dvs.HostMember.PnicSpec`_], optional):
 
        List of physical NIC specifications. Each entry identifies a pNIC to the proxy switch and optionally specifies uplink portgroup and port connections for the pNIC.

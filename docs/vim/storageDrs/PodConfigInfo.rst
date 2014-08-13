@@ -51,9 +51,9 @@ Attributes:
     ioLoadBalanceConfig (`vim.storageDrs.IoLoadBalanceConfig`_, optional):
 
        The configuration settings for load balancing I/O workload. This takes effect only if `ioLoadBalanceEnabled`_ istrue.
-    rule (`vim.cluster.RuleInfo`_, optional):
+    rule ([`vim.cluster.RuleInfo`_], optional):
 
        Pod-wide rules.
-    option (`vim.option.OptionValue`_, optional):
+    option ([`vim.option.OptionValue`_], optional):
 
        Advanced settings.

@@ -20,6 +20,6 @@ vim.profile.CompositePolicyOptionMetadata
 :since: `vSphere API 4.0`_
 
 Attributes:
-    option (`str`_):
+    option ([`str`_]):
 
        List of optional policy option identifiers that could be combined in this composite policy option. The policy options should already be part of the possible policy options for the policy. See the `ProfilePolicyMetadata`_ . `possibleOption`_ list.

@@ -27,6 +27,6 @@ Attributes:
     all (`bool`_, optional):
 
        Specifies whether or not all properties of the object are read. If this property is set to true, the `pathSet`_ property is ignored.
-    pathSet (`str`_, optional):
+    pathSet ([`str`_], optional):
 
        Specifies which managed object properties are retrieved. If the `pathSet`_ is empty, then the `PropertyCollector`_ retrieves references to the managed objects and no managed object properties are collected.

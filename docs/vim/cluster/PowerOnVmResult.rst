@@ -18,12 +18,12 @@ vim.cluster.PowerOnVmResult
 :since: `VI API 2.5`_
 
 Attributes:
-    attempted (`vim.cluster.AttemptedVmInfo`_, optional):
+    attempted ([`vim.cluster.AttemptedVmInfo`_], optional):
 
        The list of virtual machines the Virtual Center has attempted to power on. For a virtual machine not managed by DRS, a task ID is also returned.
-    notAttempted (`vim.cluster.NotAttemptedVmInfo`_, optional):
+    notAttempted ([`vim.cluster.NotAttemptedVmInfo`_], optional):
 
        The list of virtual machines DRS can not find suitable hosts for powering on. There is one fault associated with each virtual machine.
-    recommendations (`vim.cluster.Recommendation`_, optional):
+    recommendations ([`vim.cluster.Recommendation`_], optional):
 
        The list of recommendations that need the client to approve manually.

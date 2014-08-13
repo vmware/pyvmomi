@@ -20,7 +20,7 @@ vim.host.UnresolvedVmfsVolume
 :since: `vSphere API 4.0`_
 
 Attributes:
-    extent (`vim.host.UnresolvedVmfsExtent`_):
+    extent ([`vim.host.UnresolvedVmfsExtent`_]):
 
        List of detected copies of VMFS extents.
     vmfsLabel (`str`_):

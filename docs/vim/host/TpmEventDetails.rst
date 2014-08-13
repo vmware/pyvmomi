@@ -12,6 +12,6 @@ vim.host.TpmEventDetails
 :since: `vSphere API 5.1`_
 
 Attributes:
-    dataHash (`int`_):
+    dataHash ([`int`_]):
 
        Value of the Platform Configuration Register (PCR) for this event.

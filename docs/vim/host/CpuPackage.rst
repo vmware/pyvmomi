@@ -30,9 +30,9 @@ Attributes:
     description (`str`_):
 
        String summary description of CPU (for display purposes).
-    threadId (`short`_):
+    threadId ([`short`_]):
 
        The logical CPU threads on this package.
-    cpuFeature (`vim.host.CpuIdInfo`_, optional):
+    cpuFeature ([`vim.host.CpuIdInfo`_], optional):
 
        The CPU feature bit on this particular CPU. This is independent of the product and licensing capabilities.

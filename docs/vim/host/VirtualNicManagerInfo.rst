@@ -14,6 +14,6 @@ vim.host.VirtualNicManagerInfo
 :since: `vSphere API 4.0`_
 
 Attributes:
-    netConfig (`vim.host.VirtualNicManager.NetConfig`_, optional):
+    netConfig ([`vim.host.VirtualNicManager.NetConfig`_], optional):
 
        List of VirtualNicManager network configuration.See `VirtualNicManagerNetConfig`_ 

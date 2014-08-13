@@ -135,15 +135,15 @@ Attributes
     owner (`vim.ComputeResource`_):
       privilege: System.View
        The ComputeResource to which this set of one or more nested resource pools belong.
-    resourcePool (`vim.ResourcePool`_):
+    resourcePool ([`vim.ResourcePool`_]):
       privilege: System.View
        The set of child resource pools.
-    vm (`vim.VirtualMachine`_):
+    vm ([`vim.VirtualMachine`_]):
       privilege: System.View
        The set of virtual machines associated with this resource pool.
     config (`vim.ResourceConfigSpec`_):
        Configuration of this resource pool.
-    childConfiguration (`vim.ResourceConfigSpec`_):
+    childConfiguration ([`vim.ResourceConfigSpec`_]):
        The resource configuration of all direct children (VirtualMachine and ResourcePool) of this resource group.
 
 

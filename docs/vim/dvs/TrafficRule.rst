@@ -41,7 +41,7 @@ Attributes:
     sequence (`int`_, optional):
 
        Sequence of this rule. i.e, the order in which this rule appears in the ruleset.
-    qualifier (`vim.dvs.TrafficRule.Qualifier`_, optional):
+    qualifier ([`vim.dvs.TrafficRule.Qualifier`_], optional):
 
        List of Network rule qualifiers. 'AND' of this array of network rule qualifiers is applied as one network traffic rule. If the TrafficRule belongs to `DvsFilterPolicy`_ : There can be a maximum of 1 `DvsIpNetworkRuleQualifier`_ , 1 `DvsMacNetworkRuleQualifier`_ and 1 `DvsSystemTrafficNetworkRuleQualifier`_ for a total of 3 `qualifier`_ If the TrafficRule belongs to `DvsStatefulFirewallPolicy`_ : There can be only 1 `DvsNetworkRuleQualifier`_ in `qualifier`_ 
     action (`vim.dvs.TrafficRule.Action`_, optional):

@@ -12,8 +12,8 @@ vim.host.IpRouteTableConfig
 :since: `vSphere API 4.0`_
 
 Attributes:
-    ipRoute (`vim.host.IpRouteOp`_, optional):
+    ipRoute ([`vim.host.IpRouteOp`_], optional):
 
        The array of Routing ops (routes to be added/removed)
-    ipv6Route (`vim.host.IpRouteOp`_, optional):
+    ipv6Route ([`vim.host.IpRouteOp`_], optional):
 

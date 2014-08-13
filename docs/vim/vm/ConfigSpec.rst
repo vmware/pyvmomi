@@ -98,10 +98,10 @@ Attributes:
     instanceUuid (`str`_, optional):
 
        VirtualCenter-specific 128-bit UUID of a virtual machine, represented as a hexadecimal string. This identifier is used by VirtalCenter to uniquely identify all virtual machine instances in the Virtual Infrastructure environment, including those that may share the same SMBIOS UUID.Normally, this property is not set by a client, allowing the Virtual Infrastructure environment to assign or change it when VirtualCenter detects an identifier conflict between virtual machines. This identifier can be modified even when a virtual machine is powered on. Clients can specify that vCenter Server reassign a new identifier by a providing an empty string. Reassigning the identifer is not allowed for Fault Tolerance virtual machines.Reconfigure privilege: VirtualMachine.Config.Settings
-    npivNodeWorldWideName (`long`_, optional):
+    npivNodeWorldWideName ([`long`_], optional):
 
        The NPIV node WWN to be assigned to a virtual machine. This property should only be used or set when the value of `npivWorldWideNameOp`_ property is "set". Otherwise, an `InvalidVmConfig`_ fault will be thrown. If the specified node WWN is currently being used by another virtual machine, a `VmWwnConflict`_ fault will be thrown.For detail description on WWN, see `npivNodeWorldWideName`_ .Reconfigure privilege: VirtualMachine.Config.Settings.
-    npivPortWorldWideName (`long`_, optional):
+    npivPortWorldWideName ([`long`_], optional):
 
        The NPIV port WWN to be assigned to a virtual machine. This property should only be used or set when the value of `npivWorldWideNameOp`_ property is "set". Otherwise, an `InvalidVmConfig`_ fault will be thrown. If the specified port WWN is currently being used by another virtual machine, a `VmWwnConflict`_ fault will be thrown.For detail description on WWN, see `npivPortWorldWideName`_ .Reconfigure privilege: VirtualMachine.Config.Settings.
     npivWorldWideNameType (`str`_, optional):
@@ -173,7 +173,7 @@ Attributes:
     virtualSMCPresent (`bool`_, optional):
 
        Does this virtual machine have System Management Controller
-    deviceChange (`vim.vm.device.VirtualDeviceSpec`_, optional):
+    deviceChange ([`vim.vm.device.VirtualDeviceSpec`_], optional):
 
        Set of virtual devices being modified by the configuration operation.Reconfigure privileges:
         * VirtualMachine.Config.Resource if setting the "shares" property of a new or existing VirtualDisk device
@@ -207,10 +207,10 @@ Attributes:
     networkShaper (`vim.vm.NetworkShaperInfo`_, optional):
 
        Resource limits for network.Reconfigure privilege: VirtualMachine.Config.Resource
-    cpuFeatureMask (`vim.vm.ConfigSpec.CpuIdInfoSpec`_, optional):
+    cpuFeatureMask ([`vim.vm.ConfigSpec.CpuIdInfoSpec`_], optional):
 
        Specifies the CPU feature compatibility masks.Reconfigure privilege: VirtualMachine.Config.Settings
-    extraConfig (`vim.option.OptionValue`_, optional):
+    extraConfig ([`vim.option.OptionValue`_], optional):
 
        Additional configuration information for the virtual machine. This describes a set of modifications to the additional options. If the key is already present, it will be reset with the new value provided. Otherwise, a new option is added. Keys with empty values will be removed.Configuration keys that would conflict with parameters that are explicitly configurable through other fields in the ConfigSpec object are silently ignored.Reconfigure privilege: VirtualMachine.Config.AdvancedConfig (also required when setting this property while creating a virtual machine)
     swapPlacement (`str`_, optional):
@@ -258,6 +258,6 @@ Attributes:
     scheduledHardwareUpgradeInfo (`vim.vm.ScheduledHardwareUpgradeInfo`_, optional):
 
        Configuration of scheduled hardware upgrades.See `ScheduledHardwareUpgradeInfo`_ 
-    vmProfile (`vim.vm.ProfileSpec`_, optional):
+    vmProfile ([`vim.vm.ProfileSpec`_], optional):
 
        Virtual Machine Profile requirement. Profiles are solution specific. Profile Based Storage Management is a vSphere server extension. API users who want to provision VMs using Storage Profiles, need to interact with it. This is an optional parameter and if user doesn't specify profile, the default behavior will apply.

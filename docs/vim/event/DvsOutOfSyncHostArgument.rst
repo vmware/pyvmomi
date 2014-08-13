@@ -17,6 +17,6 @@ Attributes:
     outOfSyncHost (`vim.event.HostEventArgument`_):
 
        The host.
-    configParamters (`str`_):
+    configParamters ([`str`_]):
 
        The DVS configuration parameters that are different between Virtual Center server and the host.

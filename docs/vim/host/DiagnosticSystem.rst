@@ -58,7 +58,7 @@ QueryAvailablePartition():
 
 
   Returns:
-    `vim.host.DiagnosticPartition`_:
+    [`vim.host.DiagnosticPartition`_]:
          
 
   Raises:
@@ -123,7 +123,7 @@ QueryPartitionCreateOptions(storageType, diagnosticType):
 
 
   Returns:
-    `vim.host.DiagnosticPartition.CreateOption`_:
+    [`vim.host.DiagnosticPartition.CreateOption`_]:
          
 
   Raises:

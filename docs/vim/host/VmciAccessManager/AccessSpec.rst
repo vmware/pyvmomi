@@ -16,7 +16,7 @@ vim.host.VmciAccessManager.AccessSpec
 Attributes:
     vm (`vim.VirtualMachine`_):
 
-    services (`str`_, optional):
+    services ([`str`_], optional):
 
     mode (`str`_):
 

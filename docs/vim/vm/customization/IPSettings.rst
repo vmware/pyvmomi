@@ -21,13 +21,13 @@ Attributes:
     subnetMask (`str`_, optional):
 
        Subnet mask for this virtual network adapter.
-    gateway (`str`_, optional):
+    gateway ([`str`_], optional):
 
        For a virtual network adapter with a static IP address, this data object type contains a list of gateways, in order of preference.
     ipV6Spec (`vim.vm.customization.IPSettings.IpV6AddressSpec`_, optional):
 
        This contains the IpGenerator, subnet mask and gateway info for all the ipv6 addresses associated with the virtual network adapter.
-    dnsServerList (`str`_, optional):
+    dnsServerList ([`str`_], optional):
 
        A list of server IP addresses to use for DNS lookup in a Windows guest operating system. In Windows, these settings are adapter-specific, whereas in Linux, they are global. As a result, the Linux guest customization process ignores this setting and looks for its DNS servers in the globalIPSettings object.Specify these servers in order of preference. If this list is not empty, and if a DHCP IpGenerator is used, then these settings override the DHCP settings.
     dnsDomain (`str`_, optional):

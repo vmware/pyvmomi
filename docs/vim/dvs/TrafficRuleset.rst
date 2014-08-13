@@ -27,6 +27,6 @@ Attributes:
     precedence (`int`_, optional):
 
        Precedence of the ruleset. Rulesets for a port will be executed in the order of their precedence.
-    rules (`vim.dvs.TrafficRule`_, optional):
+    rules ([`vim.dvs.TrafficRule`_], optional):
 
        List of rules belonging to this ruleset.

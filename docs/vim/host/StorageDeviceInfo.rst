@@ -21,10 +21,10 @@ vim.host.StorageDeviceInfo
 :extends: vmodl.DynamicData_
 
 Attributes:
-    hostBusAdapter (`vim.host.HostBusAdapter`_, optional):
+    hostBusAdapter ([`vim.host.HostBusAdapter`_], optional):
 
        The list of host bus adapters available on the host.
-    scsiLun (`vim.host.ScsiLun`_, optional):
+    scsiLun ([`vim.host.ScsiLun`_], optional):
 
        The list of SCSI logical units available on the host.
     scsiTopology (`vim.host.ScsiTopology`_, optional):

@@ -82,7 +82,7 @@ QueryComplianceStatus(profile, entity):
 
 
   Returns:
-    `vim.profile.ComplianceResult`_:
+    [`vim.profile.ComplianceResult`_]:
          ComplianceResult. ComplianceResult information may not be available for all the entities. If the ComplianceResult is not available already, a new ComplianceCheck will not be triggered.
 
   Raises:
@@ -137,7 +137,7 @@ QueryExpressionMetadata(expressionName, profile):
 
 
   Returns:
-    `vim.profile.ExpressionMetadata`_:
+    [`vim.profile.ExpressionMetadata`_]:
          
 
   Raises:
