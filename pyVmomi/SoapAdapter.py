@@ -16,7 +16,7 @@ from __future__ import absolute_import
 
 from six import PY2
 from six import PY3
-
+from six import reraise
 from six.moves import http_client
 
 if PY3:
@@ -442,6 +442,32 @@ class SoapSerializer:
       self.writer.write('</{0}>'.format(info.name))
 
 
+class ParserError(KeyError):
+    # NOTE (hartsock): extends KeyError since parser logic is written to
+    # catch KeyError types. Normally, I would want PerserError to be a root
+    # type for all parser faults.
+    pass
+
+def ReadDocument(parser, data):
+   # NOTE (hartsock): maintaining library internal consistency here, this is
+   # a refactoring that rolls up some repeated code blocks into a method so
+   # that we can refactor XML parsing behavior in a single place.
+   if not isinstance(data, str):
+       data = data.read()
+   try:
+      parser.Parse(data)
+   except Exception:
+       # wrap all parser faults with additional information for later
+       # bug reporting on the XML parser code itself.
+       (ec, ev, tb) = sys.exc_info()
+       line = parser.CurrentLineNumber
+       col = parser.CurrentColumnNumber
+       pe = ParserError("xml document: "
+                        "{0} parse error at: "
+                        "line:{1}, col:{2}".format(data, line, col))
+       # use six.reraise for python 2.x and 3.x compatability
+       reraise(ParserError, pe, tb)
+
 ## Deserialize an object from a file or string
 #
 # This function will deserialize one top-level XML node.
@@ -453,10 +479,7 @@ def Deserialize(data, resultType=object, stub=None):
    parser = ParserCreate(namespace_separator=NS_SEP)
    ds = SoapDeserializer(stub)
    ds.Deserialize(parser, resultType)
-   if isinstance(data, str):
-      parser.Parse(data)
-   else:
-      parser.ParseFile(data)
+   ReadDocument(parser, data)
    return ds.GetResult()
 
 
@@ -582,11 +605,7 @@ class SoapDeserializer(ExpatDeserializerNSHandlers):
       if not self.stack:
          if self.isFault:
             ns, name = self.SplitTag(tag)
-            try:
-               objType = self.LookupWsdlType(ns, name[:-5])
-            except KeyError:
-               message = "{0} was not found in the WSDL".format(name[:-5])
-               raise VmomiMessageFault(message)
+            objType = self.LookupWsdlType(ns, name[:-5])
             # Only top level soap fault should be deserialized as method fault
             deserializeAsLocalizedMethodFault = False
          else:
@@ -761,10 +780,7 @@ class SoapResponseDeserializer(ExpatDeserializerNSHandlers):
          nsMap = {}
       self.nsMap = nsMap
       SetHandlers(self.parser, GetHandlers(self))
-      if isinstance(response, str):
-         self.parser.Parse(response)
-      else:
-         self.parser.ParseFile(response)
+      ReadDocument(self.parser, response)
       result = self.deser.GetResult()
       if self.isFault:
          if result is None:
@@ -1241,10 +1257,15 @@ class SoapStubAdapter(SoapStubAdapterBase):
          # The server is probably sick, drop all of the cached connections.
          self.DropConnections()
          raise
-      cookie = resp.getheader('Set-Cookie')
+      # NOTE (hartsocks): this cookie handling code should go away in a future
+      # release. The string 'set-cookie' and 'Set-Cookie' but both are
+      # acceptable, but the supporting library may have a bug making it
+      # case sensitive when it shouldn't be. The term 'set-cookie' will occur
+      # more frequently than 'Set-Cookie' based on practical testing.
+      cookie = resp.getheader('set-cookie')
       if cookie is None:
-          # try lower-case header for backwards compat. with old vSphere
-          cookie = resp.getheader('set-cookie')
+          # try case-sensitive header for compatibility
+          cookie = resp.getheader('Set-Cookie')
       status = resp.status
 
       if cookie:
@@ -1257,12 +1278,18 @@ class SoapStubAdapter(SoapStubAdapterBase):
                fd = GzipReader(resp, encoding=GzipReader.GZIP)
             elif encoding == 'deflate':
                fd = GzipReader(resp, encoding=GzipReader.DEFLATE)
-            obj = SoapResponseDeserializer(outerStub).Deserialize(fd, info.result)
-         except:
+            deserializer = SoapResponseDeserializer(outerStub)
+            obj = deserializer.Deserialize(fd, info.result)
+         except Exception as exc:
             conn.close()
+            # NOTE (hartsock): This feels out of place. As a rule the lexical
+            # context that opens a connection should also close it. However,
+            # in this code the connection is passed around and closed in other
+            # contexts (ie: methods) that we are blind to here. Refactor this.
+
             # The server might be sick, drop all of the cached connections.
             self.DropConnections()
-            raise
+            raise exc
          else:
             resp.read()
             self.ReturnConnection(conn)
@@ -1343,6 +1370,9 @@ class SoapStubAdapter(SoapStubAdapterBase):
          self.lock.release()
       else:
          self.lock.release()
+         # NOTE (hartsock): this seems to violate good coding practice in that
+         # the lexical context that opens a connection should also be the
+         # same context responsible for closing it.
          conn.close()
 
    ## Disable nagle on a http connections
