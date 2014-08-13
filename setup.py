@@ -28,7 +28,7 @@ with open('test-requirements.txt') as f:
 
 setup(
    name='pyvmomi',
-   version='5.5.0_2014.dev',
+   version='5.5.0_2014.1',
    description='VMware vSphere Python SDK',
    author='VMware, Inc.',
    author_email='jhu@vmware.com',
@@ -39,7 +39,7 @@ setup(
    long_description=read('README.md'),
    classifiers=[
       "License :: OSI Approved :: Apache Software License",
-      "Development Status :: 4 - Beta",
+      "Development Status :: 5 - Production/Stable",
       "Environment :: No Input/Output (Daemon)",
       "Intended Audience :: Information Technology",
       "Intended Audience :: System Administrators",
