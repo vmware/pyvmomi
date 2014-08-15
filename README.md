@@ -47,9 +47,9 @@ pyVmomi versions are marked **vSphere version** _separator_ **release version**.
 with the previous _four_ releases of *vSphere* and it's own previous four releases. Compatibility with much older versions may
 continue to work but will not be actively supported.
 
-For example, version **v5.5.0**__2014.1_ is most compatible with vSphere 5.5, 5.1, 5.0, and 4.1 and was the first release in
+For example, version **v5.5.0**_2014.1 is most compatible with vSphere 5.5, 5.1, 5.0, and 4.1 and was the first release in
 2014. Initial releases compatible with a version of vSphere will bare a naked version number of **v5.5.0** indicating that
-2015. version of pyVmomi was released simultaneously with the _GA_ version of vSphere with the same version number.
+version of pyVmomi was released simultaneously with the *GA* version of vSphere with the same version number.
 
 Releases
 ========
