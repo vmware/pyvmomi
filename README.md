@@ -55,7 +55,7 @@ Releases
 ========
 * [5.1.0](https://github.com/vmware/pyvmomi/tree/v5.1.0)
 * [5.5.0](https://github.com/vmware/pyvmomi/tree/v5.5.0) [release notes](https://github.com/vmware/pyvmomi/compare/v5.1.0...v5.5.0)
-* [5.5.0_2014.1](https://github.com/vmware/pyvmomi/tree/v5.5.0_2014.1) [release notes](https://github.com/vmware/pyvmomi/compare/v5.5.0...5.5.0_2014.1)
+* [5.5.0_2014.1](https://github.com/vmware/pyvmomi/tree/v5.5.0_2014.1) [release notes](https://github.com/vmware/pyvmomi/compare/v5.5.0...v5.5.0_2014.1)
 * Next release in progress [5.5.0_2014.2](https://github.com/vmware/pyvmomi/issues?milestone=2&state=open)
 
 Related Projects
