@@ -42,3 +42,20 @@ class Iso8601Tests(unittest.TestCase):
         expected_time = datetime(2014, 8, 5, 17, 50, 20, 594958,
                                  boot_time.tzinfo)
         self.assertEqual(expected_time, boot_time)
+
+    @vcr.use_cassette('iso8601_set_datetime.yaml',
+                      cassette_library_dir=fixtures_path, record_mode='none')
+    def test_iso8601_set_datetime(self):
+        now = datetime.utcnow()
+        si = connect.SmartConnect(host='vcsa',
+                                  user='my_user',
+                                  pwd='my_password')
+        atexit.register(connect.Disconnect, si)
+
+        search_index = si.content.searchIndex
+        uuid = "4c4c4544-0043-4d10-8056-b1c04f4c5331"
+        host = search_index.FindByUuid(None, uuid, False)
+        date_time_system = host.configManager.dateTimeSystem
+
+        # NOTE (hartsock): sending the date time 'now' to host.
+        date_time_system.UpdateDateTime(now)
