@@ -23,7 +23,7 @@ from six import itervalues
 from six import text_type
 from six import PY3
 from datetime import datetime
-import pyVmomi.Iso8601
+from pyVmomi import Iso8601
 import base64
 import threading
 
