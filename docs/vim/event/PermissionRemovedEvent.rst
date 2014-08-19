@@ -1,5 +1,3 @@
-.. _vim.event.PermissionEvent: ../../vim/event/PermissionEvent.rst
-
 
 vim.event.PermissionRemovedEvent
 ================================

@@ -1,9 +1,3 @@
-.. _vim.event.VmEvent: ../../vim/event/VmEvent.rst
-
-.. _vmodl.LocalizedMethodFault: ../../vmodl/LocalizedMethodFault.rst
-
-.. _vim.event.EntityEventArgument: ../../vim/event/EntityEventArgument.rst
-
 
 vim.event.VmDeployFailedEvent
 =============================
@@ -11,9 +5,9 @@ vim.event.VmDeployFailedEvent
 :extends: vim.event.VmEvent_
 
 Attributes:
-    destDatastore (`vim.event.EntityEventArgument`_):
+    destDatastore (`vim.event.EntityEventArgument <vim/event/EntityEventArgument.rst>`_):
 
        The destination datastore the template is being deployed to.
-    reason (`vmodl.LocalizedMethodFault`_):
+    reason (`vmodl.LocalizedMethodFault <vmodl/LocalizedMethodFault.rst>`_):
 
        The reason for the failure.

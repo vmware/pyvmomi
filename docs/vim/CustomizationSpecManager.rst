@@ -1,31 +1,3 @@
-.. _int: https://docs.python.org/2/library/stdtypes.html
-
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _bool: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.Task: ../vim/Task.rst
-
-.. _vim.fault.NotFound: ../vim/fault/NotFound.rst
-
-.. _vim.fault.AlreadyExists: ../vim/fault/AlreadyExists.rst
-
-.. _vim.CustomizationSpecInfo: ../vim/CustomizationSpecInfo.rst
-
-.. _vim.CustomizationSpecItem: ../vim/CustomizationSpecItem.rst
-
-.. _vim.fault.ConcurrentAccess: ../vim/fault/ConcurrentAccess.rst
-
-.. _vim.fault.CustomizationFault: ../vim/fault/CustomizationFault.rst
-
-.. _vim.fault.UncustomizableGuest: ../vim/fault/UncustomizableGuest.rst
-
-.. _vim.fault.CannotDecryptPasswords: ../vim/fault/CannotDecryptPasswords.rst
-
-.. _vim.fault.MissingLinuxCustResources: ../vim/fault/MissingLinuxCustResources.rst
-
-.. _vim.fault.MissingWindowsCustResources: ../vim/fault/MissingWindowsCustResources.rst
-
 
 vim.CustomizationSpecManager
 ============================
@@ -36,10 +8,10 @@ vim.CustomizationSpecManager
 
 Attributes
 ----------
-    info ([`vim.CustomizationSpecInfo`_]):
+    info ([`vim.CustomizationSpecInfo <vim/CustomizationSpecInfo.rst>`_]):
       privilege: VirtualMachine.Provisioning.ReadCustSpecs
        Gets a list of information on available specifications.
-    encryptionKey ([`int`_]):
+    encryptionKey ([`int <https://docs.python.org/2/library/stdtypes.html>`_]):
       privilege: System.View
        Gets a binary public encryption key that can be used to encrypt passwords in stored specifications.
 
@@ -58,13 +30,13 @@ DoesCustomizationSpecExist(name):
 
 
   Args:
-    name (`str`_):
+    name (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
 
 
 
   Returns:
-    `bool`_:
+    `bool <https://docs.python.org/2/library/stdtypes.html>`_:
          
 
 
@@ -78,19 +50,19 @@ GetCustomizationSpec(name):
 
 
   Args:
-    name (`str`_):
+    name (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        Unique name identifying the requested customization specification.
 
 
 
 
   Returns:
-    `vim.CustomizationSpecItem`_:
+    `vim.CustomizationSpecItem <vim/CustomizationSpecItem.rst>`_:
          
 
   Raises:
 
-    `vim.fault.NotFound`_: 
+    `vim.fault.NotFound <vim/fault/NotFound.rst>`_: 
        vim.fault.NotFound
 
 
@@ -104,7 +76,7 @@ CreateCustomizationSpec(item):
 
 
   Args:
-    item (`vim.CustomizationSpecItem`_):
+    item (`vim.CustomizationSpecItem <vim/CustomizationSpecItem.rst>`_):
 
 
 
@@ -115,13 +87,13 @@ CreateCustomizationSpec(item):
 
   Raises:
 
-    `vim.fault.CustomizationFault`_: 
+    `vim.fault.CustomizationFault <vim/fault/CustomizationFault.rst>`_: 
        vim.fault.CustomizationFault
 
-    `vim.fault.AlreadyExists`_: 
+    `vim.fault.AlreadyExists <vim/fault/AlreadyExists.rst>`_: 
        vim.fault.AlreadyExists
 
-    `vim.fault.CannotDecryptPasswords`_: 
+    `vim.fault.CannotDecryptPasswords <vim/fault/CannotDecryptPasswords.rst>`_: 
        vim.fault.CannotDecryptPasswords
 
 
@@ -135,7 +107,7 @@ OverwriteCustomizationSpec(item):
 
 
   Args:
-    item (`vim.CustomizationSpecItem`_):
+    item (`vim.CustomizationSpecItem <vim/CustomizationSpecItem.rst>`_):
 
 
 
@@ -146,16 +118,16 @@ OverwriteCustomizationSpec(item):
 
   Raises:
 
-    `vim.fault.CustomizationFault`_: 
+    `vim.fault.CustomizationFault <vim/fault/CustomizationFault.rst>`_: 
        vim.fault.CustomizationFault
 
-    `vim.fault.NotFound`_: 
+    `vim.fault.NotFound <vim/fault/NotFound.rst>`_: 
        vim.fault.NotFound
 
-    `vim.fault.ConcurrentAccess`_: 
+    `vim.fault.ConcurrentAccess <vim/fault/ConcurrentAccess.rst>`_: 
        vim.fault.ConcurrentAccess
 
-    `vim.fault.CannotDecryptPasswords`_: 
+    `vim.fault.CannotDecryptPasswords <vim/fault/CannotDecryptPasswords.rst>`_: 
        vim.fault.CannotDecryptPasswords
 
 
@@ -169,7 +141,7 @@ DeleteCustomizationSpec(name):
 
 
   Args:
-    name (`str`_):
+    name (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
 
 
@@ -180,7 +152,7 @@ DeleteCustomizationSpec(name):
 
   Raises:
 
-    `vim.fault.NotFound`_: 
+    `vim.fault.NotFound <vim/fault/NotFound.rst>`_: 
        vim.fault.NotFound
 
 
@@ -194,10 +166,10 @@ DuplicateCustomizationSpec(name, newName):
 
 
   Args:
-    name (`str`_):
+    name (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
 
-    newName (`str`_):
+    newName (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
 
 
@@ -208,10 +180,10 @@ DuplicateCustomizationSpec(name, newName):
 
   Raises:
 
-    `vim.fault.NotFound`_: 
+    `vim.fault.NotFound <vim/fault/NotFound.rst>`_: 
        vim.fault.NotFound
 
-    `vim.fault.AlreadyExists`_: 
+    `vim.fault.AlreadyExists <vim/fault/AlreadyExists.rst>`_: 
        vim.fault.AlreadyExists
 
 
@@ -225,10 +197,10 @@ RenameCustomizationSpec(name, newName):
 
 
   Args:
-    name (`str`_):
+    name (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
 
-    newName (`str`_):
+    newName (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
 
 
@@ -239,10 +211,10 @@ RenameCustomizationSpec(name, newName):
 
   Raises:
 
-    `vim.fault.NotFound`_: 
+    `vim.fault.NotFound <vim/fault/NotFound.rst>`_: 
        vim.fault.NotFound
 
-    `vim.fault.AlreadyExists`_: 
+    `vim.fault.AlreadyExists <vim/fault/AlreadyExists.rst>`_: 
        vim.fault.AlreadyExists
 
 
@@ -256,13 +228,13 @@ CustomizationSpecItemToXml(item):
 
 
   Args:
-    item (`vim.CustomizationSpecItem`_):
+    item (`vim.CustomizationSpecItem <vim/CustomizationSpecItem.rst>`_):
 
 
 
 
   Returns:
-    `str`_:
+    `str <https://docs.python.org/2/library/stdtypes.html>`_:
          
 
 
@@ -276,18 +248,18 @@ XmlToCustomizationSpecItem(specItemXml):
 
 
   Args:
-    specItemXml (`str`_):
+    specItemXml (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
 
 
 
   Returns:
-    `vim.CustomizationSpecItem`_:
+    `vim.CustomizationSpecItem <vim/CustomizationSpecItem.rst>`_:
          
 
   Raises:
 
-    `vim.fault.CustomizationFault`_: 
+    `vim.fault.CustomizationFault <vim/fault/CustomizationFault.rst>`_: 
        vim.fault.CustomizationFault
 
 
@@ -301,7 +273,7 @@ CheckCustomizationResources(guestOs):
 
 
   Args:
-    guestOs (`str`_):
+    guestOs (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        Short name from the guest OS descriptor list describing the OS we intend to customize.
 
 
@@ -313,16 +285,16 @@ CheckCustomizationResources(guestOs):
 
   Raises:
 
-    `vim.fault.CustomizationFault`_: 
+    `vim.fault.CustomizationFault <vim/fault/CustomizationFault.rst>`_: 
        vim.fault.CustomizationFault
 
-    `vim.fault.MissingLinuxCustResources`_: 
+    `vim.fault.MissingLinuxCustResources <vim/fault/MissingLinuxCustResources.rst>`_: 
        vim.fault.MissingLinuxCustResources
 
-    `vim.fault.MissingWindowsCustResources`_: 
+    `vim.fault.MissingWindowsCustResources <vim/fault/MissingWindowsCustResources.rst>`_: 
        vim.fault.MissingWindowsCustResources
 
-    `vim.fault.UncustomizableGuest`_: 
+    `vim.fault.UncustomizableGuest <vim/fault/UncustomizableGuest.rst>`_: 
        vim.fault.UncustomizableGuest
 
 

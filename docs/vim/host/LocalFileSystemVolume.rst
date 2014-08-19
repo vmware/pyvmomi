@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.host.FileSystemVolume: ../../vim/host/FileSystemVolume.rst
-
 
 vim.host.LocalFileSystemVolume
 ==============================
@@ -9,6 +5,6 @@ vim.host.LocalFileSystemVolume
 :extends: vim.host.FileSystemVolume_
 
 Attributes:
-    device (`str`_):
+    device (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The device of the local file system.

@@ -1,41 +1,25 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.host.ScsiLun: ../../../vim/host/ScsiLun.rst
-
-.. _vmodl.DynamicData: ../../../vmodl/DynamicData.rst
-
-.. _SetMultipathLunPolicy: ../../../vim/host/StorageSystem.rst#setMultipathLunPolicy
-
-.. _vim.host.MultipathInfo.Path: ../../../vim/host/MultipathInfo/Path.rst
-
-.. _HostMultipathInfoLogicalUnit: ../../../vim/host/MultipathInfo/LogicalUnit.rst
-
-.. _vim.host.MultipathInfo.LogicalUnitPolicy: ../../../vim/host/MultipathInfo/LogicalUnitPolicy.rst
-
-.. _vim.host.MultipathInfo.LogicalUnitStorageArrayTypePolicy: ../../../vim/host/MultipathInfo/LogicalUnitStorageArrayTypePolicy.rst
-
 
 vim.host.MultipathInfo.LogicalUnit
 ==================================
-  The `HostMultipathInfoLogicalUnit`_ data object represents a storage entity that provides disk blocks to a host.
+  The `HostMultipathInfoLogicalUnit <vim/host/MultipathInfo/LogicalUnit.rst>`_ data object represents a storage entity that provides disk blocks to a host.
 :extends: vmodl.DynamicData_
 
 Attributes:
-    key (`str`_):
+    key (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Linkable identifier.
-    id (`str`_):
+    id (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
-       Identifier of LogicalUnit.Use this id to configure LogicalUnit multipathing policy using `SetMultipathLunPolicy`_ .
-    lun (`vim.host.ScsiLun`_):
+       Identifier of LogicalUnit.Use this id to configure LogicalUnit multipathing policy using `SetMultipathLunPolicy <vim/host/StorageSystem.rst#setMultipathLunPolicy>`_ .
+    lun (`vim.host.ScsiLun <vim/host/ScsiLun.rst>`_):
 
        SCSI device corresponding to logical unit.
-    path ([`vim.host.MultipathInfo.Path`_]):
+    path ([`vim.host.MultipathInfo.Path <vim/host/MultipathInfo/Path.rst>`_]):
 
        Array of paths available to access this LogicalUnit.
-    policy (`vim.host.MultipathInfo.LogicalUnitPolicy`_):
+    policy (`vim.host.MultipathInfo.LogicalUnitPolicy <vim/host/MultipathInfo/LogicalUnitPolicy.rst>`_):
 
        Policy that the logical unit should use when selecting a path.
-    storageArrayTypePolicy (`vim.host.MultipathInfo.LogicalUnitStorageArrayTypePolicy`_, optional):
+    storageArrayTypePolicy (`vim.host.MultipathInfo.LogicalUnitStorageArrayTypePolicy <vim/host/MultipathInfo/LogicalUnitStorageArrayTypePolicy.rst>`_, optional):
 
        Policy used to determine how a storage device is accessed. This policy is currently immutable.

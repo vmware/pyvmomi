@@ -1,5 +1,3 @@
-.. _vmodl.DynamicData: ../../vmodl/DynamicData.rst
-
 
 vim.LicenseManager.LicenseSource
 ================================

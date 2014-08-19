@@ -1,12 +1,8 @@
-.. _vim.fault.InvalidDasConfigArgument: ../../../vim/fault/InvalidDasConfigArgument.rst
-
-.. _vim.fault.InvalidDasConfigArgument.EntryForInvalidArgument: ../../../vim/fault/InvalidDasConfigArgument/EntryForInvalidArgument.rst
-
 vim.fault.InvalidDasConfigArgument.EntryForInvalidArgument
 ==========================================================
-  :contained by: `vim.fault.InvalidDasConfigArgument`_
+  :contained by: `vim.fault.InvalidDasConfigArgument <vim/fault/InvalidDasConfigArgument.rst>`_
 
-  :type: `vim.fault.InvalidDasConfigArgument.EntryForInvalidArgument`_
+  :type: `vim.fault.InvalidDasConfigArgument.EntryForInvalidArgument <vim/fault/InvalidDasConfigArgument/EntryForInvalidArgument.rst>`_
 
   :name: vmConfig
 

@@ -1,7 +1,3 @@
-.. _vim.event.ClusterEvent: ../../vim/event/ClusterEvent.rst
-
-.. _vim.event.HostEventArgument: ../../vim/event/HostEventArgument.rst
-
 
 vim.event.DasHostFailedEvent
 ============================
@@ -9,6 +5,6 @@ vim.event.DasHostFailedEvent
 :extends: vim.event.ClusterEvent_
 
 Attributes:
-    failedHost (`vim.event.HostEventArgument`_):
+    failedHost (`vim.event.HostEventArgument <vim/event/HostEventArgument.rst>`_):
 
        The host that failed.

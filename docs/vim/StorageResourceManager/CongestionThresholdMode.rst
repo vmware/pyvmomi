@@ -1,15 +1,9 @@
-.. _congestionThreshold: ../../vim/StorageResourceManager/IORMConfigInfo.rst#congestionThreshold
-
-.. _vim.StorageResourceManager: ../../vim/StorageResourceManager.rst
-
-.. _vim.StorageResourceManager.CongestionThresholdMode: ../../vim/StorageResourceManager/CongestionThresholdMode.rst
-
 vim.StorageResourceManager.CongestionThresholdMode
 ==================================================
-  User specification of congestion threshold mode on a given datastoreFor more information, see `congestionThreshold`_ 
-  :contained by: `vim.StorageResourceManager`_
+  User specification of congestion threshold mode on a given datastoreFor more information, see `congestionThreshold <vim/StorageResourceManager/IORMConfigInfo.rst#congestionThreshold>`_ 
+  :contained by: `vim.StorageResourceManager <vim/StorageResourceManager.rst>`_
 
-  :type: `vim.StorageResourceManager.CongestionThresholdMode`_
+  :type: `vim.StorageResourceManager.CongestionThresholdMode <vim/StorageResourceManager/CongestionThresholdMode.rst>`_
 
   :name: manual
 

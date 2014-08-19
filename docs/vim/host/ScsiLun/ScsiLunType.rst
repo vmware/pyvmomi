@@ -1,13 +1,9 @@
-.. _vim.host.ScsiLun: ../../../vim/host/ScsiLun.rst
-
-.. _vim.host.ScsiLun.ScsiLunType: ../../../vim/host/ScsiLun/ScsiLunType.rst
-
 vim.host.ScsiLun.ScsiLunType
 ============================
   The list of SCSI device types. These values correspond to values published in the SCSI specification.
-  :contained by: `vim.host.ScsiLun`_
+  :contained by: `vim.host.ScsiLun <vim/host/ScsiLun.rst>`_
 
-  :type: `vim.host.ScsiLun.ScsiLunType`_
+  :type: `vim.host.ScsiLun.ScsiLunType <vim/host/ScsiLun/ScsiLunType.rst>`_
 
   :name: unknown
 

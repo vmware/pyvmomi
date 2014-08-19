@@ -1,13 +1,9 @@
-.. _vim.LicenseManager.FeatureInfo: ../../../vim/LicenseManager/FeatureInfo.rst
-
-.. _vim.LicenseManager.FeatureInfo.SourceRestriction: ../../../vim/LicenseManager/FeatureInfo/SourceRestriction.rst
-
 vim.LicenseManager.FeatureInfo.SourceRestriction
 ================================================
   Some licenses may only be allowed to load from a specified source. This enum indicates what restrictions exist for this license if any.
-  :contained by: `vim.LicenseManager.FeatureInfo`_
+  :contained by: `vim.LicenseManager.FeatureInfo <vim/LicenseManager/FeatureInfo.rst>`_
 
-  :type: `vim.LicenseManager.FeatureInfo.SourceRestriction`_
+  :type: `vim.LicenseManager.FeatureInfo.SourceRestriction <vim/LicenseManager/FeatureInfo/SourceRestriction.rst>`_
 
   :name: file
 

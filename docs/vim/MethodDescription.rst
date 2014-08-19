@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.Description: ../vim/Description.rst
-
 
 vim.MethodDescription
 =====================
@@ -9,6 +5,6 @@ vim.MethodDescription
 :extends: vim.Description_
 
 Attributes:
-    key (`str`_):
+    key (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Method being described.

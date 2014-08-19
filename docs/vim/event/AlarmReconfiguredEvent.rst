@@ -1,7 +1,3 @@
-.. _vim.event.AlarmEvent: ../../vim/event/AlarmEvent.rst
-
-.. _vim.event.ManagedEntityEventArgument: ../../vim/event/ManagedEntityEventArgument.rst
-
 
 vim.event.AlarmReconfiguredEvent
 ================================
@@ -9,6 +5,6 @@ vim.event.AlarmReconfiguredEvent
 :extends: vim.event.AlarmEvent_
 
 Attributes:
-    entity (`vim.event.ManagedEntityEventArgument`_):
+    entity (`vim.event.ManagedEntityEventArgument <vim/event/ManagedEntityEventArgument.rst>`_):
 
        The entity with which the alarm is registered.

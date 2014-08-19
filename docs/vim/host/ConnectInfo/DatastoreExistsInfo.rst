@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.host.ConnectInfo.DatastoreInfo: ../../../vim/host/ConnectInfo/DatastoreInfo.rst
-
 
 vim.host.ConnectInfo.DatastoreExistsInfo
 ========================================
@@ -9,6 +5,6 @@ vim.host.ConnectInfo.DatastoreExistsInfo
 :extends: vim.host.ConnectInfo.DatastoreInfo_
 
 Attributes:
-    newDatastoreName (`str`_):
+    newDatastoreName (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The name of a matching datastore on VirtualCenter. The datastore on the host will be renamed to this name.

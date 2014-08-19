@@ -1,13 +1,9 @@
-.. _vim.vm.UsbInfo: ../../../vim/vm/UsbInfo.rst
-
-.. _vim.vm.UsbInfo.Family: ../../../vim/vm/UsbInfo/Family.rst
-
 vim.vm.UsbInfo.Family
 =====================
   Device class family.
-  :contained by: `vim.vm.UsbInfo`_
+  :contained by: `vim.vm.UsbInfo <vim/vm/UsbInfo.rst>`_
 
-  :type: `vim.vm.UsbInfo.Family`_
+  :type: `vim.vm.UsbInfo.Family <vim/vm/UsbInfo/Family.rst>`_
 
   :name: unknownFamily
 

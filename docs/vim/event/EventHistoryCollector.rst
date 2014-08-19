@@ -1,15 +1,3 @@
-.. _int: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.Task: ../../vim/Task.rst
-
-.. _vim.event.Event: ../../vim/event/Event.rst
-
-.. _EventFilterSpec: ../../vim/event/EventFilterSpec.rst
-
-.. _vim.HistoryCollector: ../../vim/HistoryCollector.rst
-
-.. _vmodl.fault.InvalidArgument: ../../vmodl/fault/InvalidArgument.rst
-
 
 vim.event.EventHistoryCollector
 ===============================
@@ -21,8 +9,8 @@ vim.event.EventHistoryCollector
 
 Attributes
 ----------
-    latestPage ([`vim.event.Event`_]):
-       The items in the 'viewable latest page'. As new events that match the collector's `EventFilterSpec`_ are created, they are added to this page, and the oldest events are removed from the collector to keep the size of the page to that allowed by HistoryCollector#setLatestPageSize.The "oldest event" is the one with the smallest key (event ID). The events in the returned page are unordered.
+    latestPage ([`vim.event.Event <vim/event/Event.rst>`_]):
+       The items in the 'viewable latest page'. As new events that match the collector's `EventFilterSpec <vim/event/EventFilterSpec.rst>`_ are created, they are added to this page, and the oldest events are removed from the collector to keep the size of the page to that allowed by HistoryCollector#setLatestPageSize.The "oldest event" is the one with the smallest key (event ID). The events in the returned page are unordered.
 
 
 Methods
@@ -38,19 +26,19 @@ ReadNextEvents(maxCount):
 
 
   Args:
-    maxCount (`int`_):
+    maxCount (`int <https://docs.python.org/2/library/stdtypes.html>`_):
        The maximum number of items in the page.
 
 
 
 
   Returns:
-    [`vim.event.Event`_]:
+    [`vim.event.Event <vim/event/Event.rst>`_]:
          
 
   Raises:
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
        if maxCount is out of range.
 
 
@@ -63,19 +51,19 @@ ReadPreviousEvents(maxCount):
 
 
   Args:
-    maxCount (`int`_):
+    maxCount (`int <https://docs.python.org/2/library/stdtypes.html>`_):
        The maximum number of items in the page.
 
 
 
 
   Returns:
-    [`vim.event.Event`_]:
+    [`vim.event.Event <vim/event/Event.rst>`_]:
          
 
   Raises:
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
        if maxCount is out of range.
 
 

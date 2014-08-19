@@ -1,13 +1,9 @@
-.. _vim.host.ScsiLun: ../../../vim/host/ScsiLun.rst
-
-.. _vim.host.ScsiLun.DescriptorQuality: ../../../vim/host/ScsiLun/DescriptorQuality.rst
-
 vim.host.ScsiLun.DescriptorQuality
 ==================================
   An indicator of the utility of Descriptor in being used as an identifier that is stable, unique, and correlatable.
-  :contained by: `vim.host.ScsiLun`_
+  :contained by: `vim.host.ScsiLun <vim/host/ScsiLun.rst>`_
 
-  :type: `vim.host.ScsiLun.DescriptorQuality`_
+  :type: `vim.host.ScsiLun.DescriptorQuality <vim/host/ScsiLun/DescriptorQuality.rst>`_
 
   :name: unknownQuality
 

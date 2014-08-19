@@ -1,25 +1,19 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _string: ../../str
-
-.. _vim.fault.VmConfigFault: ../../vim/fault/VmConfigFault.rst
-
 
 vim.fault.RDMNotSupportedOnDatastore
 ====================================
     :extends:
 
-        `vim.fault.VmConfigFault`_
+        `vim.fault.VmConfigFault <vim/fault/VmConfigFault.rst>`_
 
   The virtual machine is configured with a Raw Disk Mapping. This is not supported on the datastore.
 
 Attributes:
 
-    device (`str`_)
+    device (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
-    datastore (`str`_)
+    datastore (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
-    datastoreName (`str`_)
+    datastoreName (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
 
 

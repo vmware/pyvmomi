@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.event.VmStartingEvent: ../../vim/event/VmStartingEvent.rst
-
 
 vim.event.VmUnsupportedStartingEvent
 ====================================
@@ -9,5 +5,5 @@ vim.event.VmUnsupportedStartingEvent
 :extends: vim.event.VmStartingEvent_
 
 Attributes:
-    guestId (`str`_):
+    guestId (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 

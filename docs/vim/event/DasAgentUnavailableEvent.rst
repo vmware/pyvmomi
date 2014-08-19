@@ -1,5 +1,3 @@
-.. _vim.event.ClusterEvent: ../../vim/event/ClusterEvent.rst
-
 
 vim.event.DasAgentUnavailableEvent
 ==================================

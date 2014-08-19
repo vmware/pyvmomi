@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.event.VmEvent: ../../vim/event/VmEvent.rst
-
 
 vim.event.VmMacAssignedEvent
 ============================
@@ -9,9 +5,9 @@ vim.event.VmMacAssignedEvent
 :extends: vim.event.VmEvent_
 
 Attributes:
-    adapter (`str`_):
+    adapter (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The name of the virtual adapter.
-    mac (`str`_):
+    mac (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The new MAC address.

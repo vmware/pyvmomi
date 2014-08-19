@@ -1,20 +1,16 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.fault.OvfHardwareExport: ../../vim/fault/OvfHardwareExport.rst
-
 
 vim.fault.OvfUnableToExportDisk
 ===============================
     :extends:
 
-        `vim.fault.OvfHardwareExport`_
+        `vim.fault.OvfHardwareExport <vim/fault/OvfHardwareExport.rst>`_
 
 
 
 
 Attributes:
 
-    diskName (`str`_)
+    diskName (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
 
 

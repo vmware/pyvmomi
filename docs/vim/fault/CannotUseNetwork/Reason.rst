@@ -1,12 +1,8 @@
-.. _vim.fault.CannotUseNetwork: ../../../vim/fault/CannotUseNetwork.rst
-
-.. _vim.fault.CannotUseNetwork.Reason: ../../../vim/fault/CannotUseNetwork/Reason.rst
-
 vim.fault.CannotUseNetwork.Reason
 =================================
-  :contained by: `vim.fault.CannotUseNetwork`_
+  :contained by: `vim.fault.CannotUseNetwork <vim/fault/CannotUseNetwork.rst>`_
 
-  :type: `vim.fault.CannotUseNetwork.Reason`_
+  :type: `vim.fault.CannotUseNetwork.Reason <vim/fault/CannotUseNetwork/Reason.rst>`_
 
   :name: VMotionToUnsupportedNetworkType
 

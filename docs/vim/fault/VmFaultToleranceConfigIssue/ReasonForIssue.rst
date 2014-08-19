@@ -1,12 +1,8 @@
-.. _vim.fault.VmFaultToleranceConfigIssue: ../../../vim/fault/VmFaultToleranceConfigIssue.rst
-
-.. _vim.fault.VmFaultToleranceConfigIssue.ReasonForIssue: ../../../vim/fault/VmFaultToleranceConfigIssue/ReasonForIssue.rst
-
 vim.fault.VmFaultToleranceConfigIssue.ReasonForIssue
 ====================================================
-  :contained by: `vim.fault.VmFaultToleranceConfigIssue`_
+  :contained by: `vim.fault.VmFaultToleranceConfigIssue <vim/fault/VmFaultToleranceConfigIssue.rst>`_
 
-  :type: `vim.fault.VmFaultToleranceConfigIssue.ReasonForIssue`_
+  :type: `vim.fault.VmFaultToleranceConfigIssue.ReasonForIssue <vim/fault/VmFaultToleranceConfigIssue/ReasonForIssue.rst>`_
 
   :name: hasVFlashConfiguration
 

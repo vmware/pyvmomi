@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.event.VmEvent: ../../vim/event/VmEvent.rst
-
 
 vim.event.VmMacChangedEvent
 ===========================
@@ -9,12 +5,12 @@ vim.event.VmMacChangedEvent
 :extends: vim.event.VmEvent_
 
 Attributes:
-    adapter (`str`_):
+    adapter (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The name of the virtual network adapter.
-    oldMac (`str`_):
+    oldMac (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The old MAC address.
-    newMac (`str`_):
+    newMac (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The new MAC address.

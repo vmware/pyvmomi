@@ -1,7 +1,3 @@
-.. _vim.cluster.RuleInfo: ../../vim/cluster/RuleInfo.rst
-
-.. _vim.option.ArrayUpdateSpec: ../../vim/option/ArrayUpdateSpec.rst
-
 
 vim.cluster.RuleSpec
 ====================
@@ -9,5 +5,5 @@ vim.cluster.RuleSpec
 :extends: vim.option.ArrayUpdateSpec_
 
 Attributes:
-    info (`vim.cluster.RuleInfo`_, optional):
+    info (`vim.cluster.RuleInfo <vim/cluster/RuleInfo.rst>`_, optional):
 

@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.vm.customization.NameGenerator: ../../../vim/vm/customization/NameGenerator.rst
-
 
 vim.vm.customization.PrefixNameGenerator
 ========================================
@@ -9,6 +5,6 @@ vim.vm.customization.PrefixNameGenerator
 :extends: vim.vm.customization.NameGenerator_
 
 Attributes:
-    base (`str`_):
+    base (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Base prefix, to which a unique number is appended.

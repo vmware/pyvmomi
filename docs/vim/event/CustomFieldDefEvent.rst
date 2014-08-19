@@ -1,9 +1,3 @@
-.. _int: https://docs.python.org/2/library/stdtypes.html
-
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.event.CustomFieldEvent: ../../vim/event/CustomFieldEvent.rst
-
 
 vim.event.CustomFieldDefEvent
 =============================
@@ -11,9 +5,9 @@ vim.event.CustomFieldDefEvent
 :extends: vim.event.CustomFieldEvent_
 
 Attributes:
-    fieldKey (`int`_):
+    fieldKey (`int <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The unique identifier of the custom field definition.
-    name (`str`_):
+    name (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The name of the custom field.

@@ -1,29 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _uuid: ../../vim/host/ScsiLun.rst#uuid
-
-.. _vim.Task: ../../vim/Task.rst
-
-.. _HostScsiDisk: ../../vim/host/ScsiDisk.rst
-
-.. _vim.fault.NotFound: ../../vim/fault/NotFound.rst
-
-.. _vmodl.fault.NotSupported: ../../vmodl/fault/NotSupported.rst
-
-.. _vim.fault.HostConfigFault: ../../vim/fault/HostConfigFault.rst
-
-.. _vmodl.fault.InvalidArgument: ../../vmodl/fault/InvalidArgument.rst
-
-.. _vim.host.ScsiDisk.Partition: ../../vim/host/ScsiDisk/Partition.rst
-
-.. _vim.host.DiagnosticPartition: ../../vim/host/DiagnosticPartition.rst
-
-.. _vim.host.DiagnosticPartition.CreateSpec: ../../vim/host/DiagnosticPartition/CreateSpec.rst
-
-.. _vim.host.DiagnosticPartition.CreateOption: ../../vim/host/DiagnosticPartition/CreateOption.rst
-
-.. _vim.host.DiagnosticPartition.CreateDescription: ../../vim/host/DiagnosticPartition/CreateDescription.rst
-
 
 vim.host.DiagnosticSystem
 =========================
@@ -37,7 +11,7 @@ vim.host.DiagnosticSystem
 
 Attributes
 ----------
-    activePartition (`vim.host.DiagnosticPartition`_):
+    activePartition (`vim.host.DiagnosticPartition <vim/host/DiagnosticPartition.rst>`_):
        The currently active diagnostic partition.
 
 
@@ -58,15 +32,15 @@ QueryAvailablePartition():
 
 
   Returns:
-    [`vim.host.DiagnosticPartition`_]:
+    [`vim.host.DiagnosticPartition <vim/host/DiagnosticPartition.rst>`_]:
          
 
   Raises:
 
-    `vim.fault.HostConfigFault`_: 
+    `vim.fault.HostConfigFault <vim/fault/HostConfigFault.rst>`_: 
        on some internal failure while setting the active partition.
 
-    `vmodl.fault.NotSupported`_: 
+    `vmodl.fault.NotSupported <vmodl/fault/NotSupported.rst>`_: 
        if the host is not an ESX Server.
 
 
@@ -80,7 +54,7 @@ SelectActivePartition(partition):
 
 
   Args:
-    partition (`vim.host.ScsiDisk.Partition`_, optional):
+    partition (`vim.host.ScsiDisk.Partition <vim/host/ScsiDisk/Partition.rst>`_, optional):
 
 
 
@@ -91,16 +65,16 @@ SelectActivePartition(partition):
 
   Raises:
 
-    `vim.fault.NotFound`_: 
+    `vim.fault.NotFound <vim/fault/NotFound.rst>`_: 
        if the diagnostic partition does not exist.
 
-    `vim.fault.HostConfigFault`_: 
+    `vim.fault.HostConfigFault <vim/fault/HostConfigFault.rst>`_: 
        on some internal failure while selecting the active partition.
 
-    `vmodl.fault.NotSupported`_: 
+    `vmodl.fault.NotSupported <vmodl/fault/NotSupported.rst>`_: 
        if the host is not an ESX Server.
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
        if the partition is not a diagnostic partition.
 
 
@@ -114,32 +88,32 @@ QueryPartitionCreateOptions(storageType, diagnosticType):
 
 
   Args:
-    storageType (`str`_):
+    storageType (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
 
-    diagnosticType (`str`_):
+    diagnosticType (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
 
 
 
   Returns:
-    [`vim.host.DiagnosticPartition.CreateOption`_]:
+    [`vim.host.DiagnosticPartition.CreateOption <vim/host/DiagnosticPartition/CreateOption.rst>`_]:
          
 
   Raises:
 
-    `vim.fault.HostConfigFault`_: 
+    `vim.fault.HostConfigFault <vim/fault/HostConfigFault.rst>`_: 
        on some internal failure while querying the create options.
 
-    `vmodl.fault.NotSupported`_: 
+    `vmodl.fault.NotSupported <vmodl/fault/NotSupported.rst>`_: 
        if the host is not an ESX Server.
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
        if an invalid storage type is specified.
 
 
 QueryPartitionCreateDesc(diskUuid, diagnosticType):
-   For a disk, query for the diagnostic partition creation description. The description details how the diagnostic partition will be created on the disk and provides a creation specification that is needed to invoke the create operation.See `HostScsiDisk`_ See `uuid`_ 
+   For a disk, query for the diagnostic partition creation description. The description details how the diagnostic partition will be created on the disk and provides a creation specification that is needed to invoke the create operation.See `HostScsiDisk <vim/host/ScsiDisk.rst>`_ See `uuid <vim/host/ScsiLun.rst#uuid>`_ 
 
 
   Privilege:
@@ -148,33 +122,33 @@ QueryPartitionCreateDesc(diskUuid, diagnosticType):
 
 
   Args:
-    diskUuid (`str`_):
-       See `HostScsiDisk`_ See `uuid`_ 
+    diskUuid (`str <https://docs.python.org/2/library/stdtypes.html>`_):
+       See `HostScsiDisk <vim/host/ScsiDisk.rst>`_ See `uuid <vim/host/ScsiLun.rst#uuid>`_ 
 
 
-    diagnosticType (`str`_):
-       See `HostScsiDisk`_ See `uuid`_ 
+    diagnosticType (`str <https://docs.python.org/2/library/stdtypes.html>`_):
+       See `HostScsiDisk <vim/host/ScsiDisk.rst>`_ See `uuid <vim/host/ScsiLun.rst#uuid>`_ 
 
 
 
 
   Returns:
-    `vim.host.DiagnosticPartition.CreateDescription`_:
+    `vim.host.DiagnosticPartition.CreateDescription <vim/host/DiagnosticPartition/CreateDescription.rst>`_:
          
 
   Raises:
 
-    `vim.fault.NotFound`_: 
-       if the specified disk cannot be found.See `HostScsiDisk`_ See `uuid`_ 
+    `vim.fault.NotFound <vim/fault/NotFound.rst>`_: 
+       if the specified disk cannot be found.See `HostScsiDisk <vim/host/ScsiDisk.rst>`_ See `uuid <vim/host/ScsiLun.rst#uuid>`_ 
 
-    `vim.fault.HostConfigFault`_: 
-       on some internal failure while trying to query information about the disk.See `HostScsiDisk`_ See `uuid`_ 
+    `vim.fault.HostConfigFault <vim/fault/HostConfigFault.rst>`_: 
+       on some internal failure while trying to query information about the disk.See `HostScsiDisk <vim/host/ScsiDisk.rst>`_ See `uuid <vim/host/ScsiLun.rst#uuid>`_ 
 
-    `vmodl.fault.NotSupported`_: 
-       if the host is not an ESX Server.See `HostScsiDisk`_ See `uuid`_ 
+    `vmodl.fault.NotSupported <vmodl/fault/NotSupported.rst>`_: 
+       if the host is not an ESX Server.See `HostScsiDisk <vim/host/ScsiDisk.rst>`_ See `uuid <vim/host/ScsiLun.rst#uuid>`_ 
 
-    `vmodl.fault.InvalidArgument`_: 
-       if an invalid storage type is specified or the specified disk is unable to accommodate a new diagnostic partition.See `HostScsiDisk`_ See `uuid`_ 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
+       if an invalid storage type is specified or the specified disk is unable to accommodate a new diagnostic partition.See `HostScsiDisk <vim/host/ScsiDisk.rst>`_ See `uuid <vim/host/ScsiLun.rst#uuid>`_ 
 
 
 CreateDiagnosticPartition(spec):
@@ -187,7 +161,7 @@ CreateDiagnosticPartition(spec):
 
 
   Args:
-    spec (`vim.host.DiagnosticPartition.CreateSpec`_):
+    spec (`vim.host.DiagnosticPartition.CreateSpec <vim/host/DiagnosticPartition/CreateSpec.rst>`_):
 
 
 
@@ -198,16 +172,16 @@ CreateDiagnosticPartition(spec):
 
   Raises:
 
-    `vim.fault.NotFound`_: 
+    `vim.fault.NotFound <vim/fault/NotFound.rst>`_: 
        if the specified disk cannot be found.
 
-    `vim.fault.HostConfigFault`_: 
+    `vim.fault.HostConfigFault <vim/fault/HostConfigFault.rst>`_: 
        on some internal failure while trying to create the diagnostic partition or to activate the diagnostic partition.
 
-    `vmodl.fault.NotSupported`_: 
+    `vmodl.fault.NotSupported <vmodl/fault/NotSupported.rst>`_: 
        if the host is not an ESX Server.
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
        if an invalid storage type is specified or the specified disk is unable to accommodate a new diagnostic partition.
 
 

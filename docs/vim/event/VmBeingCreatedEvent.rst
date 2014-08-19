@@ -1,7 +1,3 @@
-.. _vim.event.VmEvent: ../../vim/event/VmEvent.rst
-
-.. _vim.vm.ConfigSpec: ../../vim/vm/ConfigSpec.rst
-
 
 vim.event.VmBeingCreatedEvent
 =============================
@@ -9,6 +5,6 @@ vim.event.VmBeingCreatedEvent
 :extends: vim.event.VmEvent_
 
 Attributes:
-    configSpec (`vim.vm.ConfigSpec`_, optional):
+    configSpec (`vim.vm.ConfigSpec <vim/vm/ConfigSpec.rst>`_, optional):
 
        The configuration specification that was used to create this virtual machine.

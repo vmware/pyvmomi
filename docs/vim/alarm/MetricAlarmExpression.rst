@@ -1,13 +1,3 @@
-.. _int: https://docs.python.org/2/library/stdtypes.html
-
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.alarm.AlarmExpression: ../../vim/alarm/AlarmExpression.rst
-
-.. _vim.PerformanceManager.MetricId: ../../vim/PerformanceManager/MetricId.rst
-
-.. _vim.alarm.MetricAlarmExpression.MetricOperator: ../../vim/alarm/MetricAlarmExpression/MetricOperator.rst
-
 
 vim.alarm.MetricAlarmExpression
 ===============================
@@ -21,24 +11,24 @@ vim.alarm.MetricAlarmExpression
 :extends: vim.alarm.AlarmExpression_
 
 Attributes:
-    operator (`vim.alarm.MetricAlarmExpression.MetricOperator`_):
+    operator (`vim.alarm.MetricAlarmExpression.MetricOperator <vim/alarm/MetricAlarmExpression/MetricOperator.rst>`_):
 
        The operation to be tested on the metric.
-    type (`str`_):
+    type (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Name of the object type containing the property.
-    metric (`vim.PerformanceManager.MetricId`_):
+    metric (`vim.PerformanceManager.MetricId <vim/PerformanceManager/MetricId.rst>`_):
 
        The instance of the metric.
-    yellow (`int`_, optional):
+    yellow (`int <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        Whether or not to test for a yellow condition. If not set, do not calculate yellow status. If set, it contains the threshold value that triggers yellow status.
-    yellowInterval (`int`_, optional):
+    yellowInterval (`int <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        Time interval in seconds for which the yellow condition must be true before the yellow status is triggered. If unset, the yellow status is triggered immediately when the yellow condition becomes true.
-    red (`int`_, optional):
+    red (`int <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        Whether or not to test for a red condition. If not set, do not calculate red status. If set, it contains the threshold value that triggers red status.
-    redInterval (`int`_, optional):
+    redInterval (`int <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        Time interval in seconds for which the red condition must be true before the red status is triggered. If unset, the red status is triggered immediately when the red condition becomes true.

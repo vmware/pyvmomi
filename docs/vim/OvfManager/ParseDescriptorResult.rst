@@ -1,90 +1,62 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _long: https://docs.python.org/2/library/stdtypes.html
-
-.. _bool: https://docs.python.org/2/library/stdtypes.html
-
-.. _OvfConsumer: ../../vim/OvfConsumer.rst
-
-.. _vim.KeyValue: ../../vim/KeyValue.rst
-
-.. _vSphere API 4.0: ../../vim/version.rst#vimversionversion5
-
-.. _vmodl.DynamicData: ../../vmodl/DynamicData.rst
-
-.. _VAppIPAssignmentInfo: ../../vim/vApp/IPAssignmentInfo.rst
-
-.. _vim.vApp.ProductInfo: ../../vim/vApp/ProductInfo.rst
-
-.. _vim.vApp.PropertyInfo: ../../vim/vApp/PropertyInfo.rst
-
-.. _vim.OvfConsumer.OstNode: ../../vim/OvfConsumer/OstNode.rst
-
-.. _vmodl.LocalizedMethodFault: ../../vmodl/LocalizedMethodFault.rst
-
-.. _vim.OvfManager.NetworkInfo: ../../vim/OvfManager/NetworkInfo.rst
-
-.. _vim.OvfManager.DeploymentOption: ../../vim/OvfManager/DeploymentOption.rst
-
 
 vim.OvfManager.ParseDescriptorResult
 ====================================
   
 :extends: vmodl.DynamicData_
-:since: `vSphere API 4.0`_
+:since: `vSphere API 4.0 <vim/version.rst#vimversionversion5>`_
 
 Attributes:
-    eula ([`str`_], optional):
+    eula ([`str <https://docs.python.org/2/library/stdtypes.html>`_], optional):
 
        The list of all EULAs contained in the OVF
-    network ([`vim.OvfManager.NetworkInfo`_], optional):
+    network ([`vim.OvfManager.NetworkInfo <vim/OvfManager/NetworkInfo.rst>`_], optional):
 
        The list of networks required by the OVF
-    ipAllocationScheme ([`str`_], optional):
+    ipAllocationScheme ([`str <https://docs.python.org/2/library/stdtypes.html>`_], optional):
 
-       The kind of IP allocation supported by the guest.See `VAppIPAssignmentInfo`_ .
-    ipProtocols ([`str`_], optional):
+       The kind of IP allocation supported by the guest.See `VAppIPAssignmentInfo <vim/vApp/IPAssignmentInfo.rst>`_ .
+    ipProtocols ([`str <https://docs.python.org/2/library/stdtypes.html>`_], optional):
 
-       The IP protocols supported by the guest.See `VAppIPAssignmentInfo`_ .
-    property ([`vim.vApp.PropertyInfo`_], optional):
+       The IP protocols supported by the guest.See `VAppIPAssignmentInfo <vim/vApp/IPAssignmentInfo.rst>`_ .
+    property ([`vim.vApp.PropertyInfo <vim/vApp/PropertyInfo.rst>`_], optional):
 
        Metadata about the properties contained in the OVF
-    productInfo (`vim.vApp.ProductInfo`_, optional):
+    productInfo (`vim.vApp.ProductInfo <vim/vApp/ProductInfo.rst>`_, optional):
 
        The product info contained in the OVF
-    annotation (`str`_):
+    annotation (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The annotation info contained in the OVF
-    approximateDownloadSize (`long`_, optional):
+    approximateDownloadSize (`long <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        The OVF Manager's best guess as to the total amount of data that must be transferred to download the entity.This may be inaccurate due to disk compression etc.
-    approximateFlatDeploymentSize (`long`_, optional):
+    approximateFlatDeploymentSize (`long <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        The OVF Manager's best guess as to the total amount of space required to deploy the entity if using flat disks.
-    approximateSparseDeploymentSize (`long`_, optional):
+    approximateSparseDeploymentSize (`long <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        The OVF Manager's best guess as to the total amount of space required to deploy the entity using sparse disks.
-    defaultEntityName (`str`_):
+    defaultEntityName (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The default name to use for the entity, if a product name is not specified. This is the ID of the OVF top-level entity, or taken from a ProductSection.
-    virtualApp (`bool`_):
+    virtualApp (`bool <https://docs.python.org/2/library/stdtypes.html>`_):
 
        True if the OVF contains a vApp (containing one or more vApps and/or virtual machines), as opposed to a single virtual machine.
-    deploymentOption ([`vim.OvfManager.DeploymentOption`_], optional):
+    deploymentOption ([`vim.OvfManager.DeploymentOption <vim/OvfManager/DeploymentOption.rst>`_], optional):
 
        The list of possible deployment options.
-    defaultDeploymentOption (`str`_):
+    defaultDeploymentOption (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The key of the default deployment option. Empty only if there are no deployment options.
-    entityName ([`vim.KeyValue`_], optional):
+    entityName ([`vim.KeyValue <vim/KeyValue.rst>`_], optional):
 
        A list of the child entities contained in this package and their location in the vApp hierarchy. Each entry is a (key,value) pair, where the key is the display name, and the value is a unique path identifier for the entity in the vApp. The path is constructed by appending the id of each entity of the path down to the entity, separated by slashes. For example, the path for a child of the root entity with id = "vm1", would simply be "vm1". If the vm is the child of a VirtualSystemCollection called "webTier", then the path would be "webTier/vm".
-    annotatedOst (`vim.OvfConsumer.OstNode`_, optional):
+    annotatedOst (`vim.OvfConsumer.OstNode <vim/OvfConsumer/OstNode.rst>`_, optional):
 
-       The annotated OST for the OVF descriptor, generated by OVF consumers. See `OvfConsumer`_ for details.
-    error ([`vmodl.LocalizedMethodFault`_], optional):
+       The annotated OST for the OVF descriptor, generated by OVF consumers. See `OvfConsumer <vim/OvfConsumer.rst>`_ for details.
+    error ([`vmodl.LocalizedMethodFault <vmodl/LocalizedMethodFault.rst>`_], optional):
 
        Errors that happened during processing. Something will be wrong with the result.For example, during export, devices could be missing (in which case this array will contain one or more instances of Unsupported-/UnknownDevice).
-    warning ([`vmodl.LocalizedMethodFault`_], optional):
+    warning ([`vmodl.LocalizedMethodFault <vmodl/LocalizedMethodFault.rst>`_], optional):
 
        Non-fatal warnings from the processing. The result will be valid, but the user may choose to reject it based on these warnings.

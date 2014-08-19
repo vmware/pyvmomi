@@ -1,13 +1,9 @@
-.. _vim.event.Event: ../../../vim/event/Event.rst
-
-.. _vim.event.Event.EventSeverity: ../../../vim/event/Event/EventSeverity.rst
-
 vim.event.Event.EventSeverity
 =============================
   Severity level constants.
-  :contained by: `vim.event.Event`_
+  :contained by: `vim.event.Event <vim/event/Event.rst>`_
 
-  :type: `vim.event.Event.EventSeverity`_
+  :type: `vim.event.Event.EventSeverity <vim/event/Event/EventSeverity.rst>`_
 
   :name: user
 

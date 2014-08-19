@@ -1,9 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vmodl.DynamicData: ../../vmodl/DynamicData.rst
-
-.. _vim.host.SystemIdentificationInfo: ../../vim/host/SystemIdentificationInfo.rst
-
 
 vim.host.SystemInfo
 ===================
@@ -11,15 +5,15 @@ vim.host.SystemInfo
 :extends: vmodl.DynamicData_
 
 Attributes:
-    vendor (`str`_):
+    vendor (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Hardware vendor identification.
-    model (`str`_):
+    model (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        System model identification.
-    uuid (`str`_):
+    uuid (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Hardware BIOS identification.
-    otherIdentifyingInfo ([`vim.host.SystemIdentificationInfo`_], optional):
+    otherIdentifyingInfo ([`vim.host.SystemIdentificationInfo <vim/host/SystemIdentificationInfo.rst>`_], optional):
 
        Other System identification information. This information may be vendor specific

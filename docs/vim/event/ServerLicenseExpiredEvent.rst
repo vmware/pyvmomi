@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.event.LicenseEvent: ../../vim/event/LicenseEvent.rst
-
 
 vim.event.ServerLicenseExpiredEvent
 ===================================
@@ -9,5 +5,5 @@ vim.event.ServerLicenseExpiredEvent
 :extends: vim.event.LicenseEvent_
 
 Attributes:
-    product (`str`_):
+    product (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 

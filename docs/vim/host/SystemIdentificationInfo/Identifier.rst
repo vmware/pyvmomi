@@ -1,12 +1,8 @@
-.. _vim.host.SystemIdentificationInfo: ../../../vim/host/SystemIdentificationInfo.rst
-
-.. _vim.host.SystemIdentificationInfo.Identifier: ../../../vim/host/SystemIdentificationInfo/Identifier.rst
-
 vim.host.SystemIdentificationInfo.Identifier
 ============================================
-  :contained by: `vim.host.SystemIdentificationInfo`_
+  :contained by: `vim.host.SystemIdentificationInfo <vim/host/SystemIdentificationInfo.rst>`_
 
-  :type: `vim.host.SystemIdentificationInfo.Identifier`_
+  :type: `vim.host.SystemIdentificationInfo.Identifier <vim/host/SystemIdentificationInfo/Identifier.rst>`_
 
   :name: OemSpecificString
 

@@ -1,13 +1,9 @@
-.. _vim.host.IpConfig: ../../../vim/host/IpConfig.rst
-
-.. _vim.host.IpConfig.IpV6AddressConfigType: ../../../vim/host/IpConfig/IpV6AddressConfigType.rst
-
 vim.host.IpConfig.IpV6AddressConfigType
 =======================================
   This specifies how the ipv6 address is configured for the interface. We follow rfc4293 in defining the values for the configType.
-  :contained by: `vim.host.IpConfig`_
+  :contained by: `vim.host.IpConfig <vim/host/IpConfig.rst>`_
 
-  :type: `vim.host.IpConfig.IpV6AddressConfigType`_
+  :type: `vim.host.IpConfig.IpV6AddressConfigType <vim/host/IpConfig/IpV6AddressConfigType.rst>`_
 
   :name: random
 

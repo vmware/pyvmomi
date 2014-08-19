@@ -1,5 +1,3 @@
-.. _vim.vm.device.VirtualSoundCardOption: ../../../vim/vm/device/VirtualSoundCardOption.rst
-
 
 vim.vm.device.VirtualSoundBlaster16Option
 =========================================

@@ -1,21 +1,17 @@
-.. _string: ../../str
-
-.. _vim.fault.InvalidDeviceSpec: ../../vim/fault/InvalidDeviceSpec.rst
-
 
 vim.fault.InvalidDeviceOperation
 ================================
     :extends:
 
-        `vim.fault.InvalidDeviceSpec`_
+        `vim.fault.InvalidDeviceSpec <vim/fault/InvalidDeviceSpec.rst>`_
 
   An InvalidDeviceOperation exception is thrown if virtual machine creation or configuration fails because an invalid operation is attempted on the given device.
 
 Attributes:
 
-    badOp (`str`_): is optional.
+    badOp (`str <https://docs.python.org/2/library/stdtypes.html>`_): is optional.
 
-    badFileOp (`str`_): is optional.
+    badFileOp (`str <https://docs.python.org/2/library/stdtypes.html>`_): is optional.
 
 
 

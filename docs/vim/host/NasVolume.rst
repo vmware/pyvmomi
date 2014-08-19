@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.host.FileSystemVolume: ../../vim/host/FileSystemVolume.rst
-
 
 vim.host.NasVolume
 ==================
@@ -9,12 +5,12 @@ vim.host.NasVolume
 :extends: vim.host.FileSystemVolume_
 
 Attributes:
-    remoteHost (`str`_):
+    remoteHost (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The host that runs the NFS/CIFS server. Clients must plan to use remoteHostNames for both NFS v3 as well as NFS v4.1 because this field remoteHost may be deprecated in future.
-    remotePath (`str`_):
+    remotePath (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The remote path of NFS/CIFS mount point.
-    userName (`str`_, optional):
+    userName (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        In case of CIFS, the user name used while connecting to the server.

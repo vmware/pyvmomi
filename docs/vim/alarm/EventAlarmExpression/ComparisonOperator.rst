@@ -1,13 +1,9 @@
-.. _vim.alarm.EventAlarmExpression: ../../../vim/alarm/EventAlarmExpression.rst
-
-.. _vim.alarm.EventAlarmExpression.ComparisonOperator: ../../../vim/alarm/EventAlarmExpression/ComparisonOperator.rst
-
 vim.alarm.EventAlarmExpression.ComparisonOperator
 =================================================
   Basic Comparison operators
-  :contained by: `vim.alarm.EventAlarmExpression`_
+  :contained by: `vim.alarm.EventAlarmExpression <vim/alarm/EventAlarmExpression.rst>`_
 
-  :type: `vim.alarm.EventAlarmExpression.ComparisonOperator`_
+  :type: `vim.alarm.EventAlarmExpression.ComparisonOperator <vim/alarm/EventAlarmExpression/ComparisonOperator.rst>`_
 
   :name: doesNotEndWith
 

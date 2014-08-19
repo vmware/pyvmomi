@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.event.VmEvent: ../../vim/event/VmEvent.rst
-
 
 vim.event.VmUpgradeCompleteEvent
 ================================
@@ -9,6 +5,6 @@ vim.event.VmUpgradeCompleteEvent
 :extends: vim.event.VmEvent_
 
 Attributes:
-    version (`str`_):
+    version (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The version of the agent.

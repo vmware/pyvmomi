@@ -1,5 +1,3 @@
-.. _vim.event.CustomFieldDefEvent: ../../vim/event/CustomFieldDefEvent.rst
-
 
 vim.event.CustomFieldDefAddedEvent
 ==================================

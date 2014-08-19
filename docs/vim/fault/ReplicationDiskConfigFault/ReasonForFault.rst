@@ -1,12 +1,8 @@
-.. _vim.fault.ReplicationDiskConfigFault: ../../../vim/fault/ReplicationDiskConfigFault.rst
-
-.. _vim.fault.ReplicationDiskConfigFault.ReasonForFault: ../../../vim/fault/ReplicationDiskConfigFault/ReasonForFault.rst
-
 vim.fault.ReplicationDiskConfigFault.ReasonForFault
 ===================================================
-  :contained by: `vim.fault.ReplicationDiskConfigFault`_
+  :contained by: `vim.fault.ReplicationDiskConfigFault <vim/fault/ReplicationDiskConfigFault.rst>`_
 
-  :type: `vim.fault.ReplicationDiskConfigFault.ReasonForFault`_
+  :type: `vim.fault.ReplicationDiskConfigFault.ReasonForFault <vim/fault/ReplicationDiskConfigFault/ReasonForFault.rst>`_
 
   :name: reconfigureDiskReplicationIdNotAllowed
 

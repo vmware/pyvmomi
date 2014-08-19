@@ -1,12 +1,8 @@
-.. _vim.host.UnresolvedVmfsResolutionSpec: ../../../vim/host/UnresolvedVmfsResolutionSpec.rst
-
-.. _vim.host.UnresolvedVmfsResolutionSpec.VmfsUuidResolution: ../../../vim/host/UnresolvedVmfsResolutionSpec/VmfsUuidResolution.rst
-
 vim.host.UnresolvedVmfsResolutionSpec.VmfsUuidResolution
 ========================================================
-  :contained by: `vim.host.UnresolvedVmfsResolutionSpec`_
+  :contained by: `vim.host.UnresolvedVmfsResolutionSpec <vim/host/UnresolvedVmfsResolutionSpec.rst>`_
 
-  :type: `vim.host.UnresolvedVmfsResolutionSpec.VmfsUuidResolution`_
+  :type: `vim.host.UnresolvedVmfsResolutionSpec.VmfsUuidResolution <vim/host/UnresolvedVmfsResolutionSpec/VmfsUuidResolution.rst>`_
 
   :name: forceMount
 

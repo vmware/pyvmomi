@@ -1,29 +1,17 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _long: https://docs.python.org/2/library/stdtypes.html
-
-.. _StoragePod: ../../vim/StoragePod.rst
-
-.. _vSphere API 5.0: ../../vim/version.rst#vimversionversion7
-
-.. _StoragePodSummary: ../../vim/StoragePod/Summary.rst
-
-.. _vmodl.DynamicData: ../../vmodl/DynamicData.rst
-
 
 vim.StoragePod.Summary
 ======================
-  The `StoragePodSummary`_ data object encapsulates runtime properties of a `StoragePod`_ .
+  The `StoragePodSummary <vim/StoragePod/Summary.rst>`_ data object encapsulates runtime properties of a `StoragePod <vim/StoragePod.rst>`_ .
 :extends: vmodl.DynamicData_
-:since: `vSphere API 5.0`_
+:since: `vSphere API 5.0 <vim/version.rst#vimversionversion7>`_
 
 Attributes:
-    name (`str`_):
+    name (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The name of the storage pod.
-    capacity (`long`_):
+    capacity (`long <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Total capacity of this storage pod, in bytes. This value is the sum of the capacity of all datastores that are part of this storage pod, and is updated periodically by the server.
-    freeSpace (`long`_):
+    freeSpace (`long <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Total free space on this storage pod, in bytes. This value is the sum of the free space on all datastores that are part of this storage pod, and is updated periodically by the server.

@@ -1,7 +1,3 @@
-.. _bool: https://docs.python.org/2/library/stdtypes.html
-
-.. _vmodl.DynamicData: ../../../../vmodl/DynamicData.rst
-
 
 vim.host.DatastoreBrowser.FileInfo.Details
 ==========================================
@@ -9,15 +5,15 @@ vim.host.DatastoreBrowser.FileInfo.Details
 :extends: vmodl.DynamicData_
 
 Attributes:
-    fileType (`bool`_):
+    fileType (`bool <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The flag to indicate whether or not the files that match this query specification are returned along with file type information. This field must be set to return specific details about the file type.
-    fileSize (`bool`_):
+    fileSize (`bool <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The flag to indicate whether or not the size of the file is returned.
-    modification (`bool`_):
+    modification (`bool <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The flag to indicate whether or not to return the date and time the file was last modified.
-    fileOwner (`bool`_):
+    fileOwner (`bool <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The flag to indicate whether or not to return the file owner.

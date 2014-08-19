@@ -1,20 +1,16 @@
-.. _string: ../../str
-
-.. _vim.fault.OvfHardwareExport: ../../vim/fault/OvfHardwareExport.rst
-
 
 vim.fault.OvfUnknownDeviceBacking
 =================================
     :extends:
 
-        `vim.fault.OvfHardwareExport`_
+        `vim.fault.OvfHardwareExport <vim/fault/OvfHardwareExport.rst>`_
 
 
 
 
 Attributes:
 
-    backing (`str`_)
+    backing (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
 
 

@@ -1,9 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vmodl.DynamicData: ../../../vmodl/DynamicData.rst
-
-.. _vim.vm.device.HostDiskMappingOption.PartitionOption: ../../../vim/vm/device/HostDiskMappingOption/PartitionOption.rst
-
 
 vim.vm.device.HostDiskMappingOption
 ===================================
@@ -11,9 +5,9 @@ vim.vm.device.HostDiskMappingOption
 :extends: vmodl.DynamicData_
 
 Attributes:
-    physicalPartition ([`vim.vm.device.HostDiskMappingOption.PartitionOption`_], optional):
+    physicalPartition ([`vim.vm.device.HostDiskMappingOption.PartitionOption <vim/vm/device/HostDiskMappingOption/PartitionOption.rst>`_], optional):
 
        Array of valid partitions on this physical disk. There is no default for this array.
-    name (`str`_):
+    name (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Host resource name.

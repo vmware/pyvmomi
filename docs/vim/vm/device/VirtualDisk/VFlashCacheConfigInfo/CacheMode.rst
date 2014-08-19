@@ -1,13 +1,9 @@
-.. _vim.vm.device.VirtualDisk.VFlashCacheConfigInfo: ../../../../../vim/vm/device/VirtualDisk/VFlashCacheConfigInfo.rst
-
-.. _vim.vm.device.VirtualDisk.VFlashCacheConfigInfo.CacheMode: ../../../../../vim/vm/device/VirtualDisk/VFlashCacheConfigInfo/CacheMode.rst
-
 vim.vm.device.VirtualDisk.VFlashCacheConfigInfo.CacheMode
 =========================================================
   Pre-defined constants for cache modes.
-  :contained by: `vim.vm.device.VirtualDisk.VFlashCacheConfigInfo`_
+  :contained by: `vim.vm.device.VirtualDisk.VFlashCacheConfigInfo <vim/vm/device/VirtualDisk/VFlashCacheConfigInfo.rst>`_
 
-  :type: `vim.vm.device.VirtualDisk.VFlashCacheConfigInfo.CacheMode`_
+  :type: `vim.vm.device.VirtualDisk.VFlashCacheConfigInfo.CacheMode <vim/vm/device/VirtualDisk/VFlashCacheConfigInfo/CacheMode.rst>`_
 
   :name: write_back
 

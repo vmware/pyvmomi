@@ -1,9 +1,3 @@
-.. _vim.host.DatastoreBrowser.Query: ../../../vim/host/DatastoreBrowser/Query.rst
-
-.. _vim.host.DatastoreBrowser.VmConfigQuery.Filter: ../../../vim/host/DatastoreBrowser/VmConfigQuery/Filter.rst
-
-.. _vim.host.DatastoreBrowser.VmConfigQuery.Details: ../../../vim/host/DatastoreBrowser/VmConfigQuery/Details.rst
-
 
 vim.host.DatastoreBrowser.VmConfigQuery
 =======================================
@@ -11,9 +5,9 @@ vim.host.DatastoreBrowser.VmConfigQuery
 :extends: vim.host.DatastoreBrowser.Query_
 
 Attributes:
-    filter (`vim.host.DatastoreBrowser.VmConfigQuery.Filter`_, optional):
+    filter (`vim.host.DatastoreBrowser.VmConfigQuery.Filter <vim/host/DatastoreBrowser/VmConfigQuery/Filter.rst>`_, optional):
 
        The filter specification for the virtual machine configuration file query.
-    details (`vim.host.DatastoreBrowser.VmConfigQuery.Details`_, optional):
+    details (`vim.host.DatastoreBrowser.VmConfigQuery.Details <vim/host/DatastoreBrowser/VmConfigQuery/Details.rst>`_, optional):
 
        The details specification for the virtual machine configuration file query.

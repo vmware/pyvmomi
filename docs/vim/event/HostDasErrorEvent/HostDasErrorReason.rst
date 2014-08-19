@@ -1,12 +1,8 @@
-.. _vim.event.HostDasErrorEvent: ../../../vim/event/HostDasErrorEvent.rst
-
-.. _vim.event.HostDasErrorEvent.HostDasErrorReason: ../../../vim/event/HostDasErrorEvent/HostDasErrorReason.rst
-
 vim.event.HostDasErrorEvent.HostDasErrorReason
 ==============================================
-  :contained by: `vim.event.HostDasErrorEvent`_
+  :contained by: `vim.event.HostDasErrorEvent <vim/event/HostDasErrorEvent.rst>`_
 
-  :type: `vim.event.HostDasErrorEvent.HostDasErrorReason`_
+  :type: `vim.event.HostDasErrorEvent.HostDasErrorReason <vim/event/HostDasErrorEvent/HostDasErrorReason.rst>`_
 
   :name: other
 

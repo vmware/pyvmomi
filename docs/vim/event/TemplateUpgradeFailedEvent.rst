@@ -1,7 +1,3 @@
-.. _vmodl.LocalizedMethodFault: ../../vmodl/LocalizedMethodFault.rst
-
-.. _vim.event.TemplateUpgradeEvent: ../../vim/event/TemplateUpgradeEvent.rst
-
 
 vim.event.TemplateUpgradeFailedEvent
 ====================================
@@ -9,5 +5,5 @@ vim.event.TemplateUpgradeFailedEvent
 :extends: vim.event.TemplateUpgradeEvent_
 
 Attributes:
-    reason (`vmodl.LocalizedMethodFault`_):
+    reason (`vmodl.LocalizedMethodFault <vmodl/LocalizedMethodFault.rst>`_):
 

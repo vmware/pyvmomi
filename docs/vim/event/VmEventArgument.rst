@@ -1,7 +1,3 @@
-.. _vim.VirtualMachine: ../../vim/VirtualMachine.rst
-
-.. _vim.event.EntityEventArgument: ../../vim/event/EntityEventArgument.rst
-
 
 vim.event.VmEventArgument
 =========================
@@ -9,6 +5,6 @@ vim.event.VmEventArgument
 :extends: vim.event.EntityEventArgument_
 
 Attributes:
-    vm (`vim.VirtualMachine`_):
+    vm (`vim.VirtualMachine <vim/VirtualMachine.rst>`_):
 
        The VirtualMachine object.

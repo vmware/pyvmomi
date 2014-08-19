@@ -1,13 +1,9 @@
-.. _vim.VirtualMachine: ../../vim/VirtualMachine.rst
-
-.. _vim.VirtualMachine.MovePriority: ../../vim/VirtualMachine/MovePriority.rst
-
 vim.VirtualMachine.MovePriority
 ===============================
   MovePriority is an enumeration of values that indicate the priority of the task that moves a virtual machine from one host to another or one storage location to another. Note this priority can affect both the source and target hosts.
-  :contained by: `vim.VirtualMachine`_
+  :contained by: `vim.VirtualMachine <vim/VirtualMachine.rst>`_
 
-  :type: `vim.VirtualMachine.MovePriority`_
+  :type: `vim.VirtualMachine.MovePriority <vim/VirtualMachine/MovePriority.rst>`_
 
   :name: defaultPriority
 

@@ -1,13 +1,9 @@
-.. _vim.host.Service: ../../../vim/host/Service.rst
-
-.. _vim.host.Service.Policy: ../../../vim/host/Service/Policy.rst
-
 vim.host.Service.Policy
 =======================
   Set of valid service policy strings.
-  :contained by: `vim.host.Service`_
+  :contained by: `vim.host.Service <vim/host/Service.rst>`_
 
-  :type: `vim.host.Service.Policy`_
+  :type: `vim.host.Service.Policy <vim/host/Service/Policy.rst>`_
 
   :name: off
 

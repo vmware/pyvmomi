@@ -1,31 +1,25 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _string: ../../str
-
-.. _vim.fault.VmFaultToleranceIssue: ../../vim/fault/VmFaultToleranceIssue.rst
-
 
 vim.fault.NotSupportedDeviceForFT
 =================================
     :extends:
 
-        `vim.fault.VmFaultToleranceIssue`_
+        `vim.fault.VmFaultToleranceIssue <vim/fault/VmFaultToleranceIssue.rst>`_
 
   VMs with pvscsi or vmxnet3 virtual devices support Fault Tolerance only on 4.1 or later hosts.
 
 Attributes:
 
-    host (`str`_)
+    host (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
-    hostName (`str`_): is optional.
+    hostName (`str <https://docs.python.org/2/library/stdtypes.html>`_): is optional.
 
-    vm (`str`_)
+    vm (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
-    vmName (`str`_): is optional.
+    vmName (`str <https://docs.python.org/2/library/stdtypes.html>`_): is optional.
 
-    deviceType (`str`_)
+    deviceType (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
-    deviceLabel (`str`_): is optional.
+    deviceLabel (`str <https://docs.python.org/2/library/stdtypes.html>`_): is optional.
 
 
 

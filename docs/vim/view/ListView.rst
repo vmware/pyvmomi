@@ -1,21 +1,11 @@
-.. _vim.Task: ../../vim/Task.rst
-
-.. _VI API 2.5: ../../vim/version.rst#vimversionversion2
-
-.. _vim.view.View: ../../vim/view/View.rst
-
-.. _vmodl.ManagedObject: ../../vim.ExtensibleManagedObject.rst
-
-.. _vim.view.ManagedObjectView: ../../vim/view/ManagedObjectView.rst
-
 
 vim.view.ListView
 =================
-  The `ListView`_ managed object provides access to updates on a specific set of objects. You can use a `ListView`_ with a `PropertyCollector`_ method to retrieve data or receive notification of changes. For information about using views with the `PropertyCollector`_ , see the description of `ViewManager`_ .When you invoke the `CreateListView`_ method, you specify a list of objects. The `view`_ list always represents the current configuration of the virtual environment and reflects any subsequent changes that occur.
+  The `ListView <vim/view/ListView.rst>`_ managed object provides access to updates on a specific set of objects. You can use a `ListView <vim/view/ListView.rst>`_ with a `PropertyCollector <vmodl/query/PropertyCollector.rst>`_ method to retrieve data or receive notification of changes. For information about using views with the `PropertyCollector <vmodl/query/PropertyCollector.rst>`_ , see the description of `ViewManager <vim/view/ViewManager.rst>`_ .When you invoke the `CreateListView <vim/view/ViewManager.rst#createListView>`_ method, you specify a list of objects. The `view <vim/view/ManagedObjectView.rst#view>`_ list always represents the current configuration of the virtual environment and reflects any subsequent changes that occur.
 
 
 :extends: vim.view.ManagedObjectView_
-:since: `VI API 2.5`_
+:since: `VI API 2.5 <vim/version.rst#vimversionversion2>`_
 
 
 Attributes
@@ -35,18 +25,18 @@ ModifyListView(add, remove):
 
 
   Args:
-    add (`vmodl.ManagedObject`_, optional):
+    add (`vmodl.ManagedObject <vim.ExtensibleManagedObject.rst>`_, optional):
        Optional list of objects to add to the view.
 
 
-    remove (`vmodl.ManagedObject`_, optional):
+    remove (`vmodl.ManagedObject <vim.ExtensibleManagedObject.rst>`_, optional):
        Optional list of objects to remove from the view.
 
 
 
 
   Returns:
-    [`vmodl.ManagedObject`_]:
+    [`vmodl.ManagedObject <vim.ExtensibleManagedObject.rst>`_]:
          A list containing any objects in 'add' that could not be resolved.
 
 
@@ -59,14 +49,14 @@ ResetListView(obj):
 
 
   Args:
-    obj (`vmodl.ManagedObject`_, optional):
+    obj (`vmodl.ManagedObject <vim.ExtensibleManagedObject.rst>`_, optional):
        The new list of objects.
 
 
 
 
   Returns:
-    [`vmodl.ManagedObject`_]:
+    [`vmodl.ManagedObject <vim.ExtensibleManagedObject.rst>`_]:
          A list containing any objects in 'obj' that could not be resolved.
 
 
@@ -79,7 +69,7 @@ ResetListViewFromView(view):
 
 
   Args:
-    view (`vim.view.View`_):
+    view (`vim.view.View <vim/view/View.rst>`_):
        The view to copy objects from.
 
 

@@ -1,11 +1,9 @@
-.. _vim.fault.FileFault: ../../vim/fault/FileFault.rst
-
 
 vim.fault.NetworkCopyFault
 ==========================
     :extends:
 
-        `vim.fault.FileFault`_
+        `vim.fault.FileFault <vim/fault/FileFault.rst>`_
 
   A network copy of the file failed.
 

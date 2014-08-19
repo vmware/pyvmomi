@@ -1,13 +1,9 @@
-.. _vim.vm.GuestInfo: ../../../vim/vm/GuestInfo.rst
-
-.. _vim.vm.GuestInfo.ToolsStatus: ../../../vim/vm/GuestInfo/ToolsStatus.rst
-
 vim.vm.GuestInfo.ToolsStatus
 ============================
   Current status of VMware Tools running in the guest operating system.
-  :contained by: `vim.vm.GuestInfo`_
+  :contained by: `vim.vm.GuestInfo <vim/vm/GuestInfo.rst>`_
 
-  :type: `vim.vm.GuestInfo.ToolsStatus`_
+  :type: `vim.vm.GuestInfo.ToolsStatus <vim/vm/GuestInfo/ToolsStatus.rst>`_
 
   :name: toolsOk
 

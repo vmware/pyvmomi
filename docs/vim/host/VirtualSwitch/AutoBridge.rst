@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.host.VirtualSwitch.Bridge: ../../../vim/host/VirtualSwitch/Bridge.rst
-
 
 vim.host.VirtualSwitch.AutoBridge
 =================================
@@ -9,6 +5,6 @@ vim.host.VirtualSwitch.AutoBridge
 :extends: vim.host.VirtualSwitch.Bridge_
 
 Attributes:
-    excludedNicDevice ([`str`_], optional):
+    excludedNicDevice ([`str <https://docs.python.org/2/library/stdtypes.html>`_], optional):
 
        List of physical network adapters that have been excluded from participating in the AutoBridge

@@ -1,7 +1,3 @@
-.. _float: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.option.OptionType: ../../vim/option/OptionType.rst
-
 
 vim.option.FloatOption
 ======================
@@ -9,12 +5,12 @@ vim.option.FloatOption
 :extends: vim.option.OptionType_
 
 Attributes:
-    min (`float`_):
+    min (`float <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The minimum value.
-    max (`float`_):
+    max (`float <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The maximum value.
-    defaultValue (`float`_):
+    defaultValue (`float <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The default value.

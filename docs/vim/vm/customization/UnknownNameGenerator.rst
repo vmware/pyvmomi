@@ -1,5 +1,3 @@
-.. _vim.vm.customization.NameGenerator: ../../../vim/vm/customization/NameGenerator.rst
-
 
 vim.vm.customization.UnknownNameGenerator
 =========================================

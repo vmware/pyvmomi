@@ -1,11 +1,3 @@
-.. _vmodl.DynamicData: ../vmodl/DynamicData.rst
-
-.. _vim.TypeDescription: ../vim/TypeDescription.rst
-
-.. _TaskInfo State enum: ../vim/TaskInfo/State.rst
-
-.. _vim.ElementDescription: ../vim/ElementDescription.rst
-
 
 vim.TaskDescription
 ===================
@@ -13,12 +5,12 @@ vim.TaskDescription
 :extends: vmodl.DynamicData_
 
 Attributes:
-    methodInfo ([`vim.ElementDescription`_]):
+    methodInfo ([`vim.ElementDescription <vim/ElementDescription.rst>`_]):
 
        Display label and summary for all tasks
-    state ([`vim.ElementDescription`_]):
+    state ([`vim.ElementDescription <vim/ElementDescription.rst>`_]):
 
-        `TaskInfo State enum`_ 
-    reason ([`vim.TypeDescription`_]):
+        `TaskInfo State enum <vim/TaskInfo/State.rst>`_ 
+    reason ([`vim.TypeDescription <vim/TypeDescription.rst>`_]):
 
        Kind of entity responsible for creating this task.

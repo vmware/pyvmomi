@@ -1,13 +1,9 @@
-.. _vim.DistributedVirtualSwitch: ../../vim/DistributedVirtualSwitch.rst
-
-.. _vim.DistributedVirtualSwitch.NicTeamingPolicyMode: ../../vim/DistributedVirtualSwitch/NicTeamingPolicyMode.rst
-
 vim.DistributedVirtualSwitch.NicTeamingPolicyMode
 =================================================
   List of possible teaming modes supported by the vNetwork Distributed Switch. The different policy modes define the way traffic is routed through the different uplink ports in a team.
-  :contained by: `vim.DistributedVirtualSwitch`_
+  :contained by: `vim.DistributedVirtualSwitch <vim/DistributedVirtualSwitch.rst>`_
 
-  :type: `vim.DistributedVirtualSwitch.NicTeamingPolicyMode`_
+  :type: `vim.DistributedVirtualSwitch.NicTeamingPolicyMode <vim/DistributedVirtualSwitch/NicTeamingPolicyMode.rst>`_
 
   :name: loadbalance_loadbased
 

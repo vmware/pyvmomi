@@ -1,47 +1,11 @@
-.. _IpRange: ../../../vim/IpRange.rst
-
-.. _SingleIp: ../../../vim/SingleIp.rst
-
-.. _MacRange: ../../../vim/MacRange.rst
-
-.. _SingleMac: ../../../vim/SingleMac.rst
-
-.. _DvsSingleIpPort: ../../../vim/dvs/TrafficRule/SingleIpPort.rst
-
-.. _vSphere API 5.5: ../../../vim/version.rst#vimversionversion9
-
-.. _vim.dvs.TrafficRuleset: ../../../vim/dvs/TrafficRuleset.rst
-
-.. _DvsLogNetworkRuleAction: ../../../vim/dvs/TrafficRule/LogAction.rst
-
-.. _DvsCopyNetworkRuleAction: ../../../vim/dvs/TrafficRule/CopyAction.rst
-
-.. _DvsDropNetworkRuleAction: ../../../vim/dvs/TrafficRule/DropAction.rst
-
-.. _DvsPuntNetworkRuleAction: ../../../vim/dvs/TrafficRule/PuntAction.rst
-
-.. _DvsAcceptNetworkRuleAction: ../../../vim/dvs/TrafficRule/AcceptAction.rst
-
-.. _DvsGreEncapNetworkRuleAction: ../../../vim/dvs/TrafficRule/GreAction.rst
-
-.. _DvsRateLimitNetworkRuleAction: ../../../vim/dvs/TrafficRule/RateLimitAction.rst
-
-.. _DvsUpdateTagNetworkRuleAction: ../../../vim/dvs/TrafficRule/UpdateTagAction.rst
-
-.. _DvsMacRewriteNetworkRuleAction: ../../../vim/dvs/TrafficRule/MacRewriteAction.rst
-
-.. _DvsSystemTrafficNetworkRuleQualifier: ../../../vim/dvs/TrafficRule/SystemTrafficQualifier.rst
-
-.. _vim.dvs.DistributedVirtualPort.FilterConfig: ../../../vim/dvs/DistributedVirtualPort/FilterConfig.rst
-
 
 vim.dvs.DistributedVirtualPort.TrafficFilterConfig
 ==================================================
-  This class defines Traffic Filter configuration.Supported Qualifier and ActionsTraffic Filter ConfigSupported classesQualifiers supported `SingleIp`_ , `IpRange`_ , `SingleMac`_ , `MacRange`_ , `DvsSingleIpPort`_ , `DvsSystemTrafficNetworkRuleQualifier`_ Actions Supported `DvsDropNetworkRuleAction`_ , `DvsAcceptNetworkRuleAction`_ , `DvsPuntNetworkRuleAction`_ , `DvsCopyNetworkRuleAction`_ , `DvsMacRewriteNetworkRuleAction`_ , `DvsGreEncapNetworkRuleAction`_ , `DvsLogNetworkRuleAction`_ , `DvsUpdateTagNetworkRuleAction`_ , `DvsRateLimitNetworkRuleAction`_ 
+  This class defines Traffic Filter configuration.Supported Qualifier and ActionsTraffic Filter ConfigSupported classesQualifiers supported `SingleIp <vim/SingleIp.rst>`_ , `IpRange <vim/IpRange.rst>`_ , `SingleMac <vim/SingleMac.rst>`_ , `MacRange <vim/MacRange.rst>`_ , `DvsSingleIpPort <vim/dvs/TrafficRule/SingleIpPort.rst>`_ , `DvsSystemTrafficNetworkRuleQualifier <vim/dvs/TrafficRule/SystemTrafficQualifier.rst>`_ Actions Supported `DvsDropNetworkRuleAction <vim/dvs/TrafficRule/DropAction.rst>`_ , `DvsAcceptNetworkRuleAction <vim/dvs/TrafficRule/AcceptAction.rst>`_ , `DvsPuntNetworkRuleAction <vim/dvs/TrafficRule/PuntAction.rst>`_ , `DvsCopyNetworkRuleAction <vim/dvs/TrafficRule/CopyAction.rst>`_ , `DvsMacRewriteNetworkRuleAction <vim/dvs/TrafficRule/MacRewriteAction.rst>`_ , `DvsGreEncapNetworkRuleAction <vim/dvs/TrafficRule/GreAction.rst>`_ , `DvsLogNetworkRuleAction <vim/dvs/TrafficRule/LogAction.rst>`_ , `DvsUpdateTagNetworkRuleAction <vim/dvs/TrafficRule/UpdateTagAction.rst>`_ , `DvsRateLimitNetworkRuleAction <vim/dvs/TrafficRule/RateLimitAction.rst>`_ 
 :extends: vim.dvs.DistributedVirtualPort.FilterConfig_
-:since: `vSphere API 5.5`_
+:since: `vSphere API 5.5 <vim/version.rst#vimversionversion9>`_
 
 Attributes:
-    trafficRuleset (`vim.dvs.TrafficRuleset`_, optional):
+    trafficRuleset (`vim.dvs.TrafficRuleset <vim/dvs/TrafficRuleset.rst>`_, optional):
 
        Network Traffic Ruleset

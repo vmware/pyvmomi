@@ -1,5 +1,3 @@
-.. _vim.event.GeneralEvent: ../../vim/event/GeneralEvent.rst
-
 
 vim.event.GeneralVmErrorEvent
 =============================

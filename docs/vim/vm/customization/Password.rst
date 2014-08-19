@@ -1,9 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _bool: https://docs.python.org/2/library/stdtypes.html
-
-.. _vmodl.DynamicData: ../../../vmodl/DynamicData.rst
-
 
 vim.vm.customization.Password
 =============================
@@ -11,9 +5,9 @@ vim.vm.customization.Password
 :extends: vmodl.DynamicData_
 
 Attributes:
-    value (`str`_):
+    value (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The password string. It is encrypted if the associated plainText flag is false.
-    plainText (`bool`_):
+    plainText (`bool <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Flag to specify whether or not the password is in plain text, rather than encrypted.

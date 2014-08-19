@@ -1,32 +1,14 @@
-.. _int: https://docs.python.org/2/library/stdtypes.html
-
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.Task: ../vim/Task.rst
-
-.. _vim.ManagedEntity: ../vim/ManagedEntity.rst
-
-.. _vim.PrivilegePolicyDef: ../vim/PrivilegePolicyDef.rst
-
-.. _vim.fault.DuplicateName: ../vim/fault/DuplicateName.rst
-
-.. _vim.fault.InvalidPrivilege: ../vim/fault/InvalidPrivilege.rst
-
-.. _vmodl.fault.InvalidArgument: ../vmodl/fault/InvalidArgument.rst
-
-.. _vim.CustomFieldsManager.FieldDef: ../vim/CustomFieldsManager/FieldDef.rst
-
 
 vim.CustomFieldsManager
 =======================
-  The CustomFieldsManager object is used to add and remove custom fields to managed entities.The custom fields values set on managed entities are available through the `customValue`_ property and through the summary objects for `VirtualMachine`_ and `HostSystem`_ . They are not available directly through this managed object.This functionality is only available through VirtualCenter.
+  The CustomFieldsManager object is used to add and remove custom fields to managed entities.The custom fields values set on managed entities are available through the `customValue <vim/ManagedEntity.rst#customValue>`_ property and through the summary objects for `VirtualMachine <vim/VirtualMachine.rst>`_ and `HostSystem <vim/HostSystem.rst>`_ . They are not available directly through this managed object.This functionality is only available through VirtualCenter.
 
 
 
 
 Attributes
 ----------
-    field ([`vim.CustomFieldsManager.FieldDef`_]):
+    field ([`vim.CustomFieldsManager.FieldDef <vim/CustomFieldsManager/FieldDef.rst>`_]):
       privilege: System.View
        List of custom fields defined on this server. The fields are sorted by name.
 
@@ -45,34 +27,34 @@ AddCustomFieldDef(name, moType, fieldDefPolicy, fieldPolicy):
 
 
   Args:
-    name (`str`_):
+    name (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        The name of the field.
 
 
-    moType (`str`_, optional, since `VI API 2.5`_ ):
+    moType (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional, since `VI API 2.5 <vim/version.rst#vimversionversion2>`_ ):
        The managed object type to which this field will apply
 
 
-    fieldDefPolicy (`vim.PrivilegePolicyDef`_, optional, since `VI API 2.5`_ ):
+    fieldDefPolicy (`vim.PrivilegePolicyDef <vim/PrivilegePolicyDef.rst>`_, optional, since `VI API 2.5 <vim/version.rst#vimversionversion2>`_ ):
        Privilege policy to apply to FieldDef being created
 
 
-    fieldPolicy (`vim.PrivilegePolicyDef`_, optional, since `VI API 2.5`_ ):
+    fieldPolicy (`vim.PrivilegePolicyDef <vim/PrivilegePolicyDef.rst>`_, optional, since `VI API 2.5 <vim/version.rst#vimversionversion2>`_ ):
        Privilege policy to apply to instances of field
 
 
 
 
   Returns:
-    `vim.CustomFieldsManager.FieldDef`_:
+    `vim.CustomFieldsManager.FieldDef <vim/CustomFieldsManager/FieldDef.rst>`_:
          
 
   Raises:
 
-    `vim.fault.DuplicateName`_: 
+    `vim.fault.DuplicateName <vim/fault/DuplicateName.rst>`_: 
        if a custom field with the name already exists.
 
-    `vim.fault.InvalidPrivilege`_: 
+    `vim.fault.InvalidPrivilege <vim/fault/InvalidPrivilege.rst>`_: 
        if a specified privilege is not defined.
 
 
@@ -86,7 +68,7 @@ RemoveCustomFieldDef(key):
 
 
   Args:
-    key (`int`_):
+    key (`int <https://docs.python.org/2/library/stdtypes.html>`_):
        The unique key for the field definition.
 
 
@@ -98,7 +80,7 @@ RemoveCustomFieldDef(key):
 
   Raises:
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
        if no custom field with that key exists.
 
 
@@ -112,11 +94,11 @@ RenameCustomFieldDef(key, name):
 
 
   Args:
-    key (`int`_):
+    key (`int <https://docs.python.org/2/library/stdtypes.html>`_):
        The unique key for the field definition.
 
 
-    name (`str`_):
+    name (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        The new name for the field.
 
 
@@ -128,10 +110,10 @@ RenameCustomFieldDef(key, name):
 
   Raises:
 
-    `vim.fault.DuplicateName`_: 
+    `vim.fault.DuplicateName <vim/fault/DuplicateName.rst>`_: 
        if a custom field with the name already exists.
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
        if no custom field with that key exists.
 
 
@@ -144,13 +126,13 @@ SetField(entity, key, value):
 
 
   Args:
-    entity (`vim.ManagedEntity`_):
+    entity (`vim.ManagedEntity <vim/ManagedEntity.rst>`_):
 
 
-    key (`int`_):
+    key (`int <https://docs.python.org/2/library/stdtypes.html>`_):
 
 
-    value (`str`_):
+    value (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
 
 
@@ -161,7 +143,7 @@ SetField(entity, key, value):
 
   Raises:
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
        if no custom field with that key exists.
 
 

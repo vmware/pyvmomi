@@ -1,7 +1,3 @@
-.. _vim.Datastore: ../../vim/Datastore.rst
-
-.. _vim.event.EntityEventArgument: ../../vim/event/EntityEventArgument.rst
-
 
 vim.event.DatastoreEventArgument
 ================================
@@ -9,6 +5,6 @@ vim.event.DatastoreEventArgument
 :extends: vim.event.EntityEventArgument_
 
 Attributes:
-    datastore (`vim.Datastore`_):
+    datastore (`vim.Datastore <vim/Datastore.rst>`_):
 
        The Datastore object.

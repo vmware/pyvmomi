@@ -1,11 +1,9 @@
-.. _vim.fault.EVCAdmissionFailed: ../../vim/fault/EVCAdmissionFailed.rst
-
 
 vim.fault.EVCAdmissionFailedHostDisconnected
 ============================================
     :extends:
 
-        `vim.fault.EVCAdmissionFailed`_
+        `vim.fault.EVCAdmissionFailed <vim/fault/EVCAdmissionFailed.rst>`_
 
   The host is not connected, which prevents admission into an Enhanced VMotion Compatibility cluster.
 

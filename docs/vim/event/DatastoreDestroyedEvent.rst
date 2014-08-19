@@ -1,5 +1,3 @@
-.. _vim.event.DatastoreEvent: ../../vim/event/DatastoreEvent.rst
-
 
 vim.event.DatastoreDestroyedEvent
 =================================

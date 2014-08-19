@@ -1,25 +1,21 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.fault.VimFault: ../../vim/fault/VimFault.rst
-
 
 vim.fault.VFlashModuleVersionIncompatible
 =========================================
     :extends:
 
-        `vim.fault.VimFault`_
+        `vim.fault.VimFault <vim/fault/VimFault.rst>`_
 
   The vFlash module version of the vFlash cache asscociated with the virtual disk of a VM is not compatible with the supported versions of the specified vFlash module on the host.
 
 Attributes:
 
-    moduleName (`str`_)
+    moduleName (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
-    vmRequestModuleVersion (`str`_)
+    vmRequestModuleVersion (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
-    hostMinSupportedVerson (`str`_)
+    hostMinSupportedVerson (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
-    hostModuleVersion (`str`_)
+    hostModuleVersion (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
 
 

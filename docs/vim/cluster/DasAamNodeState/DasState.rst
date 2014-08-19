@@ -1,19 +1,9 @@
-.. _configState: ../../../vim/cluster/DasAamNodeState.rst#configState
-
-.. _runtimeState: ../../../vim/cluster/DasAamNodeState.rst#runtimeState
-
-.. _vim.cluster.DasAamNodeState: ../../../vim/cluster/DasAamNodeState.rst
-
-.. _ClusterDasAamNodeStateDasState: ../../../vim/cluster/DasAamNodeState/DasState.rst
-
-.. _vim.cluster.DasAamNodeState.DasState: ../../../vim/cluster/DasAamNodeState/DasState.rst
-
 vim.cluster.DasAamNodeState.DasState
 ====================================
-  The `ClusterDasAamNodeStateDasState`_ enumerated type defines values for host HA configuration and runtime state properties ( `configState`_ and `runtimeState`_ ).
-  :contained by: `vim.cluster.DasAamNodeState`_
+  The `ClusterDasAamNodeStateDasState <vim/cluster/DasAamNodeState/DasState.rst>`_ enumerated type defines values for host HA configuration and runtime state properties ( `configState <vim/cluster/DasAamNodeState.rst#configState>`_ and `runtimeState <vim/cluster/DasAamNodeState.rst#runtimeState>`_ ).
+  :contained by: `vim.cluster.DasAamNodeState <vim/cluster/DasAamNodeState.rst>`_
 
-  :type: `vim.cluster.DasAamNodeState.DasState`_
+  :type: `vim.cluster.DasAamNodeState.DasState <vim/cluster/DasAamNodeState/DasState.rst>`_
 
   :name: nodeFailed
 

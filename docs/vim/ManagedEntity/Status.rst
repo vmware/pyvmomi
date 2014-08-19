@@ -1,13 +1,9 @@
-.. _vim.ManagedEntity: ../../vim/ManagedEntity.rst
-
-.. _vim.ManagedEntity.Status: ../../vim/ManagedEntity/Status.rst
-
 vim.ManagedEntity.Status
 ========================
   The Status enumeration defines a general "health" value for a managed entity.
-  :contained by: `vim.ManagedEntity`_
+  :contained by: `vim.ManagedEntity <vim/ManagedEntity.rst>`_
 
-  :type: `vim.ManagedEntity.Status`_
+  :type: `vim.ManagedEntity.Status <vim/ManagedEntity/Status.rst>`_
 
   :name: red
 

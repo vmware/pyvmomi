@@ -1,13 +1,9 @@
-.. _vim.SimpleCommand: ../../vim/SimpleCommand.rst
-
-.. _vim.SimpleCommand.Encoding: ../../vim/SimpleCommand/Encoding.rst
-
 vim.SimpleCommand.Encoding
 ==========================
   The encoding of the resultant return data. This is a hint to the client side to indicate the format of the information being returned.
-  :contained by: `vim.SimpleCommand`_
+  :contained by: `vim.SimpleCommand <vim/SimpleCommand.rst>`_
 
-  :type: `vim.SimpleCommand.Encoding`_
+  :type: `vim.SimpleCommand.Encoding <vim/SimpleCommand/Encoding.rst>`_
 
   :name: STRING
 

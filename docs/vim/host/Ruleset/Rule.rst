@@ -1,15 +1,3 @@
-.. _int: https://docs.python.org/2/library/stdtypes.html
-
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vmodl.DynamicData: ../../../vmodl/DynamicData.rst
-
-.. _HostFirewallRuleProtocol: ../../../vim/host/Ruleset/Rule/Protocol.rst
-
-.. _vim.host.Ruleset.Rule.PortType: ../../../vim/host/Ruleset/Rule/PortType.rst
-
-.. _vim.host.Ruleset.Rule.Direction: ../../../vim/host/Ruleset/Rule/Direction.rst
-
 
 vim.host.Ruleset.Rule
 =====================
@@ -17,18 +5,18 @@ vim.host.Ruleset.Rule
 :extends: vmodl.DynamicData_
 
 Attributes:
-    port (`int`_):
+    port (`int <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The port number.
-    endPort (`int`_, optional):
+    endPort (`int <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        For a port range, the ending port number.
-    direction (`vim.host.Ruleset.Rule.Direction`_):
+    direction (`vim.host.Ruleset.Rule.Direction <vim/host/Ruleset/Rule/Direction.rst>`_):
 
        The port direction.
-    portType (`vim.host.Ruleset.Rule.PortType`_, optional):
+    portType (`vim.host.Ruleset.Rule.PortType <vim/host/Ruleset/Rule/PortType.rst>`_, optional):
 
        The port type.
-    protocol (`str`_):
+    protocol (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
-       The port protocol. Valid values are defined by the `HostFirewallRuleProtocol`_ enumeration.
+       The port protocol. Valid values are defined by the `HostFirewallRuleProtocol <vim/host/Ruleset/Rule/Protocol.rst>`_ enumeration.

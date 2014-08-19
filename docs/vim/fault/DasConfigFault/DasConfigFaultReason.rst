@@ -1,12 +1,8 @@
-.. _vim.fault.DasConfigFault: ../../../vim/fault/DasConfigFault.rst
-
-.. _vim.fault.DasConfigFault.DasConfigFaultReason: ../../../vim/fault/DasConfigFault/DasConfigFaultReason.rst
-
 vim.fault.DasConfigFault.DasConfigFaultReason
 =============================================
-  :contained by: `vim.fault.DasConfigFault`_
+  :contained by: `vim.fault.DasConfigFault <vim/fault/DasConfigFault.rst>`_
 
-  :type: `vim.fault.DasConfigFault.DasConfigFaultReason`_
+  :type: `vim.fault.DasConfigFault.DasConfigFaultReason <vim/fault/DasConfigFault/DasConfigFaultReason.rst>`_
 
   :name: VSanNotSupportedOnHost
 

@@ -1,9 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.TaskReason: ../vim/TaskReason.rst
-
-.. _vim.scheduler.ScheduledTask: ../vim/scheduler/ScheduledTask.rst
-
 
 vim.TaskReasonSchedule
 ======================
@@ -11,9 +5,9 @@ vim.TaskReasonSchedule
 :extends: vim.TaskReason_
 
 Attributes:
-    name (`str`_):
+    name (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The name of the scheduled task that queued this task.
-    scheduledTask (`vim.scheduler.ScheduledTask`_):
+    scheduledTask (`vim.scheduler.ScheduledTask <vim/scheduler/ScheduledTask.rst>`_):
 
        The scheduledTask object that queued this task.

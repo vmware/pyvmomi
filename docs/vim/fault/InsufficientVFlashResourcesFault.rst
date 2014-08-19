@@ -1,21 +1,17 @@
-.. _long: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.fault.InsufficientResourcesFault: ../../vim/fault/InsufficientResourcesFault.rst
-
 
 vim.fault.InsufficientVFlashResourcesFault
 ==========================================
     :extends:
 
-        `vim.fault.InsufficientResourcesFault`_
+        `vim.fault.InsufficientResourcesFault <vim/fault/InsufficientResourcesFault.rst>`_
 
   Insufficient vFlash resource to consume
 
 Attributes:
 
-    freeSpace (`long`_)
+    freeSpace (`long <https://docs.python.org/2/library/stdtypes.html>`_)
 
-    requestedSpace (`long`_)
+    requestedSpace (`long <https://docs.python.org/2/library/stdtypes.html>`_)
 
 
 

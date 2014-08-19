@@ -1,7 +1,3 @@
-.. _object: https://docs.python.org/2/library/stdtypes.html
-
-.. _vmodl.DynamicData: ../../vmodl/DynamicData.rst
-
 
 vim.action.MethodActionArgument
 ===============================
@@ -9,6 +5,6 @@ vim.action.MethodActionArgument
 :extends: vmodl.DynamicData_
 
 Attributes:
-    value (`object`_, optional):
+    value (`object <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        The value of the argument.

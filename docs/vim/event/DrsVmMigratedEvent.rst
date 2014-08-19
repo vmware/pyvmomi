@@ -1,5 +1,3 @@
-.. _vim.event.VmMigratedEvent: ../../vim/event/VmMigratedEvent.rst
-
 
 vim.event.DrsVmMigratedEvent
 ============================

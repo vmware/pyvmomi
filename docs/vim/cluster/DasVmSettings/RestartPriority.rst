@@ -1,19 +1,9 @@
-.. _dasSettings: ../../../vim/cluster/DasVmConfigInfo.rst#dasSettings
-
-.. _defaultVmSettings: ../../../vim/cluster/DasConfigInfo.rst#defaultVmSettings
-
-.. _vim.cluster.DasVmSettings: ../../../vim/cluster/DasVmSettings.rst
-
-.. _ClusterDasVmSettingsRestartPriority: ../../../vim/cluster/DasVmSettings/RestartPriority.rst
-
-.. _vim.cluster.DasVmSettings.RestartPriority: ../../../vim/cluster/DasVmSettings/RestartPriority.rst
-
 vim.cluster.DasVmSettings.RestartPriority
 =========================================
-  The `ClusterDasVmSettingsRestartPriority`_ enum defines virtual machine restart priority values to resolve resource contention. The priority determines the preference that HA gives to a virtual machine if sufficient capacity is not available to power on all failed virtual machines. For example, high priority virtual machines on a host get preference over low priority virtual machines.All priority values are valid for the restart priority specified in a single virtual machine HA configuration ( `dasSettings`_ ). All values except forclusterRestartPriorityare valid for the cluster-wide default HA configuration for virtual machines ( `defaultVmSettings`_ ).
-  :contained by: `vim.cluster.DasVmSettings`_
+  The `ClusterDasVmSettingsRestartPriority <vim/cluster/DasVmSettings/RestartPriority.rst>`_ enum defines virtual machine restart priority values to resolve resource contention. The priority determines the preference that HA gives to a virtual machine if sufficient capacity is not available to power on all failed virtual machines. For example, high priority virtual machines on a host get preference over low priority virtual machines.All priority values are valid for the restart priority specified in a single virtual machine HA configuration ( `dasSettings <vim/cluster/DasVmConfigInfo.rst#dasSettings>`_ ). All values except forclusterRestartPriorityare valid for the cluster-wide default HA configuration for virtual machines ( `defaultVmSettings <vim/cluster/DasConfigInfo.rst#defaultVmSettings>`_ ).
+  :contained by: `vim.cluster.DasVmSettings <vim/cluster/DasVmSettings.rst>`_
 
-  :type: `vim.cluster.DasVmSettings.RestartPriority`_
+  :type: `vim.cluster.DasVmSettings.RestartPriority <vim/cluster/DasVmSettings/RestartPriority.rst>`_
 
   :name: clusterRestartPriority
 

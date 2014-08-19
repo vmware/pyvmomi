@@ -1,13 +1,9 @@
-.. _vim.vm.ToolsConfigInfo: ../../../vim/vm/ToolsConfigInfo.rst
-
-.. _vim.vm.ToolsConfigInfo.UpgradePolicy: ../../../vim/vm/ToolsConfigInfo/UpgradePolicy.rst
-
 vim.vm.ToolsConfigInfo.UpgradePolicy
 ====================================
   The policy setting used to determine when tools are auto-upgraded for a virtual machine
-  :contained by: `vim.vm.ToolsConfigInfo`_
+  :contained by: `vim.vm.ToolsConfigInfo <vim/vm/ToolsConfigInfo.rst>`_
 
-  :type: `vim.vm.ToolsConfigInfo.UpgradePolicy`_
+  :type: `vim.vm.ToolsConfigInfo.UpgradePolicy <vim/vm/ToolsConfigInfo/UpgradePolicy.rst>`_
 
   :name: upgradeAtPowerCycle
 

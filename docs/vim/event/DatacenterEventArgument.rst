@@ -1,7 +1,3 @@
-.. _vim.Datacenter: ../../vim/Datacenter.rst
-
-.. _vim.event.EntityEventArgument: ../../vim/event/EntityEventArgument.rst
-
 
 vim.event.DatacenterEventArgument
 =================================
@@ -9,6 +5,6 @@ vim.event.DatacenterEventArgument
 :extends: vim.event.EntityEventArgument_
 
 Attributes:
-    datacenter (`vim.Datacenter`_):
+    datacenter (`vim.Datacenter <vim/Datacenter.rst>`_):
 
        The Datacenter object.

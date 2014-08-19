@@ -1,20 +1,14 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _VI API 2.5: ../../vim/version.rst#vimversionversion2
-
-.. _vim.event.DatacenterEvent: ../../vim/event/DatacenterEvent.rst
-
 
 vim.event.DatacenterRenamedEvent
 ================================
   
 :extends: vim.event.DatacenterEvent_
-:since: `VI API 2.5`_
+:since: `VI API 2.5 <vim/version.rst#vimversionversion2>`_
 
 Attributes:
-    oldName (`str`_):
+    oldName (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The old datacenter name.
-    newName (`str`_):
+    newName (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The new datacenter name.

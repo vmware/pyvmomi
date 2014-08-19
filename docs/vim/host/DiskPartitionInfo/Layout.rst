@@ -1,9 +1,3 @@
-.. _vmodl.DynamicData: ../../../vmodl/DynamicData.rst
-
-.. _vim.host.DiskDimensions.Lba: ../../../vim/host/DiskDimensions/Lba.rst
-
-.. _vim.host.DiskPartitionInfo.BlockRange: ../../../vim/host/DiskPartitionInfo/BlockRange.rst
-
 
 vim.host.DiskPartitionInfo.Layout
 =================================
@@ -11,9 +5,9 @@ vim.host.DiskPartitionInfo.Layout
 :extends: vmodl.DynamicData_
 
 Attributes:
-    total (`vim.host.DiskDimensions.Lba`_, optional):
+    total (`vim.host.DiskDimensions.Lba <vim/host/DiskDimensions/Lba.rst>`_, optional):
 
        Total number of blocks on a disk.
-    partition ([`vim.host.DiskPartitionInfo.BlockRange`_]):
+    partition ([`vim.host.DiskPartitionInfo.BlockRange <vim/host/DiskPartitionInfo/BlockRange.rst>`_]):
 
        List of block ranges on the disk.

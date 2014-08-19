@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.event.HostEvent: ../../vim/event/HostEvent.rst
-
 
 vim.event.HostAddFailedEvent
 ============================
@@ -9,5 +5,5 @@ vim.event.HostAddFailedEvent
 :extends: vim.event.HostEvent_
 
 Attributes:
-    hostname (`str`_):
+    hostname (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 

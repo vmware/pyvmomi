@@ -1,17 +1,11 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vSphere API 4.0: ../../vim/version.rst#vimversionversion5
-
-.. _vim.event.DvsEvent: ../../vim/event/DvsEvent.rst
-
 
 vim.event.DvsPortCreatedEvent
 =============================
   New ports are created in the distributed virtual switch.
 :extends: vim.event.DvsEvent_
-:since: `vSphere API 4.0`_
+:since: `vSphere API 4.0 <vim/version.rst#vimversionversion5>`_
 
 Attributes:
-    portKey ([`str`_]):
+    portKey ([`str <https://docs.python.org/2/library/stdtypes.html>`_]):
 
        The key of the ports that are created.

@@ -1,28 +1,22 @@
-.. _int: https://docs.python.org/2/library/stdtypes.html
-
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.fault.OvfImport: ../../vim/fault/OvfImport.rst
-
 
 vim.fault.OvfCpuCompatibility
 =============================
     :extends:
 
-        `vim.fault.OvfImport`_
+        `vim.fault.OvfImport <vim/fault/OvfImport.rst>`_
 
 
 
 
 Attributes:
 
-    registerName (`str`_)
+    registerName (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
-    level (`int`_)
+    level (`int <https://docs.python.org/2/library/stdtypes.html>`_)
 
-    registerValue (`str`_)
+    registerValue (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
-    desiredRegisterValue (`str`_)
+    desiredRegisterValue (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
 
 

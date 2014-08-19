@@ -1,9 +1,3 @@
-.. _vim.HostSystem: ../../vim/HostSystem.rst
-
-.. _vmodl.DynamicData: ../../vmodl/DynamicData.rst
-
-.. _vim.host.MountInfo: ../../vim/host/MountInfo.rst
-
 
 vim.Datastore.HostMount
 =======================
@@ -11,9 +5,9 @@ vim.Datastore.HostMount
 :extends: vmodl.DynamicData_
 
 Attributes:
-    key (`vim.HostSystem`_):
+    key (`vim.HostSystem <vim/HostSystem.rst>`_):
 
        The host associated with this datastore.
-    mountInfo (`vim.host.MountInfo`_):
+    mountInfo (`vim.host.MountInfo <vim/host/MountInfo.rst>`_):
 
        Host-specific information about the mount.

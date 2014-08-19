@@ -1,13 +1,9 @@
-.. _vim.host.NetStackInstance: ../../../vim/host/NetStackInstance.rst
-
-.. _vim.host.NetStackInstance.SystemStackKey: ../../../vim/host/NetStackInstance/SystemStackKey.rst
-
 vim.host.NetStackInstance.SystemStackKey
 ========================================
   Define the instance identifier for different traffic type
-  :contained by: `vim.host.NetStackInstance`_
+  :contained by: `vim.host.NetStackInstance <vim/host/NetStackInstance.rst>`_
 
-  :type: `vim.host.NetStackInstance.SystemStackKey`_
+  :type: `vim.host.NetStackInstance.SystemStackKey <vim/host/NetStackInstance/SystemStackKey.rst>`_
 
   :name: defaultTcpipStack
 

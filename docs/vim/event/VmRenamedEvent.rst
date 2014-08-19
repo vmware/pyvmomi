@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.event.VmEvent: ../../vim/event/VmEvent.rst
-
 
 vim.event.VmRenamedEvent
 ========================
@@ -9,9 +5,9 @@ vim.event.VmRenamedEvent
 :extends: vim.event.VmEvent_
 
 Attributes:
-    oldName (`str`_):
+    oldName (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The old name of the virtual machine.
-    newName (`str`_):
+    newName (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The new name of the virtual machine.

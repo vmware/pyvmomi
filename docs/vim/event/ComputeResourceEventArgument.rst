@@ -1,7 +1,3 @@
-.. _vim.ComputeResource: ../../vim/ComputeResource.rst
-
-.. _vim.event.EntityEventArgument: ../../vim/event/EntityEventArgument.rst
-
 
 vim.event.ComputeResourceEventArgument
 ======================================
@@ -9,6 +5,6 @@ vim.event.ComputeResourceEventArgument
 :extends: vim.event.EntityEventArgument_
 
 Attributes:
-    computeResource (`vim.ComputeResource`_):
+    computeResource (`vim.ComputeResource <vim/ComputeResource.rst>`_):
 
        The ComputeResource object.

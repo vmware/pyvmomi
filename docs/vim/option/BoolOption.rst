@@ -1,7 +1,3 @@
-.. _bool: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.option.OptionType: ../../vim/option/OptionType.rst
-
 
 vim.option.BoolOption
 =====================
@@ -9,9 +5,9 @@ vim.option.BoolOption
 :extends: vim.option.OptionType_
 
 Attributes:
-    supported (`bool`_):
+    supported (`bool <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The flag to indicate whether or not the option is supported.
-    defaultValue (`bool`_):
+    defaultValue (`bool <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The default value for the option.

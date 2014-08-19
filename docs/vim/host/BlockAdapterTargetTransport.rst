@@ -1,5 +1,3 @@
-.. _vim.host.TargetTransport: ../../vim/host/TargetTransport.rst
-
 
 vim.host.BlockAdapterTargetTransport
 ====================================

@@ -1,13 +1,9 @@
-.. _vim.event.EventFilterSpec: ../../../vim/event/EventFilterSpec.rst
-
-.. _vim.event.EventFilterSpec.RecursionOption: ../../../vim/event/EventFilterSpec/RecursionOption.rst
-
 vim.event.EventFilterSpec.RecursionOption
 =========================================
   This option specifies how to select events based on child relationships in the inventory hierarchy. If a managed entity has children, their events can be retrieved with this filter option.
-  :contained by: `vim.event.EventFilterSpec`_
+  :contained by: `vim.event.EventFilterSpec <vim/event/EventFilterSpec.rst>`_
 
-  :type: `vim.event.EventFilterSpec.RecursionOption`_
+  :type: `vim.event.EventFilterSpec.RecursionOption <vim/event/EventFilterSpec/RecursionOption.rst>`_
 
   :name: all
 

@@ -1,19 +1,3 @@
-.. _vim.Task: ../../vim/Task.rst
-
-.. _vim.fault.InvalidName: ../../vim/fault/InvalidName.rst
-
-.. _vim.fault.InvalidState: ../../vim/fault/InvalidState.rst
-
-.. _vim.fault.DuplicateName: ../../vim/fault/DuplicateName.rst
-
-.. _vmodl.fault.InvalidArgument: ../../vmodl/fault/InvalidArgument.rst
-
-.. _vim.ExtensibleManagedObject: ../../vim/ExtensibleManagedObject.rst
-
-.. _vim.scheduler.ScheduledTaskInfo: ../../vim/scheduler/ScheduledTaskInfo.rst
-
-.. _vim.scheduler.ScheduledTaskSpec: ../../vim/scheduler/ScheduledTaskSpec.rst
-
 
 vim.scheduler.ScheduledTask
 ===========================
@@ -25,7 +9,7 @@ vim.scheduler.ScheduledTask
 
 Attributes
 ----------
-    info (`vim.scheduler.ScheduledTaskInfo`_):
+    info (`vim.scheduler.ScheduledTaskInfo <vim/scheduler/ScheduledTaskInfo.rst>`_):
        Information about the current scheduled task.
 
 
@@ -51,7 +35,7 @@ RemoveScheduledTask():
 
   Raises:
 
-    `vim.fault.InvalidState`_: 
+    `vim.fault.InvalidState <vim/fault/InvalidState.rst>`_: 
        if the scheduled task is running.
 
 
@@ -65,7 +49,7 @@ ReconfigureScheduledTask(spec):
 
 
   Args:
-    spec (`vim.scheduler.ScheduledTaskSpec`_):
+    spec (`vim.scheduler.ScheduledTaskSpec <vim/scheduler/ScheduledTaskSpec.rst>`_):
        The new specification for the scheduled task.
 
 
@@ -77,16 +61,16 @@ ReconfigureScheduledTask(spec):
 
   Raises:
 
-    `vim.fault.InvalidState`_: 
+    `vim.fault.InvalidState <vim/fault/InvalidState.rst>`_: 
        if the scheduled task is running.
 
-    `vim.fault.InvalidName`_: 
+    `vim.fault.InvalidName <vim/fault/InvalidName.rst>`_: 
        if the scheduled task name is empty or too long.
 
-    `vim.fault.DuplicateName`_: 
+    `vim.fault.DuplicateName <vim/fault/DuplicateName.rst>`_: 
        if a scheduled task with the name already exists.
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
        if the specification is invalid.
 
 
@@ -108,7 +92,7 @@ RunScheduledTask():
 
   Raises:
 
-    `vim.fault.InvalidState`_: 
+    `vim.fault.InvalidState <vim/fault/InvalidState.rst>`_: 
        if the scheduled task is running already.
 
 

@@ -1,26 +1,20 @@
-.. _int: https://docs.python.org/2/library/stdtypes.html
-
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.fault.OvfImport: ../../vim/fault/OvfImport.rst
-
 
 vim.fault.OvfMappedOsId
 =======================
     :extends:
 
-        `vim.fault.OvfImport`_
+        `vim.fault.OvfImport <vim/fault/OvfImport.rst>`_
 
 
 
 
 Attributes:
 
-    ovfId (`int`_)
+    ovfId (`int <https://docs.python.org/2/library/stdtypes.html>`_)
 
-    ovfDescription (`str`_)
+    ovfDescription (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
-    targetDescription (`str`_)
+    targetDescription (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
 
 

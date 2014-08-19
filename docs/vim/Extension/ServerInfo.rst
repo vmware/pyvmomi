@@ -1,34 +1,26 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _VI API 2.5: ../../vim/version.rst#vimversionversion2
-
-.. _vim.Description: ../../vim/Description.rst
-
-.. _vmodl.DynamicData: ../../vmodl/DynamicData.rst
-
 
 vim.Extension.ServerInfo
 ========================
   This data object type describes a server for the extension.
 :extends: vmodl.DynamicData_
-:since: `VI API 2.5`_
+:since: `VI API 2.5 <vim/version.rst#vimversionversion2>`_
 
 Attributes:
-    url (`str`_):
+    url (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Server url.
-    description (`vim.Description`_):
+    description (`vim.Description <vim/Description.rst>`_):
 
        Server description.
-    company (`str`_):
+    company (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Company information.
-    type (`str`_):
+    type (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Type of server (examples may include SOAP, REST, HTTP, etc.).
-    adminEmail ([`str`_]):
+    adminEmail ([`str <https://docs.python.org/2/library/stdtypes.html>`_]):
 
        Extension administrator email addresses.
-    serverThumbprint (`str`_, optional):
+    serverThumbprint (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        Thumbprint of the extension server certificate presented to clients

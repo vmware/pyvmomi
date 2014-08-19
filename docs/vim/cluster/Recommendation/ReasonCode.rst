@@ -1,13 +1,9 @@
-.. _vim.cluster.Recommendation: ../../../vim/cluster/Recommendation.rst
-
-.. _vim.cluster.Recommendation.ReasonCode: ../../../vim/cluster/Recommendation/ReasonCode.rst
-
 vim.cluster.Recommendation.ReasonCode
 =====================================
   List of defined migration reason codes:
-  :contained by: `vim.cluster.Recommendation`_
+  :contained by: `vim.cluster.Recommendation <vim/cluster/Recommendation.rst>`_
 
-  :type: `vim.cluster.Recommendation.ReasonCode`_
+  :type: `vim.cluster.Recommendation.ReasonCode <vim/cluster/Recommendation/ReasonCode.rst>`_
 
   :name: iolbDisabledInternal
 

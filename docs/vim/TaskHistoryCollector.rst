@@ -1,17 +1,3 @@
-.. _int: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.Task: ../vim/Task.rst
-
-.. _vim.TaskInfo: ../vim/TaskInfo.rst
-
-.. _TaskFilterSpec: ../vim/TaskFilterSpec.rst
-
-.. _vim.HistoryCollector: ../vim/HistoryCollector.rst
-
-.. _SetCollectorPageSize: ../vim/HistoryCollector.rst#setLatestPageSize
-
-.. _vmodl.fault.InvalidArgument: ../vmodl/fault/InvalidArgument.rst
-
 
 vim.TaskHistoryCollector
 ========================
@@ -23,8 +9,8 @@ vim.TaskHistoryCollector
 
 Attributes
 ----------
-    latestPage ([`vim.TaskInfo`_]):
-       The items in the 'viewable latest page'. As new tasks that match the collector's `TaskFilterSpec`_ are created, they are added to this page, and the oldest tasks are removed from the collector to keep the size of the page to that allowed by `SetCollectorPageSize`_ .The "oldest task" is the one with the oldest creation time. The tasks in the returned page are unordered.
+    latestPage ([`vim.TaskInfo <vim/TaskInfo.rst>`_]):
+       The items in the 'viewable latest page'. As new tasks that match the collector's `TaskFilterSpec <vim/TaskFilterSpec.rst>`_ are created, they are added to this page, and the oldest tasks are removed from the collector to keep the size of the page to that allowed by `SetCollectorPageSize <vim/HistoryCollector.rst#setLatestPageSize>`_ .The "oldest task" is the one with the oldest creation time. The tasks in the returned page are unordered.
 
 
 Methods
@@ -40,19 +26,19 @@ ReadNextTasks(maxCount):
 
 
   Args:
-    maxCount (`int`_):
+    maxCount (`int <https://docs.python.org/2/library/stdtypes.html>`_):
        The maximum number of items in the page.
 
 
 
 
   Returns:
-    [`vim.TaskInfo`_]:
+    [`vim.TaskInfo <vim/TaskInfo.rst>`_]:
          
 
   Raises:
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
        if maxCount is out of range.
 
 
@@ -65,19 +51,19 @@ ReadPreviousTasks(maxCount):
 
 
   Args:
-    maxCount (`int`_):
+    maxCount (`int <https://docs.python.org/2/library/stdtypes.html>`_):
        The maximum number of items in the page.
 
 
 
 
   Returns:
-    [`vim.TaskInfo`_]:
+    [`vim.TaskInfo <vim/TaskInfo.rst>`_]:
          
 
   Raises:
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
        if maxCount is out of range.
 
 

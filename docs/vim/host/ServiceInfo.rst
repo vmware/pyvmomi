@@ -1,7 +1,3 @@
-.. _vim.host.Service: ../../vim/host/Service.rst
-
-.. _vmodl.DynamicData: ../../vmodl/DynamicData.rst
-
 
 vim.host.ServiceInfo
 ====================
@@ -9,6 +5,6 @@ vim.host.ServiceInfo
 :extends: vmodl.DynamicData_
 
 Attributes:
-    service ([`vim.host.Service`_], optional):
+    service ([`vim.host.Service <vim/host/Service.rst>`_], optional):
 
        List of configured services.

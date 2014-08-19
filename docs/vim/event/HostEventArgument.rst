@@ -1,7 +1,3 @@
-.. _vim.HostSystem: ../../vim/HostSystem.rst
-
-.. _vim.event.EntityEventArgument: ../../vim/event/EntityEventArgument.rst
-
 
 vim.event.HostEventArgument
 ===========================
@@ -9,6 +5,6 @@ vim.event.HostEventArgument
 :extends: vim.event.EntityEventArgument_
 
 Attributes:
-    host (`vim.HostSystem`_):
+    host (`vim.HostSystem <vim/HostSystem.rst>`_):
 
        The host object.

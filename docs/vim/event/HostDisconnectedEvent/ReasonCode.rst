@@ -1,12 +1,8 @@
-.. _vim.event.HostDisconnectedEvent: ../../../vim/event/HostDisconnectedEvent.rst
-
-.. _vim.event.HostDisconnectedEvent.ReasonCode: ../../../vim/event/HostDisconnectedEvent/ReasonCode.rst
-
 vim.event.HostDisconnectedEvent.ReasonCode
 ==========================================
-  :contained by: `vim.event.HostDisconnectedEvent`_
+  :contained by: `vim.event.HostDisconnectedEvent <vim/event/HostDisconnectedEvent.rst>`_
 
-  :type: `vim.event.HostDisconnectedEvent.ReasonCode`_
+  :type: `vim.event.HostDisconnectedEvent.ReasonCode <vim/event/HostDisconnectedEvent/ReasonCode.rst>`_
 
   :name: vcVRAMCapacityExceeded
 

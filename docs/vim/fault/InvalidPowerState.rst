@@ -1,21 +1,17 @@
-.. _string: ../../str
-
-.. _vim.fault.InvalidState: ../../vim/fault/InvalidState.rst
-
 
 vim.fault.InvalidPowerState
 ===========================
     :extends:
 
-        `vim.fault.InvalidState`_
+        `vim.fault.InvalidState <vim/fault/InvalidState.rst>`_
 
   This exception is thrown if the power operation attempted could not be performed given the current power state of the virtual machine.
 
 Attributes:
 
-    requestedState (`str`_): is optional.
+    requestedState (`str <https://docs.python.org/2/library/stdtypes.html>`_): is optional.
 
-    existingState (`str`_)
+    existingState (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
 
 

@@ -1,13 +1,9 @@
-.. _vim.host.PatchManager.Status: ../../../../vim/host/PatchManager/Status.rst
-
-.. _vim.host.PatchManager.Status.Integrity: ../../../../vim/host/PatchManager/Status/Integrity.rst
-
 vim.host.PatchManager.Status.Integrity
 ======================================
   The integrity validation status.
-  :contained by: `vim.host.PatchManager.Status`_
+  :contained by: `vim.host.PatchManager.Status <vim/host/PatchManager/Status.rst>`_
 
-  :type: `vim.host.PatchManager.Status.Integrity`_
+  :type: `vim.host.PatchManager.Status.Integrity <vim/host/PatchManager/Status/Integrity.rst>`_
 
   :name: validationError
 

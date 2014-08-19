@@ -1,12 +1,8 @@
-.. _vim.vm.guest.FileManager.FileInfo: ../../../../../vim/vm/guest/FileManager/FileInfo.rst
-
-.. _vim.vm.guest.FileManager.FileInfo.FileType: ../../../../../vim/vm/guest/FileManager/FileInfo/FileType.rst
-
 vim.vm.guest.FileManager.FileInfo.FileType
 ==========================================
-  :contained by: `vim.vm.guest.FileManager.FileInfo`_
+  :contained by: `vim.vm.guest.FileManager.FileInfo <vim/vm/guest/FileManager/FileInfo.rst>`_
 
-  :type: `vim.vm.guest.FileManager.FileInfo.FileType`_
+  :type: `vim.vm.guest.FileManager.FileInfo.FileType <vim/vm/guest/FileManager/FileInfo/FileType.rst>`_
 
   :name: symlink
 

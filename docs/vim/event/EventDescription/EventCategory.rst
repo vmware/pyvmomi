@@ -1,12 +1,8 @@
-.. _vim.event.EventDescription: ../../../vim/event/EventDescription.rst
-
-.. _vim.event.EventDescription.EventCategory: ../../../vim/event/EventDescription/EventCategory.rst
-
 vim.event.EventDescription.EventCategory
 ========================================
-  :contained by: `vim.event.EventDescription`_
+  :contained by: `vim.event.EventDescription <vim/event/EventDescription.rst>`_
 
-  :type: `vim.event.EventDescription.EventCategory`_
+  :type: `vim.event.EventDescription.EventCategory <vim/event/EventDescription/EventCategory.rst>`_
 
   :name: user
 

@@ -1,24 +1,14 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vSphere API 5.5: ../../../vim/version.rst#vimversionversion9
-
-.. _vmodl.DynamicData: ../../../vmodl/DynamicData.rst
-
-.. _ConfigSpecOperation: ../../../vim/ConfigSpecOperation.rst
-
-.. _vim.dvs.VmwareDistributedVirtualSwitch.LacpGroupConfig: ../../../vim/dvs/VmwareDistributedVirtualSwitch/LacpGroupConfig.rst
-
 
 vim.dvs.VmwareDistributedVirtualSwitch.LacpGroupSpec
 ====================================================
   This class defines the configuration of a Link Aggregation Control Protocol group.
 :extends: vmodl.DynamicData_
-:since: `vSphere API 5.5`_
+:since: `vSphere API 5.5 <vim/version.rst#vimversionversion9>`_
 
 Attributes:
-    lacpGroupConfig (`vim.dvs.VmwareDistributedVirtualSwitch.LacpGroupConfig`_):
+    lacpGroupConfig (`vim.dvs.VmwareDistributedVirtualSwitch.LacpGroupConfig <vim/dvs/VmwareDistributedVirtualSwitch/LacpGroupConfig.rst>`_):
 
        The Link Aggregation Control Protocol group to be configured.
-    operation (`str`_):
+    operation (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
-       Operation type, see `ConfigSpecOperation`_ for valid values.
+       Operation type, see `ConfigSpecOperation <vim/ConfigSpecOperation.rst>`_ for valid values.

@@ -1,21 +1,17 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.fault.InvalidDeviceSpec: ../../vim/fault/InvalidDeviceSpec.rst
-
 
 vim.fault.DeviceUnsupportedForVmVersion
 =======================================
     :extends:
 
-        `vim.fault.InvalidDeviceSpec`_
+        `vim.fault.InvalidDeviceSpec <vim/fault/InvalidDeviceSpec.rst>`_
 
   A DeviceUnsupportedForVmVersion exception is thrown if a specific device is not supported for a given version of the virtual machine.
 
 Attributes:
 
-    currentVersion (`str`_)
+    currentVersion (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
-    expectedVersion (`str`_)
+    expectedVersion (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
 
 

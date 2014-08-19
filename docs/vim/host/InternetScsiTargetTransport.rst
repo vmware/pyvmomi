@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.host.TargetTransport: ../../vim/host/TargetTransport.rst
-
 
 vim.host.InternetScsiTargetTransport
 ====================================
@@ -9,12 +5,12 @@ vim.host.InternetScsiTargetTransport
 :extends: vim.host.TargetTransport_
 
 Attributes:
-    iScsiName (`str`_):
+    iScsiName (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The iSCSI name of the target.
-    iScsiAlias (`str`_):
+    iScsiAlias (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The iSCSI alias of the target.
-    address ([`str`_], optional):
+    address ([`str <https://docs.python.org/2/library/stdtypes.html>`_], optional):
 
        The IP addresses through which the target may be reached.

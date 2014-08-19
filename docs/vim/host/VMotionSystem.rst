@@ -1,19 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.Task: ../../vim/Task.rst
-
-.. _vim.host.IpConfig: ../../vim/host/IpConfig.rst
-
-.. _vim.fault.NotFound: ../../vim/fault/NotFound.rst
-
-.. _vim.fault.HostConfigFault: ../../vim/fault/HostConfigFault.rst
-
-.. _vmodl.fault.InvalidArgument: ../../vmodl/fault/InvalidArgument.rst
-
-.. _vim.ExtensibleManagedObject: ../../vim/ExtensibleManagedObject.rst
-
-.. _vim.host.VMotionSystem.NetConfig: ../../vim/host/VMotionSystem/NetConfig.rst
-
 
 vim.host.VMotionSystem
 ======================
@@ -25,9 +9,9 @@ vim.host.VMotionSystem
 
 Attributes
 ----------
-    netConfig (`vim.host.VMotionSystem.NetConfig`_):
+    netConfig (`vim.host.VMotionSystem.NetConfig <vim/host/VMotionSystem/NetConfig.rst>`_):
        VMotion network configuration.
-    ipConfig (`vim.host.IpConfig`_):
+    ipConfig (`vim.host.IpConfig <vim/host/IpConfig.rst>`_):
        IP configuration of the VMotion VirtualNic.
 
 
@@ -45,7 +29,7 @@ UpdateIpConfig(ipConfig):
 
 
   Args:
-    ipConfig (`vim.host.IpConfig`_):
+    ipConfig (`vim.host.IpConfig <vim/host/IpConfig.rst>`_):
 
 
 
@@ -56,13 +40,13 @@ UpdateIpConfig(ipConfig):
 
   Raises:
 
-    `vim.fault.NotFound`_: 
+    `vim.fault.NotFound <vim/fault/NotFound.rst>`_: 
        if no VirtualNic is selected for VMotion.
 
-    `vim.fault.HostConfigFault`_: 
+    `vim.fault.HostConfigFault <vim/fault/HostConfigFault.rst>`_: 
        for any other failure
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
        if the IpConfig is invalid or cannot be used.
 
 
@@ -76,7 +60,7 @@ SelectVnic(device):
 
 
   Args:
-    device (`str`_):
+    device (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        The device that uniquely identifies the VirtualNic.
 
 
@@ -88,10 +72,10 @@ SelectVnic(device):
 
   Raises:
 
-    `vim.fault.HostConfigFault`_: 
+    `vim.fault.HostConfigFault <vim/fault/HostConfigFault.rst>`_: 
        for any other failure
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
        if key represents a nonexistent or invalid VirtualNic.
 
 
@@ -113,7 +97,7 @@ DeselectVnic():
 
   Raises:
 
-    `vim.fault.HostConfigFault`_: 
+    `vim.fault.HostConfigFault <vim/fault/HostConfigFault.rst>`_: 
        is a failure occurred
 
 

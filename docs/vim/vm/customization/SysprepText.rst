@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.vm.customization.IdentitySettings: ../../../vim/vm/customization/IdentitySettings.rst
-
 
 vim.vm.customization.SysprepText
 ================================
@@ -9,6 +5,6 @@ vim.vm.customization.SysprepText
 :extends: vim.vm.customization.IdentitySettings_
 
 Attributes:
-    value (`str`_):
+    value (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Text for thesysprep.infanswer file.

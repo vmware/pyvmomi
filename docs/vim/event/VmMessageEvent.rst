@@ -1,9 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.vm.Message: ../../vim/vm/Message.rst
-
-.. _vim.event.VmEvent: ../../vim/event/VmEvent.rst
-
 
 vim.event.VmMessageEvent
 ========================
@@ -11,8 +5,8 @@ vim.event.VmMessageEvent
 :extends: vim.event.VmEvent_
 
 Attributes:
-    message (`str`_):
+    message (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        A raw message returned by the virtualization platform.
-    messageInfo ([`vim.vm.Message`_], optional):
+    messageInfo ([`vim.vm.Message <vim/vm/Message.rst>`_], optional):
 

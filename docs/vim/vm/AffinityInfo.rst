@@ -1,7 +1,3 @@
-.. _int: https://docs.python.org/2/library/stdtypes.html
-
-.. _vmodl.DynamicData: ../../vmodl/DynamicData.rst
-
 
 vim.vm.AffinityInfo
 ===================
@@ -9,6 +5,6 @@ vim.vm.AffinityInfo
 :extends: vmodl.DynamicData_
 
 Attributes:
-    affinitySet ([`int`_], optional):
+    affinitySet ([`int <https://docs.python.org/2/library/stdtypes.html>`_], optional):
 
        List of nodes (processors for CPU, NUMA nodes for memory) that may be used by the virtual machine. If the array is empty when modifying the affinity setting, then any existing affinity is removed.

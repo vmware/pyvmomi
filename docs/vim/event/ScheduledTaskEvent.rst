@@ -1,9 +1,3 @@
-.. _vim.event.Event: ../../vim/event/Event.rst
-
-.. _vim.event.ScheduledTaskEventArgument: ../../vim/event/ScheduledTaskEventArgument.rst
-
-.. _vim.event.ManagedEntityEventArgument: ../../vim/event/ManagedEntityEventArgument.rst
-
 
 vim.event.ScheduledTaskEvent
 ============================
@@ -11,9 +5,9 @@ vim.event.ScheduledTaskEvent
 :extends: vim.event.Event_
 
 Attributes:
-    scheduledTask (`vim.event.ScheduledTaskEventArgument`_):
+    scheduledTask (`vim.event.ScheduledTaskEventArgument <vim/event/ScheduledTaskEventArgument.rst>`_):
 
        The scheduled task object.
-    entity (`vim.event.ManagedEntityEventArgument`_):
+    entity (`vim.event.ManagedEntityEventArgument <vim/event/ManagedEntityEventArgument.rst>`_):
 
        The entity on which the scheduled task registered.

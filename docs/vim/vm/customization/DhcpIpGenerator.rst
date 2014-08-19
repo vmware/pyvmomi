@@ -1,5 +1,3 @@
-.. _vim.vm.customization.IpGenerator: ../../../vim/vm/customization/IpGenerator.rst
-
 
 vim.vm.customization.DhcpIpGenerator
 ====================================

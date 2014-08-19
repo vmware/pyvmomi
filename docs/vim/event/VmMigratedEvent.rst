@@ -1,11 +1,3 @@
-.. _vim.event.VmEvent: ../../vim/event/VmEvent.rst
-
-.. _vim.event.HostEventArgument: ../../vim/event/HostEventArgument.rst
-
-.. _vim.event.DatastoreEventArgument: ../../vim/event/DatastoreEventArgument.rst
-
-.. _vim.event.DatacenterEventArgument: ../../vim/event/DatacenterEventArgument.rst
-
 
 vim.event.VmMigratedEvent
 =========================
@@ -13,12 +5,12 @@ vim.event.VmMigratedEvent
 :extends: vim.event.VmEvent_
 
 Attributes:
-    sourceHost (`vim.event.HostEventArgument`_):
+    sourceHost (`vim.event.HostEventArgument <vim/event/HostEventArgument.rst>`_):
 
        The source host. (Because this is after a successful migration, the destination host is recorded in the inherited "host" property.)
-    sourceDatacenter (`vim.event.DatacenterEventArgument`_, optional):
+    sourceDatacenter (`vim.event.DatacenterEventArgument <vim/event/DatacenterEventArgument.rst>`_, optional):
 
        The source datacenter
-    sourceDatastore (`vim.event.DatastoreEventArgument`_, optional):
+    sourceDatastore (`vim.event.DatastoreEventArgument <vim/event/DatastoreEventArgument.rst>`_, optional):
 
        The source primary datastore

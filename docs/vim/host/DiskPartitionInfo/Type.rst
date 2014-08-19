@@ -1,13 +1,9 @@
-.. _vim.host.DiskPartitionInfo: ../../../vim/host/DiskPartitionInfo.rst
-
-.. _vim.host.DiskPartitionInfo.Type: ../../../vim/host/DiskPartitionInfo/Type.rst
-
 vim.host.DiskPartitionInfo.Type
 ===============================
   List of symbol partition types
-  :contained by: `vim.host.DiskPartitionInfo`_
+  :contained by: `vim.host.DiskPartitionInfo <vim/host/DiskPartitionInfo.rst>`_
 
-  :type: `vim.host.DiskPartitionInfo.Type`_
+  :type: `vim.host.DiskPartitionInfo.Type <vim/host/DiskPartitionInfo/Type.rst>`_
 
   :name: vffs
 

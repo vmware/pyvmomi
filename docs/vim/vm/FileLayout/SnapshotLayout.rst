@@ -1,9 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.vm.Snapshot: ../../../vim/vm/Snapshot.rst
-
-.. _vmodl.DynamicData: ../../../vmodl/DynamicData.rst
-
 
 vim.vm.FileLayout.SnapshotLayout
 ================================
@@ -11,9 +5,9 @@ vim.vm.FileLayout.SnapshotLayout
 :extends: vmodl.DynamicData_
 
 Attributes:
-    key (`vim.vm.Snapshot`_):
+    key (`vim.vm.Snapshot <vim/vm/Snapshot.rst>`_):
 
        Identification of the snapshot
-    snapshotFile ([`str`_]):
+    snapshotFile ([`str <https://docs.python.org/2/library/stdtypes.html>`_]):
 
        A list of files that make up the snapshot state. These are relative paths from the snapshotDirectory. A slash is always used as a separator.

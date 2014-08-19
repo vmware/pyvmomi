@@ -1,5 +1,3 @@
-.. _vim.vm.device.VirtualDevice.RemoteDeviceBackingInfo: ../../../../vim/vm/device/VirtualDevice/RemoteDeviceBackingInfo.rst
-
 
 vim.vm.device.VirtualCdrom.RemoteAtapiBackingInfo
 =================================================

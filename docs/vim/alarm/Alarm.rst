@@ -1,21 +1,7 @@
-.. _vim.Task: ../../vim/Task.rst
-
-.. _vim.alarm.AlarmInfo: ../../vim/alarm/AlarmInfo.rst
-
-.. _vim.alarm.AlarmSpec: ../../vim/alarm/AlarmSpec.rst
-
-.. _vim.fault.InvalidName: ../../vim/fault/InvalidName.rst
-
-.. _vim.fault.DuplicateName: ../../vim/fault/DuplicateName.rst
-
-.. _vmodl.fault.InvalidArgument: ../../vmodl/fault/InvalidArgument.rst
-
-.. _vim.ExtensibleManagedObject: ../../vim/ExtensibleManagedObject.rst
-
 
 vim.alarm.Alarm
 ===============
-  This managed object type defines an alarm that is triggered and an action that occurs due to the triggered alarm when certain conditions are met on a specific `ManagedEntity`_ object.
+  This managed object type defines an alarm that is triggered and an action that occurs due to the triggered alarm when certain conditions are met on a specific `ManagedEntity <vim/ManagedEntity.rst>`_ object.
 
 
 :extends: vim.ExtensibleManagedObject_
@@ -23,7 +9,7 @@ vim.alarm.Alarm
 
 Attributes
 ----------
-    info (`vim.alarm.AlarmInfo`_):
+    info (`vim.alarm.AlarmInfo <vim/alarm/AlarmInfo.rst>`_):
       privilege: System.View
        Information about this alarm.
 
@@ -59,7 +45,7 @@ ReconfigureAlarm(spec):
 
 
   Args:
-    spec (`vim.alarm.AlarmSpec`_):
+    spec (`vim.alarm.AlarmSpec <vim/alarm/AlarmSpec.rst>`_):
        The new specification for the alarm.
 
 
@@ -71,13 +57,13 @@ ReconfigureAlarm(spec):
 
   Raises:
 
-    `vim.fault.InvalidName`_: 
+    `vim.fault.InvalidName <vim/fault/InvalidName.rst>`_: 
        if the alarm name is empty or too long.
 
-    `vim.fault.DuplicateName`_: 
+    `vim.fault.DuplicateName <vim/fault/DuplicateName.rst>`_: 
        if an alarm with the name already exists.
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
        if the specification is invalid.
 
 

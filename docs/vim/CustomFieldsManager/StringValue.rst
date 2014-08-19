@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.CustomFieldsManager.Value: ../../vim/CustomFieldsManager/Value.rst
-
 
 vim.CustomFieldsManager.StringValue
 ===================================
@@ -9,6 +5,6 @@ vim.CustomFieldsManager.StringValue
 :extends: vim.CustomFieldsManager.Value_
 
 Attributes:
-    value (`str`_):
+    value (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Value assigned to the custom field.

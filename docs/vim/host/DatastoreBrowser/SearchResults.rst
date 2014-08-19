@@ -1,11 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.Datastore: ../../../vim/Datastore.rst
-
-.. _vmodl.DynamicData: ../../../vmodl/DynamicData.rst
-
-.. _vim.host.DatastoreBrowser.FileInfo: ../../../vim/host/DatastoreBrowser/FileInfo.rst
-
 
 vim.host.DatastoreBrowser.SearchResults
 =======================================
@@ -13,12 +5,12 @@ vim.host.DatastoreBrowser.SearchResults
 :extends: vmodl.DynamicData_
 
 Attributes:
-    datastore (`vim.Datastore`_, optional):
+    datastore (`vim.Datastore <vim/Datastore.rst>`_, optional):
 
        Datastore contains the results.
-    folderPath (`str`_, optional):
+    folderPath (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        Relative path to the top-level folder.
-    file ([`vim.host.DatastoreBrowser.FileInfo`_], optional):
+    file ([`vim.host.DatastoreBrowser.FileInfo <vim/host/DatastoreBrowser/FileInfo.rst>`_], optional):
 
        Set of matching files, if any.

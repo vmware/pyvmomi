@@ -1,13 +1,9 @@
-.. _vim.host.PortGroup: ../../../vim/host/PortGroup.rst
-
-.. _vim.host.PortGroup.PortConnecteeType: ../../../vim/host/PortGroup/PortConnecteeType.rst
-
 vim.host.PortGroup.PortConnecteeType
 ====================================
   The type of component connected to a port group.
-  :contained by: `vim.host.PortGroup`_
+  :contained by: `vim.host.PortGroup <vim/host/PortGroup.rst>`_
 
-  :type: `vim.host.PortGroup.PortConnecteeType`_
+  :type: `vim.host.PortGroup.PortConnecteeType <vim/host/PortGroup/PortConnecteeType.rst>`_
 
   :name: unknown
 

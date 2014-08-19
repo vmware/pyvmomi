@@ -1,13 +1,9 @@
-.. _vim.LicenseManager.FeatureInfo: ../../../vim/LicenseManager/FeatureInfo.rst
-
-.. _vim.LicenseManager.FeatureInfo.CostUnit: ../../../vim/LicenseManager/FeatureInfo/CostUnit.rst
-
 vim.LicenseManager.FeatureInfo.CostUnit
 =======================================
   Cost units apply to licenses for the purpose of determining how many licenses are needed.
-  :contained by: `vim.LicenseManager.FeatureInfo`_
+  :contained by: `vim.LicenseManager.FeatureInfo <vim/LicenseManager/FeatureInfo.rst>`_
 
-  :type: `vim.LicenseManager.FeatureInfo.CostUnit`_
+  :type: `vim.LicenseManager.FeatureInfo.CostUnit <vim/LicenseManager/FeatureInfo/CostUnit.rst>`_
 
   :name: vm
 

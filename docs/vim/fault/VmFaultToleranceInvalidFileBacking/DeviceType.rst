@@ -1,12 +1,8 @@
-.. _vim.fault.VmFaultToleranceInvalidFileBacking: ../../../vim/fault/VmFaultToleranceInvalidFileBacking.rst
-
-.. _vim.fault.VmFaultToleranceInvalidFileBacking.DeviceType: ../../../vim/fault/VmFaultToleranceInvalidFileBacking/DeviceType.rst
-
 vim.fault.VmFaultToleranceInvalidFileBacking.DeviceType
 =======================================================
-  :contained by: `vim.fault.VmFaultToleranceInvalidFileBacking`_
+  :contained by: `vim.fault.VmFaultToleranceInvalidFileBacking <vim/fault/VmFaultToleranceInvalidFileBacking.rst>`_
 
-  :type: `vim.fault.VmFaultToleranceInvalidFileBacking.DeviceType`_
+  :type: `vim.fault.VmFaultToleranceInvalidFileBacking.DeviceType <vim/fault/VmFaultToleranceInvalidFileBacking/DeviceType.rst>`_
 
   :name: virtualDisk
 

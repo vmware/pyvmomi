@@ -1,17 +1,9 @@
-.. _vim.host.Capability: ../../../vim/host/Capability.rst
-
-.. _replayUnsupportedReason: ../../../vim/host/Capability.rst#replayUnsupportedReason
-
-.. _replayCompatibilityIssues: ../../../vim/host/Capability.rst#replayCompatibilityIssues
-
-.. _vim.host.Capability.ReplayUnsupportedReason: ../../../vim/host/Capability/ReplayUnsupportedReason.rst
-
 vim.host.Capability.ReplayUnsupportedReason
 ===========================================
-  Set of possible values for `replayUnsupportedReason`_ and `replayCompatibilityIssues`_ .
-  :contained by: `vim.host.Capability`_
+  Set of possible values for `replayUnsupportedReason <vim/host/Capability.rst#replayUnsupportedReason>`_ and `replayCompatibilityIssues <vim/host/Capability.rst#replayCompatibilityIssues>`_ .
+  :contained by: `vim.host.Capability <vim/host/Capability.rst>`_
 
-  :type: `vim.host.Capability.ReplayUnsupportedReason`_
+  :type: `vim.host.Capability.ReplayUnsupportedReason <vim/host/Capability/ReplayUnsupportedReason.rst>`_
 
   :name: unknown
 

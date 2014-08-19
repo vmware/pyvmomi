@@ -1,5 +1,3 @@
-.. _vim.event.RoleEvent: ../../vim/event/RoleEvent.rst
-
 
 vim.event.RoleRemovedEvent
 ==========================

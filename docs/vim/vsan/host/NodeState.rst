@@ -1,20 +1,8 @@
-.. _VsanHostNodeState: ../../../vim/vsan/host/NodeState.rst
-
-.. _VsanHostClusterStatus: ../../../vim/vsan/host/ClusterStatus.rst
-
-.. _vim.vsan.host.NodeState: ../../../vim/vsan/host/NodeState.rst
-
-.. _ExitMaintenanceMode_Task: ../../../vim/HostSystem.rst#exitMaintenanceMode
-
-.. _EnterMaintenanceMode_Task: ../../../vim/HostSystem.rst#enterMaintenanceMode
-
-.. _VsanHostClusterStatusState: ../../../vim/vsan/host/ClusterStatus/State.rst
-
 vim.vsan.host.NodeState
 =======================
-  A `VsanHostNodeState`_ represents the state of participation of a host in the VSAN service.See `VsanHostClusterStatus`_ See `VsanHostClusterStatusState`_ 
+  A `VsanHostNodeState <vim/vsan/host/NodeState.rst>`_ represents the state of participation of a host in the VSAN service.See `VsanHostClusterStatus <vim/vsan/host/ClusterStatus.rst>`_ See `VsanHostClusterStatusState <vim/vsan/host/ClusterStatus/State.rst>`_ 
 
-  :type: `vim.vsan.host.NodeState`_
+  :type: `vim.vsan.host.NodeState <vim/vsan/host/NodeState.rst>`_
 
   :name: decommissioning
 
@@ -28,7 +16,7 @@ starting
    The node is starting the VSAN service; this state is considered transitory.
 
 enteringMaintenanceMode
-   The node is entering maintenance mode; this state is considered transitory.See `EnterMaintenanceMode_Task`_ 
+   The node is entering maintenance mode; this state is considered transitory.See `EnterMaintenanceMode_Task <vim/HostSystem.rst#enterMaintenanceMode>`_ 
 
 agent
    The node is enabled for the VSAN service and is serving as an agent.
@@ -40,7 +28,7 @@ master
    The node is enabled for the VSAN service and is serving as the master.
 
 exitingMaintenanceMode
-   The node is exiting maintenance mode; this state is considered transitory.See `ExitMaintenanceMode_Task`_ 
+   The node is exiting maintenance mode; this state is considered transitory.See `ExitMaintenanceMode_Task <vim/HostSystem.rst#exitMaintenanceMode>`_ 
 
 error
    The node is enabled for the VSAN service but has some configuration error which prevents participation.

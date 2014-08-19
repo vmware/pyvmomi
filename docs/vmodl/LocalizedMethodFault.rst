@@ -1,9 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vmodl.MethodFault: ../vmodl/MethodFault.rst
-
-.. _vmodl.DynamicData: ../vmodl/DynamicData.rst
-
 
 vmodl.LocalizedMethodFault
 ==========================
@@ -11,8 +5,8 @@ vmodl.LocalizedMethodFault
 :extends: vmodl.DynamicData_
 
 Attributes:
-    fault (`vmodl.MethodFault`_):
+    fault (`vmodl.MethodFault <vmodl/MethodFault.rst>`_):
 
-    localizedMessage (`str`_, optional):
+    localizedMessage (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        The localized message that would be sent in the faultstring element of the SOAP Fault. It is optional so that clients are not required to send a localized message to the server, but servers are required to send the localized message to clients.

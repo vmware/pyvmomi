@@ -1,14 +1,8 @@
-.. _VirtualMachine: ../../../vim/VirtualMachine.rst
-
-.. _vim.fault.ReplicationVmFault: ../../../vim/fault/ReplicationVmFault.rst
-
-.. _vim.fault.ReplicationVmFault.ReasonForFault: ../../../vim/fault/ReplicationVmFault/ReasonForFault.rst
-
 vim.fault.ReplicationVmFault.ReasonForFault
 ===========================================
-  :contained by: `vim.fault.ReplicationVmFault`_
+  :contained by: `vim.fault.ReplicationVmFault <vim/fault/ReplicationVmFault.rst>`_
 
-  :type: `vim.fault.ReplicationVmFault.ReasonForFault`_
+  :type: `vim.fault.ReplicationVmFault.ReasonForFault <vim/fault/ReplicationVmFault/ReasonForFault.rst>`_
 
   :name: invalidInstanceId
 
@@ -16,22 +10,22 @@ values:
 --------
 
 invalidInstanceId
-   The specified instanceId does not match the `VirtualMachine`_ instanceId
+   The specified instanceId does not match the `VirtualMachine <vim/VirtualMachine.rst>`_ instanceId
 
 notConfigured
-    `VirtualMachine`_ is not configured for replication
+    `VirtualMachine <vim/VirtualMachine.rst>`_ is not configured for replication
 
 poweredOn
-    `VirtualMachine`_ is powered on
+    `VirtualMachine <vim/VirtualMachine.rst>`_ is powered on
 
 poweredOff
-    `VirtualMachine`_ is powered off (and is not undergoing offline replication)
+    `VirtualMachine <vim/VirtualMachine.rst>`_ is powered off (and is not undergoing offline replication)
 
 offlineReplicating
-    `VirtualMachine`_ is in the process of creating an an offline instance.
+    `VirtualMachine <vim/VirtualMachine.rst>`_ is in the process of creating an an offline instance.
 
 suspended
-    `VirtualMachine`_ is suspended (and is not undergoing offline replication)
+    `VirtualMachine <vim/VirtualMachine.rst>`_ is suspended (and is not undergoing offline replication)
 
 invalidState
-    `VirtualMachine`_ is in an invalid state
+    `VirtualMachine <vim/VirtualMachine.rst>`_ is in an invalid state

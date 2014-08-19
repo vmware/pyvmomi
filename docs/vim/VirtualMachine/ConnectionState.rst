@@ -1,13 +1,9 @@
-.. _vim.VirtualMachine: ../../vim/VirtualMachine.rst
-
-.. _vim.VirtualMachine.ConnectionState: ../../vim/VirtualMachine/ConnectionState.rst
-
 vim.VirtualMachine.ConnectionState
 ==================================
   The connectivity state of a virtual machine. When the API is provided directly by a server product, such as ESX Server, then the disconnected state is not possible. However, when accessed through VirtualCenter, the state of a virtual machine is set to disconnected if the hosts that manage the virtual machine becomes unavailable.
-  :contained by: `vim.VirtualMachine`_
+  :contained by: `vim.VirtualMachine <vim/VirtualMachine.rst>`_
 
-  :type: `vim.VirtualMachine.ConnectionState`_
+  :type: `vim.VirtualMachine.ConnectionState <vim/VirtualMachine/ConnectionState.rst>`_
 
   :name: invalid
 

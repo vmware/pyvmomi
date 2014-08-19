@@ -1,7 +1,3 @@
-.. _int: https://docs.python.org/2/library/stdtypes.html
-
-.. _vmodl.DynamicData: ../../../vmodl/DynamicData.rst
-
 
 vim.vm.IdeDiskDeviceInfo.PartitionInfo
 ======================================
@@ -9,9 +5,9 @@ vim.vm.IdeDiskDeviceInfo.PartitionInfo
 :extends: vmodl.DynamicData_
 
 Attributes:
-    id (`int`_):
+    id (`int <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Identification of the partition
-    capacity (`int`_):
+    capacity (`int <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Size of partition

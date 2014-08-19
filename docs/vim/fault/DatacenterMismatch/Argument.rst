@@ -1,9 +1,3 @@
-.. _vim.Datacenter: ../../../vim/Datacenter.rst
-
-.. _vmodl.DynamicData: ../../../vmodl/DynamicData.rst
-
-.. _vim.ManagedEntity: ../../../vim/ManagedEntity.rst
-
 
 vim.fault.DatacenterMismatch.Argument
 =====================================
@@ -11,9 +5,9 @@ vim.fault.DatacenterMismatch.Argument
 :extends: vmodl.DynamicData_
 
 Attributes:
-    entity (`vim.ManagedEntity`_):
+    entity (`vim.ManagedEntity <vim/ManagedEntity.rst>`_):
 
        The invalid input entity.
-    inputDatacenter (`vim.Datacenter`_, optional):
+    inputDatacenter (`vim.Datacenter <vim/Datacenter.rst>`_, optional):
 
        The datacenter for this entity.

@@ -1,13 +1,9 @@
-.. _vim.dvs.PortConnectee: ../../../vim/dvs/PortConnectee.rst
-
-.. _vim.dvs.PortConnectee.ConnecteeType: ../../../vim/dvs/PortConnectee/ConnecteeType.rst
-
 vim.dvs.PortConnectee.ConnecteeType
 ===================================
   The connectee types.
-  :contained by: `vim.dvs.PortConnectee`_
+  :contained by: `vim.dvs.PortConnectee <vim/dvs/PortConnectee.rst>`_
 
-  :type: `vim.dvs.PortConnectee.ConnecteeType`_
+  :type: `vim.dvs.PortConnectee.ConnecteeType <vim/dvs/PortConnectee/ConnecteeType.rst>`_
 
   :name: hostVmkVnic
 

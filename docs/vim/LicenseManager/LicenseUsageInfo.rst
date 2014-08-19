@@ -1,17 +1,3 @@
-.. _bool: https://docs.python.org/2/library/stdtypes.html
-
-.. _LicenseSource: ../../vim/LicenseManager/LicenseSource.rst
-
-.. _sourceAvailable: ../../vim/LicenseManager.rst#sourceAvailable
-
-.. _vmodl.DynamicData: ../../vmodl/DynamicData.rst
-
-.. _vim.LicenseManager.FeatureInfo: ../../vim/LicenseManager/FeatureInfo.rst
-
-.. _vim.LicenseManager.LicenseSource: ../../vim/LicenseManager/LicenseSource.rst
-
-.. _vim.LicenseManager.ReservationInfo: ../../vim/LicenseManager/ReservationInfo.rst
-
 
 vim.LicenseManager.LicenseUsageInfo
 ===================================
@@ -19,15 +5,15 @@ vim.LicenseManager.LicenseUsageInfo
 :extends: vmodl.DynamicData_
 
 Attributes:
-    source (`vim.LicenseManager.LicenseSource`_):
+    source (`vim.LicenseManager.LicenseSource <vim/LicenseManager/LicenseSource.rst>`_):
 
-       The source from which licensing data is acquired.See `LicenseSource`_ 
-    sourceAvailable (`bool`_):
+       The source from which licensing data is acquired.See `LicenseSource <vim/LicenseManager/LicenseSource.rst>`_ 
+    sourceAvailable (`bool <https://docs.python.org/2/library/stdtypes.html>`_):
 
-       Returns whether or not the source is currently available.See `sourceAvailable`_ 
-    reservationInfo ([`vim.LicenseManager.ReservationInfo`_], optional):
+       Returns whether or not the source is currently available.See `sourceAvailable <vim/LicenseManager.rst#sourceAvailable>`_ 
+    reservationInfo ([`vim.LicenseManager.ReservationInfo <vim/LicenseManager/ReservationInfo.rst>`_], optional):
 
        A list of feature reservations.
-    featureInfo ([`vim.LicenseManager.FeatureInfo`_], optional):
+    featureInfo ([`vim.LicenseManager.FeatureInfo <vim/LicenseManager/FeatureInfo.rst>`_], optional):
 
        Includes all the features that are referenced in the reservation array.

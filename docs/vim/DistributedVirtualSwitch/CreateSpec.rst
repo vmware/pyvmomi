@@ -1,29 +1,17 @@
-.. _vSphere API 4.0: ../../vim/version.rst#vimversionversion5
-
-.. _vmodl.DynamicData: ../../vmodl/DynamicData.rst
-
-.. _vim.dvs.ProductSpec: ../../vim/dvs/ProductSpec.rst
-
-.. _DistributedVirtualSwitch: ../../vim/DistributedVirtualSwitch.rst
-
-.. _vim.DistributedVirtualSwitch.Capability: ../../vim/DistributedVirtualSwitch/Capability.rst
-
-.. _vim.DistributedVirtualSwitch.ConfigSpec: ../../vim/DistributedVirtualSwitch/ConfigSpec.rst
-
 
 vim.DistributedVirtualSwitch.CreateSpec
 =======================================
-  Specification to create a `DistributedVirtualSwitch`_ .
+  Specification to create a `DistributedVirtualSwitch <vim/DistributedVirtualSwitch.rst>`_ .
 :extends: vmodl.DynamicData_
-:since: `vSphere API 4.0`_
+:since: `vSphere API 4.0 <vim/version.rst#vimversionversion5>`_
 
 Attributes:
-    configSpec (`vim.DistributedVirtualSwitch.ConfigSpec`_):
+    configSpec (`vim.DistributedVirtualSwitch.ConfigSpec <vim/DistributedVirtualSwitch/ConfigSpec.rst>`_):
 
        Configuration data.
-    productInfo (`vim.dvs.ProductSpec`_, optional):
+    productInfo (`vim.dvs.ProductSpec <vim/dvs/ProductSpec.rst>`_, optional):
 
-       Product information for this switch implementation. If you do not specify this property, the Server will use the latest version to create the `DistributedVirtualSwitch`_ .
-    capability (`vim.DistributedVirtualSwitch.Capability`_, optional):
+       Product information for this switch implementation. If you do not specify this property, the Server will use the latest version to create the `DistributedVirtualSwitch <vim/DistributedVirtualSwitch.rst>`_ .
+    capability (`vim.DistributedVirtualSwitch.Capability <vim/DistributedVirtualSwitch/Capability.rst>`_, optional):
 
        Capability of the switch.

@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.Datastore.Info: ../../vim/Datastore/Info.rst
-
 
 vim.host.LocalDatastoreInfo
 ===========================
@@ -9,6 +5,6 @@ vim.host.LocalDatastoreInfo
 :extends: vim.Datastore.Info_
 
 Attributes:
-    path (`str`_, optional):
+    path (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        The local path on a host. May not be available when the datastore is not accessible.

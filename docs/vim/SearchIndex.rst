@@ -1,29 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _bool: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.Task: ../vim/Task.rst
-
-.. _hostName: ../vim/vm/GuestInfo.rst#hostName
-
-.. _ipAddress: ../vim/vm/GuestInfo.rst#ipAddress
-
-.. _Datacenter: ../vim/Datacenter.rst
-
-.. _ResourcePool: ../vim/ResourcePool.rst
-
-.. _vim.Datacenter: ../vim/Datacenter.rst
-
-.. _vSphere API 4.0: ../vim/version.rst#vimversionversion5
-
-.. _ComputeResource: ../vim/ComputeResource.rst
-
-.. _vim.ManagedEntity: ../vim/ManagedEntity.rst
-
-.. _vim.VirtualMachine: ../vim/VirtualMachine.rst
-
-.. _vim.fault.InvalidDatastore: ../vim/fault/InvalidDatastore.rst
-
 
 vim.SearchIndex
 ===============
@@ -50,26 +24,26 @@ FindByUuid(datacenter, uuid, vmSearch, instanceUuid):
 
 
   Args:
-    datacenter (`vim.Datacenter`_, optional):
+    datacenter (`vim.Datacenter <vim/Datacenter.rst>`_, optional):
        If specified, restricts the query to entities in a particular datacenter. If not specified, the entire inventory is searched.
 
 
-    uuid (`str`_):
+    uuid (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        The UUID to find. If vmSearch is true, the uuid can be either BIOS or instance UUID.
 
 
-    vmSearch (`bool`_):
+    vmSearch (`bool <https://docs.python.org/2/library/stdtypes.html>`_):
        If true, search for virtual machines, otherwise search for hosts.
 
 
-    instanceUuid (`bool`_, optional, since `vSphere API 4.0`_ ):
+    instanceUuid (`bool <https://docs.python.org/2/library/stdtypes.html>`_, optional, since `vSphere API 4.0 <vim/version.rst#vimversionversion5>`_ ):
        Should only be set when vmSearch is true. If specified, search for virtual machines whose instance UUID matches the given uuid. Otherwise, search for virtual machines whose BIOS UUID matches the given uuid.
 
 
 
 
   Returns:
-    `vim.ManagedEntity`_:
+    `vim.ManagedEntity <vim/ManagedEntity.rst>`_:
          The virtual machine or host managed entity that is found. If no managed entities are found, null is returned. Only a single entity is returned, even if there are multiple matches.
 
 
@@ -83,28 +57,28 @@ FindByDatastorePath(datacenter, path):
 
 
   Args:
-    datacenter (`vim.Datacenter`_):
+    datacenter (`vim.Datacenter <vim/Datacenter.rst>`_):
        Specifies the datacenter to which the datastore path belongs.
 
 
-    path (`str`_):
+    path (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        A datastore path to the .vmx file for the virtual machine.
 
 
 
 
   Returns:
-    `vim.VirtualMachine`_:
+    `vim.VirtualMachine <vim/VirtualMachine.rst>`_:
          The virtual machine that is found. If no virtual machine is found, null is returned. Only a single entity is returned, even if there are multiple matches.
 
   Raises:
 
-    `vim.fault.InvalidDatastore`_: 
+    `vim.fault.InvalidDatastore <vim/fault/InvalidDatastore.rst>`_: 
        if a datastore has not been specified in the path or if the specified datastore does not exist on the specified datacenter.
 
 
 FindByDnsName(datacenter, dnsName, vmSearch):
-   Finds a virtual machine or host by DNS name. The DNS name for a virtual machine is the one returned from VMware tools, `hostName`_ .
+   Finds a virtual machine or host by DNS name. The DNS name for a virtual machine is the one returned from VMware tools, `hostName <vim/vm/GuestInfo.rst#hostName>`_ .
 
 
   Privilege:
@@ -113,27 +87,27 @@ FindByDnsName(datacenter, dnsName, vmSearch):
 
 
   Args:
-    datacenter (`vim.Datacenter`_, optional):
+    datacenter (`vim.Datacenter <vim/Datacenter.rst>`_, optional):
        If specified, restricts the query to entities in a particular datacenter. If not specified, the entire inventory is searched.
 
 
-    dnsName (`str`_):
+    dnsName (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        The fully qualified domain name to find.
 
 
-    vmSearch (`bool`_):
+    vmSearch (`bool <https://docs.python.org/2/library/stdtypes.html>`_):
        if true, search for virtual machines, otherwise search for hosts.
 
 
 
 
   Returns:
-    `vim.ManagedEntity`_:
+    `vim.ManagedEntity <vim/ManagedEntity.rst>`_:
          The virtual machine or host managed entity that is found. If no managed entities are found, null is returned. Only a single entity is returned, even if there are multiple matches.
 
 
 FindByIp(datacenter, ip, vmSearch):
-   Finds a virtual machine or host by IP address, where the IP address is in dot-decimal notation. For example, 10.17.12.12. The IP address for a virtual machine is the one returned from VMware tools, `ipAddress`_ .
+   Finds a virtual machine or host by IP address, where the IP address is in dot-decimal notation. For example, 10.17.12.12. The IP address for a virtual machine is the one returned from VMware tools, `ipAddress <vim/vm/GuestInfo.rst#ipAddress>`_ .
 
 
   Privilege:
@@ -142,22 +116,22 @@ FindByIp(datacenter, ip, vmSearch):
 
 
   Args:
-    datacenter (`vim.Datacenter`_, optional):
+    datacenter (`vim.Datacenter <vim/Datacenter.rst>`_, optional):
        If specified, restricts the query to entities in a particular datacenter. If not specified, the entire inventory is searched.
 
 
-    ip (`str`_):
+    ip (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        The dot-decimal notation formatted IP address to find.
 
 
-    vmSearch (`bool`_):
+    vmSearch (`bool <https://docs.python.org/2/library/stdtypes.html>`_):
        if true, search for virtual machines, otherwise search for hosts.
 
 
 
 
   Returns:
-    `vim.ManagedEntity`_:
+    `vim.ManagedEntity <vim/ManagedEntity.rst>`_:
          The virtual machine or host managed entity that is found. If no managed entities are found, null is returned. Only a single entity is returned, even if there are multiple matches. If called directly on an ESX server with vmSearch set to false, returns the host managed entity if the address matches any of the Console OS IP addresses.
 
 
@@ -171,19 +145,19 @@ FindByInventoryPath(inventoryPath):
 
 
   Args:
-    inventoryPath (`str`_):
+    inventoryPath (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        The path to the entity.
 
 
 
 
   Returns:
-    `vim.ManagedEntity`_:
+    `vim.ManagedEntity <vim/ManagedEntity.rst>`_:
          The managed entity that is found. If no match is found, null is returned.
 
 
 FindChild(entity, name):
-   Finds a particular child based on a managed entity name. This only searches the immediate children of a managed entity. For a `Datacenter`_ , the host and vm folders are considered children. For a `ComputeResource`_ , the hosts and root `ResourcePool`_ are considered children.
+   Finds a particular child based on a managed entity name. This only searches the immediate children of a managed entity. For a `Datacenter <vim/Datacenter.rst>`_ , the host and vm folders are considered children. For a `ComputeResource <vim/ComputeResource.rst>`_ , the hosts and root `ResourcePool <vim/ResourcePool.rst>`_ are considered children.
 
 
   Privilege:
@@ -192,24 +166,24 @@ FindChild(entity, name):
 
 
   Args:
-    entity (`vim.ManagedEntity`_):
+    entity (`vim.ManagedEntity <vim/ManagedEntity.rst>`_):
        A reference to a managed entity.
 
 
-    name (`str`_):
+    name (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        The name of the child object.
 
 
 
 
   Returns:
-    `vim.ManagedEntity`_:
+    `vim.ManagedEntity <vim/ManagedEntity.rst>`_:
          The managed entity that is found, or null if no match is found.
 
 
 FindAllByUuid(datacenter, uuid, vmSearch, instanceUuid):
    Finds all virtual machines or hosts by UUID.
-  since: `vSphere API 4.0`_
+  since: `vSphere API 4.0 <vim/version.rst#vimversionversion5>`_
 
 
   Privilege:
@@ -218,32 +192,32 @@ FindAllByUuid(datacenter, uuid, vmSearch, instanceUuid):
 
 
   Args:
-    datacenter (`vim.Datacenter`_, optional):
+    datacenter (`vim.Datacenter <vim/Datacenter.rst>`_, optional):
        If specified, restricts the query to entities in a particular datacenter. If not specified, the entire inventory is searched.
 
 
-    uuid (`str`_):
+    uuid (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        The UUID to find. If vmSearch is true, the UUID can be either BIOS or instance UUID.
 
 
-    vmSearch (`bool`_):
+    vmSearch (`bool <https://docs.python.org/2/library/stdtypes.html>`_):
        If true, search for virtual machines, otherwise search for hosts.
 
 
-    instanceUuid (`bool`_, optional):
+    instanceUuid (`bool <https://docs.python.org/2/library/stdtypes.html>`_, optional):
        Should only be set when vmSearch is true. If specified, search for virtual machines whose instance UUID matches the given uuid. Otherwise, search for virtual machines whose BIOS UUID matches the given uuid.
 
 
 
 
   Returns:
-    [`vim.ManagedEntity`_]:
+    [`vim.ManagedEntity <vim/ManagedEntity.rst>`_]:
          The list of all virtual machines or hosts that are matching with the given UUID. If no managed entities are found, an empty list is returned. If there are multiple matches, all matching entities are returned.
 
 
 FindAllByDnsName(datacenter, dnsName, vmSearch):
-   Finds all virtual machines or hosts by DNS name. The DNS name for a virtual machine is the one returned from VMware tools, `hostName`_ .
-  since: `vSphere API 4.0`_
+   Finds all virtual machines or hosts by DNS name. The DNS name for a virtual machine is the one returned from VMware tools, `hostName <vim/vm/GuestInfo.rst#hostName>`_ .
+  since: `vSphere API 4.0 <vim/version.rst#vimversionversion5>`_
 
 
   Privilege:
@@ -252,28 +226,28 @@ FindAllByDnsName(datacenter, dnsName, vmSearch):
 
 
   Args:
-    datacenter (`vim.Datacenter`_, optional):
+    datacenter (`vim.Datacenter <vim/Datacenter.rst>`_, optional):
        If specified, restricts the query to entities in a particular datacenter. If not specified, the entire inventory is searched.
 
 
-    dnsName (`str`_):
+    dnsName (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        The fully qualified domain name to find.
 
 
-    vmSearch (`bool`_):
+    vmSearch (`bool <https://docs.python.org/2/library/stdtypes.html>`_):
        If true, search for virtual machines, otherwise search for hosts.
 
 
 
 
   Returns:
-    [`vim.ManagedEntity`_]:
+    [`vim.ManagedEntity <vim/ManagedEntity.rst>`_]:
          The list of all virtual machines or hosts that are found. If no managed entities are found, an empty list is returned. If there are multiple matches, all matching entities are returned.
 
 
 FindAllByIp(datacenter, ip, vmSearch):
-   Finds all virtual machines or hosts by IP address, where the IP address is in dot-decimal notation. For example, 10.17.12.12. The IP address for a virtual machine is the one returned from VMware tools, `ipAddress`_ .
-  since: `vSphere API 4.0`_
+   Finds all virtual machines or hosts by IP address, where the IP address is in dot-decimal notation. For example, 10.17.12.12. The IP address for a virtual machine is the one returned from VMware tools, `ipAddress <vim/vm/GuestInfo.rst#ipAddress>`_ .
+  since: `vSphere API 4.0 <vim/version.rst#vimversionversion5>`_
 
 
   Privilege:
@@ -282,22 +256,22 @@ FindAllByIp(datacenter, ip, vmSearch):
 
 
   Args:
-    datacenter (`vim.Datacenter`_, optional):
+    datacenter (`vim.Datacenter <vim/Datacenter.rst>`_, optional):
        If specified, restricts the query to entities in a particular datacenter. If not specified, the entire inventory is searched.
 
 
-    ip (`str`_):
+    ip (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        The dot-decimal notation formatted IP address to find.
 
 
-    vmSearch (`bool`_):
+    vmSearch (`bool <https://docs.python.org/2/library/stdtypes.html>`_):
        If true, search for virtual machines, otherwise search for hosts.
 
 
 
 
   Returns:
-    [`vim.ManagedEntity`_]:
+    [`vim.ManagedEntity <vim/ManagedEntity.rst>`_]:
          The list of all virtual machines or hosts that are found. If no managed entities are found, an empty list is returned. If there are multiple matches, all matching entities are returned.
 
 

@@ -1,21 +1,17 @@
-.. _long: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.fault.InsufficientResourcesFault: ../../vim/fault/InsufficientResourcesFault.rst
-
 
 vim.fault.InsufficientCpuResourcesFault
 =======================================
     :extends:
 
-        `vim.fault.InsufficientResourcesFault`_
+        `vim.fault.InsufficientResourcesFault <vim/fault/InsufficientResourcesFault.rst>`_
 
   CPU resources admission control failed
 
 Attributes:
 
-    unreserved (`long`_)
+    unreserved (`long <https://docs.python.org/2/library/stdtypes.html>`_)
 
-    requested (`long`_)
+    requested (`long <https://docs.python.org/2/library/stdtypes.html>`_)
 
 
 

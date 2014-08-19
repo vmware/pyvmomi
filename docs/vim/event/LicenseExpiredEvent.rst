@@ -1,7 +1,3 @@
-.. _vim.event.Event: ../../vim/event/Event.rst
-
-.. _vim.LicenseManager.FeatureInfo: ../../vim/LicenseManager/FeatureInfo.rst
-
 
 vim.event.LicenseExpiredEvent
 =============================
@@ -9,5 +5,5 @@ vim.event.LicenseExpiredEvent
 :extends: vim.event.Event_
 
 Attributes:
-    feature (`vim.LicenseManager.FeatureInfo`_):
+    feature (`vim.LicenseManager.FeatureInfo <vim/LicenseManager/FeatureInfo.rst>`_):
 

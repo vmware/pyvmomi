@@ -1,13 +1,9 @@
-.. _vim.vm.GuestOsDescriptor: ../../../vim/vm/GuestOsDescriptor.rst
-
-.. _vim.vm.GuestOsDescriptor.GuestOsIdentifier: ../../../vim/vm/GuestOsDescriptor/GuestOsIdentifier.rst
-
 vim.vm.GuestOsDescriptor.GuestOsIdentifier
 ==========================================
   Guest operating system identifier.
-  :contained by: `vim.vm.GuestOsDescriptor`_
+  :contained by: `vim.vm.GuestOsDescriptor <vim/vm/GuestOsDescriptor.rst>`_
 
-  :type: `vim.vm.GuestOsDescriptor.GuestOsIdentifier`_
+  :type: `vim.vm.GuestOsDescriptor.GuestOsIdentifier <vim/vm/GuestOsDescriptor/GuestOsIdentifier.rst>`_
 
   :name: otherGuest64
 

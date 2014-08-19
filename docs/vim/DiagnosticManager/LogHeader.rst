@@ -1,9 +1,3 @@
-.. _int: https://docs.python.org/2/library/stdtypes.html
-
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vmodl.DynamicData: ../../vmodl/DynamicData.rst
-
 
 vim.DiagnosticManager.LogHeader
 ===============================
@@ -11,12 +5,12 @@ vim.DiagnosticManager.LogHeader
 :extends: vmodl.DynamicData_
 
 Attributes:
-    lineStart (`int`_):
+    lineStart (`int <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The first line of this log segment.
-    lineEnd (`int`_):
+    lineEnd (`int <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The last line of this log segment.
-    lineText ([`str`_], optional):
+    lineText ([`str <https://docs.python.org/2/library/stdtypes.html>`_], optional):
 
        Log entries, listed by line, for this log segment.

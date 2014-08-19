@@ -1,13 +1,9 @@
-.. _vim.host.PatchManager.Status: ../../../../vim/host/PatchManager/Status.rst
-
-.. _vim.host.PatchManager.Status.InstallState: ../../../../vim/host/PatchManager/Status/InstallState.rst
-
 vim.host.PatchManager.Status.InstallState
 =========================================
   The installation state if the update is installed on the server.
-  :contained by: `vim.host.PatchManager.Status`_
+  :contained by: `vim.host.PatchManager.Status <vim/host/PatchManager/Status.rst>`_
 
-  :type: `vim.host.PatchManager.Status.InstallState`_
+  :type: `vim.host.PatchManager.Status.InstallState <vim/host/PatchManager/Status/InstallState.rst>`_
 
   :name: imageActive
 

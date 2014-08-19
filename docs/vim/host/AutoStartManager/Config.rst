@@ -1,9 +1,3 @@
-.. _vmodl.DynamicData: ../../../vmodl/DynamicData.rst
-
-.. _vim.host.AutoStartManager.AutoPowerInfo: ../../../vim/host/AutoStartManager/AutoPowerInfo.rst
-
-.. _vim.host.AutoStartManager.SystemDefaults: ../../../vim/host/AutoStartManager/SystemDefaults.rst
-
 
 vim.host.AutoStartManager.Config
 ================================
@@ -11,9 +5,9 @@ vim.host.AutoStartManager.Config
 :extends: vmodl.DynamicData_
 
 Attributes:
-    defaults (`vim.host.AutoStartManager.SystemDefaults`_, optional):
+    defaults (`vim.host.AutoStartManager.SystemDefaults <vim/host/AutoStartManager/SystemDefaults.rst>`_, optional):
 
        System defaults for auto-start/auto-stop.
-    powerInfo ([`vim.host.AutoStartManager.AutoPowerInfo`_], optional):
+    powerInfo ([`vim.host.AutoStartManager.AutoPowerInfo <vim/host/AutoStartManager/AutoPowerInfo.rst>`_], optional):
 
        Lists the auto-start/auto-stop configuration. If a virtual machine is not mentioned in this array, it does not participate in auto-start/auto-stop operations.

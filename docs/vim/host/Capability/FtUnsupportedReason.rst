@@ -1,15 +1,9 @@
-.. _vim.host.Capability: ../../../vim/host/Capability.rst
-
-.. _ftCompatibilityIssues: ../../../vim/host/Capability.rst#ftCompatibilityIssues
-
-.. _vim.host.Capability.FtUnsupportedReason: ../../../vim/host/Capability/FtUnsupportedReason.rst
-
 vim.host.Capability.FtUnsupportedReason
 =======================================
-  Set of possible values for `ftCompatibilityIssues`_ 
-  :contained by: `vim.host.Capability`_
+  Set of possible values for `ftCompatibilityIssues <vim/host/Capability.rst#ftCompatibilityIssues>`_ 
+  :contained by: `vim.host.Capability <vim/host/Capability.rst>`_
 
-  :type: `vim.host.Capability.FtUnsupportedReason`_
+  :type: `vim.host.Capability.FtUnsupportedReason <vim/host/Capability/FtUnsupportedReason.rst>`_
 
   :name: haAgentIssue
 

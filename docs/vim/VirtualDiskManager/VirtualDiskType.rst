@@ -1,13 +1,9 @@
-.. _vim.VirtualDiskManager: ../../vim/VirtualDiskManager.rst
-
-.. _vim.VirtualDiskManager.VirtualDiskType: ../../vim/VirtualDiskManager/VirtualDiskType.rst
-
 vim.VirtualDiskManager.VirtualDiskType
 ======================================
   The types of virtual disks that can be created or cloned.
-  :contained by: `vim.VirtualDiskManager`_
+  :contained by: `vim.VirtualDiskManager <vim/VirtualDiskManager.rst>`_
 
-  :type: `vim.VirtualDiskManager.VirtualDiskType`_
+  :type: `vim.VirtualDiskManager.VirtualDiskType <vim/VirtualDiskManager/VirtualDiskType.rst>`_
 
   :name: thick
 

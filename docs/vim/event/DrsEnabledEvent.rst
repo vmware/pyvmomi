@@ -1,9 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _DrsBehavior: ../../vim/cluster/DrsConfigInfo/DrsBehavior.rst
-
-.. _vim.event.ClusterEvent: ../../vim/event/ClusterEvent.rst
-
 
 vim.event.DrsEnabledEvent
 =========================
@@ -11,6 +5,6 @@ vim.event.DrsEnabledEvent
 :extends: vim.event.ClusterEvent_
 
 Attributes:
-    behavior (`str`_):
+    behavior (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
-       The DRS automation level in ( `DrsBehavior`_ )
+       The DRS automation level in ( `DrsBehavior <vim/cluster/DrsConfigInfo/DrsBehavior.rst>`_ )

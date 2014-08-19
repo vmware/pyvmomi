@@ -1,9 +1,3 @@
-.. _vmodl.DynamicData: ../../vmodl/DynamicData.rst
-
-.. _vim.ManagedEntity.Status: ../../vim/ManagedEntity/Status.rst
-
-.. _vim.ResourcePool.ResourceUsage: ../../vim/ResourcePool/ResourceUsage.rst
-
 
 vim.ResourcePool.RuntimeInfo
 ============================
@@ -11,12 +5,12 @@ vim.ResourcePool.RuntimeInfo
 :extends: vmodl.DynamicData_
 
 Attributes:
-    memory (`vim.ResourcePool.ResourceUsage`_):
+    memory (`vim.ResourcePool.ResourceUsage <vim/ResourcePool/ResourceUsage.rst>`_):
 
        Runtime resource usage for memory. Values are in bytes.
-    cpu (`vim.ResourcePool.ResourceUsage`_):
+    cpu (`vim.ResourcePool.ResourceUsage <vim/ResourcePool/ResourceUsage.rst>`_):
 
        Runtime resource usage for CPU. Values are in Mhz.
-    overallStatus (`vim.ManagedEntity.Status`_):
+    overallStatus (`vim.ManagedEntity.Status <vim/ManagedEntity/Status.rst>`_):
 
        Overall health of the tree. See header for description of various statuses and when they are set

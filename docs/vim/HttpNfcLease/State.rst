@@ -1,13 +1,9 @@
-.. _vim.HttpNfcLease: ../../vim/HttpNfcLease.rst
-
-.. _vim.HttpNfcLease.State: ../../vim/HttpNfcLease/State.rst
-
 vim.HttpNfcLease.State
 ======================
   List of possible states of a lease.
-  :contained by: `vim.HttpNfcLease`_
+  :contained by: `vim.HttpNfcLease <vim/HttpNfcLease.rst>`_
 
-  :type: `vim.HttpNfcLease.State`_
+  :type: `vim.HttpNfcLease.State <vim/HttpNfcLease/State.rst>`_
 
   :name: error
 

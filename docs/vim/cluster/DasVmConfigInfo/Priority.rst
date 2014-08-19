@@ -1,13 +1,9 @@
-.. _vim.cluster.DasVmConfigInfo: ../../../vim/cluster/DasVmConfigInfo.rst
-
-.. _vim.cluster.DasVmConfigInfo.Priority: ../../../vim/cluster/DasVmConfigInfo/Priority.rst
-
 vim.cluster.DasVmConfigInfo.Priority
 ====================================
   The priority of the virtual machine determines the preference given to it if sufficient capacity is not available to power on all failed virtual machines. For example, high priority virtual machines on a host get preference over low priority virtual machines.
-  :contained by: `vim.cluster.DasVmConfigInfo`_
+  :contained by: `vim.cluster.DasVmConfigInfo <vim/cluster/DasVmConfigInfo.rst>`_
 
-  :type: `vim.cluster.DasVmConfigInfo.Priority`_
+  :type: `vim.cluster.DasVmConfigInfo.Priority <vim/cluster/DasVmConfigInfo/Priority.rst>`_
 
   :name: high
 

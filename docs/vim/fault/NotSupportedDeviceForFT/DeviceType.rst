@@ -1,12 +1,8 @@
-.. _vim.fault.NotSupportedDeviceForFT: ../../../vim/fault/NotSupportedDeviceForFT.rst
-
-.. _vim.fault.NotSupportedDeviceForFT.DeviceType: ../../../vim/fault/NotSupportedDeviceForFT/DeviceType.rst
-
 vim.fault.NotSupportedDeviceForFT.DeviceType
 ============================================
-  :contained by: `vim.fault.NotSupportedDeviceForFT`_
+  :contained by: `vim.fault.NotSupportedDeviceForFT <vim/fault/NotSupportedDeviceForFT.rst>`_
 
-  :type: `vim.fault.NotSupportedDeviceForFT.DeviceType`_
+  :type: `vim.fault.NotSupportedDeviceForFT.DeviceType <vim/fault/NotSupportedDeviceForFT/DeviceType.rst>`_
 
   :name: paraVirtualSCSIController
 

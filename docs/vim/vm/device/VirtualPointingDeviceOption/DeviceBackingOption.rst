@@ -1,7 +1,3 @@
-.. _vim.option.ChoiceOption: ../../../../vim/option/ChoiceOption.rst
-
-.. _vim.vm.device.VirtualDeviceOption.DeviceBackingOption: ../../../../vim/vm/device/VirtualDeviceOption/DeviceBackingOption.rst
-
 
 vim.vm.device.VirtualPointingDeviceOption.DeviceBackingOption
 =============================================================
@@ -9,7 +5,7 @@ vim.vm.device.VirtualPointingDeviceOption.DeviceBackingOption
 :extends: vim.vm.device.VirtualDeviceOption.DeviceBackingOption_
 
 Attributes:
-    hostPointingDevice (`vim.option.ChoiceOption`_):
+    hostPointingDevice (`vim.option.ChoiceOption <vim/option/ChoiceOption.rst>`_):
 
        This object defines the supported mouse types, including the default supported mouse type, with the following properties:
         * hostPointingDevices.value

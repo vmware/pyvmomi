@@ -1,5 +1,3 @@
-.. _vim.vm.customization.Options: ../../../vim/vm/customization/Options.rst
-
 
 vim.vm.customization.LinuxOptions
 =================================

@@ -1,9 +1,3 @@
-.. _int: https://docs.python.org/2/library/stdtypes.html
-
-.. _bool: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.UserSearchResult: ../vim/UserSearchResult.rst
-
 
 vim.PosixUserSearchResult
 =========================
@@ -11,9 +5,9 @@ vim.PosixUserSearchResult
 :extends: vim.UserSearchResult_
 
 Attributes:
-    id (`int`_):
+    id (`int <https://docs.python.org/2/library/stdtypes.html>`_):
 
        If the search result is for a user, then id refers to User ID. For a group, the value of Group ID is assigned to id.
-    shellAccess (`bool`_, optional):
+    shellAccess (`bool <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        If the search result is for a user, shellAccess indicates whether shell access has been granted or not.

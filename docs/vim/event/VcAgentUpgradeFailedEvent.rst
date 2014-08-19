@@ -1,9 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.event.HostEvent: ../../vim/event/HostEvent.rst
-
-.. _AgentInstallFailedReason: ../../vim/fault/AgentInstallFailed/Reason.rst
-
 
 vim.event.VcAgentUpgradeFailedEvent
 ===================================
@@ -11,6 +5,6 @@ vim.event.VcAgentUpgradeFailedEvent
 :extends: vim.event.HostEvent_
 
 Attributes:
-    reason (`str`_, optional):
+    reason (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
-       The reason why the upgrade failed, if known. See `AgentInstallFailedReason`_ 
+       The reason why the upgrade failed, if known. See `AgentInstallFailedReason <vim/fault/AgentInstallFailed/Reason.rst>`_ 

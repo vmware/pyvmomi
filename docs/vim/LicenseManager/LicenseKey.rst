@@ -1,13 +1,9 @@
-.. _vim.LicenseManager: ../../vim/LicenseManager.rst
-
-.. _vim.LicenseManager.LicenseKey: ../../vim/LicenseManager/LicenseKey.rst
-
 vim.LicenseManager.LicenseKey
 =============================
   Licensed features have unique keys to identify them.
-  :contained by: `vim.LicenseManager`_
+  :contained by: `vim.LicenseManager <vim/LicenseManager.rst>`_
 
-  :type: `vim.LicenseManager.LicenseKey`_
+  :type: `vim.LicenseManager.LicenseKey <vim/LicenseManager/LicenseKey.rst>`_
 
   :name: das
 

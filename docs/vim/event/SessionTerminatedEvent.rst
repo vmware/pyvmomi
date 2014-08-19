@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.event.SessionEvent: ../../vim/event/SessionEvent.rst
-
 
 vim.event.SessionTerminatedEvent
 ================================
@@ -9,9 +5,9 @@ vim.event.SessionTerminatedEvent
 :extends: vim.event.SessionEvent_
 
 Attributes:
-    sessionId (`str`_):
+    sessionId (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The unique identifier of the terminated session.
-    terminatedUsername (`str`_):
+    terminatedUsername (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The name of the user owning the terminated session.

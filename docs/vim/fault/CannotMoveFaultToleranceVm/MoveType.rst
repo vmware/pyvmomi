@@ -1,12 +1,8 @@
-.. _vim.fault.CannotMoveFaultToleranceVm: ../../../vim/fault/CannotMoveFaultToleranceVm.rst
-
-.. _vim.fault.CannotMoveFaultToleranceVm.MoveType: ../../../vim/fault/CannotMoveFaultToleranceVm/MoveType.rst
-
 vim.fault.CannotMoveFaultToleranceVm.MoveType
 =============================================
-  :contained by: `vim.fault.CannotMoveFaultToleranceVm`_
+  :contained by: `vim.fault.CannotMoveFaultToleranceVm <vim/fault/CannotMoveFaultToleranceVm.rst>`_
 
-  :type: `vim.fault.CannotMoveFaultToleranceVm.MoveType`_
+  :type: `vim.fault.CannotMoveFaultToleranceVm.MoveType <vim/fault/CannotMoveFaultToleranceVm/MoveType.rst>`_
 
   :name: cluster
 

@@ -1,9 +1,3 @@
-.. _vim.host.IpConfig: ../../../vim/host/IpConfig.rst
-
-.. _vmodl.DynamicData: ../../../vmodl/DynamicData.rst
-
-.. _vim.host.PhysicalNic.LinkSpeedDuplex: ../../../vim/host/PhysicalNic/LinkSpeedDuplex.rst
-
 
 vim.host.PhysicalNic.Specification
 ==================================
@@ -11,9 +5,9 @@ vim.host.PhysicalNic.Specification
 :extends: vmodl.DynamicData_
 
 Attributes:
-    ip (`vim.host.IpConfig`_, optional):
+    ip (`vim.host.IpConfig <vim/host/IpConfig.rst>`_, optional):
 
        The IP configuration on the physical network adapter (applies only to a hosted network adapter). The data object will be NULL on an ESX Server system.
-    linkSpeed (`vim.host.PhysicalNic.LinkSpeedDuplex`_, optional):
+    linkSpeed (`vim.host.PhysicalNic.LinkSpeedDuplex <vim/host/PhysicalNic/LinkSpeedDuplex.rst>`_, optional):
 
        The link speed and duplexity that this physical network adapter is currently configured to use. If this property is not set, the physical network adapter autonegotiates its proper settings.

@@ -1,24 +1,18 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _string: ../../str
-
-.. _vim.fault.OvfSystemFault: ../../vim/fault/OvfSystemFault.rst
-
 
 vim.fault.OvfUnknownDevice
 ==========================
     :extends:
 
-        `vim.fault.OvfSystemFault`_
+        `vim.fault.OvfSystemFault <vim/fault/OvfSystemFault.rst>`_
 
 
 
 
 Attributes:
 
-    device (`str`_): is optional.
+    device (`str <https://docs.python.org/2/library/stdtypes.html>`_): is optional.
 
-    vmName (`str`_)
+    vmName (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
 
 

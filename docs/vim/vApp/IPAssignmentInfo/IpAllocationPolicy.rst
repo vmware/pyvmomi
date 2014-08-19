@@ -1,13 +1,9 @@
-.. _vim.vApp.IPAssignmentInfo: ../../../vim/vApp/IPAssignmentInfo.rst
-
-.. _vim.vApp.IPAssignmentInfo.IpAllocationPolicy: ../../../vim/vApp/IPAssignmentInfo/IpAllocationPolicy.rst
-
 vim.vApp.IPAssignmentInfo.IpAllocationPolicy
 ============================================
   IP allocation policy for a deployment.
-  :contained by: `vim.vApp.IPAssignmentInfo`_
+  :contained by: `vim.vApp.IPAssignmentInfo <vim/vApp/IPAssignmentInfo.rst>`_
 
-  :type: `vim.vApp.IPAssignmentInfo.IpAllocationPolicy`_
+  :type: `vim.vApp.IPAssignmentInfo.IpAllocationPolicy <vim/vApp/IPAssignmentInfo/IpAllocationPolicy.rst>`_
 
   :name: fixedAllocatedPolicy
 

@@ -1,13 +1,9 @@
-.. _vim.vm.device.VirtualDeviceSpec: ../../../../vim/vm/device/VirtualDeviceSpec.rst
-
-.. _vim.vm.device.VirtualDeviceSpec.FileOperation: ../../../../vim/vm/device/VirtualDeviceSpec/FileOperation.rst
-
 vim.vm.device.VirtualDeviceSpec.FileOperation
 =============================================
   The type of operation being performed on the backing of a virtual device. Valid values are:
-  :contained by: `vim.vm.device.VirtualDeviceSpec`_
+  :contained by: `vim.vm.device.VirtualDeviceSpec <vim/vm/device/VirtualDeviceSpec.rst>`_
 
-  :type: `vim.vm.device.VirtualDeviceSpec.FileOperation`_
+  :type: `vim.vm.device.VirtualDeviceSpec.FileOperation <vim/vm/device/VirtualDeviceSpec/FileOperation.rst>`_
 
   :name: replace
 

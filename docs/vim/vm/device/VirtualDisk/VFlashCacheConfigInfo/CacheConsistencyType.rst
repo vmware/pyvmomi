@@ -1,13 +1,9 @@
-.. _vim.vm.device.VirtualDisk.VFlashCacheConfigInfo: ../../../../../vim/vm/device/VirtualDisk/VFlashCacheConfigInfo.rst
-
-.. _vim.vm.device.VirtualDisk.VFlashCacheConfigInfo.CacheConsistencyType: ../../../../../vim/vm/device/VirtualDisk/VFlashCacheConfigInfo/CacheConsistencyType.rst
-
 vim.vm.device.VirtualDisk.VFlashCacheConfigInfo.CacheConsistencyType
 ====================================================================
   Pre-defined constants for cache consistency types
-  :contained by: `vim.vm.device.VirtualDisk.VFlashCacheConfigInfo`_
+  :contained by: `vim.vm.device.VirtualDisk.VFlashCacheConfigInfo <vim/vm/device/VirtualDisk/VFlashCacheConfigInfo.rst>`_
 
-  :type: `vim.vm.device.VirtualDisk.VFlashCacheConfigInfo.CacheConsistencyType`_
+  :type: `vim.vm.device.VirtualDisk.VFlashCacheConfigInfo.CacheConsistencyType <vim/vm/device/VirtualDisk/VFlashCacheConfigInfo/CacheConsistencyType.rst>`_
 
   :name: weak
 

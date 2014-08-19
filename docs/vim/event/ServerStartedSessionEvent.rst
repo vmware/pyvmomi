@@ -1,5 +1,3 @@
-.. _vim.event.SessionEvent: ../../vim/event/SessionEvent.rst
-
 
 vim.event.ServerStartedSessionEvent
 ===================================

@@ -1,7 +1,3 @@
-.. _int: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.vm.device.VirtualDisk.RawDiskVer2BackingInfo: ../../../../vim/vm/device/VirtualDisk/RawDiskVer2BackingInfo.rst
-
 
 vim.vm.device.VirtualDisk.PartitionedRawDiskVer2BackingInfo
 ===========================================================
@@ -9,6 +5,6 @@ vim.vm.device.VirtualDisk.PartitionedRawDiskVer2BackingInfo
 :extends: vim.vm.device.VirtualDisk.RawDiskVer2BackingInfo_
 
 Attributes:
-    partition ([`int`_]):
+    partition ([`int <https://docs.python.org/2/library/stdtypes.html>`_]):
 
        Array of partition indexes. This array identifies the partitions that are used on the physical disk drive.

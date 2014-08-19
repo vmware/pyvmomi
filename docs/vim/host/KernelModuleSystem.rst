@@ -1,22 +1,10 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.Task: ../../vim/Task.rst
-
-.. _VI API 2.5u2: ../../vim/version.rst#vimversionversion3
-
-.. _vSphere API 4.0: ../../vim/version.rst#vimversionversion5
-
-.. _vim.fault.NotFound: ../../vim/fault/NotFound.rst
-
-.. _vim.host.KernelModuleSystem.ModuleInfo: ../../vim/host/KernelModuleSystem/ModuleInfo.rst
-
 
 vim.host.KernelModuleSystem
 ===========================
   The KernelModuleSystem managed object controls the configuration of kernel modules on the host.
 
 
-:since: `VI API 2.5u2`_
+:since: `VI API 2.5u2 <vim/version.rst#vimversionversion3>`_
 
 
 Attributes
@@ -29,7 +17,7 @@ Methods
 
 QueryModules():
    Query the set of modules on the host.
-  since: `vSphere API 4.0`_
+  since: `vSphere API 4.0 <vim/version.rst#vimversionversion5>`_
 
 
   Privilege:
@@ -41,7 +29,7 @@ QueryModules():
 
 
   Returns:
-    [`vim.host.KernelModuleSystem.ModuleInfo`_]:
+    [`vim.host.KernelModuleSystem.ModuleInfo <vim/host/KernelModuleSystem/ModuleInfo.rst>`_]:
          
 
 
@@ -55,11 +43,11 @@ UpdateModuleOptionString(name, options):
 
 
   Args:
-    name (`str`_):
+    name (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        Module name.
 
 
-    options (`str`_):
+    options (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        Option string to be passed to the kernel module at load time.
 
 
@@ -71,7 +59,7 @@ UpdateModuleOptionString(name, options):
 
   Raises:
 
-    `vim.fault.NotFound`_: 
+    `vim.fault.NotFound <vim/fault/NotFound.rst>`_: 
        if the kernel module does not exist on the host.
 
 
@@ -85,19 +73,19 @@ QueryConfiguredModuleOptionString(name):
 
 
   Args:
-    name (`str`_):
+    name (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        Module name.
 
 
 
 
   Returns:
-    `str`_:
+    `str <https://docs.python.org/2/library/stdtypes.html>`_:
          Option string to be passed to the kernel module at load time.
 
   Raises:
 
-    `vim.fault.NotFound`_: 
+    `vim.fault.NotFound <vim/fault/NotFound.rst>`_: 
        if the kernel module does not exist on the host.
 
 

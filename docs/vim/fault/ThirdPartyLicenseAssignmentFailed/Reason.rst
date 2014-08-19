@@ -1,12 +1,8 @@
-.. _vim.fault.ThirdPartyLicenseAssignmentFailed: ../../../vim/fault/ThirdPartyLicenseAssignmentFailed.rst
-
-.. _vim.fault.ThirdPartyLicenseAssignmentFailed.Reason: ../../../vim/fault/ThirdPartyLicenseAssignmentFailed/Reason.rst
-
 vim.fault.ThirdPartyLicenseAssignmentFailed.Reason
 ==================================================
-  :contained by: `vim.fault.ThirdPartyLicenseAssignmentFailed`_
+  :contained by: `vim.fault.ThirdPartyLicenseAssignmentFailed <vim/fault/ThirdPartyLicenseAssignmentFailed.rst>`_
 
-  :type: `vim.fault.ThirdPartyLicenseAssignmentFailed.Reason`_
+  :type: `vim.fault.ThirdPartyLicenseAssignmentFailed.Reason <vim/fault/ThirdPartyLicenseAssignmentFailed/Reason.rst>`_
 
   :name: moduleNotInstalled
 

@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.event.Event: ../../vim/event/Event.rst
-
 
 vim.event.GeneralEvent
 ======================
@@ -9,6 +5,6 @@ vim.event.GeneralEvent
 :extends: vim.event.Event_
 
 Attributes:
-    message (`str`_):
+    message (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        A short form of the message string, not localized.

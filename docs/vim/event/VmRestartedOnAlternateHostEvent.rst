@@ -1,7 +1,3 @@
-.. _vim.event.VmPoweredOnEvent: ../../vim/event/VmPoweredOnEvent.rst
-
-.. _vim.event.HostEventArgument: ../../vim/event/HostEventArgument.rst
-
 
 vim.event.VmRestartedOnAlternateHostEvent
 =========================================
@@ -11,6 +7,6 @@ vim.event.VmRestartedOnAlternateHostEvent
 
 
 Attributes:
-    sourceHost (`vim.event.HostEventArgument`_):
+    sourceHost (`vim.event.HostEventArgument <vim/event/HostEventArgument.rst>`_):
 
        The host that failed.

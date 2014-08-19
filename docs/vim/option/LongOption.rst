@@ -1,7 +1,3 @@
-.. _long: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.option.OptionType: ../../vim/option/OptionType.rst
-
 
 vim.option.LongOption
 =====================
@@ -9,12 +5,12 @@ vim.option.LongOption
 :extends: vim.option.OptionType_
 
 Attributes:
-    min (`long`_):
+    min (`long <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The minimum value.
-    max (`long`_):
+    max (`long <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The maximum value.
-    defaultValue (`long`_):
+    defaultValue (`long <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The default value.

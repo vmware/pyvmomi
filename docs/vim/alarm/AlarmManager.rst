@@ -1,31 +1,3 @@
-.. _bool: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.Task: ../../vim/Task.rst
-
-.. _vSphere API 4.0: ../../vim/version.rst#vimversionversion5
-
-.. _vim.alarm.Alarm: ../../vim/alarm/Alarm.rst
-
-.. _vim.ManagedEntity: ../../vim/ManagedEntity.rst
-
-.. _vim.alarm.AlarmSpec: ../../vim/alarm/AlarmSpec.rst
-
-.. _vim.alarm.AlarmState: ../../vim/alarm/AlarmState.rst
-
-.. _vim.fault.InvalidName: ../../vim/fault/InvalidName.rst
-
-.. _vim.fault.DuplicateName: ../../vim/fault/DuplicateName.rst
-
-.. _vim.alarm.AlarmExpression: ../../vim/alarm/AlarmExpression.rst
-
-.. _vmodl.fault.InvalidRequest: ../../vmodl/fault/InvalidRequest.rst
-
-.. _vim.alarm.AlarmDescription: ../../vim/alarm/AlarmDescription.rst
-
-.. _vmodl.fault.InvalidArgument: ../../vmodl/fault/InvalidArgument.rst
-
-.. _vmodl.fault.ManagedObjectNotFound: ../../vmodl/fault/ManagedObjectNotFound.rst
-
 
 vim.alarm.AlarmManager
 ======================
@@ -36,10 +8,10 @@ vim.alarm.AlarmManager
 
 Attributes
 ----------
-    defaultExpression ([`vim.alarm.AlarmExpression`_]):
+    defaultExpression ([`vim.alarm.AlarmExpression <vim/alarm/AlarmExpression.rst>`_]):
       privilege: System.View
        The default setting for each alarm expression, used to populate the initial client wizard screen.
-    description (`vim.alarm.AlarmDescription`_):
+    description (`vim.alarm.AlarmDescription <vim/alarm/AlarmDescription.rst>`_):
       privilege: System.View
        The static descriptive strings used in alarms.
 
@@ -57,29 +29,29 @@ CreateAlarm(entity, spec):
 
 
   Args:
-    entity (`vim.ManagedEntity`_):
+    entity (`vim.ManagedEntity <vim/ManagedEntity.rst>`_):
        The entity with which the alarm is associated.
 
 
-    spec (`vim.alarm.AlarmSpec`_):
+    spec (`vim.alarm.AlarmSpec <vim/alarm/AlarmSpec.rst>`_):
        The specification for the new alarm.
 
 
 
 
   Returns:
-    `vim.alarm.Alarm`_:
+    `vim.alarm.Alarm <vim/alarm/Alarm.rst>`_:
          A reference to the Alarm object created by the operation.
 
   Raises:
 
-    `vim.fault.InvalidName`_: 
+    `vim.fault.InvalidName <vim/fault/InvalidName.rst>`_: 
        if the alarm name is empty or too long.
 
-    `vim.fault.DuplicateName`_: 
+    `vim.fault.DuplicateName <vim/fault/DuplicateName.rst>`_: 
        if an alarm with the name already exists.
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
        if the specification is invalid.
 
 
@@ -93,20 +65,20 @@ GetAlarm(entity):
 
 
   Args:
-    entity (`vim.ManagedEntity`_, optional):
+    entity (`vim.ManagedEntity <vim/ManagedEntity.rst>`_, optional):
        The entity. If not set, alarms are returned for all visible entities.
 
 
 
 
   Returns:
-    [`vim.alarm.Alarm`_]:
+    [`vim.alarm.Alarm <vim/alarm/Alarm.rst>`_]:
          A reference to the Alarm objects returned by the operation.
 
 
 AreAlarmActionsEnabled(entity):
    Returns true if alarm actions are enabled on the specified managed entity.
-  since: `vSphere API 4.0`_
+  since: `vSphere API 4.0 <vim/version.rst#vimversionversion5>`_
 
 
   Privilege:
@@ -114,20 +86,20 @@ AreAlarmActionsEnabled(entity):
 
 
   Args:
-    entity (`vim.ManagedEntity`_):
+    entity (`vim.ManagedEntity <vim/ManagedEntity.rst>`_):
        The managed entity to look up.
 
 
 
 
   Returns:
-    `bool`_:
+    `bool <https://docs.python.org/2/library/stdtypes.html>`_:
          
 
 
 EnableAlarmActions(entity, enabled):
    Enables or disables alarms on the specified managed entity.
-  since: `vSphere API 4.0`_
+  since: `vSphere API 4.0 <vim/version.rst#vimversionversion5>`_
 
 
   Privilege:
@@ -135,11 +107,11 @@ EnableAlarmActions(entity, enabled):
 
 
   Args:
-    entity (`vim.ManagedEntity`_):
+    entity (`vim.ManagedEntity <vim/ManagedEntity.rst>`_):
        The managed entity on which to set a schedule.
 
 
-    enabled (`bool`_):
+    enabled (`bool <https://docs.python.org/2/library/stdtypes.html>`_):
        true, if alarms are enabled during the schedule.
 
 
@@ -159,28 +131,28 @@ GetAlarmState(entity):
 
 
   Args:
-    entity (`vim.ManagedEntity`_):
+    entity (`vim.ManagedEntity <vim/ManagedEntity.rst>`_):
        The entity.
 
 
 
 
   Returns:
-    [`vim.alarm.AlarmState`_]:
+    [`vim.alarm.AlarmState <vim/alarm/AlarmState.rst>`_]:
          The state of instantiated alarms.
 
   Raises:
 
-    `vmodl.fault.InvalidRequest`_: 
+    `vmodl.fault.InvalidRequest <vmodl/fault/InvalidRequest.rst>`_: 
        if the referenced entity is null.
 
-    `vmodl.fault.ManagedObjectNotFound`_: 
+    `vmodl.fault.ManagedObjectNotFound <vmodl/fault/ManagedObjectNotFound.rst>`_: 
        if the referenced entity is invalid.
 
 
 AcknowledgeAlarm(alarm, entity):
    Acknowledge the alarm on a managed entity. The actions associated with the alarm will not fire until the alarm's next distinct occurrence; that is, until after the alarm has entered the green or gray states at least once. Calling this method on an acknowledged or non-triggered alarm.
-  since: `vSphere API 4.0`_
+  since: `vSphere API 4.0 <vim/version.rst#vimversionversion5>`_
 
 
   Privilege:
@@ -188,11 +160,11 @@ AcknowledgeAlarm(alarm, entity):
 
 
   Args:
-    alarm (`vim.alarm.Alarm`_):
+    alarm (`vim.alarm.Alarm <vim/alarm/Alarm.rst>`_):
        The Alarm to acknowledge.
 
 
-    entity (`vim.ManagedEntity`_):
+    entity (`vim.ManagedEntity <vim/ManagedEntity.rst>`_):
        The ManagedEntity for which to acknowledge the Alarm.
 
 
@@ -204,13 +176,13 @@ AcknowledgeAlarm(alarm, entity):
 
   Raises:
 
-    `vmodl.fault.InvalidRequest`_: 
+    `vmodl.fault.InvalidRequest <vmodl/fault/InvalidRequest.rst>`_: 
        if the referenced alarm/entity is null
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
        if the tuple doesn't exist.
 
-    `vmodl.fault.ManagedObjectNotFound`_: 
+    `vmodl.fault.ManagedObjectNotFound <vmodl/fault/ManagedObjectNotFound.rst>`_: 
        if the referenced alarm/entity is invalid.
 
 

@@ -1,5 +1,3 @@
-.. _vim.vm.device.VirtualDeviceOption: ../../../vim/vm/device/VirtualDeviceOption.rst
-
 
 vim.vm.device.VirtualKeyboardOption
 ===================================

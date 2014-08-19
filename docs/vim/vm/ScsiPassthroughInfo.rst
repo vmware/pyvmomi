@@ -1,9 +1,3 @@
-.. _int: https://docs.python.org/2/library/stdtypes.html
-
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.vm.TargetInfo: ../../vim/vm/TargetInfo.rst
-
 
 vim.vm.ScsiPassthroughInfo
 ==========================
@@ -11,12 +5,12 @@ vim.vm.ScsiPassthroughInfo
 :extends: vim.vm.TargetInfo_
 
 Attributes:
-    scsiClass (`str`_):
+    scsiClass (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The class of the generic SCSI device.
-    vendor (`str`_):
+    vendor (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The vendor name.
-    physicalUnitNumber (`int`_):
+    physicalUnitNumber (`int <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Unit number of the generic device on the physical host.

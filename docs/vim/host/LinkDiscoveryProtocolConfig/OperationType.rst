@@ -1,13 +1,9 @@
-.. _vim.host.LinkDiscoveryProtocolConfig: ../../../vim/host/LinkDiscoveryProtocolConfig.rst
-
-.. _vim.host.LinkDiscoveryProtocolConfig.OperationType: ../../../vim/host/LinkDiscoveryProtocolConfig/OperationType.rst
-
 vim.host.LinkDiscoveryProtocolConfig.OperationType
 ==================================================
   The Discovery Protocol operation.
-  :contained by: `vim.host.LinkDiscoveryProtocolConfig`_
+  :contained by: `vim.host.LinkDiscoveryProtocolConfig <vim/host/LinkDiscoveryProtocolConfig.rst>`_
 
-  :type: `vim.host.LinkDiscoveryProtocolConfig.OperationType`_
+  :type: `vim.host.LinkDiscoveryProtocolConfig.OperationType <vim/host/LinkDiscoveryProtocolConfig/OperationType.rst>`_
 
   :name: both
 

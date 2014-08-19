@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vmodl.DynamicData: ../../../vmodl/DynamicData.rst
-
 
 vim.host.LocalAccountManager.AccountSpecification
 =================================================
@@ -9,12 +5,12 @@ vim.host.LocalAccountManager.AccountSpecification
 :extends: vmodl.DynamicData_
 
 Attributes:
-    id (`str`_):
+    id (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The ID of the specified account.
-    password (`str`_, optional):
+    password (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        The password for a user or group.
-    description (`str`_, optional):
+    description (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        The description of the specified account.

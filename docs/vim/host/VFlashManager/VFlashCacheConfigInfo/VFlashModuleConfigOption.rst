@@ -1,48 +1,32 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _long: https://docs.python.org/2/library/stdtypes.html
-
-.. _vSphere API 5.5: ../../../../vim/version.rst#vimversionversion9
-
-.. _vmodl.DynamicData: ../../../../vmodl/DynamicData.rst
-
-.. _vim.option.LongOption: ../../../../vim/option/LongOption.rst
-
-.. _vim.option.ChoiceOption: ../../../../vim/option/ChoiceOption.rst
-
-.. _VirtualDiskVFlashCacheConfigInfoCacheMode: ../../../../vim/vm/device/VirtualDisk/VFlashCacheConfigInfo/CacheMode.rst
-
-.. _VirtualDiskVFlashCacheConfigInfoCacheConsistencyType: ../../../../vim/vm/device/VirtualDisk/VFlashCacheConfigInfo/CacheConsistencyType.rst
-
 
 vim.host.VFlashManager.VFlashCacheConfigInfo.VFlashModuleConfigOption
 =====================================================================
   
 :extends: vmodl.DynamicData_
-:since: `vSphere API 5.5`_
+:since: `vSphere API 5.5 <vim/version.rst#vimversionversion9>`_
 
 Attributes:
-    vFlashModule (`str`_):
+    vFlashModule (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Name of the vFlash module
-    vFlashModuleVersion (`str`_):
+    vFlashModuleVersion (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Version of the vFlash module
-    minSupportedModuleVersion (`str`_):
+    minSupportedModuleVersion (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Minimum supported version
-    cacheConsistencyType (`vim.option.ChoiceOption`_):
+    cacheConsistencyType (`vim.option.ChoiceOption <vim/option/ChoiceOption.rst>`_):
 
-       Cache data consistency types. See `VirtualDiskVFlashCacheConfigInfoCacheConsistencyType`_ 
-    cacheMode (`vim.option.ChoiceOption`_):
+       Cache data consistency types. See `VirtualDiskVFlashCacheConfigInfoCacheConsistencyType <vim/vm/device/VirtualDisk/VFlashCacheConfigInfo/CacheConsistencyType.rst>`_ 
+    cacheMode (`vim.option.ChoiceOption <vim/option/ChoiceOption.rst>`_):
 
-       Cache modes. See `VirtualDiskVFlashCacheConfigInfoCacheMode`_ 
-    blockSizeInKBOption (`vim.option.LongOption`_):
+       Cache modes. See `VirtualDiskVFlashCacheConfigInfoCacheMode <vim/vm/device/VirtualDisk/VFlashCacheConfigInfo/CacheMode.rst>`_ 
+    blockSizeInKBOption (`vim.option.LongOption <vim/option/LongOption.rst>`_):
 
        blockSizeInKBOption defines a range of virtual disk cache block size.
-    reservationInMBOption (`vim.option.LongOption`_):
+    reservationInMBOption (`vim.option.LongOption <vim/option/LongOption.rst>`_):
 
        reservationInMBOption defines a range of virtual disk cache size.
-    maxDiskSizeInKB (`long`_):
+    maxDiskSizeInKB (`long <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Maximal size of virtual disk supported in kilobytes.

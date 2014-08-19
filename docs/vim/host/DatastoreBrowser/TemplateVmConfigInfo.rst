@@ -1,5 +1,3 @@
-.. _vim.host.DatastoreBrowser.VmConfigInfo: ../../../vim/host/DatastoreBrowser/VmConfigInfo.rst
-
 
 vim.host.DatastoreBrowser.TemplateVmConfigInfo
 ==============================================

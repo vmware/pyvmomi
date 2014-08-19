@@ -1,13 +1,9 @@
-.. _vim.host.ImageConfigManager: ../../../vim/host/ImageConfigManager.rst
-
-.. _vim.host.ImageConfigManager.AcceptanceLevel: ../../../vim/host/ImageConfigManager/AcceptanceLevel.rst
-
 vim.host.ImageConfigManager.AcceptanceLevel
 ===========================================
   Acceptance level definitions
-  :contained by: `vim.host.ImageConfigManager`_
+  :contained by: `vim.host.ImageConfigManager <vim/host/ImageConfigManager.rst>`_
 
-  :type: `vim.host.ImageConfigManager.AcceptanceLevel`_
+  :type: `vim.host.ImageConfigManager.AcceptanceLevel <vim/host/ImageConfigManager/AcceptanceLevel.rst>`_
 
   :name: community
 

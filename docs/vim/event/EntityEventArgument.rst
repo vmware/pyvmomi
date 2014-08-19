@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.event.EventArgument: ../../vim/event/EventArgument.rst
-
 
 vim.event.EntityEventArgument
 =============================
@@ -9,6 +5,6 @@ vim.event.EntityEventArgument
 :extends: vim.event.EventArgument_
 
 Attributes:
-    name (`str`_):
+    name (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Name of the entity, including its full path from the root of the inventory.

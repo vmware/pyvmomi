@@ -1,27 +1,19 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _bool: https://docs.python.org/2/library/stdtypes.html
-
-.. _string: ../../str
-
-.. _vim.fault.MigrationFault: ../../vim/fault/MigrationFault.rst
-
 
 vim.fault.MigrationFeatureNotSupported
 ======================================
     :extends:
 
-        `vim.fault.MigrationFault`_
+        `vim.fault.MigrationFault <vim/fault/MigrationFault.rst>`_
 
   A migration operation that requires feature support on source and destination hosts is lacking support on the host.
 
 Attributes:
 
-    atSourceHost (`bool`_)
+    atSourceHost (`bool <https://docs.python.org/2/library/stdtypes.html>`_)
 
-    failedHostName (`str`_)
+    failedHostName (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
-    failedHost (`str`_)
+    failedHost (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
 
 

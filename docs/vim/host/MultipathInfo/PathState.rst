@@ -1,13 +1,9 @@
-.. _vim.host.MultipathInfo: ../../../vim/host/MultipathInfo.rst
-
-.. _vim.host.MultipathInfo.PathState: ../../../vim/host/MultipathInfo/PathState.rst
-
 vim.host.MultipathInfo.PathState
 ================================
   Set of constants defining the possible states of a multipath path.
-  :contained by: `vim.host.MultipathInfo`_
+  :contained by: `vim.host.MultipathInfo <vim/host/MultipathInfo.rst>`_
 
-  :type: `vim.host.MultipathInfo.PathState`_
+  :type: `vim.host.MultipathInfo.PathState <vim/host/MultipathInfo/PathState.rst>`_
 
   :name: unknown
 

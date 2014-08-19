@@ -1,31 +1,3 @@
-.. _int: https://docs.python.org/2/library/stdtypes.html
-
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _long: https://docs.python.org/2/library/stdtypes.html
-
-.. _bool: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.Task: ../vim/Task.rst
-
-.. _VI API 2.5: ../vim/version.rst#vimversionversion2
-
-.. _vim.Datacenter: ../vim/Datacenter.rst
-
-.. _vSphere API 4.0: ../vim/version.rst#vimversionversion5
-
-.. _vim.vm.ProfileSpec: ../vim/vm/ProfileSpec.rst
-
-.. _vim.fault.FileFault: ../vim/fault/FileFault.rst
-
-.. _vim.fault.InvalidDatastore: ../vim/fault/InvalidDatastore.rst
-
-.. _vim.fault.InvalidDiskFormat: ../vim/fault/InvalidDiskFormat.rst
-
-.. _vim.host.DiskDimensions.Chs: ../vim/host/DiskDimensions/Chs.rst
-
-.. _vim.VirtualDiskManager.VirtualDiskSpec: ../vim/VirtualDiskManager/VirtualDiskSpec.rst
-
 
 vim.VirtualDiskManager
 ======================
@@ -47,10 +19,10 @@ vim.VirtualDiskManager
    * datastore
    * is the datastore name.
    * path
-   * is a slash-delimited path from the root of the datastore.An example datastore path is "[storage] path/to/file.extension". A listing of all the files, disks and folders on a datastore can be obtained from the datastore browser.See `HostDatastoreBrowser`_ 
+   * is a slash-delimited path from the root of the datastore.An example datastore path is "[storage] path/to/file.extension". A listing of all the files, disks and folders on a datastore can be obtained from the datastore browser.See `HostDatastoreBrowser <vim/host/DatastoreBrowser.rst>`_ 
 
 
-:since: `VI API 2.5`_
+:since: `VI API 2.5 <vim/version.rst#vimversionversion2>`_
 
 
 Attributes
@@ -71,30 +43,30 @@ CreateVirtualDisk(name, datacenter, spec):
 
 
   Args:
-    name (`str`_):
+    name (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        The name of the disk, either a datastore path or a URL referring to the virtual disk to be created.
 
 
-    datacenter (`vim.Datacenter`_, optional):
+    datacenter (`vim.Datacenter <vim/Datacenter.rst>`_, optional):
        Ifnameis a datastore path, the datacenter for that datastore path. Not needed when invoked directly on ESX. If not specified on a call to VirtualCenter,namemust be a URL.
 
 
-    spec (`vim.VirtualDiskManager.VirtualDiskSpec`_):
+    spec (`vim.VirtualDiskManager.VirtualDiskSpec <vim/VirtualDiskManager/VirtualDiskSpec.rst>`_):
        The specification of the virtual disk to be created.
 
 
 
 
   Returns:
-     `vim.Task`_:
+     `vim.Task <vim/Task.rst>`_:
          a datastore path referring to the created virtual disk.
 
   Raises:
 
-    `vim.fault.FileFault`_: 
+    `vim.fault.FileFault <vim/fault/FileFault.rst>`_: 
        if an error occurs creating the virtual disk.
 
-    `vim.fault.InvalidDatastore`_: 
+    `vim.fault.InvalidDatastore <vim/fault/InvalidDatastore.rst>`_: 
        if the operation cannot be performed on the datastore.
 
 
@@ -108,26 +80,26 @@ DeleteVirtualDisk(name, datacenter):
 
 
   Args:
-    name (`str`_):
+    name (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        The name of the disk, either a datastore path or a URL referring to the virtual disk to be deleted.
 
 
-    datacenter (`vim.Datacenter`_, optional):
+    datacenter (`vim.Datacenter <vim/Datacenter.rst>`_, optional):
        Ifnameis a datastore path, the datacenter for that datastore path. Not needed when invoked directly on ESX. If not specified on a call to VirtualCenter,namemust be a URL.
 
 
 
 
   Returns:
-     `vim.Task`_:
+     `vim.Task <vim/Task.rst>`_:
          
 
   Raises:
 
-    `vim.fault.FileFault`_: 
+    `vim.fault.FileFault <vim/fault/FileFault.rst>`_: 
        if an error occurs deleting the virtual disk.
 
-    `vim.fault.InvalidDatastore`_: 
+    `vim.fault.InvalidDatastore <vim/fault/InvalidDatastore.rst>`_: 
        if the operation cannot be performed on the datastore.
 
 
@@ -141,42 +113,42 @@ MoveVirtualDisk(sourceName, sourceDatacenter, destName, destDatacenter, force, p
 
 
   Args:
-    sourceName (`str`_):
+    sourceName (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        The name of the source, either a datastore path or a URL referring to the virtual disk to be moved.
 
 
-    sourceDatacenter (`vim.Datacenter`_, optional):
+    sourceDatacenter (`vim.Datacenter <vim/Datacenter.rst>`_, optional):
        IfsourceNameis a datastore path, the datacenter for that datastore path. Not needed when invoked directly on ESX. If not specified on a call to VirtualCenter,sourceNamemust be a URL.
 
 
-    destName (`str`_):
+    destName (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        The name of the destination, either a datastore path or a URL referring to the destination virtual disk.
 
 
-    destDatacenter (`vim.Datacenter`_, optional):
+    destDatacenter (`vim.Datacenter <vim/Datacenter.rst>`_, optional):
        IfdestNameis a datastore path, the datacenter for that datastore path. Not needed when invoked directly on ESX. If not specified on a call to VirtualCenter, it is assumed that the destination path belongs to the source datacenter.
 
 
-    force (`bool`_, optional):
+    force (`bool <https://docs.python.org/2/library/stdtypes.html>`_, optional):
        If true, overwrite any indentically named disk at the destination. If not specified, it is assumed to be false
 
 
-    profile (`vim.vm.ProfileSpec`_, optional, since `vSphere API 5.5`_ ):
+    profile (`vim.vm.ProfileSpec <vim/vm/ProfileSpec.rst>`_, optional, since `vSphere API 5.5 <vim/version.rst#vimversionversion9>`_ ):
        User can specify new set of profile when moving virtual disk.
 
 
 
 
   Returns:
-     `vim.Task`_:
+     `vim.Task <vim/Task.rst>`_:
          a datastore path referring to the destination virtual disk.
 
   Raises:
 
-    `vim.fault.FileFault`_: 
+    `vim.fault.FileFault <vim/fault/FileFault.rst>`_: 
        if an error occurs renaming the virtual disk.
 
-    `vim.fault.InvalidDatastore`_: 
+    `vim.fault.InvalidDatastore <vim/fault/InvalidDatastore.rst>`_: 
        if the operation cannot be performed on the source or destination datastore.
 
 
@@ -190,45 +162,45 @@ CopyVirtualDisk(sourceName, sourceDatacenter, destName, destDatacenter, destSpec
 
 
   Args:
-    sourceName (`str`_):
+    sourceName (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        The name of the source, either a datastore path or a URL referring to the virtual disk to be copied.
 
 
-    sourceDatacenter (`vim.Datacenter`_, optional):
+    sourceDatacenter (`vim.Datacenter <vim/Datacenter.rst>`_, optional):
        IfsourceNameis a datastore path, the datacenter for that datastore path. Not needed when invoked directly on ESX. If not specified on a call to VirtualCenter,sourceNamemust be a URL.
 
 
-    destName (`str`_):
+    destName (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        The name of the destination, either a datastore path or a URL referring to the virtual disk to be created.
 
 
-    destDatacenter (`vim.Datacenter`_, optional):
+    destDatacenter (`vim.Datacenter <vim/Datacenter.rst>`_, optional):
        IfdestNameis a datastore path, the datacenter for that datastore path. Not needed when invoked directly on ESX. If not specified on a call to VirtualCenter, it is assumed that the destination path belongs to the source datacenter.
 
 
-    destSpec (`vim.VirtualDiskManager.VirtualDiskSpec`_, optional):
+    destSpec (`vim.VirtualDiskManager.VirtualDiskSpec <vim/VirtualDiskManager/VirtualDiskSpec.rst>`_, optional):
        The specification of the virtual disk to be created. If not specified, a preallocated format and busLogic adapter type is assumed.
 
 
-    force (`bool`_, optional):
+    force (`bool <https://docs.python.org/2/library/stdtypes.html>`_, optional):
        The force flag is currently ignored. The FileAlreadyExists fault is thrown if the destination file already exists.
 
 
 
 
   Returns:
-     `vim.Task`_:
+     `vim.Task <vim/Task.rst>`_:
          a datastore path referring to the copied virtual disk.
 
   Raises:
 
-    `vim.fault.FileFault`_: 
+    `vim.fault.FileFault <vim/fault/FileFault.rst>`_: 
        if an error occurs cloning the virtual disk.
 
-    `vim.fault.InvalidDiskFormat`_: 
+    `vim.fault.InvalidDiskFormat <vim/fault/InvalidDiskFormat.rst>`_: 
        if the destination's format is not supported.
 
-    `vim.fault.InvalidDatastore`_: 
+    `vim.fault.InvalidDatastore <vim/fault/InvalidDatastore.rst>`_: 
        if the operation cannot be performed on the source or destination datastore.
 
 
@@ -242,34 +214,34 @@ ExtendVirtualDisk(name, datacenter, newCapacityKb, eagerZero):
 
 
   Args:
-    name (`str`_):
+    name (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        The name of the disk, either a datastore path or a URL referring to the virtual disk whose capacity should be expanded.
 
 
-    datacenter (`vim.Datacenter`_, optional):
+    datacenter (`vim.Datacenter <vim/Datacenter.rst>`_, optional):
        Ifnameis a datastore path, the datacenter for that datastore path. Not needed when invoked directly on ESX. If not specified on a call to VirtualCenter,namemust be a URL.
 
 
-    newCapacityKb (`long`_):
+    newCapacityKb (`long <https://docs.python.org/2/library/stdtypes.html>`_):
        The new capacty of the virtual disk in Kb.
 
 
-    eagerZero (`bool`_, optional, since `vSphere API 4.0`_ ):
+    eagerZero (`bool <https://docs.python.org/2/library/stdtypes.html>`_, optional, since `vSphere API 4.0 <vim/version.rst#vimversionversion5>`_ ):
        If true, the extended part of the disk will be explicitly filled with zeroes.
 
 
 
 
   Returns:
-     `vim.Task`_:
+     `vim.Task <vim/Task.rst>`_:
          
 
   Raises:
 
-    `vim.fault.FileFault`_: 
+    `vim.fault.FileFault <vim/fault/FileFault.rst>`_: 
        if an error occurs extending the virtual disk.
 
-    `vim.fault.InvalidDatastore`_: 
+    `vim.fault.InvalidDatastore <vim/fault/InvalidDatastore.rst>`_: 
        if the operation cannot be performed on the datastore.
 
 
@@ -283,26 +255,26 @@ QueryVirtualDiskFragmentation(name, datacenter):
 
 
   Args:
-    name (`str`_):
+    name (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        The name of the disk, either a datastore path or a URL referring to the virtual disk for which to return the percentage of fragmentation.
 
 
-    datacenter (`vim.Datacenter`_, optional):
+    datacenter (`vim.Datacenter <vim/Datacenter.rst>`_, optional):
        Ifnameis a datastore path, the datacenter for that datastore path. Not needed when invoked directly on ESX. If not specified on a call to VirtualCenter,namemust be a URL.
 
 
 
 
   Returns:
-    `int`_:
+    `int <https://docs.python.org/2/library/stdtypes.html>`_:
          the percentage of fragmentation (as an integer between 0 and 100) of the sparse virtual disk.
 
   Raises:
 
-    `vim.fault.FileFault`_: 
+    `vim.fault.FileFault <vim/fault/FileFault.rst>`_: 
        if an error occurs reading the virtual disk.
 
-    `vim.fault.InvalidDatastore`_: 
+    `vim.fault.InvalidDatastore <vim/fault/InvalidDatastore.rst>`_: 
        if the operation cannot be performed on the datastore.
 
 
@@ -316,26 +288,26 @@ DefragmentVirtualDisk(name, datacenter):
 
 
   Args:
-    name (`str`_):
+    name (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        The name of the disk, either a datastore path or a URL referring to the virtual disk that should be defragmented.
 
 
-    datacenter (`vim.Datacenter`_, optional):
+    datacenter (`vim.Datacenter <vim/Datacenter.rst>`_, optional):
        Ifnameis a datastore path, the datacenter for that datastore path. Not needed when invoked directly on ESX. If not specified on a call to VirtualCenter,namemust be a URL.
 
 
 
 
   Returns:
-     `vim.Task`_:
+     `vim.Task <vim/Task.rst>`_:
          
 
   Raises:
 
-    `vim.fault.FileFault`_: 
+    `vim.fault.FileFault <vim/fault/FileFault.rst>`_: 
        if an error occurs defragmenting the virtual disk.
 
-    `vim.fault.InvalidDatastore`_: 
+    `vim.fault.InvalidDatastore <vim/fault/InvalidDatastore.rst>`_: 
        if the operation cannot be performed on the datastore.
 
 
@@ -349,30 +321,30 @@ ShrinkVirtualDisk(name, datacenter, copy):
 
 
   Args:
-    name (`str`_):
+    name (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        The name of the disk, either a datastore path or a URL referring to the virtual disk that should be shrink.
 
 
-    datacenter (`vim.Datacenter`_, optional):
+    datacenter (`vim.Datacenter <vim/Datacenter.rst>`_, optional):
        Ifnameis a datastore path, the datacenter for that datastore path. Not needed when invoked directly on ESX. If not specified on a call to VirtualCenter,namemust be a URL.
 
 
-    copy (`bool`_, optional):
+    copy (`bool <https://docs.python.org/2/library/stdtypes.html>`_, optional):
        If true or omitted, performs shrink in copy-shrink mode, otherwise shrink in in-place mode.
 
 
 
 
   Returns:
-     `vim.Task`_:
+     `vim.Task <vim/Task.rst>`_:
          
 
   Raises:
 
-    `vim.fault.FileFault`_: 
+    `vim.fault.FileFault <vim/fault/FileFault.rst>`_: 
        if an error occurs shrinking the virtual disk.
 
-    `vim.fault.InvalidDatastore`_: 
+    `vim.fault.InvalidDatastore <vim/fault/InvalidDatastore.rst>`_: 
        if the operation cannot be performed on the datastore.
 
 
@@ -386,32 +358,32 @@ InflateVirtualDisk(name, datacenter):
 
 
   Args:
-    name (`str`_):
+    name (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        The name of the disk, either a datastore path or a URL referring to the virtual disk that should be inflated.
 
 
-    datacenter (`vim.Datacenter`_, optional):
+    datacenter (`vim.Datacenter <vim/Datacenter.rst>`_, optional):
        Ifnameis a datastore path, the datacenter for that datastore path. Not needed when invoked directly on ESX. If not specified on a call to VirtualCenter,namemust be a URL.
 
 
 
 
   Returns:
-     `vim.Task`_:
+     `vim.Task <vim/Task.rst>`_:
          
 
   Raises:
 
-    `vim.fault.FileFault`_: 
+    `vim.fault.FileFault <vim/fault/FileFault.rst>`_: 
        if an error occurs inflating the virtual disk.
 
-    `vim.fault.InvalidDatastore`_: 
+    `vim.fault.InvalidDatastore <vim/fault/InvalidDatastore.rst>`_: 
        if the operation cannot be performed on the datastore.
 
 
 EagerZeroVirtualDisk(name, datacenter):
    Explicitly zero out unaccessed parts zeroedthick disk. Effectively a no-op if the disk is already eagerZeroedThick. Unlike zeroFillVirtualDisk, which wipes the entire disk, this operation only affects previously unaccessed parts of the disk.The datacenter parameter may be omitted if a URL is used to name the disk.Requires Datastore.FileManagement privilege on the datastore where the virtual disk resides.
-  since: `vSphere API 4.0`_
+  since: `vSphere API 4.0 <vim/version.rst#vimversionversion5>`_
 
 
   Privilege:
@@ -420,26 +392,26 @@ EagerZeroVirtualDisk(name, datacenter):
 
 
   Args:
-    name (`str`_):
+    name (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        The name of the disk, either a datastore path or a URL referring to the virtual disk that should be inflated.
 
 
-    datacenter (`vim.Datacenter`_, optional):
+    datacenter (`vim.Datacenter <vim/Datacenter.rst>`_, optional):
        Ifnameis a datastore path, the datacenter for that datastore path. Not needed when invoked directly on ESX. If not specified on a call to VirtualCenter,namemust be a URL.
 
 
 
 
   Returns:
-     `vim.Task`_:
+     `vim.Task <vim/Task.rst>`_:
          
 
   Raises:
 
-    `vim.fault.FileFault`_: 
+    `vim.fault.FileFault <vim/fault/FileFault.rst>`_: 
        if an error occurs while eager-zeroing the virtual disk.
 
-    `vim.fault.InvalidDatastore`_: 
+    `vim.fault.InvalidDatastore <vim/fault/InvalidDatastore.rst>`_: 
        if the operation cannot be performed on the datastore.
 
 
@@ -453,26 +425,26 @@ ZeroFillVirtualDisk(name, datacenter):
 
 
   Args:
-    name (`str`_):
+    name (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        The name of the disk, either a datastore path or a URL referring to the virtual disk whose blocks should be overwritten with zeroes.
 
 
-    datacenter (`vim.Datacenter`_, optional):
+    datacenter (`vim.Datacenter <vim/Datacenter.rst>`_, optional):
        Ifnameis a datastore path, the datacenter for that datastore path. Not needed when invoked directly on ESX. If not specified on a call to VirtualCenter,namemust be a URL.
 
 
 
 
   Returns:
-     `vim.Task`_:
+     `vim.Task <vim/Task.rst>`_:
          
 
   Raises:
 
-    `vim.fault.FileFault`_: 
+    `vim.fault.FileFault <vim/fault/FileFault.rst>`_: 
        if an error occurs zero filling the virtual disk.
 
-    `vim.fault.InvalidDatastore`_: 
+    `vim.fault.InvalidDatastore <vim/fault/InvalidDatastore.rst>`_: 
        if the operation cannot be performed on the datastore.
 
 
@@ -486,15 +458,15 @@ SetVirtualDiskUuid(name, datacenter, uuid):
 
 
   Args:
-    name (`str`_):
+    name (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        The name of the disk, either a datastore path or a URL referring to the virtual disk whose SCSI inquiry page 0x83 data should be set.
 
 
-    datacenter (`vim.Datacenter`_, optional):
+    datacenter (`vim.Datacenter <vim/Datacenter.rst>`_, optional):
        Ifnameis a datastore path, the datacenter for that datastore path. Not needed when invoked directly on ESX. If not specified on a call to VirtualCenter,namemust be a URL.
 
 
-    uuid (`str`_):
+    uuid (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        The hex representation of the unique ID for this virtual disk.
 
 
@@ -506,10 +478,10 @@ SetVirtualDiskUuid(name, datacenter, uuid):
 
   Raises:
 
-    `vim.fault.FileFault`_: 
+    `vim.fault.FileFault <vim/fault/FileFault.rst>`_: 
        if an error occurs updating the virtual disk.
 
-    `vim.fault.InvalidDatastore`_: 
+    `vim.fault.InvalidDatastore <vim/fault/InvalidDatastore.rst>`_: 
        if the operation cannot be performed on the datastore.
 
 
@@ -523,26 +495,26 @@ QueryVirtualDiskUuid(name, datacenter):
 
 
   Args:
-    name (`str`_):
+    name (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        The name of the disk, either a datastore path or a URL referring to the virtual disk from which to get SCSI inquiry page 0x83 data.
 
 
-    datacenter (`vim.Datacenter`_, optional):
+    datacenter (`vim.Datacenter <vim/Datacenter.rst>`_, optional):
        Ifnameis a datastore path, the datacenter for that datastore path. Not needed when invoked directly on ESX. If not specified on a call to VirtualCenter,namemust be a URL.
 
 
 
 
   Returns:
-    `str`_:
+    `str <https://docs.python.org/2/library/stdtypes.html>`_:
          The hex representation of the unique ID for this virtual disk.
 
   Raises:
 
-    `vim.fault.FileFault`_: 
+    `vim.fault.FileFault <vim/fault/FileFault.rst>`_: 
        if an error occurs reading the virtual disk.
 
-    `vim.fault.InvalidDatastore`_: 
+    `vim.fault.InvalidDatastore <vim/fault/InvalidDatastore.rst>`_: 
        if the operation cannot be performed on the datastore.
 
 
@@ -556,26 +528,26 @@ QueryVirtualDiskGeometry(name, datacenter):
 
 
   Args:
-    name (`str`_):
+    name (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        The name of the disk, either a datastore path or a URL referring to the virtual disk from which to get geometry information.
 
 
-    datacenter (`vim.Datacenter`_, optional):
+    datacenter (`vim.Datacenter <vim/Datacenter.rst>`_, optional):
        Ifnameis a datastore path, the datacenter for that datastore path. Not needed when invoked directly on ESX. If not specified on a call to VirtualCenter,namemust be a URL.
 
 
 
 
   Returns:
-    `vim.host.DiskDimensions.Chs`_:
+    `vim.host.DiskDimensions.Chs <vim/host/DiskDimensions/Chs.rst>`_:
          The geometry information for this virtual disk.
 
   Raises:
 
-    `vim.fault.FileFault`_: 
+    `vim.fault.FileFault <vim/fault/FileFault.rst>`_: 
        if an error occurs reading the virtual disk.
 
-    `vim.fault.InvalidDatastore`_: 
+    `vim.fault.InvalidDatastore <vim/fault/InvalidDatastore.rst>`_: 
        if the operation cannot be performed on the datastore.
 
 

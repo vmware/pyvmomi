@@ -1,13 +1,9 @@
-.. _vim.host.MountInfo: ../../../vim/host/MountInfo.rst
-
-.. _vim.host.MountInfo.AccessMode: ../../../vim/host/MountInfo/AccessMode.rst
-
 vim.host.MountInfo.AccessMode
 =============================
   Defines the access mode of the datastore.
-  :contained by: `vim.host.MountInfo`_
+  :contained by: `vim.host.MountInfo <vim/host/MountInfo.rst>`_
 
-  :type: `vim.host.MountInfo.AccessMode`_
+  :type: `vim.host.MountInfo.AccessMode <vim/host/MountInfo/AccessMode.rst>`_
 
   :name: readOnly
 

@@ -1,5 +1,3 @@
-.. _vim.event.UpgradeEvent: ../../vim/event/UpgradeEvent.rst
-
 
 vim.event.ErrorUpgradeEvent
 ===========================

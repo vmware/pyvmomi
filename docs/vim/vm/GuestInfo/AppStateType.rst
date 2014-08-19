@@ -1,13 +1,9 @@
-.. _vim.vm.GuestInfo: ../../../vim/vm/GuestInfo.rst
-
-.. _vim.vm.GuestInfo.AppStateType: ../../../vim/vm/GuestInfo/AppStateType.rst
-
 vim.vm.GuestInfo.AppStateType
 =============================
   Application state type.
-  :contained by: `vim.vm.GuestInfo`_
+  :contained by: `vim.vm.GuestInfo <vim/vm/GuestInfo.rst>`_
 
-  :type: `vim.vm.GuestInfo.AppStateType`_
+  :type: `vim.vm.GuestInfo.AppStateType <vim/vm/GuestInfo/AppStateType.rst>`_
 
   :name: appStateNeedReset
 

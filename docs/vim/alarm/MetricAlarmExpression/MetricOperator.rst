@@ -1,13 +1,9 @@
-.. _vim.alarm.MetricAlarmExpression: ../../../vim/alarm/MetricAlarmExpression.rst
-
-.. _vim.alarm.MetricAlarmExpression.MetricOperator: ../../../vim/alarm/MetricAlarmExpression/MetricOperator.rst
-
 vim.alarm.MetricAlarmExpression.MetricOperator
 ==============================================
   The operation on the target metric item.
-  :contained by: `vim.alarm.MetricAlarmExpression`_
+  :contained by: `vim.alarm.MetricAlarmExpression <vim/alarm/MetricAlarmExpression.rst>`_
 
-  :type: `vim.alarm.MetricAlarmExpression.MetricOperator`_
+  :type: `vim.alarm.MetricAlarmExpression.MetricOperator <vim/alarm/MetricAlarmExpression/MetricOperator.rst>`_
 
   :name: isBelow
 

@@ -1,9 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vmodl.DynamicData: ../../../vmodl/DynamicData.rst
-
-.. _vim.host.PhysicalNic.Specification: ../../../vim/host/PhysicalNic/Specification.rst
-
 
 vim.host.PhysicalNic.Config
 ===========================
@@ -11,9 +5,9 @@ vim.host.PhysicalNic.Config
 :extends: vmodl.DynamicData_
 
 Attributes:
-    device (`str`_):
+    device (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        PhysicalNic device to which configuration applies.
-    spec (`vim.host.PhysicalNic.Specification`_):
+    spec (`vim.host.PhysicalNic.Specification <vim/host/PhysicalNic/Specification.rst>`_):
 
        The specification of the physical network adapter.

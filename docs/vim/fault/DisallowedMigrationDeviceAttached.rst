@@ -1,19 +1,15 @@
-.. _string: ../../str
-
-.. _vim.fault.MigrationFault: ../../vim/fault/MigrationFault.rst
-
 
 vim.fault.DisallowedMigrationDeviceAttached
 ===========================================
     :extends:
 
-        `vim.fault.MigrationFault`_
+        `vim.fault.MigrationFault <vim/fault/MigrationFault.rst>`_
 
   The virtual machine is using a type of device that prevents migration.
 
 Attributes:
 
-    fault (`str`_)
+    fault (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
 
 

@@ -1,13 +1,9 @@
-.. _vim.host.FibreChannelHba: ../../../vim/host/FibreChannelHba.rst
-
-.. _vim.host.FibreChannelHba.PortType: ../../../vim/host/FibreChannelHba/PortType.rst
-
 vim.host.FibreChannelHba.PortType
 =================================
   The operating mode of the adapter.
-  :contained by: `vim.host.FibreChannelHba`_
+  :contained by: `vim.host.FibreChannelHba <vim/host/FibreChannelHba.rst>`_
 
-  :type: `vim.host.FibreChannelHba.PortType`_
+  :type: `vim.host.FibreChannelHba.PortType <vim/host/FibreChannelHba/PortType.rst>`_
 
   :name: unknown
 

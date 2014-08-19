@@ -1,13 +1,9 @@
-.. _vim.host.NumericSensorInfo: ../../../vim/host/NumericSensorInfo.rst
-
-.. _vim.host.NumericSensorInfo.HealthState: ../../../vim/host/NumericSensorInfo/HealthState.rst
-
 vim.host.NumericSensorInfo.HealthState
 ======================================
   Health state of the numeric sensor as reported by the sensor probes.
-  :contained by: `vim.host.NumericSensorInfo`_
+  :contained by: `vim.host.NumericSensorInfo <vim/host/NumericSensorInfo.rst>`_
 
-  :type: `vim.host.NumericSensorInfo.HealthState`_
+  :type: `vim.host.NumericSensorInfo.HealthState <vim/host/NumericSensorInfo/HealthState.rst>`_
 
   :name: red
 

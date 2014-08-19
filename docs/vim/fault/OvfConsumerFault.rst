@@ -1,25 +1,19 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _string: ../../str
-
-.. _vim.fault.OvfConsumerCallbackFault: ../../vim/fault/OvfConsumerCallbackFault.rst
-
 
 vim.fault.OvfConsumerFault
 ==========================
     :extends:
 
-        `vim.fault.OvfConsumerCallbackFault`_
+        `vim.fault.OvfConsumerCallbackFault <vim/fault/OvfConsumerCallbackFault.rst>`_
 
   Localized fault that may be thrown by an OVF consumer.
 
 Attributes:
 
-    errorKey (`str`_)
+    errorKey (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
-    message (`str`_)
+    message (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
-    params (`str`_): is optional.
+    params (`str <https://docs.python.org/2/library/stdtypes.html>`_): is optional.
 
 
 

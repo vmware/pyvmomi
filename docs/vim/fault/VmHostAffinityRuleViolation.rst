@@ -1,21 +1,17 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.fault.VmConfigFault: ../../vim/fault/VmConfigFault.rst
-
 
 vim.fault.VmHostAffinityRuleViolation
 =====================================
     :extends:
 
-        `vim.fault.VmConfigFault`_
+        `vim.fault.VmConfigFault <vim/fault/VmConfigFault.rst>`_
 
   The virtual machine if powered on or VMotioned, would violate a VM-Host affinity rule.
 
 Attributes:
 
-    vmName (`str`_)
+    vmName (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
-    hostName (`str`_)
+    hostName (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
 
 

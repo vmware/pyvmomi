@@ -1,9 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _QueryChangedDiskAreas: ../../../../vim/VirtualMachine.rst#queryChangedDiskAreas
-
-.. _vim.vm.device.VirtualDevice.DeviceBackingInfo: ../../../../vim/vm/device/VirtualDevice/DeviceBackingInfo.rst
-
 
 vim.vm.device.VirtualDisk.RawDiskVer2BackingInfo
 ================================================
@@ -11,12 +5,12 @@ vim.vm.device.VirtualDisk.RawDiskVer2BackingInfo
 :extends: vim.vm.device.VirtualDevice.DeviceBackingInfo_
 
 Attributes:
-    descriptorFileName (`str`_):
+    descriptorFileName (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The name of the raw disk descriptor file.
-    uuid (`str`_, optional):
+    uuid (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        Disk UUID for the virtual disk, if available.
-    changeId (`str`_, optional):
+    changeId (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
-       The change ID of the virtual disk for the corresponding snapshot or virtual machine. This can be used to track incremental changes to a virtual disk. See `QueryChangedDiskAreas`_ .
+       The change ID of the virtual disk for the corresponding snapshot or virtual machine. This can be used to track incremental changes to a virtual disk. See `QueryChangedDiskAreas <vim/VirtualMachine.rst#queryChangedDiskAreas>`_ .

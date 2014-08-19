@@ -1,9 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.event.VmEvent: ../../vim/event/VmEvent.rst
-
-.. _vmodl.LocalizedMethodFault: ../../vmodl/LocalizedMethodFault.rst
-
 
 vim.event.VmDiskFailedEvent
 ===========================
@@ -11,9 +5,9 @@ vim.event.VmDiskFailedEvent
 :extends: vim.event.VmEvent_
 
 Attributes:
-    disk (`str`_):
+    disk (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The name of the virtual disk.
-    reason (`vmodl.LocalizedMethodFault`_):
+    reason (`vmodl.LocalizedMethodFault <vmodl/LocalizedMethodFault.rst>`_):
 
        The reason for the failure.

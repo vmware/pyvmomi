@@ -1,15 +1,9 @@
-.. _vim.vm.FlagInfo: ../../../vim/vm/FlagInfo.rst
-
-.. _virtualExecUsage: ../../../vim/vm/FlagInfo.rst#virtualExecUsage
-
-.. _vim.vm.FlagInfo.VirtualExecUsage: ../../../vim/vm/FlagInfo/VirtualExecUsage.rst
-
 vim.vm.FlagInfo.VirtualExecUsage
 ================================
-  Set of possible values for `virtualExecUsage`_ .
-  :contained by: `vim.vm.FlagInfo`_
+  Set of possible values for `virtualExecUsage <vim/vm/FlagInfo.rst#virtualExecUsage>`_ .
+  :contained by: `vim.vm.FlagInfo <vim/vm/FlagInfo.rst>`_
 
-  :type: `vim.vm.FlagInfo.VirtualExecUsage`_
+  :type: `vim.vm.FlagInfo.VirtualExecUsage <vim/vm/FlagInfo/VirtualExecUsage.rst>`_
 
   :name: hvOff
 

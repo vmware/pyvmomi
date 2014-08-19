@@ -1,25 +1,19 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _string: ../../str
-
-.. _vim.fault.DvsFault: ../../vim/fault/DvsFault.rst
-
 
 vim.fault.BackupBlobReadFailure
 ===============================
     :extends:
 
-        `vim.fault.DvsFault`_
+        `vim.fault.DvsFault <vim/fault/DvsFault.rst>`_
 
   Thrown if backupConfig blob is corrupted
 
 Attributes:
 
-    entityName (`str`_)
+    entityName (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
-    entityType (`str`_)
+    entityType (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
-    fault (`str`_)
+    fault (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
 
 

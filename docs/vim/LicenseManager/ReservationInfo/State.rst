@@ -1,13 +1,9 @@
-.. _vim.LicenseManager.ReservationInfo: ../../../vim/LicenseManager/ReservationInfo.rst
-
-.. _vim.LicenseManager.ReservationInfo.State: ../../../vim/LicenseManager/ReservationInfo/State.rst
-
 vim.LicenseManager.ReservationInfo.State
 ========================================
   Describes the reservation state of a license.
-  :contained by: `vim.LicenseManager.ReservationInfo`_
+  :contained by: `vim.LicenseManager.ReservationInfo <vim/LicenseManager/ReservationInfo.rst>`_
 
-  :type: `vim.LicenseManager.ReservationInfo.State`_
+  :type: `vim.LicenseManager.ReservationInfo.State <vim/LicenseManager/ReservationInfo/State.rst>`_
 
   :name: licensed
 

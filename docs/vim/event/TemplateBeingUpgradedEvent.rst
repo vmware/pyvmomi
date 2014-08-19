@@ -1,5 +1,3 @@
-.. _vim.event.TemplateUpgradeEvent: ../../vim/event/TemplateUpgradeEvent.rst
-
 
 vim.event.TemplateBeingUpgradedEvent
 ====================================

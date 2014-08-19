@@ -1,11 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vmodl.DynamicData: ../../../vmodl/DynamicData.rst
-
-.. _vim.host.HostBusAdapter: ../../../vim/host/HostBusAdapter.rst
-
-.. _vim.host.ScsiTopology.Target: ../../../vim/host/ScsiTopology/Target.rst
-
 
 vim.host.ScsiTopology.Interface
 ===============================
@@ -13,12 +5,12 @@ vim.host.ScsiTopology.Interface
 :extends: vmodl.DynamicData_
 
 Attributes:
-    key (`str`_):
+    key (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The identifier for the SCSI interface
-    adapter (`vim.host.HostBusAdapter`_):
+    adapter (`vim.host.HostBusAdapter <vim/host/HostBusAdapter.rst>`_):
 
        The link to data for this SCSI interface.
-    target ([`vim.host.ScsiTopology.Target`_], optional):
+    target ([`vim.host.ScsiTopology.Target <vim/host/ScsiTopology/Target.rst>`_], optional):
 
        The list of targets to which the SCSI interface is associated.

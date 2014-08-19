@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.host.ConnectInfo.DatastoreInfo: ../../../vim/host/ConnectInfo/DatastoreInfo.rst
-
 
 vim.host.ConnectInfo.DatastoreNameConflictInfo
 ==============================================
@@ -9,6 +5,6 @@ vim.host.ConnectInfo.DatastoreNameConflictInfo
 :extends: vim.host.ConnectInfo.DatastoreInfo_
 
 Attributes:
-    newDatastoreName (`str`_):
+    newDatastoreName (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        To resolve a conflict with existing datastores, a suggested new name of the datastore can be provided.

@@ -1,13 +1,9 @@
-.. _vim.vm.ConfigSpec: ../../../vim/vm/ConfigSpec.rst
-
-.. _vim.vm.ConfigSpec.NpivWwnOp: ../../../vim/vm/ConfigSpec/NpivWwnOp.rst
-
 vim.vm.ConfigSpec.NpivWwnOp
 ===========================
   The root WWN operation mode.
-  :contained by: `vim.vm.ConfigSpec`_
+  :contained by: `vim.vm.ConfigSpec <vim/vm/ConfigSpec.rst>`_
 
-  :type: `vim.vm.ConfigSpec.NpivWwnOp`_
+  :type: `vim.vm.ConfigSpec.NpivWwnOp <vim/vm/ConfigSpec/NpivWwnOp.rst>`_
 
   :name: extend
 

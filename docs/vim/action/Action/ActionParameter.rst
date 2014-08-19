@@ -1,13 +1,9 @@
-.. _vim.action.Action: ../../../vim/action/Action.rst
-
-.. _vim.action.Action.ActionParameter: ../../../vim/action/Action/ActionParameter.rst
-
 vim.action.Action.ActionParameter
 =================================
   These constant strings can be used as parameters in user-specified email subject and body templates as well as in scripts. The action processor in VirtualCenter substitutes the run-time values for the parameters. For example, an email subject provided by the client could be the string:"Alarm - {alarmName} Description:\n{eventDescription}". Or a script action provided could be:"myScript {alarmName}"
-  :contained by: `vim.action.Action`_
+  :contained by: `vim.action.Action <vim/action/Action.rst>`_
 
-  :type: `vim.action.Action.ActionParameter`_
+  :type: `vim.action.Action.ActionParameter <vim/action/Action/ActionParameter.rst>`_
 
   :name: alarm
 

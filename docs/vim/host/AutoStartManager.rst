@@ -1,7 +1,3 @@
-.. _vim.Task: ../../vim/Task.rst
-
-.. _vim.host.AutoStartManager.Config: ../../vim/host/AutoStartManager/Config.rst
-
 
 vim.host.AutoStartManager
 =========================
@@ -12,7 +8,7 @@ vim.host.AutoStartManager
 
 Attributes
 ----------
-    config (`vim.host.AutoStartManager.Config`_):
+    config (`vim.host.AutoStartManager.Config <vim/host/AutoStartManager/Config.rst>`_):
        
 
 
@@ -30,7 +26,7 @@ ReconfigureAutostart(spec):
 
 
   Args:
-    spec (`vim.host.AutoStartManager.Config`_):
+    spec (`vim.host.AutoStartManager.Config <vim/host/AutoStartManager/Config.rst>`_):
        List of changes to defaults and auto-start/auto-stop order.
 
 

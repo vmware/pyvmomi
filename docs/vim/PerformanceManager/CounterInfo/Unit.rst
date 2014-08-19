@@ -1,13 +1,9 @@
-.. _vim.PerformanceManager.CounterInfo: ../../../vim/PerformanceManager/CounterInfo.rst
-
-.. _vim.PerformanceManager.CounterInfo.Unit: ../../../vim/PerformanceManager/CounterInfo/Unit.rst
-
 vim.PerformanceManager.CounterInfo.Unit
 =======================================
   Indicates the unit of measure represented by a counter or statistical value.
-  :contained by: `vim.PerformanceManager.CounterInfo`_
+  :contained by: `vim.PerformanceManager.CounterInfo <vim/PerformanceManager/CounterInfo.rst>`_
 
-  :type: `vim.PerformanceManager.CounterInfo.Unit`_
+  :type: `vim.PerformanceManager.CounterInfo.Unit <vim/PerformanceManager/CounterInfo/Unit.rst>`_
 
   :name: joule
 

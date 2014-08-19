@@ -1,13 +1,9 @@
-.. _vim.host.VmciAccessManager: ../../../vim/host/VmciAccessManager.rst
-
-.. _vim.host.VmciAccessManager.Mode: ../../../vim/host/VmciAccessManager/Mode.rst
-
 vim.host.VmciAccessManager.Mode
 ===============================
   Set of possible values for mode field in AccessSpec.
-  :contained by: `vim.host.VmciAccessManager`_
+  :contained by: `vim.host.VmciAccessManager <vim/host/VmciAccessManager.rst>`_
 
-  :type: `vim.host.VmciAccessManager.Mode`_
+  :type: `vim.host.VmciAccessManager.Mode <vim/host/VmciAccessManager/Mode.rst>`_
 
   :name: revoke
 

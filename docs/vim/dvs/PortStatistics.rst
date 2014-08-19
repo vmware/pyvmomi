@@ -1,62 +1,56 @@
-.. _long: https://docs.python.org/2/library/stdtypes.html
-
-.. _vSphere API 4.0: ../../vim/version.rst#vimversionversion5
-
-.. _vmodl.DynamicData: ../../vmodl/DynamicData.rst
-
 
 vim.dvs.PortStatistics
 ======================
   Statistic data of a DistributedVirtualPort.
 :extends: vmodl.DynamicData_
-:since: `vSphere API 4.0`_
+:since: `vSphere API 4.0 <vim/version.rst#vimversionversion5>`_
 
 Attributes:
-    packetsInMulticast (`long`_):
+    packetsInMulticast (`long <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The number of multicast packets received.
-    packetsOutMulticast (`long`_):
+    packetsOutMulticast (`long <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The number of multicast packets forwarded.
-    bytesInMulticast (`long`_):
+    bytesInMulticast (`long <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The number of bytes received from multicast packets.
-    bytesOutMulticast (`long`_):
+    bytesOutMulticast (`long <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The number of bytes forwarded from multicast packets.
-    packetsInUnicast (`long`_):
+    packetsInUnicast (`long <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The number of unicast packets received.
-    packetsOutUnicast (`long`_):
+    packetsOutUnicast (`long <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The number of unicast packets forwarded.
-    bytesInUnicast (`long`_):
+    bytesInUnicast (`long <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The number of bytes received from unicast packets.
-    bytesOutUnicast (`long`_):
+    bytesOutUnicast (`long <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The number of bytes forwarded from unicast packets.
-    packetsInBroadcast (`long`_):
+    packetsInBroadcast (`long <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The number of broadcast packets received.
-    packetsOutBroadcast (`long`_):
+    packetsOutBroadcast (`long <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The number of broadcast packets forwarded.
-    bytesInBroadcast (`long`_):
+    bytesInBroadcast (`long <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The number of bytes received from broadcast packets.
-    bytesOutBroadcast (`long`_):
+    bytesOutBroadcast (`long <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The number of bytes forwarded from broadcast packets.
-    packetsInDropped (`long`_):
+    packetsInDropped (`long <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The number of received packets dropped.
-    packetsOutDropped (`long`_):
+    packetsOutDropped (`long <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The number of packets to be forwarded dropped.
-    packetsInException (`long`_):
+    packetsInException (`long <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The number of packets received that cause an exception.
-    packetsOutException (`long`_):
+    packetsOutException (`long <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The number of packets to be forwarded that cause an exception.

@@ -1,13 +1,9 @@
-.. _vim.vm.UsbInfo: ../../../vim/vm/UsbInfo.rst
-
-.. _vim.vm.UsbInfo.Speed: ../../../vim/vm/UsbInfo/Speed.rst
-
 vim.vm.UsbInfo.Speed
 ====================
   Device speed.
-  :contained by: `vim.vm.UsbInfo`_
+  :contained by: `vim.vm.UsbInfo <vim/vm/UsbInfo.rst>`_
 
-  :type: `vim.vm.UsbInfo.Speed`_
+  :type: `vim.vm.UsbInfo.Speed <vim/vm/UsbInfo/Speed.rst>`_
 
   :name: unknownSpeed
 

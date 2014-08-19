@@ -1,7 +1,3 @@
-.. _vim.event.LicenseEvent: ../../vim/event/LicenseEvent.rst
-
-.. _vim.LicenseManager.FeatureInfo: ../../vim/LicenseManager/FeatureInfo.rst
-
 
 vim.event.NoLicenseEvent
 ========================
@@ -9,5 +5,5 @@ vim.event.NoLicenseEvent
 :extends: vim.event.LicenseEvent_
 
 Attributes:
-    feature (`vim.LicenseManager.FeatureInfo`_):
+    feature (`vim.LicenseManager.FeatureInfo <vim/LicenseManager/FeatureInfo.rst>`_):
 

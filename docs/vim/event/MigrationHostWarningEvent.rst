@@ -1,7 +1,3 @@
-.. _vim.event.MigrationEvent: ../../vim/event/MigrationEvent.rst
-
-.. _vim.event.HostEventArgument: ../../vim/event/HostEventArgument.rst
-
 
 vim.event.MigrationHostWarningEvent
 ===================================
@@ -9,6 +5,6 @@ vim.event.MigrationHostWarningEvent
 :extends: vim.event.MigrationEvent_
 
 Attributes:
-    dstHost (`vim.event.HostEventArgument`_):
+    dstHost (`vim.event.HostEventArgument <vim/event/HostEventArgument.rst>`_):
 
        The name of the destination host.

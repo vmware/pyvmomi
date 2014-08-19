@@ -1,5 +1,3 @@
-.. _vim.vm.device.VirtualDeviceOption.RemoteDeviceBackingOption: ../../../../vim/vm/device/VirtualDeviceOption/RemoteDeviceBackingOption.rst
-
 
 vim.vm.device.VirtualFloppyOption.RemoteDeviceBackingOption
 ===========================================================

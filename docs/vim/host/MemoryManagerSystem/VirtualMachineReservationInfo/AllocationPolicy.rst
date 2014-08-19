@@ -1,13 +1,9 @@
-.. _vim.host.MemoryManagerSystem.VirtualMachineReservationInfo: ../../../../vim/host/MemoryManagerSystem/VirtualMachineReservationInfo.rst
-
-.. _vim.host.MemoryManagerSystem.VirtualMachineReservationInfo.AllocationPolicy: ../../../../vim/host/MemoryManagerSystem/VirtualMachineReservationInfo/AllocationPolicy.rst
-
 vim.host.MemoryManagerSystem.VirtualMachineReservationInfo.AllocationPolicy
 ===========================================================================
   Means for allocating additional memory for virtual machines.
-  :contained by: `vim.host.MemoryManagerSystem.VirtualMachineReservationInfo`_
+  :contained by: `vim.host.MemoryManagerSystem.VirtualMachineReservationInfo <vim/host/MemoryManagerSystem/VirtualMachineReservationInfo.rst>`_
 
-  :type: `vim.host.MemoryManagerSystem.VirtualMachineReservationInfo.AllocationPolicy`_
+  :type: `vim.host.MemoryManagerSystem.VirtualMachineReservationInfo.AllocationPolicy <vim/host/MemoryManagerSystem/VirtualMachineReservationInfo/AllocationPolicy.rst>`_
 
   :name: swapMost
 

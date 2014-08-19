@@ -1,19 +1,15 @@
-.. _string: ../../str
-
-.. _vim.fault.DvsFault: ../../vim/fault/DvsFault.rst
-
 
 vim.fault.ImportOperationBulkFault
 ==================================
     :extends:
 
-        `vim.fault.DvsFault`_
+        `vim.fault.DvsFault <vim/fault/DvsFault.rst>`_
 
   Thrown if a Import operation fails
 
 Attributes:
 
-    importFaults (`str`_)
+    importFaults (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
 
 

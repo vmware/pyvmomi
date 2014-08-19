@@ -1,13 +1,9 @@
-.. _vim.host.ConfigChange: ../../../vim/host/ConfigChange.rst
-
-.. _vim.host.ConfigChange.Mode: ../../../vim/host/ConfigChange/Mode.rst
-
 vim.host.ConfigChange.Mode
 ==========================
   This is a global mode on a configuration specification indicating whether the structure represents the desired state or the set of operations to apply on the managed object.
-  :contained by: `vim.host.ConfigChange`_
+  :contained by: `vim.host.ConfigChange <vim/host/ConfigChange.rst>`_
 
-  :type: `vim.host.ConfigChange.Mode`_
+  :type: `vim.host.ConfigChange.Mode <vim/host/ConfigChange/Mode.rst>`_
 
   :name: replace
 

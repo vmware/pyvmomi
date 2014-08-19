@@ -1,13 +1,9 @@
-.. _vim.vApp.CloneSpec: ../../../vim/vApp/CloneSpec.rst
-
-.. _vim.vApp.CloneSpec.ProvisioningType: ../../../vim/vApp/CloneSpec/ProvisioningType.rst
-
 vim.vApp.CloneSpec.ProvisioningType
 ===================================
   The cloned VMs can either be provisioned the same way as the VMs they are a clone of, thin provisioned or thick provisioned, or linked clones (i.e., using delta disks).
-  :contained by: `vim.vApp.CloneSpec`_
+  :contained by: `vim.vApp.CloneSpec <vim/vApp/CloneSpec.rst>`_
 
-  :type: `vim.vApp.CloneSpec.ProvisioningType`_
+  :type: `vim.vApp.CloneSpec.ProvisioningType <vim/vApp/CloneSpec/ProvisioningType.rst>`_
 
   :name: thick
 

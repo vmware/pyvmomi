@@ -1,12 +1,8 @@
-.. _vim.host.AutoStartManager: ../../../vim/host/AutoStartManager.rst
-
-.. _vim.host.AutoStartManager.Action: ../../../vim/host/AutoStartManager/Action.rst
-
 vim.host.AutoStartManager.Action
 ================================
-  :contained by: `vim.host.AutoStartManager`_
+  :contained by: `vim.host.AutoStartManager <vim/host/AutoStartManager.rst>`_
 
-  :type: `vim.host.AutoStartManager.Action`_
+  :type: `vim.host.AutoStartManager.Action <vim/host/AutoStartManager/Action.rst>`_
 
   :name: suspend
 

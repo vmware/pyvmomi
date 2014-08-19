@@ -1,11 +1,9 @@
-.. _vmodl.RuntimeFault: ../../vmodl/RuntimeFault.rst
-
 
 vmodl.fault.SecurityError
 =========================
     :extends:
 
-        `vmodl.RuntimeFault`_
+        `vmodl.RuntimeFault <vmodl/RuntimeFault.rst>`_
 
   Thrown when the client is not allowed access to the property or method.
 

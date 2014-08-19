@@ -1,89 +1,7 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _bool: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.Task: ../vim/Task.rst
-
-.. _VI API 2.5: ../vim/version.rst#vimversionversion2
-
-.. _recommendation: ../vim/ClusterComputeResource.rst#recommendation
-
-.. _vim.HostSystem: ../vim/HostSystem.rst
-
-.. _MigrateVM_Task: ../vim/VirtualMachine.rst#migrate
-
-.. _vSphere API 5.0: ../vim/version.rst#vimversionversion7
-
-.. _vSphere API 4.0: ../vim/version.rst#vimversionversion5
-
-.. _vSphere API 4.1: ../vim/version.rst#vimversionversion6
-
-.. _vim.fault.NoHost: ../vim/fault/NoHost.rst
-
-.. _vim.ResourcePool: ../vim/ResourcePool.rst
-
-.. _vim.VirtualMachine: ../vim/VirtualMachine.rst
-
-.. _vim.ComputeResource: ../vim/ComputeResource.rst
-
-.. _vim.host.ConnectSpec: ../vim/host/ConnectSpec.rst
-
-.. _vim.cluster.DrsFaults: ../vim/cluster/DrsFaults.rst
-
-.. _vim.option.OptionValue: ../vim/option/OptionValue.rst
-
-.. _vim.fault.TooManyHosts: ../vim/fault/TooManyHosts.rst
-
-.. _vim.cluster.ConfigInfo: ../vim/cluster/ConfigInfo.rst
-
-.. _vim.fault.InvalidState: ../vim/fault/InvalidState.rst
-
-.. _vim.cluster.ConfigSpec: ../vim/cluster/ConfigSpec.rst
-
-.. _vim.fault.InvalidLogin: ../vim/fault/InvalidLogin.rst
-
-.. _vim.fault.DuplicateName: ../vim/fault/DuplicateName.rst
-
-.. _vim.cluster.DrsMigration: ../vim/cluster/DrsMigration.rst
-
-.. _vmodl.fault.NotSupported: ../vmodl/fault/NotSupported.rst
-
-.. _vim.fault.SSLVerifyFault: ../vim/fault/SSLVerifyFault.rst
-
-.. _vim.cluster.ActionHistory: ../vim/cluster/ActionHistory.rst
-
-.. _vim.cluster.Recommendation: ../vim/cluster/Recommendation.rst
-
-.. _vim.fault.AlreadyConnected: ../vim/fault/AlreadyConnected.rst
-
-.. _vim.fault.NotSupportedHost: ../vim/fault/NotSupportedHost.rst
-
-.. _vim.fault.HostConnectFault: ../vim/fault/HostConnectFault.rst
-
-.. _vmodl.fault.InvalidArgument: ../vmodl/fault/InvalidArgument.rst
-
-.. _vim.fault.AgentInstallFailed: ../vim/fault/AgentInstallFailed.rst
-
-.. _vim.fault.AlreadyBeingManaged: ../vim/fault/AlreadyBeingManaged.rst
-
-.. _vim.cluster.DrsRecommendation: ../vim/cluster/DrsRecommendation.rst
-
-.. _vmodl.fault.NotEnoughLicenses: ../vmodl/fault/NotEnoughLicenses.rst
-
-.. _vim.cluster.HostRecommendation: ../vim/cluster/HostRecommendation.rst
-
-.. _vim.cluster.DasAdvancedRuntimeInfo: ../vim/cluster/DasAdvancedRuntimeInfo.rst
-
-.. _vim.cluster.EnterMaintenanceResult: ../vim/cluster/EnterMaintenanceResult.rst
-
-.. _vim.fault.DisallowedOperationOnFailoverHost: ../vim/fault/DisallowedOperationOnFailoverHost.rst
-
-.. _vim.fault.CannotDisableDrsOnClustersWithVApps: ../vim/fault/CannotDisableDrsOnClustersWithVApps.rst
-
 
 vim.ClusterComputeResource
 ==========================
-  The `ClusterComputeResource`_ data object aggregates the compute resources of associated `HostSystem`_ objects into a single compute resource for use by virtual machines. The cluster services such as HA (High Availability), DRS (Distributed Resource Scheduling), and EVC (Enhanced vMotion Compatibility), enhance the utility of this single compute resource.Use the `Folder`_ . `CreateClusterEx`_ method to create an instance of this object.
+  The `ClusterComputeResource <vim/ClusterComputeResource.rst>`_ data object aggregates the compute resources of associated `HostSystem <vim/HostSystem.rst>`_ objects into a single compute resource for use by virtual machines. The cluster services such as HA (High Availability), DRS (Distributed Resource Scheduling), and EVC (Enhanced vMotion Compatibility), enhance the utility of this single compute resource.Use the `Folder <vim/Folder.rst>`_ . `CreateClusterEx <vim/Folder.rst#createClusterEx>`_ method to create an instance of this object.
 
 
 :extends: vim.ComputeResource_
@@ -91,18 +9,18 @@ vim.ClusterComputeResource
 
 Attributes
 ----------
-    configuration (`vim.cluster.ConfigInfo`_):
+    configuration (`vim.cluster.ConfigInfo <vim/cluster/ConfigInfo.rst>`_):
        Configuration of the cluster.
-    recommendation ([`vim.cluster.Recommendation`_]):
+    recommendation ([`vim.cluster.Recommendation <vim/cluster/Recommendation.rst>`_]):
       privilege: System.Read
        List of recommended actions for the cluster. It is possible that the current set of recommendations may be empty, either due to not having any running dynamic recommendation generation module, or since there may be no recommended actions at this time.
-    drsRecommendation ([`vim.cluster.DrsRecommendation`_]):
+    drsRecommendation ([`vim.cluster.DrsRecommendation <vim/cluster/DrsRecommendation.rst>`_]):
        If DRS is enabled, this returns the set of recommended migrations from the DRS module. The current set of recommendations may be empty, since there may be no recommended migrations at this time, or it is possible that DRS is not enabled.
-    migrationHistory ([`vim.cluster.DrsMigration`_]):
+    migrationHistory ([`vim.cluster.DrsMigration <vim/cluster/DrsMigration.rst>`_]):
        The set of migration decisions that have recently been performed.This list is populated only when DRS is in automatic mode.
-    actionHistory ([`vim.cluster.ActionHistory`_]):
+    actionHistory ([`vim.cluster.ActionHistory <vim/cluster/ActionHistory.rst>`_]):
        The set of actions that have been performed recently.
-    drsFault ([`vim.cluster.DrsFaults`_]):
+    drsFault ([`vim.cluster.DrsFaults <vim/cluster/DrsFaults.rst>`_]):
       privilege: System.Read
        A collection of the DRS faults generated in the last DRS invocation. Each element of the collection is the set of faults generated in one recommendation. DRS faults are generated when DRS tries to make recommendations for rule enforcement, power management, etc., and indexed in a tree structure with reason for recommendations and VM to migrate (optional) as the index keys. In releases after vSphere API 5.0, vSphere Servers might not generate property collector update notifications for this property. To obtain the latest value of the property, you can use PropertyCollector methods RetrievePropertiesEx or WaitForUpdatesEx. If you use the PropertyCollector.WaitForUpdatesEx method, specify an empty string for the version parameter. Any other version value will not produce any property values as no updates are generated.
 
@@ -121,23 +39,23 @@ ReconfigureCluster(spec, modify):
 
 
   Args:
-    spec (`vim.cluster.ConfigSpec`_):
+    spec (`vim.cluster.ConfigSpec <vim/cluster/ConfigSpec.rst>`_):
        A set of configuration changes to apply to the cluster. The specification can be a complete set of changes or a partial set of changes, applied incrementally.
 
 
-    modify (`bool`_):
+    modify (`bool <https://docs.python.org/2/library/stdtypes.html>`_):
        Flag to specify whether the specification ("spec") should be applied incrementally. If "modify" is false and the operation succeeds, then the configuration of the cluster matches the specification exactly; in this case any unset portions of the specification will result in unset or default portions of the configuration.
 
 
 
 
   Returns:
-     `vim.Task`_:
+     `vim.Task <vim/Task.rst>`_:
          
 
   Raises:
 
-    `vim.fault.CannotDisableDrsOnClustersWithVApps`_: 
+    `vim.fault.CannotDisableDrsOnClustersWithVApps <vim/fault/CannotDisableDrsOnClustersWithVApps.rst>`_: 
        If DRS is being disabled and the cluster contains one or more vApps.
 
 
@@ -151,7 +69,7 @@ ApplyRecommendation(key):
 
 
   Args:
-    key (`str`_):
+    key (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        The key field of the DrsRecommendation or Recommendation.
 
 
@@ -163,13 +81,13 @@ ApplyRecommendation(key):
 
   Raises:
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
        If the specified key refers to a non-existent or an already executed recommendation.
 
 
 CancelRecommendation(key):
    Cancels a recommendation. Currently only initial placement recommendations can be cancelled. Migration or power management recommendations cannot.
-  since: `vSphere API 4.1`_
+  since: `vSphere API 4.1 <vim/version.rst#vimversionversion6>`_
 
 
   Privilege:
@@ -178,7 +96,7 @@ CancelRecommendation(key):
 
 
   Args:
-    key (`str`_):
+    key (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        The key field of the Recommendation.
 
 
@@ -190,7 +108,7 @@ CancelRecommendation(key):
 
   Raises:
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
        If the specified key refers to a non-existent or an already executed recommendation.
 
 
@@ -204,26 +122,26 @@ RecommendHostsForVm(vm, pool):
 
 
   Args:
-    vm (`vim.VirtualMachine`_):
+    vm (`vim.VirtualMachine <vim/VirtualMachine.rst>`_):
        Specifies the virtual machine for which the user is requesting a recommendations.
 
 
-    pool (`vim.ResourcePool`_, optional):
+    pool (`vim.ResourcePool <vim/ResourcePool.rst>`_, optional):
        Specifies the ResourcePool into which the virtual machine is to be migrated. If the virtual machine is powered-on, this argument must be specified and it is relevant only when the virtual machine is powered-on. This ResourcePool cannot be in the same cluster as the virtual machine.
 
 
 
 
   Returns:
-    [`vim.cluster.HostRecommendation`_]:
+    [`vim.cluster.HostRecommendation <vim/cluster/HostRecommendation.rst>`_]:
          An array of HostRecommendation ordered by their rating.
 
   Raises:
 
-    `vmodl.fault.NotSupported`_: 
+    `vmodl.fault.NotSupported <vmodl/fault/NotSupported.rst>`_: 
        if DRS is not enabled.
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
        if the virtual machine is powered on and the optional ResourcePool argument is either not specified or is in the same cluster as the virtual machine.
 
 
@@ -237,61 +155,61 @@ AddHost(spec, asConnected, resourcePool, license):
 
 
   Args:
-    spec (`vim.host.ConnectSpec`_):
+    spec (`vim.host.ConnectSpec <vim/host/ConnectSpec.rst>`_):
        Specifies the host name, port, and password for the host to be added.
 
 
-    asConnected (`bool`_):
+    asConnected (`bool <https://docs.python.org/2/library/stdtypes.html>`_):
        Flag to specify whether or not the host should be connected immediately after it is added. The host will not be added if a connection attempt is made and fails.
 
 
-    resourcePool (`vim.ResourcePool`_, optional):
+    resourcePool (`vim.ResourcePool <vim/ResourcePool.rst>`_, optional):
        the resource pool for the root resource pool from the host.
 
 
-    license (`str`_, optional, since `vSphere API 4.0`_ ):
-       Provide a licenseKey or licenseKeyType. See `LicenseManager`_ 
+    license (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional, since `vSphere API 4.0 <vim/version.rst#vimversionversion5>`_ ):
+       Provide a licenseKey or licenseKeyType. See `LicenseManager <vim/LicenseManager.rst>`_ 
 
 
 
 
   Returns:
-     `vim.Task`_:
+     `vim.Task <vim/Task.rst>`_:
          the newly added HostSystem.
 
   Raises:
 
-    `vim.fault.InvalidLogin`_: 
+    `vim.fault.InvalidLogin <vim/fault/InvalidLogin.rst>`_: 
        if "asConnected" is specified but authentication with the new host fails.
 
-    `vim.fault.HostConnectFault`_: 
+    `vim.fault.HostConnectFault <vim/fault/HostConnectFault.rst>`_: 
        if an error occurred when connecting to a host. Typically, a more specific subclass, such as AlreadyBeingManaged, is thrown.
 
-    `vim.fault.DuplicateName`_: 
+    `vim.fault.DuplicateName <vim/fault/DuplicateName.rst>`_: 
        if another host in the same cluster has the name.
 
-    `vim.fault.AlreadyBeingManaged`_: 
+    `vim.fault.AlreadyBeingManaged <vim/fault/AlreadyBeingManaged.rst>`_: 
        if the host is already being managed by a VirtualCenter server.
 
-    `vmodl.fault.NotEnoughLicenses`_: 
+    `vmodl.fault.NotEnoughLicenses <vmodl/fault/NotEnoughLicenses.rst>`_: 
        if no licenses are available to add this host.
 
-    `vim.fault.NoHost`_: 
+    `vim.fault.NoHost <vim/fault/NoHost.rst>`_: 
        if the host cannot be contacted.
 
-    `vim.fault.NotSupportedHost`_: 
+    `vim.fault.NotSupportedHost <vim/fault/NotSupportedHost.rst>`_: 
        if the host is running a software version that does not support clustering features. It may still be possible to add the host as a stand-alone host.
 
-    `vim.fault.TooManyHosts`_: 
+    `vim.fault.TooManyHosts <vim/fault/TooManyHosts.rst>`_: 
        if no additional hosts can be added to the cluster.
 
-    `vim.fault.AgentInstallFailed`_: 
+    `vim.fault.AgentInstallFailed <vim/fault/AgentInstallFailed.rst>`_: 
        if there is an error installing the VirtualCenter agent on the host.
 
-    `vim.fault.AlreadyConnected`_: 
+    `vim.fault.AlreadyConnected <vim/fault/AlreadyConnected.rst>`_: 
        if asConnected is true and the host is already connected to VirtualCenter.
 
-    `vim.fault.SSLVerifyFault`_: 
+    `vim.fault.SSLVerifyFault <vim/fault/SSLVerifyFault.rst>`_: 
        if the host certificate could not be authenticated
 
 
@@ -305,32 +223,32 @@ MoveInto(host):
 
 
   Args:
-    host (`vim.HostSystem`_):
+    host (`vim.HostSystem <vim/HostSystem.rst>`_):
        The list of hosts to move into the cluster.
 
 
 
 
   Returns:
-     `vim.Task`_:
+     `vim.Task <vim/Task.rst>`_:
          
 
   Raises:
 
-    `vim.fault.DuplicateName`_: 
+    `vim.fault.DuplicateName <vim/fault/DuplicateName.rst>`_: 
        if the host is already in the cluster
 
-    `vim.fault.TooManyHosts`_: 
+    `vim.fault.TooManyHosts <vim/fault/TooManyHosts.rst>`_: 
        if no additional hosts can be added to the cluster.
 
-    `vim.fault.InvalidState`_: 
+    `vim.fault.InvalidState <vim/fault/InvalidState.rst>`_: 
        if a host is already part of a cluster and is not in maintenance mode.
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
        if one of the hosts is not part of the same datacenter as the cluster.
 
-    `vim.fault.DisallowedOperationOnFailoverHost`_: 
-       if the host is being moved from a cluster and was configured as a failover host in that cluster. See `ClusterFailoverHostAdmissionControlPolicy`_ .
+    `vim.fault.DisallowedOperationOnFailoverHost <vim/fault/DisallowedOperationOnFailoverHost.rst>`_: 
+       if the host is being moved from a cluster and was configured as a failover host in that cluster. See `ClusterFailoverHostAdmissionControlPolicy <vim/cluster/FailoverHostAdmissionControlPolicy.rst>`_ .
 
 
 MoveHostInto(host, resourcePool):
@@ -343,35 +261,35 @@ MoveHostInto(host, resourcePool):
 
 
   Args:
-    host (`vim.HostSystem`_):
+    host (`vim.HostSystem <vim/HostSystem.rst>`_):
        The list of hosts to move into the cluster.
 
 
-    resourcePool (`vim.ResourcePool`_, optional):
+    resourcePool (`vim.ResourcePool <vim/ResourcePool.rst>`_, optional):
        The resource pool to match the root resource pool of stand-alone hosts. This argument has no effect if the host is part of a cluster.
 
 
 
 
   Returns:
-     `vim.Task`_:
+     `vim.Task <vim/Task.rst>`_:
          
 
   Raises:
 
-    `vim.fault.TooManyHosts`_: 
+    `vim.fault.TooManyHosts <vim/fault/TooManyHosts.rst>`_: 
        if no additional hosts can be added to the cluster.
 
-    `vim.fault.InvalidState`_: 
+    `vim.fault.InvalidState <vim/fault/InvalidState.rst>`_: 
        if a host is already part of a cluster and is not in maintenance mode.
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
        if the host is not a part of the same datacenter as the cluster or if the specified resource pool is not part of the cluster or if the source and destination clusters are the same.
 
 
 RefreshRecommendation():
-   Make DRS invoke again and return a new list of recommendations. Concurrent "refresh" requests may be combined together and trigger only one DRS invocation.The recommendations generated is stored at `recommendation`_ .
-  since: `VI API 2.5`_
+   Make DRS invoke again and return a new list of recommendations. Concurrent "refresh" requests may be combined together and trigger only one DRS invocation.The recommendations generated is stored at `recommendation <vim/ClusterComputeResource.rst#recommendation>`_ .
+  since: `VI API 2.5 <vim/version.rst#vimversionversion2>`_
 
 
   Privilege:
@@ -389,7 +307,7 @@ RefreshRecommendation():
 
 RetrieveDasAdvancedRuntimeInfo():
    Retrieve DAS advanced runtime info for this cluster.
-  since: `vSphere API 4.0`_
+  since: `vSphere API 4.0 <vim/version.rst#vimversionversion5>`_
 
 
   Privilege:
@@ -401,13 +319,13 @@ RetrieveDasAdvancedRuntimeInfo():
 
 
   Returns:
-    `vim.cluster.DasAdvancedRuntimeInfo`_:
+    `vim.cluster.DasAdvancedRuntimeInfo <vim/cluster/DasAdvancedRuntimeInfo.rst>`_:
          
 
 
 ClusterEnterMaintenanceMode(host, option):
-   The API takes a list of hosts in the cluster as input, and returns a list of hosts in "ClusterMaintenanceResult" that the server can successfully evacuate given the existing constraints in the cluster, such as HA, FT, Vmotion compatibility, reservations, affinity rules, etc. The client is allowed to pass all hosts in the cluster to the API, even though all of them cannot enter maintenance mode at the same time. The list returned from the API contains the largest number of hosts that the server can evacuate simultaneously. The client can then request to enter each host in the returned list into maintenance mode. The client can specify an integer "DemandCapacityRatioTarget" option in the "option" parameter. The allowed values of the option range from 40 to 200, and the default value is 100. This option controls how much resource overcommitment the server should make in consolidating the VMs onto fewer hosts. A value of 100 means the server will keep the same amount of powered-on capacity as the current VM demands. A value less than 100 means undercommitted resources. A value greater than 100 means overcommitted resources. The hosts are recommended based on the inventory at the time of the API invocation. It is not guaranteed that the actual enter-maintenance tasks on the hosts will succeed, if the inventory changes after the API returns, or if vmotions fail due to unexpected conditions. For possible exceptions thrown by the necessary relocate operations, see `MigrateVM_Task`_ .
-  since: `vSphere API 5.0`_
+   The API takes a list of hosts in the cluster as input, and returns a list of hosts in "ClusterMaintenanceResult" that the server can successfully evacuate given the existing constraints in the cluster, such as HA, FT, Vmotion compatibility, reservations, affinity rules, etc. The client is allowed to pass all hosts in the cluster to the API, even though all of them cannot enter maintenance mode at the same time. The list returned from the API contains the largest number of hosts that the server can evacuate simultaneously. The client can then request to enter each host in the returned list into maintenance mode. The client can specify an integer "DemandCapacityRatioTarget" option in the "option" parameter. The allowed values of the option range from 40 to 200, and the default value is 100. This option controls how much resource overcommitment the server should make in consolidating the VMs onto fewer hosts. A value of 100 means the server will keep the same amount of powered-on capacity as the current VM demands. A value less than 100 means undercommitted resources. A value greater than 100 means overcommitted resources. The hosts are recommended based on the inventory at the time of the API invocation. It is not guaranteed that the actual enter-maintenance tasks on the hosts will succeed, if the inventory changes after the API returns, or if vmotions fail due to unexpected conditions. For possible exceptions thrown by the necessary relocate operations, see `MigrateVM_Task <vim/VirtualMachine.rst#migrate>`_ .
+  since: `vSphere API 5.0 <vim/version.rst#vimversionversion7>`_
 
 
   Privilege:
@@ -416,23 +334,23 @@ ClusterEnterMaintenanceMode(host, option):
 
 
   Args:
-    host (`vim.HostSystem`_):
+    host (`vim.HostSystem <vim/HostSystem.rst>`_):
        The array of hosts to put into maintenance mode.
 
 
-    option (`vim.option.OptionValue`_, optional):
-       An array of `OptionValue`_ options for this query. The specified options override the advanced options in `ClusterDrsConfigInfo`_ .
+    option (`vim.option.OptionValue <vim/option/OptionValue.rst>`_, optional):
+       An array of `OptionValue <vim/option/OptionValue.rst>`_ options for this query. The specified options override the advanced options in `ClusterDrsConfigInfo <vim/cluster/DrsConfigInfo.rst>`_ .
 
 
 
 
   Returns:
-    `vim.cluster.EnterMaintenanceResult`_:
-         A `ClusterEnterMaintenanceResult`_ object, which consists of an array of recommendations for hosts that can be evacuated and an array of faults for hosts that cannot be evacuated.
+    `vim.cluster.EnterMaintenanceResult <vim/cluster/EnterMaintenanceResult.rst>`_:
+         A `ClusterEnterMaintenanceResult <vim/cluster/EnterMaintenanceResult.rst>`_ object, which consists of an array of recommendations for hosts that can be evacuated and an array of faults for hosts that cannot be evacuated.
 
   Raises:
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
        for unknown option keys or bad values.
 
 

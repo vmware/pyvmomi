@@ -1,11 +1,9 @@
-.. _vim.fault.HostConnectFault: ../../vim/fault/HostConnectFault.rst
-
 
 vim.fault.SSLDisabledFault
 ==========================
     :extends:
 
-        `vim.fault.HostConnectFault`_
+        `vim.fault.HostConnectFault <vim/fault/HostConnectFault.rst>`_
 
   A SSLDisabledFault fault occurs when a host does not have ssl enabled.
 

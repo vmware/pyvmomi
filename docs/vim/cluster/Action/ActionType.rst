@@ -1,13 +1,9 @@
-.. _vim.cluster.Action: ../../../vim/cluster/Action.rst
-
-.. _vim.cluster.Action.ActionType: ../../../vim/cluster/Action/ActionType.rst
-
 vim.cluster.Action.ActionType
 =============================
   Pre-defined constants for possible action types. Virtual Center uses this information to coordinate with the clients.
-  :contained by: `vim.cluster.Action`_
+  :contained by: `vim.cluster.Action <vim/cluster/Action.rst>`_
 
-  :type: `vim.cluster.Action.ActionType`_
+  :type: `vim.cluster.Action.ActionType <vim/cluster/Action/ActionType.rst>`_
 
   :name: StoragePlacementV1
 

@@ -1,7 +1,3 @@
-.. _vim.event.VmEvent: ../../vim/event/VmEvent.rst
-
-.. _vmodl.LocalizedMethodFault: ../../vmodl/LocalizedMethodFault.rst
-
 
 vim.event.VmFailedRelayoutEvent
 ===============================
@@ -9,5 +5,5 @@ vim.event.VmFailedRelayoutEvent
 :extends: vim.event.VmEvent_
 
 Attributes:
-    reason (`vmodl.LocalizedMethodFault`_):
+    reason (`vmodl.LocalizedMethodFault <vmodl/LocalizedMethodFault.rst>`_):
 

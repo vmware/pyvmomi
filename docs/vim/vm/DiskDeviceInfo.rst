@@ -1,9 +1,3 @@
-.. _long: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.vm.TargetInfo: ../../vim/vm/TargetInfo.rst
-
-.. _vim.VirtualMachine: ../../vim/VirtualMachine.rst
-
 
 vim.vm.DiskDeviceInfo
 =====================
@@ -11,9 +5,9 @@ vim.vm.DiskDeviceInfo
 :extends: vim.vm.TargetInfo_
 
 Attributes:
-    capacity (`long`_, optional):
+    capacity (`long <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        Size of disk
-    vm ([`vim.VirtualMachine`_], optional):
+    vm ([`vim.VirtualMachine <vim/VirtualMachine.rst>`_], optional):
 
        List of known virtual machines using this physical disk as a backing

@@ -1,12 +1,8 @@
-.. _vim.host.CpuPackage: ../../../vim/host/CpuPackage.rst
-
-.. _vim.host.CpuPackage.Vendor: ../../../vim/host/CpuPackage/Vendor.rst
-
 vim.host.CpuPackage.Vendor
 ==========================
-  :contained by: `vim.host.CpuPackage`_
+  :contained by: `vim.host.CpuPackage <vim/host/CpuPackage.rst>`_
 
-  :type: `vim.host.CpuPackage.Vendor`_
+  :type: `vim.host.CpuPackage.Vendor <vim/host/CpuPackage/Vendor.rst>`_
 
   :name: amd
 

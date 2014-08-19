@@ -1,13 +1,9 @@
-.. _vim.vsan.host.DecommissionMode: ../../../../vim/vsan/host/DecommissionMode.rst
-
-.. _vim.vsan.host.DecommissionMode.ObjectAction: ../../../../vim/vsan/host/DecommissionMode/ObjectAction.rst
-
 vim.vsan.host.DecommissionMode.ObjectAction
 ===========================================
   The action to take with regard to storage objects upon decommissioning a host from use with the VSAN service.
-  :contained by: `vim.vsan.host.DecommissionMode`_
+  :contained by: `vim.vsan.host.DecommissionMode <vim/vsan/host/DecommissionMode.rst>`_
 
-  :type: `vim.vsan.host.DecommissionMode.ObjectAction`_
+  :type: `vim.vsan.host.DecommissionMode.ObjectAction <vim/vsan/host/DecommissionMode/ObjectAction.rst>`_
 
   :name: evacuateAllData
 

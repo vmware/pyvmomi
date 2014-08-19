@@ -1,13 +1,9 @@
-.. _vim.TaskFilterSpec: ../../vim/TaskFilterSpec.rst
-
-.. _vim.TaskFilterSpec.RecursionOption: ../../vim/TaskFilterSpec/RecursionOption.rst
-
 vim.TaskFilterSpec.RecursionOption
 ==================================
   This option specifies how to select tasks based on child relationships in the inventory hierarchy. If a managed entity has children, their tasks can be retrieved with this filter option.
-  :contained by: `vim.TaskFilterSpec`_
+  :contained by: `vim.TaskFilterSpec <vim/TaskFilterSpec.rst>`_
 
-  :type: `vim.TaskFilterSpec.RecursionOption`_
+  :type: `vim.TaskFilterSpec.RecursionOption <vim/TaskFilterSpec/RecursionOption.rst>`_
 
   :name: all
 

@@ -1,7 +1,3 @@
-.. _vim.host.CpuIdInfo: ../../../vim/host/CpuIdInfo.rst
-
-.. _vim.option.ArrayUpdateSpec: ../../../vim/option/ArrayUpdateSpec.rst
-
 
 vim.vm.ConfigSpec.CpuIdInfoSpec
 ===============================
@@ -9,5 +5,5 @@ vim.vm.ConfigSpec.CpuIdInfoSpec
 :extends: vim.option.ArrayUpdateSpec_
 
 Attributes:
-    info (`vim.host.CpuIdInfo`_, optional):
+    info (`vim.host.CpuIdInfo <vim/host/CpuIdInfo.rst>`_, optional):
 

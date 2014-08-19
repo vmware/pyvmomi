@@ -1,13 +1,9 @@
-.. _vim.ServiceInstance: ../../vim/ServiceInstance.rst
-
-.. _vim.ServiceInstance.ValidateMigrationTestType: ../../vim/ServiceInstance/ValidateMigrationTestType.rst
-
 vim.ServiceInstance.ValidateMigrationTestType
 =============================================
   Types of tests available for validateMigration.
-  :contained by: `vim.ServiceInstance`_
+  :contained by: `vim.ServiceInstance <vim/ServiceInstance.rst>`_
 
-  :type: `vim.ServiceInstance.ValidateMigrationTestType`_
+  :type: `vim.ServiceInstance.ValidateMigrationTestType <vim/ServiceInstance/ValidateMigrationTestType.rst>`_
 
   :name: resourceTests
 

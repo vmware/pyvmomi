@@ -1,7 +1,3 @@
-.. _vim.event.Event: ../../vim/event/Event.rst
-
-.. _vim.event.DatastoreEventArgument: ../../vim/event/DatastoreEventArgument.rst
-
 
 vim.event.DatastoreEvent
 ========================
@@ -9,6 +5,6 @@ vim.event.DatastoreEvent
 :extends: vim.event.Event_
 
 Attributes:
-    datastore (`vim.event.DatastoreEventArgument`_, optional):
+    datastore (`vim.event.DatastoreEventArgument <vim/event/DatastoreEventArgument.rst>`_, optional):
 
        The associated datastore.

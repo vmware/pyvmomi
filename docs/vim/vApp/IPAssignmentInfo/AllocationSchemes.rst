@@ -1,13 +1,9 @@
-.. _vim.vApp.IPAssignmentInfo: ../../../vim/vApp/IPAssignmentInfo.rst
-
-.. _vim.vApp.IPAssignmentInfo.AllocationSchemes: ../../../vim/vApp/IPAssignmentInfo/AllocationSchemes.rst
-
 vim.vApp.IPAssignmentInfo.AllocationSchemes
 ===========================================
   IP allocation schemes supported by the guest.
-  :contained by: `vim.vApp.IPAssignmentInfo`_
+  :contained by: `vim.vApp.IPAssignmentInfo <vim/vApp/IPAssignmentInfo.rst>`_
 
-  :type: `vim.vApp.IPAssignmentInfo.AllocationSchemes`_
+  :type: `vim.vApp.IPAssignmentInfo.AllocationSchemes <vim/vApp/IPAssignmentInfo/AllocationSchemes.rst>`_
 
   :name: ovfenv
 

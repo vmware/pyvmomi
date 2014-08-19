@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.event.SessionEvent: ../../vim/event/SessionEvent.rst
-
 
 vim.event.GlobalMessageChangedEvent
 ===================================
@@ -9,6 +5,6 @@ vim.event.GlobalMessageChangedEvent
 :extends: vim.event.SessionEvent_
 
 Attributes:
-    message (`str`_):
+    message (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The new message that was set.

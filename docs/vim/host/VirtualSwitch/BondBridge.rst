@@ -1,13 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _LinkDiscoveryProtocolConfig: ../../../vim/host/LinkDiscoveryProtocolConfig.rst
-
-.. _vim.host.VirtualSwitch.Bridge: ../../../vim/host/VirtualSwitch/Bridge.rst
-
-.. _vim.host.VirtualSwitch.BeaconConfig: ../../../vim/host/VirtualSwitch/BeaconConfig.rst
-
-.. _vim.host.LinkDiscoveryProtocolConfig: ../../../vim/host/LinkDiscoveryProtocolConfig.rst
-
 
 vim.host.VirtualSwitch.BondBridge
 =================================
@@ -15,12 +5,12 @@ vim.host.VirtualSwitch.BondBridge
 :extends: vim.host.VirtualSwitch.Bridge_
 
 Attributes:
-    nicDevice ([`str`_]):
+    nicDevice ([`str <https://docs.python.org/2/library/stdtypes.html>`_]):
 
        The list of keys of the physical network adapters to be bridged.
-    beacon (`vim.host.VirtualSwitch.BeaconConfig`_, optional):
+    beacon (`vim.host.VirtualSwitch.BeaconConfig <vim/host/VirtualSwitch/BeaconConfig.rst>`_, optional):
 
        The beacon configuration to probe for the validity of a link. If this is set, beacon probing is configured and will be used. If this is not set, beacon probing is disabled.
-    linkDiscoveryProtocolConfig (`vim.host.LinkDiscoveryProtocolConfig`_, optional):
+    linkDiscoveryProtocolConfig (`vim.host.LinkDiscoveryProtocolConfig <vim/host/LinkDiscoveryProtocolConfig.rst>`_, optional):
 
-       The link discovery protocol configuration for the virtual switch.See `LinkDiscoveryProtocolConfig`_ 
+       The link discovery protocol configuration for the virtual switch.See `LinkDiscoveryProtocolConfig <vim/host/LinkDiscoveryProtocolConfig.rst>`_ 

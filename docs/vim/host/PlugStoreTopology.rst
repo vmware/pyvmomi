@@ -1,17 +1,3 @@
-.. _vSphere API 4.0: ../../vim/version.rst#vimversionversion5
-
-.. _vmodl.DynamicData: ../../vmodl/DynamicData.rst
-
-.. _vim.host.PlugStoreTopology.Path: ../../vim/host/PlugStoreTopology/Path.rst
-
-.. _vim.host.PlugStoreTopology.Device: ../../vim/host/PlugStoreTopology/Device.rst
-
-.. _vim.host.PlugStoreTopology.Target: ../../vim/host/PlugStoreTopology/Target.rst
-
-.. _vim.host.PlugStoreTopology.Plugin: ../../vim/host/PlugStoreTopology/Plugin.rst
-
-.. _vim.host.PlugStoreTopology.Adapter: ../../vim/host/PlugStoreTopology/Adapter.rst
-
 
 vim.host.PlugStoreTopology
 ==========================
@@ -23,21 +9,21 @@ vim.host.PlugStoreTopology
    * Determine which paths are claimed by a plugin by accumulating the paths of all device of the plugin.
    * Determine which plugin a path belongs to by accessing its device and finding that device in the Plugin list.
 :extends: vmodl.DynamicData_
-:since: `vSphere API 4.0`_
+:since: `vSphere API 4.0 <vim/version.rst#vimversionversion5>`_
 
 Attributes:
-    adapter ([`vim.host.PlugStoreTopology.Adapter`_], optional):
+    adapter ([`vim.host.PlugStoreTopology.Adapter <vim/host/PlugStoreTopology/Adapter.rst>`_], optional):
 
        List of host bus adapters in the plug store inventory.
-    path ([`vim.host.PlugStoreTopology.Path`_], optional):
+    path ([`vim.host.PlugStoreTopology.Path <vim/host/PlugStoreTopology/Path.rst>`_], optional):
 
        List of paths in the plug store inventory.
-    target ([`vim.host.PlugStoreTopology.Target`_], optional):
+    target ([`vim.host.PlugStoreTopology.Target <vim/host/PlugStoreTopology/Target.rst>`_], optional):
 
        Partial list of targets as seen by the host. The list of targets may not be exhaustive on the host.
-    device ([`vim.host.PlugStoreTopology.Device`_], optional):
+    device ([`vim.host.PlugStoreTopology.Device <vim/host/PlugStoreTopology/Device.rst>`_], optional):
 
        List of devices in the plug store inventory.
-    plugin ([`vim.host.PlugStoreTopology.Plugin`_], optional):
+    plugin ([`vim.host.PlugStoreTopology.Plugin <vim/host/PlugStoreTopology/Plugin.rst>`_], optional):
 
        List of plugins in the plug store inventory.

@@ -1,12 +1,8 @@
-.. _vim.cluster.DpmConfigInfo: ../../../vim/cluster/DpmConfigInfo.rst
-
-.. _vim.cluster.DpmConfigInfo.DpmBehavior: ../../../vim/cluster/DpmConfigInfo/DpmBehavior.rst
-
 vim.cluster.DpmConfigInfo.DpmBehavior
 =====================================
-  :contained by: `vim.cluster.DpmConfigInfo`_
+  :contained by: `vim.cluster.DpmConfigInfo <vim/cluster/DpmConfigInfo.rst>`_
 
-  :type: `vim.cluster.DpmConfigInfo.DpmBehavior`_
+  :type: `vim.cluster.DpmConfigInfo.DpmBehavior <vim/cluster/DpmConfigInfo/DpmBehavior.rst>`_
 
   :name: automated
 

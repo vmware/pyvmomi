@@ -1,18 +1,8 @@
-.. _connectedToMaster: ../../vim/cluster/DasFdmAvailabilityState.rst#connectedToMaster
-
-.. _ClusterDasFdmHostState: ../../vim/cluster/DasFdmHostState.rst
-
-.. _ClusterDasFdmAvailabilityState: ../../vim/cluster/DasFdmAvailabilityState.rst
-
-.. _vim.cluster.DasFdmAvailabilityState: ../../vim/cluster/DasFdmAvailabilityState.rst
-
-.. _ClusterDasVmSettingsIsolationResponse: ../../vim/cluster/DasVmSettings/IsolationResponse.rst
-
 vim.cluster.DasFdmAvailabilityState
 ===================================
-  The `ClusterDasFdmAvailabilityState`_ enumeration describes the availability states of hosts in a vSphere HA cluster. In the HA architecture, a agent called the Fault Domain Manager runs on each active host. These agents elect a master and the others become its slaves. The availability state assigned to a given host is determined from information reported by the Fault Domain Manager running on the host, by a Fault Domain Manager that has been elected master, and by vCenter Server. See `ClusterDasFdmHostState`_ for more information about the vSphere HA architecture.
+  The `ClusterDasFdmAvailabilityState <vim/cluster/DasFdmAvailabilityState.rst>`_ enumeration describes the availability states of hosts in a vSphere HA cluster. In the HA architecture, a agent called the Fault Domain Manager runs on each active host. These agents elect a master and the others become its slaves. The availability state assigned to a given host is determined from information reported by the Fault Domain Manager running on the host, by a Fault Domain Manager that has been elected master, and by vCenter Server. See `ClusterDasFdmHostState <vim/cluster/DasFdmHostState.rst>`_ for more information about the vSphere HA architecture.
 
-  :type: `vim.cluster.DasFdmAvailabilityState`_
+  :type: `vim.cluster.DasFdmAvailabilityState <vim/cluster/DasFdmAvailabilityState.rst>`_
 
   :name: fdmUnreachable
 
@@ -41,7 +31,7 @@ election
    The Fault Domain Manager on the host has been initialized and the host is either waiting to join the existing master or is participating in an election for a new master. This state is reported by vCenter Server or by the host itself.
 
 networkIsolated
-   A host is alive but is isolated from the management network. See `ClusterDasVmSettingsIsolationResponse`_ for the criteria used to determine whether a host is isolated.
+   A host is alive but is isolated from the management network. See `ClusterDasVmSettingsIsolationResponse <vim/cluster/DasVmSettings/IsolationResponse.rst>`_ for the criteria used to determine whether a host is isolated.
 
 initializationError
    An error occurred when initilizating the Fault Domain Manager on a host due to a problem with installing the agent or configuring it. This condition can often be cleared by reconfiguring HA for the host. This state is reported by vCenter Server.
@@ -50,4 +40,4 @@ uninitializationError
    An error occurred when unconfiguring the Fault Domain Manager running on a host. In order to clear this condition the host might need to be reconnected to the cluster and reconfigured first. This state is reported by vCenter Server.
 
 networkPartitionedFromMaster
-   A slave host is alive and has management network connectivity, but the management network has been partitioned. This state is reported by masters that are in a partition other than the one containing the slave host; the master in the slave's partition will report the slave state as `connectedToMaster`_ .
+   A slave host is alive and has management network connectivity, but the management network has been partitioned. This state is reported by masters that are in a partition other than the one containing the slave host; the master in the slave's partition will report the slave state as `connectedToMaster <vim/cluster/DasFdmAvailabilityState.rst#connectedToMaster>`_ .

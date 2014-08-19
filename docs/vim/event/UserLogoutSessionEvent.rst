@@ -1,11 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _long: https://docs.python.org/2/library/stdtypes.html
-
-.. _datetime: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.event.SessionEvent: ../../vim/event/SessionEvent.rst
-
 
 vim.event.UserLogoutSessionEvent
 ================================
@@ -13,18 +5,18 @@ vim.event.UserLogoutSessionEvent
 :extends: vim.event.SessionEvent_
 
 Attributes:
-    ipAddress (`str`_, optional):
+    ipAddress (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        The IP address of client
-    userAgent (`str`_, optional):
+    userAgent (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        The user agent or application
-    callCount (`long`_, optional):
+    callCount (`long <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        Number of API invocations made by the session
-    sessionId (`str`_, optional):
+    sessionId (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        The unique identifier for the session.
-    loginTime (`datetime`_, optional):
+    loginTime (`datetime <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        Timestamp when the user logged on for this session.

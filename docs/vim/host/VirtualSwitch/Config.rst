@@ -1,11 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vmodl.DynamicData: ../../../vmodl/DynamicData.rst
-
-.. _HostConfigChangeOperation: ../../../vim/host/ConfigChange/Operation.rst
-
-.. _vim.host.VirtualSwitch.Specification: ../../../vim/host/VirtualSwitch/Specification.rst
-
 
 vim.host.VirtualSwitch.Config
 =============================
@@ -13,12 +5,12 @@ vim.host.VirtualSwitch.Config
 :extends: vmodl.DynamicData_
 
 Attributes:
-    changeOperation (`str`_, optional):
+    changeOperation (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
-       This property indicates the change operation to apply on this configuration specification.See `HostConfigChangeOperation`_ 
-    name (`str`_):
+       This property indicates the change operation to apply on this configuration specification.See `HostConfigChangeOperation <vim/host/ConfigChange/Operation.rst>`_ 
+    name (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The name of the virtual switch. Maximum length is 32 characters.
-    spec (`vim.host.VirtualSwitch.Specification`_, optional):
+    spec (`vim.host.VirtualSwitch.Specification <vim/host/VirtualSwitch/Specification.rst>`_, optional):
 
        The specification of the VirtualSwitch.

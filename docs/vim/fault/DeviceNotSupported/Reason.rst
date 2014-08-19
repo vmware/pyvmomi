@@ -1,13 +1,9 @@
-.. _vim.fault.DeviceNotSupported: ../../../vim/fault/DeviceNotSupported.rst
-
-.. _vim.fault.DeviceNotSupported.Reason: ../../../vim/fault/DeviceNotSupported/Reason.rst
-
 vim.fault.DeviceNotSupported.Reason
 ===================================
   Reasons why a virtual device would not be supported on a host.
-  :contained by: `vim.fault.DeviceNotSupported`_
+  :contained by: `vim.fault.DeviceNotSupported <vim/fault/DeviceNotSupported.rst>`_
 
-  :type: `vim.fault.DeviceNotSupported.Reason`_
+  :type: `vim.fault.DeviceNotSupported.Reason <vim/fault/DeviceNotSupported/Reason.rst>`_
 
   :name: guest
 

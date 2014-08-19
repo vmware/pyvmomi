@@ -1,12 +1,8 @@
-.. _vim.fault.AgentInstallFailed: ../../../vim/fault/AgentInstallFailed.rst
-
-.. _vim.fault.AgentInstallFailed.Reason: ../../../vim/fault/AgentInstallFailed/Reason.rst
-
 vim.fault.AgentInstallFailed.Reason
 ===================================
-  :contained by: `vim.fault.AgentInstallFailed`_
+  :contained by: `vim.fault.AgentInstallFailed <vim/fault/AgentInstallFailed.rst>`_
 
-  :type: `vim.fault.AgentInstallFailed.Reason`_
+  :type: `vim.fault.AgentInstallFailed.Reason <vim/fault/AgentInstallFailed/Reason.rst>`_
 
   :name: UnknownInstallerError
 

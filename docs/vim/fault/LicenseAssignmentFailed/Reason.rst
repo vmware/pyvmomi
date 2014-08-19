@@ -1,12 +1,8 @@
-.. _vim.fault.LicenseAssignmentFailed: ../../../vim/fault/LicenseAssignmentFailed.rst
-
-.. _vim.fault.LicenseAssignmentFailed.Reason: ../../../vim/fault/LicenseAssignmentFailed/Reason.rst
-
 vim.fault.LicenseAssignmentFailed.Reason
 ========================================
-  :contained by: `vim.fault.LicenseAssignmentFailed`_
+  :contained by: `vim.fault.LicenseAssignmentFailed <vim/fault/LicenseAssignmentFailed.rst>`_
 
-  :type: `vim.fault.LicenseAssignmentFailed.Reason`_
+  :type: `vim.fault.LicenseAssignmentFailed.Reason <vim/fault/LicenseAssignmentFailed/Reason.rst>`_
 
   :name: hostsUnmanageableByVirtualCenterWithoutLicenseServer
 

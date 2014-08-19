@@ -1,5 +1,3 @@
-.. _vim.vm.device.VirtualDeviceOption.FileBackingOption: ../../../../vim/vm/device/VirtualDeviceOption/FileBackingOption.rst
-
 
 vim.vm.device.VirtualCdromOption.IsoBackingOption
 =================================================

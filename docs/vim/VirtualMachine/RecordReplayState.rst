@@ -1,13 +1,9 @@
-.. _vim.VirtualMachine: ../../vim/VirtualMachine.rst
-
-.. _vim.VirtualMachine.RecordReplayState: ../../vim/VirtualMachine/RecordReplayState.rst
-
 vim.VirtualMachine.RecordReplayState
 ====================================
   The RecordReplayState type defines a simple set of record and replay states for a virtual machine.
-  :contained by: `vim.VirtualMachine`_
+  :contained by: `vim.VirtualMachine <vim/VirtualMachine.rst>`_
 
-  :type: `vim.VirtualMachine.RecordReplayState`_
+  :type: `vim.VirtualMachine.RecordReplayState <vim/VirtualMachine/RecordReplayState.rst>`_
 
   :name: inactive
 

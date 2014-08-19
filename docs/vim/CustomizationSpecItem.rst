@@ -1,9 +1,3 @@
-.. _vmodl.DynamicData: ../vmodl/DynamicData.rst
-
-.. _vim.CustomizationSpecInfo: ../vim/CustomizationSpecInfo.rst
-
-.. _vim.vm.customization.Specification: ../vim/vm/customization/Specification.rst
-
 
 vim.CustomizationSpecItem
 =========================
@@ -11,9 +5,9 @@ vim.CustomizationSpecItem
 :extends: vmodl.DynamicData_
 
 Attributes:
-    info (`vim.CustomizationSpecInfo`_):
+    info (`vim.CustomizationSpecInfo <vim/CustomizationSpecInfo.rst>`_):
 
        Information about the specification - name, description, and so on.
-    spec (`vim.vm.customization.Specification`_):
+    spec (`vim.vm.customization.Specification <vim/vm/customization/Specification.rst>`_):
 
        The customization specification.

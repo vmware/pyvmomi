@@ -1,25 +1,19 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _string: ../../str
-
-.. _vmodl.RuntimeFault: ../../vmodl/RuntimeFault.rst
-
 
 vim.fault.FailToLockFaultToleranceVMs
 =====================================
     :extends:
 
-        `vmodl.RuntimeFault`_
+        `vmodl.RuntimeFault <vmodl/RuntimeFault.rst>`_
 
   Thrown when trying to state lock a Fault Tolerance VM, and the other VM in the same Fault Tolerance pair is already locked.
 
 Attributes:
 
-    vmName (`str`_)
+    vmName (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
-    vm (`str`_)
+    vm (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
-    alreadyLockedVm (`str`_)
+    alreadyLockedVm (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
 
 

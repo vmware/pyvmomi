@@ -1,13 +1,9 @@
-.. _vim.vm.customization.IPSettings: ../../../../vim/vm/customization/IPSettings.rst
-
-.. _vim.vm.customization.IPSettings.NetBIOSMode: ../../../../vim/vm/customization/IPSettings/NetBIOSMode.rst
-
 vim.vm.customization.IPSettings.NetBIOSMode
 ===========================================
   NetBIOS setting for Windows.
-  :contained by: `vim.vm.customization.IPSettings`_
+  :contained by: `vim.vm.customization.IPSettings <vim/vm/customization/IPSettings.rst>`_
 
-  :type: `vim.vm.customization.IPSettings.NetBIOSMode`_
+  :type: `vim.vm.customization.IPSettings.NetBIOSMode <vim/vm/customization/IPSettings/NetBIOSMode.rst>`_
 
   :name: disableNetBIOS
 

@@ -1,13 +1,9 @@
-.. _vim.alarm.StateAlarmExpression: ../../../vim/alarm/StateAlarmExpression.rst
-
-.. _vim.alarm.StateAlarmExpression.StateOperator: ../../../vim/alarm/StateAlarmExpression/StateOperator.rst
-
 vim.alarm.StateAlarmExpression.StateOperator
 ============================================
   The operation on the target state.
-  :contained by: `vim.alarm.StateAlarmExpression`_
+  :contained by: `vim.alarm.StateAlarmExpression <vim/alarm/StateAlarmExpression.rst>`_
 
-  :type: `vim.alarm.StateAlarmExpression.StateOperator`_
+  :type: `vim.alarm.StateAlarmExpression.StateOperator <vim/alarm/StateAlarmExpression/StateOperator.rst>`_
 
   :name: isUnequal
 

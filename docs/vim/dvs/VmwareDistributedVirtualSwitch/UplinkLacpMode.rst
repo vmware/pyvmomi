@@ -1,13 +1,9 @@
-.. _vim.dvs.VmwareDistributedVirtualSwitch: ../../../vim/dvs/VmwareDistributedVirtualSwitch.rst
-
-.. _vim.dvs.VmwareDistributedVirtualSwitch.UplinkLacpMode: ../../../vim/dvs/VmwareDistributedVirtualSwitch/UplinkLacpMode.rst
-
 vim.dvs.VmwareDistributedVirtualSwitch.UplinkLacpMode
 =====================================================
   Link Aggregation Control Protocol policy modes.
-  :contained by: `vim.dvs.VmwareDistributedVirtualSwitch`_
+  :contained by: `vim.dvs.VmwareDistributedVirtualSwitch <vim/dvs/VmwareDistributedVirtualSwitch.rst>`_
 
-  :type: `vim.dvs.VmwareDistributedVirtualSwitch.UplinkLacpMode`_
+  :type: `vim.dvs.VmwareDistributedVirtualSwitch.UplinkLacpMode <vim/dvs/VmwareDistributedVirtualSwitch/UplinkLacpMode.rst>`_
 
   :name: passive
 

@@ -1,7 +1,3 @@
-.. _vim.ResourcePool: ../../vim/ResourcePool.rst
-
-.. _vim.event.EntityEventArgument: ../../vim/event/EntityEventArgument.rst
-
 
 vim.event.ResourcePoolEventArgument
 ===================================
@@ -9,6 +5,6 @@ vim.event.ResourcePoolEventArgument
 :extends: vim.event.EntityEventArgument_
 
 Attributes:
-    resourcePool (`vim.ResourcePool`_):
+    resourcePool (`vim.ResourcePool <vim/ResourcePool.rst>`_):
 
        The ResourcePool object.

@@ -1,22 +1,14 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vSphere API 4.1: ../../vim/version.rst#vimversionversion6
-
-.. _vmodl.DynamicData: ../../vmodl/DynamicData.rst
-
-.. _vmodl.LocalizedMethodFault: ../../vmodl/LocalizedMethodFault.rst
-
 
 vim.UpdateVirtualMachineFilesResult.FailedVmFileInfo
 ====================================================
   
 :extends: vmodl.DynamicData_
-:since: `vSphere API 4.1`_
+:since: `vSphere API 4.1 <vim/version.rst#vimversionversion6>`_
 
 Attributes:
-    vmFile (`str`_):
+    vmFile (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The file path
-    fault (`vmodl.LocalizedMethodFault`_):
+    fault (`vmodl.LocalizedMethodFault <vmodl/LocalizedMethodFault.rst>`_):
 
        The reason why the update failed.

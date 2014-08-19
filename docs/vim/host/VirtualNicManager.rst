@@ -1,19 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.Task: ../../vim/Task.rst
-
-.. _vSphere API 4.0: ../../vim/version.rst#vimversionversion5
-
-.. _vim.fault.HostConfigFault: ../../vim/fault/HostConfigFault.rst
-
-.. _vmodl.fault.InvalidArgument: ../../vmodl/fault/InvalidArgument.rst
-
-.. _vim.ExtensibleManagedObject: ../../vim/ExtensibleManagedObject.rst
-
-.. _vim.host.VirtualNicManagerInfo: ../../vim/host/VirtualNicManagerInfo.rst
-
-.. _vim.host.VirtualNicManager.NetConfig: ../../vim/host/VirtualNicManager/NetConfig.rst
-
 
 vim.host.VirtualNicManager
 ==========================
@@ -21,12 +5,12 @@ vim.host.VirtualNicManager
 
 
 :extends: vim.ExtensibleManagedObject_
-:since: `vSphere API 4.0`_
+:since: `vSphere API 4.0 <vim/version.rst#vimversionversion5>`_
 
 
 Attributes
 ----------
-    info (`vim.host.VirtualNicManagerInfo`_):
+    info (`vim.host.VirtualNicManagerInfo <vim/host/VirtualNicManagerInfo.rst>`_):
        Network configuration.
 
 
@@ -44,22 +28,22 @@ QueryNetConfig(nicType):
 
 
   Args:
-    nicType (`str`_):
+    nicType (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        The NicType
 
 
 
 
   Returns:
-    `vim.host.VirtualNicManager.NetConfig`_:
+    `vim.host.VirtualNicManager.NetConfig <vim/host/VirtualNicManager/NetConfig.rst>`_:
          
 
   Raises:
 
-    `vim.fault.HostConfigFault`_: 
+    `vim.fault.HostConfigFault <vim/fault/HostConfigFault.rst>`_: 
        for any other failure.
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
        if nicType is invalid
 
 
@@ -73,11 +57,11 @@ SelectVnicForNicType(nicType, device):
 
 
   Args:
-    nicType (`str`_):
+    nicType (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        The type of VirtualNic that would be selected
 
 
-    device (`str`_):
+    device (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        The device that uniquely identifies the VirtualNic.
 
 
@@ -89,10 +73,10 @@ SelectVnicForNicType(nicType, device):
 
   Raises:
 
-    `vim.fault.HostConfigFault`_: 
+    `vim.fault.HostConfigFault <vim/fault/HostConfigFault.rst>`_: 
        for any other failure.
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
        if nicType is invalid, or device represents a nonexistent or invalid VirtualNic
 
 
@@ -106,11 +90,11 @@ DeselectVnicForNicType(nicType, device):
 
 
   Args:
-    nicType (`str`_):
+    nicType (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        The type of VirtualNic that would be deselected
 
 
-    device (`str`_):
+    device (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        The device that uniquely identifies the VirtualNic.
 
 
@@ -122,10 +106,10 @@ DeselectVnicForNicType(nicType, device):
 
   Raises:
 
-    `vim.fault.HostConfigFault`_: 
+    `vim.fault.HostConfigFault <vim/fault/HostConfigFault.rst>`_: 
        for any other failure.
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
        if nicType is invalid, device represents a nonexistent or invalid VirtualNic, or the VirtualNic is not selected
 
 

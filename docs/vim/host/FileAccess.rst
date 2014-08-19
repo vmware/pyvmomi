@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vmodl.DynamicData: ../../vmodl/DynamicData.rst
-
 
 vim.host.FileAccess
 ===================
@@ -9,9 +5,9 @@ vim.host.FileAccess
 :extends: vmodl.DynamicData_
 
 Attributes:
-    who (`str`_):
+    who (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        User or group to which the access applies.
-    what (`str`_):
+    what (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Rights given to the user or group.

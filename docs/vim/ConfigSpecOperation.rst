@@ -1,10 +1,8 @@
-.. _vim.ConfigSpecOperation: ../vim/ConfigSpecOperation.rst
-
 vim.ConfigSpecOperation
 =======================
   Config spec operation type.
 
-  :type: `vim.ConfigSpecOperation`_
+  :type: `vim.ConfigSpecOperation <vim/ConfigSpecOperation.rst>`_
 
   :name: remove
 

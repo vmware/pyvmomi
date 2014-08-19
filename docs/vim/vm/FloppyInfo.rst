@@ -1,5 +1,3 @@
-.. _vim.vm.TargetInfo: ../../vim/vm/TargetInfo.rst
-
 
 vim.vm.FloppyInfo
 =================

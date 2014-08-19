@@ -1,22 +1,18 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.fault.OvfSystemFault: ../../vim/fault/OvfSystemFault.rst
-
 
 vim.fault.OvfDiskMappingNotFound
 ================================
     :extends:
 
-        `vim.fault.OvfSystemFault`_
+        `vim.fault.OvfSystemFault <vim/fault/OvfSystemFault.rst>`_
 
 
 
 
 Attributes:
 
-    diskName (`str`_)
+    diskName (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
-    vmName (`str`_)
+    vmName (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
 
 
