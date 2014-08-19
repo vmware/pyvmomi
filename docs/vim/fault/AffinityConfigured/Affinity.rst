@@ -1,13 +1,9 @@
-.. _vim.fault.AffinityConfigured: ../../../vim/fault/AffinityConfigured.rst
-
-.. _vim.fault.AffinityConfigured.Affinity: ../../../vim/fault/AffinityConfigured/Affinity.rst
-
 vim.fault.AffinityConfigured.Affinity
 =====================================
   Types of affinities.
-  :contained by: `vim.fault.AffinityConfigured`_
+  :contained by: `vim.fault.AffinityConfigured <vim/fault/AffinityConfigured.rst>`_
 
-  :type: `vim.fault.AffinityConfigured.Affinity`_
+  :type: `vim.fault.AffinityConfigured.Affinity <vim/fault/AffinityConfigured/Affinity.rst>`_
 
   :name: cpu
 

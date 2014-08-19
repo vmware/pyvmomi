@@ -1,5 +1,3 @@
-.. _vim.event.HostEvent: ../../vim/event/HostEvent.rst
-
 
 vim.event.HostUpgradeFailedEvent
 ================================

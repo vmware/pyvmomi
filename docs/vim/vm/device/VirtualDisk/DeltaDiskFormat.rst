@@ -1,13 +1,9 @@
-.. _vim.vm.device.VirtualDisk: ../../../../vim/vm/device/VirtualDisk.rst
-
-.. _vim.vm.device.VirtualDisk.DeltaDiskFormat: ../../../../vim/vm/device/VirtualDisk/DeltaDiskFormat.rst
-
 vim.vm.device.VirtualDisk.DeltaDiskFormat
 =========================================
   The delta disk format constants
-  :contained by: `vim.vm.device.VirtualDisk`_
+  :contained by: `vim.vm.device.VirtualDisk <vim/vm/device/VirtualDisk.rst>`_
 
-  :type: `vim.vm.device.VirtualDisk.DeltaDiskFormat`_
+  :type: `vim.vm.device.VirtualDisk.DeltaDiskFormat <vim/vm/device/VirtualDisk/DeltaDiskFormat.rst>`_
 
   :name: seSparseFormat
 

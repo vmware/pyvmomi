@@ -1,5 +1,3 @@
-.. _vim.host.HostBusAdapter: ../../vim/host/HostBusAdapter.rst
-
 
 vim.host.ParallelScsiHba
 ========================

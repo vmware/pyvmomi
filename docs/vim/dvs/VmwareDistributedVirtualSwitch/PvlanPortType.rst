@@ -1,13 +1,9 @@
-.. _vim.dvs.VmwareDistributedVirtualSwitch: ../../../vim/dvs/VmwareDistributedVirtualSwitch.rst
-
-.. _vim.dvs.VmwareDistributedVirtualSwitch.PvlanPortType: ../../../vim/dvs/VmwareDistributedVirtualSwitch/PvlanPortType.rst
-
 vim.dvs.VmwareDistributedVirtualSwitch.PvlanPortType
 ====================================================
   The PVLAN port types.
-  :contained by: `vim.dvs.VmwareDistributedVirtualSwitch`_
+  :contained by: `vim.dvs.VmwareDistributedVirtualSwitch <vim/dvs/VmwareDistributedVirtualSwitch.rst>`_
 
-  :type: `vim.dvs.VmwareDistributedVirtualSwitch.PvlanPortType`_
+  :type: `vim.dvs.VmwareDistributedVirtualSwitch.PvlanPortType <vim/dvs/VmwareDistributedVirtualSwitch/PvlanPortType.rst>`_
 
   :name: community
 

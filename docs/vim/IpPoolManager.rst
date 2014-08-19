@@ -1,36 +1,10 @@
-.. _int: https://docs.python.org/2/library/stdtypes.html
-
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _bool: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.Task: ../vim/Task.rst
-
-.. _vim.Datacenter: ../vim/Datacenter.rst
-
-.. _vSphere API 4.0: ../vim/version.rst#vimversionversion5
-
-.. _vim.vApp.IpPool: ../vim/vApp/IpPool.rst
-
-.. _vSphere API 5.1: ../vim/version.rst#vimversionversion8
-
-.. _ExtensionManager: ../vim/ExtensionManager.rst
-
-.. _ReleaseIpAllocation: ../vim/IpPoolManager.rst#releaseIpAllocation
-
-.. _vim.fault.InvalidState: ../vim/fault/InvalidState.rst
-
-.. _vmodl.fault.InvalidArgument: ../vmodl/fault/InvalidArgument.rst
-
-.. _vim.IpPoolManager.IpAllocation: ../vim/IpPoolManager/IpAllocation.rst
-
 
 vim.IpPoolManager
 =================
   Singleton Managed Object used to manage IP Pools.IP Pools are used to allocate IPv4 and IPv6 addresses to vApps.
 
 
-:since: `vSphere API 4.0`_
+:since: `vSphere API 4.0 <vim/version.rst#vimversionversion5>`_
 
 
 Attributes
@@ -50,14 +24,14 @@ QueryIpPools(dc):
 
 
   Args:
-    dc (`vim.Datacenter`_):
+    dc (`vim.Datacenter <vim/Datacenter.rst>`_):
        The datacenter for which to look up the IP pools.
 
 
 
 
   Returns:
-    [`vim.vApp.IpPool`_]:
+    [`vim.vApp.IpPool <vim/vApp/IpPool.rst>`_]:
          The resulting list of pools.
 
 
@@ -70,23 +44,23 @@ CreateIpPool(dc, pool):
 
 
   Args:
-    dc (`vim.Datacenter`_):
+    dc (`vim.Datacenter <vim/Datacenter.rst>`_):
        The datacenter on which to create the pool.
 
 
-    pool (`vim.vApp.IpPool`_):
+    pool (`vim.vApp.IpPool <vim/vApp/IpPool.rst>`_):
        The IP pool to create on the server
 
 
 
 
   Returns:
-    `int`_:
+    `int <https://docs.python.org/2/library/stdtypes.html>`_:
          The generated ID for the pool
 
   Raises:
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
        if the name of the pool already exists on the datacenter.
 
 
@@ -99,11 +73,11 @@ UpdateIpPool(dc, pool):
 
 
   Args:
-    dc (`vim.Datacenter`_):
+    dc (`vim.Datacenter <vim/Datacenter.rst>`_):
        The datacenter on which to look up the pool.
 
 
-    pool (`vim.vApp.IpPool`_):
+    pool (`vim.vApp.IpPool <vim/vApp/IpPool.rst>`_):
        The IP pool to update on the server
 
 
@@ -115,7 +89,7 @@ UpdateIpPool(dc, pool):
 
   Raises:
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
        if the name of the pool already exists on the datacenter.
 
 
@@ -128,15 +102,15 @@ DestroyIpPool(dc, id, force):
 
 
   Args:
-    dc (`vim.Datacenter`_):
+    dc (`vim.Datacenter <vim/Datacenter.rst>`_):
        The datacenter on which to find the pool
 
 
-    id (`int`_):
+    id (`int <https://docs.python.org/2/library/stdtypes.html>`_):
        The unique ID of the pool
 
 
-    force (`bool`_):
+    force (`bool <https://docs.python.org/2/library/stdtypes.html>`_):
        If true, the pool will be destroyed even if it is in use
 
 
@@ -148,13 +122,13 @@ DestroyIpPool(dc, id, force):
 
   Raises:
 
-    `vim.fault.InvalidState`_: 
+    `vim.fault.InvalidState <vim/fault/InvalidState.rst>`_: 
        if the pool is in use and the force flag is false
 
 
 AllocateIpv4Address(dc, poolId, allocationId):
-   Allocates an IPv4 address from an IP pool.Allocated IP addresses are reserved in the IP pool until released by calling `ReleaseIpAllocation`_ , or until the IP pool is configured to have an IP range that does not contain the IP address, or until the IP pool is destroyed.The caller must be a vCenter extension. Refer to `ExtensionManager`_ for details on vCenter extensions.The caller specifies a per extension unique allocation ID. Calling this function twice with the same allocation ID for the same pool yields the same IP address. This makes it possible to do idempotent allocations.
-  since: `vSphere API 5.1`_
+   Allocates an IPv4 address from an IP pool.Allocated IP addresses are reserved in the IP pool until released by calling `ReleaseIpAllocation <vim/IpPoolManager.rst#releaseIpAllocation>`_ , or until the IP pool is configured to have an IP range that does not contain the IP address, or until the IP pool is destroyed.The caller must be a vCenter extension. Refer to `ExtensionManager <vim/ExtensionManager.rst>`_ for details on vCenter extensions.The caller specifies a per extension unique allocation ID. Calling this function twice with the same allocation ID for the same pool yields the same IP address. This makes it possible to do idempotent allocations.
+  since: `vSphere API 5.1 <vim/version.rst#vimversionversion8>`_
 
 
   Privilege:
@@ -163,33 +137,33 @@ AllocateIpv4Address(dc, poolId, allocationId):
 
 
   Args:
-    dc (`vim.Datacenter`_):
+    dc (`vim.Datacenter <vim/Datacenter.rst>`_):
        The datacenter on which to find the pool
 
 
-    poolId (`int`_):
+    poolId (`int <https://docs.python.org/2/library/stdtypes.html>`_):
        The unique ID of the pool
 
 
-    allocationId (`str`_):
+    allocationId (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        The unique ID for this allocation
 
 
 
 
   Returns:
-    `str`_:
+    `str <https://docs.python.org/2/library/stdtypes.html>`_:
          An IPv4 address if the pool has an available IPv4 address in its address ranges, otherwise the empty string.
 
   Raises:
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
        if the specified IP pool does not exist on the specified datacenter.
 
 
 AllocateIpv6Address(dc, poolId, allocationId):
-   Allocates an IPv6 address from an IP pool.Allocated IP addresses are reserved in the IP pool until released by calling `ReleaseIpAllocation`_ , or until the IP pool is configured to have an IP range that does not contain the IP address, or until the IP pool is destroyed.The caller must be a vCenter extension. Refer to `ExtensionManager`_ for details on vCenter extensions.The caller specifies a per extension unique allocation ID. Calling this function twice with the same allocation ID for the same pool yields the same IP address. This makes it possible to do idempotent allocations.
-  since: `vSphere API 5.1`_
+   Allocates an IPv6 address from an IP pool.Allocated IP addresses are reserved in the IP pool until released by calling `ReleaseIpAllocation <vim/IpPoolManager.rst#releaseIpAllocation>`_ , or until the IP pool is configured to have an IP range that does not contain the IP address, or until the IP pool is destroyed.The caller must be a vCenter extension. Refer to `ExtensionManager <vim/ExtensionManager.rst>`_ for details on vCenter extensions.The caller specifies a per extension unique allocation ID. Calling this function twice with the same allocation ID for the same pool yields the same IP address. This makes it possible to do idempotent allocations.
+  since: `vSphere API 5.1 <vim/version.rst#vimversionversion8>`_
 
 
   Privilege:
@@ -198,33 +172,33 @@ AllocateIpv6Address(dc, poolId, allocationId):
 
 
   Args:
-    dc (`vim.Datacenter`_):
+    dc (`vim.Datacenter <vim/Datacenter.rst>`_):
        The datacenter on which to find the pool
 
 
-    poolId (`int`_):
+    poolId (`int <https://docs.python.org/2/library/stdtypes.html>`_):
        The unique ID of the pool
 
 
-    allocationId (`str`_):
+    allocationId (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        The unique ID for this allocation
 
 
 
 
   Returns:
-    `str`_:
+    `str <https://docs.python.org/2/library/stdtypes.html>`_:
          An IPv6 address if the pool has an available IPv6 address in its address ranges, otherwise the empty string.
 
   Raises:
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
        if the specified IP pool does not exist on the specified datacenter.
 
 
 ReleaseIpAllocation(dc, poolId, allocationId):
    Releases an IP allocation back to it's IP pool.Attempting to release an IP allocation that is not allocated from the specified IP pool with the specified allocation ID silently fails. This makes it possible to release IP allocations idempotently.All IP addresses allocated by an extension are automatically released if the extension is unregistered from vCenter.
-  since: `vSphere API 5.1`_
+  since: `vSphere API 5.1 <vim/version.rst#vimversionversion8>`_
 
 
   Privilege:
@@ -232,15 +206,15 @@ ReleaseIpAllocation(dc, poolId, allocationId):
 
 
   Args:
-    dc (`vim.Datacenter`_):
+    dc (`vim.Datacenter <vim/Datacenter.rst>`_):
        The datacenter on which to find the pool
 
 
-    poolId (`int`_):
+    poolId (`int <https://docs.python.org/2/library/stdtypes.html>`_):
        The unique ID of the pool
 
 
-    allocationId (`str`_):
+    allocationId (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        The unique ID for this allocation
 
 
@@ -252,13 +226,13 @@ ReleaseIpAllocation(dc, poolId, allocationId):
 
   Raises:
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
        if the specified IP pool does not exist on the specified datacenter.
 
 
 QueryIPAllocations(dc, poolId, extensionKey):
    Query IP allocations by IP pool and extension key.
-  since: `vSphere API 5.1`_
+  since: `vSphere API 5.1 <vim/version.rst#vimversionversion8>`_
 
 
   Privilege:
@@ -266,27 +240,27 @@ QueryIPAllocations(dc, poolId, extensionKey):
 
 
   Args:
-    dc (`vim.Datacenter`_):
+    dc (`vim.Datacenter <vim/Datacenter.rst>`_):
        The datacenter on which to find the pool
 
 
-    poolId (`int`_):
+    poolId (`int <https://docs.python.org/2/library/stdtypes.html>`_):
        The unique ID of the pool
 
 
-    extensionKey (`str`_):
+    extensionKey (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        The key of the extension
 
 
 
 
   Returns:
-    [`vim.IpPoolManager.IpAllocation`_]:
+    [`vim.IpPoolManager.IpAllocation <vim/IpPoolManager/IpAllocation.rst>`_]:
          The resulting list of
 
   Raises:
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
        if the specified IP pool does not exist on the specified datacenter.
 
 

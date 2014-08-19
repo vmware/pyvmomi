@@ -1,13 +1,3 @@
-.. _int: https://docs.python.org/2/library/stdtypes.html
-
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vmodl.DynamicData: ../../../vmodl/DynamicData.rst
-
-.. _vim.host.TargetTransport: ../../../vim/host/TargetTransport.rst
-
-.. _vim.host.ScsiTopology.Lun: ../../../vim/host/ScsiTopology/Lun.rst
-
 
 vim.host.ScsiTopology.Target
 ============================
@@ -15,15 +5,15 @@ vim.host.ScsiTopology.Target
 :extends: vmodl.DynamicData_
 
 Attributes:
-    key (`str`_):
+    key (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The identifier for the SCSI target
-    target (`int`_):
+    target (`int <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The target identifier.
-    lun ([`vim.host.ScsiTopology.Lun`_], optional):
+    lun ([`vim.host.ScsiTopology.Lun <vim/host/ScsiTopology/Lun.rst>`_], optional):
 
        The list of SCSI logical units with which a target is associated.
-    transport (`vim.host.TargetTransport`_, optional):
+    transport (`vim.host.TargetTransport <vim/host/TargetTransport.rst>`_, optional):
 
        SCSI Transport information about the target.

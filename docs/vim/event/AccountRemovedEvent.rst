@@ -1,9 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _bool: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.event.HostEvent: ../../vim/event/HostEvent.rst
-
 
 vim.event.AccountRemovedEvent
 =============================
@@ -11,7 +5,7 @@ vim.event.AccountRemovedEvent
 :extends: vim.event.HostEvent_
 
 Attributes:
-    account (`str`_):
+    account (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
-    group (`bool`_):
+    group (`bool <https://docs.python.org/2/library/stdtypes.html>`_):
 

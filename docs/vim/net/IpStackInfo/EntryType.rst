@@ -1,13 +1,9 @@
-.. _vim.net.IpStackInfo: ../../../vim/net/IpStackInfo.rst
-
-.. _vim.net.IpStackInfo.EntryType: ../../../vim/net/IpStackInfo/EntryType.rst
-
 vim.net.IpStackInfo.EntryType
 =============================
   IP Stack keeps state on entries in IpNetToMedia table to perform physical address lookups for IP addresses. Here are the standard states perSee RFC
-  :contained by: `vim.net.IpStackInfo`_
+  :contained by: `vim.net.IpStackInfo <vim/net/IpStackInfo.rst>`_
 
-  :type: `vim.net.IpStackInfo.EntryType`_
+  :type: `vim.net.IpStackInfo.EntryType <vim/net/IpStackInfo/EntryType.rst>`_
 
   :name: manual
 

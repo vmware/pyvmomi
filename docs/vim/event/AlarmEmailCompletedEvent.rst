@@ -1,9 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.event.AlarmEvent: ../../vim/event/AlarmEvent.rst
-
-.. _vim.event.ManagedEntityEventArgument: ../../vim/event/ManagedEntityEventArgument.rst
-
 
 vim.event.AlarmEmailCompletedEvent
 ==================================
@@ -11,9 +5,9 @@ vim.event.AlarmEmailCompletedEvent
 :extends: vim.event.AlarmEvent_
 
 Attributes:
-    entity (`vim.event.ManagedEntityEventArgument`_):
+    entity (`vim.event.ManagedEntityEventArgument <vim/event/ManagedEntityEventArgument.rst>`_):
 
        The entity with which the alarm is registered.
-    to (`str`_):
+    to (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The destination email address.

@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vmodl.DynamicData: ../../../vmodl/DynamicData.rst
-
 
 vim.host.FileAccess.Modes
 =========================
@@ -9,21 +5,21 @@ vim.host.FileAccess.Modes
 :extends: vmodl.DynamicData_
 
 Attributes:
-    browse (`str`_, optional):
+    browse (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        Can see the existence of a file.
-    read (`str`_):
+    read (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Can read a file.
-    modify (`str`_):
+    modify (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Can read and write a file.
-    use (`str`_):
+    use (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Can execute or operate a file or look inside a directory.
-    admin (`str`_, optional):
+    admin (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        Can change permissions for a file.
-    full (`str`_):
+    full (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Can do anything to a file, including change permissions.

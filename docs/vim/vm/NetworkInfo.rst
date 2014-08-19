@@ -1,7 +1,3 @@
-.. _vim.vm.TargetInfo: ../../vim/vm/TargetInfo.rst
-
-.. _vim.Network.Summary: ../../vim/Network/Summary.rst
-
 
 vim.vm.NetworkInfo
 ==================
@@ -9,6 +5,6 @@ vim.vm.NetworkInfo
 :extends: vim.vm.TargetInfo_
 
 Attributes:
-    network (`vim.Network.Summary`_):
+    network (`vim.Network.Summary <vim/Network/Summary.rst>`_):
 
        Information about the network

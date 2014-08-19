@@ -1,7 +1,3 @@
-.. _bool: https://docs.python.org/2/library/stdtypes.html
-
-.. _vmodl.DynamicData: ../../../vmodl/DynamicData.rst
-
 
 vim.host.InternetScsiHba.DiscoveryCapabilities
 ==============================================
@@ -9,15 +5,15 @@ vim.host.InternetScsiHba.DiscoveryCapabilities
 :extends: vmodl.DynamicData_
 
 Attributes:
-    iSnsDiscoverySettable (`bool`_):
+    iSnsDiscoverySettable (`bool <https://docs.python.org/2/library/stdtypes.html>`_):
 
        True if this host bus adapter supports iSNS
-    slpDiscoverySettable (`bool`_):
+    slpDiscoverySettable (`bool <https://docs.python.org/2/library/stdtypes.html>`_):
 
        True if this host bus adapter supports SLP
-    staticTargetDiscoverySettable (`bool`_):
+    staticTargetDiscoverySettable (`bool <https://docs.python.org/2/library/stdtypes.html>`_):
 
        True if this host bus adapter supports static discovery
-    sendTargetsDiscoverySettable (`bool`_):
+    sendTargetsDiscoverySettable (`bool <https://docs.python.org/2/library/stdtypes.html>`_):
 
        True if this host bus adapter supports changing the configuration state of send targets discovery. Send targets is mandatory, however some adapters may not allow disabling this discovery method.

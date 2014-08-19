@@ -1,19 +1,15 @@
-.. _string: ../../str
-
-.. _vim.fault.VimFault: ../../vim/fault/VimFault.rst
-
 
 vim.fault.ProfileUpdateFailed
 =============================
     :extends:
 
-        `vim.fault.VimFault`_
+        `vim.fault.VimFault <vim/fault/VimFault.rst>`_
 
   Errors were detected during Profile update.
 
 Attributes:
 
-    failure (`str`_)
+    failure (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
 
 

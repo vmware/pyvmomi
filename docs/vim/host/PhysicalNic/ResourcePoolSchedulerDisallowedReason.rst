@@ -1,12 +1,8 @@
-.. _vim.host.PhysicalNic: ../../../vim/host/PhysicalNic.rst
-
-.. _vim.host.PhysicalNic.ResourcePoolSchedulerDisallowedReason: ../../../vim/host/PhysicalNic/ResourcePoolSchedulerDisallowedReason.rst
-
 vim.host.PhysicalNic.ResourcePoolSchedulerDisallowedReason
 ==========================================================
-  :contained by: `vim.host.PhysicalNic`_
+  :contained by: `vim.host.PhysicalNic <vim/host/PhysicalNic.rst>`_
 
-  :type: `vim.host.PhysicalNic.ResourcePoolSchedulerDisallowedReason`_
+  :type: `vim.host.PhysicalNic.ResourcePoolSchedulerDisallowedReason <vim/host/PhysicalNic/ResourcePoolSchedulerDisallowedReason.rst>`_
 
   :name: hardwareUnsupported
 

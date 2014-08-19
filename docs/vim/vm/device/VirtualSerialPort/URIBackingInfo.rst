@@ -1,31 +1,11 @@
-.. _RFC 2396: http://www.ietf.org/rfc/rfc2396.txt
-
-.. _proxyURI: ../../../../vim/vm/device/VirtualDevice/URIBackingInfo.rst#proxyURI
-
-.. _direction: ../../../../vim/vm/device/VirtualDevice/URIBackingInfo.rst#direction
-
-.. _serviceURI: ../../../../vim/vm/device/VirtualDevice/URIBackingInfo.rst#serviceURI
-
-.. _vSphere API 4.1: ../../../../vim/version.rst#vimversionversion6
-
-.. _OpenSSL ciphers: http://www.openssl.org/docs/apps/ciphers.rst
-
-.. _VirtualSerialPort: ../../../../vim/vm/device/VirtualSerialPort.rst
-
-.. _Authentication Parameters: ../../../../#authparam
-
-.. _VirtualSerialPortURIBackingInfo: ../../../../vim/vm/device/VirtualSerialPort/URIBackingInfo.rst
-
-.. _vim.vm.device.VirtualDevice.URIBackingInfo: ../../../../vim/vm/device/VirtualDevice/URIBackingInfo.rst
-
 
 vim.vm.device.VirtualSerialPort.URIBackingInfo
 ==============================================
-  The `VirtualSerialPortURIBackingInfo`_ data object specifies network backing for a `VirtualSerialPort`_ . You can use URI backing to create a network serial port on the virtual machine, supporting connections between the virtual machine and remote systems.When a virtual machine establishes a connection with a remote system on the network, the virtual machine can act as a server or a client. When the virtual machine acts as a server, it accepts a connection. When the virtual machine acts as a client, it initiates the connection.You can configure the virtual serial port for communication through a virtual serial port concentrator that acts as a proxy between the virtual machine and the network. When you specify a `proxyURI`_ , the virtual machine initiates the connection with the concentrator and forwards the `direction`_ and `serviceURI`_ to the concentrator. For information about using a virtual serial port concentrator, seeUsing a Proxy with vSphere Virtual Serial Ports.ESX hosts support different protocols depending on your virtual serial port configuration.
+  The `VirtualSerialPortURIBackingInfo <vim/vm/device/VirtualSerialPort/URIBackingInfo.rst>`_ data object specifies network backing for a `VirtualSerialPort <vim/vm/device/VirtualSerialPort.rst>`_ . You can use URI backing to create a network serial port on the virtual machine, supporting connections between the virtual machine and remote systems.When a virtual machine establishes a connection with a remote system on the network, the virtual machine can act as a server or a client. When the virtual machine acts as a server, it accepts a connection. When the virtual machine acts as a client, it initiates the connection.You can configure the virtual serial port for communication through a virtual serial port concentrator that acts as a proxy between the virtual machine and the network. When you specify a `proxyURI <vim/vm/device/VirtualDevice/URIBackingInfo.rst#proxyURI>`_ , the virtual machine initiates the connection with the concentrator and forwards the `direction <vim/vm/device/VirtualDevice/URIBackingInfo.rst#direction>`_ and `serviceURI <vim/vm/device/VirtualDevice/URIBackingInfo.rst#serviceURI>`_ to the concentrator. For information about using a virtual serial port concentrator, seeUsing a Proxy with vSphere Virtual Serial Ports.ESX hosts support different protocols depending on your virtual serial port configuration.
    * If the virtual machine is handling the network connection directly (no
-   * `proxyURI`_
+   * `proxyURI <vim/vm/device/VirtualDevice/URIBackingInfo.rst#proxyURI>`_
    * specified), you can use telnet, TCP, and SSL protocols. The
-   * `serviceURI`_
+   * `serviceURI <vim/vm/device/VirtualDevice/URIBackingInfo.rst#serviceURI>`_
    * must use one of the following URI schemes:
    * 
    * host
@@ -94,11 +74,11 @@ vim.vm.device.VirtualSerialPort.URIBackingInfo
    * , or
    * tcp6
    * schemas. For information about parameter specification, see
-   * `Authentication Parameters`_
+   * `Authentication Parameters <#authparam>`_
    * below.
    * 
    * If you are using a
-   * `proxyURI`_
+   * `proxyURI <vim/vm/device/VirtualDevice/URIBackingInfo.rst#proxyURI>`_
    * to connect to a virtual serial port concentrator, the URI scheme for the communication between the remote system on the network and the concentrator depends on the concentrator implementation. The connection between the concentrator and the virtual serial port must use telnet or secure telnet (telnets). The proxy URI must use one of the following URI schemes. You cannot specify a username and password in the proxy URI.
    * 
    * telnet://
@@ -112,7 +92,7 @@ vim.vm.device.VirtualSerialPort.URIBackingInfo
    * port
    * - telnet over SSL over TCP. In this case, SSL negotiation starts immediately and you cannot use the telnet authentication option.
    * As of vSphere 5.1 you can specify authentication parameters to support an encrypted connection with a concentrator using SSL over telnet or telnets. The connection will fail if the concentrator does not support the protocols. For information about parameter specification, see
-   * `Authentication Parameters`_
+   * `Authentication Parameters <#authparam>`_
    * below.
    * 
    * 
@@ -153,9 +133,9 @@ vim.vm.device.VirtualSerialPort.URIBackingInfo
    * .
    * cipherList=value
    * - Specifies a list of SSL ciphers. See
-   * `OpenSSL ciphers`_
-   * . The ciphers are specified as a list separated by colons, spaces, or commas.For information about URI format, see `RFC 2396`_ .
+   * `OpenSSL ciphers <http://www.openssl.org/docs/apps/ciphers.rst>`_
+   * . The ciphers are specified as a list separated by colons, spaces, or commas.For information about URI format, see `RFC 2396 <http://www.ietf.org/rfc/rfc2396.txt>`_ .
 :extends: vim.vm.device.VirtualDevice.URIBackingInfo_
-:since: `vSphere API 4.1`_
+:since: `vSphere API 4.1 <vim/version.rst#vimversionversion6>`_
 
 Attributes:

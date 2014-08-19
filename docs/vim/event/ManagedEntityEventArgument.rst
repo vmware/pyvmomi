@@ -1,7 +1,3 @@
-.. _vim.ManagedEntity: ../../vim/ManagedEntity.rst
-
-.. _vim.event.EntityEventArgument: ../../vim/event/EntityEventArgument.rst
-
 
 vim.event.ManagedEntityEventArgument
 ====================================
@@ -9,6 +5,6 @@ vim.event.ManagedEntityEventArgument
 :extends: vim.event.EntityEventArgument_
 
 Attributes:
-    entity (`vim.ManagedEntity`_):
+    entity (`vim.ManagedEntity <vim/ManagedEntity.rst>`_):
 
        The managed entity.

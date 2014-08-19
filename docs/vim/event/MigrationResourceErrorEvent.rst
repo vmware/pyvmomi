@@ -1,9 +1,3 @@
-.. _vim.event.MigrationEvent: ../../vim/event/MigrationEvent.rst
-
-.. _vim.event.HostEventArgument: ../../vim/event/HostEventArgument.rst
-
-.. _vim.event.ResourcePoolEventArgument: ../../vim/event/ResourcePoolEventArgument.rst
-
 
 vim.event.MigrationResourceErrorEvent
 =====================================
@@ -11,9 +5,9 @@ vim.event.MigrationResourceErrorEvent
 :extends: vim.event.MigrationEvent_
 
 Attributes:
-    dstPool (`vim.event.ResourcePoolEventArgument`_):
+    dstPool (`vim.event.ResourcePoolEventArgument <vim/event/ResourcePoolEventArgument.rst>`_):
 
        The name of the destination resource pool.
-    dstHost (`vim.event.HostEventArgument`_):
+    dstHost (`vim.event.HostEventArgument <vim/event/HostEventArgument.rst>`_):
 
        The name of the destination host.

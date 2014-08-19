@@ -1,7 +1,3 @@
-.. _vim.event.VmCloneEvent: ../../vim/event/VmCloneEvent.rst
-
-.. _vim.event.VmEventArgument: ../../vim/event/VmEventArgument.rst
-
 
 vim.event.VmClonedEvent
 =======================
@@ -9,6 +5,6 @@ vim.event.VmClonedEvent
 :extends: vim.event.VmCloneEvent_
 
 Attributes:
-    sourceVm (`vim.event.VmEventArgument`_):
+    sourceVm (`vim.event.VmEventArgument <vim/event/VmEventArgument.rst>`_):
 
        The source virtual machine for the clone operation.

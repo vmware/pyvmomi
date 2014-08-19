@@ -1,13 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.event.VmCloneEvent: ../../vim/event/VmCloneEvent.rst
-
-.. _vmodl.LocalizedMethodFault: ../../vmodl/LocalizedMethodFault.rst
-
-.. _vim.event.HostEventArgument: ../../vim/event/HostEventArgument.rst
-
-.. _vim.event.FolderEventArgument: ../../vim/event/FolderEventArgument.rst
-
 
 vim.event.VmCloneFailedEvent
 ============================
@@ -15,15 +5,15 @@ vim.event.VmCloneFailedEvent
 :extends: vim.event.VmCloneEvent_
 
 Attributes:
-    destFolder (`vim.event.FolderEventArgument`_):
+    destFolder (`vim.event.FolderEventArgument <vim/event/FolderEventArgument.rst>`_):
 
        The destination folder to which the virtual machine is being cloned.
-    destName (`str`_):
+    destName (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The name of the destination virtual machine.
-    destHost (`vim.event.HostEventArgument`_):
+    destHost (`vim.event.HostEventArgument <vim/event/HostEventArgument.rst>`_):
 
        The destination host to which the virtual machine was being cloned.
-    reason (`vmodl.LocalizedMethodFault`_):
+    reason (`vmodl.LocalizedMethodFault <vmodl/LocalizedMethodFault.rst>`_):
 
        The reason why this clone operation failed.

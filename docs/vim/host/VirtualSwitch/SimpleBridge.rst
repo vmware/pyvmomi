@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.host.VirtualSwitch.Bridge: ../../../vim/host/VirtualSwitch/Bridge.rst
-
 
 vim.host.VirtualSwitch.SimpleBridge
 ===================================
@@ -9,6 +5,6 @@ vim.host.VirtualSwitch.SimpleBridge
 :extends: vim.host.VirtualSwitch.Bridge_
 
 Attributes:
-    nicDevice (`str`_):
+    nicDevice (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The key of the physical network adapter to be bridged.

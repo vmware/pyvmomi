@@ -1,13 +1,9 @@
-.. _vim.VirtualMachine: ../../vim/VirtualMachine.rst
-
-.. _vim.VirtualMachine.TicketType: ../../vim/VirtualMachine/TicketType.rst
-
 vim.VirtualMachine.TicketType
 =============================
   The virtual machine ticket type.
-  :contained by: `vim.VirtualMachine`_
+  :contained by: `vim.VirtualMachine <vim/VirtualMachine.rst>`_
 
-  :type: `vim.VirtualMachine.TicketType`_
+  :type: `vim.VirtualMachine.TicketType <vim/VirtualMachine/TicketType.rst>`_
 
   :name: guestControl
 

@@ -1,9 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vSphere API 4.0: ../../vim/version.rst#vimversionversion5
-
-.. _vmodl.DynamicData: ../../vmodl/DynamicData.rst
-
 
 vim.vApp.IPAssignmentInfo
 =========================
@@ -16,18 +10,18 @@ vim.vApp.IPAssignmentInfo
    * Transient and fixed assignment differs in the life time of the IP allocation. For transient, IP addresses are automatically assigned on power-on and released on power-off. For fixed, the IP addresses are explicitly specified by the deployer and does not change between a power-on/power-off. Fixed allocated is a hybrid of transient and fixed assignment. IP addresses are allocated at first power-on and remain allocated on power-off.
    * The IPAssignment settings are global to a deployment. Thus, if a vApp or virtual machine is part of another vApp, then the settings are ignored, and the ones for the top-most vApp container is used.
 :extends: vmodl.DynamicData_
-:since: `vSphere API 4.0`_
+:since: `vSphere API 4.0 <vim/version.rst#vimversionversion5>`_
 
 Attributes:
-    supportedAllocationScheme ([`str`_], optional):
+    supportedAllocationScheme ([`str <https://docs.python.org/2/library/stdtypes.html>`_], optional):
 
        Specifies the IP allocation schemes supported by the guest software.When updating this field, an empty array will be interpreted as no changes. An array of the form [""] will clear all settings. Otherwise, the supplied value will overwrite the current setting.Reconfigure privilege: VApp.ApplicationConfig
-    ipAllocationPolicy (`str`_, optional):
+    ipAllocationPolicy (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        Specifies how IP allocation should be managed by the VI platform. This is typically specified by the deployer. The set of valid options for the policy is based on the capabilities of the vApp software, as specified by the supportedAllocationSchemes property.Reconfigure privilege: VApp.InstanceConfig
-    supportedIpProtocol ([`str`_], optional):
+    supportedIpProtocol ([`str <https://docs.python.org/2/library/stdtypes.html>`_], optional):
 
        Specifies the IP protocols supported by the guest software.When updating this field, an empty array will be interpreted as no changes. An array of the form [""] will clear all settings. Otherwise, the supplied value will overwrite the current setting.Reconfigure privilege: VApp.ApplicationConfig
-    ipProtocol (`str`_, optional):
+    ipProtocol (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        Specifies the chosen IP protocol for this deployment. This must be one of the values in the supportedIpProtocol field.Reconfigure privilege: VApp.InstanceConfig

@@ -1,14 +1,8 @@
-.. _vim.vm.check.TestType: ../../../vim/vm/check/TestType.rst
-
-.. _VirtualMachineProvisioningChecker: ../../../vim/vm/check/ProvisioningChecker.rst
-
-.. _VirtualMachineCompatibilityChecker: ../../../vim/vm/check/CompatibilityChecker.rst
-
 vim.vm.check.TestType
 =====================
-  The types of tests which can requested by any of the methods in either `VirtualMachineCompatibilityChecker`_ or `VirtualMachineProvisioningChecker`_ .
+  The types of tests which can requested by any of the methods in either `VirtualMachineCompatibilityChecker <vim/vm/check/CompatibilityChecker.rst>`_ or `VirtualMachineProvisioningChecker <vim/vm/check/ProvisioningChecker.rst>`_ .
 
-  :type: `vim.vm.check.TestType`_
+  :type: `vim.vm.check.TestType <vim/vm/check/TestType.rst>`_
 
   :name: networkTests
 

@@ -1,13 +1,9 @@
-.. _vim.VirtualMachine: ../../vim/VirtualMachine.rst
-
-.. _vim.VirtualMachine.AppHeartbeatStatusType: ../../vim/VirtualMachine/AppHeartbeatStatusType.rst
-
 vim.VirtualMachine.AppHeartbeatStatusType
 =========================================
   Application heartbeat status type.
-  :contained by: `vim.VirtualMachine`_
+  :contained by: `vim.VirtualMachine <vim/VirtualMachine.rst>`_
 
-  :type: `vim.VirtualMachine.AppHeartbeatStatusType`_
+  :type: `vim.VirtualMachine.AppHeartbeatStatusType <vim/VirtualMachine/AppHeartbeatStatusType.rst>`_
 
   :name: appStatusRed
 

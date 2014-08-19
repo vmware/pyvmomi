@@ -1,13 +1,3 @@
-.. _config: ../../vim/host/CpuSchedulerSystem/HyperThreadScheduleInfo.rst#config
-
-.. _vim.Task: ../../vim/Task.rst
-
-.. _vmodl.fault.NotSupported: ../../vmodl/fault/NotSupported.rst
-
-.. _vim.ExtensibleManagedObject: ../../vim/ExtensibleManagedObject.rst
-
-.. _vim.host.CpuSchedulerSystem.HyperThreadScheduleInfo: ../../vim/host/CpuSchedulerSystem/HyperThreadScheduleInfo.rst
-
 
 vim.host.CpuSchedulerSystem
 ===========================
@@ -19,7 +9,7 @@ vim.host.CpuSchedulerSystem
 
 Attributes
 ----------
-    hyperthreadInfo (`vim.host.CpuSchedulerSystem.HyperThreadScheduleInfo`_):
+    hyperthreadInfo (`vim.host.CpuSchedulerSystem.HyperThreadScheduleInfo <vim/host/CpuSchedulerSystem/HyperThreadScheduleInfo.rst>`_):
        The hyperthread configuration for the CpuSchedulerSystem. The existence of this data object type indicates if the CPU scheduler is capable of scheduling hyperthreads as resources.
 
 
@@ -28,7 +18,7 @@ Methods
 
 
 EnableHyperThreading():
-   Treat hyperthreads as schedulable resources the next time the CPU scheduler starts. If successful, this operation will set the `config`_ property to "true".
+   Treat hyperthreads as schedulable resources the next time the CPU scheduler starts. If successful, this operation will set the `config <vim/host/CpuSchedulerSystem/HyperThreadScheduleInfo.rst#config>`_ property to "true".
 
 
   Privilege:
@@ -45,8 +35,8 @@ EnableHyperThreading():
 
   Raises:
 
-    `vmodl.fault.NotSupported`_: 
-       if the hyperthreading optimization is not available on the host (the boolean `available`_ is set to false).
+    `vmodl.fault.NotSupported <vmodl/fault/NotSupported.rst>`_: 
+       if the hyperthreading optimization is not available on the host (the boolean `available <vim/host/CpuSchedulerSystem/HyperThreadScheduleInfo.rst#available>`_ is set to false).
 
 
 DisableHyperThreading():
@@ -67,7 +57,7 @@ DisableHyperThreading():
 
   Raises:
 
-    `vmodl.fault.NotSupported`_: 
-       if the hyperthreading optimization is not available on the host (the boolean `available`_ is set to false).
+    `vmodl.fault.NotSupported <vmodl/fault/NotSupported.rst>`_: 
+       if the hyperthreading optimization is not available on the host (the boolean `available <vim/host/CpuSchedulerSystem/HyperThreadScheduleInfo.rst#available>`_ is set to false).
 
 

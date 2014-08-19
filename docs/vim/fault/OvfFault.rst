@@ -1,11 +1,9 @@
-.. _vim.fault.VimFault: ../../vim/fault/VimFault.rst
-
 
 vim.fault.OvfFault
 ==================
     :extends:
 
-        `vim.fault.VimFault`_
+        `vim.fault.VimFault <vim/fault/VimFault.rst>`_
 
   A common base type fault for all Ovf related faults. The structure of OvfFault is as listed.
    * OvfFault

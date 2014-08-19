@@ -1,13 +1,3 @@
-.. _int: https://docs.python.org/2/library/stdtypes.html
-
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vmodl.DynamicData: ../../../vmodl/DynamicData.rst
-
-.. _vim.VirtualMachine: ../../../vim/VirtualMachine.rst
-
-.. _vim.host.AutoStartManager.AutoPowerInfo.WaitHeartbeatSetting: ../../../vim/host/AutoStartManager/AutoPowerInfo/WaitHeartbeatSetting.rst
-
 
 vim.host.AutoStartManager.AutoPowerInfo
 =======================================
@@ -22,10 +12,10 @@ vim.host.AutoStartManager.AutoPowerInfo
 :extends: vmodl.DynamicData_
 
 Attributes:
-    key (`vim.VirtualMachine`_):
+    key (`vim.VirtualMachine <vim/VirtualMachine.rst>`_):
 
        Virtual machine to power on or power off.
-    startOrder (`int`_):
+    startOrder (`int <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The autostart priority of this virtual machine. Virtual machines with a lower number are powered on first. On host shutdown, the virtual machines are shut down in reverse order, meaning those with a higher number are powered off first.Positive values indicate a start order and -1 indicates the machine can be powered on at any time. Machines with a -1 value are typically powered on and off after all virtual machines with positive startOrder values. Failure to meet the following requirements results in an InvalidArgument exception:
         * startOrder must be set to -1 if startAction is set to none
@@ -34,17 +24,17 @@ Attributes:
         * 
         * If a newly established or changed startOrder value for a virtual machine matches an existing startOrder value, the newly applied value takes precedence, and the existing value is incremented by one. The incremented startOrder value is checked for collisions, and the same rule is applied if one is found. This simple system ensures no two virtual machines ever have the same order number.
         * For example, consider the case where there are three virtual machines with different startOrder values. Virtual machine A has not yet established a startOrder, virtual machine B has a startOrder value of 1 and Virtual Machine C has a startOrder value of 2. If virtual machine A's startOrder is set to 1, then virtual machine B's startOrder is incremented to 2. This creates a conflict with virtual machine C's startOrder value, which is also incremented, this time to 3.
-    startDelay (`int`_):
+    startDelay (`int <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Delay in seconds before continuing with the next virtual machine in the order of machines to be started. If the delay is specified as -1, then the system default is used.
-    waitForHeartbeat (`vim.host.AutoStartManager.AutoPowerInfo.WaitHeartbeatSetting`_):
+    waitForHeartbeat (`vim.host.AutoStartManager.AutoPowerInfo.WaitHeartbeatSetting <vim/host/AutoStartManager/AutoPowerInfo/WaitHeartbeatSetting.rst>`_):
 
-    startAction (`str`_):
+    startAction (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        How to start the virtual machine. Valid settings are none or powerOn. If set to none, then the virtual machine does not participate in auto-start.
-    stopDelay (`int`_):
+    stopDelay (`int <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Delay in seconds before continuing with the next virtual machine in the order sequence. If the delay is -1, then the system default is used.
-    stopAction (`str`_):
+    stopAction (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Defines the stop action for the virtual machine. Can be set to none, systemDefault, powerOff, or suspend. If set to none, then the virtual machine does not participate in auto-stop.

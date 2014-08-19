@@ -1,5 +1,3 @@
-.. _vim.vm.device.VirtualDiskOption.RawDiskVer2BackingOption: ../../../../vim/vm/device/VirtualDiskOption/RawDiskVer2BackingOption.rst
-
 
 vim.vm.device.VirtualDiskOption.PartitionedRawDiskVer2BackingOption
 ===================================================================

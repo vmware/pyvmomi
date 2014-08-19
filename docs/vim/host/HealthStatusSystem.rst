@@ -1,21 +1,15 @@
-.. _vim.Task: ../../vim/Task.rst
-
-.. _VI API 2.5: ../../vim/version.rst#vimversionversion2
-
-.. _vim.host.HealthStatusSystem.Runtime: ../../vim/host/HealthStatusSystem/Runtime.rst
-
 
 vim.host.HealthStatusSystem
 ===========================
   This managed object manages the health state of the host.
 
 
-:since: `VI API 2.5`_
+:since: `VI API 2.5 <vim/version.rst#vimversionversion2>`_
 
 
 Attributes
 ----------
-    runtime (`vim.host.HealthStatusSystem.Runtime`_):
+    runtime (`vim.host.HealthStatusSystem.Runtime <vim/host/HealthStatusSystem/Runtime.rst>`_):
        
 
 

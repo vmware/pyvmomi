@@ -1,11 +1,3 @@
-.. _bool: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.action.Action: ../../vim/action/Action.rst
-
-.. _vim.alarm.AlarmAction: ../../vim/alarm/AlarmAction.rst
-
-.. _vim.alarm.AlarmTriggeringAction.TransitionSpec: ../../vim/alarm/AlarmTriggeringAction/TransitionSpec.rst
-
 
 vim.alarm.AlarmTriggeringAction
 ===============================
@@ -13,21 +5,21 @@ vim.alarm.AlarmTriggeringAction
 :extends: vim.alarm.AlarmAction_
 
 Attributes:
-    action (`vim.action.Action`_):
+    action (`vim.action.Action <vim/action/Action.rst>`_):
 
        The action to be done when the alarm is triggered.
-    transitionSpecs ([`vim.alarm.AlarmTriggeringAction.TransitionSpec`_], optional):
+    transitionSpecs ([`vim.alarm.AlarmTriggeringAction.TransitionSpec <vim/alarm/AlarmTriggeringAction/TransitionSpec.rst>`_], optional):
 
        Indicates on which transitions this action executes and repeats. This is optional only for backwards compatibility.
-    green2yellow (`bool`_):
+    green2yellow (`bool <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Flag to specify that the alarm should trigger on a transition from green to yellow.
-    yellow2red (`bool`_):
+    yellow2red (`bool <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Flag to specify that the alarm should trigger on a transition from yellow to red.
-    red2yellow (`bool`_):
+    red2yellow (`bool <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Flag to specify that the alarm should trigger on a transition from red to yellow.
-    yellow2green (`bool`_):
+    yellow2green (`bool <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Flag to specify that the alarm should trigger on a transition from yellow to green.

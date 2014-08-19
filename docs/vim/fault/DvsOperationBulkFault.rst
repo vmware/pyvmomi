@@ -1,19 +1,15 @@
-.. _string: ../../str
-
-.. _vim.fault.DvsFault: ../../vim/fault/DvsFault.rst
-
 
 vim.fault.DvsOperationBulkFault
 ===============================
     :extends:
 
-        `vim.fault.DvsFault`_
+        `vim.fault.DvsFault <vim/fault/DvsFault.rst>`_
 
   Thrown if a DistributedVirtualSwitch operation failed on some of the host members.
 
 Attributes:
 
-    hostFault (`str`_)
+    hostFault (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
 
 

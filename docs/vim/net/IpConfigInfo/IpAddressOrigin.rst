@@ -1,13 +1,9 @@
-.. _vim.net.IpConfigInfo: ../../../vim/net/IpConfigInfo.rst
-
-.. _vim.net.IpConfigInfo.IpAddressOrigin: ../../../vim/net/IpConfigInfo/IpAddressOrigin.rst
-
 vim.net.IpConfigInfo.IpAddressOrigin
 ====================================
   This specifies how an IP address was obtained for a given interface. See RFC 4293 IpAddressOriginTC.
-  :contained by: `vim.net.IpConfigInfo`_
+  :contained by: `vim.net.IpConfigInfo <vim/net/IpConfigInfo.rst>`_
 
-  :type: `vim.net.IpConfigInfo.IpAddressOrigin`_
+  :type: `vim.net.IpConfigInfo.IpAddressOrigin <vim/net/IpConfigInfo/IpAddressOrigin.rst>`_
 
   :name: random
 

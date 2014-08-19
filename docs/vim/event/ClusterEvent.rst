@@ -1,5 +1,3 @@
-.. _vim.event.Event: ../../vim/event/Event.rst
-
 
 vim.event.ClusterEvent
 ======================

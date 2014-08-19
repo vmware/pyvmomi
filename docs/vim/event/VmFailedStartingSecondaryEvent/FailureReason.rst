@@ -1,13 +1,9 @@
-.. _vim.event.VmFailedStartingSecondaryEvent: ../../../vim/event/VmFailedStartingSecondaryEvent.rst
-
-.. _vim.event.VmFailedStartingSecondaryEvent.FailureReason: ../../../vim/event/VmFailedStartingSecondaryEvent/FailureReason.rst
-
 vim.event.VmFailedStartingSecondaryEvent.FailureReason
 ======================================================
   The reason for the failure.
-  :contained by: `vim.event.VmFailedStartingSecondaryEvent`_
+  :contained by: `vim.event.VmFailedStartingSecondaryEvent <vim/event/VmFailedStartingSecondaryEvent.rst>`_
 
-  :type: `vim.event.VmFailedStartingSecondaryEvent.FailureReason`_
+  :type: `vim.event.VmFailedStartingSecondaryEvent.FailureReason <vim/event/VmFailedStartingSecondaryEvent/FailureReason.rst>`_
 
   :name: migrateFailed
 

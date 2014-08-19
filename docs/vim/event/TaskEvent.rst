@@ -1,7 +1,3 @@
-.. _vim.TaskInfo: ../../vim/TaskInfo.rst
-
-.. _vim.event.Event: ../../vim/event/Event.rst
-
 
 vim.event.TaskEvent
 ===================
@@ -9,6 +5,6 @@ vim.event.TaskEvent
 :extends: vim.event.Event_
 
 Attributes:
-    info (`vim.TaskInfo`_):
+    info (`vim.TaskInfo <vim/TaskInfo.rst>`_):
 
        The information about the task.

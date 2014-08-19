@@ -1,47 +1,3 @@
-.. _int: https://docs.python.org/2/library/stdtypes.html
-
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _bool: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.Task: ../vim/Task.rst
-
-.. _effectiveRole: ../vim/ManagedEntity.rst#effectiveRole
-
-.. _vSphere API 5.5: ../vim/version.rst#vimversionversion9
-
-.. _vSphere API 5.0: ../vim/version.rst#vimversionversion7
-
-.. _vim.ManagedEntity: ../vim/ManagedEntity.rst
-
-.. _vim.fault.NotFound: ../vim/fault/NotFound.rst
-
-.. _vim.fault.InvalidName: ../vim/fault/InvalidName.rst
-
-.. _vim.fault.UserNotFound: ../vim/fault/UserNotFound.rst
-
-.. _vim.fault.RemoveFailed: ../vim/fault/RemoveFailed.rst
-
-.. _vim.fault.NoPermission: ../vim/fault/NoPermission.rst
-
-.. _vim.fault.AlreadyExists: ../vim/fault/AlreadyExists.rst
-
-.. _vmodl.fault.InvalidArgument: ../vmodl/fault/InvalidArgument.rst
-
-.. _vim.AuthorizationDescription: ../vim/AuthorizationDescription.rst
-
-.. _vim.AuthorizationManager.Role: ../vim/AuthorizationManager/Role.rst
-
-.. _vmodl.fault.ManagedObjectNotFound: ../vmodl/fault/ManagedObjectNotFound.rst
-
-.. _vim.AuthorizationManager.Privilege: ../vim/AuthorizationManager/Privilege.rst
-
-.. _vim.AuthorizationManager.Permission: ../vim/AuthorizationManager/Permission.rst
-
-.. _vim.fault.AuthMinimumAdminPermission: ../vim/fault/AuthMinimumAdminPermission.rst
-
-.. _vim.AuthorizationManager.EntityPrivilege: ../vim/AuthorizationManager/EntityPrivilege.rst
-
 
 vim.AuthorizationManager
 ========================
@@ -57,13 +13,13 @@ vim.AuthorizationManager
 
 Attributes
 ----------
-    privilegeList ([`vim.AuthorizationManager.Privilege`_]):
+    privilegeList ([`vim.AuthorizationManager.Privilege <vim/AuthorizationManager/Privilege.rst>`_]):
       privilege: System.View
        The list of system-defined privileges.
-    roleList ([`vim.AuthorizationManager.Role`_]):
+    roleList ([`vim.AuthorizationManager.Role <vim/AuthorizationManager/Role.rst>`_]):
       privilege: System.View
        The currently defined roles in the system, including static system-defined roles.
-    description (`vim.AuthorizationDescription`_):
+    description (`vim.AuthorizationDescription <vim/AuthorizationDescription.rst>`_):
       privilege: System.View
        Static, descriptive strings for system roles and privileges.
 
@@ -82,29 +38,29 @@ AddAuthorizationRole(name, privIds):
 
 
   Args:
-    name (`str`_):
+    name (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        Name of the new role.
 
 
-    privIds (`str`_, optional):
+    privIds (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
        List of privileges to assign to the role.
 
 
 
 
   Returns:
-    `int`_:
+    `int <https://docs.python.org/2/library/stdtypes.html>`_:
          The roleId assigned to the new role.
 
   Raises:
 
-    `vim.fault.AlreadyExists`_: 
+    `vim.fault.AlreadyExists <vim/fault/AlreadyExists.rst>`_: 
        if a role with the given name already exists.
 
-    `vim.fault.InvalidName`_: 
+    `vim.fault.InvalidName <vim/fault/InvalidName.rst>`_: 
        if the role name is empty.
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
        if privIds contains an unknown privilege.
 
 
@@ -118,10 +74,10 @@ RemoveAuthorizationRole(roleId, failIfUsed):
 
 
   Args:
-    roleId (`int`_):
+    roleId (`int <https://docs.python.org/2/library/stdtypes.html>`_):
 
 
-    failIfUsed (`bool`_):
+    failIfUsed (`bool <https://docs.python.org/2/library/stdtypes.html>`_):
        If true, prevents the role from being removed if any permissions are using it.
 
 
@@ -133,13 +89,13 @@ RemoveAuthorizationRole(roleId, failIfUsed):
 
   Raises:
 
-    `vim.fault.NotFound`_: 
+    `vim.fault.NotFound <vim/fault/NotFound.rst>`_: 
        if the role does not exist.
 
-    `vim.fault.RemoveFailed`_: 
+    `vim.fault.RemoveFailed <vim/fault/RemoveFailed.rst>`_: 
        if failIfUsed is true and the role has permissions.
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
        if the role is a system role, meaning it cannot be changed.
 
 
@@ -153,15 +109,15 @@ UpdateAuthorizationRole(roleId, newName, privIds):
 
 
   Args:
-    roleId (`int`_):
+    roleId (`int <https://docs.python.org/2/library/stdtypes.html>`_):
        The ID of the role that is updated.
 
 
-    newName (`str`_):
+    newName (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        The new name for the role.
 
 
-    privIds (`str`_, optional):
+    privIds (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
        The new set of privileges to assign to the role.
 
 
@@ -173,19 +129,19 @@ UpdateAuthorizationRole(roleId, newName, privIds):
 
   Raises:
 
-    `vim.fault.NotFound`_: 
+    `vim.fault.NotFound <vim/fault/NotFound.rst>`_: 
        if the role does not exist, or if a privilege in the list cannot be found.
 
-    `vim.fault.InvalidName`_: 
+    `vim.fault.InvalidName <vim/fault/InvalidName.rst>`_: 
        if the new role name is empty.
 
-    `vim.fault.AlreadyExists`_: 
+    `vim.fault.AlreadyExists <vim/fault/AlreadyExists.rst>`_: 
        if another role with the given name already exists.
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
        if the role is a system role, meaning it cannot be changed.
 
-    `vim.fault.NoPermission`_: 
+    `vim.fault.NoPermission <vim/fault/NoPermission.rst>`_: 
        if current session does not have any privilege that being updated in the new role or "Authorization.ModifyRoles" privilege on the root folder.
 
 
@@ -199,11 +155,11 @@ MergePermissions(srcRoleId, dstRoleId):
 
 
   Args:
-    srcRoleId (`int`_):
+    srcRoleId (`int <https://docs.python.org/2/library/stdtypes.html>`_):
        The ID of the source role providing the permissions which are changing.
 
 
-    dstRoleId (`int`_):
+    dstRoleId (`int <https://docs.python.org/2/library/stdtypes.html>`_):
        The ID of the destination role to which the permissions are reassigned.
 
 
@@ -215,16 +171,16 @@ MergePermissions(srcRoleId, dstRoleId):
 
   Raises:
 
-    `vim.fault.NotFound`_: 
+    `vim.fault.NotFound <vim/fault/NotFound.rst>`_: 
        if either the source or destination role does not exist.
 
-    `vim.fault.AuthMinimumAdminPermission`_: 
+    `vim.fault.AuthMinimumAdminPermission <vim/fault/AuthMinimumAdminPermission.rst>`_: 
        if srcRoleId is the Administrator role, meaning that applying the change would leave the system with no Administrator permission on the root node.
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
        if dstRoleId is the View or Anonymous role or if both role IDs are the same.
 
-    `vim.fault.NoPermission`_: 
+    `vim.fault.NoPermission <vim/fault/NoPermission.rst>`_: 
        if current session does not have any privilege in the source or destination role or "Authorization.ReassignRolePermissions" privilege on the root folder.
 
 
@@ -238,23 +194,23 @@ RetrieveRolePermissions(roleId):
 
 
   Args:
-    roleId (`int`_):
+    roleId (`int <https://docs.python.org/2/library/stdtypes.html>`_):
 
 
 
 
   Returns:
-    [`vim.AuthorizationManager.Permission`_]:
+    [`vim.AuthorizationManager.Permission <vim/AuthorizationManager/Permission.rst>`_]:
          
 
   Raises:
 
-    `vim.fault.NotFound`_: 
+    `vim.fault.NotFound <vim/fault/NotFound.rst>`_: 
        if the role does not exist.
 
 
 RetrieveEntityPermissions(entity, inherited):
-   Gets permissions defined on or effective on a managed entity. This returns the actual permission objects defined in the system for all users and groups relative to the managed entity. The inherited flag specifies whether or not to include permissions defined by the parents of this entity that propagate to this entity.For complex entities, the entity reported as defining the permission may be either the parent or a child entity belonging to the complex entity.The purpose of this method is to discover permissions for administration purposes, not to determine the current permissions. The current user's permissions are found on the `effectiveRole`_ property of the user's ManagedEntity.
+   Gets permissions defined on or effective on a managed entity. This returns the actual permission objects defined in the system for all users and groups relative to the managed entity. The inherited flag specifies whether or not to include permissions defined by the parents of this entity that propagate to this entity.For complex entities, the entity reported as defining the permission may be either the parent or a child entity belonging to the complex entity.The purpose of this method is to discover permissions for administration purposes, not to determine the current permissions. The current user's permissions are found on the `effectiveRole <vim/ManagedEntity.rst#effectiveRole>`_ property of the user's ManagedEntity.
 
 
   Privilege:
@@ -262,22 +218,22 @@ RetrieveEntityPermissions(entity, inherited):
 
 
   Args:
-    entity (`vim.ManagedEntity`_):
+    entity (`vim.ManagedEntity <vim/ManagedEntity.rst>`_):
 
 
-    inherited (`bool`_):
+    inherited (`bool <https://docs.python.org/2/library/stdtypes.html>`_):
        Whether or not to include propagating permissions defined by parent entities.
 
 
 
 
   Returns:
-    [`vim.AuthorizationManager.Permission`_]:
+    [`vim.AuthorizationManager.Permission <vim/AuthorizationManager/Permission.rst>`_]:
          
 
   Raises:
 
-    `vmodl.fault.ManagedObjectNotFound`_: 
+    `vmodl.fault.ManagedObjectNotFound <vmodl/fault/ManagedObjectNotFound.rst>`_: 
        if the entity does not exist.
 
 
@@ -294,7 +250,7 @@ RetrieveAllPermissions():
 
 
   Returns:
-    [`vim.AuthorizationManager.Permission`_]:
+    [`vim.AuthorizationManager.Permission <vim/AuthorizationManager/Permission.rst>`_]:
          
 
 
@@ -307,11 +263,11 @@ SetEntityPermissions(entity, permission):
 
 
   Args:
-    entity (`vim.ManagedEntity`_):
+    entity (`vim.ManagedEntity <vim/ManagedEntity.rst>`_):
        The entity on which to set permissions.
 
 
-    permission (`vim.AuthorizationManager.Permission`_, optional):
+    permission (`vim.AuthorizationManager.Permission <vim/AuthorizationManager/Permission.rst>`_, optional):
        An array of specifications for permissions on the entity.
 
 
@@ -323,22 +279,22 @@ SetEntityPermissions(entity, permission):
 
   Raises:
 
-    `vim.fault.UserNotFound`_: 
+    `vim.fault.UserNotFound <vim/fault/UserNotFound.rst>`_: 
        if a given user or group does not exist.
 
-    `vim.fault.NotFound`_: 
+    `vim.fault.NotFound <vim/fault/NotFound.rst>`_: 
        if a permission's roleId is not valid.
 
-    `vim.fault.AuthMinimumAdminPermission`_: 
+    `vim.fault.AuthMinimumAdminPermission <vim/fault/AuthMinimumAdminPermission.rst>`_: 
        if this change would leave the system with no Administrator permission on the root node, or it would grant further permission to a user or group who already has Administrator permission on the root node.
 
-    `vmodl.fault.ManagedObjectNotFound`_: 
+    `vmodl.fault.ManagedObjectNotFound <vmodl/fault/ManagedObjectNotFound.rst>`_: 
        if the given entity does not exist.
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
        if one of the new role IDs is the View or Anonymous role, or the entity does not support assigning permissions.
 
-    `vim.fault.NoPermission`_: 
+    `vim.fault.NoPermission <vim/fault/NoPermission.rst>`_: 
        if current session does not have any privilege in any permission that being set or "Authorization.ModifyPermissions" privilege on the entity.
 
 
@@ -351,11 +307,11 @@ ResetEntityPermissions(entity, permission):
 
 
   Args:
-    entity (`vim.ManagedEntity`_):
+    entity (`vim.ManagedEntity <vim/ManagedEntity.rst>`_):
        The entity on which permissions are updated.
 
 
-    permission (`vim.AuthorizationManager.Permission`_, optional):
+    permission (`vim.AuthorizationManager.Permission <vim/AuthorizationManager/Permission.rst>`_, optional):
        The list of Permission objects that define the new rules for access to the entity and potentially entities below it. If the list is empty, all permissions on the entity are removed.
 
 
@@ -367,22 +323,22 @@ ResetEntityPermissions(entity, permission):
 
   Raises:
 
-    `vim.fault.UserNotFound`_: 
+    `vim.fault.UserNotFound <vim/fault/UserNotFound.rst>`_: 
        if one of the given users or groups does not exist.
 
-    `vim.fault.NotFound`_: 
+    `vim.fault.NotFound <vim/fault/NotFound.rst>`_: 
        if a permission for this entity and user or group does not exist.
 
-    `vim.fault.AuthMinimumAdminPermission`_: 
+    `vim.fault.AuthMinimumAdminPermission <vim/fault/AuthMinimumAdminPermission.rst>`_: 
        if this change would leave the system with no Administrator permission on the root node, or it would grant further permission to a user or group who already has Administrator permission on the root node.
 
-    `vmodl.fault.ManagedObjectNotFound`_: 
+    `vmodl.fault.ManagedObjectNotFound <vmodl/fault/ManagedObjectNotFound.rst>`_: 
        if the given entity does not exist.
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
        if one of the new role IDs is the View or Anonymous role, or the entity does not support assigning permissions.
 
-    `vim.fault.NoPermission`_: 
+    `vim.fault.NoPermission <vim/fault/NoPermission.rst>`_: 
        if current session does not have any privilege in the updated permission or "Authorization.ModifyPermissions" privilege on the entity.
 
 
@@ -395,15 +351,15 @@ RemoveEntityPermission(entity, user, isGroup):
 
 
   Args:
-    entity (`vim.ManagedEntity`_):
+    entity (`vim.ManagedEntity <vim/ManagedEntity.rst>`_):
        Entity on which a permission is removed.
 
 
-    user (`str`_):
+    user (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        User or group for which the permission is defined.
 
 
-    isGroup (`bool`_):
+    isGroup (`bool <https://docs.python.org/2/library/stdtypes.html>`_):
        True, if user refers to a group name; false, for a user name.
 
 
@@ -415,22 +371,22 @@ RemoveEntityPermission(entity, user, isGroup):
 
   Raises:
 
-    `vim.fault.NotFound`_: 
+    `vim.fault.NotFound <vim/fault/NotFound.rst>`_: 
        if a permission for this entity and user or group does not exist.
 
-    `vim.fault.AuthMinimumAdminPermission`_: 
+    `vim.fault.AuthMinimumAdminPermission <vim/fault/AuthMinimumAdminPermission.rst>`_: 
        if this change would leave the system with no Administrator permission on the root node.
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
        if one of the new role IDs is the View or Anonymous role, or the entity does not support removing permissions.
 
-    `vim.fault.NoPermission`_: 
+    `vim.fault.NoPermission <vim/fault/NoPermission.rst>`_: 
        if current session does not have any privilege in the permission to be removed or "Authorization.ModifyPermissions" privilege on the entity.
 
 
 HasPrivilegeOnEntity(entity, sessionId, privId):
    Check whether a session holds a set of privileges on a managed entity.If the session does not exist, false is returned for all privileges.
-  since: `vSphere API 5.0`_
+  since: `vSphere API 5.0 <vim/version.rst#vimversionversion7>`_
 
 
   Privilege:
@@ -439,33 +395,33 @@ HasPrivilegeOnEntity(entity, sessionId, privId):
 
 
   Args:
-    entity (`vim.ManagedEntity`_):
+    entity (`vim.ManagedEntity <vim/ManagedEntity.rst>`_):
        The entity on which the privileges are checked.
 
 
-    sessionId (`str`_):
-       The session ID to check privileges for. A sesssion ID can be obtained from `key`_ .
+    sessionId (`str <https://docs.python.org/2/library/stdtypes.html>`_):
+       The session ID to check privileges for. A sesssion ID can be obtained from `key <vim/UserSession.rst#key>`_ .
 
 
-    privId (`str`_, optional):
+    privId (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
        The array of privilege IDs to check.
 
 
 
 
   Returns:
-    [`bool`_]:
+    [`bool <https://docs.python.org/2/library/stdtypes.html>`_]:
          a boolean value for each privilege indicating whether the session holds the privilege.
 
   Raises:
 
-    `vmodl.fault.ManagedObjectNotFound`_: 
+    `vmodl.fault.ManagedObjectNotFound <vmodl/fault/ManagedObjectNotFound.rst>`_: 
        if the given entity does not exist.
 
 
 HasPrivilegeOnEntities(entity, sessionId, privId):
    Check whether a session holds a set of privileges on a set of managed entities.If the session does not exist, false is returned for all privileges of all the entities.
-  since: `vSphere API 5.5`_
+  since: `vSphere API 5.5 <vim/version.rst#vimversionversion9>`_
 
 
   Privilege:
@@ -474,27 +430,27 @@ HasPrivilegeOnEntities(entity, sessionId, privId):
 
 
   Args:
-    entity (`vim.ManagedEntity`_):
+    entity (`vim.ManagedEntity <vim/ManagedEntity.rst>`_):
        The set of entities on which the privileges are checked.
 
 
-    sessionId (`str`_):
-       The session ID to check privileges for. A sesssion ID can be obtained from `key`_ .
+    sessionId (`str <https://docs.python.org/2/library/stdtypes.html>`_):
+       The session ID to check privileges for. A sesssion ID can be obtained from `key <vim/UserSession.rst#key>`_ .
 
 
-    privId (`str`_, optional):
+    privId (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
        The array of privilege IDs to check.
 
 
 
 
   Returns:
-    [`vim.AuthorizationManager.EntityPrivilege`_]:
+    [`vim.AuthorizationManager.EntityPrivilege <vim/AuthorizationManager/EntityPrivilege.rst>`_]:
          The privilege check result.
 
   Raises:
 
-    `vmodl.fault.ManagedObjectNotFound`_: 
+    `vmodl.fault.ManagedObjectNotFound <vmodl/fault/ManagedObjectNotFound.rst>`_: 
        if a given entity does not exist.
 
 

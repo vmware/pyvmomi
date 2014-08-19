@@ -1,5 +1,3 @@
-.. _vim.vm.device.VirtualDevice.DeviceBackingInfo: ../../../../vim/vm/device/VirtualDevice/DeviceBackingInfo.rst
-
 
 vim.vm.device.VirtualCdrom.AtapiBackingInfo
 ===========================================

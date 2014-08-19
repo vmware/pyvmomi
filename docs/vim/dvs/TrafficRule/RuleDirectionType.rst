@@ -1,13 +1,9 @@
-.. _vim.dvs.TrafficRule: ../../../vim/dvs/TrafficRule.rst
-
-.. _vim.dvs.TrafficRule.RuleDirectionType: ../../../vim/dvs/TrafficRule/RuleDirectionType.rst
-
 vim.dvs.TrafficRule.RuleDirectionType
 =====================================
   Network Traffic Rule direction types. It specifies whether rule needs to be applied for packets which are incoming/outgoing or both.
-  :contained by: `vim.dvs.TrafficRule`_
+  :contained by: `vim.dvs.TrafficRule <vim/dvs/TrafficRule.rst>`_
 
-  :type: `vim.dvs.TrafficRule.RuleDirectionType`_
+  :type: `vim.dvs.TrafficRule.RuleDirectionType <vim/dvs/TrafficRule/RuleDirectionType.rst>`_
 
   :name: both
 

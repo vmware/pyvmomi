@@ -1,9 +1,3 @@
-.. _vmodl.DynamicData: ../../../vmodl/DynamicData.rst
-
-.. _vim.ManagedEntity: ../../../vim/ManagedEntity.rst
-
-.. _vim.event.EventFilterSpec.RecursionOption: ../../../vim/event/EventFilterSpec/RecursionOption.rst
-
 
 vim.event.EventFilterSpec.ByEntity
 ==================================
@@ -11,9 +5,9 @@ vim.event.EventFilterSpec.ByEntity
 :extends: vmodl.DynamicData_
 
 Attributes:
-    entity (`vim.ManagedEntity`_, privilege: System.View):
+    entity (`vim.ManagedEntity <vim/ManagedEntity.rst>`_, privilege: System.View):
 
        The managed entity to which the event pertains.
-    recursion (`vim.event.EventFilterSpec.RecursionOption`_):
+    recursion (`vim.event.EventFilterSpec.RecursionOption <vim/event/EventFilterSpec/RecursionOption.rst>`_):
 
        Specification of related managed entities in the inventory hierarchy.

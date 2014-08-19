@@ -1,13 +1,9 @@
-.. _vim.vm.device.VirtualDiskOption: ../../../../vim/vm/device/VirtualDiskOption.rst
-
-.. _vim.vm.device.VirtualDiskOption.DiskMode: ../../../../vim/vm/device/VirtualDiskOption/DiskMode.rst
-
 vim.vm.device.VirtualDiskOption.DiskMode
 ========================================
   The list of known disk modes.The list of supported disk modes varies by the backing type. The "persistent" mode is supported by every backing type.
-  :contained by: `vim.vm.device.VirtualDiskOption`_
+  :contained by: `vim.vm.device.VirtualDiskOption <vim/vm/device/VirtualDiskOption.rst>`_
 
-  :type: `vim.vm.device.VirtualDiskOption.DiskMode`_
+  :type: `vim.vm.device.VirtualDiskOption.DiskMode <vim/vm/device/VirtualDiskOption/DiskMode.rst>`_
 
   :name: append
 

@@ -1,9 +1,3 @@
-.. _bool: https://docs.python.org/2/library/stdtypes.html
-
-.. _long: https://docs.python.org/2/library/stdtypes.html
-
-.. _vmodl.DynamicData: ../../vmodl/DynamicData.rst
-
 
 vim.vm.NetworkShaperInfo
 ========================
@@ -11,15 +5,15 @@ vim.vm.NetworkShaperInfo
 :extends: vmodl.DynamicData_
 
 Attributes:
-    enabled (`bool`_, optional):
+    enabled (`bool <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        Is the shaper enabled?
-    peakBps (`long`_, optional):
+    peakBps (`long <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        Peak bandwidth, in bits per second.
-    averageBps (`long`_, optional):
+    averageBps (`long <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        Average bandwidth, in bits per second.
-    burstSize (`long`_, optional):
+    burstSize (`long <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        Burst size, in bytes.

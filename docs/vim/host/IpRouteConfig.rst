@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vmodl.DynamicData: ../../vmodl/DynamicData.rst
-
 
 vim.host.IpRouteConfig
 ======================
@@ -9,15 +5,15 @@ vim.host.IpRouteConfig
 :extends: vmodl.DynamicData_
 
 Attributes:
-    defaultGateway (`str`_, optional):
+    defaultGateway (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        The default gateway address.
-    gatewayDevice (`str`_, optional):
+    gatewayDevice (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        The gateway device. This applies to service console gateway only, it is ignored otherwise.
-    ipV6DefaultGateway (`str`_, optional):
+    ipV6DefaultGateway (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        The default ipv6 gateway address
-    ipV6GatewayDevice (`str`_, optional):
+    ipV6GatewayDevice (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        The ipv6 gateway device. This applies to service console gateway only, it

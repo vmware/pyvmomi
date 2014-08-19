@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.event.HostEvent: ../../vim/event/HostEvent.rst
-
 
 vim.event.HostShutdownEvent
 ===========================
@@ -9,6 +5,6 @@ vim.event.HostShutdownEvent
 :extends: vim.event.HostEvent_
 
 Attributes:
-    reason (`str`_):
+    reason (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The reason for the host shutdown.

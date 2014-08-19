@@ -1,13 +1,9 @@
-.. _vim.dvs.VmwareDistributedVirtualSwitch: ../../../vim/dvs/VmwareDistributedVirtualSwitch.rst
-
-.. _vim.dvs.VmwareDistributedVirtualSwitch.VspanSessionType: ../../../vim/dvs/VmwareDistributedVirtualSwitch/VspanSessionType.rst
-
 vim.dvs.VmwareDistributedVirtualSwitch.VspanSessionType
 =======================================================
   Distributed Port Mirroring session types.
-  :contained by: `vim.dvs.VmwareDistributedVirtualSwitch`_
+  :contained by: `vim.dvs.VmwareDistributedVirtualSwitch <vim/dvs/VmwareDistributedVirtualSwitch.rst>`_
 
-  :type: `vim.dvs.VmwareDistributedVirtualSwitch.VspanSessionType`_
+  :type: `vim.dvs.VmwareDistributedVirtualSwitch.VspanSessionType <vim/dvs/VmwareDistributedVirtualSwitch/VspanSessionType.rst>`_
 
   :name: encapsulatedRemoteMirrorSource
 

@@ -1,9 +1,3 @@
-.. _vim.host.VmfsDatastoreSpec: ../../vim/host/VmfsDatastoreSpec.rst
-
-.. _vim.host.ScsiDisk.Partition: ../../vim/host/ScsiDisk/Partition.rst
-
-.. _vim.host.DiskPartitionInfo.Specification: ../../vim/host/DiskPartitionInfo/Specification.rst
-
 
 vim.host.VmfsDatastoreExtendSpec
 ================================
@@ -11,9 +5,9 @@ vim.host.VmfsDatastoreExtendSpec
 :extends: vim.host.VmfsDatastoreSpec_
 
 Attributes:
-    partition (`vim.host.DiskPartitionInfo.Specification`_):
+    partition (`vim.host.DiskPartitionInfo.Specification <vim/host/DiskPartitionInfo/Specification.rst>`_):
 
        Partitioning specification.
-    extent ([`vim.host.ScsiDisk.Partition`_]):
+    extent ([`vim.host.ScsiDisk.Partition <vim/host/ScsiDisk/Partition.rst>`_]):
 
        Extents to append to VMFS.

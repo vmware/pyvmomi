@@ -1,13 +1,9 @@
-.. _vim.Datastore.Summary: ../../../vim/Datastore/Summary.rst
-
-.. _vim.Datastore.Summary.MaintenanceModeState: ../../../vim/Datastore/Summary/MaintenanceModeState.rst
-
 vim.Datastore.Summary.MaintenanceModeState
 ==========================================
   Defines the current maintenance mode state of the datastore.
-  :contained by: `vim.Datastore.Summary`_
+  :contained by: `vim.Datastore.Summary <vim/Datastore/Summary.rst>`_
 
-  :type: `vim.Datastore.Summary.MaintenanceModeState`_
+  :type: `vim.Datastore.Summary.MaintenanceModeState <vim/Datastore/Summary/MaintenanceModeState.rst>`_
 
   :name: inMaintenance
 

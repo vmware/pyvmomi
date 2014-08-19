@@ -1,5 +1,3 @@
-.. _vim.event.ResourcePoolEvent: ../../vim/event/ResourcePoolEvent.rst
-
 
 vim.event.ResourcePoolDestroyedEvent
 ====================================

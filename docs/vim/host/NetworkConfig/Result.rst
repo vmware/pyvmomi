@@ -1,19 +1,13 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vmodl.DynamicData: ../../../vmodl/DynamicData.rst
-
-.. _UpdateNetworkConfig: ../../../vim/host/NetworkSystem.rst#updateNetworkConfig
-
 
 vim.host.NetworkConfig.Result
 =============================
-  The result returned by updateNetworkConfig call.See `UpdateNetworkConfig`_ 
+  The result returned by updateNetworkConfig call.See `UpdateNetworkConfig <vim/host/NetworkSystem.rst#updateNetworkConfig>`_ 
 :extends: vmodl.DynamicData_
 
 Attributes:
-    vnicDevice ([`str`_], optional):
+    vnicDevice ([`str <https://docs.python.org/2/library/stdtypes.html>`_], optional):
 
        Virtual network adapter keys.
-    consoleVnicDevice ([`str`_], optional):
+    consoleVnicDevice ([`str <https://docs.python.org/2/library/stdtypes.html>`_], optional):
 
        Service console virtual network adapter keys.

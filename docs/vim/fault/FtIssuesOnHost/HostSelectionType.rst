@@ -1,13 +1,9 @@
-.. _vim.fault.FtIssuesOnHost: ../../../vim/fault/FtIssuesOnHost.rst
-
-.. _vim.fault.FtIssuesOnHost.HostSelectionType: ../../../vim/fault/FtIssuesOnHost/HostSelectionType.rst
-
 vim.fault.FtIssuesOnHost.HostSelectionType
 ==========================================
   HostSelectionType defines how the host was selected
-  :contained by: `vim.fault.FtIssuesOnHost`_
+  :contained by: `vim.fault.FtIssuesOnHost <vim/fault/FtIssuesOnHost.rst>`_
 
-  :type: `vim.fault.FtIssuesOnHost.HostSelectionType`_
+  :type: `vim.fault.FtIssuesOnHost.HostSelectionType <vim/fault/FtIssuesOnHost/HostSelectionType.rst>`_
 
   :name: drs
 

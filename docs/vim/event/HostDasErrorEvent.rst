@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.event.HostEvent: ../../vim/event/HostEvent.rst
-
 
 vim.event.HostDasErrorEvent
 ===========================
@@ -11,8 +7,8 @@ vim.event.HostDasErrorEvent
 
 
 Attributes:
-    message (`str`_, optional):
+    message (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
-    reason (`str`_, optional):
+    reason (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        The reason for the failure.

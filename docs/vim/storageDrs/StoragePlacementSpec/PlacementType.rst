@@ -1,13 +1,9 @@
-.. _vim.storageDrs.StoragePlacementSpec: ../../../vim/storageDrs/StoragePlacementSpec.rst
-
-.. _vim.storageDrs.StoragePlacementSpec.PlacementType: ../../../vim/storageDrs/StoragePlacementSpec/PlacementType.rst
-
 vim.storageDrs.StoragePlacementSpec.PlacementType
 =================================================
   Defines the storage placement operation type.
-  :contained by: `vim.storageDrs.StoragePlacementSpec`_
+  :contained by: `vim.storageDrs.StoragePlacementSpec <vim/storageDrs/StoragePlacementSpec.rst>`_
 
-  :type: `vim.storageDrs.StoragePlacementSpec.PlacementType`_
+  :type: `vim.storageDrs.StoragePlacementSpec.PlacementType <vim/storageDrs/StoragePlacementSpec/PlacementType.rst>`_
 
   :name: clone
 

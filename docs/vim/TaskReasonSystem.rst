@@ -1,5 +1,3 @@
-.. _vim.TaskReason: ../vim/TaskReason.rst
-
 
 vim.TaskReasonSystem
 ====================

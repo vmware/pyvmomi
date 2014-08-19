@@ -1,13 +1,3 @@
-.. _int: https://docs.python.org/2/library/stdtypes.html
-
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _bool: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.Description: ../../vim/Description.rst
-
-.. _vmodl.DynamicData: ../../vmodl/DynamicData.rst
-
 
 vim.AuthorizationManager.Role
 =============================
@@ -15,18 +5,18 @@ vim.AuthorizationManager.Role
 :extends: vmodl.DynamicData_
 
 Attributes:
-    roleId (`int`_):
+    roleId (`int <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Unique role identifier.
-    system (`bool`_):
+    system (`bool <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Whether or not the role is system-defined. System-defined roles cannot be changed.
-    name (`str`_):
+    name (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        System-defined or user-defined role name.
-    info (`vim.Description`_):
+    info (`vim.Description <vim/Description.rst>`_):
 
        Displayable role information.
-    privilege ([`str`_], optional):
+    privilege ([`str <https://docs.python.org/2/library/stdtypes.html>`_], optional):
 
        Privileges provided by this role, by privilege identifier.

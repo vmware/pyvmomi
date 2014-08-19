@@ -1,24 +1,10 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.Task: ../../vim/Task.rst
-
-.. _vSphere API 5.0: ../../vim/version.rst#vimversionversion7
-
-.. _HostImageProfileSummary: ../../vim/host/ImageConfigManager/ImageProfileSummary.rst
-
-.. _HostImageAcceptanceLevel: ../../vim/host/ImageConfigManager/AcceptanceLevel.rst
-
-.. _vim.fault.HostConfigFault: ../../vim/fault/HostConfigFault.rst
-
-.. _vim.host.ImageConfigManager.ImageProfileSummary: ../../vim/host/ImageConfigManager/ImageProfileSummary.rst
-
 
 vim.host.ImageConfigManager
 ===========================
   This managed object is the interface for configuration of the ESX software image, including properties such as acceptance level. It is currently designed to be host agent specific.
 
 
-:since: `vSphere API 5.0`_
+:since: `vSphere API 5.0 <vim/version.rst#vimversionversion7>`_
 
 
 Attributes
@@ -30,7 +16,7 @@ Methods
 
 
 HostImageConfigGetAcceptance():
-   Queries the current host acceptance level setting.See `HostImageAcceptanceLevel`_ 
+   Queries the current host acceptance level setting.See `HostImageAcceptanceLevel <vim/host/ImageConfigManager/AcceptanceLevel.rst>`_ 
 
 
   Privilege:
@@ -42,17 +28,17 @@ HostImageConfigGetAcceptance():
 
 
   Returns:
-    `str`_:
+    `str <https://docs.python.org/2/library/stdtypes.html>`_:
          
 
   Raises:
 
-    `vim.fault.HostConfigFault`_: 
-       if the host acceptance setting is invalid.See `HostImageAcceptanceLevel`_ 
+    `vim.fault.HostConfigFault <vim/fault/HostConfigFault.rst>`_: 
+       if the host acceptance setting is invalid.See `HostImageAcceptanceLevel <vim/host/ImageConfigManager/AcceptanceLevel.rst>`_ 
 
 
 HostImageConfigGetProfile():
-   Queries the current host image profile information.See `HostImageProfileSummary`_ 
+   Queries the current host image profile information.See `HostImageProfileSummary <vim/host/ImageConfigManager/ImageProfileSummary.rst>`_ 
 
 
   Privilege:
@@ -64,12 +50,12 @@ HostImageConfigGetProfile():
 
 
   Returns:
-    `vim.host.ImageConfigManager.ImageProfileSummary`_:
+    `vim.host.ImageConfigManager.ImageProfileSummary <vim/host/ImageConfigManager/ImageProfileSummary.rst>`_:
          
 
 
 UpdateHostImageAcceptanceLevel(newAcceptanceLevel):
-   Sets the acceptance level of the host image profile.See `HostImageAcceptanceLevel`_ 
+   Sets the acceptance level of the host image profile.See `HostImageAcceptanceLevel <vim/host/ImageConfigManager/AcceptanceLevel.rst>`_ 
 
 
   Privilege:
@@ -78,8 +64,8 @@ UpdateHostImageAcceptanceLevel(newAcceptanceLevel):
 
 
   Args:
-    newAcceptanceLevel (`str`_):
-       the new AcceptanceLevel to set.See `HostImageAcceptanceLevel`_ 
+    newAcceptanceLevel (`str <https://docs.python.org/2/library/stdtypes.html>`_):
+       the new AcceptanceLevel to set.See `HostImageAcceptanceLevel <vim/host/ImageConfigManager/AcceptanceLevel.rst>`_ 
 
 
 
@@ -90,7 +76,7 @@ UpdateHostImageAcceptanceLevel(newAcceptanceLevel):
 
   Raises:
 
-    `vim.fault.HostConfigFault`_: 
-       if the acceptance level is raised and there are VIB packages that are not permitted by the higher acceptance level.See `HostImageAcceptanceLevel`_ 
+    `vim.fault.HostConfigFault <vim/fault/HostConfigFault.rst>`_: 
+       if the acceptance level is raised and there are VIB packages that are not permitted by the higher acceptance level.See `HostImageAcceptanceLevel <vim/host/ImageConfigManager/AcceptanceLevel.rst>`_ 
 
 

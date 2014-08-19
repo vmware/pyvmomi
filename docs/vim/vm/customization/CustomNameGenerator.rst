@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.vm.customization.NameGenerator: ../../../vim/vm/customization/NameGenerator.rst
-
 
 vim.vm.customization.CustomNameGenerator
 ========================================
@@ -9,6 +5,6 @@ vim.vm.customization.CustomNameGenerator
 :extends: vim.vm.customization.NameGenerator_
 
 Attributes:
-    argument (`str`_, optional):
+    argument (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        An optional argument that is passed to the utility for this IP address. The meaning of this field is user-defined in the script.

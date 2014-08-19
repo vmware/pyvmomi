@@ -1,7 +1,3 @@
-.. _vim.event.RoleEventArgument: ../../vim/event/RoleEventArgument.rst
-
-.. _vim.event.AuthorizationEvent: ../../vim/event/AuthorizationEvent.rst
-
 
 vim.event.RoleEvent
 ===================
@@ -9,6 +5,6 @@ vim.event.RoleEvent
 :extends: vim.event.AuthorizationEvent_
 
 Attributes:
-    role (`vim.event.RoleEventArgument`_):
+    role (`vim.event.RoleEventArgument <vim/event/RoleEventArgument.rst>`_):
 
        The associated role.

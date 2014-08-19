@@ -1,15 +1,9 @@
-.. _vim.vm.FlagInfo: ../../../vim/vm/FlagInfo.rst
-
-.. _virtualMmuUsage: ../../../vim/vm/FlagInfo.rst#virtualMmuUsage
-
-.. _vim.vm.FlagInfo.VirtualMmuUsage: ../../../vim/vm/FlagInfo/VirtualMmuUsage.rst
-
 vim.vm.FlagInfo.VirtualMmuUsage
 ===============================
-  Set of possible values for `virtualMmuUsage`_ .
-  :contained by: `vim.vm.FlagInfo`_
+  Set of possible values for `virtualMmuUsage <vim/vm/FlagInfo.rst#virtualMmuUsage>`_ .
+  :contained by: `vim.vm.FlagInfo <vim/vm/FlagInfo.rst>`_
 
-  :type: `vim.vm.FlagInfo.VirtualMmuUsage`_
+  :type: `vim.vm.FlagInfo.VirtualMmuUsage <vim/vm/FlagInfo/VirtualMmuUsage.rst>`_
 
   :name: off
 

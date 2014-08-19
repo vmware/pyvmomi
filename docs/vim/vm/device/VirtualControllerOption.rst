@@ -1,9 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.option.IntOption: ../../../vim/option/IntOption.rst
-
-.. _vim.vm.device.VirtualDeviceOption: ../../../vim/vm/device/VirtualDeviceOption.rst
-
 
 vim.vm.device.VirtualControllerOption
 =====================================
@@ -11,9 +5,9 @@ vim.vm.device.VirtualControllerOption
 :extends: vim.vm.device.VirtualDeviceOption_
 
 Attributes:
-    devices (`vim.option.IntOption`_):
+    devices (`vim.option.IntOption <vim/option/IntOption.rst>`_):
 
        The minimum and maximum number of devices this controller can control at run time.
-    supportedDevice ([`str`_], optional):
+    supportedDevice ([`str <https://docs.python.org/2/library/stdtypes.html>`_], optional):
 
        Array of supported device options for this controller.

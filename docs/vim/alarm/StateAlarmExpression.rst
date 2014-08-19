@@ -1,9 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.alarm.AlarmExpression: ../../vim/alarm/AlarmExpression.rst
-
-.. _vim.alarm.StateAlarmExpression.StateOperator: ../../vim/alarm/StateAlarmExpression/StateOperator.rst
-
 
 vim.alarm.StateAlarmExpression
 ==============================
@@ -15,22 +9,22 @@ vim.alarm.StateAlarmExpression
 :extends: vim.alarm.AlarmExpression_
 
 Attributes:
-    operator (`vim.alarm.StateAlarmExpression.StateOperator`_):
+    operator (`vim.alarm.StateAlarmExpression.StateOperator <vim/alarm/StateAlarmExpression/StateOperator.rst>`_):
 
        The operation to be tested on the target state.
-    type (`str`_):
+    type (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Name of the object type containing the property.
-    statePath (`str`_):
+    statePath (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Path of the state property.The supported values:
         * for vim.VirtualMachine type:
         * runtime.powerState or summary.quickStats.guestHeartbeatStatus
         * for vim.HostSystem type: runtime.connectionState
         * 
-    yellow (`str`_, optional):
+    yellow (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        Whether or not to test for a yellow condition. If this property is not set, do not calculate yellow status.
-    red (`str`_, optional):
+    red (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        Whether or not to test for a red condition. If this property is not set, do not calculate red status.

@@ -1,13 +1,9 @@
-.. _vim.host.ScsiLun: ../../../vim/host/ScsiLun.rst
-
-.. _vim.host.ScsiLun.State: ../../../vim/host/ScsiLun/State.rst
-
 vim.host.ScsiLun.State
 ======================
   The Operational state of the LUN
-  :contained by: `vim.host.ScsiLun`_
+  :contained by: `vim.host.ScsiLun <vim/host/ScsiLun.rst>`_
 
-  :type: `vim.host.ScsiLun.State`_
+  :type: `vim.host.ScsiLun.State <vim/host/ScsiLun/State.rst>`_
 
   :name: timeout
 

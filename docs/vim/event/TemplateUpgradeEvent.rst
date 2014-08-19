@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.event.Event: ../../vim/event/Event.rst
-
 
 vim.event.TemplateUpgradeEvent
 ==============================
@@ -9,5 +5,5 @@ vim.event.TemplateUpgradeEvent
 :extends: vim.event.Event_
 
 Attributes:
-    legacyTemplate (`str`_):
+    legacyTemplate (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 

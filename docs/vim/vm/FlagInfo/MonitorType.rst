@@ -1,15 +1,9 @@
-.. _monitorType: ../../../vim/vm/FlagInfo.rst#monitorType
-
-.. _vim.vm.FlagInfo: ../../../vim/vm/FlagInfo.rst
-
-.. _vim.vm.FlagInfo.MonitorType: ../../../vim/vm/FlagInfo/MonitorType.rst
-
 vim.vm.FlagInfo.MonitorType
 ===========================
-  Set of possible values for `monitorType`_ .
-  :contained by: `vim.vm.FlagInfo`_
+  Set of possible values for `monitorType <vim/vm/FlagInfo.rst#monitorType>`_ .
+  :contained by: `vim.vm.FlagInfo <vim/vm/FlagInfo.rst>`_
 
-  :type: `vim.vm.FlagInfo.MonitorType`_
+  :type: `vim.vm.FlagInfo.MonitorType <vim/vm/FlagInfo/MonitorType.rst>`_
 
   :name: stats
 

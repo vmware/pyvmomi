@@ -1,19 +1,7 @@
-.. _int: https://docs.python.org/2/library/stdtypes.html
-
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _cpuPkg: ../../vim/host/HardwareInfo.rst#cpuPkg
-
-.. _cpuFeature: ../../vim/host/HardwareInfo.rst#cpuFeature
-
-.. _vmodl.DynamicData: ../../vmodl/DynamicData.rst
-
-.. _supportedCpuFeature: ../../vim/host/Capability.rst#supportedCpuFeature
-
 
 vim.host.CpuIdInfo
 ==================
-  The CpuIdInfo data object type is used to represent the CPU features of a particular host or product, or to specify what the CPU feature requirements are for a particular virtual machine or guest operating system.For each register (eax,ebx,ecx,edx), the string is a bit mask of the form:????:????:????:????:????:????:????:????When used to represent the features of a specific processor package ( `cpuPkg`_ ), the features common to all processors on a host ( `cpuFeature`_ ), or the features supported by a virtualization platform ( `supportedCpuFeature`_ ), each bit is either '0' or '1', or '-' for unknown/unspecified. In these feature vectors, the vendor field is never set.Optional values in these feature vectors default to '----:----:----:----:----:----:----:----'.When specifying the required feature set for a virtual machine or a guest operating system, the bits can take on the values as described below, and the vendor field may be set. The total feature requirements for a virtual machine are composed by using any requirements listed in the virtual machine's configuration to override the requirements listed in the descriptor for the virtual machine's guest OS.Bits used for specifying requirements:
+  The CpuIdInfo data object type is used to represent the CPU features of a particular host or product, or to specify what the CPU feature requirements are for a particular virtual machine or guest operating system.For each register (eax,ebx,ecx,edx), the string is a bit mask of the form:????:????:????:????:????:????:????:????When used to represent the features of a specific processor package ( `cpuPkg <vim/host/HardwareInfo.rst#cpuPkg>`_ ), the features common to all processors on a host ( `cpuFeature <vim/host/HardwareInfo.rst#cpuFeature>`_ ), or the features supported by a virtualization platform ( `supportedCpuFeature <vim/host/Capability.rst#supportedCpuFeature>`_ ), each bit is either '0' or '1', or '-' for unknown/unspecified. In these feature vectors, the vendor field is never set.Optional values in these feature vectors default to '----:----:----:----:----:----:----:----'.When specifying the required feature set for a virtual machine or a guest operating system, the bits can take on the values as described below, and the vendor field may be set. The total feature requirements for a virtual machine are composed by using any requirements listed in the virtual machine's configuration to override the requirements listed in the descriptor for the virtual machine's guest OS.Bits used for specifying requirements:
    * x
    * : Unused by guest software.
    * T
@@ -42,21 +30,21 @@ vim.host.CpuIdInfo
 :extends: vmodl.DynamicData_
 
 Attributes:
-    level (`int`_):
+    level (`int <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Level (EAX input to CPUID).
-    vendor (`str`_, optional):
+    vendor (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        Used if this mask is for a particular vendor.
-    eax (`str`_, optional):
+    eax (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        String representing the required EAX bits.
-    ebx (`str`_, optional):
+    ebx (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        String representing the required EBX bits.
-    ecx (`str`_, optional):
+    ecx (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        String representing the required ECX bits.
-    edx (`str`_, optional):
+    edx (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        String representing the required EDX bits.

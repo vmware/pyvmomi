@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.vm.customization.IpGenerator: ../../../vim/vm/customization/IpGenerator.rst
-
 
 vim.vm.customization.FixedIp
 ============================
@@ -9,5 +5,5 @@ vim.vm.customization.FixedIp
 :extends: vim.vm.customization.IpGenerator_
 
 Attributes:
-    ipAddress (`str`_):
+    ipAddress (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 

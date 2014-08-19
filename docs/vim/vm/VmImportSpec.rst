@@ -1,32 +1,14 @@
-.. _ImportSpec: ../../vim/ImportSpec.rst
-
-.. _VirtualMachine: ../../vim/VirtualMachine.rst
-
-.. _vim.ImportSpec: ../../vim/ImportSpec.rst
-
-.. _vSphere API 4.0: ../../vim/version.rst#vimversionversion5
-
-.. _vim.ResourcePool: ../../vim/ResourcePool.rst
-
-.. _vim.vm.ConfigSpec: ../../vim/vm/ConfigSpec.rst
-
-.. _VirtualAppImportSpec: ../../vim/vApp/VAppImportSpec.rst
-
-.. _ResourcePool.importVApp: ../../vim/ResourcePool.rst#importVApp
-
-.. _VirtualMachineConfigSpec: ../../vim/vm/ConfigSpec.rst
-
 
 vim.vm.VmImportSpec
 ===================
-  A VmImportSpec is used by `ResourcePool.importVApp`_ when importing entities.It provides all information needed to import a `VirtualMachine`_ . So far, this coincides with `VirtualMachineConfigSpec`_ .A VmImportSpec can be contained in a `VirtualAppImportSpec`_ as part of the ImportSpec for an entity.See also `ImportSpec`_ .
+  A VmImportSpec is used by `ResourcePool.importVApp <vim/ResourcePool.rst#importVApp>`_ when importing entities.It provides all information needed to import a `VirtualMachine <vim/VirtualMachine.rst>`_ . So far, this coincides with `VirtualMachineConfigSpec <vim/vm/ConfigSpec.rst>`_ .A VmImportSpec can be contained in a `VirtualAppImportSpec <vim/vApp/VAppImportSpec.rst>`_ as part of the ImportSpec for an entity.See also `ImportSpec <vim/ImportSpec.rst>`_ .
 :extends: vim.ImportSpec_
-:since: `vSphere API 4.0`_
+:since: `vSphere API 4.0 <vim/version.rst#vimversionversion5>`_
 
 Attributes:
-    configSpec (`vim.vm.ConfigSpec`_):
+    configSpec (`vim.vm.ConfigSpec <vim/vm/ConfigSpec.rst>`_):
 
        Configuration for the virtual machine.
-    resPoolEntity (`vim.ResourcePool`_, optional):
+    resPoolEntity (`vim.ResourcePool <vim/ResourcePool.rst>`_, optional):
 
        If specified, this resource pool will be used as the parent resource pool and the virtual machine will be made a linked child to the parent vApp. This field is ignored for the root node in an ImportSpec tree.

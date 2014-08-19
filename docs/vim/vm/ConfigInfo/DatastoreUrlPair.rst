@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vmodl.DynamicData: ../../../vmodl/DynamicData.rst
-
 
 vim.vm.ConfigInfo.DatastoreUrlPair
 ==================================
@@ -9,7 +5,7 @@ vim.vm.ConfigInfo.DatastoreUrlPair
 :extends: vmodl.DynamicData_
 
 Attributes:
-    name (`str`_):
+    name (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
-    url (`str`_):
+    url (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 

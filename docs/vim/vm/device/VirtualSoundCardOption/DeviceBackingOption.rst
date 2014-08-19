@@ -1,5 +1,3 @@
-.. _vim.vm.device.VirtualDeviceOption.DeviceBackingOption: ../../../../vim/vm/device/VirtualDeviceOption/DeviceBackingOption.rst
-
 
 vim.vm.device.VirtualSoundCardOption.DeviceBackingOption
 ========================================================

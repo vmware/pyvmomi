@@ -1,13 +1,9 @@
-.. _vim.VirtualMachine: ../../vim/VirtualMachine.rst
-
-.. _vim.VirtualMachine.NeedSecondaryReason: ../../vim/VirtualMachine/NeedSecondaryReason.rst
-
 vim.VirtualMachine.NeedSecondaryReason
 ======================================
   The NeedSecondaryReason type defines all reasons a virtual machine is in the needSecondary Fault Tolerance state following a failure.
-  :contained by: `vim.VirtualMachine`_
+  :contained by: `vim.VirtualMachine <vim/VirtualMachine.rst>`_
 
-  :type: `vim.VirtualMachine.NeedSecondaryReason`_
+  :type: `vim.VirtualMachine.NeedSecondaryReason <vim/VirtualMachine/NeedSecondaryReason.rst>`_
 
   :name: other
 

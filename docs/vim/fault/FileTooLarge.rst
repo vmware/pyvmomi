@@ -1,25 +1,19 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _long: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.fault.FileFault: ../../vim/fault/FileFault.rst
-
 
 vim.fault.FileTooLarge
 ======================
     :extends:
 
-        `vim.fault.FileFault`_
+        `vim.fault.FileFault <vim/fault/FileFault.rst>`_
 
   This fault is thrown when an operation fails because the file is larger than the maximum file size supported by the datastore.
 
 Attributes:
 
-    datastore (`str`_)
+    datastore (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
-    fileSize (`long`_)
+    fileSize (`long <https://docs.python.org/2/library/stdtypes.html>`_)
 
-    maxFileSize (`long`_): is optional.
+    maxFileSize (`long <https://docs.python.org/2/library/stdtypes.html>`_): is optional.
 
 
 

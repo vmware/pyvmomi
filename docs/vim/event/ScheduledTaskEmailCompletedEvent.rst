@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.event.ScheduledTaskEvent: ../../vim/event/ScheduledTaskEvent.rst
-
 
 vim.event.ScheduledTaskEmailCompletedEvent
 ==========================================
@@ -9,6 +5,6 @@ vim.event.ScheduledTaskEmailCompletedEvent
 :extends: vim.event.ScheduledTaskEvent_
 
 Attributes:
-    to (`str`_):
+    to (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The destination email address.

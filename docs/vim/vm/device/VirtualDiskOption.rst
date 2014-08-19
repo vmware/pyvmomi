@@ -1,13 +1,3 @@
-.. _vim.option.LongOption: ../../../vim/option/LongOption.rst
-
-.. _StorageIOAllocationInfo: ../../../vim/StorageResourceManager/IOAllocationInfo.rst
-
-.. _vim.vm.device.VirtualDeviceOption: ../../../vim/vm/device/VirtualDeviceOption.rst
-
-.. _vim.StorageResourceManager.IOAllocationOption: ../../../vim/StorageResourceManager/IOAllocationOption.rst
-
-.. _vim.vm.device.VirtualDiskOption.VFlashCacheConfigOption: ../../../vim/vm/device/VirtualDiskOption/VFlashCacheConfigOption.rst
-
 
 vim.vm.device.VirtualDiskOption
 ===============================
@@ -15,12 +5,12 @@ vim.vm.device.VirtualDiskOption
 :extends: vim.vm.device.VirtualDeviceOption_
 
 Attributes:
-    capacityInKB (`vim.option.LongOption`_):
+    capacityInKB (`vim.option.LongOption <vim/option/LongOption.rst>`_):
 
        Minimum, maximum, and default capacity of the disk.
-    ioAllocationOption (`vim.StorageResourceManager.IOAllocationOption`_):
+    ioAllocationOption (`vim.StorageResourceManager.IOAllocationOption <vim/StorageResourceManager/IOAllocationOption.rst>`_):
 
-       Minumum, maximum, and default values for Storage I/O allocation.See `StorageIOAllocationInfo`_ 
-    vFlashCacheConfigOption (`vim.vm.device.VirtualDiskOption.VFlashCacheConfigOption`_, optional):
+       Minumum, maximum, and default values for Storage I/O allocation.See `StorageIOAllocationInfo <vim/StorageResourceManager/IOAllocationInfo.rst>`_ 
+    vFlashCacheConfigOption (`vim.vm.device.VirtualDiskOption.VFlashCacheConfigOption <vim/vm/device/VirtualDiskOption/VFlashCacheConfigOption.rst>`_, optional):
 
        vFlash cache configuration on the disk

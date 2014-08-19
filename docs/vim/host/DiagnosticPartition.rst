@@ -1,15 +1,3 @@
-.. _int: https://docs.python.org/2/library/stdtypes.html
-
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vmodl.DynamicData: ../../vmodl/DynamicData.rst
-
-.. _DiagnosticPartitionType: ../../vim/host/DiagnosticPartition/DiagnosticType.rst
-
-.. _vim.host.ScsiDisk.Partition: ../../vim/host/ScsiDisk/Partition.rst
-
-.. _DiagnosticPartitionStorageType: ../../vim/host/DiagnosticPartition/StorageType.rst
-
 
 vim.host.DiagnosticPartition
 ============================
@@ -17,15 +5,15 @@ vim.host.DiagnosticPartition
 :extends: vmodl.DynamicData_
 
 Attributes:
-    storageType (`str`_):
+    storageType (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
-       Indicates the storage type of the diagnostic partition.See `DiagnosticPartitionStorageType`_ 
-    diagnosticType (`str`_):
+       Indicates the storage type of the diagnostic partition.See `DiagnosticPartitionStorageType <vim/host/DiagnosticPartition/StorageType.rst>`_ 
+    diagnosticType (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
-       Indicates the type of the diagnostic partition.See `DiagnosticPartitionType`_ 
-    slots (`int`_):
+       Indicates the type of the diagnostic partition.See `DiagnosticPartitionType <vim/host/DiagnosticPartition/DiagnosticType.rst>`_ 
+    slots (`int <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The number of slots in the diagnostic partition.
-    id (`vim.host.ScsiDisk.Partition`_):
+    id (`vim.host.ScsiDisk.Partition <vim/host/ScsiDisk/Partition.rst>`_):
 
        Diagnostic partition identification information.

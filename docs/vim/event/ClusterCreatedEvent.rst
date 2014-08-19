@@ -1,7 +1,3 @@
-.. _vim.event.ClusterEvent: ../../vim/event/ClusterEvent.rst
-
-.. _vim.event.FolderEventArgument: ../../vim/event/FolderEventArgument.rst
-
 
 vim.event.ClusterCreatedEvent
 =============================
@@ -9,6 +5,6 @@ vim.event.ClusterCreatedEvent
 :extends: vim.event.ClusterEvent_
 
 Attributes:
-    parent (`vim.event.FolderEventArgument`_):
+    parent (`vim.event.FolderEventArgument <vim/event/FolderEventArgument.rst>`_):
 
        The folder where the cluster is created.

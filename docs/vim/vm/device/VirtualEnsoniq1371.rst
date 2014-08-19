@@ -1,5 +1,3 @@
-.. _vim.vm.device.VirtualSoundCard: ../../../vim/vm/device/VirtualSoundCard.rst
-
 
 vim.vm.device.VirtualEnsoniq1371
 ================================

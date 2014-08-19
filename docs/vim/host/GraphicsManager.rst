@@ -1,13 +1,3 @@
-.. _bool: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.Task: ../../vim/Task.rst
-
-.. _vSphere API 5.5: ../../vim/version.rst#vimversionversion9
-
-.. _vim.host.GraphicsInfo: ../../vim/host/GraphicsInfo.rst
-
-.. _vim.ExtensibleManagedObject: ../../vim/ExtensibleManagedObject.rst
-
 
 vim.host.GraphicsManager
 ========================
@@ -15,12 +5,12 @@ vim.host.GraphicsManager
 
 
 :extends: vim.ExtensibleManagedObject_
-:since: `vSphere API 5.5`_
+:since: `vSphere API 5.5 <vim/version.rst#vimversionversion9>`_
 
 
 Attributes
 ----------
-    graphicsInfo ([`vim.host.GraphicsInfo`_]):
+    graphicsInfo ([`vim.host.GraphicsInfo <vim/host/GraphicsInfo.rst>`_]):
       privilege: System.Read
        Array of graphics information
 
@@ -59,7 +49,7 @@ IsSharedGraphicsActive():
 
 
   Returns:
-    `bool`_:
+    `bool <https://docs.python.org/2/library/stdtypes.html>`_:
          
 
 

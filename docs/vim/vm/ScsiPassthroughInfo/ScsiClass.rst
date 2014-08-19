@@ -1,13 +1,9 @@
-.. _vim.vm.ScsiPassthroughInfo: ../../../vim/vm/ScsiPassthroughInfo.rst
-
-.. _vim.vm.ScsiPassthroughInfo.ScsiClass: ../../../vim/vm/ScsiPassthroughInfo/ScsiClass.rst
-
 vim.vm.ScsiPassthroughInfo.ScsiClass
 ====================================
   Possible SCSI classes.
-  :contained by: `vim.vm.ScsiPassthroughInfo`_
+  :contained by: `vim.vm.ScsiPassthroughInfo <vim/vm/ScsiPassthroughInfo.rst>`_
 
-  :type: `vim.vm.ScsiPassthroughInfo.ScsiClass`_
+  :type: `vim.vm.ScsiPassthroughInfo.ScsiClass <vim/vm/ScsiPassthroughInfo/ScsiClass.rst>`_
 
   :name: unknown
 

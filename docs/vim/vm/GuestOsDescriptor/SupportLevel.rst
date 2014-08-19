@@ -1,13 +1,9 @@
-.. _vim.vm.GuestOsDescriptor: ../../../vim/vm/GuestOsDescriptor.rst
-
-.. _vim.vm.GuestOsDescriptor.SupportLevel: ../../../vim/vm/GuestOsDescriptor/SupportLevel.rst
-
 vim.vm.GuestOsDescriptor.SupportLevel
 =====================================
   Guest OS support level
-  :contained by: `vim.vm.GuestOsDescriptor`_
+  :contained by: `vim.vm.GuestOsDescriptor <vim/vm/GuestOsDescriptor.rst>`_
 
-  :type: `vim.vm.GuestOsDescriptor.SupportLevel`_
+  :type: `vim.vm.GuestOsDescriptor.SupportLevel <vim/vm/GuestOsDescriptor/SupportLevel.rst>`_
 
   :name: techPreview
 

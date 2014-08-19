@@ -1,12 +1,8 @@
-.. _vim.host.NumericSensorInfo: ../../../vim/host/NumericSensorInfo.rst
-
-.. _vim.host.NumericSensorInfo.SensorType: ../../../vim/host/NumericSensorInfo/SensorType.rst
-
 vim.host.NumericSensorInfo.SensorType
 =====================================
-  :contained by: `vim.host.NumericSensorInfo`_
+  :contained by: `vim.host.NumericSensorInfo <vim/host/NumericSensorInfo.rst>`_
 
-  :type: `vim.host.NumericSensorInfo.SensorType`_
+  :type: `vim.host.NumericSensorInfo.SensorType <vim/host/NumericSensorInfo/SensorType.rst>`_
 
   :name: other
 

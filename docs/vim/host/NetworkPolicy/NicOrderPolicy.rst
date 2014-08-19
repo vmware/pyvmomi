@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vmodl.DynamicData: ../../../vmodl/DynamicData.rst
-
 
 vim.host.NetworkPolicy.NicOrderPolicy
 =====================================
@@ -9,9 +5,9 @@ vim.host.NetworkPolicy.NicOrderPolicy
 :extends: vmodl.DynamicData_
 
 Attributes:
-    activeNic ([`str`_], optional):
+    activeNic ([`str <https://docs.python.org/2/library/stdtypes.html>`_], optional):
 
        List of active network adapters used for load balancing.
-    standbyNic ([`str`_], optional):
+    standbyNic ([`str <https://docs.python.org/2/library/stdtypes.html>`_], optional):
 
        Standby network adapters used for failover.

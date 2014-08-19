@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.event.HostEvent: ../../vim/event/HostEvent.rst
-
 
 vim.event.HostCnxFailedAlreadyManagedEvent
 ==========================================
@@ -9,6 +5,6 @@ vim.event.HostCnxFailedAlreadyManagedEvent
 :extends: vim.event.HostEvent_
 
 Attributes:
-    serverName (`str`_):
+    serverName (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The name of the VirtualCenter server that manages the host.

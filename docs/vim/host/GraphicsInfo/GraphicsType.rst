@@ -1,13 +1,9 @@
-.. _vim.host.GraphicsInfo: ../../../vim/host/GraphicsInfo.rst
-
-.. _vim.host.GraphicsInfo.GraphicsType: ../../../vim/host/GraphicsInfo/GraphicsType.rst
-
 vim.host.GraphicsInfo.GraphicsType
 ==================================
   Possible values for graphics type.
-  :contained by: `vim.host.GraphicsInfo`_
+  :contained by: `vim.host.GraphicsInfo <vim/host/GraphicsInfo.rst>`_
 
-  :type: `vim.host.GraphicsInfo.GraphicsType`_
+  :type: `vim.host.GraphicsInfo.GraphicsType <vim/host/GraphicsInfo/GraphicsType.rst>`_
 
   :name: direct
 

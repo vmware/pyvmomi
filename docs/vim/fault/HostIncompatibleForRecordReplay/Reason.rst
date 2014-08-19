@@ -1,13 +1,9 @@
-.. _vim.fault.HostIncompatibleForRecordReplay: ../../../vim/fault/HostIncompatibleForRecordReplay.rst
-
-.. _vim.fault.HostIncompatibleForRecordReplay.Reason: ../../../vim/fault/HostIncompatibleForRecordReplay/Reason.rst
-
 vim.fault.HostIncompatibleForRecordReplay.Reason
 ================================================
   Reasons why record/replay is not supported on a host.
-  :contained by: `vim.fault.HostIncompatibleForRecordReplay`_
+  :contained by: `vim.fault.HostIncompatibleForRecordReplay <vim/fault/HostIncompatibleForRecordReplay.rst>`_
 
-  :type: `vim.fault.HostIncompatibleForRecordReplay.Reason`_
+  :type: `vim.fault.HostIncompatibleForRecordReplay.Reason <vim/fault/HostIncompatibleForRecordReplay/Reason.rst>`_
 
   :name: processor
 

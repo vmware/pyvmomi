@@ -1,13 +1,9 @@
-.. _vim.storageDrs.PodConfigInfo: ../../../vim/storageDrs/PodConfigInfo.rst
-
-.. _vim.storageDrs.PodConfigInfo.Behavior: ../../../vim/storageDrs/PodConfigInfo/Behavior.rst
-
 vim.storageDrs.PodConfigInfo.Behavior
 =====================================
   Storage DRS behavior.
-  :contained by: `vim.storageDrs.PodConfigInfo`_
+  :contained by: `vim.storageDrs.PodConfigInfo <vim/storageDrs/PodConfigInfo.rst>`_
 
-  :type: `vim.storageDrs.PodConfigInfo.Behavior`_
+  :type: `vim.storageDrs.PodConfigInfo.Behavior <vim/storageDrs/PodConfigInfo/Behavior.rst>`_
 
   :name: automated
 

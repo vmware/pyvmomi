@@ -1,15 +1,9 @@
-.. _use3dRenderer: ../../../../vim/vm/device/VirtualVideoCard.rst#use3dRenderer
-
-.. _vim.vm.device.VirtualVideoCard: ../../../../vim/vm/device/VirtualVideoCard.rst
-
-.. _vim.vm.device.VirtualVideoCard.Use3dRenderer: ../../../../vim/vm/device/VirtualVideoCard/Use3dRenderer.rst
-
 vim.vm.device.VirtualVideoCard.Use3dRenderer
 ============================================
-  Set of possible values for `use3dRenderer`_ .
-  :contained by: `vim.vm.device.VirtualVideoCard`_
+  Set of possible values for `use3dRenderer <vim/vm/device/VirtualVideoCard.rst#use3dRenderer>`_ .
+  :contained by: `vim.vm.device.VirtualVideoCard <vim/vm/device/VirtualVideoCard.rst>`_
 
-  :type: `vim.vm.device.VirtualVideoCard.Use3dRenderer`_
+  :type: `vim.vm.device.VirtualVideoCard.Use3dRenderer <vim/vm/device/VirtualVideoCard/Use3dRenderer.rst>`_
 
   :name: hardware
 

@@ -1,5 +1,3 @@
-.. _vim.event.ScheduledTaskEvent: ../../vim/event/ScheduledTaskEvent.rst
-
 
 vim.event.ScheduledTaskCompletedEvent
 =====================================

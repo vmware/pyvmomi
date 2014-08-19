@@ -1,9 +1,3 @@
-.. _bool: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.option.ChoiceOption: ../../../../vim/option/ChoiceOption.rst
-
-.. _vim.vm.device.VirtualDeviceOption.DeviceBackingOption: ../../../../vim/vm/device/VirtualDeviceOption/DeviceBackingOption.rst
-
 
 vim.vm.device.VirtualDiskOption.RawDiskVer2BackingOption
 ========================================================
@@ -11,9 +5,9 @@ vim.vm.device.VirtualDiskOption.RawDiskVer2BackingOption
 :extends: vim.vm.device.VirtualDeviceOption.DeviceBackingOption_
 
 Attributes:
-    descriptorFileNameExtensions (`vim.option.ChoiceOption`_):
+    descriptorFileNameExtensions (`vim.option.ChoiceOption <vim/option/ChoiceOption.rst>`_):
 
        Valid extensions for the filename of the raw disk descriptor file.
-    uuid (`bool`_):
+    uuid (`bool <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Flag to indicate whether this backing supports disk UUID property.

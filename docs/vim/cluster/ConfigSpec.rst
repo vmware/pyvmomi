@@ -1,15 +1,3 @@
-.. _vmodl.DynamicData: ../../vmodl/DynamicData.rst
-
-.. _vim.cluster.RuleSpec: ../../vim/cluster/RuleSpec.rst
-
-.. _vim.cluster.DrsConfigInfo: ../../vim/cluster/DrsConfigInfo.rst
-
-.. _vim.cluster.DasConfigInfo: ../../vim/cluster/DasConfigInfo.rst
-
-.. _vim.cluster.DrsVmConfigSpec: ../../vim/cluster/DrsVmConfigSpec.rst
-
-.. _vim.cluster.DasVmConfigSpec: ../../vim/cluster/DasVmConfigSpec.rst
-
 
 vim.cluster.ConfigSpec
 ======================
@@ -19,18 +7,18 @@ vim.cluster.ConfigSpec
 
 
 Attributes:
-    dasConfig (`vim.cluster.DasConfigInfo`_, optional):
+    dasConfig (`vim.cluster.DasConfigInfo <vim/cluster/DasConfigInfo.rst>`_, optional):
 
        Changes to the configuration of vSphere HA.
-    dasVmConfigSpec ([`vim.cluster.DasVmConfigSpec`_], optional):
+    dasVmConfigSpec ([`vim.cluster.DasVmConfigSpec <vim/cluster/DasVmConfigSpec.rst>`_], optional):
 
        Changes to the per-virtual-machine vSphere HA settings.
-    drsConfig (`vim.cluster.DrsConfigInfo`_, optional):
+    drsConfig (`vim.cluster.DrsConfigInfo <vim/cluster/DrsConfigInfo.rst>`_, optional):
 
        Changes to the configuration of the VMware DRS service.
-    drsVmConfigSpec ([`vim.cluster.DrsVmConfigSpec`_], optional):
+    drsVmConfigSpec ([`vim.cluster.DrsVmConfigSpec <vim/cluster/DrsVmConfigSpec.rst>`_], optional):
 
        Changes to the per-virtual-machine DRS settings.
-    rulesSpec ([`vim.cluster.RuleSpec`_], optional):
+    rulesSpec ([`vim.cluster.RuleSpec <vim/cluster/RuleSpec.rst>`_], optional):
 
        Changes to the set of rules.

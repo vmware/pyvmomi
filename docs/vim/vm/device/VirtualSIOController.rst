@@ -1,5 +1,3 @@
-.. _vim.vm.device.VirtualController: ../../../vim/vm/device/VirtualController.rst
-
 
 vim.vm.device.VirtualSIOController
 ==================================

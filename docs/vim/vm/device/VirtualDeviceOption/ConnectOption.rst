@@ -1,7 +1,3 @@
-.. _vmodl.DynamicData: ../../../../vmodl/DynamicData.rst
-
-.. _vim.option.BoolOption: ../../../../vim/option/BoolOption.rst
-
 
 vim.vm.device.VirtualDeviceOption.ConnectOption
 ===============================================
@@ -9,9 +5,9 @@ vim.vm.device.VirtualDeviceOption.ConnectOption
 :extends: vmodl.DynamicData_
 
 Attributes:
-    startConnected (`vim.option.BoolOption`_):
+    startConnected (`vim.option.BoolOption <vim/option/BoolOption.rst>`_):
 
        Flag to indicate whether or not the device supports the startConnected feature.
-    allowGuestControl (`vim.option.BoolOption`_):
+    allowGuestControl (`vim.option.BoolOption <vim/option/BoolOption.rst>`_):
 
        Flag to indicate whether or not the device can be connected and disconnected from within the guest operating system.

@@ -1,7 +1,3 @@
-.. _vim.option.BoolOption: ../../../../vim/option/BoolOption.rst
-
-.. _vim.vm.device.VirtualDeviceOption.RemoteDeviceBackingOption: ../../../../vim/vm/device/VirtualDeviceOption/RemoteDeviceBackingOption.rst
-
 
 vim.vm.device.VirtualCdromOption.RemotePassthroughBackingOption
 ===============================================================
@@ -9,6 +5,6 @@ vim.vm.device.VirtualCdromOption.RemotePassthroughBackingOption
 :extends: vim.vm.device.VirtualDeviceOption.RemoteDeviceBackingOption_
 
 Attributes:
-    exclusive (`vim.option.BoolOption`_):
+    exclusive (`vim.option.BoolOption <vim/option/BoolOption.rst>`_):
 
        Flag to indicate whether or not exclusive CD-ROM device access is supported.

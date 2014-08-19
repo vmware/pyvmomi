@@ -1,7 +1,3 @@
-.. _vmodl.LocalizedMethodFault: ../../vmodl/LocalizedMethodFault.rst
-
-.. _vim.event.ScheduledTaskEvent: ../../vim/event/ScheduledTaskEvent.rst
-
 
 vim.event.ScheduledTaskFailedEvent
 ==================================
@@ -9,6 +5,6 @@ vim.event.ScheduledTaskFailedEvent
 :extends: vim.event.ScheduledTaskEvent_
 
 Attributes:
-    reason (`vmodl.LocalizedMethodFault`_):
+    reason (`vmodl.LocalizedMethodFault <vmodl/LocalizedMethodFault.rst>`_):
 
        The reason for the failure.

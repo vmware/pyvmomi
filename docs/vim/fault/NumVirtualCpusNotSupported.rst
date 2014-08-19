@@ -1,21 +1,17 @@
-.. _int: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.fault.VirtualHardwareCompatibilityIssue: ../../vim/fault/VirtualHardwareCompatibilityIssue.rst
-
 
 vim.fault.NumVirtualCpusNotSupported
 ====================================
     :extends:
 
-        `vim.fault.VirtualHardwareCompatibilityIssue`_
+        `vim.fault.VirtualHardwareCompatibilityIssue <vim/fault/VirtualHardwareCompatibilityIssue.rst>`_
 
   The host's software does not support enough virtual CPUs to accomodate the virtual machine. This is always an error.
 
 Attributes:
 
-    maxSupportedVcpusDest (`int`_)
+    maxSupportedVcpusDest (`int <https://docs.python.org/2/library/stdtypes.html>`_)
 
-    numCpuVm (`int`_)
+    numCpuVm (`int <https://docs.python.org/2/library/stdtypes.html>`_)
 
 
 

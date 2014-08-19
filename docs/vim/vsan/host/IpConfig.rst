@@ -1,30 +1,14 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _port: ../../../vim/vsan/host/ConfigInfo/NetworkInfo.rst#port
-
-.. _UpdateVsan_Task: ../../../vim/host/VsanSystem.rst#update
-
-.. _vSphere API 5.5: ../../../vim/version.rst#vimversionversion9
-
-.. _VsanHostIpConfig: ../../../vim/vsan/host/IpConfig.rst
-
-.. _vmodl.DynamicData: ../../../vmodl/DynamicData.rst
-
-.. _VsanHostConfigInfoNetworkInfo: ../../../vim/vsan/host/ConfigInfo/NetworkInfo.rst
-
-.. _VsanHostConfigInfoNetworkInfoPortConfig: ../../../vim/vsan/host/ConfigInfo/NetworkInfo/PortConfig.rst
-
 
 vim.vsan.host.IpConfig
 ======================
-  An `VsanHostIpConfig`_ is a pair of multicast IP addresses for use by the VSAN service. For VSAN there is one such IpConfig pair per "virtual network" as represented by `VsanHostConfigInfoNetworkInfoPortConfig`_ .See `VsanHostConfigInfoNetworkInfo`_ See `port`_ See `VsanHostConfigInfoNetworkInfoPortConfig`_ See `UpdateVsan_Task`_ 
+  An `VsanHostIpConfig <vim/vsan/host/IpConfig.rst>`_ is a pair of multicast IP addresses for use by the VSAN service. For VSAN there is one such IpConfig pair per "virtual network" as represented by `VsanHostConfigInfoNetworkInfoPortConfig <vim/vsan/host/ConfigInfo/NetworkInfo/PortConfig.rst>`_ .See `VsanHostConfigInfoNetworkInfo <vim/vsan/host/ConfigInfo/NetworkInfo.rst>`_ See `port <vim/vsan/host/ConfigInfo/NetworkInfo.rst#port>`_ See `VsanHostConfigInfoNetworkInfoPortConfig <vim/vsan/host/ConfigInfo/NetworkInfo/PortConfig.rst>`_ See `UpdateVsan_Task <vim/host/VsanSystem.rst#update>`_ 
 :extends: vmodl.DynamicData_
-:since: `vSphere API 5.5`_
+:since: `vSphere API 5.5 <vim/version.rst#vimversionversion9>`_
 
 Attributes:
-    upstreamIpAddress (`str`_):
+    upstreamIpAddress (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Agent-to-master multicast IP address.
-    downstreamIpAddress (`str`_):
+    downstreamIpAddress (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Master-to-agent multicast IP address.

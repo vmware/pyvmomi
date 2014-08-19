@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vmodl.DynamicData: ../vmodl/DynamicData.rst
-
 
 vim.Description
 ===============
@@ -9,9 +5,9 @@ vim.Description
 :extends: vmodl.DynamicData_
 
 Attributes:
-    label (`str`_):
+    label (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Display label.
-    summary (`str`_):
+    summary (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Summary description.

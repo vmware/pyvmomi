@@ -1,5 +1,3 @@
-.. _vim.vm.device.VirtualEthernetCard: ../../../vim/vm/device/VirtualEthernetCard.rst
-
 
 vim.vm.device.VirtualVmxnet
 ===========================

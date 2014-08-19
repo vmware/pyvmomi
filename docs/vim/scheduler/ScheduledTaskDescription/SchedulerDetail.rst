@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.TypeDescription: ../../../vim/TypeDescription.rst
-
 
 vim.scheduler.ScheduledTaskDescription.SchedulerDetail
 ======================================================
@@ -9,6 +5,6 @@ vim.scheduler.ScheduledTaskDescription.SchedulerDetail
 :extends: vim.TypeDescription_
 
 Attributes:
-    frequency (`str`_):
+    frequency (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Scheduler frequency description.

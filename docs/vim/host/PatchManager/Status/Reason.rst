@@ -1,13 +1,9 @@
-.. _vim.host.PatchManager.Status: ../../../../vim/host/PatchManager/Status.rst
-
-.. _vim.host.PatchManager.Status.Reason: ../../../../vim/host/PatchManager/Status/Reason.rst
-
 vim.host.PatchManager.Status.Reason
 ===================================
   Reasons why an update is not applicable to the ESX host.
-  :contained by: `vim.host.PatchManager.Status`_
+  :contained by: `vim.host.PatchManager.Status <vim/host/PatchManager/Status.rst>`_
 
-  :type: `vim.host.PatchManager.Status.Reason`_
+  :type: `vim.host.PatchManager.Status.Reason <vim/host/PatchManager/Status/Reason.rst>`_
 
   :name: conflictLib
 

@@ -1,13 +1,9 @@
-.. _vim.ComputeResource.HostSPBMLicenseInfo: ../../../vim/ComputeResource/HostSPBMLicenseInfo.rst
-
-.. _vim.ComputeResource.HostSPBMLicenseInfo.HostSPBMLicenseState: ../../../vim/ComputeResource/HostSPBMLicenseInfo/HostSPBMLicenseState.rst
-
 vim.ComputeResource.HostSPBMLicenseInfo.HostSPBMLicenseState
 ============================================================
   The SPBM(Storage Policy Based Management) license state for a host
-  :contained by: `vim.ComputeResource.HostSPBMLicenseInfo`_
+  :contained by: `vim.ComputeResource.HostSPBMLicenseInfo <vim/ComputeResource/HostSPBMLicenseInfo.rst>`_
 
-  :type: `vim.ComputeResource.HostSPBMLicenseInfo.HostSPBMLicenseState`_
+  :type: `vim.ComputeResource.HostSPBMLicenseInfo.HostSPBMLicenseState <vim/ComputeResource/HostSPBMLicenseInfo/HostSPBMLicenseState.rst>`_
 
   :name: unknown
 

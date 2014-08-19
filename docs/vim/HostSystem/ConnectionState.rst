@@ -1,13 +1,9 @@
-.. _vim.HostSystem: ../../vim/HostSystem.rst
-
-.. _vim.HostSystem.ConnectionState: ../../vim/HostSystem/ConnectionState.rst
-
 vim.HostSystem.ConnectionState
 ==============================
   Defines a host's connection state.
-  :contained by: `vim.HostSystem`_
+  :contained by: `vim.HostSystem <vim/HostSystem.rst>`_
 
-  :type: `vim.HostSystem.ConnectionState`_
+  :type: `vim.HostSystem.ConnectionState <vim/HostSystem/ConnectionState.rst>`_
 
   :name: disconnected
 

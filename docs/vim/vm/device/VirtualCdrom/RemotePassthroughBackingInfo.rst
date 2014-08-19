@@ -1,7 +1,3 @@
-.. _bool: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.vm.device.VirtualDevice.RemoteDeviceBackingInfo: ../../../../vim/vm/device/VirtualDevice/RemoteDeviceBackingInfo.rst
-
 
 vim.vm.device.VirtualCdrom.RemotePassthroughBackingInfo
 =======================================================
@@ -9,6 +5,6 @@ vim.vm.device.VirtualCdrom.RemotePassthroughBackingInfo
 :extends: vim.vm.device.VirtualDevice.RemoteDeviceBackingInfo_
 
 Attributes:
-    exclusive (`bool`_):
+    exclusive (`bool <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Flag to indicate whether or not the virtual machine has exclusive access to the CD-ROM device.

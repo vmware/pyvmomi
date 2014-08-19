@@ -1,23 +1,9 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _bool: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.Task: ../vim/Task.rst
-
-.. _UserSearchResult: ../vim/UserSearchResult.rst
-
-.. _vim.fault.NotFound: ../vim/fault/NotFound.rst
-
-.. _vim.UserSearchResult: ../vim/UserSearchResult.rst
-
-.. _vmodl.fault.NotSupported: ../vmodl/fault/NotSupported.rst
-
 
 vim.UserDirectory
 =================
-  The `UserDirectory`_ managed object provides information about users and groups on a vSphere server and ESX hosts. The method `RetrieveUserGroups`_ returns a list of user account data. The method can perform a search operation based on specific criteria - user name, group name, sub-string or string matching, and, on Windows, domain. Use the results as input to the AuthorizationManager methods `SetEntityPermissions`_ and `ResetEntityPermissions`_ .The content of the returned results depends on the server environment:
+  The `UserDirectory <vim/UserDirectory.rst>`_ managed object provides information about users and groups on a vSphere server and ESX hosts. The method `RetrieveUserGroups <vim/UserDirectory.rst#retrieveUserGroups>`_ returns a list of user account data. The method can perform a search operation based on specific criteria - user name, group name, sub-string or string matching, and, on Windows, domain. Use the results as input to the AuthorizationManager methods `SetEntityPermissions <vim/AuthorizationManager.rst#setEntityPermissions>`_ and `ResetEntityPermissions <vim/AuthorizationManager.rst#resetEntityPermissions>`_ .The content of the returned results depends on the server environment:
    * On a Windows host,
-   * `RetrieveUserGroups`_
+   * `RetrieveUserGroups <vim/UserDirectory.rst#retrieveUserGroups>`_
    * can search from the set of trusted domains on the host, including the primary domain of the system. A special domain (specified as an empty string -
    * ) refers to the users and groups local to the host.
    * On an ESX Server or a Linux host, the search operates on the users and groups defined in the /etc/passwd file. Always specify an empty string (
@@ -29,7 +15,7 @@ vim.UserDirectory
 
 Attributes
 ----------
-    domainList ([`str`_]):
+    domainList ([`str <https://docs.python.org/2/library/stdtypes.html>`_]):
       privilege: System.View
        List of Windows domains available for user searches, if the underlying system supports windows domain membership.
 
@@ -39,7 +25,7 @@ Methods
 
 
 RetrieveUserGroups(domain, searchStr, belongsToGroup, belongsToUser, exactMatch, findUsers, findGroups):
-   Returns a list of `UserSearchResult`_ objects describing the users and groups defined for the server.
+   Returns a list of `UserSearchResult <vim/UserSearchResult.rst>`_ objects describing the users and groups defined for the server.
     * On Windows, the search for users and groups is restricted to the given domain. If you omit the domain argument, then the search is performed on local users and groups.
     * On ESX Server (or Linux systems), the method returns the list of users and groups that are specified in the /etc/passwd file. If the password file contains Sun NIS or NIS+ users and groups, the returned list includes information about those as well.
     * 
@@ -57,46 +43,46 @@ RetrieveUserGroups(domain, searchStr, belongsToGroup, belongsToUser, exactMatch,
 
 
   Args:
-    domain (`str`_, optional):
+    domain (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
        Domain to be searched. If not set, then the method searches the local machine.
 
 
-    searchStr (`str`_):
+    searchStr (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        Case insensitive substring used to filter results; the search string is compared to the login and full name for users, and the name and description for groups. Leave this blank to match all users.
 
 
-    belongsToGroup (`str`_, optional):
+    belongsToGroup (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
        If present, the returned list contains only users or groups that directly belong to the specified group. Users or groups that have indirect membership will not be included in the list.
 
 
-    belongsToUser (`str`_, optional):
+    belongsToUser (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
        If present, the returned list contains only groups that directly contain the specified user. Groups that indirectly contain the user will not be included in the list.
 
 
-    exactMatch (`bool`_):
+    exactMatch (`bool <https://docs.python.org/2/library/stdtypes.html>`_):
        Indicates the searchStr passed should match a user or group name exactly.
 
 
-    findUsers (`bool`_):
+    findUsers (`bool <https://docs.python.org/2/library/stdtypes.html>`_):
        True, if users should be included in the result.
 
 
-    findGroups (`bool`_):
+    findGroups (`bool <https://docs.python.org/2/library/stdtypes.html>`_):
        True, if groups should be included in the result.
 
 
 
 
   Returns:
-    [`vim.UserSearchResult`_]:
+    [`vim.UserSearchResult <vim/UserSearchResult.rst>`_]:
          
 
   Raises:
 
-    `vim.fault.NotFound`_: 
+    `vim.fault.NotFound <vim/fault/NotFound.rst>`_: 
        If any of the domain, belongsToGroup, or belongsToUser arguments refer to entities that do not exist.
 
-    `vmodl.fault.NotSupported`_: 
+    `vmodl.fault.NotSupported <vmodl/fault/NotSupported.rst>`_: 
        If you specify a domain for systems that do not support domains, such as an ESX Server. The method also throws NotSupported if you specify membership (belongsToGroup or belongsToUser) and the server does not support by-membership queries.
 
 

@@ -1,29 +1,21 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _string: ../../str
-
-.. _VirtualMachine: ../../vim/VirtualMachine.rst
-
-.. _vim.fault.ReplicationFault: ../../vim/fault/ReplicationFault.rst
-
 
 vim.fault.ReplicationVmFault
 ============================
     :extends:
 
-        `vim.fault.ReplicationFault`_
+        `vim.fault.ReplicationFault <vim/fault/ReplicationFault.rst>`_
 
-  A ReplicationVmFault is thrown when there is an issue with an operation performed on a replicated `VirtualMachine`_ 
+  A ReplicationVmFault is thrown when there is an issue with an operation performed on a replicated `VirtualMachine <vim/VirtualMachine.rst>`_ 
 
 Attributes:
 
-    reason (`str`_)
+    reason (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
-    state (`str`_): is optional.
+    state (`str <https://docs.python.org/2/library/stdtypes.html>`_): is optional.
 
-    instanceId (`str`_): is optional.
+    instanceId (`str <https://docs.python.org/2/library/stdtypes.html>`_): is optional.
 
-    vm (`str`_)
+    vm (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
 
 

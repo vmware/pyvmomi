@@ -1,7 +1,3 @@
-.. _int: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.option.OptionType: ../../vim/option/OptionType.rst
-
 
 vim.option.IntOption
 ====================
@@ -9,12 +5,12 @@ vim.option.IntOption
 :extends: vim.option.OptionType_
 
 Attributes:
-    min (`int`_):
+    min (`int <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The minimum value.
-    max (`int`_):
+    max (`int <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The maximum value.
-    defaultValue (`int`_):
+    defaultValue (`int <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The default value.

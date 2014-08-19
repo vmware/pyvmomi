@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vmodl.DynamicData: ../../vmodl/DynamicData.rst
-
 
 vim.SessionManager.LocalTicket
 ==============================
@@ -9,9 +5,9 @@ vim.SessionManager.LocalTicket
 :extends: vmodl.DynamicData_
 
 Attributes:
-    userName (`str`_):
+    userName (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        User name to be used for logon.
-    passwordFilePath (`str`_):
+    passwordFilePath (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Absolute local path to the file containing a one-time password.

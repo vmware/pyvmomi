@@ -1,9 +1,3 @@
-.. _int: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.HostSystem: ../../vim/HostSystem.rst
-
-.. _vmodl.DynamicData: ../../vmodl/DynamicData.rst
-
 
 vim.cluster.HostRecommendation
 ==============================
@@ -11,9 +5,9 @@ vim.cluster.HostRecommendation
 :extends: vmodl.DynamicData_
 
 Attributes:
-    host (`vim.HostSystem`_):
+    host (`vim.HostSystem <vim/HostSystem.rst>`_):
 
        The recommended host.
-    rating (`int`_):
+    rating (`int <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Rating for the recommendation. Ratings range from 1 to 5, and the higher the rating, the stronger DRS suggests this host is picked for the operation.

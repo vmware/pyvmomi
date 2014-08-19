@@ -1,7 +1,3 @@
-.. _int: https://docs.python.org/2/library/stdtypes.html
-
-.. _vmodl.DynamicData: ../../../../vmodl/DynamicData.rst
-
 
 vim.host.PhysicalNic.NetworkHint.HintElement
 ============================================
@@ -9,6 +5,6 @@ vim.host.PhysicalNic.NetworkHint.HintElement
 :extends: vmodl.DynamicData_
 
 Attributes:
-    vlanId (`int`_, optional):
+    vlanId (`int <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        The optional VLAN Id of the network.

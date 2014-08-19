@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.event.VmEvent: ../../vim/event/VmEvent.rst
-
 
 vim.event.VmUuidChangedEvent
 ============================
@@ -9,9 +5,9 @@ vim.event.VmUuidChangedEvent
 :extends: vim.event.VmEvent_
 
 Attributes:
-    oldUuid (`str`_):
+    oldUuid (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The old BIOS UUID.
-    newUuid (`str`_):
+    newUuid (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The new BIOS UUID.

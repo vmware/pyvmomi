@@ -1,5 +1,3 @@
-.. _vim.event.LicenseEvent: ../../vim/event/LicenseEvent.rst
-
 
 vim.event.VMotionLicenseExpiredEvent
 ====================================

@@ -1,13 +1,9 @@
-.. _vim.OvfManager.CreateImportSpecParams: ../../../vim/OvfManager/CreateImportSpecParams.rst
-
-.. _vim.OvfManager.CreateImportSpecParams.DiskProvisioningType: ../../../vim/OvfManager/CreateImportSpecParams/DiskProvisioningType.rst
-
 vim.OvfManager.CreateImportSpecParams.DiskProvisioningType
 ==========================================================
   Types of disk provisioning that can be set for the disk in the deployed OVF package.
-  :contained by: `vim.OvfManager.CreateImportSpecParams`_
+  :contained by: `vim.OvfManager.CreateImportSpecParams <vim/OvfManager/CreateImportSpecParams.rst>`_
 
-  :type: `vim.OvfManager.CreateImportSpecParams.DiskProvisioningType`_
+  :type: `vim.OvfManager.CreateImportSpecParams.DiskProvisioningType <vim/OvfManager/CreateImportSpecParams/DiskProvisioningType.rst>`_
 
   :name: flat
 

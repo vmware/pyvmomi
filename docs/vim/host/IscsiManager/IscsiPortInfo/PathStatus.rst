@@ -1,12 +1,8 @@
-.. _vim.host.IscsiManager.IscsiPortInfo: ../../../../vim/host/IscsiManager/IscsiPortInfo.rst
-
-.. _vim.host.IscsiManager.IscsiPortInfo.PathStatus: ../../../../vim/host/IscsiManager/IscsiPortInfo/PathStatus.rst
-
 vim.host.IscsiManager.IscsiPortInfo.PathStatus
 ==============================================
-  :contained by: `vim.host.IscsiManager.IscsiPortInfo`_
+  :contained by: `vim.host.IscsiManager.IscsiPortInfo <vim/host/IscsiManager/IscsiPortInfo.rst>`_
 
-  :type: `vim.host.IscsiManager.IscsiPortInfo.PathStatus`_
+  :type: `vim.host.IscsiManager.IscsiPortInfo.PathStatus <vim/host/IscsiManager/IscsiPortInfo/PathStatus.rst>`_
 
   :name: lastActive
 

@@ -1,26 +1,22 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.fault.OvfSystemFault: ../../vim/fault/OvfSystemFault.rst
-
 
 vim.fault.OvfUnsupportedDeviceBackingOption
 ===========================================
     :extends:
 
-        `vim.fault.OvfSystemFault`_
+        `vim.fault.OvfSystemFault <vim/fault/OvfSystemFault.rst>`_
 
 
 
 
 Attributes:
 
-    elementName (`str`_): is optional.
+    elementName (`str <https://docs.python.org/2/library/stdtypes.html>`_): is optional.
 
-    instanceId (`str`_): is optional.
+    instanceId (`str <https://docs.python.org/2/library/stdtypes.html>`_): is optional.
 
-    deviceName (`str`_)
+    deviceName (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
-    backingName (`str`_): is optional.
+    backingName (`str <https://docs.python.org/2/library/stdtypes.html>`_): is optional.
 
 
 

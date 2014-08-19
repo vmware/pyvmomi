@@ -1,19 +1,3 @@
-.. _bool: https://docs.python.org/2/library/stdtypes.html
-
-.. _persistent: ../../../../vim/vm/device/VirtualDiskOption/DiskMode.rst#persistent
-
-.. _VirtualDiskMode: ../../../../vim/vm/device/VirtualDiskOption/DiskMode.rst
-
-.. _independent_persistent: ../../../../vim/vm/device/VirtualDiskOption/DiskMode.rst#independent_persistent
-
-.. _vim.option.ChoiceOption: ../../../../vim/option/ChoiceOption.rst
-
-.. _independent_nonpersistent: ../../../../vim/vm/device/VirtualDiskOption/DiskMode.rst#independent_nonpersistent
-
-.. _VirtualDiskCompatibilityMode: ../../../../vim/vm/device/VirtualDiskOption/CompatibilityMode.rst
-
-.. _vim.vm.device.VirtualDeviceOption.DeviceBackingOption: ../../../../vim/vm/device/VirtualDeviceOption/DeviceBackingOption.rst
-
 
 vim.vm.device.VirtualDiskOption.RawDiskMappingVer1BackingOption
 ===============================================================
@@ -21,24 +5,24 @@ vim.vm.device.VirtualDiskOption.RawDiskMappingVer1BackingOption
 :extends: vim.vm.device.VirtualDeviceOption.DeviceBackingOption_
 
 Attributes:
-    descriptorFileNameExtensions (`vim.option.ChoiceOption`_, optional):
+    descriptorFileNameExtensions (`vim.option.ChoiceOption <vim/option/ChoiceOption.rst>`_, optional):
 
        Valid extensions for the filename of the optional raw disk mapping descriptor file. This is present only for ESX Server 3.x and greater hosts.
-    compatibilityMode (`vim.option.ChoiceOption`_):
+    compatibilityMode (`vim.option.ChoiceOption <vim/option/ChoiceOption.rst>`_):
 
-       The supported raw disk mapping compatibility modes.See `VirtualDiskCompatibilityMode`_ 
-    diskMode (`vim.option.ChoiceOption`_):
+       The supported raw disk mapping compatibility modes.See `VirtualDiskCompatibilityMode <vim/vm/device/VirtualDiskOption/CompatibilityMode.rst>`_ 
+    diskMode (`vim.option.ChoiceOption <vim/option/ChoiceOption.rst>`_):
 
        The disk mode. Valid values are:
-        * `persistent`_
+        * `persistent <vim/vm/device/VirtualDiskOption/DiskMode.rst#persistent>`_
         * 
-        * `independent_persistent`_
+        * `independent_persistent <vim/vm/device/VirtualDiskOption/DiskMode.rst#independent_persistent>`_
         * 
-        * `independent_nonpersistent`_
+        * `independent_nonpersistent <vim/vm/device/VirtualDiskOption/DiskMode.rst#independent_nonpersistent>`_
         * 
         * See
-        * `VirtualDiskMode`_
+        * `VirtualDiskMode <vim/vm/device/VirtualDiskOption/DiskMode.rst>`_
         * 
-    uuid (`bool`_):
+    uuid (`bool <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Flag to indicate whether this backing supports disk UUID property.

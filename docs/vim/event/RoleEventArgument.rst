@@ -1,9 +1,3 @@
-.. _int: https://docs.python.org/2/library/stdtypes.html
-
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.event.EventArgument: ../../vim/event/EventArgument.rst
-
 
 vim.event.RoleEventArgument
 ===========================
@@ -11,9 +5,9 @@ vim.event.RoleEventArgument
 :extends: vim.event.EventArgument_
 
 Attributes:
-    roleId (`int`_):
+    roleId (`int <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The ID of the role.
-    name (`str`_):
+    name (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The name of the role.

@@ -1,9 +1,3 @@
-.. _vim.Task: ../vim/Task.rst
-
-.. _vim.Network: ../vim/Network.rst
-
-.. _vSphere API 5.5: ../vim/version.rst#vimversionversion9
-
 
 vim.OpaqueNetwork
 =================
@@ -11,7 +5,7 @@ vim.OpaqueNetwork
 
 
 :extends: vim.Network_
-:since: `vSphere API 5.5`_
+:since: `vSphere API 5.5 <vim/version.rst#vimversionversion9>`_
 
 
 Attributes

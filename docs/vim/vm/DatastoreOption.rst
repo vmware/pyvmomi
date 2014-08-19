@@ -1,7 +1,3 @@
-.. _vmodl.DynamicData: ../../vmodl/DynamicData.rst
-
-.. _vim.vm.DatastoreOption.FileSystemVolumeOption: ../../vim/vm/DatastoreOption/FileSystemVolumeOption.rst
-
 
 vim.vm.DatastoreOption
 ======================
@@ -9,6 +5,6 @@ vim.vm.DatastoreOption
 :extends: vmodl.DynamicData_
 
 Attributes:
-    unsupportedVolumes ([`vim.vm.DatastoreOption.FileSystemVolumeOption`_], optional):
+    unsupportedVolumes ([`vim.vm.DatastoreOption.FileSystemVolumeOption <vim/vm/DatastoreOption/FileSystemVolumeOption.rst>`_], optional):
 
        The type of file system volumes on which this virtual machine cannot have its disk and configuration files.

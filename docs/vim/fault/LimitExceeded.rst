@@ -1,23 +1,17 @@
-.. _int: https://docs.python.org/2/library/stdtypes.html
-
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.fault.VimFault: ../../vim/fault/VimFault.rst
-
 
 vim.fault.LimitExceeded
 =======================
     :extends:
 
-        `vim.fault.VimFault`_
+        `vim.fault.VimFault <vim/fault/VimFault.rst>`_
 
   This exception is thrown if one of the arguments passed to the function exceeds a limit.
 
 Attributes:
 
-    property (`str`_): is optional.
+    property (`str <https://docs.python.org/2/library/stdtypes.html>`_): is optional.
 
-    limit (`int`_): is optional.
+    limit (`int <https://docs.python.org/2/library/stdtypes.html>`_): is optional.
 
 
 

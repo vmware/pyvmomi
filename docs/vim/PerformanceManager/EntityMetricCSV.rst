@@ -1,11 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _PerfSampleInfo: ../../vim/PerformanceManager/SampleInfo.rst
-
-.. _vim.PerformanceManager.MetricSeriesCSV: ../../vim/PerformanceManager/MetricSeriesCSV.rst
-
-.. _vim.PerformanceManager.EntityMetricBase: ../../vim/PerformanceManager/EntityMetricBase.rst
-
 
 vim.PerformanceManager.EntityMetricCSV
 ======================================
@@ -13,9 +5,9 @@ vim.PerformanceManager.EntityMetricCSV
 :extends: vim.PerformanceManager.EntityMetricBase_
 
 Attributes:
-    sampleInfoCSV (`str`_):
+    sampleInfoCSV (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
-       The `PerfSampleInfo`_ encoded in the following CSV format: [interval1], [date1], [interval2], [date2], and so on.
-    value ([`vim.PerformanceManager.MetricSeriesCSV`_], optional):
+       The `PerfSampleInfo <vim/PerformanceManager/SampleInfo.rst>`_ encoded in the following CSV format: [interval1], [date1], [interval2], [date2], and so on.
+    value ([`vim.PerformanceManager.MetricSeriesCSV <vim/PerformanceManager/MetricSeriesCSV.rst>`_], optional):
 
        Metric values corresponding to the samples collected in this list.

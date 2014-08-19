@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.event.HostEvent: ../../vim/event/HostEvent.rst
-
 
 vim.event.DatastoreRenamedOnHostEvent
 =====================================
@@ -9,9 +5,9 @@ vim.event.DatastoreRenamedOnHostEvent
 :extends: vim.event.HostEvent_
 
 Attributes:
-    oldName (`str`_):
+    oldName (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The old datastore name.
-    newName (`str`_):
+    newName (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The new datastore name.

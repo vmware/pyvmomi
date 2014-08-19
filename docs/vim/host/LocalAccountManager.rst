@@ -1,23 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.Task: ../../vim/Task.rst
-
-.. _vim.fault.UserNotFound: ../../vim/fault/UserNotFound.rst
-
-.. _vim.fault.NoPermission: ../../vim/fault/NoPermission.rst
-
-.. _vim.fault.AlreadyExists: ../../vim/fault/AlreadyExists.rst
-
-.. _vmodl.fault.SecurityError: ../../vmodl/fault/SecurityError.rst
-
-.. _vmodl.fault.InvalidArgument: ../../vmodl/fault/InvalidArgument.rst
-
-.. _HostLocalAccountManagerAccountSpecification: ../../vim/host/LocalAccountManager/AccountSpecification.rst
-
-.. _HostLocalAccountManagerPosixAccountSpecification: ../../vim/host/LocalAccountManager/PosixAccountSpecification.rst
-
-.. _vim.host.LocalAccountManager.AccountSpecification: ../../vim/host/LocalAccountManager/AccountSpecification.rst
-
 
 vim.host.LocalAccountManager
 ============================
@@ -35,7 +15,7 @@ Methods
 
 
 CreateUser(user):
-   Creates a local user account using the parameters defined in the `HostLocalAccountManagerAccountSpecification`_ data object type. For POSIX hosts, passing `HostLocalAccountManagerPosixAccountSpecification`_ data object type allows you to control the format of the user ID of the user account being created.
+   Creates a local user account using the parameters defined in the `HostLocalAccountManagerAccountSpecification <vim/host/LocalAccountManager/AccountSpecification.rst>`_ data object type. For POSIX hosts, passing `HostLocalAccountManagerPosixAccountSpecification <vim/host/LocalAccountManager/PosixAccountSpecification.rst>`_ data object type allows you to control the format of the user ID of the user account being created.
 
 
   Privilege:
@@ -44,7 +24,7 @@ CreateUser(user):
 
 
   Args:
-    user (`vim.host.LocalAccountManager.AccountSpecification`_):
+    user (`vim.host.LocalAccountManager.AccountSpecification <vim/host/LocalAccountManager/AccountSpecification.rst>`_):
        Specification of user being created.
 
 
@@ -56,15 +36,15 @@ CreateUser(user):
 
   Raises:
 
-    `vim.fault.AlreadyExists`_: 
+    `vim.fault.AlreadyExists <vim/fault/AlreadyExists.rst>`_: 
        if the specified local user account already exists.
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
        if the user name or password has an invalid format.
 
 
 UpdateUser(user):
-   Updates a local user account using the parameters defined in the `HostLocalAccountManagerAccountSpecification`_ data object type.
+   Updates a local user account using the parameters defined in the `HostLocalAccountManagerAccountSpecification <vim/host/LocalAccountManager/AccountSpecification.rst>`_ data object type.
 
 
   Privilege:
@@ -73,7 +53,7 @@ UpdateUser(user):
 
 
   Args:
-    user (`vim.host.LocalAccountManager.AccountSpecification`_):
+    user (`vim.host.LocalAccountManager.AccountSpecification <vim/host/LocalAccountManager/AccountSpecification.rst>`_):
        Specification of user being updated.
 
 
@@ -85,18 +65,18 @@ UpdateUser(user):
 
   Raises:
 
-    `vim.fault.UserNotFound`_: 
+    `vim.fault.UserNotFound <vim/fault/UserNotFound.rst>`_: 
        if user is not found.
 
-    `vim.fault.AlreadyExists`_: 
+    `vim.fault.AlreadyExists <vim/fault/AlreadyExists.rst>`_: 
        if new account specification specifies an existing user's ID.
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
        if new password or description has an invalid format.
 
 
 CreateGroup(group):
-   Creates a local group account using the parameters defined in the `HostLocalAccountManagerAccountSpecification`_ data object type. For POSIX hosts, passing the `HostLocalAccountManagerPosixAccountSpecification`_ data object type allows you to control the group ID format of the group account being created.
+   Creates a local group account using the parameters defined in the `HostLocalAccountManagerAccountSpecification <vim/host/LocalAccountManager/AccountSpecification.rst>`_ data object type. For POSIX hosts, passing the `HostLocalAccountManagerPosixAccountSpecification <vim/host/LocalAccountManager/PosixAccountSpecification.rst>`_ data object type allows you to control the group ID format of the group account being created.
 
 
   Privilege:
@@ -105,7 +85,7 @@ CreateGroup(group):
 
 
   Args:
-    group (`vim.host.LocalAccountManager.AccountSpecification`_):
+    group (`vim.host.LocalAccountManager.AccountSpecification <vim/host/LocalAccountManager/AccountSpecification.rst>`_):
        Specification of group being created.
 
 
@@ -117,10 +97,10 @@ CreateGroup(group):
 
   Raises:
 
-    `vim.fault.AlreadyExists`_: 
+    `vim.fault.AlreadyExists <vim/fault/AlreadyExists.rst>`_: 
        if specified local group already exists.
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
        if group name is in invalid format.
 
 
@@ -134,7 +114,7 @@ RemoveUser(userName):
 
 
   Args:
-    userName (`str`_):
+    userName (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        User ID of the user account being removed.
 
 
@@ -146,10 +126,10 @@ RemoveUser(userName):
 
   Raises:
 
-    `vim.fault.UserNotFound`_: 
+    `vim.fault.UserNotFound <vim/fault/UserNotFound.rst>`_: 
        if the specified userName does not exist.
 
-    `vmodl.fault.SecurityError`_: 
+    `vmodl.fault.SecurityError <vmodl/fault/SecurityError.rst>`_: 
        if trying to remove the last local user with DCUI access, or if trying to remove the last local user with full administrative privileges, or if the system has encountered an error while trying to remove user's permissions. or if the account cannot be removed due to permission issues.
 
 
@@ -163,7 +143,7 @@ RemoveGroup(groupName):
 
 
   Args:
-    groupName (`str`_):
+    groupName (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        Group ID of the group account being removed.
 
 
@@ -175,7 +155,7 @@ RemoveGroup(groupName):
 
   Raises:
 
-    `vim.fault.UserNotFound`_: 
+    `vim.fault.UserNotFound <vim/fault/UserNotFound.rst>`_: 
        if the specified groupName does not exist.
 
 
@@ -189,11 +169,11 @@ AssignUserToGroup(user, group):
 
 
   Args:
-    user (`str`_):
+    user (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        User ID of the account whose group membership is being assigned.
 
 
-    group (`str`_):
+    group (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        Destination group account to which the user is being assigned.
 
 
@@ -205,10 +185,10 @@ AssignUserToGroup(user, group):
 
   Raises:
 
-    `vim.fault.UserNotFound`_: 
+    `vim.fault.UserNotFound <vim/fault/UserNotFound.rst>`_: 
        if the specified user or group does not exist.
 
-    `vim.fault.AlreadyExists`_: 
+    `vim.fault.AlreadyExists <vim/fault/AlreadyExists.rst>`_: 
        if the user is already a member of the target group.
 
 
@@ -222,11 +202,11 @@ UnassignUserFromGroup(user, group):
 
 
   Args:
-    user (`str`_):
+    user (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        User being unassigned from group.
 
 
-    group (`str`_):
+    group (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        Group from which the user is being removed.
 
 
@@ -238,10 +218,10 @@ UnassignUserFromGroup(user, group):
 
   Raises:
 
-    `vim.fault.UserNotFound`_: 
+    `vim.fault.UserNotFound <vim/fault/UserNotFound.rst>`_: 
        if the specified user or group does not exist.
 
-    `vim.fault.NoPermission`_: 
+    `vim.fault.NoPermission <vim/fault/NoPermission.rst>`_: 
        if the group is the only group to which the user belongs.
 
 

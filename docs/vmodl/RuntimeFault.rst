@@ -1,11 +1,9 @@
-.. _vmodl.MethodFault: ../vmodl/MethodFault.rst
-
 
 vmodl.RuntimeFault
 ==================
     :extends:
 
-        `vmodl.MethodFault`_
+        `vmodl.MethodFault <vmodl/MethodFault.rst>`_
 
   The base data object type for all runtime faults that can be thrown by a method.
 

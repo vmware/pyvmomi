@@ -1,23 +1,19 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.fault.InvalidState: ../../vim/fault/InvalidState.rst
-
 
 vim.fault.OvfConsumerPowerOnFault
 =================================
     :extends:
 
-        `vim.fault.InvalidState`_
+        `vim.fault.InvalidState <vim/fault/InvalidState.rst>`_
 
   A fault type indicating that the power on operation failed.
 
 Attributes:
 
-    extensionKey (`str`_)
+    extensionKey (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
-    extensionName (`str`_)
+    extensionName (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
-    description (`str`_)
+    description (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
 
 

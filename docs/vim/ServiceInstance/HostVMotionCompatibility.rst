@@ -1,9 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.HostSystem: ../../vim/HostSystem.rst
-
-.. _vmodl.DynamicData: ../../vmodl/DynamicData.rst
-
 
 vim.ServiceInstance.HostVMotionCompatibility
 ============================================
@@ -11,9 +5,9 @@ vim.ServiceInstance.HostVMotionCompatibility
 :extends: vmodl.DynamicData_
 
 Attributes:
-    host (`vim.HostSystem`_):
+    host (`vim.HostSystem <vim/HostSystem.rst>`_):
 
        The prospective host for the virtual machine.
-    compatibility ([`str`_], optional):
+    compatibility ([`str <https://docs.python.org/2/library/stdtypes.html>`_], optional):
 
        Ways in which the host is compatible with the designated virtual machine that is a candidate for VMotion. This array will be a subset of the set of VMotionCompatibilityType strings that were input to queryVMotionCompatibility.

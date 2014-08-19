@@ -1,13 +1,9 @@
-.. _vmodl.query.PropertyCollector.ObjectUpdate: ../../../../vmodl/query/PropertyCollector/ObjectUpdate.rst
-
-.. _vmodl.query.PropertyCollector.ObjectUpdate.Kind: ../../../../vmodl/query/PropertyCollector/ObjectUpdate/Kind.rst
-
 vmodl.query.PropertyCollector.ObjectUpdate.Kind
 ===============================================
   Enumeration of different kinds of updates.
-  :contained by: `vmodl.query.PropertyCollector.ObjectUpdate`_
+  :contained by: `vmodl.query.PropertyCollector.ObjectUpdate <vmodl/query/PropertyCollector/ObjectUpdate.rst>`_
 
-  :type: `vmodl.query.PropertyCollector.ObjectUpdate.Kind`_
+  :type: `vmodl.query.PropertyCollector.ObjectUpdate.Kind <vmodl/query/PropertyCollector/ObjectUpdate/Kind.rst>`_
 
   :name: leave
 

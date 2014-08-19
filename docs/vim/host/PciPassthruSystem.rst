@@ -1,15 +1,3 @@
-.. _vim.Task: ../../vim/Task.rst
-
-.. _vSphere API 4.0: ../../vim/version.rst#vimversionversion5
-
-.. _vim.host.PciPassthruInfo: ../../vim/host/PciPassthruInfo.rst
-
-.. _vim.fault.HostConfigFault: ../../vim/fault/HostConfigFault.rst
-
-.. _vim.host.PciPassthruConfig: ../../vim/host/PciPassthruConfig.rst
-
-.. _vim.ExtensibleManagedObject: ../../vim/ExtensibleManagedObject.rst
-
 
 vim.host.PciPassthruSystem
 ==========================
@@ -17,12 +5,12 @@ vim.host.PciPassthruSystem
 
 
 :extends: vim.ExtensibleManagedObject_
-:since: `vSphere API 4.0`_
+:since: `vSphere API 4.0 <vim/version.rst#vimversionversion5>`_
 
 
 Attributes
 ----------
-    pciPassthruInfo ([`vim.host.PciPassthruInfo`_]):
+    pciPassthruInfo ([`vim.host.PciPassthruInfo <vim/host/PciPassthruInfo.rst>`_]):
       privilege: System.Read
        Array of PciPassthru information
 
@@ -58,7 +46,7 @@ UpdatePassthruConfig(config):
 
 
   Args:
-    config (`vim.host.PciPassthruConfig`_):
+    config (`vim.host.PciPassthruConfig <vim/host/PciPassthruConfig.rst>`_):
        The new PciPassthru configuration information.
 
 
@@ -70,7 +58,7 @@ UpdatePassthruConfig(config):
 
   Raises:
 
-    `vim.fault.HostConfigFault`_: 
+    `vim.fault.HostConfigFault <vim/fault/HostConfigFault.rst>`_: 
        if an error occurs.
 
 

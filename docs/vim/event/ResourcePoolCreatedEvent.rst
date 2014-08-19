@@ -1,7 +1,3 @@
-.. _vim.event.ResourcePoolEvent: ../../vim/event/ResourcePoolEvent.rst
-
-.. _vim.event.ResourcePoolEventArgument: ../../vim/event/ResourcePoolEventArgument.rst
-
 
 vim.event.ResourcePoolCreatedEvent
 ==================================
@@ -9,6 +5,6 @@ vim.event.ResourcePoolCreatedEvent
 :extends: vim.event.ResourcePoolEvent_
 
 Attributes:
-    parent (`vim.event.ResourcePoolEventArgument`_):
+    parent (`vim.event.ResourcePoolEventArgument <vim/event/ResourcePoolEventArgument.rst>`_):
 
        The parent resource pool that new resource pool belongs to.

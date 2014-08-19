@@ -1,21 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.Task: ../../vim/Task.rst
-
-.. _vSphere API 5.0: ../../vim/version.rst#vimversionversion7
-
-.. _vim.fault.NotFound: ../../vim/fault/NotFound.rst
-
-.. _vim.host.FirewallInfo: ../../vim/host/FirewallInfo.rst
-
-.. _vim.fault.HostConfigFault: ../../vim/fault/HostConfigFault.rst
-
-.. _vim.ExtensibleManagedObject: ../../vim/ExtensibleManagedObject.rst
-
-.. _vim.host.Ruleset.RulesetSpec: ../../vim/host/Ruleset/RulesetSpec.rst
-
-.. _vim.host.FirewallInfo.DefaultPolicy: ../../vim/host/FirewallInfo/DefaultPolicy.rst
-
 
 vim.host.FirewallSystem
 =======================
@@ -27,7 +9,7 @@ vim.host.FirewallSystem
 
 Attributes
 ----------
-    firewallInfo (`vim.host.FirewallInfo`_):
+    firewallInfo (`vim.host.FirewallInfo <vim/host/FirewallInfo.rst>`_):
        Firewall configuration.
 
 
@@ -45,7 +27,7 @@ UpdateDefaultPolicy(defaultPolicy):
 
 
   Args:
-    defaultPolicy (`vim.host.FirewallInfo.DefaultPolicy`_):
+    defaultPolicy (`vim.host.FirewallInfo.DefaultPolicy <vim/host/FirewallInfo/DefaultPolicy.rst>`_):
 
 
 
@@ -65,7 +47,7 @@ EnableRuleset(id):
 
 
   Args:
-    id (`str`_):
+    id (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
 
 
@@ -76,10 +58,10 @@ EnableRuleset(id):
 
   Raises:
 
-    `vim.fault.NotFound`_: 
+    `vim.fault.NotFound <vim/fault/NotFound.rst>`_: 
        if the ruleset ID is unknown.
 
-    `vim.fault.HostConfigFault`_: 
+    `vim.fault.HostConfigFault <vim/fault/HostConfigFault.rst>`_: 
        if an internal error happend when reconfigure the ruleset.
 
 
@@ -93,7 +75,7 @@ DisableRuleset(id):
 
 
   Args:
-    id (`str`_):
+    id (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
 
 
@@ -104,16 +86,16 @@ DisableRuleset(id):
 
   Raises:
 
-    `vim.fault.NotFound`_: 
+    `vim.fault.NotFound <vim/fault/NotFound.rst>`_: 
        if the ruleset ID is unknown.
 
-    `vim.fault.HostConfigFault`_: 
+    `vim.fault.HostConfigFault <vim/fault/HostConfigFault.rst>`_: 
        if an internal error happend when reconfigure the ruleset.
 
 
 UpdateRuleset(id, spec):
    Update the firewall ruleset specification.
-  since: `vSphere API 5.0`_
+  since: `vSphere API 5.0 <vim/version.rst#vimversionversion7>`_
 
 
   Privilege:
@@ -122,10 +104,10 @@ UpdateRuleset(id, spec):
 
 
   Args:
-    id (`str`_):
+    id (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
 
-    spec (`vim.host.Ruleset.RulesetSpec`_):
+    spec (`vim.host.Ruleset.RulesetSpec <vim/host/Ruleset/RulesetSpec.rst>`_):
 
 
 
@@ -136,10 +118,10 @@ UpdateRuleset(id, spec):
 
   Raises:
 
-    `vim.fault.NotFound`_: 
+    `vim.fault.NotFound <vim/fault/NotFound.rst>`_: 
        if the ruleset ID is unknown
 
-    `vim.fault.HostConfigFault`_: 
+    `vim.fault.HostConfigFault <vim/fault/HostConfigFault.rst>`_: 
        if the update of the ruleset failed.
 
 

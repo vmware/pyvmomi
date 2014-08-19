@@ -1,13 +1,9 @@
-.. _vim.vm.FileLayoutEx: ../../../vim/vm/FileLayoutEx.rst
-
-.. _vim.vm.FileLayoutEx.FileType: ../../../vim/vm/FileLayoutEx/FileType.rst
-
 vim.vm.FileLayoutEx.FileType
 ============================
   File-type constants.
-  :contained by: `vim.vm.FileLayoutEx`_
+  :contained by: `vim.vm.FileLayoutEx <vim/vm/FileLayoutEx.rst>`_
 
-  :type: `vim.vm.FileLayoutEx.FileType`_
+  :type: `vim.vm.FileLayoutEx.FileType <vim/vm/FileLayoutEx/FileType.rst>`_
 
   :name: screenshot
 

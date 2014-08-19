@@ -1,13 +1,9 @@
-.. _vim.host.SnmpSystem.AgentLimits: ../../../../vim/host/SnmpSystem/AgentLimits.rst
-
-.. _vim.host.SnmpSystem.AgentLimits.Capability: ../../../../vim/host/SnmpSystem/AgentLimits/Capability.rst
-
 vim.host.SnmpSystem.AgentLimits.Capability
 ==========================================
   SNMP Agent supported capabilities enum
-  :contained by: `vim.host.SnmpSystem.AgentLimits`_
+  :contained by: `vim.host.SnmpSystem.AgentLimits <vim/host/SnmpSystem/AgentLimits.rst>`_
 
-  :type: `vim.host.SnmpSystem.AgentLimits.Capability`_
+  :type: `vim.host.SnmpSystem.AgentLimits.Capability <vim/host/SnmpSystem/AgentLimits/Capability.rst>`_
 
   :name: CONFIGURATION
 

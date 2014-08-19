@@ -1,15 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _long: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.SharesInfo: ../../../vim/SharesInfo.rst
-
-.. _vim.vm.device.VirtualDevice: ../../../vim/vm/device/VirtualDevice.rst
-
-.. _vim.StorageResourceManager.IOAllocationInfo: ../../../vim/StorageResourceManager/IOAllocationInfo.rst
-
-.. _vim.vm.device.VirtualDisk.VFlashCacheConfigInfo: ../../../vim/vm/device/VirtualDisk/VFlashCacheConfigInfo.rst
-
 
 vim.vm.device.VirtualDisk
 =========================
@@ -17,21 +5,21 @@ vim.vm.device.VirtualDisk
 :extends: vim.vm.device.VirtualDevice_
 
 Attributes:
-    capacityInKB (`long`_):
+    capacityInKB (`long <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Capacity of this virtual disk in kilobytes. Information might be lost when actual disk size is rounded off to kilobytes.
-    capacityInBytes (`long`_, optional):
+    capacityInBytes (`long <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        Capacity of this virtual disk in bytes. Server will always populate this property. Clients must initialize it when creating a new non -RDM disk or in case they want to change the current capacity of an existing virtual disk, but can omit it otherwise.
-    shares (`vim.SharesInfo`_, optional):
+    shares (`vim.SharesInfo <vim/SharesInfo.rst>`_, optional):
 
        Disk shares, used for resource scheduling.
-    storageIOAllocation (`vim.StorageResourceManager.IOAllocationInfo`_, optional):
+    storageIOAllocation (`vim.StorageResourceManager.IOAllocationInfo <vim/StorageResourceManager/IOAllocationInfo.rst>`_, optional):
 
        Resource allocation for storage I/O.
-    diskObjectId (`str`_, optional):
+    diskObjectId (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        Virtual disk durable and unmutable identifier. Virtual disk has a UUID field but that can be set through VirtualDiskManager APIs. This identifier is a universally unique identifier which is not settable. VirtualDisk can remain in existence even if it is not associated with VM.
-    vFlashCacheConfigInfo (`vim.vm.device.VirtualDisk.VFlashCacheConfigInfo`_, optional):
+    vFlashCacheConfigInfo (`vim.vm.device.VirtualDisk.VFlashCacheConfigInfo <vim/vm/device/VirtualDisk/VFlashCacheConfigInfo.rst>`_, optional):
 
        vFlash cache configuration supported on this virtual disk

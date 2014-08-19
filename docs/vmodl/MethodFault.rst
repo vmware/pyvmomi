@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _string: ../str
-
 
 vmodl.MethodFault
 =================
@@ -9,13 +5,13 @@ vmodl.MethodFault
 
 Attributes:
 
-    dynamicType (`str`_): is optional.
+    dynamicType (`str <https://docs.python.org/2/library/stdtypes.html>`_): is optional.
 
-    dynamicProperty (`str`_): is optional.
+    dynamicProperty (`str <https://docs.python.org/2/library/stdtypes.html>`_): is optional.
 
-    faultCause (`str`_): is optional.
+    faultCause (`str <https://docs.python.org/2/library/stdtypes.html>`_): is optional.
 
-    faultMessage (`str`_): is optional.
+    faultMessage (`str <https://docs.python.org/2/library/stdtypes.html>`_): is optional.
 
 
 

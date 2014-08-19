@@ -1,13 +1,9 @@
-.. _vim.dvs.HostMember: ../../../vim/dvs/HostMember.rst
-
-.. _vim.dvs.HostMember.HostComponentState: ../../../vim/dvs/HostMember/HostComponentState.rst
-
 vim.dvs.HostMember.HostComponentState
 =====================================
   Describes the state of the host proxy switch.
-  :contained by: `vim.dvs.HostMember`_
+  :contained by: `vim.dvs.HostMember <vim/dvs/HostMember.rst>`_
 
-  :type: `vim.dvs.HostMember.HostComponentState`_
+  :type: `vim.dvs.HostMember.HostComponentState <vim/dvs/HostMember/HostComponentState.rst>`_
 
   :name: down
 

@@ -1,13 +1,9 @@
-.. _vim.vm.GuestInfo: ../../../vim/vm/GuestInfo.rst
-
-.. _vim.vm.GuestInfo.ToolsVersionStatus: ../../../vim/vm/GuestInfo/ToolsVersionStatus.rst
-
 vim.vm.GuestInfo.ToolsVersionStatus
 ===================================
   Current version status of VMware Tools installed in the guest operating system.
-  :contained by: `vim.vm.GuestInfo`_
+  :contained by: `vim.vm.GuestInfo <vim/vm/GuestInfo.rst>`_
 
-  :type: `vim.vm.GuestInfo.ToolsVersionStatus`_
+  :type: `vim.vm.GuestInfo.ToolsVersionStatus <vim/vm/GuestInfo/ToolsVersionStatus.rst>`_
 
   :name: guestToolsBlacklisted
 

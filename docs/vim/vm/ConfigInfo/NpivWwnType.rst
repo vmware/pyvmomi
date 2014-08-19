@@ -1,13 +1,9 @@
-.. _vim.vm.ConfigInfo: ../../../vim/vm/ConfigInfo.rst
-
-.. _vim.vm.ConfigInfo.NpivWwnType: ../../../vim/vm/ConfigInfo/NpivWwnType.rst
-
 vim.vm.ConfigInfo.NpivWwnType
 =============================
   The NPIV WWN source type.
-  :contained by: `vim.vm.ConfigInfo`_
+  :contained by: `vim.vm.ConfigInfo <vim/vm/ConfigInfo.rst>`_
 
-  :type: `vim.vm.ConfigInfo.NpivWwnType`_
+  :type: `vim.vm.ConfigInfo.NpivWwnType <vim/vm/ConfigInfo/NpivWwnType.rst>`_
 
   :name: external
 

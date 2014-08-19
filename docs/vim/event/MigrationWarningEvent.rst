@@ -1,5 +1,3 @@
-.. _vim.event.MigrationEvent: ../../vim/event/MigrationEvent.rst
-
 
 vim.event.MigrationWarningEvent
 ===============================

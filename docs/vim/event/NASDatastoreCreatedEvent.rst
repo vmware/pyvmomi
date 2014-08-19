@@ -1,7 +1,3 @@
-.. _vim.event.HostEvent: ../../vim/event/HostEvent.rst
-
-.. _vim.event.DatastoreEventArgument: ../../vim/event/DatastoreEventArgument.rst
-
 
 vim.event.NASDatastoreCreatedEvent
 ==================================
@@ -9,6 +5,6 @@ vim.event.NASDatastoreCreatedEvent
 :extends: vim.event.HostEvent_
 
 Attributes:
-    datastore (`vim.event.DatastoreEventArgument`_):
+    datastore (`vim.event.DatastoreEventArgument <vim/event/DatastoreEventArgument.rst>`_):
 
        The associated datastore.

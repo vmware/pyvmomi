@@ -1,13 +1,9 @@
-.. _vim.VirtualMachine: ../../vim/VirtualMachine.rst
-
-.. _vim.VirtualMachine.FaultToleranceState: ../../vim/VirtualMachine/FaultToleranceState.rst
-
 vim.VirtualMachine.FaultToleranceState
 ======================================
   The FaultToleranceState type defines a simple set of states for a fault tolerant virtual machine: disabled, starting, and enabled.
-  :contained by: `vim.VirtualMachine`_
+  :contained by: `vim.VirtualMachine <vim/VirtualMachine.rst>`_
 
-  :type: `vim.VirtualMachine.FaultToleranceState`_
+  :type: `vim.VirtualMachine.FaultToleranceState <vim/VirtualMachine/FaultToleranceState.rst>`_
 
   :name: running
 

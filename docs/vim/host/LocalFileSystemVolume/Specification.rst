@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vmodl.DynamicData: ../../../vmodl/DynamicData.rst
-
 
 vim.host.LocalFileSystemVolume.Specification
 ============================================
@@ -9,9 +5,9 @@ vim.host.LocalFileSystemVolume.Specification
 :extends: vmodl.DynamicData_
 
 Attributes:
-    device (`str`_):
+    device (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The device of the local file system.
-    localPath (`str`_):
+    localPath (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The file path on the host where the file system is mounted.

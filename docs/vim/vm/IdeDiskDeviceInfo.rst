@@ -1,7 +1,3 @@
-.. _vim.vm.DiskDeviceInfo: ../../vim/vm/DiskDeviceInfo.rst
-
-.. _vim.vm.IdeDiskDeviceInfo.PartitionInfo: ../../vim/vm/IdeDiskDeviceInfo/PartitionInfo.rst
-
 
 vim.vm.IdeDiskDeviceInfo
 ========================
@@ -9,5 +5,5 @@ vim.vm.IdeDiskDeviceInfo
 :extends: vim.vm.DiskDeviceInfo_
 
 Attributes:
-    partitionTable ([`vim.vm.IdeDiskDeviceInfo.PartitionInfo`_], optional):
+    partitionTable ([`vim.vm.IdeDiskDeviceInfo.PartitionInfo <vim/vm/IdeDiskDeviceInfo/PartitionInfo.rst>`_], optional):
 

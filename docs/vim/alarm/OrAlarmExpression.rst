@@ -1,5 +1,3 @@
-.. _vim.alarm.AlarmExpression: ../../vim/alarm/AlarmExpression.rst
-
 
 vim.alarm.OrAlarmExpression
 ===========================
@@ -7,7 +5,7 @@ vim.alarm.OrAlarmExpression
 :extends: vim.alarm.AlarmExpression_
 
 Attributes:
-    expression ([`vim.alarm.AlarmExpression`_]):
+    expression ([`vim.alarm.AlarmExpression <vim/alarm/AlarmExpression.rst>`_]):
 
        List of alarm expressions that define the overall status of the alarm.
         * The state of the alarm expression is gray if all subexpressions are gray. Otherwise, gray subexpressions are ignored.

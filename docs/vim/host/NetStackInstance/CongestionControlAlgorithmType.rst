@@ -1,13 +1,9 @@
-.. _vim.host.NetStackInstance: ../../../vim/host/NetStackInstance.rst
-
-.. _vim.host.NetStackInstance.CongestionControlAlgorithmType: ../../../vim/host/NetStackInstance/CongestionControlAlgorithmType.rst
-
 vim.host.NetStackInstance.CongestionControlAlgorithmType
 ========================================================
   Define TCP congestion control algorithm used by an instance
-  :contained by: `vim.host.NetStackInstance`_
+  :contained by: `vim.host.NetStackInstance <vim/host/NetStackInstance.rst>`_
 
-  :type: `vim.host.NetStackInstance.CongestionControlAlgorithmType`_
+  :type: `vim.host.NetStackInstance.CongestionControlAlgorithmType <vim/host/NetStackInstance/CongestionControlAlgorithmType.rst>`_
 
   :name: cubic
 

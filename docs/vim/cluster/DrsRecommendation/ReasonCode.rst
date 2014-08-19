@@ -1,13 +1,9 @@
-.. _vim.cluster.DrsRecommendation: ../../../vim/cluster/DrsRecommendation.rst
-
-.. _vim.cluster.DrsRecommendation.ReasonCode: ../../../vim/cluster/DrsRecommendation/ReasonCode.rst
-
 vim.cluster.DrsRecommendation.ReasonCode
 ========================================
   List of defined migration reason codes:
-  :contained by: `vim.cluster.DrsRecommendation`_
+  :contained by: `vim.cluster.DrsRecommendation <vim/cluster/DrsRecommendation.rst>`_
 
-  :type: `vim.cluster.DrsRecommendation.ReasonCode`_
+  :type: `vim.cluster.DrsRecommendation.ReasonCode <vim/cluster/DrsRecommendation/ReasonCode.rst>`_
 
   :name: hostMaint
 

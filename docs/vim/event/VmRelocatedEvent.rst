@@ -1,11 +1,3 @@
-.. _vim.event.HostEventArgument: ../../vim/event/HostEventArgument.rst
-
-.. _vim.event.VmRelocateSpecEvent: ../../vim/event/VmRelocateSpecEvent.rst
-
-.. _vim.event.DatastoreEventArgument: ../../vim/event/DatastoreEventArgument.rst
-
-.. _vim.event.DatacenterEventArgument: ../../vim/event/DatacenterEventArgument.rst
-
 
 vim.event.VmRelocatedEvent
 ==========================
@@ -13,12 +5,12 @@ vim.event.VmRelocatedEvent
 :extends: vim.event.VmRelocateSpecEvent_
 
 Attributes:
-    sourceHost (`vim.event.HostEventArgument`_):
+    sourceHost (`vim.event.HostEventArgument <vim/event/HostEventArgument.rst>`_):
 
        The source host from which the virtual machine was relocated.
-    sourceDatacenter (`vim.event.DatacenterEventArgument`_, optional):
+    sourceDatacenter (`vim.event.DatacenterEventArgument <vim/event/DatacenterEventArgument.rst>`_, optional):
 
        The source datacenter from which the virtual machine relocated
-    sourceDatastore (`vim.event.DatastoreEventArgument`_, optional):
+    sourceDatastore (`vim.event.DatastoreEventArgument <vim/event/DatastoreEventArgument.rst>`_, optional):
 
        The source primary datastore from which the virtual machine relocated

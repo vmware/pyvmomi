@@ -1,13 +1,9 @@
-.. _vim.DiagnosticManager.LogDescriptor: ../../../vim/DiagnosticManager/LogDescriptor.rst
-
-.. _vim.DiagnosticManager.LogDescriptor.Creator: ../../../vim/DiagnosticManager/LogDescriptor/Creator.rst
-
 vim.DiagnosticManager.LogDescriptor.Creator
 ===========================================
   Pre-defined constants for possible creators of log files.
-  :contained by: `vim.DiagnosticManager.LogDescriptor`_
+  :contained by: `vim.DiagnosticManager.LogDescriptor <vim/DiagnosticManager/LogDescriptor.rst>`_
 
-  :type: `vim.DiagnosticManager.LogDescriptor.Creator`_
+  :type: `vim.DiagnosticManager.LogDescriptor.Creator <vim/DiagnosticManager/LogDescriptor/Creator.rst>`_
 
   :name: recordLog
 

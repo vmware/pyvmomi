@@ -1,5 +1,3 @@
-.. _vim.event.VmEvent: ../../vim/event/VmEvent.rst
-
 
 vim.event.VmRegisteredEvent
 ===========================

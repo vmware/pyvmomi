@@ -1,9 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.event.AlarmEvent: ../../vim/event/AlarmEvent.rst
-
-.. _vim.event.ManagedEntityEventArgument: ../../vim/event/ManagedEntityEventArgument.rst
-
 
 vim.event.AlarmStatusChangedEvent
 =================================
@@ -11,15 +5,15 @@ vim.event.AlarmStatusChangedEvent
 :extends: vim.event.AlarmEvent_
 
 Attributes:
-    source (`vim.event.ManagedEntityEventArgument`_):
+    source (`vim.event.ManagedEntityEventArgument <vim/event/ManagedEntityEventArgument.rst>`_):
 
        The entity for which the alarm status has been changed.
-    entity (`vim.event.ManagedEntityEventArgument`_):
+    entity (`vim.event.ManagedEntityEventArgument <vim/event/ManagedEntityEventArgument.rst>`_):
 
        The entity with which the alarm is registered.
-    from (`str`_):
+    from (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The original alarm status.
-    to (`str`_):
+    to (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The new alarm status.

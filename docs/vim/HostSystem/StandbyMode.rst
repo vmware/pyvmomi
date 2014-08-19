@@ -1,13 +1,9 @@
-.. _vim.HostSystem: ../../vim/HostSystem.rst
-
-.. _vim.HostSystem.StandbyMode: ../../vim/HostSystem/StandbyMode.rst
-
 vim.HostSystem.StandbyMode
 ==========================
   Defines a host's standby mode.
-  :contained by: `vim.HostSystem`_
+  :contained by: `vim.HostSystem <vim/HostSystem.rst>`_
 
-  :type: `vim.HostSystem.StandbyMode`_
+  :type: `vim.HostSystem.StandbyMode <vim/HostSystem/StandbyMode.rst>`_
 
   :name: none
 

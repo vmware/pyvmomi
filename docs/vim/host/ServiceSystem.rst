@@ -1,25 +1,7 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.Task: ../../vim/Task.rst
-
-.. _vim.fault.NotFound: ../../vim/fault/NotFound.rst
-
-.. _vim.host.ServiceInfo: ../../vim/host/ServiceInfo.rst
-
-.. _vim.fault.InvalidState: ../../vim/fault/InvalidState.rst
-
-.. _vmodl.fault.NotSupported: ../../vmodl/fault/NotSupported.rst
-
-.. _vim.fault.HostConfigFault: ../../vim/fault/HostConfigFault.rst
-
-.. _vmodl.fault.InvalidArgument: ../../vmodl/fault/InvalidArgument.rst
-
-.. _vim.ExtensibleManagedObject: ../../vim/ExtensibleManagedObject.rst
-
 
 vim.host.ServiceSystem
 ======================
-  The `HostServiceSystem`_ managed object describes the configuration of host services. This managed object operates in conjunction with the `HostFirewallSystem`_ managed object.
+  The `HostServiceSystem <vim/host/ServiceSystem.rst>`_ managed object describes the configuration of host services. This managed object operates in conjunction with the `HostFirewallSystem <vim/host/FirewallSystem.rst>`_ managed object.
 
 
 :extends: vim.ExtensibleManagedObject_
@@ -27,7 +9,7 @@ vim.host.ServiceSystem
 
 Attributes
 ----------
-    serviceInfo (`vim.host.ServiceInfo`_):
+    serviceInfo (`vim.host.ServiceInfo <vim/host/ServiceInfo.rst>`_):
        Service configuration.
 
 
@@ -45,12 +27,12 @@ UpdateServicePolicy(id, policy):
 
 
   Args:
-    id (`str`_):
-       Service identifier ( `serviceInfo`_ . `service`_ . `key`_ ).
+    id (`str <https://docs.python.org/2/library/stdtypes.html>`_):
+       Service identifier ( `serviceInfo <vim/host/ServiceSystem.rst#serviceInfo>`_ . `service <vim/host/ServiceInfo.rst#service>`_ . `key <vim/host/Service.rst#key>`_ ).
 
 
-    policy (`str`_):
-       Specifies the condition for service activation. Use one of the `HostServicePolicy`_ values.
+    policy (`str <https://docs.python.org/2/library/stdtypes.html>`_):
+       Specifies the condition for service activation. Use one of the `HostServicePolicy <vim/host/Service/Policy.rst>`_ values.
 
 
 
@@ -61,13 +43,13 @@ UpdateServicePolicy(id, policy):
 
   Raises:
 
-    `vim.fault.NotFound`_: 
+    `vim.fault.NotFound <vim/fault/NotFound.rst>`_: 
        if the service ID is unknown.
 
-    `vim.fault.HostConfigFault`_: 
+    `vim.fault.HostConfigFault <vim/fault/HostConfigFault.rst>`_: 
        for all other failures.
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
        if the service ID represents a required service, or if the specified policy is undefined.
 
 
@@ -81,8 +63,8 @@ StartService(id):
 
 
   Args:
-    id (`str`_):
-       Service identifier ( `serviceInfo`_ . `service`_ . `key`_ ).
+    id (`str <https://docs.python.org/2/library/stdtypes.html>`_):
+       Service identifier ( `serviceInfo <vim/host/ServiceSystem.rst#serviceInfo>`_ . `service <vim/host/ServiceInfo.rst#service>`_ . `key <vim/host/Service.rst#key>`_ ).
 
 
 
@@ -93,13 +75,13 @@ StartService(id):
 
   Raises:
 
-    `vim.fault.InvalidState`_: 
+    `vim.fault.InvalidState <vim/fault/InvalidState.rst>`_: 
        if the service is already running. Only hosts with ESX/ESXi 4.1 or earlier software use this fault. Hosts running later versions of ESXi do not throw a fault in this case.
 
-    `vim.fault.NotFound`_: 
+    `vim.fault.NotFound <vim/fault/NotFound.rst>`_: 
        if the service ID is unknown.
 
-    `vim.fault.HostConfigFault`_: 
+    `vim.fault.HostConfigFault <vim/fault/HostConfigFault.rst>`_: 
        for all other failures.
 
 
@@ -113,8 +95,8 @@ StopService(id):
 
 
   Args:
-    id (`str`_):
-       Service identifier ( `serviceInfo`_ . `service`_ . `key`_ ).
+    id (`str <https://docs.python.org/2/library/stdtypes.html>`_):
+       Service identifier ( `serviceInfo <vim/host/ServiceSystem.rst#serviceInfo>`_ . `service <vim/host/ServiceInfo.rst#service>`_ . `key <vim/host/Service.rst#key>`_ ).
 
 
 
@@ -125,13 +107,13 @@ StopService(id):
 
   Raises:
 
-    `vim.fault.InvalidState`_: 
+    `vim.fault.InvalidState <vim/fault/InvalidState.rst>`_: 
        if the service is not running. Only hosts with ESX/ESXi 4.1 or earlier software use this fault. Hosts running later versions of ESXi do not throw a fault in this case.
 
-    `vim.fault.NotFound`_: 
+    `vim.fault.NotFound <vim/fault/NotFound.rst>`_: 
        if the service ID is unknown.
 
-    `vim.fault.HostConfigFault`_: 
+    `vim.fault.HostConfigFault <vim/fault/HostConfigFault.rst>`_: 
        for all other failures.
 
 
@@ -145,8 +127,8 @@ RestartService(id):
 
 
   Args:
-    id (`str`_):
-       Service identifier ( `serviceInfo`_ . `service`_ . `key`_ ).
+    id (`str <https://docs.python.org/2/library/stdtypes.html>`_):
+       Service identifier ( `serviceInfo <vim/host/ServiceSystem.rst#serviceInfo>`_ . `service <vim/host/ServiceInfo.rst#service>`_ . `key <vim/host/Service.rst#key>`_ ).
 
 
 
@@ -157,13 +139,13 @@ RestartService(id):
 
   Raises:
 
-    `vim.fault.InvalidState`_: 
+    `vim.fault.InvalidState <vim/fault/InvalidState.rst>`_: 
        if the service is not running. Only hosts with ESX/ESXi 4.1 or earlier software use this fault. Hosts running later versions of ESXi do not throw a fault in this case.
 
-    `vim.fault.NotFound`_: 
+    `vim.fault.NotFound <vim/fault/NotFound.rst>`_: 
        if the service ID is unknown.
 
-    `vim.fault.HostConfigFault`_: 
+    `vim.fault.HostConfigFault <vim/fault/HostConfigFault.rst>`_: 
        for all other failures.
 
 
@@ -177,8 +159,8 @@ UninstallService(id):
 
 
   Args:
-    id (`str`_):
-       Service identifier ( `serviceInfo`_ . `service`_ . `key`_ ).
+    id (`str <https://docs.python.org/2/library/stdtypes.html>`_):
+       Service identifier ( `serviceInfo <vim/host/ServiceSystem.rst#serviceInfo>`_ . `service <vim/host/ServiceInfo.rst#service>`_ . `key <vim/host/Service.rst#key>`_ ).
 
 
 
@@ -189,16 +171,16 @@ UninstallService(id):
 
   Raises:
 
-    `vim.fault.NotFound`_: 
+    `vim.fault.NotFound <vim/fault/NotFound.rst>`_: 
        if the service ID is unknown.
 
-    `vim.fault.HostConfigFault`_: 
+    `vim.fault.HostConfigFault <vim/fault/HostConfigFault.rst>`_: 
        for all other failures.
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
        if the service is a required service.
 
-    `vmodl.fault.NotSupported`_: 
+    `vmodl.fault.NotSupported <vmodl/fault/NotSupported.rst>`_: 
        if the service doesn't support uninstallation.
 
 

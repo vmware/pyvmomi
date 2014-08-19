@@ -1,9 +1,3 @@
-.. _int: https://docs.python.org/2/library/stdtypes.html
-
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vmodl.DynamicData: ../../../vmodl/DynamicData.rst
-
 
 vim.host.ScsiLun.DurableName
 ============================
@@ -11,12 +5,12 @@ vim.host.ScsiLun.DurableName
 :extends: vmodl.DynamicData_
 
 Attributes:
-    namespace (`str`_):
+    namespace (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The string describing the namespace used for the durable name.
-    namespaceId (`int`_):
+    namespaceId (`int <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The byte used by the ESX Server product to represent the namespace.
-    data ([`int`_], optional):
+    data ([`int <https://docs.python.org/2/library/stdtypes.html>`_], optional):
 
        The variable length byte array containing the namespace-specific data. For a SCSI-3 compliant device this field is the descriptor header along with the payload for data obtained from page 83h, and is the payload for data obtained from page 80h of the Vital Product Data (VPD).

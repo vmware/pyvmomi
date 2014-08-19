@@ -1,5 +1,3 @@
-.. _vim.vm.device.VirtualSCSIControllerOption: ../../../vim/vm/device/VirtualSCSIControllerOption.rst
-
 
 vim.vm.device.VirtualLsiLogicControllerOption
 =============================================

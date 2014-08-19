@@ -1,13 +1,9 @@
-.. _vim.fault.HostIncompatibleForFaultTolerance: ../../../vim/fault/HostIncompatibleForFaultTolerance.rst
-
-.. _vim.fault.HostIncompatibleForFaultTolerance.Reason: ../../../vim/fault/HostIncompatibleForFaultTolerance/Reason.rst
-
 vim.fault.HostIncompatibleForFaultTolerance.Reason
 ==================================================
   Reasons why fault tolerance is not supported on the host.
-  :contained by: `vim.fault.HostIncompatibleForFaultTolerance`_
+  :contained by: `vim.fault.HostIncompatibleForFaultTolerance <vim/fault/HostIncompatibleForFaultTolerance.rst>`_
 
-  :type: `vim.fault.HostIncompatibleForFaultTolerance.Reason`_
+  :type: `vim.fault.HostIncompatibleForFaultTolerance.Reason <vim/fault/HostIncompatibleForFaultTolerance/Reason.rst>`_
 
   :name: processor
 

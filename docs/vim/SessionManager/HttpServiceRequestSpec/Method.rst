@@ -1,13 +1,9 @@
-.. _vim.SessionManager.HttpServiceRequestSpec: ../../../vim/SessionManager/HttpServiceRequestSpec.rst
-
-.. _vim.SessionManager.HttpServiceRequestSpec.Method: ../../../vim/SessionManager/HttpServiceRequestSpec/Method.rst
-
 vim.SessionManager.HttpServiceRequestSpec.Method
 ================================================
   HTTP request methods.
-  :contained by: `vim.SessionManager.HttpServiceRequestSpec`_
+  :contained by: `vim.SessionManager.HttpServiceRequestSpec <vim/SessionManager/HttpServiceRequestSpec.rst>`_
 
-  :type: `vim.SessionManager.HttpServiceRequestSpec.Method`_
+  :type: `vim.SessionManager.HttpServiceRequestSpec.Method <vim/SessionManager/HttpServiceRequestSpec/Method.rst>`_
 
   :name: httpConnect
 

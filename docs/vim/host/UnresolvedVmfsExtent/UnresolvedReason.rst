@@ -1,13 +1,9 @@
-.. _vim.host.UnresolvedVmfsExtent: ../../../vim/host/UnresolvedVmfsExtent.rst
-
-.. _vim.host.UnresolvedVmfsExtent.UnresolvedReason: ../../../vim/host/UnresolvedVmfsExtent/UnresolvedReason.rst
-
 vim.host.UnresolvedVmfsExtent.UnresolvedReason
 ==============================================
   Reasons for identifying the disk extent as copy of VMFS volume extent.
-  :contained by: `vim.host.UnresolvedVmfsExtent`_
+  :contained by: `vim.host.UnresolvedVmfsExtent <vim/host/UnresolvedVmfsExtent.rst>`_
 
-  :type: `vim.host.UnresolvedVmfsExtent.UnresolvedReason`_
+  :type: `vim.host.UnresolvedVmfsExtent.UnresolvedReason <vim/host/UnresolvedVmfsExtent/UnresolvedReason.rst>`_
 
   :name: uuidConflict
 

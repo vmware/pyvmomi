@@ -1,18 +1,10 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.Task: ../../vim/Task.rst
-
-.. _vSphere API 5.5: ../../vim/version.rst#vimversionversion9
-
-.. _vim.host.VsanInternalSystem.CmmdsQuery: ../../vim/host/VsanInternalSystem/CmmdsQuery.rst
-
 
 vim.host.VsanInternalSystem
 ===========================
   The VsanInternalSystem exposes low level access to CMMDS, as well as draft versions of VSAN object and disk management APIs that are subject to change in future releases. No compatibility is guaranteed on any of the APIs, including their prototype, behavior or result encoding.
 
 
-:since: `vSphere API 5.5`_
+:since: `vSphere API 5.5 <vim/version.rst#vimversionversion9>`_
 
 
 Attributes
@@ -33,14 +25,14 @@ QueryCmmds(queries):
 
 
   Args:
-    queries (`vim.host.VsanInternalSystem.CmmdsQuery`_):
+    queries (`vim.host.VsanInternalSystem.CmmdsQuery <vim/host/VsanInternalSystem/CmmdsQuery.rst>`_):
        List of CMMDS query specs.
 
 
 
 
   Returns:
-    `str`_:
+    `str <https://docs.python.org/2/library/stdtypes.html>`_:
          JSON string with the results
 
 
@@ -54,14 +46,14 @@ QueryPhysicalVsanDisks(props):
 
 
   Args:
-    props (`str`_, optional):
+    props (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
        List of properties to gather. Not specifying a list will fetch all properties.
 
 
 
 
   Returns:
-    `str`_:
+    `str <https://docs.python.org/2/library/stdtypes.html>`_:
          JSON string with the results
 
 
@@ -75,14 +67,14 @@ QueryVsanObjects(uuids):
 
 
   Args:
-    uuids (`str`_, optional):
+    uuids (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
        List of VSAN/DOM object UUIDs.
 
 
 
 
   Returns:
-    `str`_:
+    `str <https://docs.python.org/2/library/stdtypes.html>`_:
          JSON string with the results
 
 
@@ -96,14 +88,14 @@ QueryObjectsOnPhysicalVsanDisk(disks):
 
 
   Args:
-    disks (`str`_):
+    disks (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        List of VSAN disk UUIDs.
 
 
 
 
   Returns:
-    `str`_:
+    `str <https://docs.python.org/2/library/stdtypes.html>`_:
          JSON string with the results
 
 

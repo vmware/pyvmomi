@@ -1,26 +1,20 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _VI API 2.5: ../vim/version.rst#vimversionversion2
-
-.. _vmodl.DynamicData: ../vmodl/DynamicData.rst
-
 
 vim.PrivilegePolicyDef
 ======================
   Describes a basic privilege policy.
 :extends: vmodl.DynamicData_
-:since: `VI API 2.5`_
+:since: `VI API 2.5 <vim/version.rst#vimversionversion2>`_
 
 Attributes:
-    createPrivilege (`str`_):
+    createPrivilege (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Name of privilege required for creation.
-    readPrivilege (`str`_):
+    readPrivilege (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Name of privilege required for reading.
-    updatePrivilege (`str`_):
+    updatePrivilege (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Name of privilege required for updating.
-    deletePrivilege (`str`_):
+    deletePrivilege (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Name of privilege required for deleting.

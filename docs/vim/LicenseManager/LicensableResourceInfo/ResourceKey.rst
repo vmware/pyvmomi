@@ -1,13 +1,9 @@
-.. _vim.LicenseManager.LicensableResourceInfo: ../../../vim/LicenseManager/LicensableResourceInfo.rst
-
-.. _vim.LicenseManager.LicensableResourceInfo.ResourceKey: ../../../vim/LicenseManager/LicensableResourceInfo/ResourceKey.rst
-
 vim.LicenseManager.LicensableResourceInfo.ResourceKey
 =====================================================
   Identifiers of currently supported resources.
-  :contained by: `vim.LicenseManager.LicensableResourceInfo`_
+  :contained by: `vim.LicenseManager.LicensableResourceInfo <vim/LicenseManager/LicensableResourceInfo.rst>`_
 
-  :type: `vim.LicenseManager.LicensableResourceInfo.ResourceKey`_
+  :type: `vim.LicenseManager.LicensableResourceInfo.ResourceKey <vim/LicenseManager/LicensableResourceInfo/ResourceKey.rst>`_
 
   :name: numVmsStarting
 

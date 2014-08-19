@@ -1,7 +1,3 @@
-.. _vim.event.GeneralEvent: ../../vim/event/GeneralEvent.rst
-
-.. _vim.event.ManagedEntityEventArgument: ../../vim/event/ManagedEntityEventArgument.rst
-
 
 vim.event.GeneralUserEvent
 ==========================
@@ -9,6 +5,6 @@ vim.event.GeneralUserEvent
 :extends: vim.event.GeneralEvent_
 
 Attributes:
-    entity (`vim.event.ManagedEntityEventArgument`_, optional):
+    entity (`vim.event.ManagedEntityEventArgument <vim/event/ManagedEntityEventArgument.rst>`_, optional):
 
        The entity on which the event was logged.

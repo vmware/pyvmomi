@@ -1,7 +1,3 @@
-.. _bool: https://docs.python.org/2/library/stdtypes.html
-
-.. _vmodl.DynamicData: ../../../vmodl/DynamicData.rst
-
 
 vim.host.InternetScsiHba.IPCapabilities
 =======================================
@@ -9,36 +5,36 @@ vim.host.InternetScsiHba.IPCapabilities
 :extends: vmodl.DynamicData_
 
 Attributes:
-    addressSettable (`bool`_):
+    addressSettable (`bool <https://docs.python.org/2/library/stdtypes.html>`_):
 
        True if the host bus adapter supports setting its IP address.
-    ipConfigurationMethodSettable (`bool`_):
+    ipConfigurationMethodSettable (`bool <https://docs.python.org/2/library/stdtypes.html>`_):
 
        True if the host bus adapter supports DHCP.
-    subnetMaskSettable (`bool`_):
+    subnetMaskSettable (`bool <https://docs.python.org/2/library/stdtypes.html>`_):
 
        True if the host bus adapter supports setting its subnet mask.
-    defaultGatewaySettable (`bool`_):
+    defaultGatewaySettable (`bool <https://docs.python.org/2/library/stdtypes.html>`_):
 
        True if the host bus adapter supports setting its gateway.
-    primaryDnsServerAddressSettable (`bool`_):
+    primaryDnsServerAddressSettable (`bool <https://docs.python.org/2/library/stdtypes.html>`_):
 
        True if the host bus adapter supports setting its primary DNS.
-    alternateDnsServerAddressSettable (`bool`_):
+    alternateDnsServerAddressSettable (`bool <https://docs.python.org/2/library/stdtypes.html>`_):
 
        True if the host bus adapter supports setting its secondary DNS.
-    ipv6Supported (`bool`_, optional):
+    ipv6Supported (`bool <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        True if the host bus adapter supports the use of IPv6 addresses
-    arpRedirectSettable (`bool`_, optional):
+    arpRedirectSettable (`bool <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        True if the host bus adapter supports setting its ARP Redirect value
-    mtuSettable (`bool`_, optional):
+    mtuSettable (`bool <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        True if the host bus adapter supports setting its MTU, (for Jumbo Frames, etc)
-    hostNameAsTargetAddress (`bool`_, optional):
+    hostNameAsTargetAddress (`bool <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        True if the discovery and static targets can be configured with a host name as opposed to an IP address.
-    nameAliasSettable (`bool`_, optional):
+    nameAliasSettable (`bool <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        True if the host bus adapter supports setting its name and alias

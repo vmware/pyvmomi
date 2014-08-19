@@ -1,23 +1,17 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _string: ../../str
-
-.. _vim.fault.OvfExport: ../../vim/fault/OvfExport.rst
-
 
 vim.fault.OvfHardwareExport
 ===========================
     :extends:
 
-        `vim.fault.OvfExport`_
+        `vim.fault.OvfExport <vim/fault/OvfExport.rst>`_
 
   A common base class to host all the OvfLib Export Exceptions for hardware.
 
 Attributes:
 
-    device (`str`_): is optional.
+    device (`str <https://docs.python.org/2/library/stdtypes.html>`_): is optional.
 
-    vmPath (`str`_)
+    vmPath (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
 
 

@@ -1,7 +1,3 @@
-.. _bool: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.event.Event: ../../vim/event/Event.rst
-
 
 vim.event.VmEvent
 =================
@@ -9,6 +5,6 @@ vim.event.VmEvent
 :extends: vim.event.Event_
 
 Attributes:
-    template (`bool`_):
+    template (`bool <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Indicates whether or not the virtual machine is marked as a template.

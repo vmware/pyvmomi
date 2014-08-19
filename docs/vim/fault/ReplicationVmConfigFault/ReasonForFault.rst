@@ -1,12 +1,8 @@
-.. _vim.fault.ReplicationVmConfigFault: ../../../vim/fault/ReplicationVmConfigFault.rst
-
-.. _vim.fault.ReplicationVmConfigFault.ReasonForFault: ../../../vim/fault/ReplicationVmConfigFault/ReasonForFault.rst
-
 vim.fault.ReplicationVmConfigFault.ReasonForFault
 =================================================
-  :contained by: `vim.fault.ReplicationVmConfigFault`_
+  :contained by: `vim.fault.ReplicationVmConfigFault <vim/fault/ReplicationVmConfigFault.rst>`_
 
-  :type: `vim.fault.ReplicationVmConfigFault.ReasonForFault`_
+  :type: `vim.fault.ReplicationVmConfigFault.ReasonForFault <vim/fault/ReplicationVmConfigFault/ReasonForFault.rst>`_
 
   :name: replicationConfigurationFailed
 

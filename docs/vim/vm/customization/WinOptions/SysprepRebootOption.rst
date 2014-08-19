@@ -1,13 +1,9 @@
-.. _vim.vm.customization.WinOptions: ../../../../vim/vm/customization/WinOptions.rst
-
-.. _vim.vm.customization.WinOptions.SysprepRebootOption: ../../../../vim/vm/customization/WinOptions/SysprepRebootOption.rst
-
 vim.vm.customization.WinOptions.SysprepRebootOption
 ===================================================
   A enum constant specifying what should be done to the guest vm after running sysprep.
-  :contained by: `vim.vm.customization.WinOptions`_
+  :contained by: `vim.vm.customization.WinOptions <vim/vm/customization/WinOptions.rst>`_
 
-  :type: `vim.vm.customization.WinOptions.SysprepRebootOption`_
+  :type: `vim.vm.customization.WinOptions.SysprepRebootOption <vim/vm/customization/WinOptions/SysprepRebootOption.rst>`_
 
   :name: shutdown
 

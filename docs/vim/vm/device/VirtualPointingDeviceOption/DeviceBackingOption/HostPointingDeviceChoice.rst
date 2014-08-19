@@ -1,13 +1,9 @@
-.. _vim.vm.device.VirtualPointingDeviceOption.DeviceBackingOption: ../../../../../vim/vm/device/VirtualPointingDeviceOption/DeviceBackingOption.rst
-
-.. _vim.vm.device.VirtualPointingDeviceOption.DeviceBackingOption.HostPointingDeviceChoice: ../../../../../vim/vm/device/VirtualPointingDeviceOption/DeviceBackingOption/HostPointingDeviceChoice.rst
-
 vim.vm.device.VirtualPointingDeviceOption.DeviceBackingOption.HostPointingDeviceChoice
 ======================================================================================
   The valid choices for host pointing devices are:
-  :contained by: `vim.vm.device.VirtualPointingDeviceOption.DeviceBackingOption`_
+  :contained by: `vim.vm.device.VirtualPointingDeviceOption.DeviceBackingOption <vim/vm/device/VirtualPointingDeviceOption/DeviceBackingOption.rst>`_
 
-  :type: `vim.vm.device.VirtualPointingDeviceOption.DeviceBackingOption.HostPointingDeviceChoice`_
+  :type: `vim.vm.device.VirtualPointingDeviceOption.DeviceBackingOption.HostPointingDeviceChoice <vim/vm/device/VirtualPointingDeviceOption/DeviceBackingOption/HostPointingDeviceChoice.rst>`_
 
   :name: ps2
 

@@ -1,9 +1,3 @@
-.. _object: https://docs.python.org/2/library/stdtypes.html
-
-.. _vmodl.DynamicData: ../../vmodl/DynamicData.rst
-
-.. _vim.option.ArrayUpdateSpec.Operation: ../../vim/option/ArrayUpdateSpec/Operation.rst
-
 
 vim.option.ArrayUpdateSpec
 ==========================
@@ -16,9 +10,9 @@ vim.option.ArrayUpdateSpec
 :extends: vmodl.DynamicData_
 
 Attributes:
-    operation (`vim.option.ArrayUpdateSpec.Operation`_):
+    operation (`vim.option.ArrayUpdateSpec.Operation <vim/option/ArrayUpdateSpec/Operation.rst>`_):
 
        The type of operation being performed on the specified virtual device.
-    removeKey (`object`_, optional):
+    removeKey (`object <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        Key for the element to be removed. Only used if the operation is "remove".

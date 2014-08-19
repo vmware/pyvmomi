@@ -1,26 +1,20 @@
-.. _int: https://docs.python.org/2/library/stdtypes.html
-
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.fault.OvfUnsupportedPackage: ../../vim/fault/OvfUnsupportedPackage.rst
-
 
 vim.fault.OvfUnsupportedType
 ============================
     :extends:
 
-        `vim.fault.OvfUnsupportedPackage`_
+        `vim.fault.OvfUnsupportedPackage <vim/fault/OvfUnsupportedPackage.rst>`_
 
 
 
 
 Attributes:
 
-    name (`str`_)
+    name (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
-    instanceId (`str`_)
+    instanceId (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
-    deviceType (`int`_)
+    deviceType (`int <https://docs.python.org/2/library/stdtypes.html>`_)
 
 
 

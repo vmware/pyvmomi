@@ -1,7 +1,3 @@
-.. _int: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.host.DatastoreBrowser.FileInfo: ../../../vim/host/DatastoreBrowser/FileInfo.rst
-
 
 vim.host.DatastoreBrowser.VmConfigInfo
 ======================================
@@ -9,5 +5,5 @@ vim.host.DatastoreBrowser.VmConfigInfo
 :extends: vim.host.DatastoreBrowser.FileInfo_
 
 Attributes:
-    configVersion (`int`_, optional):
+    configVersion (`int <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 

@@ -1,11 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.vm.Message: ../../vim/vm/Message.rst
-
-.. _vmodl.DynamicData: ../../vmodl/DynamicData.rst
-
-.. _vim.option.ChoiceOption: ../../vim/option/ChoiceOption.rst
-
 
 vim.vm.QuestionInfo
 ===================
@@ -13,15 +5,15 @@ vim.vm.QuestionInfo
 :extends: vmodl.DynamicData_
 
 Attributes:
-    id (`str`_):
+    id (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Identifier with an opaque value that specifies the pending question.
-    text (`str`_):
+    text (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Text that describes the pending question.
-    choice (`vim.option.ChoiceOption`_):
+    choice (`vim.option.ChoiceOption <vim/option/ChoiceOption.rst>`_):
 
        List of key-value pairs that specify possible answers.
-    message ([`vim.vm.Message`_], optional):
+    message ([`vim.vm.Message <vim/vm/Message.rst>`_], optional):
 
        The message data for the individual messages that comprise the question. Only available on servers that support localization.

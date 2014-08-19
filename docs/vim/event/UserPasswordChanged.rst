@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.event.HostEvent: ../../vim/event/HostEvent.rst
-
 
 vim.event.UserPasswordChanged
 =============================
@@ -9,5 +5,5 @@ vim.event.UserPasswordChanged
 :extends: vim.event.HostEvent_
 
 Attributes:
-    userLogin (`str`_):
+    userLogin (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 

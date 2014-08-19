@@ -1,13 +1,9 @@
-.. _vim.VirtualDiskManager: ../../vim/VirtualDiskManager.rst
-
-.. _vim.VirtualDiskManager.VirtualDiskAdapterType: ../../vim/VirtualDiskManager/VirtualDiskAdapterType.rst
-
 vim.VirtualDiskManager.VirtualDiskAdapterType
 =============================================
   The types of virtual disk adapters used by virtual disks
-  :contained by: `vim.VirtualDiskManager`_
+  :contained by: `vim.VirtualDiskManager <vim/VirtualDiskManager.rst>`_
 
-  :type: `vim.VirtualDiskManager.VirtualDiskAdapterType`_
+  :type: `vim.VirtualDiskManager.VirtualDiskAdapterType <vim/VirtualDiskManager/VirtualDiskAdapterType.rst>`_
 
   :name: lsiLogic
 

@@ -1,5 +1,3 @@
-.. _vim.vm.device.VirtualDevice: ../../../vim/vm/device/VirtualDevice.rst
-
 
 vim.vm.device.VirtualSoundCard
 ==============================

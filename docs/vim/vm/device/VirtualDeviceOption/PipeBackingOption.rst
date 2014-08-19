@@ -1,5 +1,3 @@
-.. _vim.vm.device.VirtualDeviceOption.BackingOption: ../../../../vim/vm/device/VirtualDeviceOption/BackingOption.rst
-
 
 vim.vm.device.VirtualDeviceOption.PipeBackingOption
 ===================================================

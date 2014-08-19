@@ -1,13 +1,3 @@
-.. _vmodl.DynamicData: ../../vmodl/DynamicData.rst
-
-.. _vim.EnumDescription: ../../vim/EnumDescription.rst
-
-.. _Event Category enum: ../../vim/event/EventDescription/EventCategory.rst
-
-.. _vim.ElementDescription: ../../vim/ElementDescription.rst
-
-.. _vim.event.EventDescription.EventDetail: ../../vim/event/EventDescription/EventDetail.rst
-
 
 vim.event.EventDescription
 ==========================
@@ -15,12 +5,12 @@ vim.event.EventDescription
 :extends: vmodl.DynamicData_
 
 Attributes:
-    category ([`vim.ElementDescription`_]):
+    category ([`vim.ElementDescription <vim/ElementDescription.rst>`_]):
 
-        `Event Category enum`_ 
-    eventInfo ([`vim.event.EventDescription.EventDetail`_]):
+        `Event Category enum <vim/event/EventDescription/EventCategory.rst>`_ 
+    eventInfo ([`vim.event.EventDescription.EventDetail <vim/event/EventDescription/EventDetail.rst>`_]):
 
        The event class description details.
-    enumeratedTypes ([`vim.EnumDescription`_], optional):
+    enumeratedTypes ([`vim.EnumDescription <vim/EnumDescription.rst>`_], optional):
 
        Localized descriptions of all enumerated types that are used for member declarations in event classes.

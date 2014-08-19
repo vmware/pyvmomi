@@ -1,13 +1,9 @@
-.. _vim.vm.customization.LicenseFilePrintData: ../../../../vim/vm/customization/LicenseFilePrintData.rst
-
-.. _vim.vm.customization.LicenseFilePrintData.AutoMode: ../../../../vim/vm/customization/LicenseFilePrintData/AutoMode.rst
-
 vim.vm.customization.LicenseFilePrintData.AutoMode
 ==================================================
   Enumeration of AutoMode values.
-  :contained by: `vim.vm.customization.LicenseFilePrintData`_
+  :contained by: `vim.vm.customization.LicenseFilePrintData <vim/vm/customization/LicenseFilePrintData.rst>`_
 
-  :type: `vim.vm.customization.LicenseFilePrintData.AutoMode`_
+  :type: `vim.vm.customization.LicenseFilePrintData.AutoMode <vim/vm/customization/LicenseFilePrintData/AutoMode.rst>`_
 
   :name: perSeat
 

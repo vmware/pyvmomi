@@ -1,7 +1,3 @@
-.. _long: https://docs.python.org/2/library/stdtypes.html
-
-.. _vmodl.DynamicData: ../../../vmodl/DynamicData.rst
-
 
 vim.host.MemoryManagerSystem.ServiceConsoleReservationInfo
 ==========================================================
@@ -9,12 +5,12 @@ vim.host.MemoryManagerSystem.ServiceConsoleReservationInfo
 :extends: vmodl.DynamicData_
 
 Attributes:
-    serviceConsoleReservedCfg (`long`_):
+    serviceConsoleReservedCfg (`long <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The amount of memory that should be reserved for the service console on the next boot.
-    serviceConsoleReserved (`long`_):
+    serviceConsoleReserved (`long <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The amount of memory that is currently reserved for the service console.
-    unreserved (`long`_):
+    unreserved (`long <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The amount of memory that is not reserved for use by the service console.

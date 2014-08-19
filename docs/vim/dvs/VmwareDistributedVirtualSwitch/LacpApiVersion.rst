@@ -1,13 +1,9 @@
-.. _vim.dvs.VmwareDistributedVirtualSwitch: ../../../vim/dvs/VmwareDistributedVirtualSwitch.rst
-
-.. _vim.dvs.VmwareDistributedVirtualSwitch.LacpApiVersion: ../../../vim/dvs/VmwareDistributedVirtualSwitch/LacpApiVersion.rst
-
 vim.dvs.VmwareDistributedVirtualSwitch.LacpApiVersion
 =====================================================
   Link Aggregation Control Protocol API versions.
-  :contained by: `vim.dvs.VmwareDistributedVirtualSwitch`_
+  :contained by: `vim.dvs.VmwareDistributedVirtualSwitch <vim/dvs/VmwareDistributedVirtualSwitch.rst>`_
 
-  :type: `vim.dvs.VmwareDistributedVirtualSwitch.LacpApiVersion`_
+  :type: `vim.dvs.VmwareDistributedVirtualSwitch.LacpApiVersion <vim/dvs/VmwareDistributedVirtualSwitch/LacpApiVersion.rst>`_
 
   :name: multipleLag
 

@@ -1,24 +1,18 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _string: ../../str
-
-.. _vim.fault.OvfExport: ../../vim/fault/OvfExport.rst
-
 
 vim.fault.ConnectedIso
 ======================
     :extends:
 
-        `vim.fault.OvfExport`_
+        `vim.fault.OvfExport <vim/fault/OvfExport.rst>`_
 
 
 
 
 Attributes:
 
-    cdrom (`str`_)
+    cdrom (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
-    filename (`str`_)
+    filename (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
 
 

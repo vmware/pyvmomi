@@ -1,12 +1,8 @@
-.. _vim.cluster.DrsConfigInfo: ../../../vim/cluster/DrsConfigInfo.rst
-
-.. _vim.cluster.DrsConfigInfo.DrsBehavior: ../../../vim/cluster/DrsConfigInfo/DrsBehavior.rst
-
 vim.cluster.DrsConfigInfo.DrsBehavior
 =====================================
-  :contained by: `vim.cluster.DrsConfigInfo`_
+  :contained by: `vim.cluster.DrsConfigInfo <vim/cluster/DrsConfigInfo.rst>`_
 
-  :type: `vim.cluster.DrsConfigInfo.DrsBehavior`_
+  :type: `vim.cluster.DrsConfigInfo.DrsBehavior <vim/cluster/DrsConfigInfo/DrsBehavior.rst>`_
 
   :name: fullyAutomated
 

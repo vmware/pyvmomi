@@ -1,5 +1,3 @@
-.. _vim.host.DatastoreBrowser.Query: ../../../vim/host/DatastoreBrowser/Query.rst
-
 
 vim.host.DatastoreBrowser.IsoImageQuery
 =======================================

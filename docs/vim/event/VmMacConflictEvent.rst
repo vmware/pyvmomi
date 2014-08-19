@@ -1,9 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.event.VmEvent: ../../vim/event/VmEvent.rst
-
-.. _vim.event.VmEventArgument: ../../vim/event/VmEventArgument.rst
-
 
 vim.event.VmMacConflictEvent
 ============================
@@ -11,9 +5,9 @@ vim.event.VmMacConflictEvent
 :extends: vim.event.VmEvent_
 
 Attributes:
-    conflictedVm (`vim.event.VmEventArgument`_):
+    conflictedVm (`vim.event.VmEventArgument <vim/event/VmEventArgument.rst>`_):
 
        The virtual machine whose MAC address conflicts with the current virtual machine's address.
-    mac (`str`_):
+    mac (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The MAC address that is in conflict.

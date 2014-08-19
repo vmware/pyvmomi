@@ -1,9 +1,3 @@
-.. _bool: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.event.HostEvent: ../../vim/event/HostEvent.rst
-
-.. _vim.host.LocalAccountManager.AccountSpecification: ../../vim/host/LocalAccountManager/AccountSpecification.rst
-
 
 vim.event.AccountUpdatedEvent
 =============================
@@ -11,7 +5,7 @@ vim.event.AccountUpdatedEvent
 :extends: vim.event.HostEvent_
 
 Attributes:
-    spec (`vim.host.LocalAccountManager.AccountSpecification`_):
+    spec (`vim.host.LocalAccountManager.AccountSpecification <vim/host/LocalAccountManager/AccountSpecification.rst>`_):
 
-    group (`bool`_):
+    group (`bool <https://docs.python.org/2/library/stdtypes.html>`_):
 

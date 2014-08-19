@@ -1,10 +1,8 @@
-.. _vim.profile.NumericComparator: ../../vim/profile/NumericComparator.rst
-
 vim.profile.NumericComparator
 =============================
   Enumerates different operations supported for comparing numerical values.
 
-  :type: `vim.profile.NumericComparator`_
+  :type: `vim.profile.NumericComparator <vim/profile/NumericComparator.rst>`_
 
   :name: greaterThan
 

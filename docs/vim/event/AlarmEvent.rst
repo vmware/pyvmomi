@@ -1,7 +1,3 @@
-.. _vim.event.Event: ../../vim/event/Event.rst
-
-.. _vim.event.AlarmEventArgument: ../../vim/event/AlarmEventArgument.rst
-
 
 vim.event.AlarmEvent
 ====================
@@ -9,6 +5,6 @@ vim.event.AlarmEvent
 :extends: vim.event.Event_
 
 Attributes:
-    alarm (`vim.event.AlarmEventArgument`_):
+    alarm (`vim.event.AlarmEventArgument <vim/event/AlarmEventArgument.rst>`_):
 
        The associated alarm object.

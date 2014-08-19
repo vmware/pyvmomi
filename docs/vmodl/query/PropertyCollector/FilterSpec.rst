@@ -1,23 +1,3 @@
-.. _bool: https://docs.python.org/2/library/stdtypes.html
-
-.. _UpdateSet: ../../../vmodl/query/PropertyCollector/UpdateSet.rst
-
-.. _objectSet: ../../../vmodl/query/PropertyCollector/FilterSpec.rst#objectSet
-
-.. _missingSet: ../../../vmodl/query/PropertyCollector/FilterUpdate.rst#missingSet
-
-.. _RetrieveResult: ../../../vmodl/query/PropertyCollector/RetrieveResult.rst
-
-.. _vmodl.DynamicData: ../../../vmodl/DynamicData.rst
-
-.. _RetrieveProperties: ../../../vmodl/query/PropertyCollector.rst#retrieveContents
-
-.. _ManagedObjectNotFound: ../../../vmodl/fault/ManagedObjectNotFound.rst
-
-.. _vmodl.query.PropertyCollector.ObjectSpec: ../../../vmodl/query/PropertyCollector/ObjectSpec.rst
-
-.. _vmodl.query.PropertyCollector.PropertySpec: ../../../vmodl/query/PropertyCollector/PropertySpec.rst
-
 
 vmodl.query.PropertyCollector.FilterSpec
 ========================================
@@ -25,12 +5,12 @@ vmodl.query.PropertyCollector.FilterSpec
 :extends: vmodl.DynamicData_
 
 Attributes:
-    propSet ([`vmodl.query.PropertyCollector.PropertySpec`_]):
+    propSet ([`vmodl.query.PropertyCollector.PropertySpec <vmodl/query/PropertyCollector/PropertySpec.rst>`_]):
 
        Set of properties to include in the filter, specified for each object type.
-    objectSet ([`vmodl.query.PropertyCollector.ObjectSpec`_]):
+    objectSet ([`vmodl.query.PropertyCollector.ObjectSpec <vmodl/query/PropertyCollector/ObjectSpec.rst>`_]):
 
        Set of specifications that determine the objects to filter.
-    reportMissingObjectsInResults (`bool`_, optional):
+    reportMissingObjectsInResults (`bool <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
-       Control how to report missing objects during filter creation.If false or unset and `objectSet`_ refers to missing objects, filter creation will fail with a `ManagedObjectNotFound`_ fault.If true and `objectSet`_ refers to missing objects, filter creation will not fail and missing objects will be reported via filter results. This is the recommended setting when `objectSet`_ refers to transient objects.In an `UpdateSet`_ missing objects will appear in the `missingSet`_ field.In a `RetrieveResult`_ missing objects will simply be omitted from the objects field.For a call to `RetrieveProperties`_ missing objects will simply be omitted from the results.
+       Control how to report missing objects during filter creation.If false or unset and `objectSet <vmodl/query/PropertyCollector/FilterSpec.rst#objectSet>`_ refers to missing objects, filter creation will fail with a `ManagedObjectNotFound <vmodl/fault/ManagedObjectNotFound.rst>`_ fault.If true and `objectSet <vmodl/query/PropertyCollector/FilterSpec.rst#objectSet>`_ refers to missing objects, filter creation will not fail and missing objects will be reported via filter results. This is the recommended setting when `objectSet <vmodl/query/PropertyCollector/FilterSpec.rst#objectSet>`_ refers to transient objects.In an `UpdateSet <vmodl/query/PropertyCollector/UpdateSet.rst>`_ missing objects will appear in the `missingSet <vmodl/query/PropertyCollector/FilterUpdate.rst#missingSet>`_ field.In a `RetrieveResult <vmodl/query/PropertyCollector/RetrieveResult.rst>`_ missing objects will simply be omitted from the objects field.For a call to `RetrieveProperties <vmodl/query/PropertyCollector.rst#retrieveContents>`_ missing objects will simply be omitted from the results.

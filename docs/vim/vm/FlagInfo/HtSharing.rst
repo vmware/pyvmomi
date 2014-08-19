@@ -1,15 +1,9 @@
-.. _htSharing: ../../../vim/vm/FlagInfo.rst#htSharing
-
-.. _vim.vm.FlagInfo: ../../../vim/vm/FlagInfo.rst
-
-.. _vim.vm.FlagInfo.HtSharing: ../../../vim/vm/FlagInfo/HtSharing.rst
-
 vim.vm.FlagInfo.HtSharing
 =========================
-  Set of possible values for `htSharing`_ .
-  :contained by: `vim.vm.FlagInfo`_
+  Set of possible values for `htSharing <vim/vm/FlagInfo.rst#htSharing>`_ .
+  :contained by: `vim.vm.FlagInfo <vim/vm/FlagInfo.rst>`_
 
-  :type: `vim.vm.FlagInfo.HtSharing`_
+  :type: `vim.vm.FlagInfo.HtSharing <vim/vm/FlagInfo/HtSharing.rst>`_
 
   :name: internal
 

@@ -1,11 +1,9 @@
-.. _vim.fault.VimFault: ../../vim/fault/VimFault.rst
-
 
 vim.fault.MigrationFault
 ========================
     :extends:
 
-        `vim.fault.VimFault`_
+        `vim.fault.VimFault <vim/fault/VimFault.rst>`_
 
   Base object type for issues that can occur when reassigning the execution host of a virtual machine using migrate or relocate. These issues are typically used as argument in the MigrationEvent. When a MigrationFault is used as a value in a MigrationEvent, the type of MigrationEvent determines if the issue is a warning or an error (for example, MigrationHostWarningEvent or MigrationHostErrorEvent). When thrown as an exception, the fault is an error.Issues are categorized as errors or warnings according to the following criteria:If the virtual machine is powered on:
    * Error for fatal problems with the VMotion interfaces or licensing.

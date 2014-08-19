@@ -1,31 +1,23 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vSphere API 4.1: ../../../vim/version.rst#vimversionversion6
-
-.. _vmodl.DynamicData: ../../../vmodl/DynamicData.rst
-
-.. _HostActiveDirectorySpec: ../../../vim/host/ActiveDirectorySpec/Specification.rst
-
 
 vim.host.ActiveDirectorySpec.Specification
 ==========================================
-  The `HostActiveDirectorySpec`_ data object defines properties for Active Directory domain access.
+  The `HostActiveDirectorySpec <vim/host/ActiveDirectorySpec/Specification.rst>`_ data object defines properties for Active Directory domain access.
 :extends: vmodl.DynamicData_
-:since: `vSphere API 4.1`_
+:since: `vSphere API 4.1 <vim/version.rst#vimversionversion6>`_
 
 Attributes:
-    domainName (`str`_, optional):
+    domainName (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        Domain name.
-    userName (`str`_, optional):
+    userName (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        Name of an Active Directory account with the authority to add a host to the domain.
-    password (`str`_, optional):
+    password (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        Password for the Active Directory account.
-    camServer (`str`_, optional):
+    camServer (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        If set, the CAM server will be used to join the domain and theuserNameandpasswordfields will be ignored.
-    thumbprint (`str`_, optional):
+    thumbprint (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        Thumbprint for the SSL certficate of CAM server

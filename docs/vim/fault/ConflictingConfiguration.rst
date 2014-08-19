@@ -1,19 +1,15 @@
-.. _string: ../../str
-
-.. _vim.fault.DvsFault: ../../vim/fault/DvsFault.rst
-
 
 vim.fault.ConflictingConfiguration
 ==================================
     :extends:
 
-        `vim.fault.DvsFault`_
+        `vim.fault.DvsFault <vim/fault/DvsFault.rst>`_
 
   Thrown if the configurations of the objects are in conflict.
 
 Attributes:
 
-    configInConflict (`str`_)
+    configInConflict (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
 
 

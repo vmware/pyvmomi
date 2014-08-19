@@ -1,13 +1,9 @@
-.. _vim.LicenseManager: ../../vim/LicenseManager.rst
-
-.. _vim.LicenseManager.LicenseState: ../../vim/LicenseManager/LicenseState.rst
-
 vim.LicenseManager.LicenseState
 ===============================
   State of licensing subsystem.
-  :contained by: `vim.LicenseManager`_
+  :contained by: `vim.LicenseManager <vim/LicenseManager.rst>`_
 
-  :type: `vim.LicenseManager.LicenseState`_
+  :type: `vim.LicenseManager.LicenseState <vim/LicenseManager/LicenseState.rst>`_
 
   :name: fault
 

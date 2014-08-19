@@ -1,9 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _long: https://docs.python.org/2/library/stdtypes.html
-
-.. _vmodl.DynamicData: ../../../../vmodl/DynamicData.rst
-
 
 vim.vm.device.HostDiskMappingInfo.PartitionInfo
 ===============================================
@@ -11,12 +5,12 @@ vim.vm.device.HostDiskMappingInfo.PartitionInfo
 :extends: vmodl.DynamicData_
 
 Attributes:
-    name (`str`_):
+    name (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Partition name.
-    fileSystem (`str`_):
+    fileSystem (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Filesystem, if the partition is formatted.
-    capacityInKb (`long`_):
+    capacityInKb (`long <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Partition capacity, in KB.

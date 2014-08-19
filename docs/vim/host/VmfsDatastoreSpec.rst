@@ -1,11 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _uuid: ../../vim/host/ScsiLun.rst#uuid
-
-.. _HostScsiDisk: ../../vim/host/ScsiDisk.rst
-
-.. _vmodl.DynamicData: ../../vmodl/DynamicData.rst
-
 
 vim.host.VmfsDatastoreSpec
 ==========================
@@ -13,6 +5,6 @@ vim.host.VmfsDatastoreSpec
 :extends: vmodl.DynamicData_
 
 Attributes:
-    diskUuid (`str`_):
+    diskUuid (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
-       The UUID of the SCSI disk on which the VMFS datastore is located.See `HostScsiDisk`_ See `uuid`_ 
+       The UUID of the SCSI disk on which the VMFS datastore is located.See `HostScsiDisk <vim/host/ScsiDisk.rst>`_ See `uuid <vim/host/ScsiLun.rst#uuid>`_ 

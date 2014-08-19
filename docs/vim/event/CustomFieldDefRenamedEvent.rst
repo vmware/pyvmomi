@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.event.CustomFieldDefEvent: ../../vim/event/CustomFieldDefEvent.rst
-
 
 vim.event.CustomFieldDefRenamedEvent
 ====================================
@@ -9,5 +5,5 @@ vim.event.CustomFieldDefRenamedEvent
 :extends: vim.event.CustomFieldDefEvent_
 
 Attributes:
-    newName (`str`_):
+    newName (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 

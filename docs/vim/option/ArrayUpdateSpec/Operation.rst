@@ -1,13 +1,9 @@
-.. _vim.option.ArrayUpdateSpec: ../../../vim/option/ArrayUpdateSpec.rst
-
-.. _vim.option.ArrayUpdateSpec.Operation: ../../../vim/option/ArrayUpdateSpec/Operation.rst
-
 vim.option.ArrayUpdateSpec.Operation
 ====================================
   This list specifies the type of operation being performed on the array.
-  :contained by: `vim.option.ArrayUpdateSpec`_
+  :contained by: `vim.option.ArrayUpdateSpec <vim/option/ArrayUpdateSpec.rst>`_
 
-  :type: `vim.option.ArrayUpdateSpec.Operation`_
+  :type: `vim.option.ArrayUpdateSpec.Operation <vim/option/ArrayUpdateSpec/Operation.rst>`_
 
   :name: edit
 

@@ -1,13 +1,9 @@
-.. _vim.vm.device.VirtualDevice.ConnectInfo: ../../../../../vim/vm/device/VirtualDevice/ConnectInfo.rst
-
-.. _vim.vm.device.VirtualDevice.ConnectInfo.Status: ../../../../../vim/vm/device/VirtualDevice/ConnectInfo/Status.rst
-
 vim.vm.device.VirtualDevice.ConnectInfo.Status
 ==============================================
   Specifies the connectable virtual device status.
-  :contained by: `vim.vm.device.VirtualDevice.ConnectInfo`_
+  :contained by: `vim.vm.device.VirtualDevice.ConnectInfo <vim/vm/device/VirtualDevice/ConnectInfo.rst>`_
 
-  :type: `vim.vm.device.VirtualDevice.ConnectInfo.Status`_
+  :type: `vim.vm.device.VirtualDevice.ConnectInfo.Status <vim/vm/device/VirtualDevice/ConnectInfo/Status.rst>`_
 
   :name: untried
 

@@ -1,9 +1,3 @@
-.. _int: https://docs.python.org/2/library/stdtypes.html
-
-.. _long: https://docs.python.org/2/library/stdtypes.html
-
-.. _vmodl.DynamicData: ../../../vmodl/DynamicData.rst
-
 
 vim.host.DiskDimensions.Lba
 ===========================
@@ -11,9 +5,9 @@ vim.host.DiskDimensions.Lba
 :extends: vmodl.DynamicData_
 
 Attributes:
-    blockSize (`int`_):
+    blockSize (`int <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The size of the blocks.
-    block (`long`_):
+    block (`long <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The number of blocks.

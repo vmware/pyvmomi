@@ -1,9 +1,3 @@
-.. _long: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.Datastore.Info: ../../vim/Datastore/Info.rst
-
-.. _vim.host.VmfsVolume: ../../vim/host/VmfsVolume.rst
-
 
 vim.host.VmfsDatastoreInfo
 ==========================
@@ -11,12 +5,12 @@ vim.host.VmfsDatastoreInfo
 :extends: vim.Datastore.Info_
 
 Attributes:
-    maxPhysicalRDMFileSize (`long`_):
+    maxPhysicalRDMFileSize (`long <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Maximum raw device mapping size (physical compatibility)
-    maxVirtualRDMFileSize (`long`_):
+    maxVirtualRDMFileSize (`long <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Maximum raw device mapping size (virtual compatibility)
-    vmfs (`vim.host.VmfsVolume`_, optional):
+    vmfs (`vim.host.VmfsVolume <vim/host/VmfsVolume.rst>`_, optional):
 
        The VMFS volume information for the datastore. May not be available when the datastore is not accessible.

@@ -1,7 +1,3 @@
-.. _vim.event.VmEvent: ../../vim/event/VmEvent.rst
-
-.. _vim.event.VmEventArgument: ../../vim/event/VmEventArgument.rst
-
 
 vim.event.VmBeingDeployedEvent
 ==============================
@@ -9,6 +5,6 @@ vim.event.VmBeingDeployedEvent
 :extends: vim.event.VmEvent_
 
 Attributes:
-    srcTemplate (`vim.event.VmEventArgument`_):
+    srcTemplate (`vim.event.VmEventArgument <vim/event/VmEventArgument.rst>`_):
 
        The template object from which the virtual machine is being deployed.

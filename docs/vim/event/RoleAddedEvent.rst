@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.event.RoleEvent: ../../vim/event/RoleEvent.rst
-
 
 vim.event.RoleAddedEvent
 ========================
@@ -9,6 +5,6 @@ vim.event.RoleAddedEvent
 :extends: vim.event.RoleEvent_
 
 Attributes:
-    privilegeList ([`str`_], optional):
+    privilegeList ([`str <https://docs.python.org/2/library/stdtypes.html>`_], optional):
 
        The privileges granted to the role.

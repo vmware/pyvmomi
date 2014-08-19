@@ -1,7 +1,3 @@
-.. _vim.event.Event: ../../vim/event/Event.rst
-
-.. _vim.event.ResourcePoolEventArgument: ../../vim/event/ResourcePoolEventArgument.rst
-
 
 vim.event.ResourcePoolEvent
 ===========================
@@ -9,5 +5,5 @@ vim.event.ResourcePoolEvent
 :extends: vim.event.Event_
 
 Attributes:
-    resourcePool (`vim.event.ResourcePoolEventArgument`_):
+    resourcePool (`vim.event.ResourcePoolEventArgument <vim/event/ResourcePoolEventArgument.rst>`_):
 

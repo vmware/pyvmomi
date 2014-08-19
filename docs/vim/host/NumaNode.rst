@@ -1,11 +1,3 @@
-.. _int: https://docs.python.org/2/library/stdtypes.html
-
-.. _long: https://docs.python.org/2/library/stdtypes.html
-
-.. _short: https://docs.python.org/2/library/stdtypes.html
-
-.. _vmodl.DynamicData: ../../vmodl/DynamicData.rst
-
 
 vim.host.NumaNode
 =================
@@ -13,15 +5,15 @@ vim.host.NumaNode
 :extends: vmodl.DynamicData_
 
 Attributes:
-    typeId (`int`_):
+    typeId (`int <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Zero-based NUMA ID for the node.
-    cpuID ([`short`_]):
+    cpuID ([`short <https://docs.python.org/2/library/stdtypes.html>`_]):
 
        Information about each of the CPUs associated with the node.
-    memoryRangeBegin (`long`_):
+    memoryRangeBegin (`long <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Beginning memory range for this NUMA node.
-    memoryRangeLength (`long`_):
+    memoryRangeLength (`long <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Length of the memory range for this node in bytes, that is, the amount of memory on the node.

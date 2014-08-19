@@ -1,7 +1,3 @@
-.. _vim.host.NasVolume: ../../vim/host/NasVolume.rst
-
-.. _vim.Datastore.Info: ../../vim/Datastore/Info.rst
-
 
 vim.host.NasDatastoreInfo
 =========================
@@ -9,6 +5,6 @@ vim.host.NasDatastoreInfo
 :extends: vim.Datastore.Info_
 
 Attributes:
-    nas (`vim.host.NasVolume`_, optional):
+    nas (`vim.host.NasVolume <vim/host/NasVolume.rst>`_, optional):
 
        The NFS mount information for the datastore. May not be available when the datastore is not accessible.

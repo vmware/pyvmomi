@@ -1,15 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.Task: ../../vim/Task.rst
-
-.. _vim.option.OptionDef: ../../vim/option/OptionDef.rst
-
-.. _vim.fault.InvalidName: ../../vim/fault/InvalidName.rst
-
-.. _vim.option.OptionValue: ../../vim/option/OptionValue.rst
-
-.. _vmodl.fault.InvalidArgument: ../../vmodl/fault/InvalidArgument.rst
-
 
 vim.option.OptionManager
 ========================
@@ -23,9 +11,9 @@ vim.option.OptionManager
 
 Attributes
 ----------
-    supportedOption ([`vim.option.OptionDef`_]):
+    supportedOption ([`vim.option.OptionDef <vim/option/OptionDef.rst>`_]):
        A list of supported key/value pair options including their type information.
-    setting ([`vim.option.OptionValue`_]):
+    setting ([`vim.option.OptionValue <vim/option/OptionValue.rst>`_]):
        A list of the current settings for the key/value pair options.
 
 
@@ -51,18 +39,18 @@ QueryOptions(name):
 
 
   Args:
-    name (`str`_, optional):
+    name (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
 
 
 
   Returns:
-    [`vim.option.OptionValue`_]:
+    [`vim.option.OptionValue <vim/option/OptionValue.rst>`_]:
          The option with the given name. If the name ends with a dot, all options for that subtree are returned.
 
   Raises:
 
-    `vim.fault.InvalidName`_: 
+    `vim.fault.InvalidName <vim/fault/InvalidName.rst>`_: 
        if no option or subtree exists with the given name.
 
 
@@ -79,7 +67,7 @@ UpdateOptions(changedValue):
 
 
   Args:
-    changedValue (`vim.option.OptionValue`_):
+    changedValue (`vim.option.OptionValue <vim/option/OptionValue.rst>`_):
 
 
 
@@ -90,10 +78,10 @@ UpdateOptions(changedValue):
 
   Raises:
 
-    `vim.fault.InvalidName`_: 
+    `vim.fault.InvalidName <vim/fault/InvalidName.rst>`_: 
        if one or more OptionValue objects refers to a non-existent option.
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
        if one or more OptionValue contains an invalid value.
 
 

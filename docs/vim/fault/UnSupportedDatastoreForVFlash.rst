@@ -1,21 +1,17 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.fault.UnsupportedDatastore: ../../vim/fault/UnsupportedDatastore.rst
-
 
 vim.fault.UnSupportedDatastoreForVFlash
 =======================================
     :extends:
 
-        `vim.fault.UnsupportedDatastore`_
+        `vim.fault.UnsupportedDatastore <vim/fault/UnsupportedDatastore.rst>`_
 
   VFlash is not supported on the datastore.
 
 Attributes:
 
-    datastoreName (`str`_)
+    datastoreName (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
-    type (`str`_)
+    type (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
 
 

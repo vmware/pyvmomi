@@ -1,5 +1,3 @@
-.. _vim.host.ConnectInfo.NetworkInfo: ../../../vim/host/ConnectInfo/NetworkInfo.rst
-
 
 vim.host.ConnectInfo.NewNetworkInfo
 ===================================

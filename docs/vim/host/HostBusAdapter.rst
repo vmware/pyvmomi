@@ -1,9 +1,3 @@
-.. _int: https://docs.python.org/2/library/stdtypes.html
-
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vmodl.DynamicData: ../../vmodl/DynamicData.rst
-
 
 vim.host.HostBusAdapter
 =======================
@@ -11,24 +5,24 @@ vim.host.HostBusAdapter
 :extends: vmodl.DynamicData_
 
 Attributes:
-    key (`str`_, optional):
+    key (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        The linkable identifier.
-    device (`str`_):
+    device (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The device name of host bus adapter.
-    bus (`int`_):
+    bus (`int <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The host bus number.
-    status (`str`_):
+    status (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The operational status of the adapter. Valid values include "online", "offline", "unbound", and "unknown".
-    model (`str`_):
+    model (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The model name of the host bus adapter.
-    driver (`str`_, optional):
+    driver (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        The name of the driver.
-    pci (`str`_, optional):
+    pci (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        The Peripheral Connect Interface (PCI) ID of the device representing the host bus adapter.

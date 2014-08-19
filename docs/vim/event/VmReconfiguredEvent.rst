@@ -1,7 +1,3 @@
-.. _vim.event.VmEvent: ../../vim/event/VmEvent.rst
-
-.. _vim.vm.ConfigSpec: ../../vim/vm/ConfigSpec.rst
-
 
 vim.event.VmReconfiguredEvent
 =============================
@@ -9,6 +5,6 @@ vim.event.VmReconfiguredEvent
 :extends: vim.event.VmEvent_
 
 Attributes:
-    configSpec (`vim.vm.ConfigSpec`_):
+    configSpec (`vim.vm.ConfigSpec <vim/vm/ConfigSpec.rst>`_):
 
        The configuration specification that was used for the reconfiguration.

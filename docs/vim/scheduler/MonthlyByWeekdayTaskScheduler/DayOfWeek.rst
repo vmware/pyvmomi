@@ -1,12 +1,8 @@
-.. _vim.scheduler.MonthlyByWeekdayTaskScheduler: ../../../vim/scheduler/MonthlyByWeekdayTaskScheduler.rst
-
-.. _vim.scheduler.MonthlyByWeekdayTaskScheduler.DayOfWeek: ../../../vim/scheduler/MonthlyByWeekdayTaskScheduler/DayOfWeek.rst
-
 vim.scheduler.MonthlyByWeekdayTaskScheduler.DayOfWeek
 =====================================================
-  :contained by: `vim.scheduler.MonthlyByWeekdayTaskScheduler`_
+  :contained by: `vim.scheduler.MonthlyByWeekdayTaskScheduler <vim/scheduler/MonthlyByWeekdayTaskScheduler.rst>`_
 
-  :type: `vim.scheduler.MonthlyByWeekdayTaskScheduler.DayOfWeek`_
+  :type: `vim.scheduler.MonthlyByWeekdayTaskScheduler.DayOfWeek <vim/scheduler/MonthlyByWeekdayTaskScheduler/DayOfWeek.rst>`_
 
   :name: saturday
 

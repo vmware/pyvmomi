@@ -1,23 +1,17 @@
-.. _int: https://docs.python.org/2/library/stdtypes.html
-
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.fault.InsufficientResourcesFault: ../../vim/fault/InsufficientResourcesFault.rst
-
 
 vim.fault.VmFaultToleranceTooManyVMsOnHost
 ==========================================
     :extends:
 
-        `vim.fault.InsufficientResourcesFault`_
+        `vim.fault.InsufficientResourcesFault <vim/fault/InsufficientResourcesFault.rst>`_
 
   This fault is returned when a host has more than the recommended number of Fault Tolerance VMs running on it.
 
 Attributes:
 
-    hostName (`str`_): is optional.
+    hostName (`str <https://docs.python.org/2/library/stdtypes.html>`_): is optional.
 
-    maxNumFtVms (`int`_)
+    maxNumFtVms (`int <https://docs.python.org/2/library/stdtypes.html>`_)
 
 
 

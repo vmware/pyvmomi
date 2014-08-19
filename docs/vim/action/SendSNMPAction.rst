@@ -1,5 +1,3 @@
-.. _vim.action.Action: ../../vim/action/Action.rst
-
 
 vim.action.SendSNMPAction
 =========================

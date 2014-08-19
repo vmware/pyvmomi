@@ -1,14 +1,8 @@
-.. _vmDirectPathGen2Supported: ../../../../vim/vm/device/VirtualEthernetCardOption.rst#vmDirectPathGen2Supported
-
-.. _vim.vm.DeviceRuntimeInfo.VirtualEthernetCardRuntimeState: ../../../../vim/vm/DeviceRuntimeInfo/VirtualEthernetCardRuntimeState.rst
-
-.. _vim.vm.DeviceRuntimeInfo.VirtualEthernetCardRuntimeState.VmDirectPathGen2InactiveReasonVm: ../../../../vim/vm/DeviceRuntimeInfo/VirtualEthernetCardRuntimeState/VmDirectPathGen2InactiveReasonVm.rst
-
 vim.vm.DeviceRuntimeInfo.VirtualEthernetCardRuntimeState.VmDirectPathGen2InactiveReasonVm
 =========================================================================================
-  :contained by: `vim.vm.DeviceRuntimeInfo.VirtualEthernetCardRuntimeState`_
+  :contained by: `vim.vm.DeviceRuntimeInfo.VirtualEthernetCardRuntimeState <vim/vm/DeviceRuntimeInfo/VirtualEthernetCardRuntimeState.rst>`_
 
-  :type: `vim.vm.DeviceRuntimeInfo.VirtualEthernetCardRuntimeState.VmDirectPathGen2InactiveReasonVm`_
+  :type: `vim.vm.DeviceRuntimeInfo.VirtualEthernetCardRuntimeState.VmDirectPathGen2InactiveReasonVm <vim/vm/DeviceRuntimeInfo/VirtualEthernetCardRuntimeState/VmDirectPathGen2InactiveReasonVm.rst>`_
 
   :name: vmNptVMCIActive
 
@@ -34,7 +28,7 @@ vmNptIncompatibleAdapterFeatures
    The virtual machine's network adapter has features enabled which preclude it participating in VMDirectPath Gen 2 such as INT-x or PXE booting.
 
 vmNptIncompatibleAdapterType
-   The device type does not support VMDirectPath Gen 2.See `vmDirectPathGen2Supported`_ 
+   The device type does not support VMDirectPath Gen 2.See `vmDirectPathGen2Supported <vim/vm/device/VirtualEthernetCardOption.rst#vmDirectPathGen2Supported>`_ 
 
 vmNptConflictingIOChainConfigured
    Some networking feature has placed a conflicting IOChain on the network adapter, which prevents VMDirectPath Gen 2. Examples include DVFilter.

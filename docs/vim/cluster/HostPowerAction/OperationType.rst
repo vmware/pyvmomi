@@ -1,12 +1,8 @@
-.. _vim.cluster.HostPowerAction: ../../../vim/cluster/HostPowerAction.rst
-
-.. _vim.cluster.HostPowerAction.OperationType: ../../../vim/cluster/HostPowerAction/OperationType.rst
-
 vim.cluster.HostPowerAction.OperationType
 =========================================
-  :contained by: `vim.cluster.HostPowerAction`_
+  :contained by: `vim.cluster.HostPowerAction <vim/cluster/HostPowerAction.rst>`_
 
-  :type: `vim.cluster.HostPowerAction.OperationType`_
+  :type: `vim.cluster.HostPowerAction.OperationType <vim/cluster/HostPowerAction/OperationType.rst>`_
 
   :name: powerOff
 

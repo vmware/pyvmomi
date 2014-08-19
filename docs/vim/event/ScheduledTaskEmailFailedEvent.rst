@@ -1,9 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vmodl.LocalizedMethodFault: ../../vmodl/LocalizedMethodFault.rst
-
-.. _vim.event.ScheduledTaskEvent: ../../vim/event/ScheduledTaskEvent.rst
-
 
 vim.event.ScheduledTaskEmailFailedEvent
 =======================================
@@ -11,9 +5,9 @@ vim.event.ScheduledTaskEmailFailedEvent
 :extends: vim.event.ScheduledTaskEvent_
 
 Attributes:
-    to (`str`_):
+    to (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The destination email address.
-    reason (`vmodl.LocalizedMethodFault`_):
+    reason (`vmodl.LocalizedMethodFault <vmodl/LocalizedMethodFault.rst>`_):
 
        The reason for the failure.

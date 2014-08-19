@@ -1,21 +1,3 @@
-.. _int: https://docs.python.org/2/library/stdtypes.html
-
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vmodl.DynamicData: ../../vmodl/DynamicData.rst
-
-.. _vim.vm.Capability: ../../vim/vm/Capability.rst
-
-.. _vim.vm.DatastoreOption: ../../vim/vm/DatastoreOption.rst
-
-.. _vim.vm.GuestOsDescriptor: ../../vim/vm/GuestOsDescriptor.rst
-
-.. _vim.vm.device.VirtualDevice: ../../vim/vm/device/VirtualDevice.rst
-
-.. _vim.vm.VirtualHardwareOption: ../../vim/vm/VirtualHardwareOption.rst
-
-.. _VirtualMachineFlagInfoMonitorType: ../../vim/vm/FlagInfo/MonitorType.rst
-
 
 vim.vm.ConfigOption
 ===================
@@ -26,36 +8,36 @@ vim.vm.ConfigOption
 :extends: vmodl.DynamicData_
 
 Attributes:
-    version (`str`_):
+    version (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The version corresponding to this configOption.
-    description (`str`_):
+    description (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        A description string for this configOption.
-    guestOSDescriptor ([`vim.vm.GuestOsDescriptor`_]):
+    guestOSDescriptor ([`vim.vm.GuestOsDescriptor <vim/vm/GuestOsDescriptor.rst>`_]):
 
        List of supported guest operating systems. The choice of guest operating system may limit the set of valid devices. For example, you cannot select Vmxnet with all guest operating systems.
-    guestOSDefaultIndex (`int`_):
+    guestOSDefaultIndex (`int <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Index into guestOsDescriptor array denoting the default guest operating system.
-    hardwareOptions (`vim.vm.VirtualHardwareOption`_):
+    hardwareOptions (`vim.vm.VirtualHardwareOption <vim/vm/VirtualHardwareOption.rst>`_):
 
        Processor, memory, and virtual device options for a virtual machine.
-    capabilities (`vim.vm.Capability`_):
+    capabilities (`vim.vm.Capability <vim/vm/Capability.rst>`_):
 
        Capabilities supported by a virtual machine.
-    datastore (`vim.vm.DatastoreOption`_):
+    datastore (`vim.vm.DatastoreOption <vim/vm/DatastoreOption.rst>`_):
 
        The datastore options for this virtual machine.
-    defaultDevice ([`vim.vm.device.VirtualDevice`_], optional):
+    defaultDevice ([`vim.vm.device.VirtualDevice <vim/vm/device/VirtualDevice.rst>`_], optional):
 
        The list of virtual devices that are created on a virtual machine by default. Clients should not create these devices.
-    supportedMonitorType ([`str`_]):
+    supportedMonitorType ([`str <https://docs.python.org/2/library/stdtypes.html>`_]):
 
-       The monitor types supported by a host. The acceptable monitor types are enumerated by `VirtualMachineFlagInfoMonitorType`_ .
-    supportedOvfEnvironmentTransport ([`str`_], optional):
+       The monitor types supported by a host. The acceptable monitor types are enumerated by `VirtualMachineFlagInfoMonitorType <vim/vm/FlagInfo/MonitorType.rst>`_ .
+    supportedOvfEnvironmentTransport ([`str <https://docs.python.org/2/library/stdtypes.html>`_], optional):
 
        Specifies the supported property transports that are available for the OVF environment
-    supportedOvfInstallTransport ([`str`_], optional):
+    supportedOvfInstallTransport ([`str <https://docs.python.org/2/library/stdtypes.html>`_], optional):
 
        Specifies the supported transports for the OVF installation phase.

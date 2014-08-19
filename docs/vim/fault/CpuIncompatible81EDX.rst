@@ -1,29 +1,25 @@
-.. _bool: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.fault.CpuIncompatible: ../../vim/fault/CpuIncompatible.rst
-
 
 vim.fault.CpuIncompatible81EDX
 ==============================
     :extends:
 
-        `vim.fault.CpuIncompatible`_
+        `vim.fault.CpuIncompatible <vim/fault/CpuIncompatible.rst>`_
 
   Convenience subclass for calling out some named features among the incompatibilities found in CPUID level 0x80000001 register edx.
 
 Attributes:
 
-    nx (`bool`_)
+    nx (`bool <https://docs.python.org/2/library/stdtypes.html>`_)
 
-    ffxsr (`bool`_)
+    ffxsr (`bool <https://docs.python.org/2/library/stdtypes.html>`_)
 
-    rdtscp (`bool`_)
+    rdtscp (`bool <https://docs.python.org/2/library/stdtypes.html>`_)
 
-    lm (`bool`_)
+    lm (`bool <https://docs.python.org/2/library/stdtypes.html>`_)
 
-    other (`bool`_)
+    other (`bool <https://docs.python.org/2/library/stdtypes.html>`_)
 
-    otherOnly (`bool`_)
+    otherOnly (`bool <https://docs.python.org/2/library/stdtypes.html>`_)
 
 
 

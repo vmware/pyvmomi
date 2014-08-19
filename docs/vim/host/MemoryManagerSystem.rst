@@ -1,21 +1,3 @@
-.. _long: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.Task: ../../vim/Task.rst
-
-.. _VI API 2.5: ../../vim/version.rst#vimversionversion2
-
-.. _vmodl.fault.NotSupported: ../../vmodl/fault/NotSupported.rst
-
-.. _vmodl.fault.InvalidArgument: ../../vmodl/fault/InvalidArgument.rst
-
-.. _vim.ExtensibleManagedObject: ../../vim/ExtensibleManagedObject.rst
-
-.. _vim.host.MemoryManagerSystem.ServiceConsoleReservationInfo: ../../vim/host/MemoryManagerSystem/ServiceConsoleReservationInfo.rst
-
-.. _vim.host.MemoryManagerSystem.VirtualMachineReservationSpec: ../../vim/host/MemoryManagerSystem/VirtualMachineReservationSpec.rst
-
-.. _vim.host.MemoryManagerSystem.VirtualMachineReservationInfo: ../../vim/host/MemoryManagerSystem/VirtualMachineReservationInfo.rst
-
 
 vim.host.MemoryManagerSystem
 ============================
@@ -27,9 +9,9 @@ vim.host.MemoryManagerSystem
 
 Attributes
 ----------
-    consoleReservationInfo (`vim.host.MemoryManagerSystem.ServiceConsoleReservationInfo`_):
+    consoleReservationInfo (`vim.host.MemoryManagerSystem.ServiceConsoleReservationInfo <vim/host/MemoryManagerSystem/ServiceConsoleReservationInfo.rst>`_):
        Service console reservation information for the memory manager. The existence of this data object indicates if the service console memory reservation must be configured for this host.
-    virtualMachineReservationInfo (`vim.host.MemoryManagerSystem.VirtualMachineReservationInfo`_):
+    virtualMachineReservationInfo (`vim.host.MemoryManagerSystem.VirtualMachineReservationInfo <vim/host/MemoryManagerSystem/VirtualMachineReservationInfo.rst>`_):
        Virtual machine reservation information for the memory manager. The existence of this data object indicates if the virtual machine memory reservation must be configured for this host.
 
 
@@ -47,7 +29,7 @@ ReconfigureServiceConsoleReservation(cfgBytes):
 
 
   Args:
-    cfgBytes (`long`_):
+    cfgBytes (`long <https://docs.python.org/2/library/stdtypes.html>`_):
 
 
 
@@ -58,16 +40,16 @@ ReconfigureServiceConsoleReservation(cfgBytes):
 
   Raises:
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
        if cfgBytes is negative or is greater than the total memory available.
 
-    `vmodl.fault.NotSupported`_: 
+    `vmodl.fault.NotSupported <vmodl/fault/NotSupported.rst>`_: 
        if the service console memory reservation does not apply to this host. The existence of the consoleReservation property will indicate if this feature is applicable.
 
 
 ReconfigureVirtualMachineReservation(spec):
    Updates the virtual machine reservation information.
-  since: `VI API 2.5`_
+  since: `VI API 2.5 <vim/version.rst#vimversionversion2>`_
 
 
   Privilege:
@@ -76,7 +58,7 @@ ReconfigureVirtualMachineReservation(spec):
 
 
   Args:
-    spec (`vim.host.MemoryManagerSystem.VirtualMachineReservationSpec`_):
+    spec (`vim.host.MemoryManagerSystem.VirtualMachineReservationSpec <vim/host/MemoryManagerSystem/VirtualMachineReservationSpec.rst>`_):
 
 
 
@@ -87,10 +69,10 @@ ReconfigureVirtualMachineReservation(spec):
 
   Raises:
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
        if virtualMachineReserved is negative or is greater than the maximum amount reservable.
 
-    `vmodl.fault.NotSupported`_: 
+    `vmodl.fault.NotSupported <vmodl/fault/NotSupported.rst>`_: 
        if the virtualMachine reservation does not apply to this host. The existence of the virtualMachineReservationInfo property will indicate if this feature is applicable.
 
 

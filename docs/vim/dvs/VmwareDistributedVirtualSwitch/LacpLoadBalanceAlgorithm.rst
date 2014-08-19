@@ -1,13 +1,9 @@
-.. _vim.dvs.VmwareDistributedVirtualSwitch: ../../../vim/dvs/VmwareDistributedVirtualSwitch.rst
-
-.. _vim.dvs.VmwareDistributedVirtualSwitch.LacpLoadBalanceAlgorithm: ../../../vim/dvs/VmwareDistributedVirtualSwitch/LacpLoadBalanceAlgorithm.rst
-
 vim.dvs.VmwareDistributedVirtualSwitch.LacpLoadBalanceAlgorithm
 ===============================================================
   Load balance algorithm in a Link Aggregation Control Protocol group.
-  :contained by: `vim.dvs.VmwareDistributedVirtualSwitch`_
+  :contained by: `vim.dvs.VmwareDistributedVirtualSwitch <vim/dvs/VmwareDistributedVirtualSwitch.rst>`_
 
-  :type: `vim.dvs.VmwareDistributedVirtualSwitch.LacpLoadBalanceAlgorithm`_
+  :type: `vim.dvs.VmwareDistributedVirtualSwitch.LacpLoadBalanceAlgorithm <vim/dvs/VmwareDistributedVirtualSwitch/LacpLoadBalanceAlgorithm.rst>`_
 
   :name: srcPortId
 

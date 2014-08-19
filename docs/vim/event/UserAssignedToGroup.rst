@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.event.HostEvent: ../../vim/event/HostEvent.rst
-
 
 vim.event.UserAssignedToGroup
 =============================
@@ -9,7 +5,7 @@ vim.event.UserAssignedToGroup
 :extends: vim.event.HostEvent_
 
 Attributes:
-    userLogin (`str`_):
+    userLogin (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
-    group (`str`_):
+    group (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 

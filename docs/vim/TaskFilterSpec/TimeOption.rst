@@ -1,13 +1,9 @@
-.. _vim.TaskFilterSpec: ../../vim/TaskFilterSpec.rst
-
-.. _vim.TaskFilterSpec.TimeOption: ../../vim/TaskFilterSpec/TimeOption.rst
-
 vim.TaskFilterSpec.TimeOption
 =============================
   This option specifies a time stamp governing the selection of tasks.
-  :contained by: `vim.TaskFilterSpec`_
+  :contained by: `vim.TaskFilterSpec <vim/TaskFilterSpec.rst>`_
 
-  :type: `vim.TaskFilterSpec.TimeOption`_
+  :type: `vim.TaskFilterSpec.TimeOption <vim/TaskFilterSpec/TimeOption.rst>`_
 
   :name: completedTime
 

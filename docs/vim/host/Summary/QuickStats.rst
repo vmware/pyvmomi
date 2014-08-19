@@ -1,7 +1,3 @@
-.. _int: https://docs.python.org/2/library/stdtypes.html
-
-.. _vmodl.DynamicData: ../../../vmodl/DynamicData.rst
-
 
 vim.host.Summary.QuickStats
 ===========================
@@ -9,18 +5,18 @@ vim.host.Summary.QuickStats
 :extends: vmodl.DynamicData_
 
 Attributes:
-    overallCpuUsage (`int`_, optional):
+    overallCpuUsage (`int <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        Aggregated CPU usage across all cores on the host in MHz. This is only available if the host is connected.
-    overallMemoryUsage (`int`_, optional):
+    overallMemoryUsage (`int <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        Physical memory usage on the host in MB. This is only available if the host is connected.
-    distributedCpuFairness (`int`_, optional):
+    distributedCpuFairness (`int <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        The fairness of distributed CPU resource allocation on the host.
-    distributedMemoryFairness (`int`_, optional):
+    distributedMemoryFairness (`int <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        The fairness of distributed memory resource allocation on the host.
-    uptime (`int`_, optional):
+    uptime (`int <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        The system uptime of the host in seconds.

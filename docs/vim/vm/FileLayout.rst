@@ -1,11 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vmodl.DynamicData: ../../vmodl/DynamicData.rst
-
-.. _vim.vm.FileLayout.DiskLayout: ../../vim/vm/FileLayout/DiskLayout.rst
-
-.. _vim.vm.FileLayout.SnapshotLayout: ../../vim/vm/FileLayout/SnapshotLayout.rst
-
 
 vim.vm.FileLayout
 =================
@@ -21,18 +13,18 @@ vim.vm.FileLayout
 
 
 Attributes:
-    configFile ([`str`_], optional):
+    configFile ([`str <https://docs.python.org/2/library/stdtypes.html>`_], optional):
 
        A list of files that makes up the configuration of the virtual machine (excluding the .vmx file, since that file is represented in the FileInfo). These are relative paths from the configuration directory. A slash is always used as a separator. This list will typically include the NVRAM file, but could also include other meta-data files.
-    logFile ([`str`_], optional):
+    logFile ([`str <https://docs.python.org/2/library/stdtypes.html>`_], optional):
 
        A list of files stored in the virtual machine's log directory. These are relative paths from the logDirectory. A slash is always used as a separator.
-    disk ([`vim.vm.FileLayout.DiskLayout`_], optional):
+    disk ([`vim.vm.FileLayout.DiskLayout <vim/vm/FileLayout/DiskLayout.rst>`_], optional):
 
        Files making up each virtual disk.
-    snapshot ([`vim.vm.FileLayout.SnapshotLayout`_], optional):
+    snapshot ([`vim.vm.FileLayout.SnapshotLayout <vim/vm/FileLayout/SnapshotLayout.rst>`_], optional):
 
        Files of each snapshot.
-    swapFile (`str`_, optional):
+    swapFile (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        The swapfile specific to this virtual machine, if any. This is a complete datastore path, not a relative path.

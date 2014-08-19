@@ -1,9 +1,3 @@
-.. _int: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.option.OptionType: ../../vim/option/OptionType.rst
-
-.. _vim.ElementDescription: ../../vim/ElementDescription.rst
-
 
 vim.option.ChoiceOption
 =======================
@@ -11,9 +5,9 @@ vim.option.ChoiceOption
 :extends: vim.option.OptionType_
 
 Attributes:
-    choiceInfo ([`vim.ElementDescription`_]):
+    choiceInfo ([`vim.ElementDescription <vim/ElementDescription.rst>`_]):
 
        The set of possible selections and descriptions.
-    defaultIndex (`int`_, optional):
+    defaultIndex (`int <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        The index in ChoiceOption.value that serves as the default value.

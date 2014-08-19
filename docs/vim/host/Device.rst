@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vmodl.DynamicData: ../../vmodl/DynamicData.rst
-
 
 vim.host.Device
 ===============
@@ -9,9 +5,9 @@ vim.host.Device
 :extends: vmodl.DynamicData_
 
 Attributes:
-    deviceName (`str`_):
+    deviceName (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The name of the device on the host. For example, /dev/cdrom or \\serverX\device_name.
-    deviceType (`str`_):
+    deviceType (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Device type when available: floppy, mouse, cdrom, disk, scsi device, or adapter.

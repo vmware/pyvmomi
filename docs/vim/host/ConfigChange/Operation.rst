@@ -1,15 +1,9 @@
-.. _NotFound: ../../../vim/fault/NotFound.rst
-
-.. _vim.host.ConfigChange: ../../../vim/host/ConfigChange.rst
-
-.. _vim.host.ConfigChange.Operation: ../../../vim/host/ConfigChange/Operation.rst
-
 vim.host.ConfigChange.Operation
 ===============================
   This list indicates the operation that should be performed for a network entity.
-  :contained by: `vim.host.ConfigChange`_
+  :contained by: `vim.host.ConfigChange <vim/host/ConfigChange.rst>`_
 
-  :type: `vim.host.ConfigChange.Operation`_
+  :type: `vim.host.ConfigChange.Operation <vim/host/ConfigChange/Operation.rst>`_
 
   :name: edit
 
@@ -17,7 +11,7 @@ values:
 --------
 
 edit
-   Indicates changes on the network entity. The entity must exist or a `NotFound`_ error will be thrown.
+   Indicates changes on the network entity. The entity must exist or a `NotFound <vim/fault/NotFound.rst>`_ error will be thrown.
 
 add
    Indicates the addition of a network entity to the configuration.

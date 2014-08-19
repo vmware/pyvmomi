@@ -1,9 +1,3 @@
-.. _type: ../vim/PerformanceManager/CounterInfo/StatsType.rst
-
-.. _vmodl.DynamicData: ../vmodl/DynamicData.rst
-
-.. _vim.ElementDescription: ../vim/ElementDescription.rst
-
 
 vim.PerformanceDescription
 ==========================
@@ -11,9 +5,9 @@ vim.PerformanceDescription
 :extends: vmodl.DynamicData_
 
 Attributes:
-    counterType ([`vim.ElementDescription`_]):
+    counterType ([`vim.ElementDescription <vim/ElementDescription.rst>`_]):
 
-       Identifies the `type`_ of the counter.
-    statsType ([`vim.ElementDescription`_]):
+       Identifies the `type <vim/PerformanceManager/CounterInfo/RollupType.rst>`_ of the counter.
+    statsType ([`vim.ElementDescription <vim/ElementDescription.rst>`_]):
 
-       Identifies the `type`_ of statistic.
+       Identifies the `type <vim/PerformanceManager/CounterInfo/StatsType.rst>`_ of statistic.

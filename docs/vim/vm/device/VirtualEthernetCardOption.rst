@@ -1,11 +1,3 @@
-.. _bool: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.option.BoolOption: ../../../vim/option/BoolOption.rst
-
-.. _vim.option.ChoiceOption: ../../../vim/option/ChoiceOption.rst
-
-.. _vim.vm.device.VirtualDeviceOption: ../../../vim/vm/device/VirtualDeviceOption.rst
-
 
 vim.vm.device.VirtualEthernetCardOption
 =======================================
@@ -13,15 +5,15 @@ vim.vm.device.VirtualEthernetCardOption
 :extends: vim.vm.device.VirtualDeviceOption_
 
 Attributes:
-    supportedOUI (`vim.option.ChoiceOption`_):
+    supportedOUI (`vim.option.ChoiceOption <vim/option/ChoiceOption.rst>`_):
 
        The valid Organizational Unique Identifiers (OUIs) supported by this virtual Ethernet card.Supported OUIs for statically assigned MAC addresses:"00:50:56"
-    macType (`vim.option.ChoiceOption`_):
+    macType (`vim.option.ChoiceOption <vim/option/ChoiceOption.rst>`_):
 
        The supported MAC address types.
-    wakeOnLanEnabled (`vim.option.BoolOption`_):
+    wakeOnLanEnabled (`vim.option.BoolOption <vim/option/BoolOption.rst>`_):
 
        Flag to indicate whether or not wake-on-LAN is settable on this device.
-    vmDirectPathGen2Supported (`bool`_):
+    vmDirectPathGen2Supported (`bool <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Flag to indicate whether VMDirectPath Gen 2 is available on this device.

@@ -1,9 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.action.Action: ../../vim/action/Action.rst
-
-.. _vim.action.MethodActionArgument: ../../vim/action/MethodActionArgument.rst
-
 
 vim.action.MethodAction
 =======================
@@ -11,9 +5,9 @@ vim.action.MethodAction
 :extends: vim.action.Action_
 
 Attributes:
-    name (`str`_):
+    name (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        Name of the operation.
-    argument ([`vim.action.MethodActionArgument`_], optional):
+    argument ([`vim.action.MethodActionArgument <vim/action/MethodActionArgument.rst>`_], optional):
 
        An array consisting of the arguments for the operation.

@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.host.PhysicalNic.NetworkHint.HintElement: ../../../../vim/host/PhysicalNic/NetworkHint/HintElement.rst
-
 
 vim.host.PhysicalNic.NetworkHint.IpNetwork
 ==========================================
@@ -9,6 +5,6 @@ vim.host.PhysicalNic.NetworkHint.IpNetwork
 :extends: vim.host.PhysicalNic.NetworkHint.HintElement_
 
 Attributes:
-    ipSubnet (`str`_):
+    ipSubnet (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The network IP addresses.

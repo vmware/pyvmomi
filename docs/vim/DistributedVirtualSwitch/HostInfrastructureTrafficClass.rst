@@ -1,13 +1,9 @@
-.. _vim.DistributedVirtualSwitch: ../../vim/DistributedVirtualSwitch.rst
-
-.. _vim.DistributedVirtualSwitch.HostInfrastructureTrafficClass: ../../vim/DistributedVirtualSwitch/HostInfrastructureTrafficClass.rst
-
 vim.DistributedVirtualSwitch.HostInfrastructureTrafficClass
 ===========================================================
   List of possible host infrastructure traffic classes
-  :contained by: `vim.DistributedVirtualSwitch`_
+  :contained by: `vim.DistributedVirtualSwitch <vim/DistributedVirtualSwitch.rst>`_
 
-  :type: `vim.DistributedVirtualSwitch.HostInfrastructureTrafficClass`_
+  :type: `vim.DistributedVirtualSwitch.HostInfrastructureTrafficClass <vim/DistributedVirtualSwitch/HostInfrastructureTrafficClass.rst>`_
 
   :name: vsan
 

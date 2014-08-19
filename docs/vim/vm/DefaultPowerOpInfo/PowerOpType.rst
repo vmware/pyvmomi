@@ -1,13 +1,9 @@
-.. _vim.vm.DefaultPowerOpInfo: ../../../vim/vm/DefaultPowerOpInfo.rst
-
-.. _vim.vm.DefaultPowerOpInfo.PowerOpType: ../../../vim/vm/DefaultPowerOpInfo/PowerOpType.rst
-
 vim.vm.DefaultPowerOpInfo.PowerOpType
 =====================================
   The list of possible default power operations available for the virtual machine
-  :contained by: `vim.vm.DefaultPowerOpInfo`_
+  :contained by: `vim.vm.DefaultPowerOpInfo <vim/vm/DefaultPowerOpInfo.rst>`_
 
-  :type: `vim.vm.DefaultPowerOpInfo.PowerOpType`_
+  :type: `vim.vm.DefaultPowerOpInfo.PowerOpType <vim/vm/DefaultPowerOpInfo/PowerOpType.rst>`_
 
   :name: preset
 

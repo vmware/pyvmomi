@@ -1,15 +1,9 @@
-.. _vim.vm.FlagInfo: ../../../vim/vm/FlagInfo.rst
-
-.. _snapshotPowerOffBehavior: ../../../vim/vm/FlagInfo.rst#snapshotPowerOffBehavior
-
-.. _vim.vm.FlagInfo.PowerOffBehavior: ../../../vim/vm/FlagInfo/PowerOffBehavior.rst
-
 vim.vm.FlagInfo.PowerOffBehavior
 ================================
-  Set of possible values for `snapshotPowerOffBehavior`_ .
-  :contained by: `vim.vm.FlagInfo`_
+  Set of possible values for `snapshotPowerOffBehavior <vim/vm/FlagInfo.rst#snapshotPowerOffBehavior>`_ .
+  :contained by: `vim.vm.FlagInfo <vim/vm/FlagInfo.rst>`_
 
-  :type: `vim.vm.FlagInfo.PowerOffBehavior`_
+  :type: `vim.vm.FlagInfo.PowerOffBehavior <vim/vm/FlagInfo/PowerOffBehavior.rst>`_
 
   :name: prompt
 

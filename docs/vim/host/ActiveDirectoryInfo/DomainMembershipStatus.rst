@@ -1,12 +1,8 @@
-.. _vim.host.ActiveDirectoryInfo: ../../../vim/host/ActiveDirectoryInfo.rst
-
-.. _vim.host.ActiveDirectoryInfo.DomainMembershipStatus: ../../../vim/host/ActiveDirectoryInfo/DomainMembershipStatus.rst
-
 vim.host.ActiveDirectoryInfo.DomainMembershipStatus
 ===================================================
-  :contained by: `vim.host.ActiveDirectoryInfo`_
+  :contained by: `vim.host.ActiveDirectoryInfo <vim/host/ActiveDirectoryInfo.rst>`_
 
-  :type: `vim.host.ActiveDirectoryInfo.DomainMembershipStatus`_
+  :type: `vim.host.ActiveDirectoryInfo.DomainMembershipStatus <vim/host/ActiveDirectoryInfo/DomainMembershipStatus.rst>`_
 
   :name: otherProblem
 

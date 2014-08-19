@@ -1,13 +1,9 @@
-.. _vim.host.InternetScsiHba.DiscoveryProperties: ../../../../vim/host/InternetScsiHba/DiscoveryProperties.rst
-
-.. _vim.host.InternetScsiHba.DiscoveryProperties.SlpDiscoveryMethod: ../../../../vim/host/InternetScsiHba/DiscoveryProperties/SlpDiscoveryMethod.rst
-
 vim.host.InternetScsiHba.DiscoveryProperties.SlpDiscoveryMethod
 ===============================================================
   The available SLP discovery methods.
-  :contained by: `vim.host.InternetScsiHba.DiscoveryProperties`_
+  :contained by: `vim.host.InternetScsiHba.DiscoveryProperties <vim/host/InternetScsiHba/DiscoveryProperties.rst>`_
 
-  :type: `vim.host.InternetScsiHba.DiscoveryProperties.SlpDiscoveryMethod`_
+  :type: `vim.host.InternetScsiHba.DiscoveryProperties.SlpDiscoveryMethod <vim/host/InternetScsiHba/DiscoveryProperties/SlpDiscoveryMethod.rst>`_
 
   :name: slpManual
 

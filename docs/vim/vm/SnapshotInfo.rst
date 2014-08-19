@@ -1,13 +1,3 @@
-.. _vim.vm.Snapshot: ../../vim/vm/Snapshot.rst
-
-.. _Snapshot.revert: ../../vim/vm/Snapshot.rst#revert
-
-.. _vmodl.DynamicData: ../../vmodl/DynamicData.rst
-
-.. _vim.vm.SnapshotTree: ../../vim/vm/SnapshotTree.rst
-
-.. _VirtualMachine.createSnapshot: ../../vim/VirtualMachine.rst#createSnapshot
-
 
 vim.vm.SnapshotInfo
 ===================
@@ -15,9 +5,9 @@ vim.vm.SnapshotInfo
 :extends: vmodl.DynamicData_
 
 Attributes:
-    currentSnapshot (`vim.vm.Snapshot`_, optional):
+    currentSnapshot (`vim.vm.Snapshot <vim/vm/Snapshot.rst>`_, optional):
 
-       Current snapshot of the virtual machineThis property is set by calling `Snapshot.revert`_ or `VirtualMachine.createSnapshot`_ . This property will be empty when the working snapshot is at the root of the snapshot tree.
-    rootSnapshotList ([`vim.vm.SnapshotTree`_]):
+       Current snapshot of the virtual machineThis property is set by calling `Snapshot.revert <vim/vm/Snapshot.rst#revert>`_ or `VirtualMachine.createSnapshot <vim/VirtualMachine.rst#createSnapshot>`_ . This property will be empty when the working snapshot is at the root of the snapshot tree.
+    rootSnapshotList ([`vim.vm.SnapshotTree <vim/vm/SnapshotTree.rst>`_]):
 
        Data for the entire set of snapshots for one virtual machine.

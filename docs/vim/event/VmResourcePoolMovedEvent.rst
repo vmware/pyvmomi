@@ -1,7 +1,3 @@
-.. _vim.event.VmEvent: ../../vim/event/VmEvent.rst
-
-.. _vim.event.ResourcePoolEventArgument: ../../vim/event/ResourcePoolEventArgument.rst
-
 
 vim.event.VmResourcePoolMovedEvent
 ==================================
@@ -9,9 +5,9 @@ vim.event.VmResourcePoolMovedEvent
 :extends: vim.event.VmEvent_
 
 Attributes:
-    oldParent (`vim.event.ResourcePoolEventArgument`_):
+    oldParent (`vim.event.ResourcePoolEventArgument <vim/event/ResourcePoolEventArgument.rst>`_):
 
        The old parent resourcePool of the moved virtual machine.
-    newParent (`vim.event.ResourcePoolEventArgument`_):
+    newParent (`vim.event.ResourcePoolEventArgument <vim/event/ResourcePoolEventArgument.rst>`_):
 
        The new parent resourcePool of the moved virtual machine.

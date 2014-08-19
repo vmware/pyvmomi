@@ -1,12 +1,8 @@
-.. _vim.vApp.EntityConfigInfo: ../../../vim/vApp/EntityConfigInfo.rst
-
-.. _vim.vApp.EntityConfigInfo.Action: ../../../vim/vApp/EntityConfigInfo/Action.rst
-
 vim.vApp.EntityConfigInfo.Action
 ================================
-  :contained by: `vim.vApp.EntityConfigInfo`_
+  :contained by: `vim.vApp.EntityConfigInfo <vim/vApp/EntityConfigInfo.rst>`_
 
-  :type: `vim.vApp.EntityConfigInfo.Action`_
+  :type: `vim.vApp.EntityConfigInfo.Action <vim/vApp/EntityConfigInfo/Action.rst>`_
 
   :name: suspend
 

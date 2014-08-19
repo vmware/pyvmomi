@@ -1,25 +1,3 @@
-.. _int: https://docs.python.org/2/library/stdtypes.html
-
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _datetime: https://docs.python.org/2/library/stdtypes.html
-
-.. _vmodl.DynamicData: ../../vmodl/DynamicData.rst
-
-.. _vim.event.VmEventArgument: ../../vim/event/VmEventArgument.rst
-
-.. _vim.event.DvsEventArgument: ../../vim/event/DvsEventArgument.rst
-
-.. _vim.event.HostEventArgument: ../../vim/event/HostEventArgument.rst
-
-.. _vim.event.NetworkEventArgument: ../../vim/event/NetworkEventArgument.rst
-
-.. _vim.event.DatastoreEventArgument: ../../vim/event/DatastoreEventArgument.rst
-
-.. _vim.event.DatacenterEventArgument: ../../vim/event/DatacenterEventArgument.rst
-
-.. _vim.event.ComputeResourceEventArgument: ../../vim/event/ComputeResourceEventArgument.rst
-
 
 vim.event.Event
 ===============
@@ -27,42 +5,42 @@ vim.event.Event
 :extends: vmodl.DynamicData_
 
 Attributes:
-    key (`int`_):
+    key (`int <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The event ID.
-    chainId (`int`_):
+    chainId (`int <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The parent or group ID.
-    createdTime (`datetime`_):
+    createdTime (`datetime <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The time the event was created.
-    userName (`str`_):
+    userName (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The user who caused the event.
-    datacenter (`vim.event.DatacenterEventArgument`_, optional):
+    datacenter (`vim.event.DatacenterEventArgument <vim/event/DatacenterEventArgument.rst>`_, optional):
 
        The Datacenter object of the event.
-    computeResource (`vim.event.ComputeResourceEventArgument`_, optional):
+    computeResource (`vim.event.ComputeResourceEventArgument <vim/event/ComputeResourceEventArgument.rst>`_, optional):
 
        The ComputeResource object of the event.
-    host (`vim.event.HostEventArgument`_, optional):
+    host (`vim.event.HostEventArgument <vim/event/HostEventArgument.rst>`_, optional):
 
        The Host object of the event.
-    vm (`vim.event.VmEventArgument`_, optional):
+    vm (`vim.event.VmEventArgument <vim/event/VmEventArgument.rst>`_, optional):
 
        The VirtualMachine object of the event.
-    ds (`vim.event.DatastoreEventArgument`_, optional):
+    ds (`vim.event.DatastoreEventArgument <vim/event/DatastoreEventArgument.rst>`_, optional):
 
        The Datastore object of the event.
-    net (`vim.event.NetworkEventArgument`_, optional):
+    net (`vim.event.NetworkEventArgument <vim/event/NetworkEventArgument.rst>`_, optional):
 
        The Network object of the event.
-    dvs (`vim.event.DvsEventArgument`_, optional):
+    dvs (`vim.event.DvsEventArgument <vim/event/DvsEventArgument.rst>`_, optional):
 
        The DistributedVirtualSwitch object of the event.
-    fullFormattedMessage (`str`_, optional):
+    fullFormattedMessage (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        A formatted text message describing the event. The message may be localized.
-    changeTag (`str`_, optional):
+    changeTag (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        The user entered tag to identify the operations and their side effects

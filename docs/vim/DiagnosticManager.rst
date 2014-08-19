@@ -1,27 +1,3 @@
-.. _int: https://docs.python.org/2/library/stdtypes.html
-
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _bool: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.Task: ../vim/Task.rst
-
-.. _vim.HostSystem: ../vim/HostSystem.rst
-
-.. _vim.fault.TaskInProgress: ../vim/fault/TaskInProgress.rst
-
-.. _vim.fault.CannotAccessFile: ../vim/fault/CannotAccessFile.rst
-
-.. _vmodl.fault.InvalidArgument: ../vmodl/fault/InvalidArgument.rst
-
-.. _vim.fault.LogBundlingFailed: ../vim/fault/LogBundlingFailed.rst
-
-.. _vim.DiagnosticManager.LogHeader: ../vim/DiagnosticManager/LogHeader.rst
-
-.. _vim.DiagnosticManager.BundleInfo: ../vim/DiagnosticManager/BundleInfo.rst
-
-.. _vim.DiagnosticManager.LogDescriptor: ../vim/DiagnosticManager/LogDescriptor.rst
-
 
 vim.DiagnosticManager
 =====================
@@ -48,19 +24,19 @@ QueryDescriptions(host):
 
 
   Args:
-    host (`vim.HostSystem`_, optional):
+    host (`vim.HostSystem <vim/HostSystem.rst>`_, optional):
        Specifies the host. If not specified, then it defaults to the server itself. For example, if called on VirtualCenter, then the value defaults to VirtualCenter logs. When called on an ESX server host, the host should not be specified.
 
 
 
 
   Returns:
-    [`vim.DiagnosticManager.LogDescriptor`_]:
+    [`vim.DiagnosticManager.LogDescriptor <vim/DiagnosticManager/LogDescriptor.rst>`_]:
          
 
   Raises:
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
        if the host does not exist or is specified on a host.
 
 
@@ -74,34 +50,34 @@ BrowseDiagnosticLog(host, key, start, lines):
 
 
   Args:
-    host (`vim.HostSystem`_, optional):
+    host (`vim.HostSystem <vim/HostSystem.rst>`_, optional):
        Specifies the host. If not specified, then it defaults to the default server. For example, if called on VirtualCenter, then the value defaults to VirtualCenter logs.
 
 
-    key (`str`_):
+    key (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        A string key specifying the key for the log file to browse. Keys can be obtained using the queryDescriptions method.
 
 
-    start (`int`_, optional):
+    start (`int <https://docs.python.org/2/library/stdtypes.html>`_, optional):
        The line number for the first entry to be returned. If the parameter is not specified, then the operation returns with lines starting from the top of the log.
 
 
-    lines (`int`_, optional):
+    lines (`int <https://docs.python.org/2/library/stdtypes.html>`_, optional):
        The number of lines to return. If not specified, then all lines are returned from the start value to the end of the file.
 
 
 
 
   Returns:
-    `vim.DiagnosticManager.LogHeader`_:
+    `vim.DiagnosticManager.LogHeader <vim/DiagnosticManager/LogHeader.rst>`_:
          A LogHeader that includes the log lines. Sometimes fewer log lines are returned than were requested. For example, fewer lines are returned than expected if the client requests lines that do not exist or if the server limits the number of lines that it returns. If zero lines are returned, then the end of the log file may have been reached.
 
   Raises:
 
-    `vim.fault.CannotAccessFile`_: 
+    `vim.fault.CannotAccessFile <vim/fault/CannotAccessFile.rst>`_: 
        if the key refers to a file that cannot be accessed at the present time.
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument <vmodl/fault/InvalidArgument.rst>`_: 
        if the key refers to a nonexistent log file or the log file is not of type "plain".
 
 
@@ -115,26 +91,26 @@ GenerateLogBundles(includeDefault, host):
 
 
   Args:
-    includeDefault (`bool`_):
+    includeDefault (`bool <https://docs.python.org/2/library/stdtypes.html>`_):
        Specifies if the bundle should include the default server. If called on a VirtualCenter server, then this means the VirtualCenter diagnostic files. If called directly on a host, then includeDefault must be set to true.
 
 
-    host (`vim.HostSystem`_, optional):
+    host (`vim.HostSystem <vim/HostSystem.rst>`_, optional):
        Lists hosts that are included. This is only used when called on VirtualCenter. If called directly on a host, then this parameter must be empty.
 
 
 
 
   Returns:
-     `vim.Task`_:
+     `vim.Task <vim/Task.rst>`_:
          a list of BundleInfo objects for each diagnostic bundle that has been generated. The list may include no information from some requested hosts. For example, hosts that are disconnected or not responding are ignored.
 
   Raises:
 
-    `vim.fault.LogBundlingFailed`_: 
+    `vim.fault.LogBundlingFailed <vim/fault/LogBundlingFailed.rst>`_: 
        if generation of support bundle failed.
 
-    `vim.fault.TaskInProgress`_: 
+    `vim.fault.TaskInProgress <vim/fault/TaskInProgress.rst>`_: 
        if there is a pending request to generate a support bundle.The caller can download the bundles using an HTTP GET operation for each returned URL. Bundles are usually available for at least 24 hours, but the caller should not assume that the returned URLs are valid indefinitely. Servers often automatically delete generated diagnostic bundles after some given period of time.
 
 

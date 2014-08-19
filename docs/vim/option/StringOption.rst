@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.option.OptionType: ../../vim/option/OptionType.rst
-
 
 vim.option.StringOption
 =======================
@@ -9,9 +5,9 @@ vim.option.StringOption
 :extends: vim.option.OptionType_
 
 Attributes:
-    defaultValue (`str`_):
+    defaultValue (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The default value.
-    validCharacters (`str`_, optional):
+    validCharacters (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        The string containing the set of valid characters. If a string option is not specified, all strings are allowed.

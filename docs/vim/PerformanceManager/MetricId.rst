@@ -1,34 +1,18 @@
-.. _int: https://docs.python.org/2/library/stdtypes.html
-
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _metricId: ../../vim/PerformanceManager/QuerySpec.rst#metricId
-
-.. _instance: ../../vim/PerformanceManager/MetricId.rst#instance
-
-.. _counterId: ../../vim/PerformanceManager/MetricId.rst#counterId
-
-.. _PerfQuerySpec: ../../vim/PerformanceManager/QuerySpec.rst
-
-.. _vmodl.DynamicData: ../../vmodl/DynamicData.rst
-
-.. _PerformanceManager: ../../vim/PerformanceManager.rst
-
 
 vim.PerformanceManager.MetricId
 ===============================
-  This data object type contains information that associates a performance counter with a performance metric. When constructing this data object for the `metricId`_ property of the `PerfQuerySpec`_ to submit to one of the `PerformanceManager`_ query operations, the `instance`_ property supports these special characters:
+  This data object type contains information that associates a performance counter with a performance metric. When constructing this data object for the `metricId <vim/PerformanceManager/QuerySpec.rst#metricId>`_ property of the `PerfQuerySpec <vim/PerformanceManager/QuerySpec.rst>`_ to submit to one of the `PerformanceManager <vim/PerformanceManager.rst>`_ query operations, the `instance <vim/PerformanceManager/MetricId.rst#instance>`_ property supports these special characters:
    * An asterisk (*) to specify all instances of the metric for the specified
-   * `counterId`_
+   * `counterId <vim/PerformanceManager/MetricId.rst#counterId>`_
    * 
    * Double-quotes ("") to specify aggregated statistics
 :extends: vmodl.DynamicData_
 
 Attributes:
-    counterId (`int`_):
+    counterId (`int <https://docs.python.org/2/library/stdtypes.html>`_):
 
-       The `ID`_ of the counter for the metric.
-    instance (`str`_):
+       The `ID <vim/PerformanceManager/CounterInfo.rst#key>`_ of the counter for the metric.
+    instance (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        An identifier that is derived from configuration names for the device associated with the metric. It identifies the instance of the metric with its source. This property may be empty.
         * For memory and aggregated statistics, this property is empty.

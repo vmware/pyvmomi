@@ -1,13 +1,9 @@
-.. _vim.vm.GuestOsDescriptor: ../../../vim/vm/GuestOsDescriptor.rst
-
-.. _vim.vm.GuestOsDescriptor.GuestOsFamily: ../../../vim/vm/GuestOsDescriptor/GuestOsFamily.rst
-
 vim.vm.GuestOsDescriptor.GuestOsFamily
 ======================================
   Guest operating system family constants.
-  :contained by: `vim.vm.GuestOsDescriptor`_
+  :contained by: `vim.vm.GuestOsDescriptor <vim/vm/GuestOsDescriptor.rst>`_
 
-  :type: `vim.vm.GuestOsDescriptor.GuestOsFamily`_
+  :type: `vim.vm.GuestOsDescriptor.GuestOsFamily <vim/vm/GuestOsDescriptor/GuestOsFamily.rst>`_
 
   :name: otherGuestFamily
 

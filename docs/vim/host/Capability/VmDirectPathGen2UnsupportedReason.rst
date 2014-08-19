@@ -1,15 +1,9 @@
-.. _vim.host.Capability: ../../../vim/host/Capability.rst
-
-.. _vmDirectPathGen2UnsupportedReason: ../../../vim/host/Capability.rst#vmDirectPathGen2UnsupportedReason
-
-.. _vim.host.Capability.VmDirectPathGen2UnsupportedReason: ../../../vim/host/Capability/VmDirectPathGen2UnsupportedReason.rst
-
 vim.host.Capability.VmDirectPathGen2UnsupportedReason
 =====================================================
-  Set of possible values for `vmDirectPathGen2UnsupportedReason`_ .
-  :contained by: `vim.host.Capability`_
+  Set of possible values for `vmDirectPathGen2UnsupportedReason <vim/host/Capability.rst#vmDirectPathGen2UnsupportedReason>`_ .
+  :contained by: `vim.host.Capability <vim/host/Capability.rst>`_
 
-  :type: `vim.host.Capability.VmDirectPathGen2UnsupportedReason`_
+  :type: `vim.host.Capability.VmDirectPathGen2UnsupportedReason <vim/host/Capability/VmDirectPathGen2UnsupportedReason.rst>`_
 
   :name: hostNptDisabled
 

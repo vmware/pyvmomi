@@ -1,19 +1,15 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.fault.HostConfigFault: ../../vim/fault/HostConfigFault.rst
-
 
 vim.fault.VmfsMountFault
 ========================
     :extends:
 
-        `vim.fault.HostConfigFault`_
+        `vim.fault.HostConfigFault <vim/fault/HostConfigFault.rst>`_
 
   This is a base class for all VMFS volume mount related faults.
 
 Attributes:
 
-    uuid (`str`_)
+    uuid (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
 
 

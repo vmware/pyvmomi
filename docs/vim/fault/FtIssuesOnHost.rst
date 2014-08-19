@@ -1,25 +1,19 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _string: ../../str
-
-.. _vim.fault.VmFaultToleranceIssue: ../../vim/fault/VmFaultToleranceIssue.rst
-
 
 vim.fault.FtIssuesOnHost
 ========================
     :extends:
 
-        `vim.fault.VmFaultToleranceIssue`_
+        `vim.fault.VmFaultToleranceIssue <vim/fault/VmFaultToleranceIssue.rst>`_
 
   The FtIssuesOnHost fault reports issues that prevent a particular host from being used as the register or power on host for a Fault Tolerance secondary virtual machine
 
 Attributes:
 
-    host (`str`_)
+    host (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
-    hostName (`str`_)
+    hostName (`str <https://docs.python.org/2/library/stdtypes.html>`_)
 
-    errors (`str`_): is optional.
+    errors (`str <https://docs.python.org/2/library/stdtypes.html>`_): is optional.
 
 
 

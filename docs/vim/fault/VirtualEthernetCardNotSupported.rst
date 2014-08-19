@@ -1,11 +1,9 @@
-.. _vim.fault.DeviceNotSupported: ../../vim/fault/DeviceNotSupported.rst
-
 
 vim.fault.VirtualEthernetCardNotSupported
 =========================================
     :extends:
 
-        `vim.fault.DeviceNotSupported`_
+        `vim.fault.DeviceNotSupported <vim/fault/DeviceNotSupported.rst>`_
 
   The virtual machine's virtual ethernet card is not supported.
 

@@ -1,7 +1,3 @@
-.. _vim.event.ClusterEvent: ../../vim/event/ClusterEvent.rst
-
-.. _vim.event.HostEventArgument: ../../vim/event/HostEventArgument.rst
-
 
 vim.event.DasHostIsolatedEvent
 ==============================
@@ -9,6 +5,6 @@ vim.event.DasHostIsolatedEvent
 :extends: vim.event.ClusterEvent_
 
 Attributes:
-    isolatedHost (`vim.event.HostEventArgument`_):
+    isolatedHost (`vim.event.HostEventArgument <vim/event/HostEventArgument.rst>`_):
 
        The host that was isolated.

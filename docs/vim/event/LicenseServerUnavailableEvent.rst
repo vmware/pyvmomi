@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.event.LicenseEvent: ../../vim/event/LicenseEvent.rst
-
 
 vim.event.LicenseServerUnavailableEvent
 =======================================
@@ -9,5 +5,5 @@ vim.event.LicenseServerUnavailableEvent
 :extends: vim.event.LicenseEvent_
 
 Attributes:
-    licenseServer (`str`_):
+    licenseServer (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 

@@ -1,13 +1,9 @@
-.. _vim.host.LowLevelProvisioningManager: ../../../vim/host/LowLevelProvisioningManager.rst
-
-.. _vim.host.LowLevelProvisioningManager.ReloadTarget: ../../../vim/host/LowLevelProvisioningManager/ReloadTarget.rst
-
 vim.host.LowLevelProvisioningManager.ReloadTarget
 =================================================
   The target of the disk reload.
-  :contained by: `vim.host.LowLevelProvisioningManager`_
+  :contained by: `vim.host.LowLevelProvisioningManager <vim/host/LowLevelProvisioningManager.rst>`_
 
-  :type: `vim.host.LowLevelProvisioningManager.ReloadTarget`_
+  :type: `vim.host.LowLevelProvisioningManager.ReloadTarget <vim/host/LowLevelProvisioningManager/ReloadTarget.rst>`_
 
   :name: snapshotConfig
 

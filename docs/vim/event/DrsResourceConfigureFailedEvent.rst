@@ -1,7 +1,3 @@
-.. _vim.event.HostEvent: ../../vim/event/HostEvent.rst
-
-.. _vmodl.LocalizedMethodFault: ../../vmodl/LocalizedMethodFault.rst
-
 
 vim.event.DrsResourceConfigureFailedEvent
 =========================================
@@ -9,6 +5,6 @@ vim.event.DrsResourceConfigureFailedEvent
 :extends: vim.event.HostEvent_
 
 Attributes:
-    reason (`vmodl.LocalizedMethodFault`_):
+    reason (`vmodl.LocalizedMethodFault <vmodl/LocalizedMethodFault.rst>`_):
 
        The reason for the failure.

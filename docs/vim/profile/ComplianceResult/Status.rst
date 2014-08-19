@@ -1,12 +1,8 @@
-.. _vim.profile.ComplianceResult: ../../../vim/profile/ComplianceResult.rst
-
-.. _vim.profile.ComplianceResult.Status: ../../../vim/profile/ComplianceResult/Status.rst
-
 vim.profile.ComplianceResult.Status
 ===================================
-  :contained by: `vim.profile.ComplianceResult`_
+  :contained by: `vim.profile.ComplianceResult <vim/profile/ComplianceResult.rst>`_
 
-  :type: `vim.profile.ComplianceResult.Status`_
+  :type: `vim.profile.ComplianceResult.Status <vim/profile/ComplianceResult/Status.rst>`_
 
   :name: unknown
 

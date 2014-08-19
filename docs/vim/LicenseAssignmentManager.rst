@@ -1,22 +1,10 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.Task: ../vim/Task.rst
-
-.. _vSphere API 4.0: ../vim/version.rst#vimversionversion5
-
-.. _vim.LicenseManager.LicenseInfo: ../vim/LicenseManager/LicenseInfo.rst
-
-.. _vim.fault.LicenseEntityNotFound: ../vim/fault/LicenseEntityNotFound.rst
-
-.. _vim.LicenseAssignmentManager.LicenseAssignment: ../vim/LicenseAssignmentManager/LicenseAssignment.rst
-
 
 vim.LicenseAssignmentManager
 ============================
   
 
 
-:since: `vSphere API 4.0`_
+:since: `vSphere API 4.0 <vim/version.rst#vimversionversion5>`_
 
 
 Attributes
@@ -37,27 +25,27 @@ UpdateAssignedLicense(entity, licenseKey, entityDisplayName):
 
 
   Args:
-    entity (`str`_):
+    entity (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        ID of the entity. E.g. HostSystem.
 
 
-    licenseKey (`str`_):
+    licenseKey (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        A license.
 
 
-    entityDisplayName (`str`_, optional):
+    entityDisplayName (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
        Display name for the entity
 
 
 
 
   Returns:
-    `vim.LicenseManager.LicenseInfo`_:
+    `vim.LicenseManager.LicenseInfo <vim/LicenseManager/LicenseInfo.rst>`_:
          Returns information about the license specified in licenseKey
 
   Raises:
 
-    `vim.fault.LicenseEntityNotFound`_: 
+    `vim.fault.LicenseEntityNotFound <vim/fault/LicenseEntityNotFound.rst>`_: 
        vim.fault.LicenseEntityNotFound
 
 
@@ -71,7 +59,7 @@ RemoveAssignedLicense(entityId):
 
 
   Args:
-    entityId (`str`_):
+    entityId (`str <https://docs.python.org/2/library/stdtypes.html>`_):
        ID of the entity. E.g. HostSystem.
 
 
@@ -83,7 +71,7 @@ RemoveAssignedLicense(entityId):
 
   Raises:
 
-    `vim.fault.LicenseEntityNotFound`_: 
+    `vim.fault.LicenseEntityNotFound <vim/fault/LicenseEntityNotFound.rst>`_: 
        vim.fault.LicenseEntityNotFound
 
 
@@ -97,14 +85,14 @@ QueryAssignedLicenses(entityId):
 
 
   Args:
-    entityId (`str`_, optional):
+    entityId (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
        ID of the entity. E.g. HostSystem.
 
 
 
 
   Returns:
-    [`vim.LicenseAssignmentManager.LicenseAssignment`_]:
+    [`vim.LicenseAssignmentManager.LicenseAssignment <vim/LicenseAssignmentManager/LicenseAssignment.rst>`_]:
          
 
 

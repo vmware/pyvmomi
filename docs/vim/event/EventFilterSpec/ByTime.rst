@@ -1,7 +1,3 @@
-.. _datetime: https://docs.python.org/2/library/stdtypes.html
-
-.. _vmodl.DynamicData: ../../../vmodl/DynamicData.rst
-
 
 vim.event.EventFilterSpec.ByTime
 ================================
@@ -9,9 +5,9 @@ vim.event.EventFilterSpec.ByTime
 :extends: vmodl.DynamicData_
 
 Attributes:
-    beginTime (`datetime`_, optional):
+    beginTime (`datetime <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        The beginning of the time range. If this property is not set, then events are collected from the earliest time in the database.
-    endTime (`datetime`_, optional):
+    endTime (`datetime <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        The end of the time range. If this property is not specified, then events are collected up to the latest time in the database.

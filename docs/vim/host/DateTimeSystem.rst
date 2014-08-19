@@ -1,29 +1,15 @@
-.. _vim.Task: ../../vim/Task.rst
-
-.. _datetime: https://docs.python.org/2/library/stdtypes.html
-
-.. _VI API 2.5: ../../vim/version.rst#vimversionversion2
-
-.. _vim.host.DateTimeInfo: ../../vim/host/DateTimeInfo.rst
-
-.. _vim.host.DateTimeConfig: ../../vim/host/DateTimeConfig.rst
-
-.. _vim.fault.HostConfigFault: ../../vim/fault/HostConfigFault.rst
-
-.. _vim.host.DateTimeSystem.TimeZone: ../../vim/host/DateTimeSystem/TimeZone.rst
-
 
 vim.host.DateTimeSystem
 =======================
-  This managed object provides for NTP and date/time related configuration on a host. Information regarding the running status of the NTP daemon and functionality to start and stop the daemon is provided by the `HostServiceSystem`_ object.
+  This managed object provides for NTP and date/time related configuration on a host. Information regarding the running status of the NTP daemon and functionality to start and stop the daemon is provided by the `HostServiceSystem <vim/host/ServiceSystem.rst>`_ object.
 
 
-:since: `VI API 2.5`_
+:since: `VI API 2.5 <vim/version.rst#vimversionversion2>`_
 
 
 Attributes
 ----------
-    dateTimeInfo (`vim.host.DateTimeInfo`_):
+    dateTimeInfo (`vim.host.DateTimeInfo <vim/host/DateTimeInfo.rst>`_):
       privilege: System.Read
        The DateTime configuration of the host.
 
@@ -42,7 +28,7 @@ UpdateDateTimeConfig(config):
 
 
   Args:
-    config (`vim.host.DateTimeConfig`_):
+    config (`vim.host.DateTimeConfig <vim/host/DateTimeConfig.rst>`_):
        The new DateTime configuration information.
 
 
@@ -54,7 +40,7 @@ UpdateDateTimeConfig(config):
 
   Raises:
 
-    `vim.fault.HostConfigFault`_: 
+    `vim.fault.HostConfigFault <vim/fault/HostConfigFault.rst>`_: 
        if an error occurs.
 
 
@@ -71,7 +57,7 @@ QueryAvailableTimeZones():
 
 
   Returns:
-    [`vim.host.DateTimeSystem.TimeZone`_]:
+    [`vim.host.DateTimeSystem.TimeZone <vim/host/DateTimeSystem/TimeZone.rst>`_]:
          List of available timezones on the host.
 
 
@@ -88,7 +74,7 @@ QueryDateTime():
 
 
   Returns:
-    `datetime`_:
+    `datetime <https://docs.python.org/2/library/stdtypes.html>`_:
          Current DateTime on the host.
 
 
@@ -102,7 +88,7 @@ UpdateDateTime(dateTime):
 
 
   Args:
-    dateTime (`datetime`_):
+    dateTime (`datetime <https://docs.python.org/2/library/stdtypes.html>`_):
        DateTime to update the host to.
 
 
@@ -114,7 +100,7 @@ UpdateDateTime(dateTime):
 
   Raises:
 
-    `vim.fault.HostConfigFault`_: 
+    `vim.fault.HostConfigFault <vim/fault/HostConfigFault.rst>`_: 
        if an error occurs.
 
 

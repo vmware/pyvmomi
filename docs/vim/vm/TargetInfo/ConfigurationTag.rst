@@ -1,13 +1,9 @@
-.. _vim.vm.TargetInfo: ../../../vim/vm/TargetInfo.rst
-
-.. _vim.vm.TargetInfo.ConfigurationTag: ../../../vim/vm/TargetInfo/ConfigurationTag.rst
-
 vim.vm.TargetInfo.ConfigurationTag
 ==================================
   Describes how widely the endpoint is availabe in a cluster. Note that these fields are not neccessarily mutual-exclusive.
-  :contained by: `vim.vm.TargetInfo`_
+  :contained by: `vim.vm.TargetInfo <vim/vm/TargetInfo.rst>`_
 
-  :type: `vim.vm.TargetInfo.ConfigurationTag`_
+  :type: `vim.vm.TargetInfo.ConfigurationTag <vim/vm/TargetInfo/ConfigurationTag.rst>`_
 
   :name: clusterWide
 

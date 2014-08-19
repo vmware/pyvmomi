@@ -1,9 +1,3 @@
-.. _long: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.host.HostBusAdapter: ../../vim/host/HostBusAdapter.rst
-
-.. _vim.host.FibreChannelHba.PortType: ../../vim/host/FibreChannelHba/PortType.rst
-
 
 vim.host.FibreChannelHba
 ========================
@@ -11,15 +5,15 @@ vim.host.FibreChannelHba
 :extends: vim.host.HostBusAdapter_
 
 Attributes:
-    portWorldWideName (`long`_):
+    portWorldWideName (`long <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The world wide port name for the adapter.
-    nodeWorldWideName (`long`_):
+    nodeWorldWideName (`long <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The world wide node name for the adapter.
-    portType (`vim.host.FibreChannelHba.PortType`_):
+    portType (`vim.host.FibreChannelHba.PortType <vim/host/FibreChannelHba/PortType.rst>`_):
 
        The type of the fiber channel port.
-    speed (`long`_):
+    speed (`long <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The current operating speed of the adapter in bits per second.

@@ -1,7 +1,3 @@
-.. _vim.option.BoolOption: ../../../../vim/option/BoolOption.rst
-
-.. _vim.vm.device.VirtualDeviceOption.BackingOption: ../../../../vim/vm/device/VirtualDeviceOption/BackingOption.rst
-
 
 vim.vm.device.VirtualDeviceOption.DeviceBackingOption
 =====================================================
@@ -9,6 +5,6 @@ vim.vm.device.VirtualDeviceOption.DeviceBackingOption
 :extends: vim.vm.device.VirtualDeviceOption.BackingOption_
 
 Attributes:
-    autoDetectAvailable (`vim.option.BoolOption`_):
+    autoDetectAvailable (`vim.option.BoolOption <vim/option/BoolOption.rst>`_):
 
        Flag to indicate whether the specific instance of this device can be auto-detected on the host instead of having to specify a particular physical device.

@@ -1,12 +1,8 @@
-.. _vim.event.VmDasBeingResetEvent: ../../../vim/event/VmDasBeingResetEvent.rst
-
-.. _vim.event.VmDasBeingResetEvent.ReasonCode: ../../../vim/event/VmDasBeingResetEvent/ReasonCode.rst
-
 vim.event.VmDasBeingResetEvent.ReasonCode
 =========================================
-  :contained by: `vim.event.VmDasBeingResetEvent`_
+  :contained by: `vim.event.VmDasBeingResetEvent <vim/event/VmDasBeingResetEvent.rst>`_
 
-  :type: `vim.event.VmDasBeingResetEvent.ReasonCode`_
+  :type: `vim.event.VmDasBeingResetEvent.ReasonCode <vim/event/VmDasBeingResetEvent/ReasonCode.rst>`_
 
   :name: appImmediateResetRequest
 

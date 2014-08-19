@@ -1,12 +1,8 @@
-.. _vim.event.VmShutdownOnIsolationEvent: ../../../vim/event/VmShutdownOnIsolationEvent.rst
-
-.. _vim.event.VmShutdownOnIsolationEvent.Operation: ../../../vim/event/VmShutdownOnIsolationEvent/Operation.rst
-
 vim.event.VmShutdownOnIsolationEvent.Operation
 ==============================================
-  :contained by: `vim.event.VmShutdownOnIsolationEvent`_
+  :contained by: `vim.event.VmShutdownOnIsolationEvent <vim/event/VmShutdownOnIsolationEvent.rst>`_
 
-  :type: `vim.event.VmShutdownOnIsolationEvent.Operation`_
+  :type: `vim.event.VmShutdownOnIsolationEvent.Operation <vim/event/VmShutdownOnIsolationEvent/Operation.rst>`_
 
   :name: poweredOff
 

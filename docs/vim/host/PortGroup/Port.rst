@@ -1,9 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vmodl.DynamicData: ../../../vmodl/DynamicData.rst
-
-.. _PortGroupConnecteeType: ../../../vim/host/PortGroup/PortConnecteeType.rst
-
 
 vim.host.PortGroup.Port
 =======================
@@ -11,12 +5,12 @@ vim.host.PortGroup.Port
 :extends: vmodl.DynamicData_
 
 Attributes:
-    key (`str`_, optional):
+    key (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        The linkable identifier.
-    mac ([`str`_], optional):
+    mac ([`str <https://docs.python.org/2/library/stdtypes.html>`_], optional):
 
        The Media Access Control (MAC) address of network service of the virtual machine connected on this port.
-    type (`str`_):
+    type (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
-       The type of component connected on this port. Must be one of the values of `PortGroupConnecteeType`_ .
+       The type of component connected on this port. Must be one of the values of `PortGroupConnecteeType <vim/host/PortGroup/PortConnecteeType.rst>`_ .

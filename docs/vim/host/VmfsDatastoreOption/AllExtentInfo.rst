@@ -1,5 +1,3 @@
-.. _vim.host.VmfsDatastoreOption.SingleExtentInfo: ../../../vim/host/VmfsDatastoreOption/SingleExtentInfo.rst
-
 
 vim.host.VmfsDatastoreOption.AllExtentInfo
 ==========================================

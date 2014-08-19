@@ -1,13 +1,9 @@
-.. _vim.host.HardwareStatusInfo: ../../../vim/host/HardwareStatusInfo.rst
-
-.. _vim.host.HardwareStatusInfo.Status: ../../../vim/host/HardwareStatusInfo/Status.rst
-
 vim.host.HardwareStatusInfo.Status
 ==================================
   The current status of the hardware
-  :contained by: `vim.host.HardwareStatusInfo`_
+  :contained by: `vim.host.HardwareStatusInfo <vim/host/HardwareStatusInfo.rst>`_
 
-  :type: `vim.host.HardwareStatusInfo.Status`_
+  :type: `vim.host.HardwareStatusInfo.Status <vim/host/HardwareStatusInfo/Status.rst>`_
 
   :name: Red
 

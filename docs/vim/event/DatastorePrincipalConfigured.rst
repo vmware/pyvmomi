@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.event.HostEvent: ../../vim/event/HostEvent.rst
-
 
 vim.event.DatastorePrincipalConfigured
 ======================================
@@ -9,5 +5,5 @@ vim.event.DatastorePrincipalConfigured
 :extends: vim.event.HostEvent_
 
 Attributes:
-    datastorePrincipal (`str`_):
+    datastorePrincipal (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 

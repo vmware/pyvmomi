@@ -1,12 +1,8 @@
-.. _vim.host.IpConfig: ../../../vim/host/IpConfig.rst
-
-.. _vim.host.IpConfig.IpV6AddressStatus: ../../../vim/host/IpConfig/IpV6AddressStatus.rst
-
 vim.host.IpConfig.IpV6AddressStatus
 ===================================
-  :contained by: `vim.host.IpConfig`_
+  :contained by: `vim.host.IpConfig <vim/host/IpConfig.rst>`_
 
-  :type: `vim.host.IpConfig.IpV6AddressStatus`_
+  :type: `vim.host.IpConfig.IpV6AddressStatus <vim/host/IpConfig/IpV6AddressStatus.rst>`_
 
   :name: duplicate
 

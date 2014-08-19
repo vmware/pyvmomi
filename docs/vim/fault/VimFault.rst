@@ -1,11 +1,9 @@
-.. _vmodl.MethodFault: ../../vmodl/MethodFault.rst
-
 
 vim.fault.VimFault
 ==================
     :extends:
 
-        `vmodl.MethodFault`_
+        `vmodl.MethodFault <vmodl/MethodFault.rst>`_
 
   The common base type for all virtual infrastructure management exceptions.
 

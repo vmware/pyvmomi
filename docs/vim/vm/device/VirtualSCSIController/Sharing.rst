@@ -1,13 +1,9 @@
-.. _vim.vm.device.VirtualSCSIController: ../../../../vim/vm/device/VirtualSCSIController.rst
-
-.. _vim.vm.device.VirtualSCSIController.Sharing: ../../../../vim/vm/device/VirtualSCSIController/Sharing.rst
-
 vim.vm.device.VirtualSCSIController.Sharing
 ===========================================
   Sharing describes three possible ways of sharing the SCSI bus: One of these values is assigned to the sharedBus object to determine if or how the SCSI bus is shared.
-  :contained by: `vim.vm.device.VirtualSCSIController`_
+  :contained by: `vim.vm.device.VirtualSCSIController <vim/vm/device/VirtualSCSIController.rst>`_
 
-  :type: `vim.vm.device.VirtualSCSIController.Sharing`_
+  :type: `vim.vm.device.VirtualSCSIController.Sharing <vim/vm/device/VirtualSCSIController/Sharing.rst>`_
 
   :name: physicalSharing
 

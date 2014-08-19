@@ -1,28 +1,20 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _bool: https://docs.python.org/2/library/stdtypes.html
-
-.. _vSphere API 4.0: ../../../vim/version.rst#vimversionversion5
-
-.. _vmodl.DynamicData: ../../../vmodl/DynamicData.rst
-
 
 vim.host.InternetScsiHba.DigestProperties
 =========================================
   The digest settings for this host bus adapter.
 :extends: vmodl.DynamicData_
-:since: `vSphere API 4.0`_
+:since: `vSphere API 4.0 <vim/version.rst#vimversionversion5>`_
 
 Attributes:
-    headerDigestType (`str`_, optional):
+    headerDigestType (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        The header digest preference if header digest is enabled
-    headerDigestInherited (`bool`_, optional):
+    headerDigestInherited (`bool <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        Header digest setting is inherited
-    dataDigestType (`str`_, optional):
+    dataDigestType (`str <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        The data digest preference if data digest is enabled
-    dataDigestInherited (`bool`_, optional):
+    dataDigestInherited (`bool <https://docs.python.org/2/library/stdtypes.html>`_, optional):
 
        Data digest setting is inherited

@@ -1,9 +1,3 @@
-.. _int: https://docs.python.org/2/library/stdtypes.html
-
-.. _long: https://docs.python.org/2/library/stdtypes.html
-
-.. _vmodl.DynamicData: ../../../vmodl/DynamicData.rst
-
 
 vim.host.DiskDimensions.Chs
 ===========================
@@ -11,12 +5,12 @@ vim.host.DiskDimensions.Chs
 :extends: vmodl.DynamicData_
 
 Attributes:
-    cylinder (`long`_):
+    cylinder (`long <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The number of cylinders.
-    head (`int`_):
+    head (`int <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The number of heads per cylinders.
-    sector (`int`_):
+    sector (`int <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The number of sectors per head.

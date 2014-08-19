@@ -1,13 +1,9 @@
-.. _vim.PerformanceManager.CounterInfo: ../../../vim/PerformanceManager/CounterInfo.rst
-
-.. _vim.PerformanceManager.CounterInfo.RollupType: ../../../vim/PerformanceManager/CounterInfo/RollupType.rst
-
 vim.PerformanceManager.CounterInfo.RollupType
 =============================================
   Indicates how multiple samples of a specific counter type are transformed into a single statistical value.
-  :contained by: `vim.PerformanceManager.CounterInfo`_
+  :contained by: `vim.PerformanceManager.CounterInfo <vim/PerformanceManager/CounterInfo.rst>`_
 
-  :type: `vim.PerformanceManager.CounterInfo.RollupType`_
+  :type: `vim.PerformanceManager.CounterInfo.RollupType <vim/PerformanceManager/CounterInfo/RollupType.rst>`_
 
   :name: none
 

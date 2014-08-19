@@ -1,13 +1,9 @@
-.. _vim.vm.device.VirtualDeviceOption.FileBackingOption: ../../../../../vim/vm/device/VirtualDeviceOption/FileBackingOption.rst
-
-.. _vim.vm.device.VirtualDeviceOption.FileBackingOption.FileExtension: ../../../../../vim/vm/device/VirtualDeviceOption/FileBackingOption/FileExtension.rst
-
 vim.vm.device.VirtualDeviceOption.FileBackingOption.FileExtension
 =================================================================
   All known file extensions. Valid ones are:
-  :contained by: `vim.vm.device.VirtualDeviceOption.FileBackingOption`_
+  :contained by: `vim.vm.device.VirtualDeviceOption.FileBackingOption <vim/vm/device/VirtualDeviceOption/FileBackingOption.rst>`_
 
-  :type: `vim.vm.device.VirtualDeviceOption.FileBackingOption.FileExtension`_
+  :type: `vim.vm.device.VirtualDeviceOption.FileBackingOption.FileExtension <vim/vm/device/VirtualDeviceOption/FileBackingOption/FileExtension.rst>`_
 
   :name: rdm
 

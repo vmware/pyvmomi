@@ -1,13 +1,9 @@
-.. _vim.net.NetBIOSConfigInfo: ../../../vim/net/NetBIOSConfigInfo.rst
-
-.. _vim.net.NetBIOSConfigInfo.Mode: ../../../vim/net/NetBIOSConfigInfo/Mode.rst
-
 vim.net.NetBIOSConfigInfo.Mode
 ==============================
   NetBIOS configuration mode.
-  :contained by: `vim.net.NetBIOSConfigInfo`_
+  :contained by: `vim.net.NetBIOSConfigInfo <vim/net/NetBIOSConfigInfo.rst>`_
 
-  :type: `vim.net.NetBIOSConfigInfo.Mode`_
+  :type: `vim.net.NetBIOSConfigInfo.Mode <vim/net/NetBIOSConfigInfo/Mode.rst>`_
 
   :name: enabledViaDHCP
 

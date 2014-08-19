@@ -1,7 +1,3 @@
-.. _str: https://docs.python.org/2/library/stdtypes.html
-
-.. _vim.event.Event: ../../vim/event/Event.rst
-
 
 vim.event.UpgradeEvent
 ======================
@@ -9,6 +5,6 @@ vim.event.UpgradeEvent
 :extends: vim.event.Event_
 
 Attributes:
-    message (`str`_):
+    message (`str <https://docs.python.org/2/library/stdtypes.html>`_):
 
        The formatted message from the upgrade.
