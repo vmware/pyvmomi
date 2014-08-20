@@ -1,0 +1,5 @@
+pyvmomi (5.5.0-2014.1-1) unstable; urgency=low
+
+  * Initial release (closes: #758745)
+
+ -- Joshua Kwan <joshk@triplehelix.org>  Wed, 20 Aug 2014 15:15:00 -0400
