@@ -1,0 +1,13 @@
+#!/usr/bin/make -f
+
+export PYBUILD_DESTDIR_python2=debian/python-pyvmomi/
+export PYBUILD_DESTDIR_python3=debian/python3-pyvmomi/
+export PYBUILD_DISABLE_python2=test
+export PYBUILD_DISABLE_python3=test
+
+%:
+	dh $@ --with python2,python3 --buildsystem=pybuild
+
+override_dh_installdocs:
+	dh_installdocs -X.rst
+	rsync -a docs/ debian/pyvmomi-doc/usr/share/doc/pyvmomi-doc
