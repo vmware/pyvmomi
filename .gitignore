@@ -5,3 +5,11 @@ dist
 *.iml
 *.patch
 *.diff
+*.egg-info
+.pybuild
+debian/files
+debian/python-pyvmomi/
+debian/python3-pyvmomi/
+debian/pyvmomi-doc/
+debian/*debhelper*
+debian/*.substvars
