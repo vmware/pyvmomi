@@ -1,4 +1,5 @@
 contextdecorator
 PyYAML>=3.11
+lxml
 testtools>=0.9.34
 vcrpy
