@@ -35,7 +35,7 @@ setup(
    url='https://github.com/vmware/pyvmomi',
    packages=['pyVmomi', 'pyVim'],
    install_requires=required,
-   license='Apache',
+   license='License :: OSI Approved :: Apache Software License',
    long_description=read('README.md'),
    classifiers=[
       "License :: OSI Approved :: Apache Software License",
