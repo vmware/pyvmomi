@@ -36,16 +36,25 @@ setup(
    packages=['pyVmomi', 'pyVim'],
    install_requires=required,
    license='License :: OSI Approved :: Apache Software License',
-   long_description=read('README.md'),
+   # NOTE: pypi prefers the use of RST to render docs
+   long_description=read('README.rst'),
    classifiers=[
       "License :: OSI Approved :: Apache Software License",
       "Development Status :: 5 - Production/Stable",
       "Environment :: No Input/Output (Daemon)",
+      "Programming Language :: Python",
+      "Programming Language :: Python :: 3",
       "Intended Audience :: Information Technology",
       "Intended Audience :: System Administrators",
+      "Intended Audience :: Developers",
       "Topic :: Software Development :: Libraries :: Python Modules",
-      "Topic :: System :: Distributed Computing"
+      "Topic :: System :: Distributed Computing",
+      "Operating System :: Microsoft :: Windows",
+      "Operating System :: POSIX",
+      "Operating System :: Unix",
+      "Operating System :: MacOS",
    ],
+   platforms = ["Windows", "Linux", "Solaris", "Mac OS-X", "Unix"],
    test_suite='tests',
    tests_require= required_for_tests,
    zip_safe=True
