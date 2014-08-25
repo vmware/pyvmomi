@@ -30,6 +30,14 @@ posted to `pypi <https://pypi.python.org/pypi/pyvmomi/>`_
   ``python setup.py develop`` for development install or 
   ``python setup.py install``. 
 
+Testing
+=======
+Unit tests can be invoked by using the ``tox`` command. You may have to
+configure multiple python interpreters so that you can test in all the
+environments listed in ``tox.ini`` or you will have to run ``tox`` with the
+``-e`` flag to run only in your version of python. For example, if you only
+have Python 2.7 then ``tox -e py27`` will limit your test run to Python 2.7.
+
 Contributing
 ============
 * Research `open issues <https://github.com/vmware/pyvmomi/issues?q=is%3Aopen+is%3Aissue>`_
