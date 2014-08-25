@@ -36,6 +36,8 @@ setup(
    packages=['pyVmomi', 'pyVim'],
    install_requires=required,
    license='License :: OSI Approved :: Apache Software License',
+   data_files = [("", ["LICENSE.txt", "NOTICE.txt", "MANIFEST.in",
+                       "setup.py"])],
    # NOTE: pypi prefers the use of RST to render docs
    long_description=read('README.rst'),
    classifiers=[
