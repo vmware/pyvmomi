@@ -1,4 +1,2 @@
-contextdecorator
-PyYAML>=3.10
 testtools>=0.9.34
 vcrpy
