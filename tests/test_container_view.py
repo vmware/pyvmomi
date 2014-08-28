@@ -12,10 +12,8 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-import atexit
 from tests import fixtures_path
 import logging
-from pprint import pprint
 import unittest
 import vcr
 
@@ -37,7 +35,6 @@ class ContainerViewTests(unittest.TestCase):
         si = connect.SmartConnect(host='vcsa',
                                   user='my_user',
                                   pwd='my_password')
-        atexit.register(connect.Disconnect, si)
 
         content = si.RetrieveContent()
 
