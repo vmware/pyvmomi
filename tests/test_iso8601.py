@@ -12,7 +12,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-import atexit
 from datetime import datetime
 from datetime import timedelta
 
@@ -32,7 +31,6 @@ class Iso8601Tests(unittest.TestCase):
         si = connect.SmartConnect(host='vcsa',
                                   user='my_user',
                                   pwd='my_password')
-        atexit.register(connect.Disconnect, si)
 
         search_index = si.content.searchIndex
         uuid = "5001ad1b-c78d-179e-ecd7-1cc0e1cf1b96"
@@ -92,7 +90,6 @@ class Iso8601Tests(unittest.TestCase):
             si = connect.SmartConnect(host='vcsa',
                                       user='my_user',
                                       pwd='my_password')
-            atexit.register(connect.Disconnect, si)
 
             search_index = si.content.searchIndex
             uuid = "4c4c4544-0043-4d10-8056-b1c04f4c5331"

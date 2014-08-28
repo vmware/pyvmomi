@@ -68,5 +68,8 @@ class ConnectionTests(unittest.TestCase):
         self.assertTrue(session_id is not None)
         self.assertEqual('52773cd3-35c6-b40a-17f1-fe664a9f08f3', session_id)
 
+    def test_disconnect_on_no_connection(self):
+        connect.Disconnect(None)
+
 if __name__ == '__main__':
     unittest.main()
