@@ -12,24 +12,18 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-from tests import fixtures_path
-import logging
-import unittest
+import tests
 import vcr
 
 from pyVim import connect
 from pyVmomi import vim
 
 
-class ContainerViewTests(unittest.TestCase):
-
-    def setUp(self):
-        logging.basicConfig()
-        vcr_log = logging.getLogger('vcr')
-        vcr_log.setLevel(logging.DEBUG)
+class ContainerViewTests(tests.VCRTestBase):
 
     @vcr.use_cassette('basic_container_view.yaml',
-                      cassette_library_dir=fixtures_path, record_mode='once')
+                      cassette_library_dir=tests.fixtures_path,
+                      record_mode='once')
     def test_basic_container_view(self):
         # see: http://python3porting.com/noconv.html
         si = connect.SmartConnect(host='vcsa',

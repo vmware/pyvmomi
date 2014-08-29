@@ -14,17 +14,18 @@
 # limitations under the License.
 from __future__ import print_function
 
-from tests import fixtures_path
-import unittest
+import tests
 import vcr
 
 from pyVim import connect
 from pyVmomi import vim
 
-class VirtualMachineTests(unittest.TestCase):
+
+class VirtualMachineTests(tests.VCRTestBase):
 
     @vcr.use_cassette('vm_nic_data.yaml',
-                      cassette_library_dir=fixtures_path, record_mode='never')
+                      cassette_library_dir=tests.fixtures_path,
+                      record_mode='never')
     def test_vm_nic_data(self):
         data = {'ESXi-5.5-16': [],
                 'ESXi-5.5-17': [],

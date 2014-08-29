@@ -12,15 +12,15 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-from tests import fixtures_path
-import unittest
+import tests
 import vcr
 
 
 from pyVmomi import SoapStubAdapter
 from pyVmomi import vim
 
-class SerializerTests(unittest.TestCase):
+
+class SerializerTests(tests.VCRTestBase):
 
     def test_simple_request_serializer(self):
         def request_matcher(r1, r2):
@@ -40,7 +40,7 @@ class SerializerTests(unittest.TestCase):
 
         with my_vcr.use_cassette(
                 'test_simple_request_serializer.yaml',
-                cassette_library_dir=fixtures_path,
+                cassette_library_dir=tests.fixtures_path,
                 record_mode='none',
                 match_on=['request_matcher']) as cass:
             host = 'vcsa'
