@@ -12,7 +12,10 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+import logging
 import os
+import unittest
+import vcr
 
 
 def tests_resource_path(local_path=''):
@@ -21,3 +24,17 @@ def tests_resource_path(local_path=''):
 
 # Fully qualified path to the fixtures directory underneath this module
 fixtures_path = tests_resource_path('fixtures')
+
+
+def monkey_patch_vcrpy():
+    # TODO (hartsock): This should be unnecessary. Remove after vcrpy updates.
+    vcr.stubs.VCRHTTPSConnection.is_verified = True
+
+
+class VCRTestBase(unittest.TestCase):
+
+    def setUp(self):
+        monkey_patch_vcrpy()
+        logging.basicConfig()
+        vcr_log = logging.getLogger('vcr')
+        vcr_log.setLevel(logging.DEBUG)

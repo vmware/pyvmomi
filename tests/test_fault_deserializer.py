@@ -17,8 +17,7 @@ import unittest
 import vcr
 
 from pyVim import connect
-from pyVmomi import SoapStubAdapter
-from pyVmomi import vim
+
 
 class DeserializerTests(unittest.TestCase):
 
@@ -44,7 +43,7 @@ class DeserializerTests(unittest.TestCase):
             # NOTE (hartsock): not using 'assertRaises' so we can inspect obj
             fault = ex
         # NOTE (hartsock): assertIsNotNone does not work in Python 2.6
-        self.assertTrue(fault is not None) # only until 2.6 support is dropped.
+        self.assertTrue(fault is not None)  # only until 2.6 support is dropped
         # Observe that the malformed XML was reported up the stack to the
         # user so that field reports will contain SOAP message information.
         self.assertTrue('<detail> '

@@ -15,18 +15,18 @@
 from datetime import datetime
 from datetime import timedelta
 
-from tests import fixtures_path
-import unittest
+import tests
 import vcr
 
 from pyVim import connect
 from pyVmomi.Iso8601 import TZManager
 
 
-class Iso8601Tests(unittest.TestCase):
+class Iso8601Tests(tests.VCRTestBase):
 
     @vcr.use_cassette('test_vm_config_iso8601.yaml',
-                      cassette_library_dir=fixtures_path, record_mode='once')
+                      cassette_library_dir=tests.fixtures_path,
+                      record_mode='once')
     def test_vm_config_iso8601(self):
         si = connect.SmartConnect(host='vcsa',
                                   user='my_user',
@@ -82,11 +82,10 @@ class Iso8601Tests(unittest.TestCase):
         # NOTE (hartsock): the `match_on` option is altered to use the
         # look at the XML body sent to the server
         with my_vcr.use_cassette('iso8601_set_datetime.yaml',
-                                 cassette_library_dir=fixtures_path,
+                                 cassette_library_dir=tests.fixtures_path,
                                  record_mode='once',
                                  match_on=['method', 'scheme', 'host', 'port',
                                            'path', 'query', 'document']):
-
             si = connect.SmartConnect(host='vcsa',
                                       user='my_user',
                                       pwd='my_password')
