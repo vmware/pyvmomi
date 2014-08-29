@@ -28,7 +28,7 @@ with open('test-requirements.txt') as f:
 
 setup(
    name='pyvmomi',
-   version='5.5.0-2014.1.1',
+   version='5.5.0-DEVELOPMENT',
    description='VMware vSphere Python SDK',
    # NOTE: pypi prefers the use of RST to render docs
    long_description=read('README.rst'),
