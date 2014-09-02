@@ -32,7 +32,7 @@ posted to `pypi <https://pypi.python.org/pypi/pyvmomi/>`_
 
 Testing
 =======
-Unit tests can be invoked by using the ``tox`` command. You may have to
+Unit tests can be invoked by using the `tox <https://testrun.org/tox/>`_ command. You may have to
 configure multiple python interpreters so that you can test in all the
 environments listed in ``tox.ini`` or you will have to run ``tox`` with the
 ``-e`` flag to run only in your version of python. For example, if you only
