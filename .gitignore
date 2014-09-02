@@ -5,3 +5,4 @@ dist
 *.iml
 *.patch
 *.diff
+*.egg*
