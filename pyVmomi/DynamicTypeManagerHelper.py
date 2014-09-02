@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 # VMware vSphere Python SDK
 # Copyright (c) 2008-2014 VMware, Inc. All Rights Reserved.
 #

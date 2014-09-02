@@ -38,8 +38,6 @@ setup(
    packages=['pyVmomi', 'pyVim'],
    install_requires=required,
    license='License :: OSI Approved :: Apache Software License',
-   data_files = [('', ['LICENSE.txt', 'NOTICE.txt', 'MANIFEST.in',
-                       'setup.py', 'tox.ini', 'setup.cfg'])],
    classifiers=[
       'Development Status :: 5 - Production/Stable',
       'License :: OSI Approved :: Apache Software License',
@@ -62,8 +60,8 @@ setup(
       'Operating System :: MacOS',
    ],
    keywords='pyvmomi vsphere vmware esx',
-   platforms = ['Windows', 'Linux', 'Solaris', 'Mac OS-X', 'Unix'],
+   platforms=['Windows', 'Linux', 'Solaris', 'Mac OS-X', 'Unix'],
    test_suite='tests',
-   tests_require= required_for_tests,
+   tests_require=required_for_tests,
    zip_safe=True
 )
