@@ -24,7 +24,7 @@ Installing
 The master is code that is in development, official releases are tagged and 
 posted to `pypi <https://pypi.python.org/pypi/pyvmomi/>`_
 
-* The official release is availabe using pip, just run 
+* The official release is available using pip, just run 
   ``pip install --upgrade pyvmomi``. 
 * To install the version in `github <https://github.com/vmware/pyvmomi>`_ use 
   ``python setup.py develop`` for development install or 
