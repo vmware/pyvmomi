@@ -16,6 +16,7 @@ import logging
 import os
 import unittest
 import vcr
+import socket
 
 
 def tests_resource_path(local_path=''):
@@ -29,7 +30,7 @@ fixtures_path = tests_resource_path('fixtures')
 def monkey_patch_vcrpy():
     # TODO (hartsock): This should be unnecessary. Remove after vcrpy updates.
     vcr.stubs.VCRHTTPSConnection.is_verified = True
-
+    vcr.stubs.VCRFakeSocket = socket.socket
 
 class VCRTestBase(unittest.TestCase):
 
