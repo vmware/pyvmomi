@@ -1035,11 +1035,10 @@ class SSLTunnelConnection(object):
       tunnel = http_client.HTTPConnection(path, **kwargs)
       tunnel.request('CONNECT', self.proxyPath)
       resp = tunnel.getresponse()
-      tunnelSocket = resp.fp
       if resp.status != 200:
         raise httplib.HTTPException("{0} {1}".format(resp.status, resp.reason))
       retval = http_client.HTTPSConnection(path)
-      retval.sock = _SocketWrapper(tunnelSocket,
+      retval.sock = _SocketWrapper(tunnel.sock,
                                    keyfile=key_file, certfile=cert_file)
       return retval
 

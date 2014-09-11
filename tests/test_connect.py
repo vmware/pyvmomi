@@ -68,5 +68,11 @@ class ConnectionTests(tests.VCRTestBase):
     def test_disconnect_on_no_connection(self):
         connect.Disconnect(None)
 
+    @vcr.use_cassette('ssl_tunnel.yaml',
+                      cassette_library_dir=tests.fixtures_path,
+                      record_mode='none')
+    def test_ssl_tunnel(self):
+        connect.SoapStubAdapter('sdkTunnel', 8089, httpProxyHost='vcsa').GetConnection()
+
 if __name__ == '__main__':
     unittest.main()
