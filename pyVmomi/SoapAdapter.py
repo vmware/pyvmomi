@@ -901,6 +901,8 @@ class SoapStubAdapterBase(StubAdapterBase):
 
       # Add request context and samlToken to soap header, if exists
       reqContexts = GetRequestContext()
+      if self.requestContext:
+         reqContexts.update(self.requestContext)
       samlToken = getattr(self, 'samlToken', None)
 
       if reqContexts or samlToken:
@@ -1197,7 +1199,7 @@ class SoapStubAdapter(SoapStubAdapterBase):
                 thumbprint=None, cacertsFile=None, version=None,
                 acceptCompressedResponses=True,
                 connectionPoolTimeout=CONNECTION_POOL_IDLE_TIMEOUT_SEC,
-                samlToken=None, sslContext=None):
+                samlToken=None, sslContext=None, requestContext=None):
       if ns:
          assert(version is None)
          version = versionMap[ns]
@@ -1263,6 +1265,7 @@ class SoapStubAdapter(SoapStubAdapterBase):
       if sslContext:
          self.schemeArgs['context'] = sslContext
       self.samlToken = samlToken
+      self.requestContext = requestContext
       self.requestModifierList = []
       self._acceptCompressedResponses = acceptCompressedResponses
 
