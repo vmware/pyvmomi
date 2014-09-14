@@ -78,6 +78,9 @@ _wsdlDefMap = {}
 # if a.b.c and a.b.d are the nested classes of a.b, then _dependencyMap[a.b] = {c,d}
 _dependencyMap = {}
 
+# Map top level names to xml namespaces
+_urnMap = {"vim": XMLNS_VMODL_BASE, "sms": "urn:sms", "pbm": "urn:pbm"}
+
 ## Update the dependency map
 #  Note: Must be holding the _lazyLock
 #
@@ -250,9 +253,9 @@ class LazyModule(object):
          else:
             if _CheckForDependency(self.name, attr):
                typeObj = LazyModule(name)
-            elif self.name == "vim":
+            elif self.name in _urnMap:
                try:
-                  typeObj = GetWsdlType(XMLNS_VMODL_BASE, attr)
+                  typeObj = GetWsdlType(_urnMap[self.name], attr)
                except:
                   raise AttributeError(attr)
             else:
