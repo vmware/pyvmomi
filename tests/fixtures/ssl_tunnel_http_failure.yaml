@@ -1,0 +1,15 @@
+interactions:
+- request:
+    body: null
+    headers: {}
+    method: CONNECT
+    uri: http://vcsavcsa:80
+  response:
+    body: {string: !!python/unicode '<HTML><BODY><H1>404 Not Found</H1></BODY></HTML>'}
+    headers:
+      connection: [close]
+      content-length: ['48']
+      content-type: [text/html]
+      date: ['Thu, 11 Sep 2014 07:57:56 GMT']
+    status: {code: 404, message: Not Found}
+version: 1

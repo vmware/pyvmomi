@@ -74,5 +74,14 @@ class ConnectionTests(tests.VCRTestBase):
     def test_ssl_tunnel(self):
         connect.SoapStubAdapter('sdkTunnel', 8089, httpProxyHost='vcsa').GetConnection()
 
+    @vcr.use_cassette('ssl_tunnel_http_failure.yaml',
+                      cassette_library_dir=tests.fixtures_path,
+                      record_mode='none')
+    def test_ssl_tunnel_http_failure(self):
+        from six.moves import http_client
+        def should_fail():
+            connect.SoapStubAdapter('vcsa', 80, httpProxyHost='vcsa').GetConnection()
+        self.assertRaises(http_client.HTTPException, should_fail)
+
 if __name__ == '__main__':
     unittest.main()
