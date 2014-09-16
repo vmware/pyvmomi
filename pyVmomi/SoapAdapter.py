@@ -453,20 +453,20 @@ def ReadDocument(parser, data):
    # a refactoring that rolls up some repeated code blocks into a method so
    # that we can refactor XML parsing behavior in a single place.
    if not isinstance(data, str):
-       data = data.read()
+      data = data.read()
    try:
       parser.Parse(data)
    except Exception:
-       # wrap all parser faults with additional information for later
-       # bug reporting on the XML parser code itself.
-       (ec, ev, tb) = sys.exc_info()
-       line = parser.CurrentLineNumber
-       col = parser.CurrentColumnNumber
-       pe = ParserError("xml document: "
-                        "{0} parse error at: "
-                        "line:{1}, col:{2}".format(data, line, col))
-       # use six.reraise for python 2.x and 3.x compatability
-       reraise(ParserError, pe, tb)
+      # wrap all parser faults with additional information for later
+      # bug reporting on the XML parser code itself.
+      (ec, ev, tb) = sys.exc_info()
+      line = parser.CurrentLineNumber
+      col = parser.CurrentColumnNumber
+      pe = ParserError("xml document: "
+                       "{0} parse error at: "
+                       "line:{1}, col:{2}".format(data, line, col))
+      # use six.reraise for python 2.x and 3.x compatability
+      reraise(ParserError, pe, tb)
 
 ## Deserialize an object from a file or string
 #
