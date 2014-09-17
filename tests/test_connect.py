@@ -16,6 +16,7 @@
 import tests
 import unittest
 import vcr
+import os
 
 from pyVim import connect
 from pyVmomi import vim
@@ -82,6 +83,31 @@ class ConnectionTests(tests.VCRTestBase):
         def should_fail():
             connect.SoapStubAdapter('vcsa', 80, httpProxyHost='vcsa').GetConnection()
         self.assertRaises(http_client.HTTPException, should_fail)
+
+    @vcr.use_cassette('smart_connect_invalid_cert.yaml',
+                      cassette_library_dir=tests.fixtures_path,
+                      record_mode='none')
+    def test_smart_connect_invalid_certificate(self):
+        def should_fail():
+          si = connect.SmartConnect(host='vcsa',
+                                    port=443,
+                                    user='my_user',
+                                    pwd='my_password',
+                                    keyFile='aaa',
+                                    certFile='bbb')
+        self.assertRaises(vim.fault.HostConnectFault, should_fail)
+
+    @vcr.use_cassette('smart_connect_valid_cert.yaml',
+                      cassette_library_dir=tests.fixtures_path,
+                      record_mode='none')
+    def test_smart_connect_valid_certificate(self):
+        si = connect.SmartConnect(host='vcsa',
+                                  port=443,
+                                  user='my_user',
+                                  pwd='my_password',
+                                  keyFile=os.path.join(tests.fixtures_path, 'smart_connect_cert.key'),
+                                  certFile=os.path.join(tests.fixtures_path, 'smart_connect_cert.pem'))
+
 
 if __name__ == '__main__':
     unittest.main()
