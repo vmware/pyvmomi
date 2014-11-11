@@ -11,13 +11,13 @@ ESX, ESXi, and vCenter.
 
 Getting Started
 ================
-To get started, check out the samples project at:
+To get started, see the `getting started guide <http://vmware.github.io/pyvmomi-community-samples/#getting-started>`_. You'll need `Python <https://www.python.org/downloads/>`_, `pip <https://pip.pypa.io/en/latest/installing.html#using-package-managers>`_, and the `samples project <https://github.com/vmware/pyvmomi-community-samples/tarball/master>`_.
 
-*  http://vmware.github.io/pyvmomi-community-samples/
-
+* http://vmware.github.io/pyvmomi-community-samples/
 * community discussion on IRC freenode.net channels `#pyvmomi and #pyvmomi-dev <http://webchat.freenode.net/?channels=#pyvmomi,#pyvmomi-dev>`_
-
 * community email is on `nabble <http://pyvmomi.2338814.n4.nabble.com>`_
+
+Don't know what pip is? Any serious python developer should know, so here's a `throrough intro to pip <http://www.dabapps.com/blog/introduction-to-pip-and-virtualenv-python/>`_ that we like.
 
 Installing
 ==========
