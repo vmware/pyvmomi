@@ -113,70 +113,26 @@ vim.Folder
 ==========
   The `Folder`_ managed object is a container for storing and organizing inventory objects. Folders can contain folders and other objects. The `childType`_ property identifies a folder's type and determines the types of folders and objects the folder can contain.
    * A folder can contain a child folder of the same type as the parent folder.
-   * All
-   * `Datacenter`_
-   * objects contain dedicated folders for:
-   * 
-   * 
-   * `VirtualMachine`_
-   * , templates, and
-   * `VirtualApp`_
-   * objects.
-   * 
-   * `ComputeResource`_
-   * hierarchies.
-   * 
-   * `Network`_
-   * ,
-   * `DistributedVirtualSwitch`_
-   * , and
-   * `DistributedVirtualPortgroup`_
-   * objects.
-   * 
-   * `Datastore`_
-   * objects.
-   * 
-   * A folder can contain child objects of type
-   * `childType`_
-   * . Virtual machine and network entity folders can also contain additional object types.
+   * All `Datacenter`_ objects contain dedicated folders for:
+     * `VirtualMachine`_, templates, and `VirtualApp`_ objects.
+     * `ComputeResource`_ hierarchies.
+     * `Network`_, `DistributedVirtualSwitch`_, and `DistributedVirtualPortgroup`_ objects.
+     * `Datastore`_ objects.
+   * A folder can contain child objects of type `childType`_. Virtual machine and network entity folders can also contain additional object types.
    * The root folder is a data center folder.
-   * See
-   * `ServiceInstance`_
-   * for a representation of the organization of the inventory.
-   * The
-   * `Folder`_
-   * managed object also acts as a factory object, meaning it creates new entities in a folder. The object provides methods to create child folders and objects, methods to add existing objects to folders, and methods to remove objects from folders and to delete folders.
-   * 
-   * `Folder`_
-   * inherits the
-   * `Destroy_Task`_
-   * method.
-   * `Destroy_Task`_
-   * is a recursive operation that removes all child objects and folders. When you call
-   * `Destroy_Task`_
-   * to destroy a folder, the system uses the specified folder as a root and traverses its descendant hierarchy, calling
-   * `Destroy_Task`_
-   * on each object.
-   * `Destroy_Task`_
-   * is a single operation that treats each recursive call as a single transaction, committing each call to remove an object individually. If
-   * `Destroy_Task`_
-   * fails on an object, the method terminates at that point with an exception, leaving some or all of the objects still in the inventory.
-   * Notes on the folder destroy method:
-   * 
-   * Calling
-   * `Destroy_Task`_
-   * on a virtual machine folder recursively calls
-   * `Destroy_Task`_
-   * on all the child virtual machines and vApps, which are then removed from disk. Use
-   * `UnregisterAndDestroy_Task`_
-   * to unregister virtual machines or vApps recursively without removing them from the disk.
-   * For virtual machine folders, the
-   * `Destroy_Task`_
-   * method requires the VirtualMachine.Delete privilege on the folder as well as all virtual machines to be destroyed. It also requires the VirtualApp.Delete privilege on all VirtualApp objects to be destroyed.
+
+  See `ServiceInstance`_ for a representation of the organization of the inventory.
+
+  The Folder`_ managed object also acts as a factory object, meaning it creates new entities in a folder. The object provides methods to create child folders and objects, methods to add existing objects to folders, and methods to remove objects from folders and to delete folders.
+
+  `Folder`_ inherits the `Destroy_Task`_ method. `Destroy_Task`_ is a recursive operation that removes all child objects and folders. When you call `Destroy_Task`_ to destroy a folder, the system uses the specified folder as a root and traverses its descendant hierarchy, calling `Destroy_Task`_ on each object. `Destroy_Task`_ is a single operation that treats each recursive call as a single transaction, committing each call to remove an object individually. If `Destroy_Task`_ fails on an object, the method terminates at that point with an exception, leaving some or all of the objects still in the inventory.
+
+  Notes on the folder destroy method:
+   * Calling `Destroy_Task`_ on a virtual machine folder recursively calls `Destroy_Task`_ on all the child virtual machines and vApps, which are then removed from disk. Use `UnregisterAndDestroy_Task`_ to unregister virtual machines or vApps recursively without removing them from the disk.
+   * For virtual machine folders, the `Destroy_Task`_ method requires the VirtualMachine.Delete privilege on the folder as well as all virtual machines to be destroyed. It also requires the VirtualApp.Delete privilege on all VirtualApp objects to be destroyed.
    * Destroying a host folder or datacenter folder unregisters all child hosts and virtual machines from vCenter. The hosts are simply removed from the inventory, along with their virtual machines. The virtual machines are not removed from disk nor are their runtime states changed.
    * You can remove network and datastore folders only if they are empty.
    * You cannot destroy, rename, or move the virtual machine, compute resource, network entity, and datastore child folders of a Datacenter.
-   * 
 
 
 :extends: vim.ManagedEntity_
@@ -223,10 +179,10 @@ CreateFolder(name):
 
   Raises:
 
-    `vim.fault.DuplicateName`_: 
+    `vim.fault.DuplicateName`_:
        if another object in the same folder has the target name.
 
-    `vim.fault.InvalidName`_: 
+    `vim.fault.InvalidName`_:
        if the name is not a valid entity name.
 
 
@@ -256,26 +212,26 @@ MoveIntoFolder(list):
 
   Returns:
      `vim.Task`_:
-         
+
 
   Raises:
 
-    `vim.fault.DuplicateName`_: 
+    `vim.fault.DuplicateName`_:
        if this folder already contains an object with the specified name.
 
-    `vim.fault.InvalidFolder`_: 
+    `vim.fault.InvalidFolder`_:
        if a Folder that is a parent of this Folder is part of the list of objects.
 
-    `vim.fault.InvalidState`_: 
+    `vim.fault.InvalidState`_:
        if a HostSystem is not part of the same datacenter, not part of a ClusterComputeResource, or not in maintenance mode.
 
-    `vmodl.fault.NotSupported`_: 
+    `vmodl.fault.NotSupported`_:
        if the entity is being moved into a folder whose `childType`_ property is not set to the appropriate value. For example, a VirtualMachine entity cannot be moved into a folder whose ChildType property value does not contain "VirtualMachine".
 
-    `vim.fault.DisallowedOperationOnFailoverHost`_: 
+    `vim.fault.DisallowedOperationOnFailoverHost`_:
        if the host is being moved out of a cluster and was configured as a failover host in that cluster. See `ClusterFailoverHostAdmissionControlPolicy`_ .
 
-    `vim.fault.VmAlreadyExistsInDatacenter`_: 
+    `vim.fault.VmAlreadyExistsInDatacenter`_:
        if moving a standalone host between datacenters, and one or more of the host's virtual machines is already registered to a host in the destination datacenter.
 
 
@@ -318,40 +274,40 @@ CreateVM(config, pool, host):
 
   Raises:
 
-    `vim.fault.VmConfigFault`_: 
+    `vim.fault.VmConfigFault`_:
        if the configSpec has incorrect values. Typically, a more specific subclass is thrown.
 
-    `vim.fault.FileFault`_: 
+    `vim.fault.FileFault`_:
        if there is a problem creating the virtual machine on disk. Typically, a more specific subclass, such as NoDiskSpace, will be thrown.
 
-    `vim.fault.OutOfBounds`_: 
+    `vim.fault.OutOfBounds`_:
        if Host.capability.maxSupportedVMs is exceeded.
 
-    `vim.fault.DuplicateName`_: 
+    `vim.fault.DuplicateName`_:
        if another virtual machine in the same folder already has the specified target name.
 
-    `vim.fault.InvalidName`_: 
+    `vim.fault.InvalidName`_:
        if the name is not a valid entity name.
 
-    `vim.fault.InvalidDatastore`_: 
+    `vim.fault.InvalidDatastore`_:
        if the operation cannot be performed on the target datastores.
 
-    `vim.fault.InsufficientResourcesFault`_: 
+    `vim.fault.InsufficientResourcesFault`_:
        if this operation would violate a resource usage policy.
 
-    `vim.fault.AlreadyExists`_: 
+    `vim.fault.AlreadyExists`_:
        if the requested cfgPath (or the default cfgPath) for the virtual machine's configuration file is already loaded in the inventory.
 
-    `vim.fault.InvalidState`_: 
+    `vim.fault.InvalidState`_:
        if the operation is not allowed in current state of the entities involved.
 
-    `vim.fault.FileAlreadyExists`_: 
+    `vim.fault.FileAlreadyExists`_:
        if the requested cfgPath for the virtual machine's configuration file already exists.
 
-    `vmodl.fault.NotSupported`_: 
+    `vmodl.fault.NotSupported`_:
        if the virtual machine is being created within a folder whose `childType`_ property is not set to "VirtualMachine".
 
-    `vim.fault.VmWwnConflict`_: 
+    `vim.fault.VmWwnConflict`_:
        if the WWN of the virtual machine has been used by other virtual machines.
 
 
@@ -393,40 +349,40 @@ RegisterVM(path, name, asTemplate, pool, host):
 
   Raises:
 
-    `vim.fault.OutOfBounds`_: 
+    `vim.fault.OutOfBounds`_:
        if the maximum number of VMs for this folder has been exceeded. The maximum number is determined by Host.capability.maxSupportedVMs.
 
-    `vim.fault.DuplicateName`_: 
+    `vim.fault.DuplicateName`_:
        if another virtual machine in the same folder has the target name.
 
-    `vim.fault.AlreadyExists`_: 
+    `vim.fault.AlreadyExists`_:
        if the virtual machine is already registered.
 
-    `vim.fault.InvalidDatastore`_: 
+    `vim.fault.InvalidDatastore`_:
        if the operation cannot be performed on the target datastores.
 
-    `vim.fault.NotFound`_: 
+    `vim.fault.NotFound`_:
        if the configuration file is not found on the system.
 
-    `vim.fault.InvalidName`_: 
+    `vim.fault.InvalidName`_:
        if the entity name is invalid.
 
-    `vim.fault.VmConfigFault`_: 
+    `vim.fault.VmConfigFault`_:
        if the format / configuration of the virtual machine is invalid. Typically, a more specific fault is thrown such as InvalidFormat if the configuration file cannot be read, or InvalidDiskFormat if the disks cannot be read.
 
-    `vim.fault.InsufficientResourcesFault`_: 
+    `vim.fault.InsufficientResourcesFault`_:
        if this operation would violate a resource usage policy.
 
-    `vim.fault.FileFault`_: 
+    `vim.fault.FileFault`_:
        if there is an error accessing the files on disk.
 
-    `vim.fault.InvalidState`_: 
+    `vim.fault.InvalidState`_:
        if the operation is not allowed in current state of the entities involved.
 
-    `vmodl.fault.NotSupported`_: 
+    `vmodl.fault.NotSupported`_:
        if the operation is not supported. For example, templates are not supported directly on hosts. Also, if the operation is invoked on a folder whose `childType`_ property is not set to "VirtualMachine".
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument`_:
        if any of the arguments such as host or resource pool are not set to valid values.
 
 
@@ -456,16 +412,16 @@ CreateCluster(name, spec):
 
   Raises:
 
-    `vim.fault.DuplicateName`_: 
+    `vim.fault.DuplicateName`_:
        if an entity with that name already exists.
 
-    `vim.fault.InvalidName`_: 
+    `vim.fault.InvalidName`_:
        if the name is not a valid entity name.
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument`_:
        if the cluster configuration specification parameter is invalid.
 
-    `vmodl.fault.NotSupported`_: 
+    `vmodl.fault.NotSupported`_:
        if the cluster is being added to a folder whose `childType`_ property value does not contain "ComputeResource" or "ClusterComputeResource".
 
 
@@ -496,16 +452,16 @@ CreateClusterEx(name, spec):
 
   Raises:
 
-    `vim.fault.DuplicateName`_: 
+    `vim.fault.DuplicateName`_:
        if an entity with that name already exists.
 
-    `vim.fault.InvalidName`_: 
+    `vim.fault.InvalidName`_:
        if the name is not a valid entity name.
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument`_:
        if the cluster configuration specification parameter is invalid.
 
-    `vmodl.fault.NotSupported`_: 
+    `vmodl.fault.NotSupported`_:
        if the cluster is being added to a folder whose `childType`_ property value does not contain "ComputeResource" or "ClusterComputeResource".
 
 
@@ -532,7 +488,7 @@ AddStandaloneHost(spec, compResSpec, addConnected, license):
 
 
     license (`str`_, optional, since `vSphere API 4.0`_ ):
-       Provide a licenseKey or licenseKeyType. See `LicenseManager`_ 
+       Provide a licenseKey or licenseKeyType. See `LicenseManager`_
 
 
 
@@ -543,40 +499,40 @@ AddStandaloneHost(spec, compResSpec, addConnected, license):
 
   Raises:
 
-    `vim.fault.InvalidLogin`_: 
+    `vim.fault.InvalidLogin`_:
        if authentication with the host fails.
 
-    `vim.fault.HostConnectFault`_: 
+    `vim.fault.HostConnectFault`_:
        if an error occurred when attempting to connect to a host. Typically, a more specific subclass, such as AlreadyBeingManaged, is thrown.
 
-    `vim.fault.DuplicateName`_: 
+    `vim.fault.DuplicateName`_:
        if another host in the same folder has the name.
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument`_:
        if an argument is specified incorrectly.
 
-    `vim.fault.AlreadyBeingManaged`_: 
+    `vim.fault.AlreadyBeingManaged`_:
        if the host is already being managed by a vCenter server. If the host is being managed by a different vCenter server, this can be overridden by the "force" flag in the connection specification.
 
-    `vmodl.fault.NotEnoughLicenses`_: 
+    `vmodl.fault.NotEnoughLicenses`_:
        if there are not enough licenses to add the host.
 
-    `vim.fault.NoHost`_: 
+    `vim.fault.NoHost`_:
        if the host cannot be contacted.
 
-    `vmodl.fault.NotSupported`_: 
+    `vmodl.fault.NotSupported`_:
        if the host is being added to a folder whose `childType`_ property does not contain "ComputeResource".
 
-    `vim.fault.NotSupportedHost`_: 
+    `vim.fault.NotSupportedHost`_:
        if the host is running a software version that is not supported.
 
-    `vim.fault.AgentInstallFailed`_: 
+    `vim.fault.AgentInstallFailed`_:
        if there is an error installing the vCenter agent on the new host.
 
-    `vim.fault.AlreadyConnected`_: 
+    `vim.fault.AlreadyConnected`_:
        if addConnected is true and the host is already connected to vCenter.
 
-    `vim.fault.SSLVerifyFault`_: 
+    `vim.fault.SSLVerifyFault`_:
        if the host certificate could not be authenticated
 
 
@@ -602,13 +558,13 @@ CreateDatacenter(name):
 
   Raises:
 
-    `vim.fault.DuplicateName`_: 
+    `vim.fault.DuplicateName`_:
        if an entity with that name already exists.
 
-    `vim.fault.InvalidName`_: 
+    `vim.fault.InvalidName`_:
        if the new name is not a valid entity name.
 
-    `vmodl.fault.NotSupported`_: 
+    `vmodl.fault.NotSupported`_:
        if the datacenter is being created within a folder whose `childType`_ property value does not contain "Datacenter".
 
 
@@ -626,17 +582,17 @@ UnregisterAndDestroy():
 
   Returns:
      `vim.Task`_:
-         
+
 
   Raises:
 
-    `vim.fault.ConcurrentAccess`_: 
+    `vim.fault.ConcurrentAccess`_:
        if another client modifies the folder contents before this operation completes.
 
-    `vim.fault.InvalidState`_: 
+    `vim.fault.InvalidState`_:
        if a virtual machine is not powered off or suspended.
 
-    `vmodl.fault.NotSupported`_: 
+    `vmodl.fault.NotSupported`_:
        if the `childType`_ property of the folder is not set to "VirtualMachine".
 
 
@@ -663,22 +619,22 @@ CreateDVS(spec):
 
   Raises:
 
-    `vim.fault.DvsFault`_: 
+    `vim.fault.DvsFault`_:
        vim.fault.DvsFault
 
-    `vim.fault.DuplicateName`_: 
+    `vim.fault.DuplicateName`_:
        vim.fault.DuplicateName
 
-    `vim.fault.InvalidName`_: 
+    `vim.fault.InvalidName`_:
        vim.fault.InvalidName
 
-    `vim.fault.NotFound`_: 
+    `vim.fault.NotFound`_:
        vim.fault.NotFound
 
-    `vim.fault.DvsNotAuthorized`_: 
+    `vim.fault.DvsNotAuthorized`_:
        if login-session's extension key does not match ( `extensionKey`_ ).
 
-    `vmodl.fault.NotSupported`_: 
+    `vmodl.fault.NotSupported`_:
        if called directly on a host.
 
 
@@ -705,13 +661,13 @@ CreateStoragePod(name):
 
   Raises:
 
-    `vim.fault.DuplicateName`_: 
+    `vim.fault.DuplicateName`_:
        if an entity with that name already exists.
 
-    `vim.fault.InvalidName`_: 
+    `vim.fault.InvalidName`_:
        if the name is not a valid entity name.
 
-    `vmodl.fault.NotSupported`_: 
+    `vmodl.fault.NotSupported`_:
        if the storage pod is being added to a folder whose `childType`_ property value does not contain "StoragePod".
 
 

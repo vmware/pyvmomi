@@ -79,7 +79,7 @@ RetrieveArgumentDescription(eventTypeId):
 
   Returns:
     [`vim.event.EventDescription.EventArgDesc`_]:
-         
+
 
 
 CreateCollectorForEvents(filter):
@@ -104,10 +104,10 @@ CreateCollectorForEvents(filter):
 
   Raises:
 
-    `vim.fault.InvalidState`_: 
+    `vim.fault.InvalidState`_:
        if there are more than the maximum number of event collectors.
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument`_:
        if the filter is null or if any of its fields is invalid, such as an invalid reference to a managed object, alarm, or scheduled task, or an invalid event type or event chain id, etc.
 
 
@@ -132,11 +132,11 @@ LogUserEvent(entity, msg):
 
   Returns:
     None
-         
+
 
   Raises:
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument`_:
        if the entity is of a wrong type or the "msg" string is empty.
 
 
@@ -162,26 +162,15 @@ QueryEvents(filter):
 
   Raises:
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument`_:
        if the filter is null or if any of its fields is invalid, such as an invalid reference to a managed object, alarm, or scheduled task, or an invalid event type or event chain id, etc.
 
 
 PostEvent(eventToPost, taskInfo):
-   Posts the specified event, optionally associating it with a task.The event being posted should have the following info in it:
-    * The ManagedEntity on which the event is being posted should be set in the appropriate
-    * `EntityEventArgument`_
-    * field of the base
-    * `Event`_
-    * class. It is OK to not set any entity, in which case the event is treated as an event about the system.
-    * Some Event fields (
-    * `key`_
-    * ,
-    * `chainId`_
-    * ,
-    * `createdTime`_
-    * ) are mandatory because of the nature of the structure, but any caller-supplied values will be overwritten by the system.
-    * 
-    * If the event being posted is to be associated with an existing Task, the appropriate TaskInfo needs to be passed in. This task can either be one returned from a vSphere API operation or an extension task created by calling TaskManager#createTask.
+   Posts the specified event, optionally associating it with a task. The event being posted should have the following info in it:
+    * The ManagedEntity on which the event is being posted should be set in the appropriate `EntityEventArgument`_ field of the base `Event`_ class. It is OK to not set any entity, in which case the event is treated as an event about the system.
+    * Some Event fields (`key`_, `chainId`_, `createdTime`_) are mandatory because of the nature of the structure, but any caller-supplied values will be overwritten by the system.
+   If the event being posted is to be associated with an existing Task, the appropriate TaskInfo needs to be passed in. This task can either be one returned from a vSphere API operation or an extension task created by calling TaskManager#createTask.
   since: `VI API 2.5`_
 
 
@@ -203,21 +192,16 @@ PostEvent(eventToPost, taskInfo):
 
   Returns:
     None
-         
+
 
   Raises:
 
-    `vim.fault.InvalidEvent`_: 
+    `vim.fault.InvalidEvent`_:
        no longer thrown by this API
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument`_:
        if
-        * an invalid reference to a managed object is passed in to one of the
-        * `EntityEventArgument`_
-        * fields
-        * an invalid severity value is passed in an
-        * `EventEx`_
-        * .
-        * 
+        * an invalid reference to a managed object is passed in to one of the `EntityEventArgument`_ fields
+        * an invalid severity value is passed in an `EventEx`_.
 
 
