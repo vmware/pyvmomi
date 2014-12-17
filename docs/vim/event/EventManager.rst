@@ -170,7 +170,7 @@ PostEvent(eventToPost, taskInfo):
    Posts the specified event, optionally associating it with a task. The event being posted should have the following info in it:
     * The ManagedEntity on which the event is being posted should be set in the appropriate `EntityEventArgument`_ field of the base `Event`_ class. It is OK to not set any entity, in which case the event is treated as an event about the system.
     * Some Event fields (`key`_, `chainId`_, `createdTime`_) are mandatory because of the nature of the structure, but any caller-supplied values will be overwritten by the system.
-    * If the event being posted is to be associated with an existing Task, the appropriate TaskInfo needs to be passed in. This task can either be one returned from a vSphere API operation or an extension task created by calling TaskManager#createTask.
+   If the event being posted is to be associated with an existing Task, the appropriate TaskInfo needs to be passed in. This task can either be one returned from a vSphere API operation or an extension task created by calling TaskManager#createTask.
   since: `VI API 2.5`_
 
 

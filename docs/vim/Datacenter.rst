@@ -73,7 +73,7 @@
 
 vim.Datacenter
 ==============
-  The `Datacenter`_ managed object provides the interface to the common container object for hosts, virtual machines, networks, and datastores. These entities must be under a distinct datacenter in the inventory, and datacenters may not be nested under other datacenters.Every `Datacenter`_ has the following set of dedicated folders. These folders are empty until you create entities for the Datacenter.
+  The `Datacenter`_ managed object provides the interface to the common container object for hosts, virtual machines, networks, and datastores. These entities must be under a distinct datacenter in the inventory, and datacenters may not be nested under other datacenters. Every `Datacenter`_ has the following set of dedicated folders. These folders are empty until you create entities for the Datacenter.
    * A folder for `VirtualMachine`_, template, and `VirtualApp`_ objects.
    * A folder for a `ComputeResource`_ hierarchy.
    * A folder for `Network`_ , `DistributedVirtualSwitch`_ , and `DistributedVirtualPortgroup`_ objects.
