@@ -74,28 +74,11 @@
 vim.Datacenter
 ==============
   The `Datacenter`_ managed object provides the interface to the common container object for hosts, virtual machines, networks, and datastores. These entities must be under a distinct datacenter in the inventory, and datacenters may not be nested under other datacenters.Every `Datacenter`_ has the following set of dedicated folders. These folders are empty until you create entities for the Datacenter.
-   * A folder for
-   * `VirtualMachine`_
-   * , template, and
-   * `VirtualApp`_
-   * objects.
-   * A folder for a
-   * `ComputeResource`_
-   * hierarchy.
-   * A folder for
-   * `Network`_
-   * ,
-   * `DistributedVirtualSwitch`_
-   * , and
-   * `DistributedVirtualPortgroup`_
-   * objects.
-   * A folder for
-   * `Datastore`_
-   * objects.
-   * 
-   * For a visual representation of the organization of objects in a vCenter hierarchy, see the description of the
-   * `ServiceInstance`_
-   * object.
+   * A folder for `VirtualMachine`_, template, and `VirtualApp`_ objects.
+   * A folder for a `ComputeResource`_ hierarchy.
+   * A folder for `Network`_ , `DistributedVirtualSwitch`_ , and `DistributedVirtualPortgroup`_ objects.
+   * A folder for `Datastore`_ objects.
+  For a visual representation of the organization of objects in a vCenter hierarchy, see the description of the `ServiceInstance`_ object.
 
 
 :extends: vim.ManagedEntity_
@@ -162,32 +145,32 @@ QueryConnectionInfo(hostname, port, username, password, sslThumbprint):
 
   Returns:
     `vim.host.ConnectInfo`_:
-         
+
 
   Raises:
 
-    `vim.fault.InvalidLogin`_: 
+    `vim.fault.InvalidLogin`_:
        if unable to authenticate with the host.
 
-    `vim.fault.HostConnectFault`_: 
+    `vim.fault.HostConnectFault`_:
        if an error occurred when querying about a host. Typically, a more specific subclass, such as AlreadyBeingManaged, is thrown.
 
-    `vmodl.fault.NotSupported`_: 
+    `vmodl.fault.NotSupported`_:
        if called directly on a host.
 
-    `vim.fault.NoHost`_: 
+    `vim.fault.NoHost`_:
        if unable to contact the host.
 
-    `vim.fault.NotSupportedHost`_: 
+    `vim.fault.NotSupportedHost`_:
        if the software version on the host is not supported.
 
-    `vim.fault.AlreadyConnected`_: 
+    `vim.fault.AlreadyConnected`_:
        if the host is already being managed by this server.
 
-    `vim.fault.SSLDisabledFault`_: 
+    `vim.fault.SSLDisabledFault`_:
        if the host has ssl access disabled
 
-    `vim.fault.SSLVerifyFault`_: 
+    `vim.fault.SSLVerifyFault`_:
        if the host certificate could not be authenticated
 
 
@@ -218,7 +201,7 @@ PowerOnMultiVM(vm, option):
 
   Raises:
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument`_:
        for unknown option keys or bad values.
 
 
@@ -237,7 +220,7 @@ queryDatacenterConfigOptionDescriptor():
 
   Returns:
     [`vim.vm.ConfigOptionDescriptor`_]:
-         
+
 
 
 ReconfigureDatacenter(spec, modify):
@@ -263,6 +246,6 @@ ReconfigureDatacenter(spec, modify):
 
   Returns:
      `vim.Task`_:
-         
+
 
 

@@ -123,17 +123,20 @@
 
 vim.DistributedVirtualSwitch
 ============================
-  A `DistributedVirtualSwitch`_ managed object is a virtual network switch that is located on a vCenter Server. A distributed virtual switch manages configuration for proxy switches ( `HostProxySwitch`_ ). A proxy switch is located on an ESXi host that is managed by the vCenter Server and is a member of the switch. A distributed switch also provides virtual port state management so that port state is maintained when vCenter Server operations move a virtual machine from one host to another.A proxy switch performs network I/O to support the following network traffic and operations:
+  A `DistributedVirtualSwitch`_ managed object is a virtual network switch that is located on a vCenter Server. A distributed virtual switch manages configuration for proxy switches ( `HostProxySwitch`_ ). A proxy switch is located on an ESXi host that is managed by the vCenter Server and is a member of the switch. A distributed switch also provides virtual port state management so that port state is maintained when vCenter Server operations move a virtual machine from one host to another.
+  A proxy switch performs network I/O to support the following network traffic and operations:
    * Network traffic between virtual machines on any hosts that are members of the distributed virtual switch.
    * Network traffic between virtual machines that uses a distributed switch and a virtual machine that uses a VMware standard switch.
    * Network traffic between a virtual machine and a remote system on a physical network connected to the ESXi host.
-   * vSphere system operations to support capabilities such as VMotion or High Availability.A `DistributedVirtualSwitch`_ is the base distributed switch implementation. It supports a VMware distributed virtual switch implementation and it supports third party distributed switch implementations. The base implementation provides the following capabilities ( `DVSFeatureCapability`_ ):
+   * vSphere system operations to support capabilities such as VMotion or High Availability.
+  A `DistributedVirtualSwitch`_ is the base distributed switch implementation. It supports a VMware distributed virtual switch implementation and it supports third party distributed switch implementations. The base implementation provides the following capabilities ( `DVSFeatureCapability`_ ):
    * NIC teaming
    * Network I/O control
    * Network resource allocation
    * Quality of service tag support
    * User-defined resource pools
-   * I/O passthrough (VMDirectPath Gen2)A `VmwareDistributedVirtualSwitch`_ supports the following additional capabilities ( `DVSFeatureCapability`_ and `VMwareDVSFeatureCapability`_ ):
+   * I/O passthrough (VMDirectPath Gen2)
+  A `VmwareDistributedVirtualSwitch`_ supports the following additional capabilities ( `DVSFeatureCapability`_ and `VMwareDVSFeatureCapability`_ ):
    * Backup, restore, and rollback for a VMware distributed virtual switch and its associated portgroups.
    * Maximum Transmission Unit (MTU) configuration.
    * Health check operations for NIC teaming and VLAN/MTU support.
@@ -141,139 +144,36 @@ vim.DistributedVirtualSwitch
    * Link Layer Discovery Protocol (LLDP).
    * Virtual network segmentation using a Private VLAN (PVLAN).
    * VLAN-based SPAN (VSPAN) for virtual distributed port mirroring.
-   * Link Aggregation Control Protocol (LACP) defined for uplink portgroups.Distributed Virtual Switch ConfigurationTo use a distributed virtual switch, you create a switch and portgroups on a vCenter Server, and add hosts as members of the switch.
-   * Create a distributed virtual switch (
-   * `Folder`_
-   * .
-   * `CreateDVS_Task`_
-   * ). Use a
-   * `DVSConfigSpec`_
-   * to create a switch for a third-party implementation. Use a
-   * `VMwareDVSConfigSpec`_
-   * to create a VMware distributed virtual switch.
-   * Create portgroups (
-   * `CreateDVPortgroup_Task`_
-   * ) for host and virtual machine network connections and for the connection between proxy switches and physical NICs. A
-   * `DistributedVirtualPortgroup`_
-   * specifies how virtual ports (
-   * `DistributedVirtualPort`_
-   * ) will be used. When you create a distributed virtual switch, the vCenter Server automatically creates one uplink portgroup (
-   * `config`_
-   * .
-   * `uplinkPortgroup`_
-   * ). Uplink portgroups are distributed virtual portgroups that support the connection between proxy switches and physical NICs.
-   * Port creation on a distributed switch is determined by the portgroup type (
-   * `DVPortgroupConfigSpec`_
-   * .
-   * `type`_
-   * ):
-   * 
-   * 
-   * If a portgroup is early binding (static), then
-   * `DVPortgroupConfigSpec`_
-   * .
-   * `numPorts`_
-   * determines the number of ports that get created when the portgroup is created. This number can be increased if
-   * `DVPortgroupConfigSpec`_
-   * .
-   * `autoExpand`_
-   * is
-   * true
-   * .
-   * If a portgroup is ephemeral (dynamic), then
-   * `numPorts`_
-   * is ignored and ports are created as needed.You can also specify standalone ports that are not associated with a port group and uplink ports that are created on ESXi hosts ( `DVSConfigSpec`_ . `numStandalonePorts`_ ).The `DVPortgroupConfigInfo`_ . `numPorts`_ property is the total number of ports for a distributed virtual switch. This total includes the ports generated by the static and dynamic portgroups and the standalone ports.
-   * If you have created additional uplink portgroups, use the
-   * `ReconfigureDvs_Task`_
-   * method to add the portgroup(s) to the
-   * `DVSConfigSpec`_
-   * .
-   * `uplinkPortgroup`_
-   * array.
-   * Retrieve physical NIC device names from the host (
-   * `HostSystem`_
-   * .
-   * `config`_
-   * .
-   * `network`_
-   * .
-   * `pnic`_
-   * [].
-   * `device`_
-   * ).
-   * Add host member(s) to the distributed virtual switch. To configure host members:
-   * 
-   * 
-   * Specify hosts (
-   * `DVSConfigSpec`_
-   * .
-   * `host`_
-   * []).
-   * For each host, specify one or more physical NIC device names to identify the pNIC(s) for the host proxy connection to the network (
-   * `DistributedVirtualSwitchHostMemberConfigSpec`_
-   * .
-   * `backing`_
-   * .
-   * `pnicSpec`_
-   * [].
-   * `pnicDevice`_
-   * )
-   * Use the
-   * `DistributedVirtualSwitch`_
-   * .
-   * `ReconfigureDvs_Task`_
-   * method to update the switch configuration.When you add a host to a distributed virtual switch ( `DistributedVirtualSwitch`_ . `config`_ . `host`_ ), the host automatically creates a proxy switch. The proxy switch is removed automatically when the host is removed from the distributed virtual switch.
-   * Connect hosts and virtual machines to the distributed virtual switch.
-   * 
-   * 
-   * 
-   * Host connection
-   * 
-   * Specify port or portgroup connections in the host virtual NIC spec (
-   * `HostVirtualNicSpec`_
-   * .
-   * `distributedVirtualPort`_
-   * or
-   * `HostVirtualNicSpec`_
-   * .
-   * `portgroup`_
-   * ).
-   * 
-   * 
-   * 
-   * Virtual machine connection
-   * 
-   * Specify port or portgroup connections in the distributed virtual port backing (
-   * `VirtualEthernetCardDistributedVirtualPortBackingInfo`_
-   * ) for the virtual Ethernet cards on the virtual machine (
-   * `VirtualEthernetCard`_
-   * .
-   * `backing`_
-   * ).
-   * 
-   * 
-   * Backup, Rollback, and Query OperationsIf you are using a `VmwareDistributedVirtualSwitch`_ , you can perform backup and rollback operations on the switch and its associated distributed virtual portgroups.When you reconfigure a VMware distributed virtual switch ( `ReconfigureDvs_Task`_ ), the Server saves the current switch configuration before applying the configuration updates. The saved switch configuration includes portgroup configuration data. The Server uses the saved switch configuration as a checkpoint for rollback operations. You can rollback the switch or portgroup configuration to the saved configuration, or you can rollback to a backup configuration ( `EntityBackupConfig`_ ).
-   * To backup the switch and portgroup configuration, use the
-   * `DistributedVirtualSwitchManager`_
-   * .
-   * `DVSManagerExportEntity_Task`_
-   * method. The export method produces a
-   * `EntityBackupConfig`_
-   * object. The backup configuration contains the switch and/or portgroups specified in the
-   * SelectionSet
-   * parameter. To backup the complete configuration you must select the distributed virtual switch and all of its portgroups.
-   * To rollback the switch configuration, use the
-   * `DVSRollback_Task`_
-   * method to determine if the switch configuration has changed. If it has changed, use the
-   * `ReconfigureDvs_Task`_
-   * method to complete the rollback operation.
-   * To rollback the portgroup configuration, use the
-   * `DistributedVirtualPortgroup`_
-   * .
-   * `DVPortgroupRollback_Task`_
-   * method to determine if the portgroup configuration has changed. If it has changed, use the
-   * `ReconfigureDVPortgroup_Task`_
-   * method to complete the rollback operation.To perform query operations on a distributed virtual switch, use the `DistributedVirtualSwitchManager`_ methods.
+   * Link Aggregation Control Protocol (LACP) defined for uplink portgroups.
+Distributed Virtual Switch Configuration.
+  To use a distributed virtual switch, you create a switch and portgroups on a vCenter Server, and add hosts as members of the switch.
+   1. Create a distributed virtual switch ( `Folder.CreateDVS_Task`_ ). Use a `DVSConfigSpec`_ to create a switch for a third-party implementation. Use a `VMwareDVSConfigSpec`_ to create a VMware distributed virtual switch.
+   2. Create portgroups ( `CreateDVPortgroup_Task`_ ) for host and virtual machine network connections and for the connection between proxy switches and physical NICs. A `DistributedVirtualPortgroup`_ specifies how virtual ports ( `DistributedVirtualPort`_ ) will be used. When you create a distributed virtual switch, the vCenter Server automatically creates one uplink portgroup ( `config.uplinkPortgroup`_ ). Uplink portgroups are distributed virtual portgroups that support the connection between proxy switches and physical NICs.
+      Port creation on a distributed switch is determined by the portgroup type ( `DVPortgroupConfigSpec.type`_ ):
+       * If a portgroup is early binding (static), then `DVPortgroupConfigSpec.numPorts`_ determines the number of ports that get created when the portgroup is created. This number can be increased if `DVPortgroupConfigSpec.autoExpand`_ is true.
+       * If a portgroup is ephemeral (dynamic), then `numPorts`_ is ignored and ports are created as needed.
+      You can also specify standalone ports that are not associated with a port group and uplink ports that are created on ESXi hosts ( `DVSConfigSpec`_ . `numStandalonePorts`_ ).The `DVPortgroupConfigInfo`_ . `numPorts`_ property is the total number of ports for a distributed virtual switch. This total includes the ports generated by the static and dynamic portgroups and the standalone ports.
+   3. If you have created additional uplink portgroups, use the `ReconfigureDvs_Task`_ method to add the portgroup(s) to the `DVSConfigSpec.uplinkPortgroup`_ array.
+   4. Retrieve physical NIC device names from the host ( `HostSystem.config.network.pnic[].device`_ ).
+   5. Add host member(s) to the distributed virtual switch. To configure host members:
+     * Specify hosts (`DVSConfigSpec.host[]`_).
+     * For each host, specify one or more physical NIC device names to identify the pNIC(s) for the host proxy connection to the network (
+     * `DistributedVirtualSwitchHostMemberConfigSpec.backing.pnicSpec[].`pnicDevice`_ )
+     * Use the `DistributedVirtualSwitch.ReconfigureDvs_Task`_ method to update the switch configuration.
+     When you add a host to a distributed virtual switch ( `DistributedVirtualSwitch`_ . `config`_ . `host`_ ), the host automatically creates a proxy switch. The proxy switch is removed automatically when the host is removed from the distributed virtual switch.
+   6. Connect hosts and virtual machines to the distributed virtual switch.
+
+   * Host connection    Specify port or portgroup connections in the host virtual NIC spec ( `HostVirtualNicSpec.distributedVirtualPort`_ or `HostVirtualNicSpec.portgroup`_ ).
+
+   * Virtual machine connection    Specify port or portgroup connections in the distributed virtual port backing ( `VirtualEthernetCardDistributedVirtualPortBackingInfo`_ ) for the virtual Ethernet cards on the virtual machine ( `VirtualEthernetCard.backing`_ ).
+
+Backup, Rollback, and Query Operations
+  If you are using a `VmwareDistributedVirtualSwitch`_ , you can perform backup and rollback operations on the switch and its associated distributed virtual portgroups.
+  When you reconfigure a VMware distributed virtual switch ( `ReconfigureDvs_Task`_ ), the Server saves the current switch configuration before applying the configuration updates. The saved switch configuration includes portgroup configuration data. The Server uses the saved switch configuration as a checkpoint for rollback operations. You can rollback the switch or portgroup configuration to the saved configuration, or you can rollback to a backup configuration ( `EntityBackupConfig`_ ).
+   * To backup the switch and portgroup configuration, use the `DistributedVirtualSwitchManager.DVSManagerExportEntity_Task`_ method. The export method produces a `EntityBackupConfig`_ object. The backup configuration contains the switch and/or portgroups specified in the SelectionSet parameter. To backup the complete configuration you must select the distributed virtual switch and all of its portgroups.
+   * To rollback the switch configuration, use the `DVSRollback_Task`_ method to determine if the switch configuration has changed. If it has changed, use the `ReconfigureDvs_Task`_ method to complete the rollback operation.
+   * To rollback the portgroup configuration, use the `DistributedVirtualPortgroup.DVPortgroupRollback_Task`_ method to determine if the portgroup configuration has changed. If it has changed, use the `ReconfigureDVPortgroup_Task`_ method to complete the rollback operation.
+  To perform query operations on a distributed virtual switch, use the `DistributedVirtualSwitchManager`_ methods.
 
 
 :extends: vim.ManagedEntity_
@@ -320,7 +220,7 @@ FetchDVPortKeys(criteria):
 
   Returns:
     [`str`_]:
-         
+
 
 
 FetchDVPorts(criteria):
@@ -341,7 +241,7 @@ FetchDVPorts(criteria):
 
   Returns:
     [`vim.dvs.DistributedVirtualPort`_]:
-         
+
 
 
 QueryUsedVlanIdInDvs():
@@ -358,7 +258,7 @@ QueryUsedVlanIdInDvs():
 
   Returns:
     [`int`_]:
-         
+
 
 
 ReconfigureDvs(spec):
@@ -400,59 +300,59 @@ ReconfigureDvs(spec):
 
   Returns:
      `vim.Task`_:
-         
+
 
   Raises:
 
-    `vim.fault.DvsFault`_: 
+    `vim.fault.DvsFault`_:
        if operation fails on any host or if there are other update failures.
 
-    `vim.fault.ConcurrentAccess`_: 
+    `vim.fault.ConcurrentAccess`_:
        vim.fault.ConcurrentAccess
 
-    `vim.fault.DuplicateName`_: 
+    `vim.fault.DuplicateName`_:
        vim.fault.DuplicateName
 
-    `vim.fault.InvalidState`_: 
+    `vim.fault.InvalidState`_:
        vim.fault.InvalidState
 
-    `vim.fault.InvalidName`_: 
+    `vim.fault.InvalidName`_:
        vim.fault.InvalidName
 
-    `vim.fault.NotFound`_: 
+    `vim.fault.NotFound`_:
        vim.fault.NotFound
 
-    `vim.fault.AlreadyExists`_: 
+    `vim.fault.AlreadyExists`_:
        vim.fault.AlreadyExists
 
-    `vim.fault.LimitExceeded`_: 
+    `vim.fault.LimitExceeded`_:
        vim.fault.LimitExceeded
 
-    `vim.fault.ResourceInUse`_: 
+    `vim.fault.ResourceInUse`_:
        vim.fault.ResourceInUse
 
-    `vim.fault.ResourceNotAvailable`_: 
+    `vim.fault.ResourceNotAvailable`_:
        If there is no port available in the portgroup
 
-    `vim.fault.DvsNotAuthorized`_: 
+    `vim.fault.DvsNotAuthorized`_:
        if login-session's extension key does not match the switch's configured `extensionKey`_ .
 
-    `vmodl.fault.NotSupported`_: 
+    `vmodl.fault.NotSupported`_:
        if called directly on a host or if the spec includes settings for any vNetwork Distributed Switch feature that is not supported on this switch.
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument`_:
        if any of the hosts being added lack support for any of the overlay classes of the switch's overlay instances.
 
-    `vim.fault.VspanPortConflict`_: 
+    `vim.fault.VspanPortConflict`_:
        if dvPort is used as both the transmitted source and destination ports in Distributed Port Mirroring sessions.
 
-    `vim.fault.VspanPromiscuousPortNotSupported`_: 
+    `vim.fault.VspanPromiscuousPortNotSupported`_:
        if a promiscuous port is used as transmitted source or destination in the Distributed Port Mirroring sessions.
 
-    `vim.fault.VspanSameSessionPortConflict`_: 
+    `vim.fault.VspanSameSessionPortConflict`_:
        if a dvPort is used as both the source and destination in the same Distributed Port Mirroring session.
 
-    `vim.fault.VspanDestPortConflict`_: 
+    `vim.fault.VspanDestPortConflict`_:
        if a dvPort is used as desination ports in multiple Distributed Port Mirroring sessions.
 
 
@@ -478,46 +378,35 @@ PerformDvsProductSpecOperation(operation, productSpec):
 
   Returns:
      `vim.Task`_:
-         
+
 
   Raises:
 
-    `vim.fault.TaskInProgress`_: 
+    `vim.fault.TaskInProgress`_:
        vim.fault.TaskInProgress
 
-    `vim.fault.InvalidState`_: 
+    `vim.fault.InvalidState`_:
        vim.fault.InvalidState
 
-    `vim.fault.DvsFault`_: 
+    `vim.fault.DvsFault`_:
        if operation fails on any host or if there are other update failures.
 
-    `vmodl.fault.NotSupported`_: 
+    `vmodl.fault.NotSupported`_:
        If called directly on a host.
 
-    `vim.fault.DvsNotAuthorized`_: 
+    `vim.fault.DvsNotAuthorized`_:
        if login-session's extension key does not match the switch's configured `extensionKey`_ .
 
 
 MergeDvs(dvs):
-   Merge an existing DistributedVirtualSwitch (source) to this switch (destination). The host members and the connected entity of the source switch will be transferred to the destination switch. This operation disconnects the entities from the source switch, tears down its host proxy switches, creates new proxies for the destination switch, and reconnects the entities to the destination switch.In summary, this operation does the following:
-    * Adds the
-    * config
-    * .
-    * `maxPorts`_
-    * of the source switch to the
-    * maxPorts
-    * of the destination switch.
-    * The host members of the source switch leave the source switch and join the destination switch with the same Physical NIC and VirtualSwitch (if applicable). A set of new uplink ports, compliant with the
-    * `uplinkPortPolicy`_
-    * , is created as the hosts join the destination switch.
+   Merge an existing DistributedVirtualSwitch (source) to this switch (destination). The host members and the connected entity of the source switch will be transferred to the destination switch. This operation disconnects the entities from the source switch, tears down its host proxy switches, creates new proxies for the destination switch, and reconnects the entities to the destination switch. In summary, this operation does the following:
+    * Adds the config `maxPorts`_ of the source switch to the maxPorts of the destination switch.
+    * The host members of the source switch leave the source switch and join the destination switch with the same Physical NIC and VirtualSwitch (if applicable). A set of new uplink ports, compliant with the `uplinkPortPolicy`_, is created as the hosts join the destination switch.
     * The portgroups on the source switch are copied over to destination switch, by calculating the effective default port config and creating a portgroup of the same name in the destination switch. If the name already exists, the copied portgroup uses names following a "Copy of switch-portgroup-name" scheme to avoid conflict. The same number of ports are created inside each copied portgroup.
     * The standalone distributed virtual ports are not copied, unless there is a virtual machine or host virtual NIC connecting to it. In that case, the operation calculates the effective port config and creates a port in the destination switch with the same name. Name conflict is resolved using numbers like "original-port-name(1)". The uplink ports are not copied over.
     * The virtual machine and host virtual NICs are disconnected from the source switch and reconnected with the destination switch, to the copied standalone port or portgroup.
-    * If you are using a
-    * `VmwareDistributedVirtualSwitch`_
-    * - Unless the PVLAN map contains exactly the same entries between the source and destination VMware distributed virtual switches, the method raises a fault if
-    * `pvlanId`_
-    * is set in any port, portgroup, or switch that will be copied.
+    * If you are using a `VmwareDistributedVirtualSwitch`_
+    * - Unless the PVLAN map contains exactly the same entries between the source and destination VMware distributed virtual switches, the method raises a fault if `pvlanId`_ is set in any port, portgroup, or switch that will be copied.
 
 
   Privilege:
@@ -534,26 +423,26 @@ MergeDvs(dvs):
 
   Returns:
      `vim.Task`_:
-         
+
 
   Raises:
 
-    `vim.fault.DvsFault`_: 
+    `vim.fault.DvsFault`_:
        if operation fails on any host or if there are other update failures.
 
-    `vim.fault.NotFound`_: 
+    `vim.fault.NotFound`_:
        vim.fault.NotFound
 
-    `vim.fault.ResourceInUse`_: 
+    `vim.fault.ResourceInUse`_:
        If failed to delete the source switch
 
-    `vim.fault.InvalidHostState`_: 
+    `vim.fault.InvalidHostState`_:
        vim.fault.InvalidHostState
 
-    `vmodl.fault.NotSupported`_: 
+    `vmodl.fault.NotSupported`_:
        If called directly on a host.
 
-    `vim.fault.DvsNotAuthorized`_: 
+    `vim.fault.DvsNotAuthorized`_:
        if login-session's extension key does not match the switch's configured `extensionKey`_ .
 
 
@@ -575,23 +464,23 @@ AddDVPortgroup(spec):
 
   Returns:
      `vim.Task`_:
-         
+
 
   Raises:
 
-    `vim.fault.DvsFault`_: 
+    `vim.fault.DvsFault`_:
        if operation fails on any host or if there are other update failures.
 
-    `vim.fault.DuplicateName`_: 
+    `vim.fault.DuplicateName`_:
        vim.fault.DuplicateName
 
-    `vim.fault.InvalidName`_: 
+    `vim.fault.InvalidName`_:
        vim.fault.InvalidName
 
-    `vmodl.fault.NotSupported`_: 
+    `vmodl.fault.NotSupported`_:
        If called directly on a host.
 
-    `vim.fault.DvsNotAuthorized`_: 
+    `vim.fault.DvsNotAuthorized`_:
        if login-session's extension key does not match the switch's configured `extensionKey`_ .
 
 
@@ -617,23 +506,23 @@ MoveDVPort(portKey, destinationPortgroupKey):
 
   Returns:
      `vim.Task`_:
-         
+
 
   Raises:
 
-    `vim.fault.DvsFault`_: 
+    `vim.fault.DvsFault`_:
        if operation fails on any host or if there are other update failures.
 
-    `vim.fault.NotFound`_: 
+    `vim.fault.NotFound`_:
        vim.fault.NotFound
 
-    `vim.fault.ConcurrentAccess`_: 
+    `vim.fault.ConcurrentAccess`_:
        vim.fault.ConcurrentAccess
 
-    `vmodl.fault.NotSupported`_: 
+    `vmodl.fault.NotSupported`_:
        If called directly on a host.
 
-    `vim.fault.DvsNotAuthorized`_: 
+    `vim.fault.DvsNotAuthorized`_:
        if login-session's extension key does not match the switch's configured `extensionKey`_ .
 
 
@@ -655,17 +544,17 @@ UpdateDvsCapability(capability):
 
   Returns:
     None
-         
+
 
   Raises:
 
-    `vim.fault.DvsFault`_: 
+    `vim.fault.DvsFault`_:
        if operation fails on any host or if there are other update failures.
 
-    `vmodl.fault.NotSupported`_: 
+    `vmodl.fault.NotSupported`_:
        If called directly on a host or if the switch implementation doesn't support this API.
 
-    `vim.fault.DvsNotAuthorized`_: 
+    `vim.fault.DvsNotAuthorized`_:
        if login-session's extension key does not match the switch's configured `extensionKey`_ .
 
 
@@ -687,29 +576,29 @@ ReconfigureDVPort(port):
 
   Returns:
      `vim.Task`_:
-         
+
 
   Raises:
 
-    `vim.fault.DvsFault`_: 
+    `vim.fault.DvsFault`_:
        if operation fails on any host or if there are other update failures.
 
-    `vim.fault.NotFound`_: 
+    `vim.fault.NotFound`_:
        vim.fault.NotFound
 
-    `vim.fault.ResourceInUse`_: 
+    `vim.fault.ResourceInUse`_:
        vim.fault.ResourceInUse
 
-    `vim.fault.ConcurrentAccess`_: 
+    `vim.fault.ConcurrentAccess`_:
        vim.fault.ConcurrentAccess
 
-    `vmodl.fault.NotSupported`_: 
+    `vmodl.fault.NotSupported`_:
        If called directly on a host or if the switch implementation doesn't support this API or if the spec includes settings for any vSphere Distributed Switch feature that is not supported on this switch.
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument`_:
        If the array have different elements for the same port.
 
-    `vim.fault.DvsNotAuthorized`_: 
+    `vim.fault.DvsNotAuthorized`_:
        if login-session's extension key does not match the switch's configured `extensionKey`_ .
 
 
@@ -731,14 +620,14 @@ RefreshDVPortState(portKeys):
 
   Returns:
     None
-         
+
 
   Raises:
 
-    `vim.fault.DvsFault`_: 
+    `vim.fault.DvsFault`_:
        if operation fails on any host or if there are other update failures.
 
-    `vim.fault.NotFound`_: 
+    `vim.fault.NotFound`_:
        vim.fault.NotFound
 
 
@@ -760,14 +649,14 @@ RectifyDvsHost(hosts):
 
   Returns:
      `vim.Task`_:
-         
+
 
   Raises:
 
-    `vim.fault.DvsFault`_: 
+    `vim.fault.DvsFault`_:
        if operation fails on any host or if there are other update failures.
 
-    `vim.fault.NotFound`_: 
+    `vim.fault.NotFound`_:
        vim.fault.NotFound
 
 
@@ -790,26 +679,26 @@ UpdateNetworkResourcePool(configSpec):
 
   Returns:
     None
-         
+
 
   Raises:
 
-    `vim.fault.DvsFault`_: 
+    `vim.fault.DvsFault`_:
        if operation fails on any host or if there are other update failures.
 
-    `vim.fault.NotFound`_: 
+    `vim.fault.NotFound`_:
        if the resource pool does not exist on the dvs.
 
-    `vim.fault.InvalidName`_: 
+    `vim.fault.InvalidName`_:
        if the name of the resource pool is invalid.
 
-    `vim.fault.ConcurrentAccess`_: 
+    `vim.fault.ConcurrentAccess`_:
        if a network resource pool is modified by two or more clients at the same time.
 
-    `vmodl.fault.NotSupported`_: 
+    `vmodl.fault.NotSupported`_:
        if network I/O control is not supported on the vSphere Distributed Switch.
 
-    `vim.fault.DvsNotAuthorized`_: 
+    `vim.fault.DvsNotAuthorized`_:
        if login-session's extension key does not match the switch's configured `extensionKey`_ .
 
 
@@ -832,20 +721,20 @@ AddNetworkResourcePool(configSpec):
 
   Returns:
     None
-         
+
 
   Raises:
 
-    `vim.fault.DvsFault`_: 
+    `vim.fault.DvsFault`_:
        if operation fails on any host or if there are other update failures.
 
-    `vim.fault.InvalidName`_: 
+    `vim.fault.InvalidName`_:
        vim.fault.InvalidName
 
-    `vmodl.fault.NotSupported`_: 
+    `vmodl.fault.NotSupported`_:
        if network I/O control is not supported on the vSphere Distributed Switch.
 
-    `vim.fault.DvsNotAuthorized`_: 
+    `vim.fault.DvsNotAuthorized`_:
        if login-session's extension key does not match the switch's configured `extensionKey`_ .
 
 
@@ -868,26 +757,26 @@ RemoveNetworkResourcePool(key):
 
   Returns:
     None
-         
+
 
   Raises:
 
-    `vim.fault.DvsFault`_: 
+    `vim.fault.DvsFault`_:
        if operation fails on any host or if there are other update failures.
 
-    `vim.fault.NotFound`_: 
+    `vim.fault.NotFound`_:
        if the resource pool does not exist on the dvs.
 
-    `vim.fault.InvalidName`_: 
+    `vim.fault.InvalidName`_:
        if the name of the resource pool is invalid.
 
-    `vim.fault.ResourceInUse`_: 
+    `vim.fault.ResourceInUse`_:
        If network resource pool is associated with a network entity
 
-    `vmodl.fault.NotSupported`_: 
+    `vmodl.fault.NotSupported`_:
        if network I/O control is not supported on the vSphere Distributed Switch.
 
-    `vim.fault.DvsNotAuthorized`_: 
+    `vim.fault.DvsNotAuthorized`_:
        if login-session's extension key does not match the switch's configured `extensionKey`_ .
 
 
@@ -910,17 +799,17 @@ EnableNetworkResourceManagement(enable):
 
   Returns:
     None
-         
+
 
   Raises:
 
-    `vim.fault.DvsFault`_: 
+    `vim.fault.DvsFault`_:
        if the enabling/disabling fails.
 
-    `vmodl.fault.NotSupported`_: 
+    `vmodl.fault.NotSupported`_:
        if network I/O control is not supported on the vSphere Distributed Switch.
 
-    `vim.fault.DvsNotAuthorized`_: 
+    `vim.fault.DvsNotAuthorized`_:
        if login-session's extension key does not match the switch's configured `extensionKey`_ .
 
 
@@ -951,14 +840,14 @@ DVSRollback(entityBackup):
 
   Returns:
      `vim.Task`_:
-         
+
 
   Raises:
 
-    `vim.fault.DvsFault`_: 
+    `vim.fault.DvsFault`_:
        if operation fails.
 
-    `vim.fault.RollbackFailure`_: 
+    `vim.fault.RollbackFailure`_:
        if there is no configuration specified in entityBackup and the previous configuration does not exist either.
 
 
@@ -981,17 +870,17 @@ CreateDVPortgroup(spec):
 
   Returns:
      `vim.Task`_:
-         
+
 
   Raises:
 
-    `vim.fault.DvsFault`_: 
+    `vim.fault.DvsFault`_:
        if operation fails on any host or if there are other update failures.
 
-    `vim.fault.DuplicateName`_: 
+    `vim.fault.DuplicateName`_:
        if a portgroup with the same name already exists
 
-    `vim.fault.InvalidName`_: 
+    `vim.fault.InvalidName`_:
        if name of the portgroup is invalid
 
 
@@ -1014,14 +903,14 @@ UpdateDVSHealthCheckConfig(healthCheckConfig):
 
   Returns:
      `vim.Task`_:
-         
+
 
   Raises:
 
-    `vim.fault.DvsFault`_: 
+    `vim.fault.DvsFault`_:
        if operation fails on any host or if there are other update failures.
 
-    `vmodl.fault.NotSupported`_: 
+    `vmodl.fault.NotSupported`_:
        if health check is not supported on the switch.
 
 
@@ -1044,14 +933,14 @@ LookupDvPortGroup(portgroupKey):
 
   Returns:
     `vim.dvs.DistributedVirtualPortgroup`_:
-         
+
 
   Raises:
 
-    `vim.fault.NotFound`_: 
+    `vim.fault.NotFound`_:
        If the portgroup for the specified key is not found.
 
-    `vmodl.fault.NotSupported`_: 
+    `vmodl.fault.NotSupported`_:
        If the operation is not supported.
 
 
