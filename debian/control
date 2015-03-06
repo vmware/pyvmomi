@@ -1,0 +1,15 @@
+Source: pyvmomi
+Section: web
+Priority: extra
+Maintainer: Alcatel-Lucent Personal Cloud R&D <dev@opentouch.net>
+Uploaders: Alcatel-Lucent Personal Cloud R&D <dev@opentouch.net>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.2
+Xs-Vcs-Git: https://github.com/OpenTouch/pyvmomi.git
+
+Package: pyvmomi
+Architecture: all
+Depends: ${misc:Depends}, ${python:Depends}
+Description: pyvmomi python api for vSphere
+ pyvmomi python api for vSphere
+
