@@ -1,0 +1,410 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.4.0 CPython/2.6.8 Darwin/13.4.0]
+    method: GET
+    uri: https://vcsa:443//sdk/vimServiceVersions.xml
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!--\n
+        \  Copyright 2008-2012 VMware, Inc.  All rights reserved.\n-->\n<namespaces
+        version=\"1.0\">\n  <namespace>\n    <name>urn:vim25</name>\n    <version>5.5</version>\n
+        \   <priorVersions>\n      <version>5.1</version>\n      <version>5.0</version>\n
+        \     <version>4.1</version>\n      <version>4.0</version>\n      <version>2.5u2</version>\n
+        \     <version>2.5</version>\n    </priorVersions>\n  </namespace>\n  <namespace>\n
+        \   <name>urn:vim2</name>\n    <version>2.0</version>\n  </namespace>\n</namespaces>\n"}
+    headers:
+      connection: [Keep-Alive]
+      content-length: ['530']
+      content-type: [text/xml]
+      date: ['Fri, 10 Apr 2015 23:20:44 GMT']
+    status: {code: 200, message: OK}
+- request:
+    body: '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+      <soapenv:Body><RetrieveServiceContent xmlns="urn:vim25"><_this type="ServiceInstance">ServiceInstance</_this></RetrieveServiceContent></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: ['']
+      SOAPAction: ['"urn:vim25/5.5"']
+    method: POST
+    uri: https://vcsa:443/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope
+        xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n
+        xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n<soapenv:Body>\n<RetrieveServiceContentResponse
+        xmlns=\"urn:vim25\"><returnval><rootFolder type=\"Folder\">group-d1</rootFolder><propertyCollector
+        type=\"PropertyCollector\">propertyCollector</propertyCollector><viewManager
+        type=\"ViewManager\">ViewManager</viewManager><about><name>VMware vCenter
+        Server</name><fullName>VMware vCenter Server 5.5.0 build-1623101</fullName><vendor>VMware,
+        Inc.</vendor><version>5.5.0</version><build>1623101</build><localeVersion>INTL</localeVersion><localeBuild>000</localeBuild><osType>linux-x64</osType><productLineId>vpx</productLineId><apiType>VirtualCenter</apiType><apiVersion>5.5</apiVersion><instanceUuid>7FE5EAEC-D956-4BF1-BC24-28D6242EA017</instanceUuid><licenseProductName>VMware
+        VirtualCenter Server</licenseProductName><licenseProductVersion>5.0</licenseProductVersion></about><setting
+        type=\"OptionManager\">VpxSettings</setting><userDirectory type=\"UserDirectory\">UserDirectory</userDirectory><sessionManager
+        type=\"SessionManager\">SessionManager</sessionManager><authorizationManager
+        type=\"AuthorizationManager\">AuthorizationManager</authorizationManager><serviceManager
+        type=\"ServiceManager\">ServiceMgr</serviceManager><perfManager type=\"PerformanceManager\">PerfMgr</perfManager><scheduledTaskManager
+        type=\"ScheduledTaskManager\">ScheduledTaskManager</scheduledTaskManager><alarmManager
+        type=\"AlarmManager\">AlarmManager</alarmManager><eventManager type=\"EventManager\">EventManager</eventManager><taskManager
+        type=\"TaskManager\">TaskManager</taskManager><extensionManager type=\"ExtensionManager\">ExtensionManager</extensionManager><customizationSpecManager
+        type=\"CustomizationSpecManager\">CustomizationSpecManager</customizationSpecManager><customFieldsManager
+        type=\"CustomFieldsManager\">CustomFieldsManager</customFieldsManager><diagnosticManager
+        type=\"DiagnosticManager\">DiagMgr</diagnosticManager><licenseManager type=\"LicenseManager\">LicenseManager</licenseManager><searchIndex
+        type=\"SearchIndex\">SearchIndex</searchIndex><fileManager type=\"FileManager\">FileManager</fileManager><datastoreNamespaceManager
+        type=\"DatastoreNamespaceManager\">DatastoreNamespaceManager</datastoreNamespaceManager><virtualDiskManager
+        type=\"VirtualDiskManager\">virtualDiskManager</virtualDiskManager><snmpSystem
+        type=\"HostSnmpSystem\">SnmpSystem</snmpSystem><vmProvisioningChecker type=\"VirtualMachineProvisioningChecker\">ProvChecker</vmProvisioningChecker><vmCompatibilityChecker
+        type=\"VirtualMachineCompatibilityChecker\">CompatChecker</vmCompatibilityChecker><ovfManager
+        type=\"OvfManager\">OvfManager</ovfManager><ipPoolManager type=\"IpPoolManager\">IpPoolManager</ipPoolManager><dvSwitchManager
+        type=\"DistributedVirtualSwitchManager\">DVSManager</dvSwitchManager><hostProfileManager
+        type=\"HostProfileManager\">HostProfileManager</hostProfileManager><clusterProfileManager
+        type=\"ClusterProfileManager\">ClusterProfileManager</clusterProfileManager><complianceManager
+        type=\"ProfileComplianceManager\">MoComplianceManager</complianceManager><localizationManager
+        type=\"LocalizationManager\">LocalizationManager</localizationManager><storageResourceManager
+        type=\"StorageResourceManager\">StorageResourceManager</storageResourceManager><guestOperationsManager
+        type=\"GuestOperationsManager\">guestOperationsManager</guestOperationsManager></returnval></RetrieveServiceContentResponse>\n</soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['3599']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Fri, 10 Apr 2015 23:20:44 GMT']
+      set-cookie: [vmware_soap_session="5271f341-16fd-3d6e-6d12-2bccb326c12d"; Path=/;
+          HttpOnly; Secure;]
+    status: {code: 200, message: OK}
+- request:
+    body: '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+      <soapenv:Body><Login xmlns="urn:vim25"><_this type="SessionManager">SessionManager</_this><userName>my_user</userName><password>my_password</password></Login></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="5271f341-16fd-3d6e-6d12-2bccb326c12d"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/5.5"']
+    method: POST
+    uri: https://vcsa:443/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope
+        xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n
+        xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n<soapenv:Body>\n<LoginResponse
+        xmlns=\"urn:vim25\"><returnval><key>521b0b0d-cff3-0275-7afe-f8555219a9f5</key><userName>my_user</userName><fullName>my_user
+        </fullName><loginTime>2015-04-10T23:20:45.007085Z</loginTime><lastActiveTime>2015-04-10T23:20:45.007085Z</lastActiveTime><locale>en</locale><messageLocale>en</messageLocale><extensionSession>false</extensionSession><ipAddress>192.168.2.100</ipAddress><userAgent></userAgent><callCount>0</callCount></returnval></LoginResponse>\n</soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['790']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Fri, 10 Apr 2015 23:20:45 GMT']
+    status: {code: 200, message: OK}
+- request:
+    body: '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+      <soapenv:Body><RetrieveServiceContent xmlns="urn:vim25"><_this type="ServiceInstance">ServiceInstance</_this></RetrieveServiceContent></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="5271f341-16fd-3d6e-6d12-2bccb326c12d"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/5.5"']
+    method: POST
+    uri: https://vcsa:443/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope
+        xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n
+        xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n<soapenv:Body>\n<RetrieveServiceContentResponse
+        xmlns=\"urn:vim25\"><returnval><rootFolder type=\"Folder\">group-d1</rootFolder><propertyCollector
+        type=\"PropertyCollector\">propertyCollector</propertyCollector><viewManager
+        type=\"ViewManager\">ViewManager</viewManager><about><name>VMware vCenter
+        Server</name><fullName>VMware vCenter Server 5.5.0 build-1623101</fullName><vendor>VMware,
+        Inc.</vendor><version>5.5.0</version><build>1623101</build><localeVersion>INTL</localeVersion><localeBuild>000</localeBuild><osType>linux-x64</osType><productLineId>vpx</productLineId><apiType>VirtualCenter</apiType><apiVersion>5.5</apiVersion><instanceUuid>7FE5EAEC-D956-4BF1-BC24-28D6242EA017</instanceUuid><licenseProductName>VMware
+        VirtualCenter Server</licenseProductName><licenseProductVersion>5.0</licenseProductVersion></about><setting
+        type=\"OptionManager\">VpxSettings</setting><userDirectory type=\"UserDirectory\">UserDirectory</userDirectory><sessionManager
+        type=\"SessionManager\">SessionManager</sessionManager><authorizationManager
+        type=\"AuthorizationManager\">AuthorizationManager</authorizationManager><serviceManager
+        type=\"ServiceManager\">ServiceMgr</serviceManager><perfManager type=\"PerformanceManager\">PerfMgr</perfManager><scheduledTaskManager
+        type=\"ScheduledTaskManager\">ScheduledTaskManager</scheduledTaskManager><alarmManager
+        type=\"AlarmManager\">AlarmManager</alarmManager><eventManager type=\"EventManager\">EventManager</eventManager><taskManager
+        type=\"TaskManager\">TaskManager</taskManager><extensionManager type=\"ExtensionManager\">ExtensionManager</extensionManager><customizationSpecManager
+        type=\"CustomizationSpecManager\">CustomizationSpecManager</customizationSpecManager><customFieldsManager
+        type=\"CustomFieldsManager\">CustomFieldsManager</customFieldsManager><diagnosticManager
+        type=\"DiagnosticManager\">DiagMgr</diagnosticManager><licenseManager type=\"LicenseManager\">LicenseManager</licenseManager><searchIndex
+        type=\"SearchIndex\">SearchIndex</searchIndex><fileManager type=\"FileManager\">FileManager</fileManager><datastoreNamespaceManager
+        type=\"DatastoreNamespaceManager\">DatastoreNamespaceManager</datastoreNamespaceManager><virtualDiskManager
+        type=\"VirtualDiskManager\">virtualDiskManager</virtualDiskManager><snmpSystem
+        type=\"HostSnmpSystem\">SnmpSystem</snmpSystem><vmProvisioningChecker type=\"VirtualMachineProvisioningChecker\">ProvChecker</vmProvisioningChecker><vmCompatibilityChecker
+        type=\"VirtualMachineCompatibilityChecker\">CompatChecker</vmCompatibilityChecker><ovfManager
+        type=\"OvfManager\">OvfManager</ovfManager><ipPoolManager type=\"IpPoolManager\">IpPoolManager</ipPoolManager><dvSwitchManager
+        type=\"DistributedVirtualSwitchManager\">DVSManager</dvSwitchManager><hostProfileManager
+        type=\"HostProfileManager\">HostProfileManager</hostProfileManager><clusterProfileManager
+        type=\"ClusterProfileManager\">ClusterProfileManager</clusterProfileManager><complianceManager
+        type=\"ProfileComplianceManager\">MoComplianceManager</complianceManager><localizationManager
+        type=\"LocalizationManager\">LocalizationManager</localizationManager><storageResourceManager
+        type=\"StorageResourceManager\">StorageResourceManager</storageResourceManager><guestOperationsManager
+        type=\"GuestOperationsManager\">guestOperationsManager</guestOperationsManager></returnval></RetrieveServiceContentResponse>\n</soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['3599']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Fri, 10 Apr 2015 23:20:45 GMT']
+    status: {code: 200, message: OK}
+- request:
+    body: '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+      <soapenv:Body><FindByInventoryPath xmlns="urn:vim25"><_this type="SearchIndex">SearchIndex</_this><inventoryPath>Datacenter0/vm/box</inventoryPath></FindByInventoryPath></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="5271f341-16fd-3d6e-6d12-2bccb326c12d"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/5.5"']
+    method: POST
+    uri: https://vcsa:443/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope
+        xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n
+        xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n<soapenv:Body>\n<FindByInventoryPathResponse
+        xmlns=\"urn:vim25\"><returnval type=\"VirtualMachine\">vm-722</returnval></FindByInventoryPathResponse>\n</soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['455']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Fri, 10 Apr 2015 23:20:45 GMT']
+    status: {code: 200, message: OK}
+- request:
+    body: '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+      <soapenv:Body><RetrieveServiceContent xmlns="urn:vim25"><_this type="ServiceInstance">ServiceInstance</_this></RetrieveServiceContent></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="5271f341-16fd-3d6e-6d12-2bccb326c12d"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/5.5"']
+    method: POST
+    uri: https://vcsa:443/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope
+        xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n
+        xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n<soapenv:Body>\n<RetrieveServiceContentResponse
+        xmlns=\"urn:vim25\"><returnval><rootFolder type=\"Folder\">group-d1</rootFolder><propertyCollector
+        type=\"PropertyCollector\">propertyCollector</propertyCollector><viewManager
+        type=\"ViewManager\">ViewManager</viewManager><about><name>VMware vCenter
+        Server</name><fullName>VMware vCenter Server 5.5.0 build-1623101</fullName><vendor>VMware,
+        Inc.</vendor><version>5.5.0</version><build>1623101</build><localeVersion>INTL</localeVersion><localeBuild>000</localeBuild><osType>linux-x64</osType><productLineId>vpx</productLineId><apiType>VirtualCenter</apiType><apiVersion>5.5</apiVersion><instanceUuid>7FE5EAEC-D956-4BF1-BC24-28D6242EA017</instanceUuid><licenseProductName>VMware
+        VirtualCenter Server</licenseProductName><licenseProductVersion>5.0</licenseProductVersion></about><setting
+        type=\"OptionManager\">VpxSettings</setting><userDirectory type=\"UserDirectory\">UserDirectory</userDirectory><sessionManager
+        type=\"SessionManager\">SessionManager</sessionManager><authorizationManager
+        type=\"AuthorizationManager\">AuthorizationManager</authorizationManager><serviceManager
+        type=\"ServiceManager\">ServiceMgr</serviceManager><perfManager type=\"PerformanceManager\">PerfMgr</perfManager><scheduledTaskManager
+        type=\"ScheduledTaskManager\">ScheduledTaskManager</scheduledTaskManager><alarmManager
+        type=\"AlarmManager\">AlarmManager</alarmManager><eventManager type=\"EventManager\">EventManager</eventManager><taskManager
+        type=\"TaskManager\">TaskManager</taskManager><extensionManager type=\"ExtensionManager\">ExtensionManager</extensionManager><customizationSpecManager
+        type=\"CustomizationSpecManager\">CustomizationSpecManager</customizationSpecManager><customFieldsManager
+        type=\"CustomFieldsManager\">CustomFieldsManager</customFieldsManager><diagnosticManager
+        type=\"DiagnosticManager\">DiagMgr</diagnosticManager><licenseManager type=\"LicenseManager\">LicenseManager</licenseManager><searchIndex
+        type=\"SearchIndex\">SearchIndex</searchIndex><fileManager type=\"FileManager\">FileManager</fileManager><datastoreNamespaceManager
+        type=\"DatastoreNamespaceManager\">DatastoreNamespaceManager</datastoreNamespaceManager><virtualDiskManager
+        type=\"VirtualDiskManager\">virtualDiskManager</virtualDiskManager><snmpSystem
+        type=\"HostSnmpSystem\">SnmpSystem</snmpSystem><vmProvisioningChecker type=\"VirtualMachineProvisioningChecker\">ProvChecker</vmProvisioningChecker><vmCompatibilityChecker
+        type=\"VirtualMachineCompatibilityChecker\">CompatChecker</vmCompatibilityChecker><ovfManager
+        type=\"OvfManager\">OvfManager</ovfManager><ipPoolManager type=\"IpPoolManager\">IpPoolManager</ipPoolManager><dvSwitchManager
+        type=\"DistributedVirtualSwitchManager\">DVSManager</dvSwitchManager><hostProfileManager
+        type=\"HostProfileManager\">HostProfileManager</hostProfileManager><clusterProfileManager
+        type=\"ClusterProfileManager\">ClusterProfileManager</clusterProfileManager><complianceManager
+        type=\"ProfileComplianceManager\">MoComplianceManager</complianceManager><localizationManager
+        type=\"LocalizationManager\">LocalizationManager</localizationManager><storageResourceManager
+        type=\"StorageResourceManager\">StorageResourceManager</storageResourceManager><guestOperationsManager
+        type=\"GuestOperationsManager\">guestOperationsManager</guestOperationsManager></returnval></RetrieveServiceContentResponse>\n</soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['3599']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Fri, 10 Apr 2015 23:20:45 GMT']
+    status: {code: 200, message: OK}
+- request:
+    body: '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>VirtualMachine</type><all>false</all><pathSet>name</pathSet></propSet><objectSet><obj
+      type="VirtualMachine">vm-722</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="5271f341-16fd-3d6e-6d12-2bccb326c12d"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/5.5"']
+    method: POST
+    uri: https://vcsa:443/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope
+        xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n
+        xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n<soapenv:Body>\n<RetrievePropertiesExResponse
+        xmlns=\"urn:vim25\"><returnval><objects><obj type=\"VirtualMachine\">vm-722</obj><propSet><name>name</name><val
+        xsi:type=\"xsd:string\">box</val></propSet></objects></returnval></RetrievePropertiesExResponse>\n</soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['559']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Fri, 10 Apr 2015 23:20:45 GMT']
+    status: {code: 200, message: OK}
+- request:
+    body: '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>VirtualMachine</type><all>false</all><pathSet>config</pathSet></propSet><objectSet><obj
+      type="VirtualMachine">vm-722</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="5271f341-16fd-3d6e-6d12-2bccb326c12d"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/5.5"']
+    method: POST
+    uri: https://vcsa:443/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope
+        xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n
+        xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n<soapenv:Body>\n<RetrievePropertiesExResponse
+        xmlns=\"urn:vim25\"><returnval><objects><obj type=\"VirtualMachine\">vm-722</obj><propSet><name>config</name><val
+        xsi:type=\"VirtualMachineConfigInfo\"><changeVersion>2015-04-10T21:56:46.79505Z</changeVersion><modified>1970-01-01T00:00:00Z</modified><name>box</name><guestFullName>Ubuntu
+        Linux (64-bit)</guestFullName><version>vmx-08</version><uuid>420264ab-848b-1586-b589-b9bd3a71b3aa</uuid><instanceUuid>500221fe-3473-60ff-fab2-1811600208a0</instanceUuid><npivWorldWideNameType></npivWorldWideNameType><npivTemporaryDisabled>true</npivTemporaryDisabled><locationId>564d7427-3c77-fede-9448-44dbaa170c80</locationId><template>false</template><guestId>ubuntu64Guest</guestId><alternateGuestName></alternateGuestName><annotation></annotation><files><vmPathName>[storage0]
+        box/box.vmx</vmPathName><snapshotDirectory>[storage0] box/</snapshotDirectory><suspendDirectory>[storage0]
+        box/</suspendDirectory><logDirectory>[storage0] box/</logDirectory></files><tools><toolsVersion>9216</toolsVersion><afterPowerOn>true</afterPowerOn><afterResume>true</afterResume><beforeGuestStandby>true</beforeGuestStandby><beforeGuestShutdown>true</beforeGuestShutdown><toolsUpgradePolicy>manual</toolsUpgradePolicy><syncTimeWithHost>false</syncTimeWithHost><lastInstallInfo><counter>0</counter></lastInstallInfo></tools><flags><disableAcceleration>false</disableAcceleration><enableLogging>true</enableLogging><useToe>false</useToe><runWithDebugInfo>false</runWithDebugInfo><monitorType>release</monitorType><htSharing>any</htSharing><diskUuidEnabled>false</diskUuidEnabled><virtualMmuUsage>automatic</virtualMmuUsage><virtualExecUsage>hvAuto</virtualExecUsage><snapshotPowerOffBehavior>powerOff</snapshotPowerOffBehavior><recordReplayEnabled>false</recordReplayEnabled></flags><defaultPowerOps><powerOffType>soft</powerOffType><suspendType>hard</suspendType><resetType>soft</resetType><defaultPowerOffType>soft</defaultPowerOffType><defaultSuspendType>hard</defaultSuspendType><defaultResetType>soft</defaultResetType><standbyAction>checkpoint</standbyAction></defaultPowerOps><hardware><numCPU>4</numCPU><numCoresPerSocket>2</numCoresPerSocket><memoryMB>2048</memoryMB><virtualICH7MPresent>false</virtualICH7MPresent><virtualSMCPresent>false</virtualSMCPresent><device
+        xsi:type=\"VirtualIDEController\"><key>200</key><deviceInfo><label>IDE 0</label><summary>IDE
+        0</summary></deviceInfo><busNumber>0</busNumber></device><device xsi:type=\"VirtualIDEController\"><key>201</key><deviceInfo><label>IDE
+        1</label><summary>IDE 1</summary></deviceInfo><busNumber>1</busNumber><device>3002</device></device><device
+        xsi:type=\"VirtualPS2Controller\"><key>300</key><deviceInfo><label>PS2 controller
+        0</label><summary>PS2 controller 0</summary></deviceInfo><busNumber>0</busNumber><device>600</device><device>700</device></device><device
+        xsi:type=\"VirtualPCIController\"><key>100</key><deviceInfo><label>PCI controller
+        0</label><summary>PCI controller 0</summary></deviceInfo><busNumber>0</busNumber><device>500</device><device>12000</device><device>1000</device><device>4000</device></device><device
+        xsi:type=\"VirtualSIOController\"><key>400</key><deviceInfo><label>SIO controller
+        0</label><summary>SIO controller 0</summary></deviceInfo><busNumber>0</busNumber><device>8000</device></device><device
+        xsi:type=\"VirtualKeyboard\"><key>600</key><deviceInfo><label>Keyboard </label><summary>Keyboard</summary></deviceInfo><controllerKey>300</controllerKey><unitNumber>0</unitNumber></device><device
+        xsi:type=\"VirtualPointingDevice\"><key>700</key><deviceInfo><label>Pointing
+        device</label><summary>Pointing device; Device</summary></deviceInfo><backing
+        xsi:type=\"VirtualPointingDeviceDeviceBackingInfo\"><deviceName></deviceName><useAutoDetect>false</useAutoDetect><hostPointingDevice>autodetect</hostPointingDevice></backing><controllerKey>300</controllerKey><unitNumber>1</unitNumber></device><device
+        xsi:type=\"VirtualMachineVideoCard\"><key>500</key><deviceInfo><label>Video
+        card </label><summary>Video card</summary></deviceInfo><controllerKey>100</controllerKey><unitNumber>0</unitNumber><videoRamSizeInKB>4096</videoRamSizeInKB><numDisplays>1</numDisplays><useAutoDetect>false</useAutoDetect><enable3DSupport>false</enable3DSupport><use3dRenderer>automatic</use3dRenderer></device><device
+        xsi:type=\"VirtualMachineVMCIDevice\"><key>12000</key><deviceInfo><label>VMCI
+        device</label><summary>Device on the virtual machine PCI bus that provides
+        support for the virtual machine communication interface</summary></deviceInfo><slotInfo
+        xsi:type=\"VirtualDevicePciBusSlotInfo\"><pciSlotNumber>33</pciSlotNumber></slotInfo><controllerKey>100</controllerKey><unitNumber>17</unitNumber><id>980530090</id><allowUnrestrictedCommunication>false</allowUnrestrictedCommunication></device><device
+        xsi:type=\"VirtualLsiLogicController\"><key>1000</key><deviceInfo><label>SCSI
+        controller 0</label><summary>LSI Logic</summary></deviceInfo><slotInfo xsi:type=\"VirtualDevicePciBusSlotInfo\"><pciSlotNumber>16</pciSlotNumber></slotInfo><controllerKey>100</controllerKey><unitNumber>3</unitNumber><busNumber>0</busNumber><device>2000</device><hotAddRemove>true</hotAddRemove><sharedBus>noSharing</sharedBus><scsiCtlrUnitNumber>7</scsiCtlrUnitNumber></device><device
+        xsi:type=\"VirtualDisk\"><key>2000</key><deviceInfo><label>Hard disk 1</label><summary>16,777,216
+        KB</summary></deviceInfo><backing xsi:type=\"VirtualDiskFlatVer2BackingInfo\"><fileName>[storage0]
+        box/box-000001.vmdk</fileName><datastore type=\"Datastore\">datastore-21</datastore><diskMode>persistent</diskMode><split>false</split><writeThrough>false</writeThrough><thinProvisioned>true</thinProvisioned><uuid>6000C295-0720-c428-8fe9-fcb547507d13</uuid><contentId>50c631d86f4d7efcffa707ab954b86d8</contentId><parent><fileName>[storage0]
+        box/box.vmdk</fileName><datastore type=\"Datastore\">datastore-21</datastore><diskMode>persistent</diskMode><thinProvisioned>true</thinProvisioned><uuid>6000C295-0720-c428-8fe9-fcb547507d13</uuid><contentId>977342514f17e373aa3ac64b22a4c16e</contentId></parent><deltaDiskFormat>redoLogFormat</deltaDiskFormat><digestEnabled>false</digestEnabled></backing><controllerKey>1000</controllerKey><unitNumber>0</unitNumber><capacityInKB>16777216</capacityInKB><shares><shares>1000</shares><level>normal</level></shares><storageIOAllocation><limit>-1</limit><shares><shares>1000</shares><level>normal</level></shares></storageIOAllocation></device><device
+        xsi:type=\"VirtualCdrom\"><key>3002</key><deviceInfo><label>CD/DVD drive 1</label><summary>ATAPI
+        /vmfs/devices/cdrom/mpx.vmhba0:C0:T0:L0</summary></deviceInfo><backing xsi:type=\"VirtualCdromAtapiBackingInfo\"><deviceName>/vmfs/devices/cdrom/mpx.vmhba0:C0:T0:L0</deviceName><useAutoDetect>false</useAutoDetect></backing><connectable><startConnected>false</startConnected><allowGuestControl>true</allowGuestControl><connected>false</connected><status>untried</status></connectable><controllerKey>201</controllerKey><unitNumber>0</unitNumber></device><device
+        xsi:type=\"VirtualE1000\"><key>4000</key><deviceInfo><label>Network adapter
+        1</label><summary>VM Network</summary></deviceInfo><backing xsi:type=\"VirtualEthernetCardNetworkBackingInfo\"><deviceName>VM
+        Network</deviceName><useAutoDetect>false</useAutoDetect><network type=\"Network\">network-22</network></backing><connectable><startConnected>true</startConnected><allowGuestControl>true</allowGuestControl><connected>true</connected><status>ok</status></connectable><slotInfo
+        xsi:type=\"VirtualDevicePciBusSlotInfo\"><pciSlotNumber>32</pciSlotNumber></slotInfo><controllerKey>100</controllerKey><unitNumber>7</unitNumber><addressType>assigned</addressType><macAddress>00:50:56:82:28:7d</macAddress><wakeOnLanEnabled>true</wakeOnLanEnabled></device><device
+        xsi:type=\"VirtualFloppy\"><key>8000</key><deviceInfo><label>Floppy drive
+        1</label><summary>Remote</summary></deviceInfo><backing xsi:type=\"VirtualFloppyRemoteDeviceBackingInfo\"><deviceName></deviceName><useAutoDetect>false</useAutoDetect></backing><connectable><startConnected>false</startConnected><allowGuestControl>true</allowGuestControl><connected>false</connected><status>untried</status></connectable><controllerKey>400</controllerKey><unitNumber>0</unitNumber></device></hardware><cpuAllocation><reservation>0</reservation><expandableReservation>false</expandableReservation><limit>-1</limit><shares><shares>1000</shares><level>normal</level></shares></cpuAllocation><memoryAllocation><reservation>0</reservation><expandableReservation>false</expandableReservation><limit>-1</limit><shares><shares>10240</shares><level>normal</level></shares></memoryAllocation><latencySensitivity><level>normal</level></latencySensitivity><memoryHotAddEnabled>false</memoryHotAddEnabled><cpuHotAddEnabled>false</cpuHotAddEnabled><cpuHotRemoveEnabled>false</cpuHotRemoveEnabled><hotPlugMemoryLimit>2048</hotPlugMemoryLimit><hotPlugMemoryIncrementSize>0</hotPlugMemoryIncrementSize><extraConfig><key>hpet0.present</key><value
+        xsi:type=\"xsd:string\">true</value></extraConfig><extraConfig><key>nvram</key><value
+        xsi:type=\"xsd:string\">box.nvram</value></extraConfig><extraConfig><key>virtualHW.productCompatibility</key><value
+        xsi:type=\"xsd:string\">hosted</value></extraConfig><extraConfig><key>pciBridge0.present</key><value
+        xsi:type=\"xsd:string\">true</value></extraConfig><extraConfig><key>pciBridge4.present</key><value
+        xsi:type=\"xsd:string\">true</value></extraConfig><extraConfig><key>scsi0.pciSlotNumber</key><value
+        xsi:type=\"xsd:string\">16</value></extraConfig><extraConfig><key>ethernet0.pciSlotNumber</key><value
+        xsi:type=\"xsd:string\">32</value></extraConfig><extraConfig><key>vmci0.pciSlotNumber</key><value
+        xsi:type=\"xsd:string\">33</value></extraConfig><extraConfig><key>replay.supported</key><value
+        xsi:type=\"xsd:string\">false</value></extraConfig><extraConfig><key>sched.swap.derivedName</key><value
+        xsi:type=\"xsd:string\">/vmfs/volumes/501fa6d9-8907f56a-fa19-782bcb74158e/box/box-fbe87ab9.vswp</value></extraConfig><extraConfig><key>replay.filename</key><value
+        xsi:type=\"xsd:string\"></value></extraConfig><extraConfig><key>scsi0:0.redo</key><value
+        xsi:type=\"xsd:string\"></value></extraConfig><extraConfig><key>pciBridge0.pciSlotNumber</key><value
+        xsi:type=\"xsd:string\">17</value></extraConfig><extraConfig><key>pciBridge4.pciSlotNumber</key><value
+        xsi:type=\"xsd:string\">21</value></extraConfig><extraConfig><key>pciBridge5.pciSlotNumber</key><value
+        xsi:type=\"xsd:string\">22</value></extraConfig><extraConfig><key>pciBridge6.pciSlotNumber</key><value
+        xsi:type=\"xsd:string\">23</value></extraConfig><extraConfig><key>pciBridge7.pciSlotNumber</key><value
+        xsi:type=\"xsd:string\">24</value></extraConfig><extraConfig><key>pciBridge4.virtualDev</key><value
+        xsi:type=\"xsd:string\">pcieRootPort</value></extraConfig><extraConfig><key>tools.remindInstall</key><value
+        xsi:type=\"xsd:string\">true</value></extraConfig><extraConfig><key>hostCPUID.0</key><value
+        xsi:type=\"xsd:string\">0000000b756e65476c65746e49656e69</value></extraConfig><extraConfig><key>hostCPUID.1</key><value
+        xsi:type=\"xsd:string\">000206c220200800029ee3ffbfebfbff</value></extraConfig><extraConfig><key>hostCPUID.80000001</key><value
+        xsi:type=\"xsd:string\">0000000000000000000000012c100800</value></extraConfig><extraConfig><key>guestCPUID.0</key><value
+        xsi:type=\"xsd:string\">0000000b756e65476c65746e49656e69</value></extraConfig><extraConfig><key>guestCPUID.1</key><value
+        xsi:type=\"xsd:string\">000206c200020800829822031fabfbff</value></extraConfig><extraConfig><key>guestCPUID.80000001</key><value
+        xsi:type=\"xsd:string\">00000000000000000000000128100800</value></extraConfig><extraConfig><key>userCPUID.0</key><value
+        xsi:type=\"xsd:string\">0000000b756e65476c65746e49656e69</value></extraConfig><extraConfig><key>userCPUID.1</key><value
+        xsi:type=\"xsd:string\">000206c220200800029822031fabfbff</value></extraConfig><extraConfig><key>userCPUID.80000001</key><value
+        xsi:type=\"xsd:string\">00000000000000000000000128100800</value></extraConfig><extraConfig><key>evcCompatibilityMode</key><value
+        xsi:type=\"xsd:string\">false</value></extraConfig><extraConfig><key>vmotion.checkpointFBSize</key><value
+        xsi:type=\"xsd:string\">4194304</value></extraConfig><extraConfig><key>softPowerOff</key><value
+        xsi:type=\"xsd:string\">FALSE</value></extraConfig><extraConfig><key>cpuid.coresPerSocket</key><value
+        xsi:type=\"xsd:string\">2</value></extraConfig><extraConfig><key>pciBridge4.functions</key><value
+        xsi:type=\"xsd:string\">8</value></extraConfig><extraConfig><key>unity.wasCapable</key><value
+        xsi:type=\"xsd:string\">false</value></extraConfig><extraConfig><key>pciBridge5.present</key><value
+        xsi:type=\"xsd:string\">true</value></extraConfig><extraConfig><key>pciBridge5.virtualDev</key><value
+        xsi:type=\"xsd:string\">pcieRootPort</value></extraConfig><extraConfig><key>pciBridge5.functions</key><value
+        xsi:type=\"xsd:string\">8</value></extraConfig><extraConfig><key>pciBridge6.present</key><value
+        xsi:type=\"xsd:string\">true</value></extraConfig><extraConfig><key>pciBridge6.virtualDev</key><value
+        xsi:type=\"xsd:string\">pcieRootPort</value></extraConfig><extraConfig><key>pciBridge6.functions</key><value
+        xsi:type=\"xsd:string\">8</value></extraConfig><extraConfig><key>pciBridge7.present</key><value
+        xsi:type=\"xsd:string\">true</value></extraConfig><extraConfig><key>pciBridge7.virtualDev</key><value
+        xsi:type=\"xsd:string\">pcieRootPort</value></extraConfig><extraConfig><key>pciBridge7.functions</key><value
+        xsi:type=\"xsd:string\">8</value></extraConfig><extraConfig><key>vmware.tools.internalversion</key><value
+        xsi:type=\"xsd:string\">9216</value></extraConfig><extraConfig><key>vmware.tools.requiredversion</key><value
+        xsi:type=\"xsd:string\">9216</value></extraConfig><extraConfig><key>vmware.tools.installstate</key><value
+        xsi:type=\"xsd:string\">none</value></extraConfig><extraConfig><key>vmware.tools.lastInstallStatus</key><value
+        xsi:type=\"xsd:string\">unknown</value></extraConfig><extraConfig><key>migrate.hostLogState</key><value
+        xsi:type=\"xsd:string\">none</value></extraConfig><extraConfig><key>migrate.migrationId</key><value
+        xsi:type=\"xsd:string\">0</value></extraConfig><datastoreUrl><name>storage0</name><url>/vmfs/volumes/501fa6d9-8907f56a-fa19-782bcb74158e</url></datastoreUrl><swapPlacement>inherit</swapPlacement><bootOptions><bootDelay>0</bootDelay><enterBIOSSetup>false</enterBIOSSetup><bootRetryEnabled>false</bootRetryEnabled><bootRetryDelay>10000</bootRetryDelay></bootOptions><vAssertsEnabled>false</vAssertsEnabled><changeTrackingEnabled>false</changeTrackingEnabled><firmware>bios</firmware><maxMksConnections>40</maxMksConnections><guestAutoLockEnabled>false</guestAutoLockEnabled><memoryReservationLockedToMax>false</memoryReservationLockedToMax><initialOverhead><initialMemoryReservation>207392768</initialMemoryReservation><initialSwapReservation>324444160</initialSwapReservation></initialOverhead><nestedHVEnabled>false</nestedHVEnabled><vPMCEnabled>false</vPMCEnabled><scheduledHardwareUpgradeInfo><upgradePolicy>never</upgradePolicy><scheduledHardwareUpgradeStatus>none</scheduledHardwareUpgradeStatus></scheduledHardwareUpgradeInfo></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n</soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['15380']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Fri, 10 Apr 2015 23:20:45 GMT']
+    status: {code: 200, message: OK}
+version: 1
