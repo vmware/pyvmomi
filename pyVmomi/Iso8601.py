@@ -194,7 +194,10 @@ def ISO8601Format(dt):
    if dt.tzinfo:
       tz = dt.strftime('%z')
    else:
-      utcOffset_minutes = -time.altzone / 60
+      if time.daylight and time.localtime().tm_isdst:
+         utcOffset_minutes = -time.altzone / 60
+      else:
+         utcOffset_minutes = -time.timezone / 60
       tz = "%+.2d%.2d" % (utcOffset_minutes / 60, (abs(utcOffset_minutes) % 60))
    if tz == '+0000':
       return isoStr + 'Z'
