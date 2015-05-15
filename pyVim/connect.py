@@ -23,6 +23,8 @@ Connect to a VMOMI ServiceInstance.
 
 Detailed description (for [e]pydoc goes here).
 """
+import socket
+
 from six import reraise
 import sys
 import re
@@ -429,8 +431,11 @@ def __GetServiceVersionDescription(protocol, server, port, path):
    @param path: Path
    @type  path: string
    """
-
-   url = "%s://%s:%s/%s/vimServiceVersions.xml" % (protocol, server, port, path)
+   try:
+      socket.inet_pton(socket.AF_INET6, server)
+      url = "%s://[%s]:%s/%s/vimServiceVersions.xml" % (protocol, server, port, path)
+   except:
+      url = "%s://%s:%s/%s/vimServiceVersions.xml" % (protocol, server, port, path)
    try:
       sock = requests.get(url, verify=False)
       if sock.status_code == 200:
