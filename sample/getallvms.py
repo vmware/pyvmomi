@@ -18,13 +18,11 @@
 Python program for listing the vms on an ESX / vCenter host
 """
 
-from optparse import OptionParser, make_option
-from pyVim.connect import SmartConnect, Disconnect
-from pyVmomi import vmodl
-
 import argparse
 import atexit
-import sys
+
+from pyVim.connect import SmartConnect, Disconnect
+from pyVmomi import vmodl
 
 
 def GetArgs():
@@ -34,8 +32,8 @@ def GetArgs():
    parser = argparse.ArgumentParser(description='Process args for retrieving all the Virtual Machines')
    parser.add_argument('-s', '--host', required=True, action='store', help='Remote host to connect to')
    parser.add_argument('-o', '--port', type=int, default=443,   action='store', help='Port to connect on')
-   parser.add_argument('-u', '--user', required=True, action='store', help='User name to use when connecting to host')
-   parser.add_argument('-p', '--password', required=True, action='store', help='Password to use when connecting to host')
+   parser.add_argument('-u', '--user', action='store', help='User name to use when connecting to host')
+   parser.add_argument('-p', '--password', action='store', help='Password to use when connecting to host')
    args = parser.parse_args()
    return args
 

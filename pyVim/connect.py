@@ -24,18 +24,13 @@ Connect to a VMOMI ServiceInstance.
 Detailed description (for [e]pydoc goes here).
 """
 
-import sys
-import threading
-import thread
-import types
-import httplib
-import socket
-import time
-import itertools
 import re
+
+from pyVim.credstore import VICredStore, HostNotFoundException, NoCredentialsFileFound
 from pyVmomi import vim, vmodl, SoapStubAdapter, SessionOrientedStub
-from pyVmomi.VmomiSupport import nsMap, versionIdMap, versionMap, IsChildVersion
+from pyVmomi.VmomiSupport import versionIdMap, versionMap, IsChildVersion
 from pyVmomi.VmomiSupport import GetServiceVersions
+
 try:
    from xml.etree.ElementTree import ElementTree
 except ImportError:
@@ -577,6 +572,17 @@ def SmartConnect(protocol='https', host='localhost', port=443, user='root', pwd=
       raise Exception("%s:%s is not a VIM server" % (host, port))
 
    portNumber = protocol == "http" and -int(port) or int(port)
+
+   # Check for a credentials store if user and passwords weren't passed via command line.
+   try:
+       store = VICredStore()
+       (user, password) = store.get_userpwd(host)
+
+   except HostNotFoundException:
+       print "Host [" + host + "] was not found on credentials file. You need to enter credentials manually!"
+
+   except NoCredentialsFileFound:
+       print "No credentials store file found. You need to enter credentials manually!"
 
    return Connect(host=host,
                   port=portNumber,
