@@ -1,5 +1,5 @@
 # VMware vSphere Python SDK
-# Copyright (c) 2008-2013 VMware, Inc. All Rights Reserved.
+# Copyright (c) 2008-2015 VMware, Inc. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,8 +12,8 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-from VmomiSupport import nsMap, versionMap, versionIdMap, serviceNsMap, parentMap
+from __future__ import absolute_import
+from pyVmomi.VmomiSupport import nsMap, versionMap, versionIdMap, serviceNsMap, parentMap
 
 ## Add an API version
 def AddVersion(version, ns, versionId='', isLegacy=0, serviceNs=''):

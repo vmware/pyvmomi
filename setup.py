@@ -1,5 +1,5 @@
 # VMware vSphere Python SDK
-# Copyright (c) 2009-2013 VMware, Inc. All Rights Reserved.
+# Copyright (c) 2009-2015 VMware, Inc. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,27 +16,53 @@
 from setuptools import setup
 import os
 
+
 def read(fname):
-    return open(os.path.join(os.path.dirname(__file__), fname)).read()
+    with open(os.path.join(os.path.dirname(__file__), fname)) as fn:
+        return fn.read()
+
+with open('requirements.txt') as f:
+    required = f.read().splitlines()
+
+with open('test-requirements.txt') as f:
+    required_for_tests = f.read().splitlines()
 
 setup(
    name='pyvmomi',
-   version='5.5.0',
+   version='5.5.0-DEVELOPMENT',
    description='VMware vSphere Python SDK',
+   # NOTE: pypi prefers the use of RST to render docs
+   long_description=read('README.rst'),
+   url='https://github.com/vmware/pyvmomi',
    author='VMware, Inc.',
    author_email='jhu@vmware.com',
-   url='https://github.com/vmware/pyvmomi',
    packages=['pyVmomi', 'pyVim'],
-   license='Apache',
-   long_description=read('README.md'),
+   install_requires=required,
+   license='License :: OSI Approved :: Apache Software License',
    classifiers=[
-      "License :: OSI Approved :: Apache Software License",
-      "Development Status :: 4 - Beta",
-      "Environment :: No Input/Output (Daemon)",
-      "Intended Audience :: Information Technology",
-      "Intended Audience :: System Administrators",
-      "Topic :: Software Development :: Libraries :: Python Modules",
-      "Topic :: System :: Distributed Computing"
+      'Development Status :: 5 - Production/Stable',
+      'License :: OSI Approved :: Apache Software License',
+      'Intended Audience :: Information Technology',
+      'Intended Audience :: System Administrators',
+      'Intended Audience :: Developers',
+      'Environment :: No Input/Output (Daemon)',
+      'Programming Language :: Python :: 2',
+      'Programming Language :: Python :: 2.6',
+      'Programming Language :: Python :: 2.7',
+      'Programming Language :: Python :: 3',
+      'Programming Language :: Python :: 3.2',
+      'Programming Language :: Python :: 3.3',
+      'Programming Language :: Python :: 3.4',      
+      'Topic :: Software Development :: Libraries :: Python Modules',
+      'Topic :: System :: Distributed Computing',
+      'Operating System :: Microsoft :: Windows',
+      'Operating System :: POSIX',
+      'Operating System :: Unix',
+      'Operating System :: MacOS',
    ],
+   keywords='pyvmomi vsphere vmware esx',
+   platforms=['Windows', 'Linux', 'Solaris', 'Mac OS-X', 'Unix'],
+   test_suite='tests',
+   tests_require=required_for_tests,
    zip_safe=True
 )

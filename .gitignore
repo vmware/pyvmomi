@@ -1,5 +1,13 @@
 *.pyc
 build
 dist
+<<<<<<< HEAD
 .idea/*
 .gitignore
+=======
+.idea
+*.iml
+*.patch
+*.diff
+*.egg*
+>>>>>>> upstream/master

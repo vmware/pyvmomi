@@ -1,7 +1,5 @@
-#!/usr/bin/env python
-
 # VMware vSphere Python SDK
-# Copyright (c) 2008-2013 VMware, Inc. All Rights Reserved.
+# Copyright (c) 2008-2015 VMware, Inc. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -45,7 +43,7 @@ class DynamicTypeImporter:
       if self.hostSystem:
          try:
             dynTypeMgr = self.hostSystem.RetrieveDynamicTypeManager()
-         except vmodl.fault.MethodNotFound, err:
+         except vmodl.fault.MethodNotFound as err:
             pass
 
       if not dynTypeMgr:
@@ -139,7 +137,7 @@ class DynamicTypeConstructor:
          for typeInfo in infos:
             try:
                fn(*typeInfo)
-            except Exception, err:
+            except Exception as err:
                #Ignore errors due to duplicate importing
                pass
 

@@ -1,5 +1,5 @@
 # VMware vSphere Python SDK
-# Copyright (c) 2008-2013 VMware, Inc. All Rights Reserved.
+# Copyright (c) 2008-2015 VMware, Inc. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,8 +12,8 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-from VmomiSupport import GetVmodlType
+from __future__ import absolute_import
+from pyVmomi.VmomiSupport import GetVmodlType
 
 class StubAdapterAccessorMixin:
    def __init__(self):
@@ -38,4 +38,11 @@ class StubAdapterAccessorMixin:
       if not self._pc:
          si = self._siType("ServiceInstance", self)
          self._pc = si.RetrieveContent().propertyCollector
-      return self._pc.RetrieveContents([filterSpec])[0].propSet[0].val
+      result = self._pc.RetrievePropertiesEx(specSet=[filterSpec],
+                                             options=self._pcType.RetrieveOptions(maxObjects=1))
+      objectContent = result.objects[0]
+      if len(objectContent.propSet) > 0:
+         return objectContent.propSet[0].val
+      if len(objectContent.missingSet) > 0 and objectContent.missingSet[0].fault:
+         raise objectContent.missingSet[0].fault
+      return None

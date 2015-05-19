@@ -1,5 +1,5 @@
 # VMware vSphere Python SDK
-# Copyright (c) 2008-2013 VMware, Inc. All Rights Reserved.
+# Copyright (c) 2008-2015 VMware, Inc. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,21 +14,34 @@
 # limitations under the License.
 
 ## VMOMI support code
+from __future__ import absolute_import
 from __future__ import with_statement # 2.5 only
 
+from six import iteritems
+from six import iterkeys
+from six import itervalues
+from six import text_type
+from six import PY3
 from datetime import datetime
-import Iso8601
+from pyVmomi import Iso8601
 import base64
 import threading
+
+if PY3:
+    # python3 removed long, it's the same as int
+    long = int
+    # python3 removed basestring, use str instead.
+    basestring = str
+
 NoneType = type(None)
 try:
-   from pyVmomiSettings import allowGetSet
+   from pyVmomi.pyVmomiSettings import allowGetSet
    _allowGetSet = allowGetSet
 except:
    _allowGetSet = True
 
 try:
-   from pyVmomiSettings import allowCapitalizedNames
+   from pyVmomi.pyVmomiSettings import allowCapitalizedNames
    _allowCapitalizedNames = allowCapitalizedNames
 except:
    _allowCapitalizedNames = True
@@ -176,13 +189,13 @@ class LazyObject(Object):
          else:
             raise AttributeError(attr)
 
-class Link(unicode):
+class Link(text_type):
    def __new__(cls, obj):
       if isinstance(obj, basestring):
-         return unicode.__new__(cls, obj)
+         return text_type.__new__(cls, obj)
       elif isinstance(obj, DataObject):
          if obj.key:
-            return unicode.__new__(cls, obj.key)
+            return text_type.__new__(cls, obj.key)
          raise AttributeError("DataObject does not have a key to link")
       else:
          raise ValueError
@@ -348,7 +361,7 @@ class ManagedObject(object):
       args = list(posargs) + [None] * (len(info.params) - len(posargs))
       if len(kwargs) > 0:
          paramNames = [param.name for param in info.params]
-         for (k, v) in kwargs.items():
+         for (k, v) in list(kwargs.items()):
             try:
                idx = paramNames.index(k)
             except ValueError:
@@ -978,7 +991,7 @@ def _SetWsdlType(ns, wsdlName, typ):
 # @return type if found else throws KeyError
 def GetWsdlType(ns, name):
    if ns is None or name is None:
-      raise KeyError("%s %s" % (ns, name))
+      raise KeyError("{0} {1}".format(ns, name))
 
    with _lazyLock:
       # Check if the type is loaded in the map
@@ -990,14 +1003,21 @@ def GetWsdlType(ns, name):
          try:
             return GetWsdlType(ns, name[7:]).Array
          except KeyError:
-            raise KeyError("%s %s" % (ns, name))
+            raise KeyError("{0} {1}".format(ns, name))
       else:
          # Type is not loaded yet, load it
          typ = _LoadVmodlType(_wsdlDefMap[(ns, name)][0])
          if typ:
             return typ
 
-      raise KeyError("%s %s" % (ns, name))
+      raise KeyError("{0} {1}".format(ns, name))
+
+
+class UnknownWsdlTypeError(KeyError):
+    # NOTE (hartsock): KeyError is extended here since most logic will be
+    # looking for the KeyError type. I do want to distinguish malformed WSDL
+    # errors as a separate classification of error for easier bug reports.
+    pass
 
 ## Guess the type from wsdlname with no ns
 #  WARNING! This should not be used in general, as there is no guarantee for
@@ -1013,8 +1033,8 @@ def GuessWsdlType(name):
          try:
             return GetWsdlType(ns, name)
          except KeyError:
-            pass
-      raise KeyError(name)
+             pass
+      raise UnknownWsdlTypeError(name)
 
 ## Return a map that contains all the wsdl types
 # This function is rarely used
@@ -1026,7 +1046,7 @@ def GetWsdlTypes():
    with _lazyLock:
       for ns, name in _wsdlDefMap:
          GetWsdlType(ns, name)
-      return _wsdlTypeMap.itervalues()
+      return itervalues(_wsdlTypeMap)
 
 ## Get the qualified XML schema name (ns, name) of a type
 def GetQualifiedWsdlName(type):
@@ -1113,21 +1133,21 @@ def GetServiceVersions(namespace):
    by compatibility (i.e. any version in the list that is compatible with some version
    v in the list will preceed v)
    """
-   versions = dict((v, True) for (v, n) in serviceNsMap.iteritems() if n == namespace)
+   versions = dict((v, True) for (v, n) in iteritems(serviceNsMap) if n == namespace)
    mappings = {}
-   for v in versions.iterkeys():
-      mappings[v] = set(parent for parent in parentMap[v].iterkeys()
-                        if parent != v and versions.has_key(parent))
+   for v in iterkeys(versions):
+      mappings[v] = set(parent for parent in iterkeys(parentMap[v])
+                        if parent != v and parent in versions.keys())
    res = []
    while True:
-      el = [ k for (k, v) in mappings.iteritems() if len(v) == 0 ]
+      el = [ k for (k, v) in iteritems(mappings) if len(v) == 0 ]
       if len(el) == 0:
          return res
       el.sort()
       for k in el:
          res.insert(0, k)
          del mappings[k]
-         for values in mappings.itervalues():
+         for values in itervalues(mappings):
             values.discard(k)
 
 
@@ -1190,7 +1210,7 @@ def GetWsdlMethod(ns, wsdlName):
          LoadManagedType(*method)
          return _wsdlMethodMap[(ns, wsdlName)]
       else:
-         raise KeyError("%s %s" % (ns, name))
+         raise KeyError("{0} {1}".format(ns, name))
 
 ## Guess the method from wsdlname with no ns
 #  WARNING! This should not be used in general, as there is no guarantee for
@@ -1218,7 +1238,7 @@ def GetCompatibleType(type, version):
 
 ## Invert an injective mapping
 def InverseMap(map):
-   return dict([ (v, k) for (k, v) in map.iteritems() ])
+   return dict([ (v, k) for (k, v) in iteritems(map) ])
 
 types = Object()
 nsMap = {}
@@ -1227,7 +1247,7 @@ versionMap = {}
 serviceNsMap = { BASE_VERSION : XMLNS_VMODL_BASE.split(":")[-1] }
 parentMap = {}
 
-from Version import AddVersion, IsChildVersion
+from pyVmomi.Version import AddVersion, IsChildVersion
 
 if not isinstance(bool, type): # bool not a type in python <= 2.2
    bool = type("bool", (int,),
@@ -1237,7 +1257,7 @@ short  = type("short", (int,), {})
 double = type("double", (float,), {})
 URI = type("URI", (str,), {})
 binary = type("binary", (str,), {})
-PropertyPath = type("PropertyPath", (unicode,), {})
+PropertyPath = type("PropertyPath", (text_type,), {})
 
 # _wsdlTypeMapNSs store namespaces added to _wsdlTypeMap in _SetWsdlType
 _wsdlTypeMapNSs = set()
@@ -1263,7 +1283,7 @@ _wsdlTypeMap = {
 }
 _wsdlNameMap = InverseMap(_wsdlTypeMap)
 
-for ((ns, name), typ) in _wsdlTypeMap.items():
+for ((ns, name), typ) in iteritems(dict(_wsdlTypeMap)):
    if typ is not NoneType:
       setattr(types, typ.__name__, typ)
       _wsdlTypeMapNSs.add(ns)
@@ -1277,8 +1297,8 @@ del name, typ
 
 # unicode is mapped to wsdl name 'string' (Cannot put in wsdlTypeMap or name
 # collision with non-unicode string)
-_wsdlNameMap[unicode] = (XMLNS_XSD, 'string')
-_wsdlNameMap[CreateArrayType(unicode)] = (XMLNS_VMODL_BASE, 'ArrayOfString')
+_wsdlNameMap[text_type] = (XMLNS_XSD, 'string')
+_wsdlNameMap[CreateArrayType(text_type)] = (XMLNS_VMODL_BASE, 'ArrayOfString')
 
 # _wsdlMethodNSs store namespaces added to _wsdlMethodMap in _SetWsdlMethod
 _wsdlMethodNSs = set()
@@ -1322,7 +1342,7 @@ vmodlTypes = {
 vmodlNames = {}
 
 ## Add array type into special names
-for name, typ in vmodlTypes.copy().iteritems():
+for name, typ in vmodlTypes.copy().items():
    if typ is not NoneType:
       try:
          arrayType = typ.Array
@@ -1454,7 +1474,7 @@ class StringDict(dict):
 
    # Same as dict setdefault, except this will call through our __setitem__
    def update(self, *args, **kwargs):
-      for k, v in dict(*args, **kwargs).iteritems():
+      for k, v in iteritems(dict(*args, **kwargs)):
          self[k] = v
 
    # Same as dict setdefault, except this will call through our __setitem__

@@ -1,7 +1,7 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 #
 # VMware vSphere Python SDK
-# Copyright (c) 2008-2013 VMware, Inc. All Rights Reserved.
+# Copyright (c) 2008-2015 VMware, Inc. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,11 +19,14 @@
 Python program for powering on vms on a host on which hostd is running
 """
 
+from __future__ import print_function
+
 from pyVim.connect import SmartConnect, Disconnect
 from pyVmomi import vim, vmodl
 
 import argparse
 import atexit
+import getpass
 import sys
 
 def GetArgs():
@@ -35,7 +38,7 @@ def GetArgs():
    parser.add_argument('-s', '--host', required=True, action='store', help='Remote host to connect to')
    parser.add_argument('-o', '--port', type=int, default=443, action='store', help='Port to connect on')
    parser.add_argument('-u', '--user', required=True, action='store', help='User name to use when connecting to host')
-   parser.add_argument('-p', '--password', required=True, action='store', help='Password to use when connecting to host')
+   parser.add_argument('-p', '--password', required=False, action='store', help='Password to use when connecting to host')
    parser.add_argument('-v', '--vmname', required=True, action='append', help='Names of the Virtual Machines to power on')
    args = parser.parse_args()
    return args
@@ -98,22 +101,27 @@ def main():
    """
 
    args = GetArgs()
+   if args.password:
+      password = args.password
+   else:
+      password = getpass.getpass(prompt='Enter password for host %s and user %s: ' % (args.host,args.user))
+
    try:
       vmnames = args.vmname
       if not len(vmnames):
-         print "No virtual machine specified for poweron"
+         print("No virtual machine specified for poweron")
          sys.exit()
 
       si = None
       try:
          si = SmartConnect(host=args.host,
                            user=args.user,
-                           pwd=args.password,
+                           pwd=password,
                            port=int(args.port))
-      except IOError, e:
+      except IOError:
          pass
       if not si:
-         print "Cannot connect to specified host using specified username and password"
+         print("Cannot connect to specified host using specified username and password")
          sys.exit()
 
       atexit.register(Disconnect, si)
@@ -133,11 +141,11 @@ def main():
       # Wait for power on to complete
       WaitForTasks(tasks, si)
 
-      print "Virtual Machine(s) have been powered on successfully"
-   except vmodl.MethodFault, e:
-      print "Caught vmodl fault : " + e.msg
-   except Exception, e:
-      print "Caught Exception : " + str(e)
+      print("Virtual Machine(s) have been powered on successfully")
+   except vmodl.MethodFault as e:
+      print("Caught vmodl fault : " + e.msg)
+   except Exception as e:
+      print("Caught Exception : " + str(e))
 
 # Start program
 if __name__ == "__main__":

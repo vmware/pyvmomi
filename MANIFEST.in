@@ -1,2 +1,6 @@
-include README.md
+include README.*
+include *.txt
+include setup.py
+include tox.ini
+recursive-include tests *
 recursive-include sample *

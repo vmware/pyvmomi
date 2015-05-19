@@ -1,0 +1,14 @@
+interactions:
+- request:
+    body: null
+    headers: {}
+    method: CONNECT
+    uri: http://vcsasdkTunnel:8089
+  response:
+    body: {string: !!python/unicode ''}
+    headers:
+      content-length: ['0']
+      content-type: [text/html]
+      date: ['Thu, 11 Sep 2014 08:23:36 GMT']
+    status: {code: 200, message: OK}
+version: 1

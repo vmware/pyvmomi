@@ -1,7 +1,5 @@
-#!/usr/bin/env python
-
 # VMware vSphere Python SDK
-# Copyright (c) 2008-2013 VMware, Inc. All Rights Reserved.
+# Copyright (c) 2008-2015 VMware, Inc. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,12 +12,14 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
+from __future__ import print_function
+# TODO (hartsocks): Introduce logging to remove the need for print function.
 """
 This module is for ISO 8601 parsing
 """
 __author__ = 'VMware, Inc.'
 
+from six import iteritems
 import time
 from datetime import datetime, timedelta, tzinfo
 import re
@@ -118,7 +118,7 @@ def ParseISO8601(datetimeStr):
    if match:
       try:
          dt = {}
-         for key, defaultVal in _dtExprKeyDefValMap.iteritems():
+         for key, defaultVal in iteritems(_dtExprKeyDefValMap):
             val = match.group(key)
             if val:
                if key == 'microsecond':
@@ -176,7 +176,7 @@ def ParseISO8601(datetimeStr):
          datetimeVal = datetime(**dt)
          if delta:
             datetimeVal += delta
-      except Exception, e:
+      except Exception as e:
          pass
    return datetimeVal
 
@@ -194,7 +194,10 @@ def ISO8601Format(dt):
    if dt.tzinfo:
       tz = dt.strftime('%z')
    else:
-      utcOffset_minutes = -time.altzone / 60
+      if time.daylight and time.localtime().tm_isdst:
+         utcOffset_minutes = -time.altzone / 60
+      else:
+         utcOffset_minutes = -time.timezone / 60
       tz = "%+.2d%.2d" % (utcOffset_minutes / 60, (abs(utcOffset_minutes) % 60))
    if tz == '+0000':
       return isoStr + 'Z'
@@ -253,7 +256,7 @@ if __name__ == '__main__':
         ]:
       dt = ParseISO8601(testStr)
       if dt == None:
-         print 'Failed to parse (%s)' % testStr
+         print('Failed to parse ({0})'.format(testStr))
          assert(False)
 
       # Make sure we can translate back
@@ -262,16 +265,16 @@ if __name__ == '__main__':
       if dt.tzinfo is None:
          dt = dt.replace(tzinfo=dt1.tzinfo)
       if dt1 != dt:
-         print 'ParseISO8601 -> ISO8601Format -> ParseISO8601 failed (%s)' % testStr
+         print('ParseISO8601 -> ISO8601Format -> ParseISO8601 failed ({0})'.format(testStr))
          assert(False)
 
       # Make sure we can parse python isoformat()
       dt2 = ParseISO8601(dt.isoformat())
       if dt2 == None:
-         print 'ParseISO8601("%s".isoformat()) failed' % testStr
+         print('ParseISO8601("{0}".isoformat()) failed'.format(testStr))
          assert(False)
 
-      print testStr, '->', dt, isoformat
+      print(testStr, '->', dt, isoformat)
 
    # Basic form
    for testStr in [
@@ -293,7 +296,7 @@ if __name__ == '__main__':
       # Reject for now
       dt = ParseISO8601(testStr)
       if dt != None:
-         print 'ParseISO8601 (%s) should fail, but it did not' % testStr
+         print('ParseISO8601 ({0}) should fail, but it did not'.format(testStr))
          assert(False)
       #print testStr, '->', dt
       #assert(dt != None)
@@ -352,5 +355,5 @@ if __name__ == '__main__':
         ]:
       dt = ParseISO8601(testStr)
       if dt != None:
-         print 'ParseISO8601 (%s) should fail, but it did not' % testStr
+         print('ParseISO8601 ({0}) should fail, but it did not'.format(testStr))
          assert(False)

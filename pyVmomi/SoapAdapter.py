@@ -1,34 +1,46 @@
 # VMware vSphere Python SDK
-# Copyright (c) 2008-2013 VMware, Inc. All Rights Reserved.
+# Copyright (c) 2008-2015 VMware, Inc. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+# http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+from __future__ import absolute_import
 
-import httplib
+from six import PY2
+from six import PY3
+from six import reraise
+from six.moves import http_client
+
+if PY3:
+    long = int
+    basestring = str
+from six import u
 import sys
 import os
-import time
 import socket
 import subprocess
-import thread
-import urlparse
+import time
+from six.moves.urllib.parse import urlparse
 from datetime import datetime
 from xml.parsers.expat import ParserCreate
 # We have our own escape functionality.
 # from xml.sax.saxutils import escape
-from cStringIO import StringIO
-from VmomiSupport import *
-from StubAdapterAccessorImpl import StubAdapterAccessorMixin
-import Iso8601
+if PY2:
+    from cStringIO import StringIO
+
+if PY3:
+    from io import StringIO
+from pyVmomi.VmomiSupport import *
+from pyVmomi.StubAdapterAccessorImpl import StubAdapterAccessorMixin
+import pyVmomi.Iso8601
 import base64
 from xml.parsers.expat import ExpatError
 import copy
@@ -46,46 +58,51 @@ CONNECTION_POOL_IDLE_TIMEOUT_SEC = 900
 NS_SEP = " "
 
 XML_ENCODING = 'UTF-8'
-XML_HEADER = '<?xml version="1.0" encoding="%s"?>' % XML_ENCODING
+XML_HEADER = '<?xml version="1.0" encoding="{0}"?>'.format(XML_ENCODING)
 
 XMLNS_SOAPENC = "http://schemas.xmlsoap.org/soap/encoding/"
 XMLNS_SOAPENV = "http://schemas.xmlsoap.org/soap/envelope/"
 
-XSI_TYPE = XMLNS_XSI + NS_SEP + u'type'
+XSI_TYPE = XMLNS_XSI + NS_SEP + u('type')
 
 # Note: Must make a copy to use the SOAP_NSMAP
 # TODO: Change to frozendict, if available
 SOAP_NSMAP = { XMLNS_SOAPENC: 'soapenc', XMLNS_SOAPENV: 'soapenv',
                XMLNS_XSI: 'xsi', XMLNS_XSD: 'xsd' }
 
-SOAP_ENVELOPE_TAG="%s:Envelope" % SOAP_NSMAP[XMLNS_SOAPENV]
-SOAP_HEADER_TAG="%s:Header" % SOAP_NSMAP[XMLNS_SOAPENV]
-SOAP_FAULT_TAG="%s:Fault" % SOAP_NSMAP[XMLNS_SOAPENV]
-SOAP_BODY_TAG="%s:Body" % SOAP_NSMAP[XMLNS_SOAPENV]
+SOAP_ENVELOPE_TAG = "{0}:Envelope".format(SOAP_NSMAP[XMLNS_SOAPENV])
+SOAP_HEADER_TAG = "{0}:Header".format(SOAP_NSMAP[XMLNS_SOAPENV])
+SOAP_FAULT_TAG = "{0}:Fault".format(SOAP_NSMAP[XMLNS_SOAPENV])
+SOAP_BODY_TAG = "{0}:Body".format(SOAP_NSMAP[XMLNS_SOAPENV])
 
-SOAP_ENVELOPE_START = '<%s ' % SOAP_ENVELOPE_TAG + \
-                       ' '.join(['xmlns:' + prefix + '="' + urn + '"' \
-                                 for urn, prefix in SOAP_NSMAP.iteritems()]) + \
+SOAP_ENVELOPE_START = '<{0} '.format(SOAP_ENVELOPE_TAG) + \
+                      ' '.join(['xmlns:' + prefix + '="' + urn + '"' \
+                                for urn, prefix in iteritems(SOAP_NSMAP)]) + \
                       '>\n'
-SOAP_ENVELOPE_END = "\n</%s>" % (SOAP_ENVELOPE_TAG)
-SOAP_HEADER_START="<%s>" % SOAP_HEADER_TAG
-SOAP_HEADER_END="</%s>" % SOAP_HEADER_TAG
-SOAP_BODY_START="<%s>" % SOAP_BODY_TAG
-SOAP_BODY_END="</%s>" % SOAP_BODY_TAG
+SOAP_ENVELOPE_END = "\n</{0}>".format(SOAP_ENVELOPE_TAG)
+SOAP_HEADER_START = "<{0}>".format(SOAP_HEADER_TAG)
+SOAP_HEADER_END = "</{0}>".format(SOAP_HEADER_TAG)
+SOAP_BODY_START = "<{0}>".format(SOAP_BODY_TAG)
+SOAP_BODY_END = "</{0}>".format(SOAP_BODY_TAG)
 SOAP_START = SOAP_ENVELOPE_START + SOAP_BODY_START + '\n'
 SOAP_END = '\n' + SOAP_BODY_END + SOAP_ENVELOPE_END
 
-WSSE_PREFIX="wsse"
-WSSE_HEADER_TAG="%s:Security" % WSSE_PREFIX
-WSSE_NS_URL="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
-WSSE_NS='xmlns:%s="%s"' % (WSSE_PREFIX, WSSE_NS_URL)
-WSSE_HEADER_START="<%s %s>" % (WSSE_HEADER_TAG, WSSE_NS)
-WSSE_HEADER_END="</%s>" % WSSE_HEADER_TAG
+WSSE_PREFIX = "wsse"
+WSSE_HEADER_TAG = "{0}:Security".format(WSSE_PREFIX)
+WSSE_NS_URL = "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+WSSE_NS = 'xmlns:{0}="{1}"'.format(WSSE_PREFIX, WSSE_NS_URL)
+WSSE_HEADER_START = "<{0} {1}>".format(WSSE_HEADER_TAG, WSSE_NS)
+WSSE_HEADER_END = "</{0}>".format(WSSE_HEADER_TAG)
 
 ## MethodFault type
 MethodFault = GetVmodlType("vmodl.MethodFault")
 ## Localized MethodFault type
 LocalizedMethodFault = GetVmodlType("vmodl.LocalizedMethodFault")
+
+def encode(string, encoding):
+    if PY2:
+        return string.encode(encoding)
+    return u(string)
 
 ## Escape <, >, &
 def XmlEscape(xmlStr):
@@ -152,7 +169,7 @@ def SerializeFaultDetail(val, info=None, version=None, nsMap=None, encoding=None
    if version is None:
       try:
          if not isinstance(val, MethodFault):
-            raise TypeError('%s is not a MethodFault' % str(val))
+            raise TypeError('{0} is not a MethodFault'.format(str(val)))
          version = val._version
       except AttributeError:
          version = BASE_VERSION
@@ -178,7 +195,7 @@ class SoapSerializer:
       self.version = version
       self.nsMap = nsMap and nsMap or {}
       self.encoding = encoding and encoding or XML_ENCODING
-      for ns, prefix in self.nsMap.iteritems():
+      for ns, prefix in iteritems(self.nsMap):
          if prefix == '':
             self.defaultNS = ns
             break
@@ -194,7 +211,7 @@ class SoapSerializer:
          prefix = self.nsMap.get(ns)
          if not prefix:
             prefix = nsPrefix
-            self.outermostAttrs += ' xmlns:%s="%s"' % (prefix, ns)
+            self.outermostAttrs += ' xmlns:{0}="{1}"'.format(prefix, ns)
             self.nsMap = self.nsMap.copy()
             self.nsMap[ns] = prefix
          setattr(self, attrName, prefix + ":")
@@ -240,7 +257,7 @@ class SoapSerializer:
          except KeyError:
             # We have not seen this ns before
             prefix = ns.split(':', 1)[-1]
-            attr = ' xmlns:%s="%s"' % (prefix, ns)
+            attr = ' xmlns:{0}="{1}"'.format(prefix, ns)
       return attr, prefix and prefix + ':' + name or name
 
    ## Serialize an object (internal)
@@ -257,17 +274,17 @@ class SoapSerializer:
          if info.flags & F_OPTIONAL:
             return
          else:
-            raise TypeError('Field "%s" is not optional' % info.name)
+            raise TypeError('Field "{0}" is not optional'.format(info.name))
       elif isinstance(val, list) and len(val) == 0:
          if info.type is object:
             # Make sure an empty array assigned to Any is typed
             if not isinstance(val, Array):
-               raise TypeError('Field "%s": Cannot assign empty native python array to an Any' % info.name)
+               raise TypeError('Field "{0}": Cannot assign empty native python array to an Any'.format(info.name))
          elif info.flags & F_OPTIONAL:
             # Skip optional non-Any
             return
          else:
-            raise TypeError('Field "%s" is not optional' % info.name)
+             raise TypeError('Field "{0}" not optional'.format(info.name))
 
       if self.outermostAttrs:
          attr = self.outermostAttrs
@@ -278,7 +295,7 @@ class SoapSerializer:
       # Emit default ns if tag ns is not the same
       currTagNS = GetWsdlNamespace(info.version)
       if currTagNS != defNS:
-         attr += ' xmlns="%s"' % currTagNS
+         attr += ' xmlns="{0}"'.format(currTagNS)
          currDefNS = currTagNS
 
       if isinstance(val, DataObject):
@@ -296,15 +313,15 @@ class SoapSerializer:
       elif isinstance(val, ManagedObject):
          if info.type is object:
             nsattr, qName = self._QName(ManagedObject, currDefNS)
-            attr += '%s %stype="%s"' % (nsattr, self.xsiPrefix, qName)
+            attr += '{0} {1}type="{2}"'.format(nsattr, self.xsiPrefix, qName)
          if val._serverGuid is not None:
-            attr += ' serverGuid="%s"' % (val._serverGuid)
+            attr += ' serverGuid="{0}"'.format(val._serverGuid)
          # val in vim type attr is not namespace qualified
          # TODO: Add a new "typens" attr?
          ns, name = GetQualifiedWsdlName(Type(val))
-         attr += ' type="%s"' % (name)
-         self.writer.write('<%s%s>%s</%s>' % (info.name, attr,
-                                              val._moId.encode(self.encoding),
+         attr += ' type="{0}"'.format(name)
+         self.writer.write('<{0}{1}>{2}</{3}>'.format(info.name, attr,
+                                              encode(val._moId, self.encoding),
                                               info.name))
       elif isinstance(val, list):
          if info.type is object:
@@ -326,14 +343,14 @@ class SoapSerializer:
             if qName.endswith("ArrayOfManagedObject"):
                qName += "Reference"
 
-            attr += '%s %stype="%s"' % (nsattr, self.xsiPrefix, qName)
-            self.writer.write('<%s%s>' % (info.name, attr))
+            attr += '{0} {1}type="{2}"'.format(nsattr, self.xsiPrefix, qName)
+            self.writer.write('<{0}{1}>'.format(info.name, attr))
 
             itemInfo = Object(name=tag, type=itemType,
                               version=info.version, flags=info.flags)
             for it in val:
                self._Serialize(it, itemInfo, currDefNS)
-            self.writer.write('</%s>' % info.name)
+            self.writer.write('</{0}>'.format(info.name))
          else:
             itemType = info.type.Item
             itemInfo = Object(name=info.name, type=itemType,
@@ -342,54 +359,53 @@ class SoapSerializer:
                self._Serialize(it, itemInfo, defNS)
       elif isinstance(val, type) or isinstance(val, type(Exception)):
          if info.type is object:
-            attr += ' %stype="%sstring"' % (self.xsiPrefix, self.xsdPrefix)
-         self.writer.write('<%s%s>%s</%s>' %
-                              (info.name, attr, GetWsdlName(val), info.name))
+            attr += ' {0}type="{1}string"'.format(self.xsiPrefix, self.xsdPrefix)
+         self.writer.write('<{0}{1}>{2}</{0}>'.format(
+                           info.name, attr, GetWsdlName(val)))
       elif isinstance(val, ManagedMethod):
          if info.type is object:
-            attr += ' %stype="%sstring"' % (self.xsiPrefix, self.xsdPrefix)
-         self.writer.write('<%s%s>%s</%s>' %
-                              (info.name, attr, val.info.wsdlName, info.name))
+            attr += ' {0}type="{1}string"'.format(self.xsiPrefix, self.xsdPrefix)
+         self.writer.write('<{0}{1}>{2}</{0}>'.format(
+                              info.name, attr, val.info.wsdlName))
       elif isinstance(val, datetime):
          if info.type is object:
             nsattr, qName = self._QName(Type(val), currDefNS)
-            attr += '%s %stype="%s"' % (nsattr, self.xsiPrefix, qName)
+            attr += '{0} {1}type="{2}"'.format(nsattr, self.xsiPrefix, qName)
          result = Iso8601.ISO8601Format(val)
-         self.writer.write('<%s%s>%s</%s>' % (info.name, attr, result,
-                                                               info.name))
+         self.writer.write('<{0}{1}>{2}</{0}>'.format(info.name, attr, result))
       elif isinstance(val, binary):
          if info.type is object:
             nsattr, qName = self._QName(Type(val), currDefNS)
-            attr += '%s %stype="%s"' % (nsattr, self.xsiPrefix, qName)
+            attr += '{0} {1}type="{2}"'.format(nsattr, self.xsiPrefix, qName)
          result = base64.b64encode(val)
-         self.writer.write('<%s%s>%s</%s>' % (info.name, attr, result,
-                                                               info.name))
+         self.writer.write('<{0}{1}>{2}</{0}>'.format(info.name, attr, result))
       elif isinstance(val, bool):
          if info.type is object:
             nsattr, qName = self._QName(Type(val), currDefNS)
-            attr += '%s %stype="%s"' % (nsattr, self.xsiPrefix, qName)
+            attr += '{0} {1}type="{2}"'.format(nsattr, self.xsiPrefix, qName)
          result = val and "true" or "false"
-         self.writer.write('<%s%s>%s</%s>' % (info.name, attr, result,
-                                                               info.name))
+         self.writer.write('<{0}{1}>{2}</{0}>'.format(info.name, attr, result))
       else:
          if info.type is object:
             if isinstance(val, PropertyPath):
-               attr += ' %stype="%sstring"' % (self.xsiPrefix, self.xsdPrefix)
+               attr += ' {0}type="{1}string"'.format(self.xsiPrefix, self.xsdPrefix)
             else:
                nsattr, qName = self._QName(Type(val), currDefNS)
-               attr += '%s %stype="%s"' % (nsattr, self.xsiPrefix, qName)
-         if not isinstance(val, unicode):
+               attr += '{0} {1}type="{2}"'.format(nsattr, self.xsiPrefix, qName)
+         if not isinstance(val, text_type):
             # Use UTF-8 rather than self.encoding.  self.encoding is for
             # output of serializer, while 'val' is our input.  And regardless
             # of what our output is, our input should be always UTF-8.  Yes,
             # it means that if you emit output in other encoding than UTF-8,
             # you cannot serialize it again once more.  That's feature, not
             # a bug.
-            val = str(val).decode('UTF-8')
+            val = str(val)
+            if PY2:
+               val = val.decode('UTF-8')
          result = XmlEscape(val)
-         self.writer.write('<%s%s>%s</%s>' % (info.name, attr,
-                                              result.encode(self.encoding),
-                                              info.name))
+         self.writer.write('<{0}{1}>{2}</{0}>'.format(info.name, attr,
+                                                      encode(result,
+                                                             self.encoding)))
 
    ## Serialize a a data object (internal)
    #
@@ -406,8 +422,8 @@ class SoapSerializer:
       dynType = GetCompatibleType(Type(val), self.version)
       if dynType != info.type:
          nsattr, qName = self._QName(dynType, currDefNS)
-         attr += '%s %stype="%s"' % (nsattr, self.xsiPrefix, qName)
-      self.writer.write('<%s%s>' % (info.name, attr))
+         attr += '{0} {1}type="{2}"'.format(nsattr, self.xsiPrefix, qName)
+      self.writer.write('<{0}{1}>'.format(info.name, attr))
       if dynType is LocalizedMethodFault:
          # Serialize a MethodFault as LocalizedMethodFault on wire
          # See PR 670229
@@ -423,8 +439,34 @@ class SoapSerializer:
          for prop in val._GetPropertyList():
             self._Serialize(getattr(val, prop.name), prop, currDefNS)
 
-      self.writer.write('</%s>' % info.name)
+      self.writer.write('</{0}>'.format(info.name))
 
+
+class ParserError(KeyError):
+    # NOTE (hartsock): extends KeyError since parser logic is written to
+    # catch KeyError types. Normally, I would want PerserError to be a root
+    # type for all parser faults.
+    pass
+
+def ReadDocument(parser, data):
+   # NOTE (hartsock): maintaining library internal consistency here, this is
+   # a refactoring that rolls up some repeated code blocks into a method so
+   # that we can refactor XML parsing behavior in a single place.
+   if not isinstance(data, str):
+      data = data.read()
+   try:
+      parser.Parse(data)
+   except Exception:
+      # wrap all parser faults with additional information for later
+      # bug reporting on the XML parser code itself.
+      (ec, ev, tb) = sys.exc_info()
+      line = parser.CurrentLineNumber
+      col = parser.CurrentColumnNumber
+      pe = ParserError("xml document: "
+                       "{0} parse error at: "
+                       "line:{1}, col:{2}".format(data, line, col))
+      # use six.reraise for python 2.x and 3.x compatability
+      reraise(ParserError, pe, tb)
 
 ## Deserialize an object from a file or string
 #
@@ -437,10 +479,7 @@ def Deserialize(data, resultType=object, stub=None):
    parser = ParserCreate(namespace_separator=NS_SEP)
    ds = SoapDeserializer(stub)
    ds.Deserialize(parser, resultType)
-   if isinstance(data, str):
-      parser.Parse(data)
-   else:
-      parser.ParseFile(data)
+   ReadDocument(parser, data)
    return ds.GetResult()
 
 
@@ -582,7 +621,7 @@ class SoapDeserializer(ExpatDeserializerNSHandlers):
          if name == "fault" and isinstance(self.stack[-1], LocalizedMethodFault):
             deserializeAsLocalizedMethodFault = False
       else:
-         raise TypeError("Invalid type for tag %s" % tag)
+         raise TypeError("Invalid type for tag {0}".format(tag))
 
       xsiType = attr.get(XSI_TYPE)
       if xsiType:
@@ -604,13 +643,13 @@ class SoapDeserializer(ExpatDeserializerNSHandlers):
       if self.version:
          objType = GetCompatibleType(objType, self.version)
       if issubclass(objType, ManagedObject):
-         typeAttr = attr[u'type']
+         typeAttr = attr[u('type')]
          # val in vim type attr is not namespace qualified
          # However, this doesn't hurt to strip out namespace
          # TODO: Get the ns from "typens" attr?
          ns, name = self.GetNSAndWsdlname(typeAttr)
-         if u'serverGuid' in attr:
-            self.serverGuid = attr[u'serverGuid']
+         if u('serverGuid') in attr:
+            self.serverGuid = attr[u('serverGuid')]
          self.stack.append(GuessWsdlType(name))
       elif issubclass(objType, DataObject) or issubclass(objType, list):
          if deserializeAsLocalizedMethodFault and issubclass(objType, Exception):
@@ -662,10 +701,10 @@ class SoapDeserializer(ExpatDeserializerNSHandlers):
          elif obj is str:
             try:
                obj = str(data)
-            except UnicodeError:
+            except ValueError:
                obj = data
          elif obj is datetime:
-            obj = Iso8601.ParseISO8601(data)
+            obj = pyVmomi.Iso8601.ParseISO8601(data)
             if not obj:
                raise TypeError(data)
          # issubclass is very expensive. Test last
@@ -741,10 +780,7 @@ class SoapResponseDeserializer(ExpatDeserializerNSHandlers):
          nsMap = {}
       self.nsMap = nsMap
       SetHandlers(self.parser, GetHandlers(self))
-      if isinstance(response, str):
-         self.parser.Parse(response)
-      else:
-         self.parser.ParseFile(response)
+      ReadDocument(self.parser, response)
       result = self.deser.GetResult()
       if self.isFault:
          if result is None:
@@ -772,7 +808,7 @@ class SoapResponseDeserializer(ExpatDeserializerNSHandlers):
       if self.isFault and tag == "faultstring":
          try:
             self.msg = str(self.data)
-         except UnicodeError:
+         except ValueError:
             self.msg = self.data
 
 ## Base class that implements common functionality for stub adapters.
@@ -789,7 +825,7 @@ class StubAdapterBase(StubAdapterAccessorMixin):
    def ComputeVersionInfo(self, version):
       versionNS = GetVersionNamespace(version)
       if versionNS.find("/") >= 0:
-         self.versionId = '"urn:%s"' % versionNS
+         self.versionId = '"urn:{0}"'.format(versionNS)
       else:
          self.versionId = ''
       self.version = version
@@ -822,39 +858,41 @@ class SoapStubAdapterBase(StubAdapterBase):
 
       if reqContexts or samlToken:
          result.append(SOAP_HEADER_START)
-         for key, val in reqContexts.iteritems():
+         for key, val in iteritems(reqContexts):
             # Note: Support req context of string type only
             if not isinstance(val, basestring):
-               raise TypeError("Request context key (%s) has non-string value (%s) of %s" % (key, val, type(val)))
+               raise TypeError("Request context key ({0}) has non-string value ({1}) of {2}".format(key, val, type(val)))
             ret = Serialize(val,
                             Object(name=key, type=str, version=self.version),
                             self.version,
                             nsMap)
             result.append(ret)
          if samlToken:
-            result.append('%s %s %s' % (WSSE_HEADER_START,
-                                        samlToken,
-                                        WSSE_HEADER_END))
+            result.append('{0} {1} {2}'.format(WSSE_HEADER_START,
+                                               samlToken,
+                                               WSSE_HEADER_END))
          result.append(SOAP_HEADER_END)
          result.append('\n')
 
       # Serialize soap body
       result.extend([SOAP_BODY_START,
-                     '<%s xmlns="%s">' % (info.wsdlName, defaultNS),
-                     Serialize(mo, Object(name="_this", type=ManagedObject,
-                                          version=self.version),
-                               self.version, nsMap)])
+                       '<{0} xmlns="{1}">'.format(info.wsdlName, defaultNS),
+                       Serialize(mo, Object(name="_this", type=ManagedObject,
+                                            version=self.version),
+                                 self.version, nsMap)])
 
       # Serialize soap request parameters
       for (param, arg) in zip(info.params, args):
          result.append(Serialize(arg, param, self.version, nsMap))
-      result.extend(['</%s>' % info.wsdlName, SOAP_BODY_END, SOAP_ENVELOPE_END])
+      result.extend(['</{0}>'.format(info.wsdlName), SOAP_BODY_END, SOAP_ENVELOPE_END])
       return ''.join(result)
 
 ## Subclass of HTTPConnection that connects over a Unix domain socket
 ## instead of a TCP port.  The path of the socket is passed in place of
 ## the hostname.  Fairly gross but does the job.
-class UnixSocketConnection(httplib.HTTPConnection):
+# NOTE (hartsock): rewrite this class as a wrapper, see HTTPSConnectionWrapper
+# below for a guide.
+class UnixSocketConnection(http_client.HTTPConnection):
    # The HTTPConnection ctor expects a single argument, which it interprets
    # as the host to connect to; for UnixSocketConnection, we instead interpret
    # the parameter as the filesystem path of the Unix domain socket.
@@ -862,7 +900,7 @@ class UnixSocketConnection(httplib.HTTPConnection):
       # Pass '' as the host to HTTPConnection; it doesn't really matter
       # what we pass (since we've overridden the connect method) as long
       # as it's a valid string.
-      httplib.HTTPConnection.__init__(self, '')
+      http_client.HTTPConnection.__init__(self, '')
       self.path = path
 
    def connect(self):
@@ -884,7 +922,7 @@ try:
       '''If there is a thumbprint, connect to the server and verify that the
       SSL certificate matches the given thumbprint.  An exception is thrown
       if there is a mismatch.'''
-      if thumbprint and isinstance(connection, httplib.HTTPSConnection):
+      if thumbprint and isinstance(connection, http_client.HTTPSConnection):
          if not connection.sock:
             connection.connect()
          derCert = connection.sock.getpeercert(True)
@@ -892,9 +930,9 @@ try:
          sha1.update(derCert)
          sha1Digest = sha1.hexdigest().lower()
          if sha1Digest != thumbprint:
-            raise Exception("Server has wrong SHA1 thumbprint: %s "
-                            "(required) != %s (server)" % (
-                  thumbprint, sha1Digest))
+            raise Exception("Server has wrong SHA1 thumbprint: {0} "
+                            "(required) != {1} (server)".format(
+                            thumbprint, sha1Digest))
 
    # Function used to wrap sockets with SSL
    _SocketWrapper = ssl.wrap_socket
@@ -903,21 +941,28 @@ except ImportError:
    SSL_THUMBPRINTS_SUPPORTED = False
 
    def _VerifyThumbprint(thumbprint, connection):
-      if thumbprint and isinstance(connection, httplib.HTTPSConnection):
+      if thumbprint and isinstance(connection, http_client.HTTPSConnection):
          raise Exception(
             "Thumbprint verification not supported on python < 2.6")
 
    def _SocketWrapper(rawSocket, keyfile, certfile, *args, **kwargs):
       wrappedSocket = socket.ssl(rawSocket, keyfile, certfile)
-      return httplib.FakeSocket(rawSocket, wrappedSocket)
+      return http_client.FakeSocket(rawSocket, wrappedSocket)
 
-## Internal version of https connection
+## https connection wrapper
 #
+# NOTE (hartsock): do not override core library types or implementations
+# directly because this makes brittle code that is too easy to break and
+# closely tied to implementation details we do not control. Instead, wrap
+# the core object to introduce additional behaviors.
+#
+# Purpose:
 # Support ssl.wrap_socket params which are missing from httplib
 # HTTPSConnection (e.g. ca_certs)
 # Note: Only works iff the ssl params are passing in as kwargs
-class _HTTPSConnection(httplib.HTTPSConnection):
+class HTTPSConnectionWrapper(object):
    def __init__(self, *args, **kwargs):
+      wrapped = http_client.HTTPSConnection(*args, **kwargs)
       # Extract ssl.wrap_socket param unknown to httplib.HTTPConnection,
       # and push back the params in connect()
       self._sslArgs = {}
@@ -927,15 +972,14 @@ class _HTTPSConnection(httplib.HTTPSConnection):
                   "ciphers"]:
          if key in tmpKwargs:
             self._sslArgs[key] = tmpKwargs.pop(key)
-      httplib.HTTPSConnection.__init__(self, *args, **tmpKwargs)
+      self._wrapped = wrapped
 
    ## Override connect to allow us to pass in additional ssl paramters to
    #  ssl.wrap_socket (e.g. cert_reqs, ca_certs for ca cert verification)
-   def connect(self):
-      if len(self._sslArgs) == 0:
+   def connect(self, wrapped):
+      if len(self._sslArgs) == 0 or hasattr(self, '_baseclass'):
          # No override
-         httplib.HTTPSConnection.connect(self)
-         return
+         return wrapped.connect
 
       # Big hack. We have to copy and paste the httplib connect fn for
       # each python version in order to handle extra ssl paramters. Yuk!
@@ -943,18 +987,16 @@ class _HTTPSConnection(httplib.HTTPSConnection):
          # Python 2.7
          sock = socket.create_connection((self.host, self.port),
                                          self.timeout, self.source_address)
-         if self._tunnel_host:
-            self.sock = sock
-            self._tunnel()
-         self.sock = ssl.wrap_socket(sock, self.key_file, self.cert_file, **self._sslArgs)
+         if wrapped._tunnel_host:
+            wrapped.sock = sock
+            wrapped._tunnel()
+         wrapped.sock = ssl.wrap_socket(sock, self.key_file, self.cert_file, **self._sslArgs)
       elif hasattr(self, "timeout"):
          # Python 2.6
          sock = socket.create_connection((self.host, self.port), self.timeout)
-         self.sock = ssl.wrap_socket(sock, self.key_file, self.cert_file, **self._sslArgs)
-      else:
-         # Unknown python version. Do nothing
-         httplib.HTTPSConnection.connect(self)
-         return
+         wrapped.sock = ssl.wrap_socket(sock, self.key_file, self.cert_file, **self._sslArgs)
+
+      return wrapped.connect
 
       # TODO: Additional verification of peer cert if needed
       #cert_reqs = self._sslArgs.get("cert_reqs", ssl.CERT_NONE)
@@ -964,6 +1006,11 @@ class _HTTPSConnection(httplib.HTTPSConnection):
       #      # TODO: verify peer cert
       #      dercert = self.sock.getpeercert(False)
       #      # pemcert = ssl.DER_cert_to_PEM_cert(dercert)
+
+   def __getattr__(self, item):
+       if item == 'connect':
+           return self.connect(self._wrapped)
+       return getattr(self._wrapped, item)
 
 ## Stand-in for the HTTPSConnection class that will connect to a proxy and
 ## issue a CONNECT command to start an SSL tunnel.
@@ -985,14 +1032,13 @@ class SSLTunnelConnection(object):
       for arg in kwargs.keys():
          if arg not in ("port", "strict", "timeout", "source_address"):
             del kwargs[arg]
-      tunnel = httplib.HTTPConnection(path, **kwargs)
+      tunnel = http_client.HTTPConnection(path, **kwargs)
       tunnel.request('CONNECT', self.proxyPath)
       resp = tunnel.getresponse()
-      tunnelSocket = resp.fp
       if resp.status != 200:
-         raise httplib.HTTPException("%d %s" % (resp.status, resp.reason))
-      retval = httplib.HTTPSConnection(path)
-      retval.sock = _SocketWrapper(tunnelSocket,
+        raise http_client.HTTPException("{0} {1}".format(resp.status, resp.reason))
+      retval = http_client.HTTPSConnection(path)
+      retval.sock = _SocketWrapper(tunnel.sock,
                                    keyfile=key_file, certfile=cert_file)
       return retval
 
@@ -1121,39 +1167,39 @@ class SoapStubAdapter(SoapStubAdapterBase):
          # keyword argument as passed in.
          if urlpath not in ('', '/'):
             path = urlpath
-         self.scheme = scheme == "http" and httplib.HTTPConnection \
-                    or scheme == "https" and _HTTPSConnection
+         self.scheme = scheme == "http" and http_client.HTTPConnection \
+                    or scheme == "https" and HTTPSConnectionWrapper
       else:
-         port, self.scheme = port < 0 and (-port, httplib.HTTPConnection) \
-                                       or (port, _HTTPSConnection)
+         port, self.scheme = port < 0 and (-port, http_client.HTTPConnection) \
+                                       or (port, HTTPSConnectionWrapper)
          if host.find(':') != -1:  # is IPv6?
             host = '[' + host + ']'
-         self.host = '%s:%d' % (host, port)
+         self.host = '{0}:{1}'.format(host, port)
 
       self.path = path
       if thumbprint:
          self.thumbprint = thumbprint.replace(":", "").lower()
          if len(self.thumbprint) != 40:
-            raise Exception("Invalid SHA1 thumbprint -- %s" % thumbprint)
+           raise Exception("Invalid SHA1 thumbprint -- {0}".format(thumbprint))
       else:
          self.thumbprint = None
 
       if sslProxyPath:
          self.scheme = SSLTunnelConnection(sslProxyPath)
       elif httpProxyHost:
-         if self.scheme == _HTTPSConnection:
+         if self.scheme == HTTPSConnectionWrapper:
             self.scheme = SSLTunnelConnection(self.host)
          else:
             if url:
                self.path = url
             else:
-               self.path = "http://%s/%s" % (self.host, path)
+               self.path = "http://{0}/{1}".format(self.host, path)
          # Swap the actual host with the proxy.
-         self.host = "%s:%d" % (httpProxyHost, httpProxyPort)
+         self.host = "{0}:{1}".format(httpProxyHost, httpProxyPort)
       self.poolSize = poolSize
       self.pool = []
       self.connectionPoolTimeout = connectionPoolTimeout
-      self.lock = thread.allocate_lock()
+      self.lock = threading.Lock()
       self.schemeArgs = {}
       if certKeyFile:
          self.schemeArgs['key_file'] = certKeyFile
@@ -1196,7 +1242,7 @@ class SoapStubAdapter(SoapStubAdapterBase):
 
       headers = {'Cookie' : self.cookie,
                  'SOAPAction' : self.versionId,
-                 'Content-Type' : 'text/xml; charset=%s' % XML_ENCODING}
+                 'Content-Type': 'text/xml; charset={0}'.format(XML_ENCODING)}
       if self._acceptCompressedResponses:
          headers['Accept-Encoding'] = 'gzip, deflate'
       req = self.SerializeRequest(mo, info, args)
@@ -1206,11 +1252,19 @@ class SoapStubAdapter(SoapStubAdapterBase):
       try:
          conn.request('POST', self.path, req, headers)
          resp = conn.getresponse()
-      except (socket.error, httplib.HTTPException):
+      except (socket.error, http_client.HTTPException):
          # The server is probably sick, drop all of the cached connections.
          self.DropConnections()
          raise
+      # NOTE (hartsocks): this cookie handling code should go away in a future
+      # release. The string 'set-cookie' and 'Set-Cookie' but both are
+      # acceptable, but the supporting library may have a bug making it
+      # case sensitive when it shouldn't be. The term 'set-cookie' will occur
+      # more frequently than 'Set-Cookie' based on practical testing.
       cookie = resp.getheader('set-cookie')
+      if cookie is None:
+          # try case-sensitive header for compatibility
+          cookie = resp.getheader('Set-Cookie')
       status = resp.status
 
       if cookie:
@@ -1223,12 +1277,18 @@ class SoapStubAdapter(SoapStubAdapterBase):
                fd = GzipReader(resp, encoding=GzipReader.GZIP)
             elif encoding == 'deflate':
                fd = GzipReader(resp, encoding=GzipReader.DEFLATE)
-            obj = SoapResponseDeserializer(outerStub).Deserialize(fd, info.result)
-         except:
+            deserializer = SoapResponseDeserializer(outerStub)
+            obj = deserializer.Deserialize(fd, info.result)
+         except Exception as exc:
             conn.close()
+            # NOTE (hartsock): This feels out of place. As a rule the lexical
+            # context that opens a connection should also close it. However,
+            # in this code the connection is passed around and closed in other
+            # contexts (ie: methods) that we are blind to here. Refactor this.
+
             # The server might be sick, drop all of the cached connections.
             self.DropConnections()
-            raise
+            raise exc
          else:
             resp.read()
             self.ReturnConnection(conn)
@@ -1240,7 +1300,7 @@ class SoapStubAdapter(SoapStubAdapterBase):
             raise obj # pylint: disable-msg=E0702
       else:
          conn.close()
-         raise httplib.HTTPException("%d %s" % (resp.status, resp.reason))
+         raise http_client.HTTPException("{0} {1}".format(resp.status, resp.reason))
 
    ## Clean up connection pool to throw away idle timed-out connections
    #  SoapStubAdapter lock must be acquired before this method is called.
@@ -1309,6 +1369,9 @@ class SoapStubAdapter(SoapStubAdapterBase):
          self.lock.release()
       else:
          self.lock.release()
+         # NOTE (hartsock): this seems to violate good coding practice in that
+         # the lexical context that opens a connection should also be the
+         # same context responsible for closing it.
          conn.close()
 
    ## Disable nagle on a http connections
@@ -1373,14 +1436,14 @@ class SoapCmdStubAdapter(SoapStubAdapterBase):
       (outText, errText) = p.communicate(req)
       if p.returncode < 0:
          # Process died with a signal
-         errText = "Process terminated with signal %d\n%s" % (-p.returncode, errText)
+         errText = "Process terminated with signal {0}\n{1}".format(-p.returncode, errText)
          raise self.systemError(msg=errText, reason=errText)
 
       try:
          (responseHeaders, responseBody) = ParseHttpResponse(outText)
          obj = SoapResponseDeserializer(self).Deserialize(responseBody, info.result)
       except:
-         errText = "Failure parsing SOAP response (%s)\n%s" % (outText, errText)
+         errText = "Failure parsing SOAP response ({0})\n{1}}".format(outText, errText)
          raise self.systemError(msg=errText, reason=errText)
 
       if p.returncode == 0:
@@ -1441,10 +1504,10 @@ class SessionOrientedStub(StubAdapterBase):
       '''
       assert callable(loginMethod)
       assert retryCount >= 0
+      StubAdapterBase.__init__(self, version=soapStub.version)
 
       self.lock = threading.Lock()
       self.soapStub = soapStub
-      self.version = soapStub.version
       self.state = self.STATE_UNAUTHENTICATED
 
       self.loginMethod = loginMethod
@@ -1452,20 +1515,16 @@ class SessionOrientedStub(StubAdapterBase):
       self.retryCount = retryCount
 
    def InvokeMethod(self, mo, info, args):
+      # This retry logic is replicated in InvokeAccessor and the two copies need
+      # to be in sync
       retriesLeft = self.retryCount
       while retriesLeft > 0:
          try:
             if self.state == self.STATE_UNAUTHENTICATED:
-               try:
-                  self.lock.acquire()
-                  if self.state == self.STATE_UNAUTHENTICATED:
-                     self.loginMethod(self.soapStub)
-                     self.state = self.STATE_AUTHENTICATED
-               finally:
-                  self.lock.release()
-
+               self._CallLoginMethod()
+            # Invoke the method
             status, obj = self.soapStub.InvokeMethod(mo, info, args, self)
-         except (socket.error, httplib.HTTPException, ExpatError):
+         except (socket.error, http_client.HTTPException, ExpatError):
             if self.retryDelay and retriesLeft:
                time.sleep(self.retryDelay)
             retriesLeft -= 1
@@ -1478,13 +1537,60 @@ class SessionOrientedStub(StubAdapterBase):
          # An exceptional return from the server
          if isinstance(obj, self.SESSION_EXCEPTIONS):
             # Our session might've timed out, change our state and retry.
-            self.lock.acquire()
-            if self.state == self.STATE_AUTHENTICATED:
-               self.state = self.STATE_UNAUTHENTICATED
-            self.lock.release()
+            self._SetStateUnauthenticated()
          else:
             # It's an exception from the method that was called, send it up.
             raise obj
 
       # Raise any socket/httplib errors caught above.
-      raise
+      raise SystemError()
+
+   ## Retrieve a managed property
+   #
+   # @param self self
+   # @param mo managed object
+   # @param info property info
+   def InvokeAccessor(self, mo, info):
+      # This retry logic is replicated in InvokeMethod and the two copies need
+      # to be in sync
+      retriesLeft = self.retryCount
+      while retriesLeft > 0:
+         try:
+            if self.state == self.STATE_UNAUTHENTICATED:
+               self._CallLoginMethod()
+            # Invoke the method
+            obj = StubAdapterBase.InvokeAccessor(self, mo, info)
+         except (socket.error, http_client.HTTPException, ExpatError):
+            if self.retryDelay and retriesLeft:
+               time.sleep(self.retryDelay)
+            retriesLeft -= 1
+            continue
+         except Exception as e:
+            if isinstance(e, self.SESSION_EXCEPTIONS):
+               # Our session might've timed out, change our state and retry.
+               self._SetStateUnauthenticated()
+            else:
+               raise e
+         return obj
+      # Raise any socket/httplib errors caught above.
+      raise SystemError()
+
+   ## Handle the login method call
+   #
+   #  This method calls the login method on the soap stub and changes the state
+   #  to authenticated
+   def _CallLoginMethod(self):
+      try:
+         self.lock.acquire()
+         if self.state == self.STATE_UNAUTHENTICATED:
+            self.loginMethod(self.soapStub)
+            self.state = self.STATE_AUTHENTICATED
+      finally:
+         self.lock.release()
+
+   ## Change the state to unauthenticated
+   def _SetStateUnauthenticated(self):
+      self.lock.acquire()
+      if self.state == self.STATE_AUTHENTICATED:
+         self.state = self.STATE_UNAUTHENTICATED
+      self.lock.release()

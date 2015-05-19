@@ -1,5 +1,5 @@
 # VMware vSphere Python SDK
-# Copyright (c) 2008-2013 VMware, Inc. All Rights Reserved.
+# Copyright (c) 2008-2015 VMware, Inc. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,6 +14,8 @@
 # limitations under the License.
 
 ## Diff any two objects
+from six import text_type
+from six import u
 
 from pyVmomi import VmomiSupport, types
 import itertools
@@ -33,7 +35,7 @@ def IsPrimitiveType(obj):
       isinstance(obj, types.short) or isinstance(obj, types.int) or
       isinstance(obj, types.double) or isinstance(obj, types.float) or
       isinstance(obj, types.long) or isinstance(obj, types.str) or
-      isinstance(obj, unicode) or
+      isinstance(obj, text_type) or
       isinstance(obj, types.PropertyPath) or
       isinstance(obj, types.ManagedMethod) or
       isinstance(obj, types.datetime) or

@@ -1,0 +1,44 @@
+interactions:
+- request:
+    body: '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+      <soapenv:Body><RetrieveServiceContent xmlns="urn:vim25"><_this type="ServiceInstance">ServiceInstance</_this></RetrieveServiceContent></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: ['']
+      SOAPAction: ['"urn:vim2/2.0"']
+    method: POST
+    uri: https://vcsa:443/sdk
+  response:
+    body: {string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope
+        xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n
+        xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n<soapenv:Body>\n<RetrieveServiceContentResponse
+        xmlns=\"urn:vim2\"><returnval><rootFolder type=\"Folder\">group-d1</rootFolder><propertyCollector
+        type=\"PropertyCollector\">propertyCollector</propertyCollector><about><name>VMware
+        vCenter Server</name><fullName>VMware vCenter Server 5.5.0 build-1750787 (Sim)</fullName><vendor>VMware,
+        Inc.</vendor><version>5.5.0</version><build>1750787 (Sim)</build><localeVersion>INTL</localeVersion><localeBuild>000</localeBuild><osType>linux-x64</osType><productLineId>vpx</productLineId><apiType>VirtualCenter</apiType><apiVersion>5.5</apiVersion></about><setting
+        type=\"OptionManager\">VpxSettings</setting><userDirectory type=\"UserDirectory\">UserDirectory</userDirectory><sessionManager
+        type=\"SessionManager\">SessionManager</sessionManager><authorizationManager
+        type=\"AuthorizationManager\">AuthorizationManager</authorizationManager><perfManager
+        type=\"PerformanceManager\">PerfMgr</perfManager><scheduledTaskManager type=\"ScheduledTaskManager\">ScheduledTaskManager</scheduledTaskManager><alarmManager
+        type=\"AlarmManager\">AlarmManager</alarmManager><eventManager type=\"EventManager\">EventManager</eventManager><taskManager
+        type=\"TaskManager\">TaskManager</taskManager><customizationSpecManager type=\"CustomizationSpecManager\">CustomizationSpecManager</customizationSpecManager><customFieldsManager
+        type=\"CustomFieldsManager\">CustomFieldsManager</customFieldsManager><diagnosticManager
+        type=\"DiagnosticManager\">DiagMgr</diagnosticManager><licenseManager type=\"LicenseManager\">LicenseManager</licenseManager><searchIndex
+        type=\"SearchIndex\">SearchIndex</searchIndex></returnval></RetrieveServiceContentResponse>\n</soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      Cache-Control: [no-cache]
+      Connection: [Keep-Alive]
+      Content-Length: ['1948']
+      Content-Type: [text/xml; charset=utf-8]
+      Date: ['Mon, 28 Jul 2014 22:02:17 GMT']
+      Set-Cookie: ['vmware_soap_session="52d2bdd9-aec7-5f5c-652e-09737979ce13"; Path=/;
+          HttpOnly; Secure; ']
+    status: {code: 200, message: OK}
+version: 1

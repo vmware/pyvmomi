@@ -1,5 +1,5 @@
 # VMware vSphere Python SDK
-# Copyright (c) 2008-2013 VMware, Inc. All Rights Reserved.
+# Copyright (c) 2008-2015 VMware, Inc. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -23,6 +23,7 @@ Connect to a VMOMI ServiceInstance.
 
 Detailed description (for [e]pydoc goes here).
 """
+<<<<<<< HEAD
 
 import re
 
@@ -31,12 +32,23 @@ from pyVmomi import vim, vmodl, SoapStubAdapter, SessionOrientedStub
 from pyVmomi.VmomiSupport import versionIdMap, versionMap, IsChildVersion
 from pyVmomi.VmomiSupport import GetServiceVersions
 
+=======
+from six import reraise
+import sys
+import re
+>>>>>>> upstream/master
 try:
-   from xml.etree.ElementTree import ElementTree
+   from xml.etree import ElementTree
 except ImportError:
-   from elementtree.ElementTree import ElementTree
+   from elementtree import ElementTree
 from xml.parsers.expat import ExpatError
-import urllib
+
+import requests
+from requests.auth import HTTPBasicAuth
+
+from pyVmomi import vim, vmodl, SoapStubAdapter, SessionOrientedStub
+from pyVmomi.VmomiSupport import nsMap, versionIdMap, versionMap, IsChildVersion
+from pyVmomi.VmomiSupport import GetServiceVersions
 
 
 """
@@ -51,7 +63,6 @@ Global (thread-shared) ServiceInstance
 
 @todo: Get rid of me?
 """
-
 
 class closing(object):
    """
@@ -222,7 +233,7 @@ def Connect(host='localhost', port=443, user='root', pwd='',
             host = info.group(1)[1:-1]
          if info.group(2) is not None:
             port = int(info.group(2)[1:])
-   except ValueError, ve:
+   except ValueError as ve:
       pass
 
    if namespace:
@@ -251,7 +262,7 @@ def Disconnect(si):
 def GetLocalTicket(si, user):
    try:
       sessionManager = si.content.sessionManager
-   except Exception, e:
+   except Exception as e:
       if type(e).__name__ == 'ExpatError':
          msg = 'Malformed response while querying for local ticket: "%s"' % e
          raise vim.fault.HostConnectFault(msg=msg)
@@ -307,8 +318,18 @@ def __Login(host, port, user, pwd, service, adapter, version, path,
       content = si.RetrieveContent()
    except vmodl.MethodFault:
       raise
-   except Exception, e:
-      raise vim.fault.HostConnectFault(msg=str(e))
+   except Exception as e:
+      # NOTE (hartsock): preserve the traceback for diagnostics
+      # pulling and preserving the traceback makes diagnosing connection
+      # failures easier since the fault will also include where inside the
+      # library the fault occurred. Without the traceback we have no idea
+      # why the connection failed beyond the message string.
+      (type, value, traceback) = sys.exc_info()
+      if traceback:
+         fault = vim.fault.HostConnectFault(msg=str(e))
+         reraise(vim.fault.HostConnectFault, fault, traceback)
+      else:
+          raise vim.fault.HostConnectFault(msg=str(e))
 
    # Get a ticket if we're connecting to localhost and password is not specified
    if host == 'localhost' and not pwd:
@@ -323,7 +344,7 @@ def __Login(host, port, user, pwd, service, adapter, version, path,
       x = content.sessionManager.Login(user, pwd, None)
    except vim.fault.InvalidLogin:
       raise
-   except Exception, e:
+   except Exception as e:
       raise
    return si, stub
 
@@ -339,7 +360,7 @@ def __Logout(si):
       if si:
          content = si.RetrieveContent()
          content.sessionManager.Logout()
-   except Exception, e:
+   except Exception as e:
       pass
 
 
@@ -406,7 +427,7 @@ class SmartConnection(object):
 
 def __GetServiceVersionDescription(protocol, server, port, path):
    """
-   Private method that returns an ElementTree describing the API versions
+   Private method that returns a root from an ElementTree describing the API versions
    supported by the specified server.  The result will be vimServiceVersions.xml
    if it exists, otherwise vimService.wsdl if it exists, otherwise None.
 
@@ -420,26 +441,23 @@ def __GetServiceVersionDescription(protocol, server, port, path):
    @type  path: string
    """
 
-   tree = ElementTree()
-
    url = "%s://%s:%s/%s/vimServiceVersions.xml" % (protocol, server, port, path)
    try:
-      with closing(urllib.urlopen(url)) as sock:
-         if sock.getcode() == 200:
-            tree.parse(sock)
-            return tree
+      sock = requests.get(url, verify=False)
+      if sock.status_code == 200:
+         tree = ElementTree.fromstring(sock.content)
+         return tree
    except ExpatError:
       pass
 
    url = "%s://%s:%s/%s/vimService.wsdl" % (protocol, server, port, path)
    try:
-      with closing(urllib.urlopen(url)) as sock:
-         if sock.getcode() == 200:
-            tree.parse(sock)
-            return tree
+      sock = requests.get(url, verify=False)
+      if sock.status_code == 200:
+         tree = ElementTree.fromstring(sock.content)
+         return tree
    except ExpatError:
       pass
-
    return None
 
 
@@ -454,15 +472,15 @@ def __VersionIsSupported(desiredVersion, serviceVersionDescription):
    @param desiredVersion: The version we want to see if the server supports
                           (eg. vim.version.version2.
    @type  desiredVersion: string
-   @param serviceVersionDescription: An ElementTree for vimServiceVersions.xml
+   @param serviceVersionDescription: A root ElementTree for vimServiceVersions.xml
                                      or vimService.wsdl.
-   @type  serviceVersionDescription: ElementTree
+   @type  serviceVersionDescription: root ElementTree
    """
 
-   root = serviceVersionDescription.getroot()
+   root = serviceVersionDescription
    if root.tag == 'namespaces':
       # serviceVersionDescription appears to be a vimServiceVersions.xml document
-      if root.get('version') <> '1.0':
+      if root.get('version') != '1.0':
          raise RuntimeError('vimServiceVersions.xml has version %s,' \
              ' which is not understood' % (root.get('version')))
       desiredVersionId = versionIdMap[desiredVersion]
@@ -599,12 +617,7 @@ def OpenUrlWithBasicAuth(url, user='root', pwd=''):
    the specified credentials to the server as part of the request.
    Returns the response as a file-like object.
    """
-   import urllib2
-   pwMgr = urllib2.HTTPPasswordMgrWithDefaultRealm()
-   pwMgr.add_password(None, url, user, pwd)
-   handler = urllib2.HTTPBasicAuthHandler(pwMgr)
-   opener = urllib2.build_opener(handler)
-   return opener.open(url)
+   return requests.get(url, auth=HTTPBasicAuth(user, pwd), verify=False)
 
 def OpenPathWithStub(path, stub):
    """
@@ -614,7 +627,6 @@ def OpenPathWithStub(path, stub):
    file-like object.
    """
    import httplib
-   import urllib2
    if not hasattr(stub, 'scheme'):
       raise vmodl.fault.NotSupported()
    elif stub.scheme == httplib.HTTPConnection:
@@ -625,8 +637,8 @@ def OpenPathWithStub(path, stub):
       raise vmodl.fault.NotSupported()
    hostPort = stub.host
    url = '%s://%s%s' % (protocol, hostPort, path)
-   request = urllib2.Request(url)
+   headers = {}
    if stub.cookie:
-      request.add_header('Cookie', stub.cookie)
-   return urllib2.urlopen(request)
+       headers["Cookie"] = stub.cookie
+   return requests.get(url, headers=headers, verify=False)
 
