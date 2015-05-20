@@ -139,7 +139,7 @@ class VICredStore(object):
                 if child.tag == "password":
                     pwd = child.text
 
-            if host != None and user != None and pwd != None:
+            if host is not None and user is not None and pwd is not None:
                 pwdentries.append(PasswordEntry(host, user, pwd))
 
         return pwdentries
