@@ -23,20 +23,15 @@ Connect to a VMOMI ServiceInstance.
 
 Detailed description (for [e]pydoc goes here).
 """
-<<<<<<< HEAD
 
-import re
-
-from pyVim.credstore import VICredStore, HostNotFoundException, NoCredentialsFileFound
-from pyVmomi import vim, vmodl, SoapStubAdapter, SessionOrientedStub
-from pyVmomi.VmomiSupport import versionIdMap, versionMap, IsChildVersion
-from pyVmomi.VmomiSupport import GetServiceVersions
-
-=======
-from six import reraise
 import sys
 import re
->>>>>>> upstream/master
+
+from six import reraise
+
+from pyVim.credstore import VICredStore, HostNotFoundException, NoCredentialsFileFound
+from pyVmomi import vim, vmodl
+
 try:
    from xml.etree import ElementTree
 except ImportError:
@@ -47,7 +42,7 @@ import requests
 from requests.auth import HTTPBasicAuth
 
 from pyVmomi import vim, vmodl, SoapStubAdapter, SessionOrientedStub
-from pyVmomi.VmomiSupport import nsMap, versionIdMap, versionMap, IsChildVersion
+from pyVmomi.VmomiSupport import versionIdMap, versionMap, IsChildVersion
 from pyVmomi.VmomiSupport import GetServiceVersions
 
 
@@ -84,7 +79,7 @@ class VimSessionOrientedStub(SessionOrientedStub):
    # The set of exceptions that should trigger a relogin by the session stub.
    SESSION_EXCEPTIONS = (
       vim.fault.NotAuthenticated,
-      )
+   )
 
    @staticmethod
    def makeUserLoginMethod(username, password, locale=None):
@@ -225,6 +220,18 @@ def Connect(host='localhost', port=443, user='root', pwd='',
    @param certFile: ssl cert file path
    @type  certFile: string
    """
+   # Check for a credentials store if user and passwords weren't passed via command line.
+   try:
+       cstore = VICredStore()
+       (store_user, store_pwd) = cstore.get_userpwd(host)
+       user = store_user
+       pwd = store_pwd
+   except HostNotFoundException:
+      print "Host [" + host + "] was not found on credentials file. You need to enter credentials manually!"
+
+   except NoCredentialsFileFound:
+      print "No credentials store file found. You need to enter credentials manually!"
+
    try:
       info = re.match(_rx, host)
       if info is not None:
@@ -329,7 +336,7 @@ def __Login(host, port, user, pwd, service, adapter, version, path,
          fault = vim.fault.HostConnectFault(msg=str(e))
          reraise(vim.fault.HostConnectFault, fault, traceback)
       else:
-          raise vim.fault.HostConnectFault(msg=str(e))
+         raise vim.fault.HostConnectFault(msg=str(e))
 
    # Get a ticket if we're connecting to localhost and password is not specified
    if host == 'localhost' and not pwd:
@@ -337,7 +344,7 @@ def __Login(host, port, user, pwd, service, adapter, version, path,
          (user, pwd) = GetLocalTicket(si, user)
       except:
          pass # This is not supported against vCenter, and connecting
-              # with an empty password is fine in debug builds
+         # with an empty password is fine in debug builds
 
    # Login
    try:
@@ -482,7 +489,7 @@ def __VersionIsSupported(desiredVersion, serviceVersionDescription):
       # serviceVersionDescription appears to be a vimServiceVersions.xml document
       if root.get('version') != '1.0':
          raise RuntimeError('vimServiceVersions.xml has version %s,' \
-             ' which is not understood' % (root.get('version')))
+                            ' which is not understood' % (root.get('version')))
       desiredVersionId = versionIdMap[desiredVersion]
       supportedVersion = None
       for namespace in root.findall('namespace'):
@@ -591,17 +598,6 @@ def SmartConnect(protocol='https', host='localhost', port=443, user='root', pwd=
 
    portNumber = protocol == "http" and -int(port) or int(port)
 
-   # Check for a credentials store if user and passwords weren't passed via command line.
-   try:
-       store = VICredStore()
-       (user, password) = store.get_userpwd(host)
-
-   except HostNotFoundException:
-       print "Host [" + host + "] was not found on credentials file. You need to enter credentials manually!"
-
-   except NoCredentialsFileFound:
-       print "No credentials store file found. You need to enter credentials manually!"
-
    return Connect(host=host,
                   port=portNumber,
                   user=user,
@@ -639,6 +635,6 @@ def OpenPathWithStub(path, stub):
    url = '%s://%s%s' % (protocol, hostPort, path)
    headers = {}
    if stub.cookie:
-       headers["Cookie"] = stub.cookie
+      headers["Cookie"] = stub.cookie
    return requests.get(url, headers=headers, verify=False)
 

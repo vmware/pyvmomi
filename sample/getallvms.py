@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+
 # VMware vSphere Python SDK
 # Copyright (c) 2008-2015 VMware, Inc. All Rights Reserved.
 #
@@ -18,51 +18,25 @@
 Python program for listing the vms on an ESX / vCenter host
 """
 
-<<<<<<< HEAD
-import argparse
-import atexit
-
-from pyVim.connect import SmartConnect, Disconnect
-from pyVmomi import vmodl
-=======
 from __future__ import print_function
-
-import pyVmomi
-
-from pyVmomi import vim
-from pyVmomi import vmodl
-
-from pyVim.connect import SmartConnect, Disconnect
-from pyVmomi import vmodl
 
 import argparse
 import atexit
 import getpass
->>>>>>> upstream/master
+
+from pyVim.connect import SmartConnect, Disconnect
+
 
 
 def GetArgs():
    """
    Supports the command-line arguments listed below.
    """
-<<<<<<< HEAD
    parser = argparse.ArgumentParser(description='Process args for retrieving all the Virtual Machines')
    parser.add_argument('-s', '--host', required=True, action='store', help='Remote host to connect to')
    parser.add_argument('-o', '--port', type=int, default=443,   action='store', help='Port to connect on')
    parser.add_argument('-u', '--user', action='store', help='User name to use when connecting to host')
    parser.add_argument('-p', '--password', action='store', help='Password to use when connecting to host')
-=======
-   parser = argparse.ArgumentParser(
-       description='Process args for retrieving all the Virtual Machines')
-   parser.add_argument('-s', '--host', required=True, action='store',
-                       help='Remote host to connect to')
-   parser.add_argument('-o', '--port', type=int, default=443, action='store',
-                       help='Port to connect on')
-   parser.add_argument('-u', '--user', required=True, action='store',
-                       help='User name to use when connecting to host')
-   parser.add_argument('-p', '--password', required=False, action='store',
-                       help='Password to use when connecting to host')
->>>>>>> upstream/master
    args = parser.parse_args()
    return args
 
@@ -106,15 +80,15 @@ def main():
    """
 
    args = GetArgs()
-   if args.password:
-      password = args.password
-   else:
-      password = getpass.getpass(prompt='Enter password for host %s and '
-                                        'user %s: ' % (args.host,args.user))
+   #if args.password:
+   #   password = args.password
+   #else:
+   #   password = getpass.getpass(prompt='Enter password for host %s and '
+   #                                     'user %s: ' % (args.host,args.user))
 
    si = SmartConnect(host=args.host,
                      user=args.user,
-                     pwd=password,
+                     pwd=args.password,
                      port=int(args.port))
    if not si:
        print("Could not connect to the specified host using specified "
