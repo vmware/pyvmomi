@@ -23,6 +23,7 @@ Connect to a VMOMI ServiceInstance.
 
 Detailed description (for [e]pydoc goes here).
 """
+from __future__ import print_function
 
 import sys
 import re
@@ -227,10 +228,10 @@ def Connect(host='localhost', port=443, user='root', pwd='',
        user = store_user
        pwd = store_pwd
    except HostNotFoundException:
-      print "Host [" + host + "] was not found on credentials file. You need to enter credentials manually!"
+      print("Host [" + host + "] was not found on credentials file. You need to enter credentials manually!")
 
    except NoCredentialsFileFound:
-      print "No credentials store file found. You need to enter credentials manually!"
+      print("No credentials store file found. You need to enter credentials manually!")
 
    try:
       info = re.match(_rx, host)

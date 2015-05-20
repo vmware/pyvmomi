@@ -5,6 +5,7 @@ __author__ = 'Osvaldo Demo'
 #
 #
 
+from __future__ import print_function
 import xml.etree.ElementTree as ET
 from sys import platform as _platform
 import os
@@ -146,7 +147,7 @@ class VICredStore(object):
 
     def list_entries (self):
         for entry in sorted(self.hostdata.keys()):
-            print entry  # + '\t' + self.hostdata[entry].getUser()
+            print(entry) # + '\t' + self.hostdata[entry].getUser()
 
     def _populate_data (self):
         pwd_list = self.get_pwd_entry_list()
