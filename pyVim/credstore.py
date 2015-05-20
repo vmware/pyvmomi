@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 __author__ = 'Osvaldo Demo'
 
 #
@@ -5,7 +7,6 @@ __author__ = 'Osvaldo Demo'
 #
 #
 
-from __future__ import print_function
 import xml.etree.ElementTree as ET
 from sys import platform as _platform
 import os
