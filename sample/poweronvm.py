@@ -126,7 +126,7 @@ def main():
 
       atexit.register(Disconnect, si)
 
-      # Retreive the list of Virtual Machines from the invetory objects
+      # Retreive the list of Virtual Machines from the inventory objects
       # under the rootFolder
       content = si.content
       objView = content.viewManager.CreateContainerView(content.rootFolder,
