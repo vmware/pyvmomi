@@ -1,6 +1,8 @@
 *.pyc
 build
 dist
+.idea/*
+.gitignore
 .idea
 *.iml
 *.patch
