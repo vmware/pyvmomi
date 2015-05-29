@@ -38,6 +38,9 @@ if PY2:
 
 if PY3:
     from io import StringIO
+
+import warnings
+
 from pyVmomi.VmomiSupport import *
 from pyVmomi.StubAdapterAccessorImpl import StubAdapterAccessorMixin
 import pyVmomi.Iso8601
@@ -1029,8 +1032,12 @@ class SSLTunnelConnection(object):
    #        SSLTunnelConnection
    def __call__(self, path, key_file=None, cert_file=None, **kwargs):
       # Don't pass any keyword args that HTTPConnection won't understand.
+      # see: https://docs.python.org/3/library/http.client.html
       for arg in kwargs.keys():
-         if arg not in ("port", "strict", "timeout", "source_address"):
+         if arg not in ("port", "strict", "timeout", "source_address",
+                        "context", "check_hostname"):
+            warnings.warn("http_client.HTTPConnection does not understand"
+                          "the argument {0}".format(arg))
             del kwargs[arg]
       tunnel = http_client.HTTPConnection(path, **kwargs)
       tunnel.request('CONNECT', self.proxyPath)
@@ -1148,7 +1155,7 @@ class SoapStubAdapter(SoapStubAdapterBase):
                 thumbprint=None, cacertsFile=None, version=None,
                 acceptCompressedResponses=True,
                 connectionPoolTimeout=CONNECTION_POOL_IDLE_TIMEOUT_SEC,
-                samlToken=None):
+                samlToken=None, unverified=False):
       if ns:
          assert(version is None)
          version = versionMap[ns]
@@ -1184,6 +1191,9 @@ class SoapStubAdapter(SoapStubAdapterBase):
       else:
          self.thumbprint = None
 
+      self.unverified = unverified
+
+      # SSL connection actually occurs
       if sslProxyPath:
          self.scheme = SSLTunnelConnection(sslProxyPath)
       elif httpProxyHost:
@@ -1213,6 +1223,21 @@ class SoapStubAdapter(SoapStubAdapterBase):
       self._acceptCompressedResponses = acceptCompressedResponses
 
 
+   def _set_unverified_https_context(self):
+      self._create_default_https_context = None
+      if hasattr(ssl, '_create_unverified_context'):
+          # hold the normal HTTPS context creation method aside
+          warnings.warn("unverified=True was set on vSphere connection")
+          self._create_default_https_context = ssl._create_default_https_context
+          ssl._create_default_https_context = ssl._create_unverified_context
+
+
+   def _restore_default_https_context(self):
+      if self._create_default_https_context is not None:
+          ssl._create_default_https_context = _create_default_https_context
+      self._create_default_https_context = None
+
+
    # Context modifier used to modify the SOAP request.
    # @param func The func that takes in the serialized message and modifies the
    #   the request. The func is appended to the requestModifierList and then
@@ -1237,6 +1262,9 @@ class SoapStubAdapter(SoapStubAdapterBase):
    #   deserialized object so that it's easier to distinguish an API error from
    #   a connection error.
    def InvokeMethod(self, mo, info, args, outerStub=None):
+      if self.unverified:
+          self._set_unverified_https_context()
+
       if outerStub is None:
          outerStub = self
 
@@ -1301,6 +1329,9 @@ class SoapStubAdapter(SoapStubAdapterBase):
       else:
          conn.close()
          raise http_client.HTTPException("{0} {1}".format(resp.status, resp.reason))
+
+      if self.unverified:
+          self._restore_default_https_context()
 
    ## Clean up connection pool to throw away idle timed-out connections
    #  SoapStubAdapter lock must be acquired before this method is called.
