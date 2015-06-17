@@ -1208,6 +1208,8 @@ class SoapStubAdapter(SoapStubAdapterBase):
       if cacertsFile:
          self.schemeArgs['ca_certs'] = cacertsFile
          self.schemeArgs['cert_reqs'] = ssl.CERT_REQUIRED
+      if self.schemeArgs == {}:
+         self.schemeArgs['context'] = ssl._create_unverified_context()
       self.samlToken = samlToken
       self.requestModifierList = []
       self._acceptCompressedResponses = acceptCompressedResponses
