@@ -1211,7 +1211,7 @@ class SoapStubAdapter(SoapStubAdapterBase):
       if self.schemeArgs == {}:
          try:
             self.schemeArgs['context'] = ssl._create_unverified_context()
-         except NameError:
+         except AttributeError:
             pass
       self.samlToken = samlToken
       self.requestModifierList = []
