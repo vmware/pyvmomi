@@ -2,7 +2,7 @@
     :target: https://travis-ci.org/vmware/pyvmomi
     :alt: Build Status
 
-.. image:: https://pypip.in/download/pyvmomi/badge.png
+.. image:: https://img.shields.io/pypi/dm/pyvmomi.svg
     :target: https://pypi.python.org/pypi/pyvmomi/
     :alt: Downloads
 
