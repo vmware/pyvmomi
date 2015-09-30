@@ -31,7 +31,7 @@ class SerializerTests(tests.VCRTestBase):
                         '</_this>'
                         '</RetrieveServiceContent>'
                         '</soapenv:Body>')
-            if soap_msg in r1.body:
+            if soap_msg in r1.body.decode("utf-8"):
                 return True
             raise SystemError('serialization error occurred')
 
@@ -51,4 +51,4 @@ class SerializerTests(tests.VCRTestBase):
             self.assertTrue(content is not None)
             self.assertTrue(
                 '<_this type="ServiceInstance">ServiceInstance</_this>'
-                in cass.requests[0].body)
+                in cass.requests[0].body.decode("utf-8"))
