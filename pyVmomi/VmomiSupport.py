@@ -48,7 +48,8 @@ except:
 
 (F_LINK,
  F_LINKABLE,
- F_OPTIONAL) = [ 1<<x for x in range(3) ]
+ F_OPTIONAL,
+ F_SECRET) = [ 1<<x for x in range(4) ]
 
 BASE_VERSION = 'vmodl.version.version0'
 VERSION1     = 'vmodl.version.version1'
