@@ -1260,9 +1260,6 @@ class _BuildVersions:
    def GetNamespace(self, vmodlNs):
       return self._nsMap[vmodlNs]
 
-   def GetInternalNamespace(self, vmodlNs):
-      return "internal%s" % self.GetNamespace(vmodlNs)
-
 types = Object()
 nsMap = {}
 versionIdMap = {}
