@@ -1141,6 +1141,8 @@ class SoapStubAdapter(SoapStubAdapterBase):
    # @param version API version
    # @param connectionPoolTimeout Timeout in secs for idle connections in client pool. Use -1 to disable any timeout.
    # @param samlToken SAML Token that should be used in SOAP security header for login
+   # @param sslContext SSL Context describing the various SSL options. It is only
+   #                   supported in Python 2.7.9 or higher.
    def __init__(self, host='localhost', port=443, ns=None, path='/sdk',
                 url=None, sock=None, poolSize=5,
                 certFile=None, certKeyFile=None,
@@ -1148,7 +1150,7 @@ class SoapStubAdapter(SoapStubAdapterBase):
                 thumbprint=None, cacertsFile=None, version=None,
                 acceptCompressedResponses=True,
                 connectionPoolTimeout=CONNECTION_POOL_IDLE_TIMEOUT_SEC,
-                samlToken=None):
+                samlToken=None, sslContext=None):
       if ns:
          assert(version is None)
          version = versionMap[ns]
@@ -1208,6 +1210,8 @@ class SoapStubAdapter(SoapStubAdapterBase):
       if cacertsFile:
          self.schemeArgs['ca_certs'] = cacertsFile
          self.schemeArgs['cert_reqs'] = ssl.CERT_REQUIRED
+      if sslContext:
+         self.schemeArgs['context'] = sslContext
       self.samlToken = samlToken
       self.requestModifierList = []
       self._acceptCompressedResponses = acceptCompressedResponses
