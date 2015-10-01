@@ -1241,12 +1241,41 @@ def GetCompatibleType(type, version):
 def InverseMap(map):
    return dict([ (v, k) for (k, v) in iteritems(map) ])
 
+## Support for build-time versions
+class _BuildVersions:
+   def __init__(self):
+      self._verMap = {}
+      self._nsMap = {}
+
+   def Add(self, version):
+      vmodlNs = version.split(".",1)[0]
+      if not (vmodlNs in self._verMap):
+         self._verMap[vmodlNs] = version
+      if not (vmodlNs in self._nsMap):
+         self._nsMap[vmodlNs] = GetVersionNamespace(version)
+
+   def Get(self, vmodlNs):
+      return self._verMap[vmodlNs]
+
+   def GetNamespace(self, vmodlNs):
+      return self._nsMap[vmodlNs]
+
+   def GetInternalNamespace(self, vmodlNs):
+      return "internal%s" % self.GetNamespace(vmodlNs)
+
 types = Object()
 nsMap = {}
 versionIdMap = {}
 versionMap = {}
 serviceNsMap = { BASE_VERSION : XMLNS_VMODL_BASE.split(":")[-1] }
 parentMap = {}
+
+newestVersions = _BuildVersions()
+currentVersions = _BuildVersions()
+stableVersions = _BuildVersions()
+matureVersions = _BuildVersions()
+publicVersions = _BuildVersions()
+oldestVersions = _BuildVersions()
 
 from pyVmomi.Version import AddVersion, IsChildVersion
 
