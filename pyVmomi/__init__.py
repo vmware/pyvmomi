@@ -24,6 +24,7 @@ if sys.version_info < (2,5):
 
 import pyVmomi.VmomiSupport
 import pyVmomi.CoreTypes
+import pyVmomi.QueryTypes
 try:
    import ReflectTypes
 except ImportError:
