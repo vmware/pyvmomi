@@ -81,7 +81,8 @@ class DynamicTypeConstructor:
 
    _mapFlags = { "optional": VmomiSupport.F_OPTIONAL,
                  "linkable": VmomiSupport.F_LINKABLE,
-                 "link":     VmomiSupport.F_LINK }
+                 "link":     VmomiSupport.F_LINK,
+                 "secret":   VmomiSupport.F_SECRET }
 
    ## Constructor
    #
