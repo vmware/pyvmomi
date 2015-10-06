@@ -1393,6 +1393,12 @@ class SoapStubAdapter(SoapStubAdapterBase):
                   pass
          conn.connect = ConnectDisableNagle
 
+## Need to override the depcopy method. Since, the stub is not deep copyable
+#  due to the thread lock and connection pool, deep copy of a managed object
+#  fails. Further different instances of a managed object still share the
+#  same soap stub. Hence, returning self here is fine.
+def __deepcopy__(self, memo):
+   return self
 
 HEADER_SECTION_END = '\r\n\r\n'
 
