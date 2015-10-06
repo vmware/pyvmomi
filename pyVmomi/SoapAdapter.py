@@ -1186,11 +1186,14 @@ class SoapStubAdapter(SoapStubAdapterBase):
       else:
          self.thumbprint = None
 
+      self.is_ssl_tunnel = False
       if sslProxyPath:
          self.scheme = SSLTunnelConnection(sslProxyPath)
+         self.is_ssl_tunnel = True
       elif httpProxyHost:
          if self.scheme == HTTPSConnectionWrapper:
             self.scheme = SSLTunnelConnection(self.host)
+            self.is_ssl_tunnel = True
          else:
             if url:
                self.path = url
@@ -1368,7 +1371,8 @@ class SoapStubAdapter(SoapStubAdapterBase):
    def ReturnConnection(self, conn):
       self.lock.acquire()
       self._CloseIdleConnections()
-      if len(self.pool) < self.poolSize:
+      # In case of ssl tunneling, only add the conn if the conn has not been closed
+      if len(self.pool) < self.poolSize and (not self.is_ssl_tunnel or conn.sock):
          self.pool.insert(0, (conn, time.time()))
          self.lock.release()
       else:
