@@ -34,6 +34,7 @@ from xml.parsers.expat import ExpatError
 
 import requests
 from requests.auth import HTTPBasicAuth
+import ssl
 
 from pyVmomi import vim, vmodl, SoapStubAdapter, SessionOrientedStub
 from pyVmomi.VmomiSupport import nsMap, versionIdMap, versionMap, IsChildVersion
@@ -179,7 +180,8 @@ class VimSessionOrientedStub(SessionOrientedStub):
 
 def Connect(host='localhost', port=443, user='root', pwd='',
             service="hostd", adapter="SOAP", namespace=None, path="/sdk",
-            version=None, keyFile=None, certFile=None):
+            version=None, keyFile=None, certFile=None,
+            unverified=False):
    """
    Connect to the specified server, login and return the service
    instance object.
@@ -213,6 +215,8 @@ def Connect(host='localhost', port=443, user='root', pwd='',
    @type  keyFile: string
    @param certFile: ssl cert file path
    @type  certFile: string
+   @param unverified: allow unsigned certificates
+   @type unverified: bool
    """
    try:
       info = re.match(_rx, host)
@@ -231,7 +235,7 @@ def Connect(host='localhost', port=443, user='root', pwd='',
    elif not version:
       version="vim.version.version6"
    si, stub = __Login(host, port, user, pwd, service, adapter, version, path,
-                      keyFile, certFile)
+                      keyFile, certFile, unverified)
    SetSi(si)
 
    return si
@@ -266,7 +270,7 @@ def GetLocalTicket(si, user):
 ## connected service instance object.
 
 def __Login(host, port, user, pwd, service, adapter, version, path,
-            keyFile, certFile):
+            keyFile, certFile, unverified=False):
    """
    Private method that performs the actual Connect and returns a
    connected service instance object.
@@ -299,7 +303,8 @@ def __Login(host, port, user, pwd, service, adapter, version, path,
 
    # Create the SOAP stub adapter
    stub = SoapStubAdapter(host, port, version=version, path=path,
-                          certKeyFile=keyFile, certFile=certFile)
+                          certKeyFile=keyFile, certFile=certFile,
+                          unverified=unverified)
 
    # Get Service instance
    si = vim.ServiceInstance("ServiceInstance", stub)
@@ -532,7 +537,7 @@ def __FindSupportedVersion(protocol, server, port, path, preferredApiVersions):
 
 def SmartConnect(protocol='https', host='localhost', port=443, user='root', pwd='',
                  service="hostd", path="/sdk",
-                 preferredApiVersions=None):
+                 preferredApiVersions=None, unverified=False):
    """
    Determine the most preferred API version supported by the specified server,
    then connect to the specified server using that API version, login and return
@@ -565,6 +570,8 @@ def SmartConnect(protocol='https', host='localhost', port=443, user='root', pwd=
                                 specified, the list of versions support by pyVmomi will
                                 be used.
    @type  preferredApiVersions: string or string list
+   @param unverified: set to true to allow for unsigned certs
+   @type unverified: bool
    """
 
    if preferredApiVersions is None:
@@ -587,7 +594,8 @@ def SmartConnect(protocol='https', host='localhost', port=443, user='root', pwd=
                   service=service,
                   adapter='SOAP',
                   version=supportedVersion,
-                  path=path)
+                  path=path,
+                  unverified=unverified)
 
 def OpenUrlWithBasicAuth(url, user='root', pwd=''):
    """
