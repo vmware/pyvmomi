@@ -962,7 +962,6 @@ except ImportError:
 # Note: Only works iff the ssl params are passing in as kwargs
 class HTTPSConnectionWrapper(object):
    def __init__(self, *args, **kwargs):
-      wrapped = http_client.HTTPSConnection(*args, **kwargs)
       # Extract ssl.wrap_socket param unknown to httplib.HTTPConnection,
       # and push back the params in connect()
       self._sslArgs = {}
@@ -972,11 +971,13 @@ class HTTPSConnectionWrapper(object):
                   "ciphers"]:
          if key in tmpKwargs:
             self._sslArgs[key] = tmpKwargs.pop(key)
-      self._wrapped = wrapped
+      self._wrapped = http_client.HTTPSConnection(*args, **tmpKwargs)
 
    ## Override connect to allow us to pass in additional ssl paramters to
    #  ssl.wrap_socket (e.g. cert_reqs, ca_certs for ca cert verification)
-   def connect(self, wrapped):
+   def connect(self, wrapped=None):
+      if wrapped is None:
+         wrapped = self._wrapped
       if len(self._sslArgs) == 0 or hasattr(self, '_baseclass'):
          # No override
          return wrapped.connect
@@ -1250,6 +1251,9 @@ class SoapStubAdapter(SoapStubAdapterBase):
          req = modifier(req)
       conn = self.GetConnection()
       try:
+         # Explicitly connect so that the wrapper connect() function is called
+         #  and has an opportunity to apply ssl context options
+         conn.connect()
          conn.request('POST', self.path, req, headers)
          resp = conn.getresponse()
       except (socket.error, http_client.HTTPException):
