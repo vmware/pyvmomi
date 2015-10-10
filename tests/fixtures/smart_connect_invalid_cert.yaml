@@ -1,0 +1,25 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      User-Agent: [python-requests/2.3.0 CPython/2.7.3 Darwin/13.3.0]
+    method: GET
+    uri: https://vcsa:443//sdk/vimServiceVersions.xml
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\r\
+        \n<!--\r\n   Copyright 2008-2012 VMware, Inc.  All rights reserved.\r\n-->\r\
+        \n<namespaces version=\"1.0\">\r\n  <namespace>\r\n    <name>urn:vim25</name>\r\
+        \n    <version>5.5</version>\r\n    <priorVersions>\r\n      <version>5.1</version>\r\
+        \n      <version>5.0</version>\r\n      <version>4.1</version>\r\n      <version>4.0</version>\r\
+        \n      <version>2.5u2</version>\r\n      <version>2.5</version>\r\n    </priorVersions>\r\
+        \n  </namespace>\r\n  <namespace>\r\n    <name>urn:vim2</name>\r\n    <version>2.0</version>\r\
+        \n  </namespace>\r\n</namespaces>\r\n"}
+    headers:
+      connection: [Keep-Alive]
+      content-length: ['552']
+      content-type: [text/xml]
+      date: ['Wed, 17 Sep 2014 09:01:55 GMT']
+    status: {code: 200, message: OK}
+version: 1
