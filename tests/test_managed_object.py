@@ -30,6 +30,7 @@ class ManagedObjectTests(tests.VCRTestBase):
         si = connect.SmartConnect(host='vcsa',
                                   user='my_user',
                                   pwd='my_password')
+
         root_folder = si.content.rootFolder
         self.assertTrue(hasattr(root_folder, 'parent'))
         # NOTE (hartsock): assertIsNone does not work in Python 2.6
