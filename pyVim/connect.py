@@ -179,7 +179,7 @@ class VimSessionOrientedStub(SessionOrientedStub):
 
 def Connect(host='localhost', port=443, user='root', pwd='',
             service="hostd", adapter="SOAP", namespace=None, path="/sdk",
-            version=None, keyFile=None, certFile=None):
+            version=None, keyFile=None, certFile=None, b64token=None, mechanism='userpass'):
    """
    Connect to the specified server, login and return the service
    instance object.
@@ -213,6 +213,10 @@ def Connect(host='localhost', port=443, user='root', pwd='',
    @type  keyFile: string
    @param certFile: ssl cert file path
    @type  certFile: string
+   @param b64token: base64 encoded token
+   @type  b64token: string
+   @param mechanism: authentication mechanism: userpass or sspi
+   @type  mechanism: string
    """
    try:
       info = re.match(_rx, host)
@@ -230,8 +234,16 @@ def Connect(host='localhost', port=443, user='root', pwd='',
       version = versionMap[namespace]
    elif not version:
       version="vim.version.version6"
-   si, stub = __Login(host, port, user, pwd, service, adapter, version, path,
+
+   si, stub = None, None
+   if mechanism == 'userpass':
+       si, stub = __Login(host, port, user, pwd, service, adapter, version, path,
                       keyFile, certFile)
+   elif mechanism == 'sspi':
+       si, stub = __LoginBySSPI( host, port, service, adapter, version, path, keyFile, certFile, b64token )
+   else:
+	   raise Exception( 'The provided connection mechanism is not available, the supported mechanisms are userpass or sspi' )
+   
    SetSi(si)
 
    return si
@@ -293,32 +305,7 @@ def __Login(host, port, user, pwd, service, adapter, version, path,
    @type  certFile: string
    """
 
-   # XXX remove the adapter and service arguments once dependent code is fixed
-   if adapter != "SOAP":
-      raise ValueError(adapter)
-
-   # Create the SOAP stub adapter
-   stub = SoapStubAdapter(host, port, version=version, path=path,
-                          certKeyFile=keyFile, certFile=certFile)
-
-   # Get Service instance
-   si = vim.ServiceInstance("ServiceInstance", stub)
-   try:
-      content = si.RetrieveContent()
-   except vmodl.MethodFault:
-      raise
-   except Exception as e:
-      # NOTE (hartsock): preserve the traceback for diagnostics
-      # pulling and preserving the traceback makes diagnosing connection
-      # failures easier since the fault will also include where inside the
-      # library the fault occurred. Without the traceback we have no idea
-      # why the connection failed beyond the message string.
-      (type, value, traceback) = sys.exc_info()
-      if traceback:
-         fault = vim.fault.HostConnectFault(msg=str(e))
-         reraise(vim.fault.HostConnectFault, fault, traceback)
-      else:
-          raise vim.fault.HostConnectFault(msg=str(e))
+   content, si, stub = __RetrieveContent(host, port, adapter, version, path, keyFile, certFile)
 
    # Get a ticket if we're connecting to localhost and password is not specified
    if host == 'localhost' and not pwd:
@@ -337,6 +324,48 @@ def __Login(host, port, user, pwd, service, adapter, version, path,
       raise
    return si, stub
 
+## Private method that performs the actual Connect and returns a
+## connected service instance object.
+
+def __LoginBySSPI(host, port, service, adapter, version, path,
+            keyFile, certFile, b64token):
+   """
+   Private method that performs the actual Connect and returns a
+   connected service instance object.
+
+   @param host: Which host to connect to.
+   @type  host: string
+   @param port: Port
+   @type  port: int
+   @param service: Service
+   @type  service: string
+   @param adapter: Adapter
+   @type  adapter: string
+   @param version: Version
+   @type  version: string
+   @param path: Path
+   @type  path: string
+   @param keyFile: ssl key file path
+   @type  keyFile: string
+   @param certFile: ssl cert file path
+   @type  certFile: string 
+   @param b64token: base64 encoded token
+   @type  b64token: string
+   """
+
+   content, si, stub = __RetrieveContent(host, port, adapter, version, path, keyFile, certFile)
+
+   if b64token is None:
+      raise Exception( 'Token is not defined for sspi login' ) 
+
+   # Login
+   try:
+      x = content.sessionManager.LoginBySSPI( b64token )
+   except vim.fault.InvalidLogin:
+      raise
+   except Exception as e:
+      raise
+   return si, stub
 
 ## Private method that performs the actual Disonnect
 
@@ -351,6 +380,57 @@ def __Logout(si):
          content.sessionManager.Logout()
    except Exception as e:
       pass
+
+## Private method that returns the service content
+
+def __RetrieveContent(host, port, adapter, version, path, keyFile, certFile ):
+   """
+   Retrieve service instance for connection.
+   @param host: Which host to connect to.
+   @type  host: string
+   @param port: Port
+   @type  port: int
+   @param adapter: Adapter
+   @type  adapter: string
+   @param version: Version
+   @type  version: string
+   @param path: Path
+   @type  path: string
+   @param keyFile: ssl key file path
+   @type  keyFile: string
+   @param certFile: ssl cert file path
+   @type  certFile: string
+   """
+
+   # XXX remove the adapter and service arguments once dependent code is fixed
+   if adapter != "SOAP":
+      raise ValueError(adapter)
+
+   # Create the SOAP stub adapter
+   stub = SoapStubAdapter(host, port, version=version, path=path,
+                          certKeyFile=keyFile, certFile=certFile)
+
+   # Get Service instance
+   si = vim.ServiceInstance("ServiceInstance", stub)
+   content = None
+   try:
+      content = si.RetrieveContent()
+   except vmodl.MethodFault:
+      raise
+   except Exception as e:
+      # NOTE (hartsock): preserve the traceback for diagnostics
+      # pulling and preserving the traceback makes diagnosing connection
+      # failures easier since the fault will also include where inside the
+      # library the fault occurred. Without the traceback we have no idea
+      # why the connection failed beyond the message string.
+      (type, value, traceback) = sys.exc_info()
+      if traceback:
+         fault = vim.fault.HostConnectFault(msg=str(e))
+         reraise(vim.fault.HostConnectFault, fault, traceback)
+      else:
+          raise vim.fault.HostConnectFault(msg=str(e))
+   
+   return content, si, stub
 
 
 ## Get the saved service instance.
@@ -532,7 +612,7 @@ def __FindSupportedVersion(protocol, server, port, path, preferredApiVersions):
 
 def SmartConnect(protocol='https', host='localhost', port=443, user='root', pwd='',
                  service="hostd", path="/sdk",
-                 preferredApiVersions=None):
+                 preferredApiVersions=None, b64token=None, mechanism='userpass'):
    """
    Determine the most preferred API version supported by the specified server,
    then connect to the specified server using that API version, login and return
@@ -587,7 +667,9 @@ def SmartConnect(protocol='https', host='localhost', port=443, user='root', pwd=
                   service=service,
                   adapter='SOAP',
                   version=supportedVersion,
-                  path=path)
+                  path=path,
+		  b64token=b64token,
+		  mechanism=mechanism)
 
 def OpenUrlWithBasicAuth(url, user='root', pwd=''):
    """
