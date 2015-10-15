@@ -215,6 +215,8 @@ def Connect(host='localhost', port=443, user='root', pwd='',
    @type  certFile: string
    @param b64token: base64 encoded token
    @type  b64token: string
+   @param mechanism: authentication mechanism: text or sspi
+   @type  mechanism: string
    """
    try:
       info = re.match(_rx, host)
@@ -384,9 +386,22 @@ def __Logout(si):
 def __RetrieveContent(host, port, adapter, version, path, keyFile, certFile ):
    """
    Retrieve service instance for connection.
+   @param host: Which host to connect to.
+   @type  host: string
+   @param port: Port
+   @type  port: int
    @param adapter: Adapter
    @type  adapter: string
+   @param version: Version
+   @type  version: string
+   @param path: Path
+   @type  path: string
+   @param keyFile: ssl key file path
+   @type  keyFile: string
+   @param certFile: ssl cert file path
+   @type  certFile: string
    """
+
    # XXX remove the adapter and service arguments once dependent code is fixed
    if adapter != "SOAP":
       raise ValueError(adapter)
