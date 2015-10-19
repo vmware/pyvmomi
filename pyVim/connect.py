@@ -26,10 +26,8 @@ Detailed description (for [e]pydoc goes here).
 from six import reraise
 import sys
 import re
-try:
-   from xml.etree import ElementTree
-except ImportError:
-   from elementtree import ElementTree
+import ssl
+from xml.etree import ElementTree
 from xml.parsers.expat import ExpatError
 
 import requests
@@ -179,7 +177,8 @@ class VimSessionOrientedStub(SessionOrientedStub):
 
 def Connect(host='localhost', port=443, user='root', pwd='',
             service="hostd", adapter="SOAP", namespace=None, path="/sdk",
-            version=None, keyFile=None, certFile=None):
+            version=None, keyFile=None, certFile=None,
+            sslContext=None):
    """
    Connect to the specified server, login and return the service
    instance object.
@@ -213,6 +212,9 @@ def Connect(host='localhost', port=443, user='root', pwd='',
    @type  keyFile: string
    @param certFile: ssl cert file path
    @type  certFile: string
+   @param sslContext: SSL Context describing the various SSL options. It is only
+                      supported in Python 2.7.9 or higher.
+   @type  sslContext: SSL.Context
    """
    try:
       info = re.match(_rx, host)
@@ -231,7 +233,7 @@ def Connect(host='localhost', port=443, user='root', pwd='',
    elif not version:
       version="vim.version.version6"
    si, stub = __Login(host, port, user, pwd, service, adapter, version, path,
-                      keyFile, certFile)
+                      keyFile, certFile, sslContext)
    SetSi(si)
 
    return si
@@ -266,7 +268,7 @@ def GetLocalTicket(si, user):
 ## connected service instance object.
 
 def __Login(host, port, user, pwd, service, adapter, version, path,
-            keyFile, certFile):
+            keyFile, certFile, sslContext):
    """
    Private method that performs the actual Connect and returns a
    connected service instance object.
@@ -291,6 +293,9 @@ def __Login(host, port, user, pwd, service, adapter, version, path,
    @type  keyFile: string
    @param certFile: ssl cert file path
    @type  certFile: string
+   @param sslContext: SSL Context describing the various SSL options. It is only
+                      supported in Python 2.7.9 or higher.
+   @type  sslContext: SSL.Context
    """
 
    # XXX remove the adapter and service arguments once dependent code is fixed
@@ -299,7 +304,7 @@ def __Login(host, port, user, pwd, service, adapter, version, path,
 
    # Create the SOAP stub adapter
    stub = SoapStubAdapter(host, port, version=version, path=path,
-                          certKeyFile=keyFile, certFile=certFile)
+                          certKeyFile=keyFile, certFile=certFile, sslContext=sslContext)
 
    # Get Service instance
    si = vim.ServiceInstance("ServiceInstance", stub)
@@ -410,11 +415,35 @@ class SmartConnection(object):
          Disconnect(self.si)
          self.si = None
 
+def __GetElementTreeFromUrl(url, sslContext):
+   """
+   Private method that returns a root from ElementTree for the XML document referenced by
+   the url.
+
+   @param url: URL
+   @type  url: string
+   @param sslContext: SSL Context describing the various SSL options. It is only
+                      supported in Python 2.7.9 or higher.
+   @type  sslContext: SSL.Context
+   """
+
+   try:
+      if sslContext is not None and sslContext.verify_mode == ssl.CERT_NONE:
+         sock = requests.get(url, verify=False)
+      else:
+         sock = requests.get(url)
+      if sock.status_code == 200:
+         tree = ElementTree.fromstring(sock.content)
+         return tree
+   except ExpatError:
+      pass
+   return None
+
 ## Private method that returns an ElementTree describing the API versions
 ## supported by the specified server.  The result will be vimServiceVersions.xml
 ## if it exists, otherwise vimService.wsdl if it exists, otherwise None.
 
-def __GetServiceVersionDescription(protocol, server, port, path):
+def __GetServiceVersionDescription(protocol, server, port, path, sslContext):
    """
    Private method that returns a root from an ElementTree describing the API versions
    supported by the specified server.  The result will be vimServiceVersions.xml
@@ -428,26 +457,19 @@ def __GetServiceVersionDescription(protocol, server, port, path):
    @type  port: int
    @param path: Path
    @type  path: string
+   @param sslContext: SSL Context describing the various SSL options. It is only
+                      supported in Python 2.7.9 or higher.
+   @type  sslContext: SSL.Context
    """
 
    url = "%s://%s:%s/%s/vimServiceVersions.xml" % (protocol, server, port, path)
-   try:
-      sock = requests.get(url, verify=False)
-      if sock.status_code == 200:
-         tree = ElementTree.fromstring(sock.content)
-         return tree
-   except ExpatError:
-      pass
+   tree = __GetElementTreeFromUrl(url, sslContext)
+   if tree is not None:
+      return tree
 
    url = "%s://%s:%s/%s/vimService.wsdl" % (protocol, server, port, path)
-   try:
-      sock = requests.get(url, verify=False)
-      if sock.status_code == 200:
-         tree = ElementTree.fromstring(sock.content)
-         return tree
-   except ExpatError:
-      pass
-   return None
+   tree = __GetElementTreeFromUrl(url, sslContext)
+   return tree
 
 
 ## Private method that returns true if the service version description document
@@ -495,7 +517,7 @@ def __VersionIsSupported(desiredVersion, serviceVersionDescription):
 ## Private method that returns the most preferred API version supported by the
 ## specified server,
 
-def __FindSupportedVersion(protocol, server, port, path, preferredApiVersions):
+def __FindSupportedVersion(protocol, server, port, path, preferredApiVersions, sslContext):
    """
    Private method that returns the most preferred API version supported by the
    specified server,
@@ -512,12 +534,16 @@ def __FindSupportedVersion(protocol, server, port, path, preferredApiVersions):
                                 If a list of versions is specified the versions should
                                 be ordered from most to least preferred.
    @type  preferredApiVersions: string or string list
+   @param sslContext: SSL Context describing the various SSL options. It is only
+                      supported in Python 2.7.9 or higher.
+   @type  sslContext: SSL.Context
    """
 
    serviceVersionDescription = __GetServiceVersionDescription(protocol,
                                                               server,
                                                               port,
-                                                              path)
+                                                              path,
+                                                              sslContext)
    if serviceVersionDescription is None:
       return None
 
@@ -532,7 +558,7 @@ def __FindSupportedVersion(protocol, server, port, path, preferredApiVersions):
 
 def SmartConnect(protocol='https', host='localhost', port=443, user='root', pwd='',
                  service="hostd", path="/sdk",
-                 preferredApiVersions=None):
+                 preferredApiVersions=None, sslContext=None):
    """
    Determine the most preferred API version supported by the specified server,
    then connect to the specified server using that API version, login and return
@@ -565,6 +591,9 @@ def SmartConnect(protocol='https', host='localhost', port=443, user='root', pwd=
                                 specified, the list of versions support by pyVmomi will
                                 be used.
    @type  preferredApiVersions: string or string list
+   @param sslContext: SSL Context describing the various SSL options. It is only
+                      supported in Python 2.7.9 or higher.
+   @type  sslContext: SSL.Context
    """
 
    if preferredApiVersions is None:
@@ -574,7 +603,8 @@ def SmartConnect(protocol='https', host='localhost', port=443, user='root', pwd=
                                              host,
                                              port,
                                              path,
-                                             preferredApiVersions)
+                                             preferredApiVersions,
+                                             sslContext)
    if supportedVersion is None:
       raise Exception("%s:%s is not a VIM server" % (host, port))
 
@@ -587,7 +617,8 @@ def SmartConnect(protocol='https', host='localhost', port=443, user='root', pwd=
                   service=service,
                   adapter='SOAP',
                   version=supportedVersion,
-                  path=path)
+                  path=path,
+                  sslContext=sslContext)
 
 def OpenUrlWithBasicAuth(url, user='root', pwd=''):
    """

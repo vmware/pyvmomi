@@ -1141,6 +1141,8 @@ class SoapStubAdapter(SoapStubAdapterBase):
    # @param version API version
    # @param connectionPoolTimeout Timeout in secs for idle connections in client pool. Use -1 to disable any timeout.
    # @param samlToken SAML Token that should be used in SOAP security header for login
+   # @param sslContext SSL Context describing the various SSL options. It is only
+   #                   supported in Python 2.7.9 or higher.
    def __init__(self, host='localhost', port=443, ns=None, path='/sdk',
                 url=None, sock=None, poolSize=5,
                 certFile=None, certKeyFile=None,
@@ -1148,7 +1150,7 @@ class SoapStubAdapter(SoapStubAdapterBase):
                 thumbprint=None, cacertsFile=None, version=None,
                 acceptCompressedResponses=True,
                 connectionPoolTimeout=CONNECTION_POOL_IDLE_TIMEOUT_SEC,
-                samlToken=None):
+                samlToken=None, sslContext=None):
       if ns:
          assert(version is None)
          version = versionMap[ns]
@@ -1184,11 +1186,14 @@ class SoapStubAdapter(SoapStubAdapterBase):
       else:
          self.thumbprint = None
 
+      self.is_ssl_tunnel = False
       if sslProxyPath:
          self.scheme = SSLTunnelConnection(sslProxyPath)
+         self.is_ssl_tunnel = True
       elif httpProxyHost:
          if self.scheme == HTTPSConnectionWrapper:
             self.scheme = SSLTunnelConnection(self.host)
+            self.is_ssl_tunnel = True
          else:
             if url:
                self.path = url
@@ -1208,6 +1213,8 @@ class SoapStubAdapter(SoapStubAdapterBase):
       if cacertsFile:
          self.schemeArgs['ca_certs'] = cacertsFile
          self.schemeArgs['cert_reqs'] = ssl.CERT_REQUIRED
+      if sslContext:
+         self.schemeArgs['context'] = sslContext
       self.samlToken = samlToken
       self.requestModifierList = []
       self._acceptCompressedResponses = acceptCompressedResponses
@@ -1364,7 +1371,8 @@ class SoapStubAdapter(SoapStubAdapterBase):
    def ReturnConnection(self, conn):
       self.lock.acquire()
       self._CloseIdleConnections()
-      if len(self.pool) < self.poolSize:
+      # In case of ssl tunneling, only add the conn if the conn has not been closed
+      if len(self.pool) < self.poolSize and (not self.is_ssl_tunnel or conn.sock):
          self.pool.insert(0, (conn, time.time()))
          self.lock.release()
       else:
@@ -1389,6 +1397,12 @@ class SoapStubAdapter(SoapStubAdapterBase):
                   pass
          conn.connect = ConnectDisableNagle
 
+## Need to override the depcopy method. Since, the stub is not deep copyable
+#  due to the thread lock and connection pool, deep copy of a managed object
+#  fails. Further different instances of a managed object still share the
+#  same soap stub. Hence, returning self here is fine.
+def __deepcopy__(self, memo):
+   return self
 
 HEADER_SECTION_END = '\r\n\r\n'
 

@@ -38,8 +38,7 @@ class ConnectionTests(tests.VCRTestBase):
         self.assertEqual(cookie, si._stub.cookie)
         # NOTE (hartsock): assertIsNotNone does not work in Python 2.6
         self.assertTrue(session_id is not None)
-        self.assertEqual('52773cd3-35c6-b40a-17f1-fe664a9f08f3', session_id)
-        self.assertTrue(session_id in cookie)
+        self.assertEqual('52b5395a-85c2-9902-7835-13a9b77e1fec', session_id)
 
     @vcr.use_cassette('basic_connection_bad_password.yaml',
                       cassette_library_dir=tests.fixtures_path,
@@ -63,7 +62,7 @@ class ConnectionTests(tests.VCRTestBase):
         session_id = si.content.sessionManager.currentSession.key
         # NOTE (hartsock): assertIsNotNone does not work in Python 2.6
         self.assertTrue(session_id is not None)
-        self.assertEqual('52773cd3-35c6-b40a-17f1-fe664a9f08f3', session_id)
+        self.assertEqual('52ad453a-13a7-e8af-9186-a1b5c5ab85b7', session_id)
 
     def test_disconnect_on_no_connection(self):
         connect.Disconnect(None)
