@@ -963,7 +963,7 @@ except ImportError:
 class HTTPSConnectionWrapper(object):
    def __init__(self, *args, **kwargs):
       wrapped = http_client.HTTPSConnection(*args, **kwargs)
-      # Extract ssl.wrap_socket param unknown to httplib.HTTPConnection,
+      # Extract ssl.wrap_socket param unknown to httplib.HTTPSConnection,
       # and push back the params in connect()
       self._sslArgs = {}
       tmpKwargs = kwargs.copy()
@@ -1028,11 +1028,13 @@ class SSLTunnelConnection(object):
    # @param kwargs In case caller passed in extra parameters not handled by
    #        SSLTunnelConnection
    def __call__(self, path, key_file=None, cert_file=None, **kwargs):
-      # Don't pass any keyword args that HTTPConnection won't understand.
-      for arg in kwargs.keys():
-         if arg not in ("port", "strict", "timeout", "source_address"):
-            del kwargs[arg]
-      tunnel = http_client.HTTPConnection(path, **kwargs)
+      # Only pass in the named arguments that HTTPConnection constructor
+      # understands
+      tmpKwargs = {}
+      for key in http_client.HTTPConnection.__init__.__code__.co_varnames:
+         if key in kwargs and key != 'self':
+            tmpKwargs[key] = kwargs[key]
+      tunnel = http_client.HTTPConnection(path, **tmpKwargs)
       tunnel.request('CONNECT', self.proxyPath)
       resp = tunnel.getresponse()
       if resp.status != 200:
