@@ -1221,6 +1221,20 @@ class SoapStubAdapter(SoapStubAdapterBase):
       self.requestModifierList = []
       self._acceptCompressedResponses = acceptCompressedResponses
 
+   # Force a socket shutdown. Before python 2.7, ssl will fail to close
+   # the socket (http://bugs.python.org/issue10127).
+   # Not making this a part of the actual _HTTPSConnection since the internals
+   # of the httplib.HTTP*Connection seem to pass around the descriptors and
+   # depend on the behavior that close() still leaves the socket semi-functional.
+   if sys.version_info[:2] < (2,7):
+      def _CloseConnection(self, conn):
+         # import pdb; pdb.set_trace()
+         if self.scheme == HTTPSConnectionWrapper and conn.sock:
+           conn.sock.shutdown(socket.SHUT_RDWR)
+         conn.close()
+   else:
+      def _CloseConnection(self, conn):
+         conn.close()
 
    # Context modifier used to modify the SOAP request.
    # @param func The func that takes in the serialized message and modifies the
@@ -1289,7 +1303,7 @@ class SoapStubAdapter(SoapStubAdapterBase):
             deserializer = SoapResponseDeserializer(outerStub)
             obj = deserializer.Deserialize(fd, info.result)
          except Exception as exc:
-            conn.close()
+            self._CloseConnection(conn)
             # NOTE (hartsock): This feels out of place. As a rule the lexical
             # context that opens a connection should also close it. However,
             # in this code the connection is passed around and closed in other
@@ -1308,7 +1322,7 @@ class SoapStubAdapter(SoapStubAdapterBase):
          else:
             raise obj # pylint: disable-msg=E0702
       else:
-         conn.close()
+         self._CloseConnection(conn)
          raise http_client.HTTPException("{0} {1}".format(resp.status, resp.reason))
 
    ## Clean up connection pool to throw away idle timed-out connections
@@ -1326,7 +1340,7 @@ class SoapStubAdapter(SoapStubAdapterBase):
                break
 
          for conn, _ in idleConnections:
-            conn.close()
+            self._CloseConnection(conn)
 
    ## Get a HTTP connection from the pool
    def GetConnection(self):
@@ -1367,7 +1381,7 @@ class SoapStubAdapter(SoapStubAdapterBase):
       self.pool = []
       self.lock.release()
       for conn, _ in oldConnections:
-         conn.close()
+         self._CloseConnection(conn)
 
    ## Return a HTTP connection to the pool
    def ReturnConnection(self, conn):
@@ -1382,7 +1396,7 @@ class SoapStubAdapter(SoapStubAdapterBase):
          # NOTE (hartsock): this seems to violate good coding practice in that
          # the lexical context that opens a connection should also be the
          # same context responsible for closing it.
-         conn.close()
+         self._CloseConnection(conn)
 
    ## Disable nagle on a http connections
    def DisableNagle(self, conn):
