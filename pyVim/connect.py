@@ -563,7 +563,8 @@ def __FindSupportedVersion(protocol, server, port, path, preferredApiVersions, s
 
 def SmartConnect(protocol='https', host='localhost', port=443, user='root', pwd='',
                  service="hostd", path="/sdk",
-                 preferredApiVersions=None, thumbprint=None, sslContext=None):
+                 preferredApiVersions=None,
+                 keyFile=None, certFile=None, thumbprint=None, sslContext=None):
    """
    Determine the most preferred API version supported by the specified server,
    then connect to the specified server using that API version, login and return
@@ -596,6 +597,10 @@ def SmartConnect(protocol='https', host='localhost', port=443, user='root', pwd=
                                 specified, the list of versions support by pyVmomi will
                                 be used.
    @type  preferredApiVersions: string or string list
+   @param keyFile: ssl key file path
+   @type  keyFile: string
+   @param certFile: ssl cert file path
+   @type  certFile: string
    @param thumbprint: host cert thumbprint
    @type  thumbprint: string
    @param sslContext: SSL Context describing the various SSL options. It is only
@@ -625,6 +630,8 @@ def SmartConnect(protocol='https', host='localhost', port=443, user='root', pwd=
                   adapter='SOAP',
                   version=supportedVersion,
                   path=path,
+                  keyFile=keyFile,
+                  certFile=certFile,
                   thumbprint=thumbprint,
                   sslContext=sslContext)
 
