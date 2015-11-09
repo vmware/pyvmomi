@@ -505,12 +505,7 @@ class ExpatDeserializerNSHandlers:
 
    ## Get current default ns
    def GetCurrDefNS(self):
-      namespaces = self.nsMap.get(None)
-      if namespaces:
-         ns = namespaces[-1]
-      else:
-         ns = ""
-      return ns
+      return self._GetNamespaceFromPrefix()
 
    ## Get namespace and wsdl name from tag
    def GetNSAndWsdlname(self, tag):
@@ -521,8 +516,16 @@ class ExpatDeserializerNSHandlers:
       else:
          prefix, name = None, tag
       # Map prefix to ns
-      ns = self.nsMap[prefix][-1]
+      ns = self._GetNamespaceFromPrefix(prefix)
       return ns, name
+
+   def _GetNamespaceFromPrefix(self, prefix = None):
+      namespaces = self.nsMap.get(prefix)
+      if namespaces:
+         ns = namespaces[-1]
+      else:
+         ns = ""
+      return ns
 
    ## Handle namespace begin
    def StartNamespaceDeclHandler(self, prefix, uri):
