@@ -104,6 +104,17 @@ def encode(string, encoding):
         return string.encode(encoding)
     return u(string)
 
+## Thumbprint mismatch exception
+#
+class ThumbprintMismatchException(Exception):
+   def __init__(self, expected, actual):
+      Exception.__init__(self, "Server has wrong SHA1 thumbprint: %s "
+                               "(required) != %s (server)" % (
+                                 expected, actual))
+
+      self.expected = expected
+      self.actual = actual
+
 ## Escape <, >, &
 def XmlEscape(xmlStr):
     escaped = xmlStr.replace("&", "&amp;").replace(">", "&gt;").replace("<", "&lt;")
@@ -930,9 +941,7 @@ try:
          sha1.update(derCert)
          sha1Digest = sha1.hexdigest().lower()
          if sha1Digest != thumbprint:
-            raise Exception("Server has wrong SHA1 thumbprint: {0} "
-                            "(required) != {1} (server)".format(
-                            thumbprint, sha1Digest))
+            raise ThumbprintMismatchException(thumbprint, sha1Digest)
 
    # Function used to wrap sockets with SSL
    _SocketWrapper = ssl.wrap_socket
