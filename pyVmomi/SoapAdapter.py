@@ -247,7 +247,7 @@ class SoapSerializer:
    # @param info the field
    def SerializeFaultDetail(self, val, info):
       """ Serialize an object """
-      self._SerializeDataObject(val, info, '', self.defaultNS)
+      self._SerializeDataObject(val, info, ' xsi:typ="{1}"'.format(val._wsdlName), self.defaultNS)
 
    def _NSPrefix(self, ns):
       """ Get xml ns prefix. self.nsMap must be set """
