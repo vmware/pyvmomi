@@ -1178,7 +1178,7 @@ class SoapStubAdapter(SoapStubAdapterBase):
          # the UnixSocketConnection ctor expects to find it -- see above
          self.host = sock
       elif url:
-         scheme, self.host, urlpath = urlparse.urlparse(url)[:3]
+         scheme, self.host, urlpath = urlparse(url)[:3]
          # Only use the URL path if it's sensible, otherwise use the path
          # keyword argument as passed in.
          if urlpath not in ('', '/'):
