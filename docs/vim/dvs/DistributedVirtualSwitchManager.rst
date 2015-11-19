@@ -341,7 +341,7 @@ RectifyDvsOnHost(hosts):
 
 
 DVSManagerExportEntity(selectionSet):
-   Export the configuration for entities specified in theselectionSetparameter. You can use this method only for a `VmwareDistributedVirtualSwitch`_ and its associated `DistributedVirtualPortgroup`_ objects.Use the `DVSManagerImportEntity_Task`_ method to restore the entity to the state represented by the exported configuration. You can also use the exported configuration to create a new switch or portgroup.
+   Export the configuration for entities specified in the selectionSet parameter. You can use this method only for a `VmwareDistributedVirtualSwitch`_ and its associated `DistributedVirtualPortgroup`_ objects. Use the `DVSManagerImportEntity_Task`_ method to restore the entity to the state represented by the exported configuration. You can also use the exported configuration to create a new switch or portgroup.
   since: `vSphere API 5.1`_
 
 
