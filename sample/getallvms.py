@@ -20,18 +20,12 @@ Python program for listing the vms on an ESX / vCenter host
 
 from __future__ import print_function
 
-import pyVmomi
-
-from pyVmomi import vim
-from pyVmomi import vmodl
-
 from pyVim.connect import SmartConnect, Disconnect
-from pyVmomi import vmodl
 
 import argparse
 import atexit
 import getpass
-
+import ssl
 
 def GetArgs():
    """
@@ -96,10 +90,14 @@ def main():
       password = getpass.getpass(prompt='Enter password for host %s and '
                                         'user %s: ' % (args.host,args.user))
 
+
+   context = ssl.SSLContext(ssl.PROTOCOL_TLSv1)
+   context.verify_mode = ssl.CERT_NONE
    si = SmartConnect(host=args.host,
                      user=args.user,
                      pwd=password,
-                     port=int(args.port))
+                     port=int(args.port),
+                     sslContext=context)
    if not si:
        print("Could not connect to the specified host using specified "
              "username and password")
