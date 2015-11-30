@@ -34,6 +34,7 @@ import requests
 from requests.auth import HTTPBasicAuth
 
 from pyVmomi import vim, vmodl, SoapStubAdapter, SessionOrientedStub
+from pyVmomi.SoapAdapter import CONNECTION_POOL_IDLE_TIMEOUT_SEC
 from pyVmomi.VmomiSupport import nsMap, versionIdMap, versionMap, IsChildVersion
 from pyVmomi.VmomiSupport import GetServiceVersions
 
@@ -177,7 +178,7 @@ class VimSessionOrientedStub(SessionOrientedStub):
 
 def Connect(host='localhost', port=443, user='root', pwd='',
             service="hostd", adapter="SOAP", namespace=None, path="/sdk",
-            version=None, keyFile=None, certFile=None,
+            version=None, keyFile=None, certFile=None, thumbprint=None,
             sslContext=None):
    """
    Connect to the specified server, login and return the service
@@ -212,6 +213,8 @@ def Connect(host='localhost', port=443, user='root', pwd='',
    @type  keyFile: string
    @param certFile: ssl cert file path
    @type  certFile: string
+   @param thumbprint: host cert thumbprint
+   @type  thumbprint: string
    @param sslContext: SSL Context describing the various SSL options. It is only
                       supported in Python 2.7.9 or higher.
    @type  sslContext: SSL.Context
@@ -233,7 +236,7 @@ def Connect(host='localhost', port=443, user='root', pwd='',
    elif not version:
       version="vim.version.version6"
    si, stub = __Login(host, port, user, pwd, service, adapter, version, path,
-                      keyFile, certFile, sslContext)
+                      keyFile, certFile, thumbprint, sslContext)
    SetSi(si)
 
    return si
@@ -268,7 +271,7 @@ def GetLocalTicket(si, user):
 ## connected service instance object.
 
 def __Login(host, port, user, pwd, service, adapter, version, path,
-            keyFile, certFile, sslContext):
+            keyFile, certFile, thumbprint, sslContext):
    """
    Private method that performs the actual Connect and returns a
    connected service instance object.
@@ -293,6 +296,8 @@ def __Login(host, port, user, pwd, service, adapter, version, path,
    @type  keyFile: string
    @param certFile: ssl cert file path
    @type  certFile: string
+   @param thumbprint: host cert thumbprint
+   @type  thumbprint: string
    @param sslContext: SSL Context describing the various SSL options. It is only
                       supported in Python 2.7.9 or higher.
    @type  sslContext: SSL.Context
@@ -304,7 +309,8 @@ def __Login(host, port, user, pwd, service, adapter, version, path,
 
    # Create the SOAP stub adapter
    stub = SoapStubAdapter(host, port, version=version, path=path,
-                          certKeyFile=keyFile, certFile=certFile, sslContext=sslContext)
+                          certKeyFile=keyFile, certFile=certFile,
+                          thumbprint=thumbprint, sslContext=sslContext)
 
    # Get Service instance
    si = vim.ServiceInstance("ServiceInstance", stub)
@@ -555,10 +561,54 @@ def __FindSupportedVersion(protocol, server, port, path, preferredApiVersions, s
          return desiredVersion
    return None
 
+def SmartStubAdapter(host='localhost', port=443, path='/sdk',
+                     url=None, sock=None, poolSize=5,
+                     certFile=None, certKeyFile=None,
+                     httpProxyHost=None, httpProxyPort=80, sslProxyPath=None,
+                     thumbprint=None, cacertsFile=None, preferredApiVersions=None,
+                     acceptCompressedResponses=True,
+                     connectionPoolTimeout=CONNECTION_POOL_IDLE_TIMEOUT_SEC,
+                     samlToken=None, sslContext=None):
+   """
+   Determine the most preferred API version supported by the specified server,
+   then create a soap stub adapter using that version
+
+   The parameters are the same as for pyVmomi.SoapStubAdapter except for
+   version which is renamed to prefferedApiVersions
+
+   @param preferredApiVersions: Acceptable API version(s) (e.g. vim.version.version3)
+                                If a list of versions is specified the versions should
+                                be ordered from most to least preferred.  If None is
+                                specified, the list of versions support by pyVmomi will
+                                be used.
+   @type  preferredApiVersions: string or string list
+   """
+   if preferredApiVersions is None:
+      preferredApiVersions = GetServiceVersions('vim25')
+
+   supportedVersion = __FindSupportedVersion('https' if port > 0 else 'http',
+                                             host,
+                                             port,
+                                             path,
+                                             preferredApiVersions,
+                                             sslContext)
+   if supportedVersion is None:
+      raise Exception("%s:%s is not a VIM server" % (host, port))
+
+   return SoapStubAdapter(host=host, port=port, path=path,
+                          url=url, sock=sock, poolSize=poolSize,
+                          certFile=certFile, certKeyFile=certKeyFile,
+                          httpProxyHost=httpProxyHost, httpProxyPort=httpProxyPort,
+                          sslProxyPath=sslProxyPath, thumbprint=thumbprint,
+                          cacertsFile=cacertsFile, version=supportedVersion,
+                          acceptCompressedResponses=acceptCompressedResponses,
+                          connectionPoolTimeout=connectionPoolTimeout,
+                          samlToken=samlToken, sslContext=sslContext)
 
 def SmartConnect(protocol='https', host='localhost', port=443, user='root', pwd='',
                  service="hostd", path="/sdk",
-                 preferredApiVersions=None, sslContext=None):
+                 preferredApiVersions=None,
+                 keyFile=None, certFile=None, thumbprint=None, sslContext=None):
    """
    Determine the most preferred API version supported by the specified server,
    then connect to the specified server using that API version, login and return
@@ -591,6 +641,12 @@ def SmartConnect(protocol='https', host='localhost', port=443, user='root', pwd=
                                 specified, the list of versions support by pyVmomi will
                                 be used.
    @type  preferredApiVersions: string or string list
+   @param keyFile: ssl key file path
+   @type  keyFile: string
+   @param certFile: ssl cert file path
+   @type  certFile: string
+   @param thumbprint: host cert thumbprint
+   @type  thumbprint: string
    @param sslContext: SSL Context describing the various SSL options. It is only
                       supported in Python 2.7.9 or higher.
    @type  sslContext: SSL.Context
@@ -618,6 +674,9 @@ def SmartConnect(protocol='https', host='localhost', port=443, user='root', pwd=
                   adapter='SOAP',
                   version=supportedVersion,
                   path=path,
+                  keyFile=keyFile,
+                  certFile=certFile,
+                  thumbprint=thumbprint,
                   sslContext=sslContext)
 
 def OpenUrlWithBasicAuth(url, user='root', pwd=''):

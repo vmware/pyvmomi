@@ -198,7 +198,7 @@ except ImportError:
 pyVmomi.VmomiSupport.GetVmodlType("vmodl.DynamicData")
 
 from pyVmomi.SoapAdapter import SoapStubAdapter, StubAdapterBase, SoapCmdStubAdapter, \
-    SessionOrientedStub
+    SessionOrientedStub, ThumbprintMismatchException
 
 types = pyVmomi.VmomiSupport.types
 

@@ -465,6 +465,9 @@ class ManagedObject(object):
                 self.__class__ == other.__class__ and \
                 self._serverGuid == other._serverGuid
 
+   def __ne__(self, other):
+      return not(self == other)
+
    def __hash__(self):
       return str(self).__hash__()
 
@@ -1248,11 +1251,15 @@ class _BuildVersions:
       self._nsMap = {}
 
    def Add(self, version):
-      vmodlNs = version.split(".",1)[0]
-      if not (vmodlNs in self._verMap):
-         self._verMap[vmodlNs] = version
-      if not (vmodlNs in self._nsMap):
-         self._nsMap[vmodlNs] = GetVersionNamespace(version)
+      assert '.version.' in version, 'Invalid version %s' % version
+
+      vmodlNs = version.split(".version.", 1)[0].split(".")
+      for idx in [1, len(vmodlNs)]:
+         subVmodlNs = ".".join(vmodlNs[:idx])
+         if not (subVmodlNs in self._verMap):
+            self._verMap[subVmodlNs] = version
+         if not (subVmodlNs in self._nsMap):
+            self._nsMap[subVmodlNs] = GetVersionNamespace(version)
 
    def Get(self, vmodlNs):
       return self._verMap[vmodlNs]
