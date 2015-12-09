@@ -337,8 +337,9 @@ def __Login(host, port, user, pwd, service, adapter, version, path,
       raise
    return si, stub
 
-## Private method that performs the actual Connect and returns a
+## Private method that performs LoginBySSPI and returns a
 ## connected service instance object.
+## Copyright (c) 2015 Morgan Stanley.  All rights reserved.
 
 def __LoginBySSPI(host, port, service, adapter, version, path,
                   keyFile, certFile, thumbprint, sslContext, b64token):
