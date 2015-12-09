@@ -238,18 +238,19 @@ def Connect(host='localhost', port=443, user='root', pwd='',
       assert(version is None)
       version = versionMap[namespace]
    elif not version:
-      version="vim.version.version6"
+      version = "vim.version.version6"
 
    si, stub = None, None
    if mechanism == 'userpass':
-       si, stub = __Login(host, port, user, pwd, service, adapter, version, path,
-                      keyFile, certFile, thumbprint, sslContext)
+      si, stub = __Login(host, port, user, pwd, service, adapter, version, path,
+                         keyFile, certFile, thumbprint, sslContext)
    elif mechanism == 'sspi':
-       si, stub = __LoginBySSPI(host, port, service, adapter, version, path,
-               keyFile, certFile, thumbprint, sslContext, b64token)
+      si, stub = __LoginBySSPI(host, port, service, adapter, version, path,
+                               keyFile, certFile, thumbprint, sslContext, b64token)
    else:
-	   raise Exception( 'The provided connection mechanism is not available, the supported mechanisms are userpass or sspi' )
-   
+     raise Exception('''The provided connection mechanism is not available, the
+              supported mechanisms are userpass or sspi''')
+
    SetSi(si)
 
    return si
@@ -317,7 +318,7 @@ def __Login(host, port, user, pwd, service, adapter, version, path,
    """
 
    content, si, stub = __RetrieveContent(host, port, adapter, version, path,
-           keyFile, certFile, thumbprint, sslContext)
+                                         keyFile, certFile, thumbprint, sslContext)
 
    # Get a ticket if we're connecting to localhost and password is not specified
    if host == 'localhost' and not pwd:
@@ -340,7 +341,7 @@ def __Login(host, port, user, pwd, service, adapter, version, path,
 ## connected service instance object.
 
 def __LoginBySSPI(host, port, service, adapter, version, path,
-            keyFile, certFile, thumbprint, sslContext, b64token):
+                  keyFile, certFile, thumbprint, sslContext, b64token):
    """
    Private method that performs the actual Connect and returns a
    connected service instance object.
@@ -360,7 +361,7 @@ def __LoginBySSPI(host, port, service, adapter, version, path,
    @param keyFile: ssl key file path
    @type  keyFile: string
    @param certFile: ssl cert file path
-   @type  certFile: string 
+   @type  certFile: string
    @param thumbprint: host cert thumbprint
    @type  thumbprint: string
    @param sslContext: SSL Context describing the various SSL options. It is only
@@ -371,10 +372,10 @@ def __LoginBySSPI(host, port, service, adapter, version, path,
    """
 
    content, si, stub = __RetrieveContent(host, port, adapter, version, path,
-           keyFile, certFile, thumbprint, sslContext)
+                                         keyFile, certFile, thumbprint, sslContext)
 
    if b64token is None:
-      raise Exception( 'Token is not defined for sspi login' ) 
+      raise Exception('Token is not defined for sspi login')
 
    # Login
    try:
@@ -449,7 +450,7 @@ def __RetrieveContent(host, port, adapter, version, path, keyFile, certFile,
          reraise(vim.fault.HostConnectFault, fault, traceback)
       else:
           raise vim.fault.HostConnectFault(msg=str(e))
-   
+
    return content, si, stub
 
 
@@ -798,6 +799,6 @@ def OpenPathWithStub(path, stub):
    url = '%s://%s%s' % (protocol, hostPort, path)
    headers = {}
    if stub.cookie:
-       headers["Cookie"] = stub.cookie
+      headers["Cookie"] = stub.cookie
    return requests.get(url, headers=headers, verify=False)
 
