@@ -248,7 +248,7 @@ def Connect(host='localhost', port=443, user='root', pwd='',
       si, stub = __LoginBySSPI(host, port, service, adapter, version, path,
                                keyFile, certFile, thumbprint, sslContext, b64token)
    else:
-     raise Exception('''The provided connection mechanism is not available, the
+      raise Exception('''The provided connection mechanism is not available, the
               supported mechanisms are userpass or sspi''')
 
    SetSi(si)
