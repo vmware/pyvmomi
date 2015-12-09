@@ -28,6 +28,7 @@ import argparse
 import atexit
 import getpass
 import sys
+import ssl
 
 def GetArgs():
    """
@@ -113,11 +114,14 @@ def main():
          sys.exit()
 
       si = None
+      context = ssl.SSLContext(ssl.PROTOCOL_TLSv1)
+      context.verify_mode = ssl.CERT_NONE
       try:
          si = SmartConnect(host=args.host,
                            user=args.user,
                            pwd=password,
-                           port=int(args.port))
+                           port=int(args.port),
+                           sslContext=context)
       except IOError:
          pass
       if not si:

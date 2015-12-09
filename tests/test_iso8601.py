@@ -64,10 +64,10 @@ class Iso8601Tests(tests.VCRTestBase):
         def has_tag(doc):
             if doc is None:
                 return False
-            return '<dateTime>' in doc
+            return '<dateTime>' in doc.decode("utf-8")
 
         def correct_time_string(doc):
-            return '<dateTime>{0}</dateTime>'.format(now_string) in doc
+            return '<dateTime>{0}</dateTime>'.format(now_string) in doc.decode("utf-8")
 
         def check_date_time_value(r1, r2):
             for r in [r1, r2]:

@@ -48,7 +48,8 @@ except:
 
 (F_LINK,
  F_LINKABLE,
- F_OPTIONAL) = [ 1<<x for x in range(3) ]
+ F_OPTIONAL,
+ F_SECRET) = [ 1<<x for x in range(4) ]
 
 BASE_VERSION = 'vmodl.version.version0'
 VERSION1     = 'vmodl.version.version1'
@@ -463,6 +464,9 @@ class ManagedObject(object):
          return self._moId == other._moId and \
                 self.__class__ == other.__class__ and \
                 self._serverGuid == other._serverGuid
+
+   def __ne__(self, other):
+      return not(self == other)
 
    def __hash__(self):
       return str(self).__hash__()
@@ -1240,12 +1244,42 @@ def GetCompatibleType(type, version):
 def InverseMap(map):
    return dict([ (v, k) for (k, v) in iteritems(map) ])
 
+## Support for build-time versions
+class _BuildVersions:
+   def __init__(self):
+      self._verMap = {}
+      self._nsMap = {}
+
+   def Add(self, version):
+      assert '.version.' in version, 'Invalid version %s' % version
+
+      vmodlNs = version.split(".version.", 1)[0].split(".")
+      for idx in [1, len(vmodlNs)]:
+         subVmodlNs = ".".join(vmodlNs[:idx])
+         if not (subVmodlNs in self._verMap):
+            self._verMap[subVmodlNs] = version
+         if not (subVmodlNs in self._nsMap):
+            self._nsMap[subVmodlNs] = GetVersionNamespace(version)
+
+   def Get(self, vmodlNs):
+      return self._verMap[vmodlNs]
+
+   def GetNamespace(self, vmodlNs):
+      return self._nsMap[vmodlNs]
+
 types = Object()
 nsMap = {}
 versionIdMap = {}
 versionMap = {}
 serviceNsMap = { BASE_VERSION : XMLNS_VMODL_BASE.split(":")[-1] }
 parentMap = {}
+
+newestVersions = _BuildVersions()
+currentVersions = _BuildVersions()
+stableVersions = _BuildVersions()
+matureVersions = _BuildVersions()
+publicVersions = _BuildVersions()
+oldestVersions = _BuildVersions()
 
 from pyVmomi.Version import AddVersion, IsChildVersion
 

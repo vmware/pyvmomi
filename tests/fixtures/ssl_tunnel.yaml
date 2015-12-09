@@ -9,6 +9,6 @@ interactions:
     headers:
       content-length: ['0']
       content-type: [text/html]
-      date: ['Thu, 11 Sep 2014 08:23:36 GMT']
+      date: ['Fri, 9 Oct 2015 17:38:04 GMT']
     status: {code: 200, message: OK}
 version: 1

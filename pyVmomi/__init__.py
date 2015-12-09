@@ -24,6 +24,7 @@ if sys.version_info < (2,5):
 
 import pyVmomi.VmomiSupport
 import pyVmomi.CoreTypes
+import pyVmomi.QueryTypes
 try:
    import ReflectTypes
 except ImportError:
@@ -197,7 +198,7 @@ except ImportError:
 pyVmomi.VmomiSupport.GetVmodlType("vmodl.DynamicData")
 
 from pyVmomi.SoapAdapter import SoapStubAdapter, StubAdapterBase, SoapCmdStubAdapter, \
-    SessionOrientedStub
+    SessionOrientedStub, ThumbprintMismatchException
 
 types = pyVmomi.VmomiSupport.types
 

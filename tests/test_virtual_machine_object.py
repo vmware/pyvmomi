@@ -60,6 +60,7 @@ class VirtualMachineTests(tests.VCRTestBase):
         si = connect.SmartConnect(host='vcsa',
                                   user='my_user',
                                   pwd='my_password')
+
         content = si.RetrieveContent()
         virtual_machines = content.viewManager.CreateContainerView(
             content.rootFolder, [vim.VirtualMachine], True)

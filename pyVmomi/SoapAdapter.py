@@ -104,6 +104,17 @@ def encode(string, encoding):
         return string.encode(encoding)
     return u(string)
 
+## Thumbprint mismatch exception
+#
+class ThumbprintMismatchException(Exception):
+   def __init__(self, expected, actual):
+      Exception.__init__(self, "Server has wrong SHA1 thumbprint: %s "
+                               "(required) != %s (server)" % (
+                                 expected, actual))
+
+      self.expected = expected
+      self.actual = actual
+
 ## Escape <, >, &
 def XmlEscape(xmlStr):
     escaped = xmlStr.replace("&", "&amp;").replace(">", "&gt;").replace("<", "&lt;")
@@ -236,7 +247,7 @@ class SoapSerializer:
    # @param info the field
    def SerializeFaultDetail(self, val, info):
       """ Serialize an object """
-      self._SerializeDataObject(val, info, '', self.defaultNS)
+      self._SerializeDataObject(val, info, ' xsi:typ="{1}"'.format(val._wsdlName), self.defaultNS)
 
    def _NSPrefix(self, ns):
       """ Get xml ns prefix. self.nsMap must be set """
@@ -494,12 +505,7 @@ class ExpatDeserializerNSHandlers:
 
    ## Get current default ns
    def GetCurrDefNS(self):
-      namespaces = self.nsMap.get(None)
-      if namespaces:
-         ns = namespaces[-1]
-      else:
-         ns = ""
-      return ns
+      return self._GetNamespaceFromPrefix()
 
    ## Get namespace and wsdl name from tag
    def GetNSAndWsdlname(self, tag):
@@ -510,8 +516,16 @@ class ExpatDeserializerNSHandlers:
       else:
          prefix, name = None, tag
       # Map prefix to ns
-      ns = self.nsMap[prefix][-1]
+      ns = self._GetNamespaceFromPrefix(prefix)
       return ns, name
+
+   def _GetNamespaceFromPrefix(self, prefix = None):
+      namespaces = self.nsMap.get(prefix)
+      if namespaces:
+         ns = namespaces[-1]
+      else:
+         ns = ""
+      return ns
 
    ## Handle namespace begin
    def StartNamespaceDeclHandler(self, prefix, uri):
@@ -930,9 +944,7 @@ try:
          sha1.update(derCert)
          sha1Digest = sha1.hexdigest().lower()
          if sha1Digest != thumbprint:
-            raise Exception("Server has wrong SHA1 thumbprint: {0} "
-                            "(required) != {1} (server)".format(
-                            thumbprint, sha1Digest))
+            raise ThumbprintMismatchException(thumbprint, sha1Digest)
 
    # Function used to wrap sockets with SSL
    _SocketWrapper = ssl.wrap_socket
@@ -963,7 +975,7 @@ except ImportError:
 class HTTPSConnectionWrapper(object):
    def __init__(self, *args, **kwargs):
       wrapped = http_client.HTTPSConnection(*args, **kwargs)
-      # Extract ssl.wrap_socket param unknown to httplib.HTTPConnection,
+      # Extract ssl.wrap_socket param unknown to httplib.HTTPSConnection,
       # and push back the params in connect()
       self._sslArgs = {}
       tmpKwargs = kwargs.copy()
@@ -1028,11 +1040,13 @@ class SSLTunnelConnection(object):
    # @param kwargs In case caller passed in extra parameters not handled by
    #        SSLTunnelConnection
    def __call__(self, path, key_file=None, cert_file=None, **kwargs):
-      # Don't pass any keyword args that HTTPConnection won't understand.
-      for arg in kwargs.keys():
-         if arg not in ("port", "strict", "timeout", "source_address"):
-            del kwargs[arg]
-      tunnel = http_client.HTTPConnection(path, **kwargs)
+      # Only pass in the named arguments that HTTPConnection constructor
+      # understands
+      tmpKwargs = {}
+      for key in http_client.HTTPConnection.__init__.__code__.co_varnames:
+         if key in kwargs and key != 'self':
+            tmpKwargs[key] = kwargs[key]
+      tunnel = http_client.HTTPConnection(path, **tmpKwargs)
       tunnel.request('CONNECT', self.proxyPath)
       resp = tunnel.getresponse()
       if resp.status != 200:
@@ -1141,6 +1155,8 @@ class SoapStubAdapter(SoapStubAdapterBase):
    # @param version API version
    # @param connectionPoolTimeout Timeout in secs for idle connections in client pool. Use -1 to disable any timeout.
    # @param samlToken SAML Token that should be used in SOAP security header for login
+   # @param sslContext SSL Context describing the various SSL options. It is only
+   #                   supported in Python 2.7.9 or higher.
    def __init__(self, host='localhost', port=443, ns=None, path='/sdk',
                 url=None, sock=None, poolSize=5,
                 certFile=None, certKeyFile=None,
@@ -1148,7 +1164,7 @@ class SoapStubAdapter(SoapStubAdapterBase):
                 thumbprint=None, cacertsFile=None, version=None,
                 acceptCompressedResponses=True,
                 connectionPoolTimeout=CONNECTION_POOL_IDLE_TIMEOUT_SEC,
-                samlToken=None):
+                samlToken=None, sslContext=None):
       if ns:
          assert(version is None)
          version = versionMap[ns]
@@ -1162,7 +1178,7 @@ class SoapStubAdapter(SoapStubAdapterBase):
          # the UnixSocketConnection ctor expects to find it -- see above
          self.host = sock
       elif url:
-         scheme, self.host, urlpath = urlparse.urlparse(url)[:3]
+         scheme, self.host, urlpath = urlparse(url)[:3]
          # Only use the URL path if it's sensible, otherwise use the path
          # keyword argument as passed in.
          if urlpath not in ('', '/'):
@@ -1184,11 +1200,14 @@ class SoapStubAdapter(SoapStubAdapterBase):
       else:
          self.thumbprint = None
 
+      self.is_ssl_tunnel = False
       if sslProxyPath:
          self.scheme = SSLTunnelConnection(sslProxyPath)
+         self.is_ssl_tunnel = True
       elif httpProxyHost:
          if self.scheme == HTTPSConnectionWrapper:
             self.scheme = SSLTunnelConnection(self.host)
+            self.is_ssl_tunnel = True
          else:
             if url:
                self.path = url
@@ -1208,10 +1227,26 @@ class SoapStubAdapter(SoapStubAdapterBase):
       if cacertsFile:
          self.schemeArgs['ca_certs'] = cacertsFile
          self.schemeArgs['cert_reqs'] = ssl.CERT_REQUIRED
+      if sslContext:
+         self.schemeArgs['context'] = sslContext
       self.samlToken = samlToken
       self.requestModifierList = []
       self._acceptCompressedResponses = acceptCompressedResponses
 
+   # Force a socket shutdown. Before python 2.7, ssl will fail to close
+   # the socket (http://bugs.python.org/issue10127).
+   # Not making this a part of the actual _HTTPSConnection since the internals
+   # of the httplib.HTTP*Connection seem to pass around the descriptors and
+   # depend on the behavior that close() still leaves the socket semi-functional.
+   if sys.version_info[:2] < (2,7):
+      def _CloseConnection(self, conn):
+         # import pdb; pdb.set_trace()
+         if self.scheme == HTTPSConnectionWrapper and conn.sock:
+           conn.sock.shutdown(socket.SHUT_RDWR)
+         conn.close()
+   else:
+      def _CloseConnection(self, conn):
+         conn.close()
 
    # Context modifier used to modify the SOAP request.
    # @param func The func that takes in the serialized message and modifies the
@@ -1280,7 +1315,7 @@ class SoapStubAdapter(SoapStubAdapterBase):
             deserializer = SoapResponseDeserializer(outerStub)
             obj = deserializer.Deserialize(fd, info.result)
          except Exception as exc:
-            conn.close()
+            self._CloseConnection(conn)
             # NOTE (hartsock): This feels out of place. As a rule the lexical
             # context that opens a connection should also close it. However,
             # in this code the connection is passed around and closed in other
@@ -1299,7 +1334,7 @@ class SoapStubAdapter(SoapStubAdapterBase):
          else:
             raise obj # pylint: disable-msg=E0702
       else:
-         conn.close()
+         self._CloseConnection(conn)
          raise http_client.HTTPException("{0} {1}".format(resp.status, resp.reason))
 
    ## Clean up connection pool to throw away idle timed-out connections
@@ -1317,7 +1352,7 @@ class SoapStubAdapter(SoapStubAdapterBase):
                break
 
          for conn, _ in idleConnections:
-            conn.close()
+            self._CloseConnection(conn)
 
    ## Get a HTTP connection from the pool
    def GetConnection(self):
@@ -1358,13 +1393,14 @@ class SoapStubAdapter(SoapStubAdapterBase):
       self.pool = []
       self.lock.release()
       for conn, _ in oldConnections:
-         conn.close()
+         self._CloseConnection(conn)
 
    ## Return a HTTP connection to the pool
    def ReturnConnection(self, conn):
       self.lock.acquire()
       self._CloseIdleConnections()
-      if len(self.pool) < self.poolSize:
+      # In case of ssl tunneling, only add the conn if the conn has not been closed
+      if len(self.pool) < self.poolSize and (not self.is_ssl_tunnel or conn.sock):
          self.pool.insert(0, (conn, time.time()))
          self.lock.release()
       else:
@@ -1372,7 +1408,7 @@ class SoapStubAdapter(SoapStubAdapterBase):
          # NOTE (hartsock): this seems to violate good coding practice in that
          # the lexical context that opens a connection should also be the
          # same context responsible for closing it.
-         conn.close()
+         self._CloseConnection(conn)
 
    ## Disable nagle on a http connections
    def DisableNagle(self, conn):
@@ -1389,6 +1425,12 @@ class SoapStubAdapter(SoapStubAdapterBase):
                   pass
          conn.connect = ConnectDisableNagle
 
+## Need to override the depcopy method. Since, the stub is not deep copyable
+#  due to the thread lock and connection pool, deep copy of a managed object
+#  fails. Further different instances of a managed object still share the
+#  same soap stub. Hence, returning self here is fine.
+def __deepcopy__(self, memo):
+   return self
 
 HEADER_SECTION_END = '\r\n\r\n'
 
