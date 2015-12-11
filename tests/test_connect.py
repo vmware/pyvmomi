@@ -40,6 +40,23 @@ class ConnectionTests(tests.VCRTestBase):
         self.assertTrue(session_id is not None)
         self.assertEqual('52b5395a-85c2-9902-7835-13a9b77e1fec', session_id)
 
+    @vcr.use_cassette('sspi_connection.yaml',
+                      cassette_library_dir=tests.fixtures_path,
+                      record_mode='none')
+    def test_sspi_connection(self):
+        # see: http://python3porting.com/noconv.html
+        si = connect.Connect(host='vcsa',
+                             mechanism='sspi',
+                             b64token='my_base64token')
+        cookie = si._stub.cookie
+        session_id = si.content.sessionManager.currentSession.key
+        # NOTE (hartsock): The cookie value should never change during
+        # a connected session. That should be verifiable in these tests.
+        self.assertEqual(cookie, si._stub.cookie)
+        # NOTE (hartsock): assertIsNotNone does not work in Python 2.6
+        self.assertTrue(session_id is not None)
+        self.assertEqual('52b5395a-85c2-9902-7835-13a9b77e1fec', session_id)
+
     @vcr.use_cassette('basic_connection_bad_password.yaml',
                       cassette_library_dir=tests.fixtures_path,
                       record_mode='none')
