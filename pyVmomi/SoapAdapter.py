@@ -403,16 +403,21 @@ class SoapSerializer:
             else:
                nsattr, qName = self._QName(Type(val), currDefNS)
                attr += '{0} {1}type="{2}"'.format(nsattr, self.xsiPrefix, qName)
-         if not isinstance(val, text_type):
-            # Use UTF-8 rather than self.encoding.  self.encoding is for
-            # output of serializer, while 'val' is our input.  And regardless
-            # of what our output is, our input should be always UTF-8.  Yes,
-            # it means that if you emit output in other encoding than UTF-8,
-            # you cannot serialize it again once more.  That's feature, not
-            # a bug.
-            val = str(val)
-            if PY2:
-               val = val.decode('UTF-8')
+
+         # For some pyVmomi objects, isinstance(val, text_type) is True, but
+         # that object overrides certain string methods that are needed later.
+         # Convert val to a real string, regardless of its type.
+         val = str(val)
+
+         # Use UTF-8 rather than self.encoding.  self.encoding is for
+         # output of serializer, while 'val' is our input.  And regardless
+         # of what our output is, our input should be always UTF-8.  Yes,
+         # it means that if you emit output in other encoding than UTF-8,
+         # you cannot serialize it again once more.  That's feature, not
+         # a bug.
+         if PY2:
+            val = val.decode('UTF-8')
+
          result = XmlEscape(val)
          self.writer.write('<{0}{1}>{2}</{0}>'.format(info.name, attr,
                                                       encode(result,

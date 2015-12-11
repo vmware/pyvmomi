@@ -16,6 +16,7 @@ import tests
 import vcr
 
 
+from pyVmomi import SoapAdapter
 from pyVmomi import SoapStubAdapter
 from pyVmomi import vim
 
@@ -52,3 +53,8 @@ class SerializerTests(tests.VCRTestBase):
             self.assertTrue(
                 '<_this type="ServiceInstance">ServiceInstance</_this>'
                 in cass.requests[0].body.decode("utf-8"))
+
+    def test_serialize_object(self):
+        val = vim.vm.device.VirtualDeviceSpec.FileOperation()
+        # This line should not raise an exception, especially on Python 3.
+        SoapAdapter.Serialize(val)
