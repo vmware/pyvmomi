@@ -460,6 +460,8 @@ class ManagedObject(object):
    def __eq__(self, other):
       if other is None:
          return False
+      elif type(other) is str:
+          return False
       else:
          return self._moId == other._moId and \
                 self.__class__ == other.__class__ and \
