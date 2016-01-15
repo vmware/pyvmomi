@@ -7,7 +7,7 @@ interactions:
       Connection: [keep-alive]
       User-Agent: [python-requests/2.7.0 CPython/2.7.10 Darwin/15.0.0]
     method: GET
-    uri: https://vcsa//sdk/vimServiceVersions.xml
+    uri: https://vcsa/sdk/vimServiceVersions.xml
   response:
     body: {string: !!python/unicode '<?xml version="1.0" encoding="UTF-8" ?><namespaces
         version="1.0"><namespace><name>urn:vim25</name><version>6.0</version><priorVersions><version>5.5</version><version>5.1</version><version>5.0</version><version>4.1</version><version>4.0</version><version>2.5u2server</version><version>2.5u2</version><version>2.5</version></priorVersions></namespace><namespace><name>urn:vim2</name><version>2.0</version></namespace></namespaces>
