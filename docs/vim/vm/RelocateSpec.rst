@@ -55,7 +55,6 @@ Attributes:
         * if resource pool is specified, and the target pool represents a stand-alone host, the host is used.
         * if resource pool is specified, and the target pool represents a DRS-enabled cluster, a host selected by DRS is used.
         * if resource pool is specified and the target pool represents a cluster without DRS enabled, an InvalidArgument exception be thrown.
-        * 
     disk ([`vim.vm.RelocateSpec.DiskLocator`_], optional):
 
        An optional list that allows specifying the datastore location for each virtual disk.
