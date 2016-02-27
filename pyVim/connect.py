@@ -30,6 +30,13 @@ import ssl
 from xml.etree import ElementTree
 from xml.parsers.expat import ExpatError
 from six.moves import http_client
+try:
+   http_client.HTTPSConnection(None, context=None)
+except TypeError:
+   HTTPSConnection_has_context = False
+except:
+   HTTPSConnection_has_context = True
+
 
 import requests
 from requests.auth import HTTPBasicAuth
@@ -531,7 +538,7 @@ def __GetElementTree(protocol, server, port, path, sslContext):
    """
 
    if protocol == "https":
-      kwargs = {"context": sslContext} if sslContext else {}
+      kwargs = {"context": sslContext} if HTTPSConnection_has_context else {}
       conn = http_client.HTTPSConnection(server, port=port, **kwargs)
    elif protocol == "http":
       conn = http_client.HTTPConnection(server, port=port)
@@ -687,6 +694,9 @@ def SmartStubAdapter(host='localhost', port=443, path='/sdk',
    """
    if preferredApiVersions is None:
       preferredApiVersions = GetServiceVersions('vim25')
+   if sslContext is None:
+      sslContext = ssl._create_unverified_context()
+
 
    supportedVersion = __FindSupportedVersion('https' if port > 0 else 'http',
                                              host,
@@ -756,6 +766,8 @@ def SmartConnect(protocol='https', host='localhost', port=443, user='root', pwd=
 
    if preferredApiVersions is None:
       preferredApiVersions = GetServiceVersions('vim25')
+   if sslContext is None:
+      sslContext = ssl._create_unverified_context()
 
    supportedVersion = __FindSupportedVersion(protocol,
                                              host,
