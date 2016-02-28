@@ -694,7 +694,7 @@ def SmartStubAdapter(host='localhost', port=443, path='/sdk',
    """
    if preferredApiVersions is None:
       preferredApiVersions = GetServiceVersions('vim25')
-   if sslContext is None:
+   if sslContext is None and hasattr(ssl, '_create_unverified_context'):
       sslContext = ssl._create_unverified_context()
 
 
@@ -766,7 +766,7 @@ def SmartConnect(protocol='https', host='localhost', port=443, user='root', pwd=
 
    if preferredApiVersions is None:
       preferredApiVersions = GetServiceVersions('vim25')
-   if sslContext is None:
+   if sslContext is None and hasattr(ssl, '_create_unverified_context'):
       sslContext = ssl._create_unverified_context()
 
    supportedVersion = __FindSupportedVersion(protocol,
