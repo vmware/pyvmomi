@@ -169,7 +169,7 @@ RemoveDiskMapping(mapping):
          
 
 
-UpdateVsan(config):
+UpdateVsan_Task(config):
    Update the VSAN service on this host according to the given host configuration specification.Enabling and disabling the VSAN service can be achieved by using the `enabled`_ flag. Host storage settings can be specified through use of `storageInfo`_ . If this value is omitted, changes will not be made to the existing storage configuration. Host cluster settings can be specified through use of `clusterInfo`_ . If this value is omitted, changes will not be made to the existing cluster configuration. Host network settings can be specified through use of `networkInfo`_ . If this value is omitted, changes will not be made to the existing network configuration.See `VsanHostConfigInfo`_ See `storageInfo`_ See `clusterInfo`_ See `networkInfo`_ See `QueryDisksForVsan`_ 
 
 

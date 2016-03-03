@@ -29,6 +29,7 @@ import re
 import ssl
 from xml.etree import ElementTree
 from xml.parsers.expat import ExpatError
+from six.moves import http_client
 
 import requests
 from requests.auth import HTTPBasicAuth
@@ -512,28 +513,38 @@ class SmartConnection(object):
          Disconnect(self.si)
          self.si = None
 
-def __GetElementTreeFromUrl(url, sslContext):
+def __GetElementTree(protocol, server, port, path, sslContext):
    """
-   Private method that returns a root from ElementTree for the XML document referenced by
-   the url.
+   Private method that returns a root from ElementTree for a remote XML document.
 
-   @param url: URL
-   @type  url: string
+   @param protocol: What protocol to use for the connection (e.g. https or http).
+   @type  protocol: string
+   @param server: Which server to connect to.
+   @type  server: string
+   @param port: Port
+   @type  port: int
+   @param path: Path
+   @type  path: string
    @param sslContext: SSL Context describing the various SSL options. It is only
                       supported in Python 2.7.9 or higher.
    @type  sslContext: SSL.Context
    """
 
-   try:
-      if sslContext is not None and sslContext.verify_mode == ssl.CERT_NONE:
-         sock = requests.get(url, verify=False)
-      else:
-         sock = requests.get(url)
-      if sock.status_code == 200:
-         tree = ElementTree.fromstring(sock.content)
+   if protocol == "https":
+      kwargs = {"context": sslContext} if sslContext else {}
+      conn = http_client.HTTPSConnection(server, port=port, **kwargs)
+   elif protocol == "http":
+      conn = http_client.HTTPConnection(server, port=port)
+   else:
+      raise Exception("Protocol " + protocol + " not supported.")
+   conn.request("GET", path)
+   response = conn.getresponse()
+   if response.status == 200:
+      try:
+         tree = ElementTree.fromstring(response.read())
          return tree
-   except ExpatError:
-      pass
+      except ExpatError:
+         pass
    return None
 
 ## Private method that returns an ElementTree describing the API versions
@@ -559,13 +570,13 @@ def __GetServiceVersionDescription(protocol, server, port, path, sslContext):
    @type  sslContext: SSL.Context
    """
 
-   url = "%s://%s:%s/%s/vimServiceVersions.xml" % (protocol, server, port, path)
-   tree = __GetElementTreeFromUrl(url, sslContext)
+   tree = __GetElementTree(protocol, server, port,
+                           path + "/vimServiceVersions.xml", sslContext)
    if tree is not None:
       return tree
 
-   url = "%s://%s:%s/%s/vimService.wsdl" % (protocol, server, port, path)
-   tree = __GetElementTreeFromUrl(url, sslContext)
+   tree = __GetElementTree(protocol, server, port,
+                           path + "/vimService.wsdl", sslContext)
    return tree
 
 

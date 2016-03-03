@@ -6,7 +6,7 @@ interactions:
       Accept-Encoding: ['gzip, deflate']
       User-Agent: [python-requests/2.3.0 CPython/3.4.1 Darwin/13.3.0]
     method: GET
-    uri: https://vcsa:443//sdk/vimServiceVersions.xml
+    uri: https://vcsa:443/sdk/vimServiceVersions.xml
   response:
     body: {string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!--\n   Copyright
         2008-2012 VMware, Inc.  All rights reserved.\n-->\n<namespaces version=\"1.0\">\n
