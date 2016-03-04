@@ -58,3 +58,14 @@ class SerializerTests(tests.VCRTestBase):
         val = vim.vm.device.VirtualDeviceSpec.FileOperation()
         # This line should not raise an exception, especially on Python 3.
         SoapAdapter.Serialize(val)
+
+    def test_serialize_integer(self):
+        lp = vim.LongPolicy()
+        lp.inherited = False
+        lp.value = 100
+        SoapAdapter.Serialize(lp, version='vim.version.version10')
+
+    def test_serialize_float(self):
+        pc = vim.host.VsanInternalSystem.PolicyCost()
+        pc.diskSpaceToAddressSpaceRatio = 1.0
+        SoapAdapter.Serialize(pc, version='vim.version.version10')
