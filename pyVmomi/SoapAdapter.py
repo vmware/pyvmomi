@@ -14,15 +14,20 @@
 # limitations under the License.
 from __future__ import absolute_import
 
+import six
 from six import PY2
 from six import PY3
 from six import reraise
 from six.moves import http_client
+from six.moves import StringIO
+from six.moves import zip
+from six import u
+from six import iteritems
 
 if PY3:
     long = int
     basestring = str
-from six import u
+
 import sys
 import os
 import socket
@@ -33,11 +38,7 @@ from datetime import datetime
 from xml.parsers.expat import ParserCreate
 # We have our own escape functionality.
 # from xml.sax.saxutils import escape
-if PY2:
-    from cStringIO import StringIO
 
-if PY3:
-    from io import StringIO
 from pyVmomi.VmomiSupport import *
 from pyVmomi.StubAdapterAccessorImpl import StubAdapterAccessorMixin
 import pyVmomi.Iso8601
@@ -99,11 +100,6 @@ MethodFault = GetVmodlType("vmodl.MethodFault")
 ## Localized MethodFault type
 LocalizedMethodFault = GetVmodlType("vmodl.LocalizedMethodFault")
 
-def encode(string, encoding):
-    if PY2:
-        return string.encode(encoding)
-    return u(string)
-
 ## Thumbprint mismatch exception
 #
 class ThumbprintMismatchException(Exception):
@@ -136,15 +132,40 @@ def SetHandlers(obj, handlers):
     obj.StartNamespaceDeclHandler,
     obj.EndNamespaceDeclHandler) = handlers
 
-## Serialize an object
+## Serialize an object to bytes
 #
 # This function assumes CheckField(info, val) was already called
 # @param val the value to serialize
 # @param info the field
 # @param version the version
 # @param nsMap a dict of xml ns -> prefix
-# @return the serialized object as a string
+# @return the serialized object as bytes
+# @param encoding Deprecated this is not used during serialization since we always
+#        use utf-8 to encode a request message. We didn't remove the
+#        parameter so it is still compatible with clients that are still using it.
 def Serialize(val, info=None, version=None, nsMap=None, encoding=None):
+   return _SerializeToUnicode(val, info=info, version=version, nsMap=nsMap).encode(XML_ENCODING)
+
+## Serialize an object to unicode
+#
+# This function assumes CheckField(info, val) was already called
+# @param val the value to serialize
+# @param info the field
+# @param version the version
+# @param nsMap a dict of xml ns -> prefix
+# @return the serialized object as unicode
+def SerializeToUnicode(val, info=None, version=None, nsMap=None):
+   return _SerializeToUnicode(val, info=info, version=version, nsMap=nsMap)
+
+## Serialize an object to unicode
+#
+# This function assumes CheckField(info, val) was already called
+# @param val the value to serialize
+# @param info the field
+# @param version the version
+# @param nsMap a dict of xml ns -> prefix
+# @return the serialized object as unicode
+def _SerializeToUnicode(val, info=None, version=None, nsMap=None):
    if version is None:
       try:
          if isinstance(val, list):
@@ -162,7 +183,7 @@ def Serialize(val, info=None, version=None, nsMap=None, encoding=None):
       info = Object(name="object", type=object, version=version, flags=0)
 
    writer = StringIO()
-   SoapSerializer(writer, version, nsMap, encoding).Serialize(val, info)
+   SoapSerializer(writer, version, nsMap).Serialize(val, info)
    return writer.getvalue()
 
 ## Serialize fault detail
@@ -175,7 +196,7 @@ def Serialize(val, info=None, version=None, nsMap=None, encoding=None):
 # @param info the field
 # @param version the version
 # @param nsMap a dict of xml ns -> prefix
-# @return the serialized object as a string
+# @return the serialized object as a unicode string
 def SerializeFaultDetail(val, info=None, version=None, nsMap=None, encoding=None):
    if version is None:
       try:
@@ -200,12 +221,14 @@ class SoapSerializer:
    # @param writer File writer
    # @param version the version
    # @param nsMap a dict of xml ns -> prefix
-   def __init__(self, writer, version, nsMap, encoding):
+   # @param encoding Deprecated this is not used during serialization since we always
+   #        use utf-8 to encode a request message. We didn't remove the
+   #        parameter so it is still compatible with clients that are still using it.
+   def __init__(self, writer, version, nsMap, encoding=None):
       """ Constructor """
       self.writer = writer
       self.version = version
       self.nsMap = nsMap and nsMap or {}
-      self.encoding = encoding and encoding or XML_ENCODING
       for ns, prefix in iteritems(self.nsMap):
          if prefix == '':
             self.defaultNS = ns
@@ -271,7 +294,7 @@ class SoapSerializer:
             attr = ' xmlns:{0}="{1}"'.format(prefix, ns)
       return attr, prefix and prefix + ':' + name or name
 
-   ## Serialize an object (internal)
+   ## Serialize an object to unicode (internal)
    #
    # @param val the value to serialize
    # @param info the field
@@ -332,7 +355,7 @@ class SoapSerializer:
          ns, name = GetQualifiedWsdlName(Type(val))
          attr += ' type="{0}"'.format(name)
          self.writer.write('<{0}{1}>{2}</{3}>'.format(info.name, attr,
-                                              encode(val._moId, self.encoding),
+                                              val._moId,
                                               info.name))
       elif isinstance(val, list):
          if info.type is object:
@@ -389,6 +412,13 @@ class SoapSerializer:
             nsattr, qName = self._QName(Type(val), currDefNS)
             attr += '{0} {1}type="{2}"'.format(nsattr, self.xsiPrefix, qName)
          result = base64.b64encode(val)
+         if PY3:
+            # In python3 the bytes result after the base64 encoding has a
+            # leading 'b' which causes error when we use it to construct the
+            # soap message. Workaround the issue by converting the result to
+            # string. Since the result of base64 encoding contains only subset
+            # of ASCII chars, converting to string will not change the value.
+            result = str(result, XML_ENCODING)
          self.writer.write('<{0}{1}>{2}</{0}>'.format(info.name, attr, result))
       elif isinstance(val, bool):
          if info.type is object:
@@ -396,6 +426,17 @@ class SoapSerializer:
             attr += '{0} {1}type="{2}"'.format(nsattr, self.xsiPrefix, qName)
          result = val and "true" or "false"
          self.writer.write('<{0}{1}>{2}</{0}>'.format(info.name, attr, result))
+      elif isinstance(val, six.integer_types) or isinstance(val, float):
+         if info.type is object:
+            nsattr, qName = self._QName(Type(val), currDefNS)
+            attr += '{0} {1}type="{2}"'.format(nsattr, self.xsiPrefix, qName)
+         result = six.text_type(val)
+         self.writer.write('<{0}{1}>{2}</{0}>'.format(info.name, attr, result))
+      elif isinstance(val, Enum):
+         if info.type is object:
+            nsattr, qName = self._QName(Type(val), currDefNS)
+            attr += '{0} {1}type="{2}"'.format(nsattr, self.xsiPrefix, qName)
+         self.writer.write('<{0}{1}>{2}</{0}>'.format(info.name, attr, val))
       else:
          if info.type is object:
             if isinstance(val, PropertyPath):
@@ -404,24 +445,16 @@ class SoapSerializer:
                nsattr, qName = self._QName(Type(val), currDefNS)
                attr += '{0} {1}type="{2}"'.format(nsattr, self.xsiPrefix, qName)
 
-         # For some pyVmomi objects, isinstance(val, text_type) is True, but
-         # that object overrides certain string methods that are needed later.
-         # Convert val to a real string, regardless of its type.
-         val = str(val)
-
-         # Use UTF-8 rather than self.encoding.  self.encoding is for
-         # output of serializer, while 'val' is our input.  And regardless
-         # of what our output is, our input should be always UTF-8.  Yes,
-         # it means that if you emit output in other encoding than UTF-8,
-         # you cannot serialize it again once more.  That's feature, not
-         # a bug.
-         if PY2:
-            val = val.decode('UTF-8')
-
+         if isinstance(val, six.binary_type):
+            # Use UTF-8 rather than self.encoding.  self.encoding is for
+            # output of serializer, while 'val' is our input.  And regardless
+            # of what our output is, our input should be always UTF-8.  Yes,
+            # it means that if you emit output in other encoding than UTF-8,
+            # you cannot serialize it again once more.  That's feature, not
+            # a bug.
+            val = val.decode(XML_ENCODING)
          result = XmlEscape(val)
-         self.writer.write('<{0}{1}>{2}</{0}>'.format(info.name, attr,
-                                                      encode(result,
-                                                             self.encoding)))
+         self.writer.write('<{0}{1}>{2}</{0}>'.format(info.name, attr, result))
 
    ## Serialize a a data object (internal)
    #
@@ -879,9 +912,9 @@ class SoapStubAdapterBase(StubAdapterBase):
          result.append(SOAP_HEADER_START)
          for key, val in iteritems(reqContexts):
             # Note: Support req context of string type only
-            if not isinstance(val, basestring):
+            if not isinstance(val, six.string_types):
                raise TypeError("Request context key ({0}) has non-string value ({1}) of {2}".format(key, val, type(val)))
-            ret = Serialize(val,
+            ret = _SerializeToUnicode(val,
                             Object(name=key, type=str, version=self.version),
                             self.version,
                             nsMap)
@@ -896,15 +929,15 @@ class SoapStubAdapterBase(StubAdapterBase):
       # Serialize soap body
       result.extend([SOAP_BODY_START,
                        '<{0} xmlns="{1}">'.format(info.wsdlName, defaultNS),
-                       Serialize(mo, Object(name="_this", type=ManagedObject,
+                       _SerializeToUnicode(mo, Object(name="_this", type=ManagedObject,
                                             version=self.version),
                                  self.version, nsMap)])
 
       # Serialize soap request parameters
       for (param, arg) in zip(info.params, args):
-         result.append(Serialize(arg, param, self.version, nsMap))
+         result.append(_SerializeToUnicode(arg, param, self.version, nsMap))
       result.extend(['</{0}>'.format(info.wsdlName), SOAP_BODY_END, SOAP_ENVELOPE_END])
-      return ''.join(result)
+      return ''.join(result).encode(XML_ENCODING)
 
 ## Subclass of HTTPConnection that connects over a Unix domain socket
 ## instead of a TCP port.  The path of the socket is passed in place of
@@ -1245,7 +1278,6 @@ class SoapStubAdapter(SoapStubAdapterBase):
    # depend on the behavior that close() still leaves the socket semi-functional.
    if sys.version_info[:2] < (2,7):
       def _CloseConnection(self, conn):
-         # import pdb; pdb.set_trace()
          if self.scheme == HTTPSConnectionWrapper and conn.sock:
            conn.sock.shutdown(socket.SHUT_RDWR)
          conn.close()

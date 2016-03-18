@@ -21,6 +21,7 @@ from six import iteritems
 from six import iterkeys
 from six import itervalues
 from six import text_type
+from six import binary_type
 from six import PY3
 from datetime import datetime
 from pyVmomi import Iso8601
@@ -314,6 +315,13 @@ def FormatObject(val, info=Object(name="", type=object, flags=0), indent=0):
       result = Iso8601.ISO8601Format(val)
    elif isinstance(val, binary):
       result = base64.b64encode(val)
+      if PY3:
+         # In python3 the bytes result after the base64 encoding has a
+         # leading 'b' which causes error when we use it to construct the
+         # soap message. Workaround the issue by converting the result to
+         # string. Since the result of base64 encoding contains only subset
+         # of ASCII chars, converting to string will not change the value.
+         result = str(result, 'utf-8')
    else:
       result = repr(val)
    return start + result
@@ -1290,7 +1298,7 @@ byte  = type("byte", (int,), {})
 short  = type("short", (int,), {})
 double = type("double", (float,), {})
 URI = type("URI", (str,), {})
-binary = type("binary", (str,), {})
+binary = type("binary", (binary_type,), {})
 PropertyPath = type("PropertyPath", (text_type,), {})
 
 # _wsdlTypeMapNSs store namespaces added to _wsdlTypeMap in _SetWsdlType
