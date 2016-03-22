@@ -14,6 +14,7 @@
 # limitations under the License.
 
 ## Diff any two objects
+import six
 from six import text_type
 from six import u
 
@@ -32,10 +33,9 @@ def LogIf(condition, message):
 def IsPrimitiveType(obj):
    """See if the passed in type is a Primitive Type"""
    return (isinstance(obj, types.bool) or isinstance(obj, types.byte) or
-      isinstance(obj, types.short) or isinstance(obj, types.int) or
+      isinstance(obj, types.short) or isinstance(obj, six.integer_types) or
       isinstance(obj, types.double) or isinstance(obj, types.float) or
-      isinstance(obj, types.long) or isinstance(obj, types.str) or
-      isinstance(obj, text_type) or
+      isinstance(obj, six.string_types) or
       isinstance(obj, types.PropertyPath) or
       isinstance(obj, types.ManagedMethod) or
       isinstance(obj, types.datetime) or
