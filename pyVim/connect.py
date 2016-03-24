@@ -157,14 +157,10 @@ class VimSessionOrientedStub(SessionOrientedStub):
 
       def _doLogin(soapStub):
          import sso
-         cert = soapStub.schemeArgs['cert_file']
-         key = soapStub.schemeArgs['key_file']
          authenticator = sso.SsoAuthenticator(sts_url=stsUrl,
                                               sts_cert=stsCert)
          samlAssertion = authenticator.get_bearer_saml_assertion(username,
-                                                                 password,
-                                                                 cert,
-                                                                 key)
+                                                                 password)
          si = vim.ServiceInstance("ServiceInstance", soapStub)
          sm = si.content.sessionManager
          if not sm.currentSession:
