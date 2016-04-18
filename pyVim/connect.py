@@ -26,9 +26,15 @@ Detailed description (for [e]pydoc goes here).
 from six import reraise
 import sys
 import re
-import ssl
-from xml.etree import ElementTree
+from sys import version_info
+from xml.etree.ElementTree import ElementTree
 from xml.parsers.expat import ExpatError
+
+if version_info[0] >= 3:
+   from urllib.request import urlopen
+else:
+   # Python 2 fallback.
+   from urllib import urlopen
 
 import requests
 from requests.auth import HTTPBasicAuth
@@ -112,7 +118,7 @@ class VimSessionOrientedStub(SessionOrientedStub):
       assert(stsUrl)
 
       def _doLogin(soapStub):
-         import sso
+         from . import sso
          cert =  soapStub.schemeArgs['cert_file']
          key = soapStub.schemeArgs['key_file']
          authenticator = sso.SsoAuthenticator(sts_url=stsUrl,
@@ -155,7 +161,7 @@ class VimSessionOrientedStub(SessionOrientedStub):
       assert(stsUrl)
 
       def _doLogin(soapStub):
-         import sso
+         from . import sso
          cert = soapStub.schemeArgs['cert_file']
          key = soapStub.schemeArgs['key_file']
          authenticator = sso.SsoAuthenticator(sts_url=stsUrl,
@@ -278,7 +284,9 @@ def GetLocalTicket(si, user):
          msg = 'Failed to query for local ticket: "%s"' % e
          raise vim.fault.HostConnectFault(msg=msg)
    localTicket = sessionManager.AcquireLocalTicket(userName=user)
-   return (localTicket.userName, file(localTicket.passwordFilePath).read())
+   with open(localTicket.passwordFilePath) as f:
+      content = f.read()
+   return localTicket.userName, content
 
 
 ## Private method that performs the actual Connect and returns a
@@ -514,7 +522,7 @@ class SmartConnection(object):
 
 def __GetElementTreeFromUrl(url, sslContext):
    """
-   Private method that returns a root from ElementTree for the XML document referenced by
+   Private method that returns an ElementTree for the XML document referenced by
    the url.
 
    @param url: URL
@@ -524,14 +532,20 @@ def __GetElementTreeFromUrl(url, sslContext):
    @type  sslContext: SSL.Context
    """
 
+   tree = ElementTree()
+
    try:
-      if sslContext is not None and sslContext.verify_mode == ssl.CERT_NONE:
-         sock = requests.get(url, verify=False)
-      else:
-         sock = requests.get(url)
-      if sock.status_code == 200:
-         tree = ElementTree.fromstring(sock.content)
-         return tree
+      urlopen_kwargs = {}
+      if sslContext:
+         # We need to pass the ssl context as kwargs because 'context' parameter
+         # was added in Python 2.7.9, so passing it as a normal parameter would
+         # fail in earlier versions. Please see
+         # https://www.python.org/dev/peps/pep-0476/ for more details.
+         urlopen_kwargs['context'] = sslContext
+      with closing(urlopen(url, **urlopen_kwargs)) as sock:
+         if sock.getcode() == 200:
+            tree.parse(sock)
+            return tree
    except ExpatError:
       pass
    return None
@@ -787,12 +801,12 @@ def OpenPathWithStub(path, stub):
    it is included with the HTTP request.  Returns the response as a
    file-like object.
    """
-   import httplib
+   from six.moves import http_client
    if not hasattr(stub, 'scheme'):
       raise vmodl.fault.NotSupported()
-   elif stub.scheme == httplib.HTTPConnection:
+   elif stub.scheme == http_client.HTTPConnection:
       protocol = 'http'
-   elif stub.scheme == httplib.HTTPSConnection:
+   elif stub.scheme == http_client.HTTPSConnection:
       protocol = 'https'
    else:
       raise vmodl.fault.NotSupported()
