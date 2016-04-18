@@ -58,6 +58,19 @@ Global (thread-shared) ServiceInstance
 @todo: Get rid of me?
 """
 
+
+def localSslFixup(host, sslContext):
+    """
+    Connections to 'localhost' do not need SSL verification as a certificate
+    will never match. The OS provides security by only allowing root to bind
+    to low-numbered ports.
+    """
+    if not sslContext and host in ['localhost', '127.0.0.1', '::1']:
+        import ssl
+        if hasattr(ssl, '_create_unverified_context'):
+            sslContext = ssl._create_unverified_context()
+    return sslContext
+
 class closing(object):
    """
    Helper class for using closable objects in a 'with' statement,
@@ -239,6 +252,8 @@ def Connect(host='localhost', port=443, user='root', pwd='',
             port = int(info.group(2)[1:])
    except ValueError as ve:
       pass
+
+   sslContext = localSslFixup(host, sslContext)
 
    if namespace:
       assert(version is None)
@@ -691,6 +706,8 @@ def SmartStubAdapter(host='localhost', port=443, path='/sdk',
    if preferredApiVersions is None:
       preferredApiVersions = GetServiceVersions('vim25')
 
+   sslContext = localSslFixup(host, sslContext)
+
    supportedVersion = __FindSupportedVersion('https' if port > 0 else 'http',
                                              host,
                                              port,
@@ -759,6 +776,8 @@ def SmartConnect(protocol='https', host='localhost', port=443, user='root', pwd=
 
    if preferredApiVersions is None:
       preferredApiVersions = GetServiceVersions('vim25')
+
+   sslContext = localSslFixup(host, sslContext)
 
    supportedVersion = __FindSupportedVersion(protocol,
                                              host,
