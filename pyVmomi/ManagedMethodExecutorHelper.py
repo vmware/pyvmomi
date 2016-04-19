@@ -1,5 +1,5 @@
 # VMware vSphere Python SDK
-# Copyright (c) 2008-2015 VMware, Inc. All Rights Reserved.
+# Copyright (c) 2008-2016 VMware, Inc. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@ This module provides convinent fns related to ManagedMethodExecutor
 __author__ = "VMware, Inc."
 
 from pyVmomi import VmomiSupport, SoapAdapter, vmodl
-from SoapAdapter import SoapStubAdapterBase, Serialize, Deserialize
+from .SoapAdapter import SoapStubAdapterBase, SerializeToUnicode, Deserialize
 
 ## ManagedMethodExecutor soap stub adapter
 #
@@ -59,7 +59,7 @@ class MMESoapStubAdapter(SoapStubAdapterBase):
          for param, arg in zip(info.params, args):
             if arg is not None:
                # Serialize parameters to soap snippets
-               soapVal = Serialize(val=arg, info=param, version=self.version)
+               soapVal = SerializeToUnicode(val=arg, info=param, version=self.version)
 
                # Insert argument
                soapArg = vmodl.Reflect.ManagedMethodExecutor.SoapArgument(
