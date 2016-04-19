@@ -15,18 +15,12 @@
 from __future__ import absolute_import
 
 import six
-from six import PY2
-from six import PY3
 from six import reraise
 from six.moves import http_client
 from six.moves import StringIO
 from six.moves import zip
 from six import u
 from six import iteritems
-
-if PY3:
-    long = int
-    basestring = str
 
 import sys
 import os
