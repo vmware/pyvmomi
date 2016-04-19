@@ -113,7 +113,7 @@ class VimSessionOrientedStub(SessionOrientedStub):
       assert(stsUrl)
 
       def _doLogin(soapStub):
-         import sso
+         from . import sso
          cert =  soapStub.schemeArgs['cert_file']
          key = soapStub.schemeArgs['key_file']
          authenticator = sso.SsoAuthenticator(sts_url=stsUrl,
@@ -156,7 +156,7 @@ class VimSessionOrientedStub(SessionOrientedStub):
       assert(stsUrl)
 
       def _doLogin(soapStub):
-         import sso
+         from . import sso
          cert = soapStub.schemeArgs['cert_file']
          key = soapStub.schemeArgs['key_file']
          authenticator = sso.SsoAuthenticator(sts_url=stsUrl,
@@ -279,7 +279,9 @@ def GetLocalTicket(si, user):
          msg = 'Failed to query for local ticket: "%s"' % e
          raise vim.fault.HostConnectFault(msg=msg)
    localTicket = sessionManager.AcquireLocalTicket(userName=user)
-   return (localTicket.userName, file(localTicket.passwordFilePath).read())
+   with open(localTicket.passwordFilePath) as f:
+      content = f.read()
+   return localTicket.userName, content
 
 
 ## Private method that performs the actual Connect and returns a
@@ -798,12 +800,12 @@ def OpenPathWithStub(path, stub):
    it is included with the HTTP request.  Returns the response as a
    file-like object.
    """
-   import httplib
+   from six.moves import http_client
    if not hasattr(stub, 'scheme'):
       raise vmodl.fault.NotSupported()
-   elif stub.scheme == httplib.HTTPConnection:
+   elif stub.scheme == http_client.HTTPConnection:
       protocol = 'http'
-   elif stub.scheme == httplib.HTTPSConnection:
+   elif stub.scheme == http_client.HTTPSConnection:
       protocol = 'https'
    else:
       raise vmodl.fault.NotSupported()
