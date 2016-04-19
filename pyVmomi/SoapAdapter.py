@@ -1,5 +1,5 @@
 # VMware vSphere Python SDK
-# Copyright (c) 2008-2015 VMware, Inc. All Rights Reserved.
+# Copyright (c) 2008-2016 VMware, Inc. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,18 +15,12 @@
 from __future__ import absolute_import
 
 import six
-from six import PY2
-from six import PY3
 from six import reraise
 from six.moves import http_client
 from six.moves import StringIO
 from six.moves import zip
 from six import u
 from six import iteritems
-
-if PY3:
-    long = int
-    basestring = str
 
 import sys
 import os
@@ -497,14 +491,15 @@ class ParserError(KeyError):
     # type for all parser faults.
     pass
 
-def ReadDocument(parser, data):
+def ParseData(parser, data):
    # NOTE (hartsock): maintaining library internal consistency here, this is
    # a refactoring that rolls up some repeated code blocks into a method so
    # that we can refactor XML parsing behavior in a single place.
-   if not isinstance(data, str):
-      data = data.read()
    try:
-      parser.Parse(data)
+      if isinstance(data, six.binary_type) or isinstance(data, six.text_type):
+         parser.Parse(data)
+      else:
+         parser.ParseFile(data)
    except Exception:
       # wrap all parser faults with additional information for later
       # bug reporting on the XML parser code itself.
@@ -528,7 +523,7 @@ def Deserialize(data, resultType=object, stub=None):
    parser = ParserCreate(namespace_separator=NS_SEP)
    ds = SoapDeserializer(stub)
    ds.Deserialize(parser, resultType)
-   ReadDocument(parser, data)
+   ParseData(parser, data)
    return ds.GetResult()
 
 
@@ -832,7 +827,7 @@ class SoapResponseDeserializer(ExpatDeserializerNSHandlers):
          nsMap = {}
       self.nsMap = nsMap
       SetHandlers(self.parser, GetHandlers(self))
-      ReadDocument(self.parser, response)
+      ParseData(self.parser, response)
       result = self.deser.GetResult()
       if self.isFault:
          if result is None:
@@ -1163,7 +1158,7 @@ class GzipReader:
       self.chunks = leftoverChunks
       self.bufSize = leftoverBytes
 
-      buf = "".join(chunks)
+      buf = b"".join(chunks)
       return buf
 
 ## SOAP stub adapter object
