@@ -53,6 +53,19 @@ Global (thread-shared) ServiceInstance
 @todo: Get rid of me?
 """
 
+
+def localSslFixup(host, sslContext):
+    """
+    Connections to 'localhost' do not need SSL verification as a certificate
+    will never match. The OS provides security by only allowing root to bind
+    to low-numbered ports.
+    """
+    if not sslContext and host in ['localhost', '127.0.0.1', '::1']:
+        import ssl
+        if hasattr(ssl, '_create_unverified_context'):
+            sslContext = ssl._create_unverified_context()
+    return sslContext
+
 class closing(object):
    """
    Helper class for using closable objects in a 'with' statement,
@@ -113,7 +126,7 @@ class VimSessionOrientedStub(SessionOrientedStub):
       assert(stsUrl)
 
       def _doLogin(soapStub):
-         import sso
+         from . import sso
          cert =  soapStub.schemeArgs['cert_file']
          key = soapStub.schemeArgs['key_file']
          authenticator = sso.SsoAuthenticator(sts_url=stsUrl,
@@ -156,7 +169,7 @@ class VimSessionOrientedStub(SessionOrientedStub):
       assert(stsUrl)
 
       def _doLogin(soapStub):
-         import sso
+         from . import sso
          cert = soapStub.schemeArgs['cert_file']
          key = soapStub.schemeArgs['key_file']
          authenticator = sso.SsoAuthenticator(sts_url=stsUrl,
@@ -235,6 +248,8 @@ def Connect(host='localhost', port=443, user='root', pwd='',
    except ValueError as ve:
       pass
 
+   sslContext = localSslFixup(host, sslContext)
+
    if namespace:
       assert(version is None)
       version = versionMap[namespace]
@@ -279,7 +294,9 @@ def GetLocalTicket(si, user):
          msg = 'Failed to query for local ticket: "%s"' % e
          raise vim.fault.HostConnectFault(msg=msg)
    localTicket = sessionManager.AcquireLocalTicket(userName=user)
-   return (localTicket.userName, file(localTicket.passwordFilePath).read())
+   with open(localTicket.passwordFilePath) as f:
+      content = f.read()
+   return localTicket.userName, content
 
 
 ## Private method that performs the actual Connect and returns a
@@ -688,6 +705,8 @@ def SmartStubAdapter(host='localhost', port=443, path='/sdk',
    if preferredApiVersions is None:
       preferredApiVersions = GetServiceVersions('vim25')
 
+   sslContext = localSslFixup(host, sslContext)
+
    supportedVersion = __FindSupportedVersion('https' if port > 0 else 'http',
                                              host,
                                              port,
@@ -757,6 +776,8 @@ def SmartConnect(protocol='https', host='localhost', port=443, user='root', pwd=
    if preferredApiVersions is None:
       preferredApiVersions = GetServiceVersions('vim25')
 
+   sslContext = localSslFixup(host, sslContext)
+
    supportedVersion = __FindSupportedVersion(protocol,
                                              host,
                                              port,
@@ -798,12 +819,12 @@ def OpenPathWithStub(path, stub):
    it is included with the HTTP request.  Returns the response as a
    file-like object.
    """
-   import httplib
+   from six.moves import http_client
    if not hasattr(stub, 'scheme'):
       raise vmodl.fault.NotSupported()
-   elif stub.scheme == httplib.HTTPConnection:
+   elif stub.scheme == http_client.HTTPConnection:
       protocol = 'http'
-   elif stub.scheme == httplib.HTTPSConnection:
+   elif stub.scheme == http_client.HTTPSConnection:
       protocol = 'https'
    else:
       raise vmodl.fault.NotSupported()
