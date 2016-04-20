@@ -14,9 +14,9 @@
 # limitations under the License.
 from __future__ import print_function
 
+import tests
 import vcr
 
-import tests
 from pyVim import connect
 from pyVmomi import vim
 
@@ -71,18 +71,3 @@ class VirtualMachineTests(tests.VCRTestBase):
             if virtual_machine.guest:
                 for net in virtual_machine.guest.net:
                     self.assertTrue(net.macAddress in macs)
-
-    @vcr.use_cassette('vm_to_mac.yaml',
-                      cassette_library_dir=tests.fixtures_path,
-                      record_mode='once')
-    def test_vm_to_mac(self):
-        si = connect.SmartConnect(host='vcsa',
-                                  user='my_user',
-                                  pwd='my_password')
-        content = si.RetrieveContent()
-        # where the name of the VM is 'box'
-        vm = content.searchIndex.FindByInventoryPath("Datacenter0/vm/box")
-        self.assertEqual(vm.name, 'box')
-        nics = [dev for dev in vm.config.hardware.device
-                if isinstance(dev, vim.vm.device.VirtualEthernetCard)]
-        self.assertEqual(nics[0].macAddress, '00:50:56:82:28:7d')
