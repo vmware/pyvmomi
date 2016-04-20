@@ -28,6 +28,8 @@ from datetime import datetime
 from pyVmomi import Iso8601
 import base64
 import threading
+if PY3:
+   from functools import cmp_to_key
 
 if PY3:
     # python3 removed long, it's the same as int
@@ -1144,22 +1146,21 @@ def GetServiceVersions(namespace):
    by compatibility (i.e. any version in the list that is compatible with some version
    v in the list will preceed v)
    """
-   versions = dict((v, True) for (v, n) in iteritems(serviceNsMap) if n == namespace)
-   mappings = {}
-   for v in iterkeys(versions):
-      mappings[v] = set(parent for parent in iterkeys(parentMap[v])
-                        if parent != v and parent in versions.keys())
-   res = []
-   while True:
-      el = [ k for (k, v) in iteritems(mappings) if len(v) == 0 ]
-      if len(el) == 0:
-         return res
-      el.sort()
-      for k in el:
-         res.insert(0, k)
-         del mappings[k]
-         for values in itervalues(mappings):
-            values.discard(k)
+   def compare(a, b):
+      if a == b:
+         return 0
+      if b in parentMap[a]:
+         return -1
+      if a in parentMap[b]:
+         return 1
+      return (a > b) - (a < b)
+
+   if PY3:
+      return sorted([v for (v, n) in iteritems(serviceNsMap) if n == namespace],
+                    key=cmp_to_key(compare))
+   else:
+      return sorted([v for (v, n) in iteritems(serviceNsMap) if n == namespace],
+                    compare)
 
 
 ## Set a WSDL method with wsdl namespace and wsdl name
