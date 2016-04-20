@@ -1,5 +1,5 @@
 # VMware vSphere Python SDK
-# Copyright (c) 2008-2015 VMware, Inc. All Rights Reserved.
+# Copyright (c) 2008-2016 VMware, Inc. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@ from six import iteritems
 from six import iterkeys
 from six import itervalues
 from six import text_type
+from six import string_types
 from six import binary_type
 from six import PY3
 from datetime import datetime
@@ -31,8 +32,6 @@ import threading
 if PY3:
     # python3 removed long, it's the same as int
     long = int
-    # python3 removed basestring, use str instead.
-    basestring = str
 
 NoneType = type(None)
 try:
@@ -193,7 +192,7 @@ class LazyObject(Object):
 
 class Link(text_type):
    def __new__(cls, obj):
-      if isinstance(obj, basestring):
+      if isinstance(obj, string_types):
          return text_type.__new__(cls, obj)
       elif isinstance(obj, DataObject):
          if obj.key:
@@ -380,7 +379,7 @@ class ManagedObject(object):
                raise TypeError("%s() got multiple values for keyword argument '%s'" %
                               (Capitalize(info.name),  k))
             args[idx] = v
-      map(CheckField, info.params, args)
+      list(map(CheckField, info.params, args))
       return self._stub.InvokeMethod(self, info, args)
    _InvokeMethod = staticmethod(_InvokeMethod)
 
@@ -428,7 +427,7 @@ class ManagedObject(object):
       result = []
       while cls != ManagedObject:
          # Iterate through methods, add info for method not found in derived class
-         result = [info for info in cls._methodInfo.values()
+         result = [info for info in list(cls._methodInfo.values())
                    if meth.setdefault(info.name, cls) == cls] + result
          cls = cls.__bases__[0]
       return result
@@ -512,7 +511,7 @@ class DataObject(Base):
             SetAttr(self, info.name, info.type(0))
          else:
             SetAttr(self, info.name, None)
-      for (k, v) in kwargs.items():
+      for (k, v) in list(kwargs.items()):
          setattr(self, k, v)
 
    ## Get a list of all properties of this type and base types
@@ -951,7 +950,7 @@ def CheckField(info, val):
         or issubclass(info.type, long) and (issubclass(valType, int) or \
                                             issubclass(valType, long)) \
         or issubclass(info.type, float) and issubclass(valType, float) \
-        or issubclass(info.type, basestring) and issubclass(valType, basestring):
+        or issubclass(info.type, string_types) and issubclass(valType, string_types):
          return
       elif issubclass(info.type, Link):
          # Allow object of expected type to be assigned to link
@@ -968,9 +967,9 @@ def FinalizeType(type):
       for info in type._propList:
          info.type = GetVmodlType(info.type)
    elif issubclass(type, ManagedObject):
-      for info in type._propInfo.values():
+      for info in list(type._propInfo.values()):
          info.type = GetVmodlType(info.type)
-      for info in type._methodInfo.values():
+      for info in list(type._methodInfo.values()):
          info.result = GetVmodlType(info.result)
          info.methodResult = GetVmodlType(info.methodResult)
          info.type = GetVmodlType(info.type)
@@ -1325,7 +1324,7 @@ _wsdlTypeMap = {
 }
 _wsdlNameMap = InverseMap(_wsdlTypeMap)
 
-for ((ns, name), typ) in iteritems(dict(_wsdlTypeMap)):
+for ((ns, name), typ) in list(_wsdlTypeMap.items()):
    if typ is not NoneType:
       setattr(types, typ.__name__, typ)
       _wsdlTypeMapNSs.add(ns)
@@ -1529,7 +1528,7 @@ class StringDict(dict):
 
    def __setitem__(self, key, val):
       """x.__setitem__(i, y) <==> x[i]=y, where y must be a string"""
-      if not isinstance(val, basestring):
+      if not isinstance(val, string_types):
          raise TypeError("key %s has non-string value %s of %s" %
                                                          (key, val, type(val)))
       return dict.__setitem__(self, key, val)
@@ -1644,7 +1643,7 @@ class LinkResolver:
    def _AddLinkable(self, obj):
       key = getattr(obj, "key")
       if key and key != '':
-         if self.linkables.has_key(key):
+         if key in self.linkables:
             #duplicate key present
             raise AttributeError(key)
          else:
