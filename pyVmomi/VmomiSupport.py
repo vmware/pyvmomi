@@ -31,10 +31,6 @@ import threading
 if PY3:
    from functools import cmp_to_key
 
-if PY3:
-    # python3 removed long, it's the same as int
-    long = int
-
 NoneType = type(None)
 try:
    from pyVmomi.pyVmomiSettings import allowGetSet
@@ -1297,6 +1293,8 @@ if not isinstance(bool, type): # bool not a type in python <= 2.2
 byte  = type("byte", (int,), {})
 short  = type("short", (int,), {})
 double = type("double", (float,), {})
+if PY3:
+   long = type("long", (int,), {})
 URI = type("URI", (str,), {})
 binary = type("binary", (binary_type,), {})
 PropertyPath = type("PropertyPath", (text_type,), {})
