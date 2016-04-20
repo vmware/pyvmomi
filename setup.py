@@ -1,5 +1,5 @@
 # VMware vSphere Python SDK
-# Copyright (c) 2009-2015 VMware, Inc. All Rights Reserved.
+# Copyright (c) 2009-2016 VMware, Inc. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -29,7 +29,7 @@ with open('test-requirements.txt') as f:
 
 setup(
    name='pyvmomi',
-   version='5.5.0-DEVELOPMENT',
+   version='6.0.0-2016.4-DEVELOPMENT',
    description='VMware vSphere Python SDK',
    # NOTE: pypi prefers the use of RST to render docs
    long_description=read('README.rst'),
@@ -47,7 +47,6 @@ setup(
       'Intended Audience :: Developers',
       'Environment :: No Input/Output (Daemon)',
       'Programming Language :: Python :: 2',
-      'Programming Language :: Python :: 2.6',
       'Programming Language :: Python :: 2.7',
       'Programming Language :: Python :: 3',
       'Programming Language :: Python :: 3.2',
