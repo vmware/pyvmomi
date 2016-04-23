@@ -1,4 +1,4 @@
-.. image:: https://travis-ci.org/vmware/pyvmomi.svg?branch=v6.0.0-2016.4
+.. image:: https://travis-ci.org/vmware/pyvmomi.svg?branch=v6.0.0.2016.4
     :target: https://travis-ci.org/vmware/pyvmomi
     :alt: Build Status
 
@@ -52,7 +52,7 @@ For general language neutral documentation of vSphere Management API see:
 
 Python Support
 ==============
-* pyVmomi 6.0.0-2016.4 and later support 2.7, 3.3 and 3.4
+* pyVmomi 6.0.0.2016.4 and later support 2.7, 3.3 and 3.4
 * pyVmomi 6.0.0 and later support 2.7, 3.3 and 3.4
 * pyVmomi 5.5.0-2014.1 and 5.5.0-2014.1.1 support Python 2.6, 2.7, 3.3 and 3.4
 * pyVmomi 5.5.0 and below support Python 2.6 and 2.7
@@ -71,8 +71,8 @@ simultaneously with the *GA* version of vSphere with the same version number.
 
 Releases
 ========
-* `6.0.0-2016.4 <https://github.com/vmware/pyvmomi/tree/v6.0.0-2016.4>`_
-   release notes https://github.com/vmware/pyvmomi/releases/tag/v6.0.0-2016.4
+* `6.0.0.2016.4 <https://github.com/vmware/pyvmomi/tree/v6.0.0.2016.4>`_
+   release notes https://github.com/vmware/pyvmomi/releases/tag/v6.0.0.2016.4
 * `6.0.0 <https://github.com/vmware/pyvmomi/tree/v6.0.0>`_
    release notes https://github.com/vmware/pyvmomi/releases/tag/v6.0.0
 * `5.5.0-2014.1.1 <https://github.com/vmware/pyvmomi/tree/v5.5.0-2014.1.1>`_
