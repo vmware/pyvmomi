@@ -28,7 +28,7 @@ many VIM operations return 'tasks' which can have varying completion
 times.
 """
 
-from pyVmomi import Vmodl, Vim
+from pyVmomi import vmodl, vim
 
 
 ##
@@ -112,7 +112,7 @@ def WaitForTask(task,
     """
 
     if si is None:
-        si = Vim.ServiceInstance("ServiceInstance", task._stub)
+        si = vim.ServiceInstance("ServiceInstance", task._stub)
     if pc is None:
         pc = si.content.propertyCollector
 
@@ -123,11 +123,11 @@ def WaitForTask(task,
 
     version, state = None, None
     # Loop looking for updates till the state moves to a completed state.
-    while state not in (Vim.TaskInfo.State.success, Vim.TaskInfo.State.error):
+    while state not in (vim.TaskInfo.State.success, vim.TaskInfo.State.error):
         try:
             version, state = GetTaskStatus(task, version, pc)
             progressUpdater.UpdateIfNeeded()
-        except Vmodl.Fault.ManagedObjectNotFound as e:
+        except vmodl.fault.ManagedObjectNotFound as e:
             print("Task object has been deleted: %s" % e.obj)
             break
 
@@ -167,7 +167,7 @@ def WaitForTasks(tasks,
         return
 
     if si is None:
-        si = Vim.ServiceInstance("ServiceInstance", tasks[0]._stub)
+        si = vim.ServiceInstance("ServiceInstance", tasks[0]._stub)
     if pc is None:
         pc = si.content.propertyCollector
     if results is None:
@@ -203,13 +203,13 @@ def WaitForTasks(tasks,
                         if not progressUpdater:
                             continue
 
-                        if state == Vim.TaskInfo.State.success:
+                        if state == vim.TaskInfo.State.success:
                             progressUpdater.Update('completed')
                             progressUpdaters.pop(taskId)
                             # cache the results, as task objects could expire if one
                             # of the tasks take a longer time to complete
                             results.append(task.info.result)
-                        elif state == Vim.TaskInfo.State.error:
+                        elif state == vim.TaskInfo.State.error:
                             err = task.info.error
                             progressUpdater.Update('error: %s' % str(err))
                             if raiseOnError:
@@ -250,15 +250,15 @@ def CreateTasksFilter(pc, tasks):
         return None
 
     # First create the object specification as the task object.
-    objspecs = [Vmodl.Query.PropertyCollector.ObjectSpec(obj=task)
+    objspecs = [vmodl.query.PropertyCollector.ObjectSpec(obj=task)
                 for task in tasks]
 
     # Next, create the property specification as the state.
-    propspec = Vmodl.Query.PropertyCollector.PropertySpec(
-        type=Vim.Task, pathSet=[], all=True)
+    propspec = vmodl.query.PropertyCollector.PropertySpec(
+        type=vim.Task, pathSet=[], all=True)
 
     # Create a filter spec with the specified object and property spec.
-    filterspec = Vmodl.Query.PropertyCollector.FilterSpec()
+    filterspec = vmodl.query.PropertyCollector.FilterSpec()
     filterspec.objectSet = objspecs
     filterspec.propSet = [propspec]
 
@@ -272,7 +272,7 @@ def CheckForQuestionPending(task):
     """
 
     vm = task.info.entity
-    if vm is not None and isinstance(vm, Vim.VirtualMachine):
+    if vm is not None and isinstance(vm, vim.VirtualMachine):
         qst = vm.runtime.question
         if qst is not None:
             raise TaskBlocked("Task blocked, User Intervention required")
