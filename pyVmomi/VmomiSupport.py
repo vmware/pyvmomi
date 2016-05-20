@@ -307,6 +307,8 @@ def FormatObject(val, info=Object(name="", type=object, flags=0), indent=0):
          result = "(%s) []" % itemType.__name__
    elif isinstance(val, type):
       result = val.__name__
+   elif isinstance(val, UncallableManagedMethod):
+      result = val.name
    elif isinstance(val, ManagedMethod):
       result = '%s.%s' % (val.info.type.__name__, val.info.name)
    elif isinstance(val, bool):
@@ -587,6 +589,15 @@ class ManagedMethod(Curry):
    def __init__(self, info):
       Curry.__init__(self, ManagedObject._InvokeMethod, info)
       self.info = info
+
+# Method used to represent any unknown wsdl method returned by server response.
+# Server may return unknown method name due to server defects or newer version.
+class UncallableManagedMethod(ManagedMethod):
+   def __init__(self, name):
+      self.name = name
+
+   def __call__(self, *args, **kwargs):
+      raise Exception("Managed method {} is not available".format(self.name))
 
 ## Create the vmodl.MethodFault type
 #

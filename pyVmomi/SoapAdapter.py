@@ -734,7 +734,10 @@ class SoapDeserializer(ExpatDeserializerNSHandlers):
             # val in Method val is not namespace qualified
             # However, this doesn't hurt to strip out namespace
             ns, name = self.GetNSAndWsdlname(data)
-            obj = GuessWsdlMethod(name)
+            try:
+               obj = GuessWsdlMethod(name)
+            except KeyError:
+               obj = UncallableManagedMethod(name)
          elif obj is bool:
             if data == "0" or data.lower() == "false":
                obj = bool(False)
