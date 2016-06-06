@@ -1049,9 +1049,15 @@ class UnknownWsdlTypeError(KeyError):
 # @return type if found in any one of the name spaces else throws KeyError
 def GuessWsdlType(name):
    with _lazyLock:
-      # Because the types are lazily loaded, if some name is present
-      # in multiple namespaces, we will load the first type that we
-      # encounter and return it.
+      # Some types may exist in multiple namespaces, and returning
+      # the wrong one will cause a deserialization error.
+      # Since in python3 the order of entries in set is not deterministic,
+      # we will try to get the type from vim25 namespace first.
+      try:
+         return GetWsdlType(XMLNS_VMODL_BASE, name)
+      except KeyError:
+         pass
+
       for ns in _wsdlTypeMapNSs:
          try:
             return GetWsdlType(ns, name)
@@ -1242,6 +1248,15 @@ def GetWsdlMethod(ns, wsdlName):
 # KeyError
 def GuessWsdlMethod(name):
    with _lazyLock:
+      # Some methods may exist in multiple namespaces, and returning
+      # the wrong one will cause a deserialization error.
+      # Since in python3 the order of entries in set is not deterministic,
+      # we will try to get the method from vim25 namespace first.
+      try:
+         return GetWsdlMethod(XMLNS_VMODL_BASE, name)
+      except KeyError:
+         pass
+
       for ns in _wsdlMethodNSs:
          try:
             return GetWsdlMethod(ns, name)
