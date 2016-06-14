@@ -835,9 +835,9 @@ def SmartConnect(protocol='https', host='localhost', port=443, user='root', pwd=
                   mechanism=mechanism)
 
 def SmartConnectNoSSL(protocol='https', host='localhost', port=443, user='root', pwd='',
-                 service="hostd", path="/sdk",
-                 preferredApiVersions=None, keyFile=None, certFile=None,
-                 thumbprint=None, sslContext=None, b64token=None, mechanism='userpass'):
+                      service="hostd", path="/sdk",
+                      preferredApiVersions=None, keyFile=None, certFile=None,
+                      thumbprint=None, sslContext=None, b64token=None, mechanism='userpass'):
    """
    Provides a standard method for connecting to a specified server without SSL
    verification. Useful when connecting to servers with self-signed certificates
@@ -851,19 +851,19 @@ def SmartConnectNoSSL(protocol='https', host='localhost', port=443, user='root',
       sslContext = None
 
    return SmartConnect(protocol=protocol,
-                  host=host,
-                  port=port,
-                  user=user,
-                  pwd=pwd,
-                  service=service,
-                  path=path,
-                  preferredApiVersions=preferredApiVersions,
-                  keyFile=keyFile,
-                  certFile=certFile,
-                  thumbprint=thumbprint,
-                  sslContext=sslContext,
-                  b64token=b64token,
-                  mechanism=mechanism)
+                       host=host,
+                       port=port,
+                       user=user,
+                       pwd=pwd,
+                       service=service,
+                       path=path,
+                       preferredApiVersions=preferredApiVersions,
+                       keyFile=keyFile,
+                       certFile=certFile,
+                       thumbprint=thumbprint,
+                       sslContext=sslContext,
+                       b64token=b64token,
+                       mechanism=mechanism)
 
 def OpenUrlWithBasicAuth(url, user='root', pwd=''):
    """
