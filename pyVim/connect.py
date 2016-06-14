@@ -804,6 +804,37 @@ def SmartConnect(protocol='https', host='localhost', port=443, user='root', pwd=
                   b64token=b64token,
                   mechanism=mechanism)
 
+def ConnectNoSSL(protocol='https', host='localhost', port=443, user='root', pwd='',
+                 service="hostd", path="/sdk",
+                 preferredApiVersions=None, keyFile=None, certFile=None,
+                 thumbprint=None, sslContext=None, b64token=None, mechanism='userpass'):
+   """
+   Provides a standard method for connecting to a specified server without SSL
+   verification. Useful when connecting to servers with self-signed certificates
+   or when you wish to ignore SSL altogether. Will attempt to create an unverified
+   SSL context and then connect via the SmartConnect method.
+   """
+
+   if hasattr(ssl, '_create_unverified_context'):
+      sslContext = ssl._create_unverified_context()
+   else:
+      sslContext = None
+
+   return SmartConnect(protocol=protocol,
+                  host=host,
+                  port=port,
+                  user=user,
+                  pwd=pwd,
+                  service=service,
+                  path=path,
+                  preferredApiVersions=preferredApiVersions,
+                  keyFile=keyFile,
+                  certFile=certFile,
+                  thumbprint=thumbprint,
+                  sslContext=sslContext,
+                  b64token=b64token,
+                  mechanism=mechanism)
+
 def OpenUrlWithBasicAuth(url, user='root', pwd=''):
    """
    Open the specified URL, using HTTP basic authentication to provide
