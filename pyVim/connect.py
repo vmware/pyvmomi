@@ -274,7 +274,7 @@ def Connect(host='localhost', port=443, user='root', pwd='',
 def ConnectNoSSL(host='localhost', port=443, user='root', pwd='',
                  service="hostd", adapter="SOAP", namespace=None, path="/sdk",
                  version=None, keyFile=None, certFile=None, thumbprint=None,
-                 sslContext=None, b64token=None, mechanism='userpass'):
+                 b64token=None, mechanism='userpass'):
    """
    Provides a standard method for connecting to a specified server without SSL
    verification. Useful when connecting to servers with self-signed certificates
@@ -837,7 +837,7 @@ def SmartConnect(protocol='https', host='localhost', port=443, user='root', pwd=
 def SmartConnectNoSSL(protocol='https', host='localhost', port=443, user='root', pwd='',
                       service="hostd", path="/sdk",
                       preferredApiVersions=None, keyFile=None, certFile=None,
-                      thumbprint=None, sslContext=None, b64token=None, mechanism='userpass'):
+                      thumbprint=None, b64token=None, mechanism='userpass'):
    """
    Provides a standard method for connecting to a specified server without SSL
    verification. Useful when connecting to servers with self-signed certificates
