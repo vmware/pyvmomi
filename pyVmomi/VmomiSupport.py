@@ -307,6 +307,8 @@ def FormatObject(val, info=Object(name="", type=object, flags=0), indent=0):
          result = "(%s) []" % itemType.__name__
    elif isinstance(val, type):
       result = val.__name__
+   elif isinstance(val, UncallableManagedMethod):
+      result = val.name
    elif isinstance(val, ManagedMethod):
       result = '%s.%s' % (val.info.type.__name__, val.info.name)
    elif isinstance(val, bool):
@@ -587,6 +589,15 @@ class ManagedMethod(Curry):
    def __init__(self, info):
       Curry.__init__(self, ManagedObject._InvokeMethod, info)
       self.info = info
+
+# Method used to represent any unknown wsdl method returned by server response.
+# Server may return unknown method name due to server defects or newer version.
+class UncallableManagedMethod(ManagedMethod):
+   def __init__(self, name):
+      self.name = name
+
+   def __call__(self, *args, **kwargs):
+      raise Exception("Managed method {} is not available".format(self.name))
 
 ## Create the vmodl.MethodFault type
 #
@@ -1038,9 +1049,15 @@ class UnknownWsdlTypeError(KeyError):
 # @return type if found in any one of the name spaces else throws KeyError
 def GuessWsdlType(name):
    with _lazyLock:
-      # Because the types are lazily loaded, if some name is present
-      # in multiple namespaces, we will load the first type that we
-      # encounter and return it.
+      # Some types may exist in multiple namespaces, and returning
+      # the wrong one will cause a deserialization error.
+      # Since in python3 the order of entries in set is not deterministic,
+      # we will try to get the type from vim25 namespace first.
+      try:
+         return GetWsdlType(XMLNS_VMODL_BASE, name)
+      except KeyError:
+         pass
+
       for ns in _wsdlTypeMapNSs:
          try:
             return GetWsdlType(ns, name)
@@ -1231,6 +1248,15 @@ def GetWsdlMethod(ns, wsdlName):
 # KeyError
 def GuessWsdlMethod(name):
    with _lazyLock:
+      # Some methods may exist in multiple namespaces, and returning
+      # the wrong one will cause a deserialization error.
+      # Since in python3 the order of entries in set is not deterministic,
+      # we will try to get the method from vim25 namespace first.
+      try:
+         return GetWsdlMethod(XMLNS_VMODL_BASE, name)
+      except KeyError:
+         pass
+
       for ns in _wsdlMethodNSs:
          try:
             return GetWsdlMethod(ns, name)

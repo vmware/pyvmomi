@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <soapenv:Body>
+        <ReadNextTasksResponse xmlns="urn:vim25">
+            <returnval>
+                <key>task-3996443</key>
+                <task type="Task">task-3996443</task>
+                <description>
+                    <key>com.vmware.vdp2.task.description</key>
+                    <arg>
+                        <key>workOrderId</key>
+                        <value xsi:type="xsd:string">cp.20141020150650</value>
+                    </arg>
+                </description>
+                <descriptionId>com.vmware.vdp2.integritycheck</descriptionId>
+                <entity type="VirtualMachine">vm-133364</entity>
+                <entityName>VDP3</entityName>
+                <state>running</state>
+                <cancelled>false</cancelled>
+                <cancelable>true</cancelable>
+                <reason xsi:type="TaskReasonUser">
+                    <userName>vmware\\sa-vdp3</userName>
+                </reason>
+                <queueTime>2014-10-20T15:09:08.789999Z</queueTime>
+                <startTime>2014-10-20T15:09:09.073Z</startTime>
+                <eventChainId>21691195</eventChainId>
+            </returnval>
+            <returnval>
+                <key>task-1178117</key>
+                <task type="Task">task-1178117</task>
+                <descriptionId>com.vmware.vcIntegrity.CheckNotificationTask</descriptionId>
+                <entity type="Folder">group-d1</entity>
+                <entityName>Datacenters</entityName>
+                <state>queued</state>
+                <cancelled>false</cancelled>
+                <cancelable>true</cancelable>
+                <reason xsi:type="TaskReasonSchedule">
+                    <name>VMware vSphere Update Manager Check Notification</name>
+                    <scheduledTask type="ScheduledTask">schedule-2</scheduledTask>
+                </reason>
+                <queueTime>2013-01-08T14:12:01.556999Z</queueTime>
+                <eventChainId>3410272</eventChainId>
+            </returnval>
+            <returnval>
+                <key>task-746590</key>
+                <task type="Task">task-746590</task>
+                <name>LeaseMapDiskRegion</name>
+                <descriptionId>host.DiskManager.Lease.MapDiskRegion</descriptionId>
+                <entity type="VirtualMachine">vm-982</entity>
+                <entityName>Applicure</entityName>
+                <state>queued</state>
+                <cancelled>false</cancelled>
+                <cancelable>false</cancelable>
+                <reason xsi:type="TaskReasonUser">
+                    <userName>VMWARE\\sa-veeam1</userName>
+                </reason>
+                <queueTime>2012-09-27T12:03:03.412999Z</queueTime>
+                <eventChainId>2325872</eventChainId>
+            </returnval>
+            <returnval>
+                <key>task-56327</key>
+                <task type="Task">task-56327</task>
+                <name>LeaseMapDiskRegion</name>
+                <descriptionId>host.DiskManager.Lease.MapDiskRegion</descriptionId>
+                <entity type="VirtualMachine">vm-1010</entity>
+                <entityName>vCD-Oracle</entityName>
+                <state>queued</state>
+                <cancelled>false</cancelled>
+                <cancelable>false</cancelable>
+                <reason xsi:type="TaskReasonUser">
+                    <userName>VMWARE\\sa-veeam1</userName>
+                </reason>
+                <queueTime>2012-02-27T10:56:50.656999Z</queueTime>
+                <eventChainId>345916</eventChainId>
+            </returnval>
+        </ReadNextTasksResponse>
+    </soapenv:Body>
+</soapenv:Envelope>
