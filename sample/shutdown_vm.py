@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 """
-vSphere Python SDK program for listing all ESXi datastores and their
-associated devices
+vSphere Python SDK program for shutting down VMs
 """
 from __future__ import print_function
 
