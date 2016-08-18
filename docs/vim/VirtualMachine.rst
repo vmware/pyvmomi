@@ -1111,7 +1111,7 @@ RelocateVM(spec, priority):
        if the virtual machine is powered on and is being migrated to a failover host. See `ClusterFailoverHostAdmissionControlPolicy`_ .
 
 
-CloneVM(folder, name, spec):
+Clone(folder, name, spec):
    Creates a clone of this virtual machine. If the virtual machine is used as a template, this method corresponds to the deploy command.Any % (percent) character used in this name parameter must be escaped, unless it is used to start an escape sequence. Clients may also escape any other characters in this name parameter.The privilege required on the source virtual machine depends on the source and destination types:
     * source is virtual machine, destination is virtual machine - VirtualMachine.Provisioning.Clone
     * source is virtual machine, destination is template - VirtualMachine.Provisioning.CreateTemplateFromVM
