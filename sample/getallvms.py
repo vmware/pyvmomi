@@ -48,7 +48,7 @@ def GetArgs():
 def PrintVmInfo(vm, depth=1):
    """
    Print information for a particular virtual machine or recurse into a folder
-    with depth protection
+   or vApp with depth protection
    """
    maxdepth = 10
 
@@ -60,6 +60,14 @@ def PrintVmInfo(vm, depth=1):
       vmList = vm.childEntity
       for c in vmList:
          PrintVmInfo(c, depth+1)
+      return
+
+   # if this is a vApp, it likely contains child VMs
+   # (vApps can nest vApps, but it is hardly a common usecase, so ignore that)
+   if isinstance(vm, vim.VirtualApp):
+      vmList = vm.vm
+      for c in vmList:
+         PrintVmInfo(c, depth + 1)
       return
 
    summary = vm.summary
