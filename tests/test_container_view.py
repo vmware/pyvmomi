@@ -13,7 +13,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 import tests
-import vcr
 
 from pyVim import connect
 from pyVmomi import vim
@@ -21,7 +20,7 @@ from pyVmomi import vim
 
 class ContainerViewTests(tests.VCRTestBase):
 
-    @vcr.use_cassette('basic_container_view.yaml',
+    @tests.VCRTestBase.my_vcr.use_cassette('basic_container_view.yaml',
                       cassette_library_dir=tests.fixtures_path,
                       record_mode='once')
     def test_basic_container_view(self):

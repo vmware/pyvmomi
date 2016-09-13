@@ -14,9 +14,14 @@
 # limitations under the License.
 import logging
 import os
-import unittest
-import vcr
 import socket
+import unittest
+
+import vcr
+from vcr import config
+from vcr.stubs import VCRHTTPSConnection
+
+from pyVmomi import SoapAdapter
 
 
 def tests_resource_path(local_path=''):
@@ -33,6 +38,8 @@ def monkey_patch_vcrpy():
     vcr.stubs.VCRFakeSocket = socket.socket
 
 class VCRTestBase(unittest.TestCase):
+    my_vcr = config.VCR(
+        custom_patches=((SoapAdapter, '_HTTPSConnection', VCRHTTPSConnection),))
 
     def setUp(self):
         monkey_patch_vcrpy()

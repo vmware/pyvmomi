@@ -15,14 +15,13 @@
 from __future__ import print_function
 
 import tests
-import vcr
 
 from pyVim import connect
 
 
 class ManagedObjectTests(tests.VCRTestBase):
 
-    @vcr.use_cassette('root_folder_parent.yaml',
+    @tests.VCRTestBase.my_vcr.use_cassette('root_folder_parent.yaml',
                       cassette_library_dir=tests.fixtures_path,
                       record_mode='once')
     def test_root_folder_parent(self):

@@ -16,15 +16,18 @@ from datetime import datetime
 from datetime import timedelta
 
 import tests
-import vcr
 
 from pyVim import connect
 from pyVmomi.Iso8601 import TZManager
+from pyVmomi import SoapAdapter
+
+from vcr.stubs import VCRHTTPSConnection
+from vcr import config
 
 
 class Iso8601Tests(tests.VCRTestBase):
 
-    @vcr.use_cassette('test_vm_config_iso8601.yaml',
+    @tests.VCRTestBase.my_vcr.use_cassette('test_vm_config_iso8601.yaml',
                       cassette_library_dir=tests.fixtures_path,
                       record_mode='once')
     def test_vm_config_iso8601(self):
@@ -76,7 +79,9 @@ class Iso8601Tests(tests.VCRTestBase):
                         return False
             return True
 
-        my_vcr = vcr.VCR()
+        my_vcr = config.VCR(
+            custom_patches=(
+                (SoapAdapter, '_HTTPSConnection', VCRHTTPSConnection),))
         my_vcr.register_matcher('document', check_date_time_value)
 
         # NOTE (hartsock): the `match_on` option is altered to use the

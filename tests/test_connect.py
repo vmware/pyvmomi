@@ -15,7 +15,6 @@
 
 import tests
 import unittest
-import vcr
 
 from pyVim import connect
 from pyVmomi import vim
@@ -23,7 +22,7 @@ from pyVmomi import vim
 
 class ConnectionTests(tests.VCRTestBase):
 
-    @vcr.use_cassette('basic_connection.yaml',
+    @tests.VCRTestBase.my_vcr.use_cassette('basic_connection.yaml',
                       cassette_library_dir=tests.fixtures_path,
                       record_mode='none')
     def test_basic_connection(self):
@@ -40,7 +39,7 @@ class ConnectionTests(tests.VCRTestBase):
         self.assertTrue(session_id is not None)
         self.assertEqual('52b5395a-85c2-9902-7835-13a9b77e1fec', session_id)
 
-    @vcr.use_cassette('sspi_connection.yaml',
+    @tests.VCRTestBase.my_vcr.use_cassette('sspi_connection.yaml',
                       cassette_library_dir=tests.fixtures_path,
                       record_mode='none')
     def test_sspi_connection(self):
@@ -57,7 +56,7 @@ class ConnectionTests(tests.VCRTestBase):
         self.assertTrue(session_id is not None)
         self.assertEqual('52b5395a-85c2-9902-7835-13a9b77e1fec', session_id)
 
-    @vcr.use_cassette('basic_connection_bad_password.yaml',
+    @tests.VCRTestBase.my_vcr.use_cassette('basic_connection_bad_password.yaml',
                       cassette_library_dir=tests.fixtures_path,
                       record_mode='none')
     def test_basic_connection_bad_password(self):
@@ -68,7 +67,7 @@ class ConnectionTests(tests.VCRTestBase):
 
         self.assertRaises(vim.fault.InvalidLogin, should_fail)
 
-    @vcr.use_cassette('smart_connection.yaml',
+    @tests.VCRTestBase.my_vcr.use_cassette('smart_connection.yaml',
                       cassette_library_dir=tests.fixtures_path,
                       record_mode='none')
     def test_smart_connection(self):
@@ -84,13 +83,13 @@ class ConnectionTests(tests.VCRTestBase):
     def test_disconnect_on_no_connection(self):
         connect.Disconnect(None)
 
-    @vcr.use_cassette('ssl_tunnel.yaml',
+    @tests.VCRTestBase.my_vcr.use_cassette('ssl_tunnel.yaml',
                       cassette_library_dir=tests.fixtures_path,
                       record_mode='none')
     def test_ssl_tunnel(self):
         connect.SoapStubAdapter('sdkTunnel', 8089, httpProxyHost='vcsa').GetConnection()
 
-    @vcr.use_cassette('ssl_tunnel_http_failure.yaml',
+    @tests.VCRTestBase.my_vcr.use_cassette('ssl_tunnel_http_failure.yaml',
                       cassette_library_dir=tests.fixtures_path,
                       record_mode='none')
     def test_ssl_tunnel_http_failure(self):

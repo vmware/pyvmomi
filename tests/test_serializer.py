@@ -13,13 +13,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 import tests
-import vcr
-
+from vcr.stubs import VCRHTTPSConnection
+from vcr import config
 
 from pyVmomi import SoapAdapter
 from pyVmomi import SoapStubAdapter
 from pyVmomi import vim
 from pyVmomi.VmomiSupport import GetRequestContext
+
 
 
 class SerializerTests(tests.VCRTestBase):
@@ -40,7 +41,9 @@ class SerializerTests(tests.VCRTestBase):
         SoapAdapter.Serialize(pc, version='vim.version.version10')
 
     def _base_serialize_test(self, soap_creator, request_matcher):
-        my_vcr = vcr.VCR()
+        my_vcr = config.VCR(
+            custom_patches=(
+                (SoapAdapter, '_HTTPSConnection', VCRHTTPSConnection),))
         my_vcr.register_matcher('request_matcher', request_matcher)
 
         with my_vcr.use_cassette(
