@@ -16,7 +16,7 @@
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 from __future__ import absolute_import
 from pyVmomi.VmomiSupport import CreateDataType, CreateManagedType, CreateEnumType, AddVersion, AddVersionParent, F_LINK, F_LINKABLE, F_OPTIONAL, F_SECRET
-from pyVmomi.VmomiSupport import newestVersions, currentVersions, stableVersions, matureVersions, publicVersions, oldestVersions
+from pyVmomi.VmomiSupport import newestVersions, stableVersions, publicVersions, oldestVersions
 
 AddVersion("vmodl.version.version2", "", "", 0, "vim25")
 AddVersion("vmodl.version.version1", "", "", 0, "vim25")
@@ -29,9 +29,7 @@ AddVersionParent("vmodl.version.version1", "vmodl.version.version0")
 AddVersionParent("vmodl.version.version0", "vmodl.version.version0")
 
 newestVersions.Add("vmodl.version.version2")
-currentVersions.Add("vmodl.version.version2")
 stableVersions.Add("vmodl.version.version2")
-matureVersions.Add("vmodl.version.version2")
 publicVersions.Add("vmodl.version.version2")
 oldestVersions.Add("vmodl.version.version0")
 

@@ -190,6 +190,10 @@ try:
 except ImportError:
    pass
 
+try:
+   import pyVmomi.EamObjects
+except ImportError:
+   pass
 
 # All data object types and fault types have DynamicData as an ancestor
 # As well load it proactively.

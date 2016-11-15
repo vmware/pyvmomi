@@ -48,10 +48,11 @@ Documentation
 =============
 For general language neutral documentation of vSphere Management API see: 
 
-* `vSphere WS SDK API Docs <http://pubs.vmware.com/vsphere-60/topic/com.vmware.wssdk.apiref.doc/right-pane.html>`_
+* `vSphere WS SDK API Docs <http://pubs.vmware.com/vsphere-65/topic/com.vmware.wssdk.apiref.doc/right-pane.html>`_
 
 Python Support
 ==============
+* pyVmomi 6.5 supports 2.7, 3.3, 3.4 and 3.5
 * pyVmomi 6.0.0.2016.4 and later support 2.7, 3.3 and 3.4
 * pyVmomi 6.0.0 and later support 2.7, 3.3 and 3.4
 * pyVmomi 5.5.0-2014.1 and 5.5.0-2014.1.1 support Python 2.6, 2.7, 3.3 and 3.4
@@ -71,6 +72,8 @@ simultaneously with the *GA* version of vSphere with the same version number.
 
 Releases
 ========
+* `6.5 <https://github.com/vmware/pyvmomi/tree/v6.5>`_
+   release notes https://github.com/vmware/pyvmomi/releases/tag/v6.5
 * `6.0.0.2016.4 <https://github.com/vmware/pyvmomi/tree/v6.0.0.2016.4>`_
    release notes https://github.com/vmware/pyvmomi/releases/tag/v6.0.0.2016.4
 * `6.0.0 <https://github.com/vmware/pyvmomi/tree/v6.0.0>`_
