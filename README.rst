@@ -88,7 +88,8 @@ Releases
 
 Related Projects
 ================
-* Feature Incubator: pyvmomi-tools https://github.com/vmware/pyvmomi-tools
+* VMware vSphere Automation SDK for Python: https://developercenter.vmware.com/web/sdk/65/vsphere-automation-python
 * Samples Project: https://github.com/vmware/pyvmomi-community-samples
+* Feature Incubator: pyvmomi-tools https://github.com/vmware/pyvmomi-tools
 
 Have fun!
