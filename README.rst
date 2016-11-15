@@ -72,8 +72,8 @@ simultaneously with the *GA* version of vSphere with the same version number.
 
 Releases
 ========
-* `6.5 <https://github.com/vmware/pyvmomi/tree/v6.5>`_
-   release notes https://github.com/vmware/pyvmomi/releases/tag/v6.5
+* `6.5 <https://github.com/vmware/pyvmomi/tree/v6.5.0>`_
+   release notes https://github.com/vmware/pyvmomi/releases/tag/v6.5.0
 * `6.0.0.2016.4 <https://github.com/vmware/pyvmomi/tree/v6.0.0.2016.4>`_
    release notes https://github.com/vmware/pyvmomi/releases/tag/v6.0.0.2016.4
 * `6.0.0 <https://github.com/vmware/pyvmomi/tree/v6.0.0>`_
