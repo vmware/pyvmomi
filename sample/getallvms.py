@@ -99,9 +99,9 @@ def main():
       password = getpass.getpass(prompt='Enter password for host %s and '
                                         'user %s: ' % (args.host,args.user))
 
-
-   context = ssl.SSLContext(ssl.PROTOCOL_TLSv1)
-   context.verify_mode = ssl.CERT_NONE
+   context = None
+   if hasattr(ssl, '_create_unverified_context'):
+      context = ssl._create_unverified_context()
    si = SmartConnect(host=args.host,
                      user=args.user,
                      pwd=password,

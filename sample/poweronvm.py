@@ -113,17 +113,14 @@ def main():
          print("No virtual machine specified for poweron")
          sys.exit()
 
-      si = None
-      context = ssl.SSLContext(ssl.PROTOCOL_TLSv1)
-      context.verify_mode = ssl.CERT_NONE
-      try:
-         si = SmartConnect(host=args.host,
-                           user=args.user,
-                           pwd=password,
-                           port=int(args.port),
-                           sslContext=context)
-      except IOError:
-         pass
+      context = None
+      if hasattr(ssl, '_create_unverified_context'):
+         context = ssl._create_unverified_context()
+      si = SmartConnect(host=args.host,
+                        user=args.user,
+                        pwd=password,
+                        port=int(args.port),
+                        sslContext=context)
       if not si:
          print("Cannot connect to specified host using specified username and password")
          sys.exit()
