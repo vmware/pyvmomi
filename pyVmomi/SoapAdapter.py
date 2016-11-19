@@ -1312,7 +1312,8 @@ class SoapStubAdapter(SoapStubAdapterBase):
 
       headers = {'Cookie' : self.cookie,
                  'SOAPAction' : self.versionId,
-                 'Content-Type': 'text/xml; charset={0}'.format(XML_ENCODING)}
+                 'Content-Type': 'text/xml; charset={0}'.format(XML_ENCODING),
+                 'User-Agent' : 'pyvmomi'}
       if self._acceptCompressedResponses:
          headers['Accept-Encoding'] = 'gzip, deflate'
       req = self.SerializeRequest(mo, info, args)
