@@ -192,6 +192,7 @@ class VimSessionOrientedStub(SessionOrientedStub):
 
 def Connect(host='localhost', port=443, user='root', pwd='',
             service="hostd", adapter="SOAP", namespace=None, path="/sdk",
+            connectionPoolTimeout=CONNECTION_POOL_IDLE_TIMEOUT_SEC,
             version=None, keyFile=None, certFile=None, thumbprint=None,
             sslContext=None, b64token=None, mechanism='userpass'):
    """
@@ -221,6 +222,9 @@ def Connect(host='localhost', port=443, user='root', pwd='',
    @type  namespace: string
    @param path: Path
    @type  path: string
+   @param connectionPoolTimeout: Timeout in secs for idle connections to close, specify negative numbers for never
+                                 closing the connections
+   @type  connectionPoolTimeout: int
    @param version: Version
    @type  version: string
    @param keyFile: ssl key file path
@@ -259,10 +263,10 @@ def Connect(host='localhost', port=443, user='root', pwd='',
    si, stub = None, None
    if mechanism == 'userpass':
       si, stub = __Login(host, port, user, pwd, service, adapter, version, path,
-                         keyFile, certFile, thumbprint, sslContext)
+                         keyFile, certFile, thumbprint, sslContext, connectionPoolTimeout)
    elif mechanism == 'sspi':
       si, stub = __LoginBySSPI(host, port, service, adapter, version, path,
-                               keyFile, certFile, thumbprint, sslContext, b64token)
+                               keyFile, certFile, thumbprint, sslContext, b64token, connectionPoolTimeout)
    else:
       raise Exception('''The provided connection mechanism is not available, the
               supported mechanisms are userpass or sspi''')
@@ -334,7 +338,8 @@ def GetLocalTicket(si, user):
 ## connected service instance object.
 
 def __Login(host, port, user, pwd, service, adapter, version, path,
-            keyFile, certFile, thumbprint, sslContext):
+            keyFile, certFile, thumbprint, sslContext,
+            connectionPoolTimeout=CONNECTION_POOL_IDLE_TIMEOUT_SEC):
    """
    Private method that performs the actual Connect and returns a
    connected service instance object.
@@ -364,6 +369,9 @@ def __Login(host, port, user, pwd, service, adapter, version, path,
    @param sslContext: SSL Context describing the various SSL options. It is only
                       supported in Python 2.7.9 or higher.
    @type  sslContext: SSL.Context
+   @param connectionPoolTimeout: Timeout in secs for idle connections to close, specify negative numbers for never
+                                 closing the connections
+   @type  connectionPoolTimeout: int
    """
 
    content, si, stub = __RetrieveContent(host, port, adapter, version, path,
@@ -391,7 +399,8 @@ def __Login(host, port, user, pwd, service, adapter, version, path,
 ## Copyright (c) 2015 Morgan Stanley.  All rights reserved.
 
 def __LoginBySSPI(host, port, service, adapter, version, path,
-                  keyFile, certFile, thumbprint, sslContext, b64token):
+                  keyFile, certFile, thumbprint, sslContext, b64token,
+                  connectionPoolTimeout=CONNECTION_POOL_IDLE_TIMEOUT_SEC):
    """
    Private method that performs the actual Connect and returns a
    connected service instance object.
@@ -419,10 +428,13 @@ def __LoginBySSPI(host, port, service, adapter, version, path,
    @type  sslContext: SSL.Context
    @param b64token: base64 encoded token
    @type  b64token: string
+   @param connectionPoolTimeout: Timeout in secs for idle connections to close, specify negative numbers for never
+                                 closing the connections
+   @type  connectionPoolTimeout: int
    """
 
    content, si, stub = __RetrieveContent(host, port, adapter, version, path,
-                                         keyFile, certFile, thumbprint, sslContext)
+                                         keyFile, certFile, thumbprint, sslContext, connectionPoolTimeout)
 
    if b64token is None:
       raise Exception('Token is not defined for sspi login')
@@ -453,7 +465,7 @@ def __Logout(si):
 ## Private method that returns the service content
 
 def __RetrieveContent(host, port, adapter, version, path, keyFile, certFile,
-                      thumbprint, sslContext):
+                      thumbprint, sslContext, connectionPoolTimeout=CONNECTION_POOL_IDLE_TIMEOUT_SEC):
    """
    Retrieve service instance for connection.
    @param host: Which host to connect to.
@@ -470,6 +482,9 @@ def __RetrieveContent(host, port, adapter, version, path, keyFile, certFile,
    @type  keyFile: string
    @param certFile: ssl cert file path
    @type  certFile: string
+   @param connectionPoolTimeout: Timeout in secs for idle connections to close, specify negative numbers for never
+                                 closing the connections
+   @type  connectionPoolTimeout: int
    """
 
    # XXX remove the adapter and service arguments once dependent code is fixed
@@ -479,7 +494,8 @@ def __RetrieveContent(host, port, adapter, version, path, keyFile, certFile,
    # Create the SOAP stub adapter
    stub = SoapStubAdapter(host, port, version=version, path=path,
                           certKeyFile=keyFile, certFile=certFile,
-                          thumbprint=thumbprint, sslContext=sslContext)
+                          thumbprint=thumbprint, sslContext=sslContext,
+                          connectionPoolTimeout=connectionPoolTimeout)
 
    # Get Service instance
    si = vim.ServiceInstance("ServiceInstance", stub)
@@ -758,7 +774,7 @@ def SmartStubAdapter(host='localhost', port=443, path='/sdk',
                           samlToken=samlToken, sslContext=sslContext)
 
 def SmartConnect(protocol='https', host='localhost', port=443, user='root', pwd='',
-                 service="hostd", path="/sdk",
+                 service="hostd", path="/sdk", connectionPoolTimeout=CONNECTION_POOL_IDLE_TIMEOUT_SEC,
                  preferredApiVersions=None, keyFile=None, certFile=None,
                  thumbprint=None, sslContext=None, b64token=None, mechanism='userpass'):
    """
@@ -787,6 +803,9 @@ def SmartConnect(protocol='https', host='localhost', port=443, user='root', pwd=
    @type  service: string
    @param path: Path
    @type  path: string
+   @param connectionPoolTimeout: Timeout in secs for idle connections to close, specify negative numbers for never
+                                 closing the connections
+   @type  connectionPoolTimeout: int
    @param preferredApiVersions: Acceptable API version(s) (e.g. vim.version.version3)
                                 If a list of versions is specified the versions should
                                 be ordered from most to least preferred.  If None is
@@ -828,6 +847,7 @@ def SmartConnect(protocol='https', host='localhost', port=443, user='root', pwd=
                   adapter='SOAP',
                   version=supportedVersion,
                   path=path,
+                  connectionPoolTimeout=connectionPoolTimeout,
                   keyFile=keyFile,
                   certFile=certFile,
                   thumbprint=thumbprint,
@@ -836,7 +856,7 @@ def SmartConnect(protocol='https', host='localhost', port=443, user='root', pwd=
                   mechanism=mechanism)
 
 def SmartConnectNoSSL(protocol='https', host='localhost', port=443, user='root', pwd='',
-                      service="hostd", path="/sdk",
+                      service="hostd", path="/sdk", connectionPoolTimeout=CONNECTION_POOL_IDLE_TIMEOUT_SEC,
                       preferredApiVersions=None, keyFile=None, certFile=None,
                       thumbprint=None, b64token=None, mechanism='userpass'):
    """
@@ -858,6 +878,7 @@ def SmartConnectNoSSL(protocol='https', host='localhost', port=443, user='root',
                        pwd=pwd,
                        service=service,
                        path=path,
+                       connectionPoolTimeout=connectionPoolTimeout,
                        preferredApiVersions=preferredApiVersions,
                        keyFile=keyFile,
                        certFile=certFile,
