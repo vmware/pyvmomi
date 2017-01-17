@@ -263,10 +263,10 @@ def Connect(host='localhost', port=443, user='root', pwd='',
    si, stub = None, None
    if mechanism == 'userpass':
       si, stub = __Login(host, port, user, pwd, service, adapter, version, path,
-                         keyFile, certFile, thumbprint, sslContext)
+                         keyFile, certFile, thumbprint, sslContext, connectionPoolTimeout)
    elif mechanism == 'sspi':
       si, stub = __LoginBySSPI(host, port, service, adapter, version, path,
-                               keyFile, certFile, thumbprint, sslContext, b64token)
+                               keyFile, certFile, thumbprint, sslContext, b64token, connectionPoolTimeout)
    else:
       raise Exception('''The provided connection mechanism is not available, the
               supported mechanisms are userpass or sspi''')
@@ -434,7 +434,7 @@ def __LoginBySSPI(host, port, service, adapter, version, path,
    """
 
    content, si, stub = __RetrieveContent(host, port, adapter, version, path,
-                                         keyFile, certFile, thumbprint, sslContext)
+                                         keyFile, certFile, thumbprint, sslContext, connectionPoolTimeout)
 
    if b64token is None:
       raise Exception('Token is not defined for sspi login')
