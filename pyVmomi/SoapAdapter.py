@@ -48,7 +48,7 @@ except:
 
 # Timeout value used for idle connections in client connection pool.
 # Default value is 900 seconds (15 minutes).
-CONNECTION_POOL_IDLE_TIMEOUT_SEC = 900
+CONNECTION_POOL_IDLE_TIMEOUT_SEC = -1
 
 NS_SEP = " "
 
