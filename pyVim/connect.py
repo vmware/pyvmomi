@@ -375,7 +375,7 @@ def __Login(host, port, user, pwd, service, adapter, version, path,
    """
 
    content, si, stub = __RetrieveContent(host, port, adapter, version, path,
-                                         keyFile, certFile, thumbprint, sslContext)
+                                         keyFile, certFile, thumbprint, sslContext, connectionPoolTimeout)
 
    # Get a ticket if we're connecting to localhost and password is not specified
    if host == 'localhost' and not pwd:
