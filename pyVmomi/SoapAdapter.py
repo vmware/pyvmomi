@@ -14,22 +14,20 @@
 # limitations under the License.
 from __future__ import absolute_import
 
-import six
-from six import reraise
-from six.moves import http_client
-from six.moves import StringIO
-from six.moves import zip
-from six import u
-from six import iteritems
-
-import sys
 import os
 import socket
 import subprocess
+import sys
 import time
-from six.moves.urllib.parse import urlparse
-from datetime import datetime
 from xml.parsers.expat import ParserCreate
+
+import six
+from six import reraise
+from six import u
+from six.moves import StringIO
+from six.moves import http_client
+from six.moves import zip
+from six.moves.urllib.parse import urlparse
 # We have our own escape functionality.
 # from xml.sax.saxutils import escape
 
