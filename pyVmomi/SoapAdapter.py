@@ -1054,11 +1054,6 @@ class _HTTPSConnection(http_client.HTTPSConnection):
          #      dercert = self.sock.getpeercert(False)
          #      # pemcert = ssl.DER_cert_to_PEM_cert(dercert)
 
-   def __getattr__(self, item):
-      if item == 'connect':
-         return self.connect(self._wrapped)
-      return getattr(self._wrapped, item)
-
 ## Stand-in for the HTTPSConnection class that will connect to a proxy and
 ## issue a CONNECT command to start an SSL tunnel.
 class SSLTunnelConnection(object):
