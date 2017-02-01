@@ -41,7 +41,7 @@ Attributes:
     comparisons ([`vim.alarm.EventAlarmExpression.Comparison`_], optional):
 
        The attributes/values to compare.
-    eventType (`str`_):
+    eventType (`vim.event.AlarmEvent`_):
 
        The type of the event to trigger the alarm on.
     eventTypeId (`str`_, optional):
@@ -69,9 +69,9 @@ Attributes:
         * 
         * must
         * be set.
-    objectType (`str`_, optional):
+    objectType (`vim.ManagedEntity`_, optional):
 
-       Name of the type of managed object on which the event is logged.An event alarm defined on a `ManagedEntity`_ is propagated to child entities in the VirtualCenter inventory depending on the value of this attribute. If objectType is any of the following, the alarm is propagated down to all children of that type:
+       The type of managed object on which the event is logged.An event alarm defined on a `ManagedEntity`_ is propagated to child entities in the VirtualCenter inventory depending on the value of this attribute. If objectType is any of the following, the alarm is propagated down to all children of that type:
         * A datacenter:
         * `Datacenter`_
         * .
