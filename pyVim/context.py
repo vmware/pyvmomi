@@ -70,14 +70,14 @@ class Connection():
         self.mechanism=mechanism
 
     def __enter__(self):
-        self.si = open(host=self.host,port=self.port,user=self.user,pwd=self.pwd,service=self.service,
+        self.si = Connection.open(host=self.host,port=self.port,user=self.user,pwd=self.pwd,service=self.service,
                        adapter=self.adapter,namespace=self.namespace,path=self.path,version=self.version,
                        keyFile=self.keyFile,certFile=self.certFile,thumbprint=self.thumbprint,
                        sslContext=self.sslContext, b64token=self.b64token, mechanism=self.mechanism)
         return self.si
 
     def __exit__(self, *args):
-        close(self.si)
+        Connection.close(self.si)
         return
 
     @staticmethod
