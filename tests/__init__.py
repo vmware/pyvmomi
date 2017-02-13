@@ -15,6 +15,7 @@
 import logging
 import os
 import socket
+import ssl
 import unittest
 
 import vcr
@@ -46,3 +47,8 @@ class VCRTestBase(unittest.TestCase):
         logging.basicConfig()
         vcr_log = logging.getLogger('vcr')
         vcr_log.setLevel(logging.DEBUG)
+
+sslContext = ssl.SSLContext(ssl.PROTOCOL_SSLv23)
+sslContext.verify_mode = ssl.CERT_NONE
+
+test_pwd = 'my_password'

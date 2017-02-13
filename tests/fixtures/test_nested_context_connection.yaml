@@ -1,0 +1,1009 @@
+interactions:
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+      <soapenv:Body><RetrieveServiceContent xmlns="urn:vim25"><_this type="ServiceInstance">ServiceInstance</_this></RetrieveServiceContent></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: ['']
+      SOAPAction: ['"urn:vim25/4.1"']
+      User-Agent: [pyvmomi]
+    method: POST
+    uri: https://esxi00/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrieveServiceContentResponse xmlns=\"urn:vim25\"><returnval><rootFolder\
+        \ type=\"Folder\">ha-folder-root</rootFolder><propertyCollector type=\"PropertyCollector\"\
+        >ha-property-collector</propertyCollector><viewManager type=\"ViewManager\"\
+        >ViewManager</viewManager><about><name>VMware ESXi</name><fullName>VMware\
+        \ ESXi 6.0.0 build-2715440</fullName><vendor>VMware, Inc.</vendor><version>6.0.0</version><build>2715440</build><localeVersion>INTL</localeVersion><localeBuild>000</localeBuild><osType>vmnix-x86</osType><productLineId>embeddedEsx</productLineId><apiType>HostAgent</apiType><apiVersion>6.0</apiVersion><licenseProductName>VMware\
+        \ ESX Server</licenseProductName><licenseProductVersion>6.0</licenseProductVersion></about><setting\
+        \ type=\"OptionManager\">HostAgentSettings</setting><userDirectory type=\"\
+        UserDirectory\">ha-user-directory</userDirectory><sessionManager type=\"SessionManager\"\
+        >ha-sessionmgr</sessionManager><authorizationManager type=\"AuthorizationManager\"\
+        >ha-authmgr</authorizationManager><perfManager type=\"PerformanceManager\"\
+        >ha-perfmgr</perfManager><eventManager type=\"EventManager\">ha-eventmgr</eventManager><taskManager\
+        \ type=\"TaskManager\">ha-taskmgr</taskManager><accountManager type=\"HostLocalAccountManager\"\
+        >ha-localacctmgr</accountManager><diagnosticManager type=\"DiagnosticManager\"\
+        >ha-diagnosticmgr</diagnosticManager><licenseManager type=\"LicenseManager\"\
+        >ha-license-manager</licenseManager><searchIndex type=\"SearchIndex\">ha-searchindex</searchIndex><fileManager\
+        \ type=\"FileManager\">ha-nfc-file-manager</fileManager><virtualDiskManager\
+        \ type=\"VirtualDiskManager\">ha-vdiskmanager</virtualDiskManager><ovfManager\
+        \ type=\"OvfManager\">ha-ovf-manager</ovfManager><dvSwitchManager type=\"\
+        DistributedVirtualSwitchManager\">ha-dvsmanager</dvSwitchManager><localizationManager\
+        \ type=\"LocalizationManager\">ha-l10n-manager</localizationManager><storageResourceManager\
+        \ type=\"StorageResourceManager\">ha-storage-resource-manager</storageResourceManager></returnval></RetrieveServiceContentResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['2321']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Sat, 11 Feb 2017 01:55:57 GMT']
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+      <soapenv:Body><Login xmlns="urn:vim25"><_this type="SessionManager">ha-sessionmgr</_this><userName>root</userName><password>my_password</password></Login></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: ['']
+      SOAPAction: ['"urn:vim25/4.1"']
+      User-Agent: [pyvmomi]
+    method: POST
+    uri: https://esxi00/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<LoginResponse xmlns=\"urn:vim25\"><returnval><key>52c2d001-fba9-3e93-20be-0cdd8a6e3e79</key><userName>root</userName><fullName>Administrator</fullName><loginTime>2017-02-11T01:55:57.303258Z</loginTime><lastActiveTime>2017-02-11T01:55:57.303256Z</lastActiveTime><locale>en</locale><messageLocale>en</messageLocale></returnval></LoginResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['667']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Sat, 11 Feb 2017 01:55:57 GMT']
+      set-cookie: [vmware_soap_session="7432ae5468bc13343e979b7b916c091d3715b451";
+          Path=/; HttpOnly; Secure;]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+      <soapenv:Body><RetrieveServiceContent xmlns="urn:vim25"><_this type="ServiceInstance">ServiceInstance</_this></RetrieveServiceContent></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="7432ae5468bc13343e979b7b916c091d3715b451"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/4.1"']
+      User-Agent: [pyvmomi]
+    method: POST
+    uri: https://esxi00/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrieveServiceContentResponse xmlns=\"urn:vim25\"><returnval><rootFolder\
+        \ type=\"Folder\">ha-folder-root</rootFolder><propertyCollector type=\"PropertyCollector\"\
+        >ha-property-collector</propertyCollector><viewManager type=\"ViewManager\"\
+        >ViewManager</viewManager><about><name>VMware ESXi</name><fullName>VMware\
+        \ ESXi 6.0.0 build-2715440</fullName><vendor>VMware, Inc.</vendor><version>6.0.0</version><build>2715440</build><localeVersion>INTL</localeVersion><localeBuild>000</localeBuild><osType>vmnix-x86</osType><productLineId>embeddedEsx</productLineId><apiType>HostAgent</apiType><apiVersion>6.0</apiVersion><licenseProductName>VMware\
+        \ ESX Server</licenseProductName><licenseProductVersion>6.0</licenseProductVersion></about><setting\
+        \ type=\"OptionManager\">HostAgentSettings</setting><userDirectory type=\"\
+        UserDirectory\">ha-user-directory</userDirectory><sessionManager type=\"SessionManager\"\
+        >ha-sessionmgr</sessionManager><authorizationManager type=\"AuthorizationManager\"\
+        >ha-authmgr</authorizationManager><perfManager type=\"PerformanceManager\"\
+        >ha-perfmgr</perfManager><eventManager type=\"EventManager\">ha-eventmgr</eventManager><taskManager\
+        \ type=\"TaskManager\">ha-taskmgr</taskManager><accountManager type=\"HostLocalAccountManager\"\
+        >ha-localacctmgr</accountManager><diagnosticManager type=\"DiagnosticManager\"\
+        >ha-diagnosticmgr</diagnosticManager><licenseManager type=\"LicenseManager\"\
+        >ha-license-manager</licenseManager><searchIndex type=\"SearchIndex\">ha-searchindex</searchIndex><fileManager\
+        \ type=\"FileManager\">ha-nfc-file-manager</fileManager><virtualDiskManager\
+        \ type=\"VirtualDiskManager\">ha-vdiskmanager</virtualDiskManager><ovfManager\
+        \ type=\"OvfManager\">ha-ovf-manager</ovfManager><dvSwitchManager type=\"\
+        DistributedVirtualSwitchManager\">ha-dvsmanager</dvSwitchManager><localizationManager\
+        \ type=\"LocalizationManager\">ha-l10n-manager</localizationManager><storageResourceManager\
+        \ type=\"StorageResourceManager\">ha-storage-resource-manager</storageResourceManager></returnval></RetrieveServiceContentResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['2321']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Sat, 11 Feb 2017 01:55:57 GMT']
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">ha-property-collector</_this><specSet><propSet><type>ServiceInstance</type><all>false</all><pathSet>content</pathSet></propSet><objectSet><obj
+      type="ServiceInstance">ServiceInstance</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="7432ae5468bc13343e979b7b916c091d3715b451"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/4.1"']
+      User-Agent: [pyvmomi]
+    method: POST
+    uri: https://esxi00/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"ServiceInstance\">ServiceInstance</obj><propSet><name>content</name><val\
+        \ xsi:type=\"ServiceContent\"><rootFolder type=\"Folder\">ha-folder-root</rootFolder><propertyCollector\
+        \ type=\"PropertyCollector\">ha-property-collector</propertyCollector><viewManager\
+        \ type=\"ViewManager\">ViewManager</viewManager><about><name>VMware ESXi</name><fullName>VMware\
+        \ ESXi 6.0.0 build-2715440</fullName><vendor>VMware, Inc.</vendor><version>6.0.0</version><build>2715440</build><localeVersion>INTL</localeVersion><localeBuild>000</localeBuild><osType>vmnix-x86</osType><productLineId>embeddedEsx</productLineId><apiType>HostAgent</apiType><apiVersion>6.0</apiVersion><licenseProductName>VMware\
+        \ ESX Server</licenseProductName><licenseProductVersion>6.0</licenseProductVersion></about><setting\
+        \ type=\"OptionManager\">HostAgentSettings</setting><userDirectory type=\"\
+        UserDirectory\">ha-user-directory</userDirectory><sessionManager type=\"SessionManager\"\
+        >ha-sessionmgr</sessionManager><authorizationManager type=\"AuthorizationManager\"\
+        >ha-authmgr</authorizationManager><perfManager type=\"PerformanceManager\"\
+        >ha-perfmgr</perfManager><eventManager type=\"EventManager\">ha-eventmgr</eventManager><taskManager\
+        \ type=\"TaskManager\">ha-taskmgr</taskManager><accountManager type=\"HostLocalAccountManager\"\
+        >ha-localacctmgr</accountManager><diagnosticManager type=\"DiagnosticManager\"\
+        >ha-diagnosticmgr</diagnosticManager><licenseManager type=\"LicenseManager\"\
+        >ha-license-manager</licenseManager><searchIndex type=\"SearchIndex\">ha-searchindex</searchIndex><fileManager\
+        \ type=\"FileManager\">ha-nfc-file-manager</fileManager><virtualDiskManager\
+        \ type=\"VirtualDiskManager\">ha-vdiskmanager</virtualDiskManager><ovfManager\
+        \ type=\"OvfManager\">ha-ovf-manager</ovfManager><dvSwitchManager type=\"\
+        DistributedVirtualSwitchManager\">ha-dvsmanager</dvSwitchManager><localizationManager\
+        \ type=\"LocalizationManager\">ha-l10n-manager</localizationManager><storageResourceManager\
+        \ type=\"StorageResourceManager\">ha-storage-resource-manager</storageResourceManager></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['2461']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Sat, 11 Feb 2017 01:55:57 GMT']
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">ha-property-collector</_this><specSet><propSet><type>SessionManager</type><all>false</all><pathSet>sessionList</pathSet></propSet><objectSet><obj
+      type="SessionManager">ha-sessionmgr</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="7432ae5468bc13343e979b7b916c091d3715b451"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/4.1"']
+      User-Agent: [pyvmomi]
+    method: POST
+    uri: https://esxi00/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"SessionManager\">ha-sessionmgr</obj><propSet><name>sessionList</name><val\
+        \ xsi:type=\"ArrayOfUserSession\"><UserSession xsi:type=\"UserSession\"><key>5254706f-2fc8-8955-a217-0f810bc79b19</key><userName>root</userName><fullName></fullName><loginTime>2017-02-07T01:28:43.562041Z</loginTime><lastActiveTime>2017-02-11T01:52:52.452192Z</lastActiveTime><locale>en</locale><messageLocale>en</messageLocale></UserSession><UserSession\
+        \ xsi:type=\"UserSession\"><key>52667dc1-bfaf-1791-a39e-d1b23de5af60</key><userName>root</userName><fullName>Administrator</fullName><loginTime>2017-02-11T01:55:56.888269Z</loginTime><lastActiveTime>2017-02-11T01:55:57.163271Z</lastActiveTime><locale>en</locale><messageLocale>en</messageLocale></UserSession><UserSession\
+        \ xsi:type=\"UserSession\"><key>52c2d001-fba9-3e93-20be-0cdd8a6e3e79</key><userName>root</userName><fullName>Administrator</fullName><loginTime>2017-02-11T01:55:57.303258Z</loginTime><lastActiveTime>2017-02-11T01:55:57.387062Z</lastActiveTime><locale>en</locale><messageLocale>en</messageLocale></UserSession><UserSession\
+        \ xsi:type=\"UserSession\"><key>52f75b35-b3c9-966c-5c22-dbabaa047f4e</key><userName>dcui</userName><fullName></fullName><loginTime>2017-02-07T01:30:02.050752Z</loginTime><lastActiveTime>2017-02-11T01:55:01.886166Z</lastActiveTime><locale>en</locale><messageLocale>en</messageLocale></UserSession></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['1824']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Sat, 11 Feb 2017 01:55:57 GMT']
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+      <soapenv:Body><RetrieveServiceContent xmlns="urn:vim25"><_this type="ServiceInstance">ServiceInstance</_this></RetrieveServiceContent></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: ['']
+      SOAPAction: ['"urn:vim25/4.1"']
+      User-Agent: [pyvmomi]
+    method: POST
+    uri: https://esxi00/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrieveServiceContentResponse xmlns=\"urn:vim25\"><returnval><rootFolder\
+        \ type=\"Folder\">ha-folder-root</rootFolder><propertyCollector type=\"PropertyCollector\"\
+        >ha-property-collector</propertyCollector><viewManager type=\"ViewManager\"\
+        >ViewManager</viewManager><about><name>VMware ESXi</name><fullName>VMware\
+        \ ESXi 6.0.0 build-2715440</fullName><vendor>VMware, Inc.</vendor><version>6.0.0</version><build>2715440</build><localeVersion>INTL</localeVersion><localeBuild>000</localeBuild><osType>vmnix-x86</osType><productLineId>embeddedEsx</productLineId><apiType>HostAgent</apiType><apiVersion>6.0</apiVersion><licenseProductName>VMware\
+        \ ESX Server</licenseProductName><licenseProductVersion>6.0</licenseProductVersion></about><setting\
+        \ type=\"OptionManager\">HostAgentSettings</setting><userDirectory type=\"\
+        UserDirectory\">ha-user-directory</userDirectory><sessionManager type=\"SessionManager\"\
+        >ha-sessionmgr</sessionManager><authorizationManager type=\"AuthorizationManager\"\
+        >ha-authmgr</authorizationManager><perfManager type=\"PerformanceManager\"\
+        >ha-perfmgr</perfManager><eventManager type=\"EventManager\">ha-eventmgr</eventManager><taskManager\
+        \ type=\"TaskManager\">ha-taskmgr</taskManager><accountManager type=\"HostLocalAccountManager\"\
+        >ha-localacctmgr</accountManager><diagnosticManager type=\"DiagnosticManager\"\
+        >ha-diagnosticmgr</diagnosticManager><licenseManager type=\"LicenseManager\"\
+        >ha-license-manager</licenseManager><searchIndex type=\"SearchIndex\">ha-searchindex</searchIndex><fileManager\
+        \ type=\"FileManager\">ha-nfc-file-manager</fileManager><virtualDiskManager\
+        \ type=\"VirtualDiskManager\">ha-vdiskmanager</virtualDiskManager><ovfManager\
+        \ type=\"OvfManager\">ha-ovf-manager</ovfManager><dvSwitchManager type=\"\
+        DistributedVirtualSwitchManager\">ha-dvsmanager</dvSwitchManager><localizationManager\
+        \ type=\"LocalizationManager\">ha-l10n-manager</localizationManager><storageResourceManager\
+        \ type=\"StorageResourceManager\">ha-storage-resource-manager</storageResourceManager></returnval></RetrieveServiceContentResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['2321']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Sat, 11 Feb 2017 01:55:57 GMT']
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+      <soapenv:Body><Login xmlns="urn:vim25"><_this type="SessionManager">ha-sessionmgr</_this><userName>root</userName><password>my_password</password></Login></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: ['']
+      SOAPAction: ['"urn:vim25/4.1"']
+      User-Agent: [pyvmomi]
+    method: POST
+    uri: https://esxi00/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<LoginResponse xmlns=\"urn:vim25\"><returnval><key>5229fb84-df74-3906-4382-7b3c74512a05</key><userName>root</userName><fullName>Administrator</fullName><loginTime>2017-02-11T01:55:57.431755Z</loginTime><lastActiveTime>2017-02-11T01:55:57.431753Z</lastActiveTime><locale>en</locale><messageLocale>en</messageLocale></returnval></LoginResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['667']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Sat, 11 Feb 2017 01:55:57 GMT']
+      set-cookie: [vmware_soap_session="84a4e8dba23fe0c026ac24099695ba3cd41317da";
+          Path=/; HttpOnly; Secure;]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+      <soapenv:Body><RetrieveServiceContent xmlns="urn:vim25"><_this type="ServiceInstance">ServiceInstance</_this></RetrieveServiceContent></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="84a4e8dba23fe0c026ac24099695ba3cd41317da"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/4.1"']
+      User-Agent: [pyvmomi]
+    method: POST
+    uri: https://esxi00/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrieveServiceContentResponse xmlns=\"urn:vim25\"><returnval><rootFolder\
+        \ type=\"Folder\">ha-folder-root</rootFolder><propertyCollector type=\"PropertyCollector\"\
+        >ha-property-collector</propertyCollector><viewManager type=\"ViewManager\"\
+        >ViewManager</viewManager><about><name>VMware ESXi</name><fullName>VMware\
+        \ ESXi 6.0.0 build-2715440</fullName><vendor>VMware, Inc.</vendor><version>6.0.0</version><build>2715440</build><localeVersion>INTL</localeVersion><localeBuild>000</localeBuild><osType>vmnix-x86</osType><productLineId>embeddedEsx</productLineId><apiType>HostAgent</apiType><apiVersion>6.0</apiVersion><licenseProductName>VMware\
+        \ ESX Server</licenseProductName><licenseProductVersion>6.0</licenseProductVersion></about><setting\
+        \ type=\"OptionManager\">HostAgentSettings</setting><userDirectory type=\"\
+        UserDirectory\">ha-user-directory</userDirectory><sessionManager type=\"SessionManager\"\
+        >ha-sessionmgr</sessionManager><authorizationManager type=\"AuthorizationManager\"\
+        >ha-authmgr</authorizationManager><perfManager type=\"PerformanceManager\"\
+        >ha-perfmgr</perfManager><eventManager type=\"EventManager\">ha-eventmgr</eventManager><taskManager\
+        \ type=\"TaskManager\">ha-taskmgr</taskManager><accountManager type=\"HostLocalAccountManager\"\
+        >ha-localacctmgr</accountManager><diagnosticManager type=\"DiagnosticManager\"\
+        >ha-diagnosticmgr</diagnosticManager><licenseManager type=\"LicenseManager\"\
+        >ha-license-manager</licenseManager><searchIndex type=\"SearchIndex\">ha-searchindex</searchIndex><fileManager\
+        \ type=\"FileManager\">ha-nfc-file-manager</fileManager><virtualDiskManager\
+        \ type=\"VirtualDiskManager\">ha-vdiskmanager</virtualDiskManager><ovfManager\
+        \ type=\"OvfManager\">ha-ovf-manager</ovfManager><dvSwitchManager type=\"\
+        DistributedVirtualSwitchManager\">ha-dvsmanager</dvSwitchManager><localizationManager\
+        \ type=\"LocalizationManager\">ha-l10n-manager</localizationManager><storageResourceManager\
+        \ type=\"StorageResourceManager\">ha-storage-resource-manager</storageResourceManager></returnval></RetrieveServiceContentResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['2321']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Sat, 11 Feb 2017 01:55:57 GMT']
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">ha-property-collector</_this><specSet><propSet><type>ServiceInstance</type><all>false</all><pathSet>content</pathSet></propSet><objectSet><obj
+      type="ServiceInstance">ServiceInstance</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="84a4e8dba23fe0c026ac24099695ba3cd41317da"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/4.1"']
+      User-Agent: [pyvmomi]
+    method: POST
+    uri: https://esxi00/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"ServiceInstance\">ServiceInstance</obj><propSet><name>content</name><val\
+        \ xsi:type=\"ServiceContent\"><rootFolder type=\"Folder\">ha-folder-root</rootFolder><propertyCollector\
+        \ type=\"PropertyCollector\">ha-property-collector</propertyCollector><viewManager\
+        \ type=\"ViewManager\">ViewManager</viewManager><about><name>VMware ESXi</name><fullName>VMware\
+        \ ESXi 6.0.0 build-2715440</fullName><vendor>VMware, Inc.</vendor><version>6.0.0</version><build>2715440</build><localeVersion>INTL</localeVersion><localeBuild>000</localeBuild><osType>vmnix-x86</osType><productLineId>embeddedEsx</productLineId><apiType>HostAgent</apiType><apiVersion>6.0</apiVersion><licenseProductName>VMware\
+        \ ESX Server</licenseProductName><licenseProductVersion>6.0</licenseProductVersion></about><setting\
+        \ type=\"OptionManager\">HostAgentSettings</setting><userDirectory type=\"\
+        UserDirectory\">ha-user-directory</userDirectory><sessionManager type=\"SessionManager\"\
+        >ha-sessionmgr</sessionManager><authorizationManager type=\"AuthorizationManager\"\
+        >ha-authmgr</authorizationManager><perfManager type=\"PerformanceManager\"\
+        >ha-perfmgr</perfManager><eventManager type=\"EventManager\">ha-eventmgr</eventManager><taskManager\
+        \ type=\"TaskManager\">ha-taskmgr</taskManager><accountManager type=\"HostLocalAccountManager\"\
+        >ha-localacctmgr</accountManager><diagnosticManager type=\"DiagnosticManager\"\
+        >ha-diagnosticmgr</diagnosticManager><licenseManager type=\"LicenseManager\"\
+        >ha-license-manager</licenseManager><searchIndex type=\"SearchIndex\">ha-searchindex</searchIndex><fileManager\
+        \ type=\"FileManager\">ha-nfc-file-manager</fileManager><virtualDiskManager\
+        \ type=\"VirtualDiskManager\">ha-vdiskmanager</virtualDiskManager><ovfManager\
+        \ type=\"OvfManager\">ha-ovf-manager</ovfManager><dvSwitchManager type=\"\
+        DistributedVirtualSwitchManager\">ha-dvsmanager</dvSwitchManager><localizationManager\
+        \ type=\"LocalizationManager\">ha-l10n-manager</localizationManager><storageResourceManager\
+        \ type=\"StorageResourceManager\">ha-storage-resource-manager</storageResourceManager></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['2461']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Sat, 11 Feb 2017 01:55:57 GMT']
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">ha-property-collector</_this><specSet><propSet><type>SessionManager</type><all>false</all><pathSet>currentSession</pathSet></propSet><objectSet><obj
+      type="SessionManager">ha-sessionmgr</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="84a4e8dba23fe0c026ac24099695ba3cd41317da"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/4.1"']
+      User-Agent: [pyvmomi]
+    method: POST
+    uri: https://esxi00/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"SessionManager\">ha-sessionmgr</obj><propSet><name>currentSession</name><val\
+        \ xsi:type=\"UserSession\"><key>5229fb84-df74-3906-4382-7b3c74512a05</key><userName>root</userName><fullName>Administrator</fullName><loginTime>2017-02-11T01:55:57.431755Z</loginTime><lastActiveTime>2017-02-11T01:55:57.512527Z</lastActiveTime><locale>en</locale><messageLocale>en</messageLocale></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['842']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Sat, 11 Feb 2017 01:55:57 GMT']
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">ha-property-collector</_this><specSet><propSet><type>ServiceInstance</type><all>false</all><pathSet>content</pathSet></propSet><objectSet><obj
+      type="ServiceInstance">ServiceInstance</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="84a4e8dba23fe0c026ac24099695ba3cd41317da"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/4.1"']
+      User-Agent: [pyvmomi]
+    method: POST
+    uri: https://esxi00/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"ServiceInstance\">ServiceInstance</obj><propSet><name>content</name><val\
+        \ xsi:type=\"ServiceContent\"><rootFolder type=\"Folder\">ha-folder-root</rootFolder><propertyCollector\
+        \ type=\"PropertyCollector\">ha-property-collector</propertyCollector><viewManager\
+        \ type=\"ViewManager\">ViewManager</viewManager><about><name>VMware ESXi</name><fullName>VMware\
+        \ ESXi 6.0.0 build-2715440</fullName><vendor>VMware, Inc.</vendor><version>6.0.0</version><build>2715440</build><localeVersion>INTL</localeVersion><localeBuild>000</localeBuild><osType>vmnix-x86</osType><productLineId>embeddedEsx</productLineId><apiType>HostAgent</apiType><apiVersion>6.0</apiVersion><licenseProductName>VMware\
+        \ ESX Server</licenseProductName><licenseProductVersion>6.0</licenseProductVersion></about><setting\
+        \ type=\"OptionManager\">HostAgentSettings</setting><userDirectory type=\"\
+        UserDirectory\">ha-user-directory</userDirectory><sessionManager type=\"SessionManager\"\
+        >ha-sessionmgr</sessionManager><authorizationManager type=\"AuthorizationManager\"\
+        >ha-authmgr</authorizationManager><perfManager type=\"PerformanceManager\"\
+        >ha-perfmgr</perfManager><eventManager type=\"EventManager\">ha-eventmgr</eventManager><taskManager\
+        \ type=\"TaskManager\">ha-taskmgr</taskManager><accountManager type=\"HostLocalAccountManager\"\
+        >ha-localacctmgr</accountManager><diagnosticManager type=\"DiagnosticManager\"\
+        >ha-diagnosticmgr</diagnosticManager><licenseManager type=\"LicenseManager\"\
+        >ha-license-manager</licenseManager><searchIndex type=\"SearchIndex\">ha-searchindex</searchIndex><fileManager\
+        \ type=\"FileManager\">ha-nfc-file-manager</fileManager><virtualDiskManager\
+        \ type=\"VirtualDiskManager\">ha-vdiskmanager</virtualDiskManager><ovfManager\
+        \ type=\"OvfManager\">ha-ovf-manager</ovfManager><dvSwitchManager type=\"\
+        DistributedVirtualSwitchManager\">ha-dvsmanager</dvSwitchManager><localizationManager\
+        \ type=\"LocalizationManager\">ha-l10n-manager</localizationManager><storageResourceManager\
+        \ type=\"StorageResourceManager\">ha-storage-resource-manager</storageResourceManager></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['2461']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Sat, 11 Feb 2017 01:55:57 GMT']
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">ha-property-collector</_this><specSet><propSet><type>SessionManager</type><all>false</all><pathSet>currentSession</pathSet></propSet><objectSet><obj
+      type="SessionManager">ha-sessionmgr</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="84a4e8dba23fe0c026ac24099695ba3cd41317da"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/4.1"']
+      User-Agent: [pyvmomi]
+    method: POST
+    uri: https://esxi00/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"SessionManager\">ha-sessionmgr</obj><propSet><name>currentSession</name><val\
+        \ xsi:type=\"UserSession\"><key>5229fb84-df74-3906-4382-7b3c74512a05</key><userName>root</userName><fullName>Administrator</fullName><loginTime>2017-02-11T01:55:57.431755Z</loginTime><lastActiveTime>2017-02-11T01:55:57.531199Z</lastActiveTime><locale>en</locale><messageLocale>en</messageLocale></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['842']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Sat, 11 Feb 2017 01:55:57 GMT']
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">ha-property-collector</_this><specSet><propSet><type>ServiceInstance</type><all>false</all><pathSet>content</pathSet></propSet><objectSet><obj
+      type="ServiceInstance">ServiceInstance</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="84a4e8dba23fe0c026ac24099695ba3cd41317da"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/4.1"']
+      User-Agent: [pyvmomi]
+    method: POST
+    uri: https://esxi00/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"ServiceInstance\">ServiceInstance</obj><propSet><name>content</name><val\
+        \ xsi:type=\"ServiceContent\"><rootFolder type=\"Folder\">ha-folder-root</rootFolder><propertyCollector\
+        \ type=\"PropertyCollector\">ha-property-collector</propertyCollector><viewManager\
+        \ type=\"ViewManager\">ViewManager</viewManager><about><name>VMware ESXi</name><fullName>VMware\
+        \ ESXi 6.0.0 build-2715440</fullName><vendor>VMware, Inc.</vendor><version>6.0.0</version><build>2715440</build><localeVersion>INTL</localeVersion><localeBuild>000</localeBuild><osType>vmnix-x86</osType><productLineId>embeddedEsx</productLineId><apiType>HostAgent</apiType><apiVersion>6.0</apiVersion><licenseProductName>VMware\
+        \ ESX Server</licenseProductName><licenseProductVersion>6.0</licenseProductVersion></about><setting\
+        \ type=\"OptionManager\">HostAgentSettings</setting><userDirectory type=\"\
+        UserDirectory\">ha-user-directory</userDirectory><sessionManager type=\"SessionManager\"\
+        >ha-sessionmgr</sessionManager><authorizationManager type=\"AuthorizationManager\"\
+        >ha-authmgr</authorizationManager><perfManager type=\"PerformanceManager\"\
+        >ha-perfmgr</perfManager><eventManager type=\"EventManager\">ha-eventmgr</eventManager><taskManager\
+        \ type=\"TaskManager\">ha-taskmgr</taskManager><accountManager type=\"HostLocalAccountManager\"\
+        >ha-localacctmgr</accountManager><diagnosticManager type=\"DiagnosticManager\"\
+        >ha-diagnosticmgr</diagnosticManager><licenseManager type=\"LicenseManager\"\
+        >ha-license-manager</licenseManager><searchIndex type=\"SearchIndex\">ha-searchindex</searchIndex><fileManager\
+        \ type=\"FileManager\">ha-nfc-file-manager</fileManager><virtualDiskManager\
+        \ type=\"VirtualDiskManager\">ha-vdiskmanager</virtualDiskManager><ovfManager\
+        \ type=\"OvfManager\">ha-ovf-manager</ovfManager><dvSwitchManager type=\"\
+        DistributedVirtualSwitchManager\">ha-dvsmanager</dvSwitchManager><localizationManager\
+        \ type=\"LocalizationManager\">ha-l10n-manager</localizationManager><storageResourceManager\
+        \ type=\"StorageResourceManager\">ha-storage-resource-manager</storageResourceManager></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['2461']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Sat, 11 Feb 2017 01:55:57 GMT']
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">ha-property-collector</_this><specSet><propSet><type>SessionManager</type><all>false</all><pathSet>currentSession</pathSet></propSet><objectSet><obj
+      type="SessionManager">ha-sessionmgr</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="84a4e8dba23fe0c026ac24099695ba3cd41317da"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/4.1"']
+      User-Agent: [pyvmomi]
+    method: POST
+    uri: https://esxi00/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"SessionManager\">ha-sessionmgr</obj><propSet><name>currentSession</name><val\
+        \ xsi:type=\"UserSession\"><key>5229fb84-df74-3906-4382-7b3c74512a05</key><userName>root</userName><fullName>Administrator</fullName><loginTime>2017-02-11T01:55:57.431755Z</loginTime><lastActiveTime>2017-02-11T01:55:57.551149Z</lastActiveTime><locale>en</locale><messageLocale>en</messageLocale></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['842']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Sat, 11 Feb 2017 01:55:57 GMT']
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">ha-property-collector</_this><specSet><propSet><type>ServiceInstance</type><all>false</all><pathSet>content</pathSet></propSet><objectSet><obj
+      type="ServiceInstance">ServiceInstance</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="84a4e8dba23fe0c026ac24099695ba3cd41317da"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/4.1"']
+      User-Agent: [pyvmomi]
+    method: POST
+    uri: https://esxi00/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"ServiceInstance\">ServiceInstance</obj><propSet><name>content</name><val\
+        \ xsi:type=\"ServiceContent\"><rootFolder type=\"Folder\">ha-folder-root</rootFolder><propertyCollector\
+        \ type=\"PropertyCollector\">ha-property-collector</propertyCollector><viewManager\
+        \ type=\"ViewManager\">ViewManager</viewManager><about><name>VMware ESXi</name><fullName>VMware\
+        \ ESXi 6.0.0 build-2715440</fullName><vendor>VMware, Inc.</vendor><version>6.0.0</version><build>2715440</build><localeVersion>INTL</localeVersion><localeBuild>000</localeBuild><osType>vmnix-x86</osType><productLineId>embeddedEsx</productLineId><apiType>HostAgent</apiType><apiVersion>6.0</apiVersion><licenseProductName>VMware\
+        \ ESX Server</licenseProductName><licenseProductVersion>6.0</licenseProductVersion></about><setting\
+        \ type=\"OptionManager\">HostAgentSettings</setting><userDirectory type=\"\
+        UserDirectory\">ha-user-directory</userDirectory><sessionManager type=\"SessionManager\"\
+        >ha-sessionmgr</sessionManager><authorizationManager type=\"AuthorizationManager\"\
+        >ha-authmgr</authorizationManager><perfManager type=\"PerformanceManager\"\
+        >ha-perfmgr</perfManager><eventManager type=\"EventManager\">ha-eventmgr</eventManager><taskManager\
+        \ type=\"TaskManager\">ha-taskmgr</taskManager><accountManager type=\"HostLocalAccountManager\"\
+        >ha-localacctmgr</accountManager><diagnosticManager type=\"DiagnosticManager\"\
+        >ha-diagnosticmgr</diagnosticManager><licenseManager type=\"LicenseManager\"\
+        >ha-license-manager</licenseManager><searchIndex type=\"SearchIndex\">ha-searchindex</searchIndex><fileManager\
+        \ type=\"FileManager\">ha-nfc-file-manager</fileManager><virtualDiskManager\
+        \ type=\"VirtualDiskManager\">ha-vdiskmanager</virtualDiskManager><ovfManager\
+        \ type=\"OvfManager\">ha-ovf-manager</ovfManager><dvSwitchManager type=\"\
+        DistributedVirtualSwitchManager\">ha-dvsmanager</dvSwitchManager><localizationManager\
+        \ type=\"LocalizationManager\">ha-l10n-manager</localizationManager><storageResourceManager\
+        \ type=\"StorageResourceManager\">ha-storage-resource-manager</storageResourceManager></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['2461']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Sat, 11 Feb 2017 01:55:57 GMT']
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">ha-property-collector</_this><specSet><propSet><type>SessionManager</type><all>false</all><pathSet>currentSession</pathSet></propSet><objectSet><obj
+      type="SessionManager">ha-sessionmgr</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="84a4e8dba23fe0c026ac24099695ba3cd41317da"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/4.1"']
+      User-Agent: [pyvmomi]
+    method: POST
+    uri: https://esxi00/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"SessionManager\">ha-sessionmgr</obj><propSet><name>currentSession</name><val\
+        \ xsi:type=\"UserSession\"><key>5229fb84-df74-3906-4382-7b3c74512a05</key><userName>root</userName><fullName>Administrator</fullName><loginTime>2017-02-11T01:55:57.431755Z</loginTime><lastActiveTime>2017-02-11T01:55:57.570555Z</lastActiveTime><locale>en</locale><messageLocale>en</messageLocale></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['842']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Sat, 11 Feb 2017 01:55:57 GMT']
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">ha-property-collector</_this><specSet><propSet><type>ServiceInstance</type><all>false</all><pathSet>content</pathSet></propSet><objectSet><obj
+      type="ServiceInstance">ServiceInstance</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="84a4e8dba23fe0c026ac24099695ba3cd41317da"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/4.1"']
+      User-Agent: [pyvmomi]
+    method: POST
+    uri: https://esxi00/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"ServiceInstance\">ServiceInstance</obj><propSet><name>content</name><val\
+        \ xsi:type=\"ServiceContent\"><rootFolder type=\"Folder\">ha-folder-root</rootFolder><propertyCollector\
+        \ type=\"PropertyCollector\">ha-property-collector</propertyCollector><viewManager\
+        \ type=\"ViewManager\">ViewManager</viewManager><about><name>VMware ESXi</name><fullName>VMware\
+        \ ESXi 6.0.0 build-2715440</fullName><vendor>VMware, Inc.</vendor><version>6.0.0</version><build>2715440</build><localeVersion>INTL</localeVersion><localeBuild>000</localeBuild><osType>vmnix-x86</osType><productLineId>embeddedEsx</productLineId><apiType>HostAgent</apiType><apiVersion>6.0</apiVersion><licenseProductName>VMware\
+        \ ESX Server</licenseProductName><licenseProductVersion>6.0</licenseProductVersion></about><setting\
+        \ type=\"OptionManager\">HostAgentSettings</setting><userDirectory type=\"\
+        UserDirectory\">ha-user-directory</userDirectory><sessionManager type=\"SessionManager\"\
+        >ha-sessionmgr</sessionManager><authorizationManager type=\"AuthorizationManager\"\
+        >ha-authmgr</authorizationManager><perfManager type=\"PerformanceManager\"\
+        >ha-perfmgr</perfManager><eventManager type=\"EventManager\">ha-eventmgr</eventManager><taskManager\
+        \ type=\"TaskManager\">ha-taskmgr</taskManager><accountManager type=\"HostLocalAccountManager\"\
+        >ha-localacctmgr</accountManager><diagnosticManager type=\"DiagnosticManager\"\
+        >ha-diagnosticmgr</diagnosticManager><licenseManager type=\"LicenseManager\"\
+        >ha-license-manager</licenseManager><searchIndex type=\"SearchIndex\">ha-searchindex</searchIndex><fileManager\
+        \ type=\"FileManager\">ha-nfc-file-manager</fileManager><virtualDiskManager\
+        \ type=\"VirtualDiskManager\">ha-vdiskmanager</virtualDiskManager><ovfManager\
+        \ type=\"OvfManager\">ha-ovf-manager</ovfManager><dvSwitchManager type=\"\
+        DistributedVirtualSwitchManager\">ha-dvsmanager</dvSwitchManager><localizationManager\
+        \ type=\"LocalizationManager\">ha-l10n-manager</localizationManager><storageResourceManager\
+        \ type=\"StorageResourceManager\">ha-storage-resource-manager</storageResourceManager></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['2461']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Sat, 11 Feb 2017 01:55:57 GMT']
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">ha-property-collector</_this><specSet><propSet><type>SessionManager</type><all>false</all><pathSet>currentSession</pathSet></propSet><objectSet><obj
+      type="SessionManager">ha-sessionmgr</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="84a4e8dba23fe0c026ac24099695ba3cd41317da"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/4.1"']
+      User-Agent: [pyvmomi]
+    method: POST
+    uri: https://esxi00/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"SessionManager\">ha-sessionmgr</obj><propSet><name>currentSession</name><val\
+        \ xsi:type=\"UserSession\"><key>5229fb84-df74-3906-4382-7b3c74512a05</key><userName>root</userName><fullName>Administrator</fullName><loginTime>2017-02-11T01:55:57.431755Z</loginTime><lastActiveTime>2017-02-11T01:55:57.589963Z</lastActiveTime><locale>en</locale><messageLocale>en</messageLocale></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['842']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Sat, 11 Feb 2017 01:55:57 GMT']
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+      <soapenv:Body><RetrieveServiceContent xmlns="urn:vim25"><_this type="ServiceInstance">ServiceInstance</_this></RetrieveServiceContent></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="84a4e8dba23fe0c026ac24099695ba3cd41317da"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/4.1"']
+      User-Agent: [pyvmomi]
+    method: POST
+    uri: https://esxi00/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrieveServiceContentResponse xmlns=\"urn:vim25\"><returnval><rootFolder\
+        \ type=\"Folder\">ha-folder-root</rootFolder><propertyCollector type=\"PropertyCollector\"\
+        >ha-property-collector</propertyCollector><viewManager type=\"ViewManager\"\
+        >ViewManager</viewManager><about><name>VMware ESXi</name><fullName>VMware\
+        \ ESXi 6.0.0 build-2715440</fullName><vendor>VMware, Inc.</vendor><version>6.0.0</version><build>2715440</build><localeVersion>INTL</localeVersion><localeBuild>000</localeBuild><osType>vmnix-x86</osType><productLineId>embeddedEsx</productLineId><apiType>HostAgent</apiType><apiVersion>6.0</apiVersion><licenseProductName>VMware\
+        \ ESX Server</licenseProductName><licenseProductVersion>6.0</licenseProductVersion></about><setting\
+        \ type=\"OptionManager\">HostAgentSettings</setting><userDirectory type=\"\
+        UserDirectory\">ha-user-directory</userDirectory><sessionManager type=\"SessionManager\"\
+        >ha-sessionmgr</sessionManager><authorizationManager type=\"AuthorizationManager\"\
+        >ha-authmgr</authorizationManager><perfManager type=\"PerformanceManager\"\
+        >ha-perfmgr</perfManager><eventManager type=\"EventManager\">ha-eventmgr</eventManager><taskManager\
+        \ type=\"TaskManager\">ha-taskmgr</taskManager><accountManager type=\"HostLocalAccountManager\"\
+        >ha-localacctmgr</accountManager><diagnosticManager type=\"DiagnosticManager\"\
+        >ha-diagnosticmgr</diagnosticManager><licenseManager type=\"LicenseManager\"\
+        >ha-license-manager</licenseManager><searchIndex type=\"SearchIndex\">ha-searchindex</searchIndex><fileManager\
+        \ type=\"FileManager\">ha-nfc-file-manager</fileManager><virtualDiskManager\
+        \ type=\"VirtualDiskManager\">ha-vdiskmanager</virtualDiskManager><ovfManager\
+        \ type=\"OvfManager\">ha-ovf-manager</ovfManager><dvSwitchManager type=\"\
+        DistributedVirtualSwitchManager\">ha-dvsmanager</dvSwitchManager><localizationManager\
+        \ type=\"LocalizationManager\">ha-l10n-manager</localizationManager><storageResourceManager\
+        \ type=\"StorageResourceManager\">ha-storage-resource-manager</storageResourceManager></returnval></RetrieveServiceContentResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['2321']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Sat, 11 Feb 2017 01:55:57 GMT']
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+      <soapenv:Body><Logout xmlns="urn:vim25"><_this type="SessionManager">ha-sessionmgr</_this></Logout></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="84a4e8dba23fe0c026ac24099695ba3cd41317da"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/4.1"']
+      User-Agent: [pyvmomi]
+    method: POST
+    uri: https://esxi00/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<LogoutResponse xmlns=\"urn:vim25\"></LogoutResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['378']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Sat, 11 Feb 2017 01:55:57 GMT']
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">ha-property-collector</_this><specSet><propSet><type>ServiceInstance</type><all>false</all><pathSet>content</pathSet></propSet><objectSet><obj
+      type="ServiceInstance">ServiceInstance</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="7432ae5468bc13343e979b7b916c091d3715b451"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/4.1"']
+      User-Agent: [pyvmomi]
+    method: POST
+    uri: https://esxi00/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"ServiceInstance\">ServiceInstance</obj><propSet><name>content</name><val\
+        \ xsi:type=\"ServiceContent\"><rootFolder type=\"Folder\">ha-folder-root</rootFolder><propertyCollector\
+        \ type=\"PropertyCollector\">ha-property-collector</propertyCollector><viewManager\
+        \ type=\"ViewManager\">ViewManager</viewManager><about><name>VMware ESXi</name><fullName>VMware\
+        \ ESXi 6.0.0 build-2715440</fullName><vendor>VMware, Inc.</vendor><version>6.0.0</version><build>2715440</build><localeVersion>INTL</localeVersion><localeBuild>000</localeBuild><osType>vmnix-x86</osType><productLineId>embeddedEsx</productLineId><apiType>HostAgent</apiType><apiVersion>6.0</apiVersion><licenseProductName>VMware\
+        \ ESX Server</licenseProductName><licenseProductVersion>6.0</licenseProductVersion></about><setting\
+        \ type=\"OptionManager\">HostAgentSettings</setting><userDirectory type=\"\
+        UserDirectory\">ha-user-directory</userDirectory><sessionManager type=\"SessionManager\"\
+        >ha-sessionmgr</sessionManager><authorizationManager type=\"AuthorizationManager\"\
+        >ha-authmgr</authorizationManager><perfManager type=\"PerformanceManager\"\
+        >ha-perfmgr</perfManager><eventManager type=\"EventManager\">ha-eventmgr</eventManager><taskManager\
+        \ type=\"TaskManager\">ha-taskmgr</taskManager><accountManager type=\"HostLocalAccountManager\"\
+        >ha-localacctmgr</accountManager><diagnosticManager type=\"DiagnosticManager\"\
+        >ha-diagnosticmgr</diagnosticManager><licenseManager type=\"LicenseManager\"\
+        >ha-license-manager</licenseManager><searchIndex type=\"SearchIndex\">ha-searchindex</searchIndex><fileManager\
+        \ type=\"FileManager\">ha-nfc-file-manager</fileManager><virtualDiskManager\
+        \ type=\"VirtualDiskManager\">ha-vdiskmanager</virtualDiskManager><ovfManager\
+        \ type=\"OvfManager\">ha-ovf-manager</ovfManager><dvSwitchManager type=\"\
+        DistributedVirtualSwitchManager\">ha-dvsmanager</dvSwitchManager><localizationManager\
+        \ type=\"LocalizationManager\">ha-l10n-manager</localizationManager><storageResourceManager\
+        \ type=\"StorageResourceManager\">ha-storage-resource-manager</storageResourceManager></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['2461']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Sat, 11 Feb 2017 01:55:57 GMT']
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">ha-property-collector</_this><specSet><propSet><type>SessionManager</type><all>false</all><pathSet>sessionList</pathSet></propSet><objectSet><obj
+      type="SessionManager">ha-sessionmgr</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="7432ae5468bc13343e979b7b916c091d3715b451"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/4.1"']
+      User-Agent: [pyvmomi]
+    method: POST
+    uri: https://esxi00/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"SessionManager\">ha-sessionmgr</obj><propSet><name>sessionList</name><val\
+        \ xsi:type=\"ArrayOfUserSession\"><UserSession xsi:type=\"UserSession\"><key>5254706f-2fc8-8955-a217-0f810bc79b19</key><userName>root</userName><fullName></fullName><loginTime>2017-02-07T01:28:43.562041Z</loginTime><lastActiveTime>2017-02-11T01:52:52.452192Z</lastActiveTime><locale>en</locale><messageLocale>en</messageLocale></UserSession><UserSession\
+        \ xsi:type=\"UserSession\"><key>52667dc1-bfaf-1791-a39e-d1b23de5af60</key><userName>root</userName><fullName>Administrator</fullName><loginTime>2017-02-11T01:55:56.888269Z</loginTime><lastActiveTime>2017-02-11T01:55:57.163271Z</lastActiveTime><locale>en</locale><messageLocale>en</messageLocale></UserSession><UserSession\
+        \ xsi:type=\"UserSession\"><key>52c2d001-fba9-3e93-20be-0cdd8a6e3e79</key><userName>root</userName><fullName>Administrator</fullName><loginTime>2017-02-11T01:55:57.303258Z</loginTime><lastActiveTime>2017-02-11T01:55:57.628213Z</lastActiveTime><locale>en</locale><messageLocale>en</messageLocale></UserSession><UserSession\
+        \ xsi:type=\"UserSession\"><key>52f75b35-b3c9-966c-5c22-dbabaa047f4e</key><userName>dcui</userName><fullName></fullName><loginTime>2017-02-07T01:30:02.050752Z</loginTime><lastActiveTime>2017-02-11T01:55:01.886166Z</lastActiveTime><locale>en</locale><messageLocale>en</messageLocale></UserSession></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['1824']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Sat, 11 Feb 2017 01:55:57 GMT']
+    status: {code: 200, message: OK}
+version: 1

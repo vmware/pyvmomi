@@ -15,26 +15,34 @@
 
 __author__ = "VMware, Inc."
 
+import logging
+
 from pyVim import connect
 
 class Connection():
     """
     A context connection object for use with pyVmomi that is thread-safe and multi-processor safe.
-    Upon leaving the context the session will be properly closed without impacting any other
-    potentially open sessions.
 
-    :Example:
-    from pyVim import context
-    
-    with context.Connection(host='my_host', pwd='my_password') as si:
-        server_time = si.CurrentTime()
-        print server_time
+
+with context.Connection(host='my_host', pwd='my_password') as si:
+    content = si.RetrieveContent()
+
+    container = content.rootFolder  # starting point to look into
+    viewType = [vim.VirtualMachine]  # object types to look for
+    recursive = True  # whether we should look into it recursively
+    containerView = content.viewManager.CreateContainerView(
+        container, viewType, recursive)
+
+    children = containerView.view
+    for child in children:
+        print("VM Name: ", child.summary.config.name)
 
     """
+
     def __init__(self, host='localhost', port=443, user='root', pwd='',
-            service="hostd", adapter="SOAP", namespace=None, path="/sdk",
-            version=None, keyFile=None, certFile=None, thumbprint=None,
-            sslContext=None, b64token=None, mechanism='userpass'):
+                 service="hostd", adapter="SOAP", namespace=None, path="/sdk",
+                 version=None, keyFile=None, certFile=None, thumbprint=None,
+                 sslContext=None, b64token=None, mechanism='userpass'):
         """
         Most values are optional. Specify the minimum values for your use case.
         :param host: default 'localhost' specify your host here
@@ -53,41 +61,49 @@ class Connection():
         :param b64token: specify if you have a Token such as the HoK Token
         :param mechanism: specify as either 'userpass' or 'sspi'
         """
+        self.si = None
+        self.open_count = 0
         self.host = host
         self.port = port
         self.user = user
         self.pwd = pwd
         self.service = service
-        self.adapter=adapter
-        self.namespace=namespace
-        self.path=path
-        self.version=version
-        self.keyFile=keyFile
-        self.certFile=certFile
-        self.thumbprint=thumbprint
-        self.sslContext=sslContext
-        self.b64token=b64token
-        self.mechanism=mechanism
+        self.adapter = adapter
+        self.namespace = namespace
+        self.path = path
+        self.version = version
+        self.keyFile = keyFile
+        self.certFile = certFile
+        self.thumbprint = thumbprint
+        self.sslContext = sslContext
+        self.b64token = b64token
+        self.mechanism = mechanism
 
     def __enter__(self):
-        self.si = Connection.open(host=self.host,port=self.port,user=self.user,pwd=self.pwd,service=self.service,
-                       adapter=self.adapter,namespace=self.namespace,path=self.path,version=self.version,
-                       keyFile=self.keyFile,certFile=self.certFile,thumbprint=self.thumbprint,
+        self.open_count += 1
+        if self.si is not None:
+            return self.si
+        self.si = open(host=self.host, port=self.port, user=self.user, pwd=self.pwd, service=self.service,
+                       adapter=self.adapter, namespace=self.namespace, path=self.path, version=self.version,
+                       keyFile=self.keyFile, certFile=self.certFile, thumbprint=self.thumbprint,
                        sslContext=self.sslContext, b64token=self.b64token, mechanism=self.mechanism)
         return self.si
 
     def __exit__(self, *args):
-        Connection.close(self.si)
+        if (self.open_count == 1):
+            close(self.si)
+            self.si = None
+        self.open_count -= 1
         return
 
-    @staticmethod
-    def open(host='localhost', port=443, user='root', pwd='',
-             service="hostd", adapter="SOAP", namespace=None, path="/sdk",
-             version=None, keyFile=None, certFile=None, thumbprint=None,
-             sslContext=None, b64token=None, mechanism='userpass'):
-        """
-        Parallel processing friendly version of connect creates a new service instance on each call. This means you have
-        to be very careful to close the session in your process or else you will create orphaned sessions on the server.
+
+def open(host='localhost', port=443, user='root', pwd='',
+         service="hostd", adapter="SOAP", namespace=None, path="/sdk",
+         version=None, keyFile=None, certFile=None, thumbprint=None,
+         sslContext=None, b64token=None, mechanism='userpass'):
+    """
+    Parallel processing friendly version of connect creates a new service instance on each call. This means you have
+    to be very careful to close the session in your process or else you will create orphaned sessions on the server.
 
         :param host: vSphere host to connect to
         :param port: port number if not 443
@@ -106,54 +122,60 @@ class Connection():
         :param mechanism: either the default username/password as 'userpass' or 'sspi'
         :return: your own copy of a session instance ... remember to close when finished!
         """
-        try:
-            info = connect.re.match(connect._rx, host)
-            if info is not None:
-                host = info.group(1)
-                if host[0] == '[':
-                    host = info.group(1)[1:-1]
-                if info.group(2) is not None:
-                    port = int(info.group(2)[1:])
-        except ValueError as ve:
-            pass
+    logging.debug("opening connection to vsphere")
 
-        sslContext = connect.localSslFixup(host, sslContext)
+    try:
+        info = connect.re.match(connect._rx, host)
+        if info is not None:
+            host = info.group(1)
+            if host[0] == '[':
+                host = info.group(1)[1:-1]
+            if info.group(2) is not None:
+                port = int(info.group(2)[1:])
+    except ValueError as ve:
+        logging.info(ve)
+        pass
 
-        if namespace:
-            assert (version is None)
-            version = connect.versionMap[namespace]
-        elif not version:
-            version = "vim.version.version6"
+    sslContext = connect.localSslFixup(host, sslContext)
 
+    if namespace:
+        assert (version is None)
+        version = connect.versionMap[namespace]
+    elif not version:
+        version = "vim.version.version6"
 
-        si, stub = None, None
-        if mechanism == 'userpass':
-            si, stub = connect.__Login(host, port, user, pwd, service, adapter, version, path,
-                                       keyFile, certFile, thumbprint, sslContext)
-        elif mechanism == 'sspi':
-            si, stub = connect.__LoginBySSPI(host, port, service, adapter, version, path,
-                                             keyFile, certFile, thumbprint, sslContext, b64token)
-        else:
-            raise Exception('''The provided connection mechanism is not available, the
-                      supported mechanisms are userpass or sspi''')
+    logging.debug("debug racksim.tools.async.open: active version = %(version)s", version=version)
 
+    si, stub = None, None
+    if mechanism == 'userpass':
+        si, stub = connect.__Login(host, port, user, pwd, service, adapter, version, path,
+                                   keyFile, certFile, thumbprint, sslContext)
+    elif mechanism == 'sspi':
+        si, stub = connect.__LoginBySSPI(host, port, service, adapter, version, path,
+                                         keyFile, certFile, thumbprint, sslContext, b64token)
+    else:
+        raise Exception('''The provided connection mechanism is not available, the
+                  supported mechanisms are userpass or sspi''')
 
-        return si
+    logging.debug("debug racksim.tools.async.open: connection complete.")
 
-    @staticmethod
-    def close(si):
-        """
-
-        :param si: the session instance aka connection instance
-        :return:
-        """
-        try:
-            if si:
-                content = si.RetrieveContent()
-                content.sessionManager.Logout()
-        except Exception as e:
-            pass
-
-        return
+    return si
 
 
+def close(si):
+    """
+
+    :param si: the session instance aka connection instance
+    :return:
+    """
+    logging.debug("disconnecting connection session key %(key)s", key=si.content.sessionManager.currentSession.key)
+    try:
+        if si:
+            content = si.RetrieveContent()
+            content.sessionManager.Logout()
+    except Exception as e:
+        logging.exception("Logout action returned error: %s", e)
+        pass
+
+    logging.debug("disconnected session")
+    return
