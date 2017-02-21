@@ -1384,6 +1384,11 @@ class SoapStubAdapter(SoapStubAdapterBase):
 
          for conn, _ in idleConnections:
             self._CloseConnection(conn)
+      else:
+         for conn, _ in self.pool:
+            self._CloseConnection(conn)
+
+         del self.pool[:]
 
    ## Get a HTTP connection from the pool
    def GetConnection(self):
