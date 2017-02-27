@@ -1,2 +1,4 @@
 requests>=2.3.0
 six>=1.7.3
+lxml
+pyOpenSSL >= 0.14
