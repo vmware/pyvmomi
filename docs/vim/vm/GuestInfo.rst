@@ -84,7 +84,7 @@ Attributes:
         * "shuttingdown" - Guest has a pending shutdown command.
         * "resetting" - Guest has a pending reset command.
         * "standby" - Guest has a pending standby command.
-        * "notrunning" - Guest is not running.
+        * "notRunning" - Guest is not running.
         * "unknown" - Guest information is not available.
         * 
     appHeartbeatStatus (`str`_, optional):
