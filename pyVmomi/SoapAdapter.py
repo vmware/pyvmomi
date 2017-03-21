@@ -448,7 +448,7 @@ class SoapSerializer:
             # a bug.
             val = val.decode(XML_ENCODING)
          result = XmlEscape(val)
-         self.writer.write('<{0}{1}>{2}</{0}>'.format(info.name, attr, result))
+         self.writer.write(u'<{0}{1}>{2}</{0}>'.format(info.name, attr, result))
 
    ## Serialize a a data object (internal)
    #
