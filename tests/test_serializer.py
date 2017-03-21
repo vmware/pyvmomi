@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 # VMware vSphere Python SDK
 # Copyright (c) 2008-2015 VMware, Inc. All Rights Reserved.
 #
@@ -39,6 +41,14 @@ class SerializerTests(tests.VCRTestBase):
         pc = vim.host.VsanInternalSystem.PolicyCost()
         pc.diskSpaceToAddressSpaceRatio = 1.0
         SoapAdapter.Serialize(pc, version='vim.version.version10')
+
+    def test_serialize_unicode(self):
+        self.assertEqual(SoapAdapter.SerializeToUnicode('Ḃ'),
+                         u'<object xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:vim25" xsi:type="xsd:string">\u1e02</object>')
+        self.assertEqual(SoapAdapter.SerializeToUnicode(u'Ḃ'),
+                         u'<object xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:vim25" xsi:type="xsd:string">\u1e02</object>')
+        self.assertEqual(SoapAdapter.SerializeToUnicode(u'\u1e02'),
+                         u'<object xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:vim25" xsi:type="xsd:string">\u1e02</object>')
 
     def _base_serialize_test(self, soap_creator, request_matcher):
         my_vcr = config.VCR(
@@ -99,3 +109,4 @@ class SerializerTests(tests.VCRTestBase):
             self._base_serialize_test(soap_creator, request_matcher)
         finally:
             GetRequestContext().pop("vcSessionCookie")
+
