@@ -1642,6 +1642,8 @@ class SessionOrientedStub(StubAdapterBase):
             if isinstance(e, self.SESSION_EXCEPTIONS):
                # Our session might've timed out, change our state and retry.
                self._SetStateUnauthenticated()
+               retriesLeft -= 1
+               continue
             else:
                raise e
          return obj
