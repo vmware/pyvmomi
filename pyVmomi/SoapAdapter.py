@@ -1289,6 +1289,30 @@ class SoapStubAdapter(SoapStubAdapterBase):
          yield
       finally:
          self.requestModifierList.pop()
+
+   def _connection(self, req, headers, fail_next=False):
+      conn = self.GetConnection()
+      try:
+         conn.request('POST', self.path, req, headers)
+         resp = conn.getresponse()
+      except http_client.BadStatusLine as exc:
+         # BadStatusLine can be thrown by httplib, if the server don't response
+         # properly, in which case it returns an empty string (more precisely "''")
+         # which leads to confused error messages. In that case, we should return
+         # None, and let InvokeMethod retry the query at a later time.
+
+         # The server is probably sick, drop all of the cached connections.
+         self.DropConnections()
+         if exc.line != "''" or (exc.line == "''" and fail_next is True):
+            raise
+         # otherwise hammertime!
+         return None, None
+      except (socket.error, http_client.HTTPException):
+         # The server is probably sick, drop all of the cached connections.
+         self.DropConnections()
+         raise
+      return conn, resp
+
    ## Invoke a managed method
    #
    # @param self self
@@ -1314,14 +1338,20 @@ class SoapStubAdapter(SoapStubAdapterBase):
       req = self.SerializeRequest(mo, info, args)
       for modifier in self.requestModifierList:
          req = modifier(req)
-      conn = self.GetConnection()
-      try:
-         conn.request('POST', self.path, req, headers)
-         resp = conn.getresponse()
-      except (socket.error, http_client.HTTPException):
-         # The server is probably sick, drop all of the cached connections.
-         self.DropConnections()
-         raise
+
+      max_retries = 100
+      num_retries = 0
+      retry = True
+      fail_next = False
+      while retry is True:
+         if num_retries == max_retries:
+            fail_next = True
+         conn, resp = self._connection(req, headers, fail_next)
+         if conn is not None:
+            retry = False
+         time.sleep(0.1)
+         num_retries += 1
+
       # NOTE (hartsocks): this cookie handling code should go away in a future
       # release. The string 'set-cookie' and 'Set-Cookie' but both are
       # acceptable, but the supporting library may have a bug making it
