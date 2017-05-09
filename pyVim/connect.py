@@ -46,13 +46,6 @@ See http://www.ietf.org/rfc/rfc3986.txt sec 3.2.2
 """
 _rx = re.compile(r"(^\[.+\]|[^:]+)(:\d+)?$")
 
-_si = None
-"""
-Global (thread-shared) ServiceInstance
-
-@todo: Get rid of me?
-"""
-
 
 def localSslFixup(host, sslContext):
     """
@@ -271,8 +264,6 @@ def Connect(host='localhost', port=443, user='root', pwd='',
       raise Exception('''The provided connection mechanism is not available, the
               supported mechanisms are userpass or sspi''')
 
-   SetSi(si)
-
    return si
 
 def ConnectNoSSL(host='localhost', port=443, user='root', pwd='',
@@ -314,7 +305,6 @@ def Disconnect(si):
    """
    # Logout
    __Logout(si)
-   SetSi(None)
 
 
 ## Method that gets a local ticket for the specified user
@@ -519,31 +509,6 @@ def __RetrieveContent(host, port, adapter, version, path, keyFile, certFile,
 
    return content, si, stub
 
-
-## Get the saved service instance.
-
-def GetSi():
-   """ Get the saved service instance. """
-   return _si
-
-
-## Set the saved service instance.
-
-def SetSi(si):
-   """ Set the saved service instance. """
-
-   global _si
-   _si = si
-
-
-## Get the global saved stub
-
-def GetStub():
-   """ Get the global saved stub. """
-   si = GetSi()
-   if si:
-      return si._GetStub()
-   return None;
 
 ## RAII-style class for managing connections
 
