@@ -70,22 +70,6 @@ For example, version v6.0.0 is most compatible with vSphere 6.0, 5.5, 5.1 and
 version number of v6.0.0 indicating that version of pyVmomi was released
 simultaneously with the *GA* version of vSphere with the same version number.
 
-Releases
-========
-* `6.5 <https://github.com/vmware/pyvmomi/tree/v6.5.0>`_
-   release notes https://github.com/vmware/pyvmomi/releases/tag/v6.5.0
-* `6.0.0.2016.4 <https://github.com/vmware/pyvmomi/tree/v6.0.0.2016.4>`_
-   release notes https://github.com/vmware/pyvmomi/releases/tag/v6.0.0.2016.4
-* `6.0.0 <https://github.com/vmware/pyvmomi/tree/v6.0.0>`_
-   release notes https://github.com/vmware/pyvmomi/releases/tag/v6.0.0
-* `5.5.0-2014.1.1 <https://github.com/vmware/pyvmomi/tree/v5.5.0-2014.1.1>`_
-   release notes https://github.com/vmware/pyvmomi/releases/tag/v5.5.0-2014.1.1 
-* `5.5.0-2014.1 <https://github.com/vmware/pyvmomi/tree/v5.5.0-2014.1>`_
-   release notes https://github.com/vmware/pyvmomi/releases/tag/v5.5.0-2014.1
-* `5.5.0 <https://github.com/vmware/pyvmomi/tree/v5.5.0>`_
-* `5.1.0 <https://github.com/vmware/pyvmomi/tree/v5.1.0>`_ 
-   release notes https://github.com/vmware/pyvmomi/releases/tag/v5.1.0
-
 Related Projects
 ================
 * VMware vSphere Automation SDK for Python: https://developercenter.vmware.com/web/sdk/65/vsphere-automation-python
