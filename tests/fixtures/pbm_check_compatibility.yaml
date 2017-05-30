@@ -1,0 +1,341 @@
+interactions:
+- request:
+    body: null
+    headers: {}
+    method: GET
+    uri: https://vcsa/sdk/vimServiceVersions.xml
+  response:
+    body: {string: !!python/unicode '<?xml version="1.0" encoding="UTF-8" ?><namespaces
+        version="1.0"><namespace><name>urn:vim25</name><version>6.5</version><priorVersions><version>6.0</version><version>5.5</version><version>5.1</version><version>5.0</version><version>4.1</version><version>4.0</version></priorVersions></namespace></namespaces>
+
+        '}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['309']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Tue, 30 May 2017 18:54:17 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+      <soapenv:Body><RetrieveServiceContent xmlns="urn:vim25"><_this type="ServiceInstance">ServiceInstance</_this></RetrieveServiceContent></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: ['']
+      SOAPAction: ['"urn:vim25/6.5"']
+      User-Agent: [pyvmomi]
+    method: POST
+    uri: https://vcsa/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrieveServiceContentResponse xmlns=\"urn:vim25\"><returnval><rootFolder\
+        \ type=\"Folder\">group-d1</rootFolder><propertyCollector type=\"PropertyCollector\"\
+        >propertyCollector</propertyCollector><viewManager type=\"ViewManager\">ViewManager</viewManager><about><name>VMware\
+        \ vCenter Server</name><fullName>VMware vCenter Server 6.5.0 build-4602587</fullName><vendor>VMware,\
+        \ Inc.</vendor><version>6.5.0</version><build>4602587</build><localeVersion>INTL</localeVersion><localeBuild>000</localeBuild><osType>linux-x64</osType><productLineId>vpx</productLineId><apiType>VirtualCenter</apiType><apiVersion>6.5</apiVersion><instanceUuid>e25de1d7-dfa2-4f32-8aab-4a81e37956d5</instanceUuid><licenseProductName>VMware\
+        \ VirtualCenter Server</licenseProductName><licenseProductVersion>6.0</licenseProductVersion></about><setting\
+        \ type=\"OptionManager\">VpxSettings</setting><userDirectory type=\"UserDirectory\"\
+        >UserDirectory</userDirectory><sessionManager type=\"SessionManager\">SessionManager</sessionManager><authorizationManager\
+        \ type=\"AuthorizationManager\">AuthorizationManager</authorizationManager><serviceManager\
+        \ type=\"ServiceManager\">ServiceMgr</serviceManager><perfManager type=\"\
+        PerformanceManager\">PerfMgr</perfManager><scheduledTaskManager type=\"ScheduledTaskManager\"\
+        >ScheduledTaskManager</scheduledTaskManager><alarmManager type=\"AlarmManager\"\
+        >AlarmManager</alarmManager><eventManager type=\"EventManager\">EventManager</eventManager><taskManager\
+        \ type=\"TaskManager\">TaskManager</taskManager><extensionManager type=\"\
+        ExtensionManager\">ExtensionManager</extensionManager><customizationSpecManager\
+        \ type=\"CustomizationSpecManager\">CustomizationSpecManager</customizationSpecManager><customFieldsManager\
+        \ type=\"CustomFieldsManager\">CustomFieldsManager</customFieldsManager><diagnosticManager\
+        \ type=\"DiagnosticManager\">DiagMgr</diagnosticManager><licenseManager type=\"\
+        LicenseManager\">LicenseManager</licenseManager><searchIndex type=\"SearchIndex\"\
+        >SearchIndex</searchIndex><fileManager type=\"FileManager\">FileManager</fileManager><datastoreNamespaceManager\
+        \ type=\"DatastoreNamespaceManager\">DatastoreNamespaceManager</datastoreNamespaceManager><virtualDiskManager\
+        \ type=\"VirtualDiskManager\">virtualDiskManager</virtualDiskManager><snmpSystem\
+        \ type=\"HostSnmpSystem\">SnmpSystem</snmpSystem><vmProvisioningChecker type=\"\
+        VirtualMachineProvisioningChecker\">ProvChecker</vmProvisioningChecker><vmCompatibilityChecker\
+        \ type=\"VirtualMachineCompatibilityChecker\">CompatChecker</vmCompatibilityChecker><ovfManager\
+        \ type=\"OvfManager\">OvfManager</ovfManager><ipPoolManager type=\"IpPoolManager\"\
+        >IpPoolManager</ipPoolManager><dvSwitchManager type=\"DistributedVirtualSwitchManager\"\
+        >DVSManager</dvSwitchManager><hostProfileManager type=\"HostProfileManager\"\
+        >HostProfileManager</hostProfileManager><clusterProfileManager type=\"ClusterProfileManager\"\
+        >ClusterProfileManager</clusterProfileManager><complianceManager type=\"ProfileComplianceManager\"\
+        >MoComplianceManager</complianceManager><localizationManager type=\"LocalizationManager\"\
+        >LocalizationManager</localizationManager><storageResourceManager type=\"\
+        StorageResourceManager\">StorageResourceManager</storageResourceManager><guestOperationsManager\
+        \ type=\"GuestOperationsManager\">guestOperationsManager</guestOperationsManager><overheadMemoryManager\
+        \ type=\"OverheadMemoryManager\">OverheadMemoryManager</overheadMemoryManager><certificateManager\
+        \ type=\"CertificateManager\">certificateManager</certificateManager><ioFilterManager\
+        \ type=\"IoFilterManager\">IoFilterManager</ioFilterManager><vStorageObjectManager\
+        \ type=\"VcenterVStorageObjectManager\">VStorageObjectManager</vStorageObjectManager><hostSpecManager\
+        \ type=\"HostSpecificationManager\">HostSpecificationManager</hostSpecManager><cryptoManager\
+        \ type=\"CryptoManagerKmip\">CryptoManager</cryptoManager><healthUpdateManager\
+        \ type=\"HealthUpdateManager\">HealthUpdateManager</healthUpdateManager><failoverClusterConfigurator\
+        \ type=\"FailoverClusterConfigurator\">FailoverClusterConfigurator</failoverClusterConfigurator><failoverClusterManager\
+        \ type=\"FailoverClusterManager\">FailoverClusterManager</failoverClusterManager></returnval></RetrieveServiceContentResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['4429']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Tue, 30 May 2017 18:54:17 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+      <soapenv:Body><Login xmlns="urn:vim25"><_this type="SessionManager">SessionManager</_this><userName>Administrator@vsphere.local</userName><password>Admin!23</password></Login></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: ['']
+      SOAPAction: ['"urn:vim25/6.5"']
+      User-Agent: [pyvmomi]
+    method: POST
+    uri: https://vcsa/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<LoginResponse xmlns=\"urn:vim25\"><returnval><key>525b4bc1-0386-9826-0a39-2ae64af71863</key><userName>VSPHERE.LOCAL\\\
+        Administrator</userName><fullName>Administrator vsphere.local</fullName><loginTime>2017-05-30T18:54:17.757925Z</loginTime><lastActiveTime>2017-05-30T18:54:17.757925Z</lastActiveTime><locale>en</locale><messageLocale>en</messageLocale><extensionSession>false</extensionSession><ipAddress>10.2.10.134</ipAddress><userAgent>pyvmomi</userAgent><callCount>0</callCount></returnval></LoginResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['834']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Tue, 30 May 2017 18:54:17 GMT']
+      set-cookie: [vmware_soap_session="bb15eed326ea9a307c1d50e9ff8e5c1048652b80";
+          Path=/; HttpOnly; Secure;]
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+      <soapenv:Header><vcSessionCookie>bb15eed326ea9a307c1d50e9ff8e5c1048652b80</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><PbmRetrieveServiceContent xmlns="urn:pbm"><_this type="PbmServiceInstance">ServiceInstance</_this></PbmRetrieveServiceContent></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: ['']
+      SOAPAction: ['"urn:pbm/6.5"']
+      User-Agent: [pyvmomi]
+    method: POST
+    uri: https://vcsa/pbm/sdk
+  response:
+    body: {string: !!python/unicode '<?xml version=''1.0'' encoding=''UTF-8''?><soapenv:Envelope
+        xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><soapenv:Body><PbmRetrieveServiceContentResponse
+        xmlns="urn:pbm" xmlns:pbm="urn:pbm"><returnval><aboutInfo><name>PBM</name><version>2.0</version><instanceUuid>##PBM_SERVER_GUID##</instanceUuid></aboutInfo><sessionManager
+        type="PbmSessionManager">SessionManager</sessionManager><capabilityMetadataManager
+        type="PbmCapabilityMetadataManager">CapabilityMetadataManager</capabilityMetadataManager><profileManager
+        type="PbmProfileProfileManager">ProfileManager</profileManager><complianceManager
+        type="PbmComplianceManager">complianceManager</complianceManager><placementSolver
+        type="PbmPlacementSolver">placementSolver</placementSolver><replicationManager
+        type="PbmReplicationManager">ReplicationManager</replicationManager></returnval></PbmRetrieveServiceContentResponse></soapenv:Body></soapenv:Envelope>'}
+    headers:
+      content-length: ['1073']
+      content-type: [text/xml;charset=utf-8]
+      date: ['Tue, 30 May 2017 18:54:17 GMT']
+      server: [Apache]
+      set-cookie: [vmware_soap_session=eaf572bd-e536-43de-9b48-e36542ad9d63; HttpOnly]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+      <soapenv:Header><vcSessionCookie>bb15eed326ea9a307c1d50e9ff8e5c1048652b80</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><PbmQueryProfile xmlns="urn:pbm"><_this type="PbmProfileProfileManager">ProfileManager</_this><resourceType><resourceType>STORAGE</resourceType></resourceType><profileCategory>REQUIREMENT</profileCategory></PbmQueryProfile></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session=eaf572bd-e536-43de-9b48-e36542ad9d63; HttpOnly]
+      SOAPAction: ['"urn:pbm/6.5"']
+      User-Agent: [pyvmomi]
+    method: POST
+    uri: https://vcsa/pbm/sdk
+  response:
+    body: {string: !!python/unicode '<?xml version=''1.0'' encoding=''UTF-8''?><soapenv:Envelope
+        xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><soapenv:Body><PbmQueryProfileResponse
+        xmlns="urn:pbm" xmlns:pbm="urn:pbm"><returnval><uniqueId>aa6d5a82-1c88-45da-85d3-3d74b91a5bad</uniqueId></returnval><returnval><uniqueId>f4e5bade-15a2-4805-bf8e-52318c4ce443</uniqueId></returnval><returnval><uniqueId>4d5f673c-536f-11e6-beb8-9e71128cae77</uniqueId></returnval><returnval><uniqueId>acb83785-c4ba-4eb9-9830-dd086941e9cd</uniqueId></returnval></PbmQueryProfileResponse></soapenv:Body></soapenv:Envelope>'}
+    headers:
+      content-length: ['726']
+      content-type: [text/xml;charset=utf-8]
+      date: ['Tue, 30 May 2017 18:57:09 GMT']
+      server: [Apache]
+      set-cookie: [vmware_soap_session=eaf572bd-e536-43de-9b48-e36542ad9d63; HttpOnly]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+      <soapenv:Header><vcSessionCookie>bb15eed326ea9a307c1d50e9ff8e5c1048652b80</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><PbmRetrieveContent xmlns="urn:pbm"><_this type="PbmProfileProfileManager">ProfileManager</_this><profileIds><uniqueId>aa6d5a82-1c88-45da-85d3-3d74b91a5bad</uniqueId></profileIds><profileIds><uniqueId>f4e5bade-15a2-4805-bf8e-52318c4ce443</uniqueId></profileIds><profileIds><uniqueId>4d5f673c-536f-11e6-beb8-9e71128cae77</uniqueId></profileIds><profileIds><uniqueId>acb83785-c4ba-4eb9-9830-dd086941e9cd</uniqueId></profileIds></PbmRetrieveContent></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session=eaf572bd-e536-43de-9b48-e36542ad9d63; HttpOnly]
+      SOAPAction: ['"urn:pbm/6.5"']
+      User-Agent: [pyvmomi]
+    method: POST
+    uri: https://vcsa/pbm/sdk
+  response:
+    body: {string: !!python/unicode '<?xml version=''1.0'' encoding=''UTF-8''?><soapenv:Envelope
+        xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><soapenv:Body><PbmRetrieveContentResponse
+        xmlns="urn:pbm" xmlns:pbm="urn:pbm"><returnval xsi:type="pbm:PbmCapabilityProfile"><profileId><uniqueId>aa6d5a82-1c88-45da-85d3-3d74b91a5bad</uniqueId></profileId><name>Virtual
+        SAN Default Storage Policy</name><description>Storage policy used as default
+        for Virtual SAN datastores</description><creationTime>2017-05-28T08:36:01.999Z</creationTime><createdBy>Temporary
+        user handle</createdBy><lastUpdatedTime>2017-05-28T08:36:01.999Z</lastUpdatedTime><lastUpdatedBy>Temporary
+        user handle</lastUpdatedBy><profileCategory>REQUIREMENT</profileCategory><resourceType><resourceType>STORAGE</resourceType></resourceType><constraints
+        xsi:type="pbm:PbmCapabilitySubProfileConstraints"><subProfiles><name>VSAN
+        sub-profile</name><capability><id><namespace>VSAN</namespace><id>hostFailuresToTolerate</id></id><constraint><propertyInstance><id>hostFailuresToTolerate</id><value
+        xsi:type="xsd:int">1</value></propertyInstance></constraint></capability><capability><id><namespace>VSAN</namespace><id>stripeWidth</id></id><constraint><propertyInstance><id>stripeWidth</id><value
+        xsi:type="xsd:int">1</value></propertyInstance></constraint></capability><capability><id><namespace>VSAN</namespace><id>forceProvisioning</id></id><constraint><propertyInstance><id>forceProvisioning</id><value
+        xsi:type="xsd:boolean">false</value></propertyInstance></constraint></capability><capability><id><namespace>VSAN</namespace><id>proportionalCapacity</id></id><constraint><propertyInstance><id>proportionalCapacity</id><value
+        xsi:type="xsd:int">0</value></propertyInstance></constraint></capability><capability><id><namespace>VSAN</namespace><id>cacheReservation</id></id><constraint><propertyInstance><id>cacheReservation</id><value
+        xsi:type="xsd:int">0</value></propertyInstance></constraint></capability></subProfiles></constraints><generationId>0</generationId><isDefault>false</isDefault><systemCreatedProfileType>VsanDefaultProfile</systemCreatedProfileType></returnval><returnval
+        xsi:type="pbm:PbmCapabilityProfile"><profileId><uniqueId>acb83785-c4ba-4eb9-9830-dd086941e9cd</uniqueId></profileId><name>test-profile</name><description></description><creationTime>2017-05-30T16:29:04.695Z</creationTime><createdBy>Temporary
+        user handle</createdBy><lastUpdatedTime>2017-05-30T16:31:25.898Z</lastUpdatedTime><lastUpdatedBy>Temporary
+        user handle</lastUpdatedBy><profileCategory>REQUIREMENT</profileCategory><resourceType><resourceType>STORAGE</resourceType></resourceType><constraints
+        xsi:type="pbm:PbmCapabilitySubProfileConstraints"><subProfiles><name>Rule-set
+        1</name><capability><id><namespace>http://www.vmware.com/storage/tag</namespace><id>test-tag-category</id></id><constraint><propertyInstance><id>com.vmware.storage.tag.test-tag-category.property</id><value
+        xsi:type="pbm:PbmCapabilityDiscreteSet"><values xsi:type="xsd:string">test-tag</values></value></propertyInstance></constraint></capability></subProfiles></constraints><generationId>1</generationId><isDefault>false</isDefault></returnval><returnval
+        xsi:type="pbm:PbmCapabilityProfile"><profileId><uniqueId>f4e5bade-15a2-4805-bf8e-52318c4ce443</uniqueId></profileId><name>VVol
+        No Requirements Policy</name><description>Allow the datastore to determine
+        the best placement strategy for storage objects</description><creationTime>2017-05-28T08:36:02.177Z</creationTime><createdBy>Temporary
+        user handle</createdBy><lastUpdatedTime>2017-05-28T08:36:02.177Z</lastUpdatedTime><lastUpdatedBy>Temporary
+        user handle</lastUpdatedBy><profileCategory>REQUIREMENT</profileCategory><resourceType><resourceType>STORAGE</resourceType></resourceType><constraints/><generationId>0</generationId><isDefault>false</isDefault><systemCreatedProfileType>VVolDefaultProfile</systemCreatedProfileType></returnval><returnval
+        xsi:type="pbm:PbmCapabilityProfile"><profileId><uniqueId>4d5f673c-536f-11e6-beb8-9e71128cae77</uniqueId></profileId><name>VM
+        Encryption Policy</name><description>Sample storage policy for VMware''s VM
+        and virtual disk encryption</description><creationTime>2017-05-28T08:36:02.407Z</creationTime><createdBy>Temporary
+        user handle</createdBy><lastUpdatedTime>2017-05-28T08:36:02.407Z</lastUpdatedTime><lastUpdatedBy>Temporary
+        user handle</lastUpdatedBy><profileCategory>REQUIREMENT</profileCategory><resourceType><resourceType>STORAGE</resourceType></resourceType><constraints
+        xsi:type="pbm:PbmCapabilitySubProfileConstraints"><subProfiles><name>sp-1</name><capability><id><namespace>com.vmware.storageprofile.dataservice</namespace><id>ad5a249d-cbc2-43af-9366-694d7664fa52</id></id><constraint><propertyInstance><id>ad5a249d-cbc2-43af-9366-694d7664fa52</id><value
+        xsi:type="xsd:string">ad5a249d-cbc2-43af-9366-694d7664fa52</value></propertyInstance></constraint></capability><forceProvision>false</forceProvision></subProfiles></constraints><generationId>0</generationId><isDefault>false</isDefault></returnval></PbmRetrieveContentResponse></soapenv:Body></soapenv:Envelope>'}
+    headers:
+      content-length: ['5223']
+      content-type: [text/xml;charset=utf-8]
+      date: ['Tue, 30 May 2017 18:59:47 GMT']
+      server: [Apache]
+      set-cookie: [vmware_soap_session=eaf572bd-e536-43de-9b48-e36542ad9d63; HttpOnly]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+
+      <soapenv:Header><vcSessionCookie>bb15eed326ea9a307c1d50e9ff8e5c1048652b80</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><PbmCheckCompatibility xmlns="urn:pbm"><_this type="PbmPlacementSolver">placementSolver</_this><profile><uniqueId>acb83785-c4ba-4eb9-9830-dd086941e9cd</uniqueId></profile></PbmCheckCompatibility></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session=eaf572bd-e536-43de-9b48-e36542ad9d63; HttpOnly]
+      SOAPAction: ['"urn:pbm/6.5"']
+      User-Agent: [pyvmomi]
+    method: POST
+    uri: https://vcsa/pbm/sdk
+  response:
+    body: {string: !!python/unicode '<?xml version=''1.0'' encoding=''UTF-8''?><soapenv:Envelope
+        xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><soapenv:Body><PbmCheckCompatibilityResponse
+        xmlns="urn:pbm" xmlns:pbm="urn:pbm"><returnval><hub><hubType>Datastore</hubType><hubId>datastore-29</hubId></hub><error
+        xsi:type="vim25:LocalizedMethodFault" xmlns:vim25="urn:vim25"><vim25:fault
+        xsi:type="pbm:PbmPropertyMismatchFault"><vim25:faultMessage><vim25:key>TagPropertyMismatchFault.locale</vim25:key><vim25:arg><vim25:key>KEY_0</vim25:key><vim25:value
+        xsi:type="xsd:string">test-tag</vim25:value></vim25:arg><vim25:arg><vim25:key>KEY_1</vim25:key><vim25:value
+        xsi:type="xsd:string">http://www.vmware.com/storage/tag</vim25:value></vim25:arg></vim25:faultMessage><hub><hubType>Datastore</hubType><hubId>datastore-29</hubId></hub><capabilityInstanceId><namespace>http://www.vmware.com/storage/tag</namespace><id>test-tag-category</id></capabilityInstanceId><requirementPropertyInstance><id>com.vmware.storage.tag.test-tag-category.property</id><value
+        xsi:type="pbm:PbmCapabilityDiscreteSet"><values xsi:type="xsd:string">test-tag</values></value></requirementPropertyInstance></vim25:fault><vim25:localizedMessage>Datastore
+        is incompatible, as it does not match all of the selected VM Storage Policy
+        rules: Tags with name (test-tag) not found on datastore.</vim25:localizedMessage></error></returnval><returnval><hub><hubType>Datastore</hubType><hubId>datastore-25</hubId></hub><error
+        xsi:type="vim25:LocalizedMethodFault" xmlns:vim25="urn:vim25"><vim25:fault
+        xsi:type="pbm:PbmPropertyMismatchFault"><vim25:faultMessage><vim25:key>TagPropertyMismatchFault.locale</vim25:key><vim25:arg><vim25:key>KEY_0</vim25:key><vim25:value
+        xsi:type="xsd:string">test-tag</vim25:value></vim25:arg><vim25:arg><vim25:key>KEY_1</vim25:key><vim25:value
+        xsi:type="xsd:string">http://www.vmware.com/storage/tag</vim25:value></vim25:arg></vim25:faultMessage><hub><hubType>Datastore</hubType><hubId>datastore-25</hubId></hub><capabilityInstanceId><namespace>http://www.vmware.com/storage/tag</namespace><id>test-tag-category</id></capabilityInstanceId><requirementPropertyInstance><id>com.vmware.storage.tag.test-tag-category.property</id><value
+        xsi:type="pbm:PbmCapabilityDiscreteSet"><values xsi:type="xsd:string">test-tag</values></value></requirementPropertyInstance></vim25:fault><vim25:localizedMessage>Datastore
+        is incompatible, as it does not match all of the selected VM Storage Policy
+        rules: Tags with name (test-tag) not found on datastore.</vim25:localizedMessage></error></returnval><returnval><hub><hubType>Datastore</hubType><hubId>datastore-23</hubId></hub><error
+        xsi:type="vim25:LocalizedMethodFault" xmlns:vim25="urn:vim25"><vim25:fault
+        xsi:type="pbm:PbmPropertyMismatchFault"><vim25:faultMessage><vim25:key>TagPropertyMismatchFault.locale</vim25:key><vim25:arg><vim25:key>KEY_0</vim25:key><vim25:value
+        xsi:type="xsd:string">test-tag</vim25:value></vim25:arg><vim25:arg><vim25:key>KEY_1</vim25:key><vim25:value
+        xsi:type="xsd:string">http://www.vmware.com/storage/tag</vim25:value></vim25:arg></vim25:faultMessage><hub><hubType>Datastore</hubType><hubId>datastore-23</hubId></hub><capabilityInstanceId><namespace>http://www.vmware.com/storage/tag</namespace><id>test-tag-category</id></capabilityInstanceId><requirementPropertyInstance><id>com.vmware.storage.tag.test-tag-category.property</id><value
+        xsi:type="pbm:PbmCapabilityDiscreteSet"><values xsi:type="xsd:string">test-tag</values></value></requirementPropertyInstance></vim25:fault><vim25:localizedMessage>Datastore
+        is incompatible, as it does not match all of the selected VM Storage Policy
+        rules: Tags with name (test-tag) not found on datastore.</vim25:localizedMessage></error></returnval><returnval><hub><hubType>Datastore</hubType><hubId>datastore-28</hubId></hub><error
+        xsi:type="vim25:LocalizedMethodFault" xmlns:vim25="urn:vim25"><vim25:fault
+        xsi:type="pbm:PbmPropertyMismatchFault"><vim25:faultMessage><vim25:key>TagPropertyMismatchFault.locale</vim25:key><vim25:arg><vim25:key>KEY_0</vim25:key><vim25:value
+        xsi:type="xsd:string">test-tag</vim25:value></vim25:arg><vim25:arg><vim25:key>KEY_1</vim25:key><vim25:value
+        xsi:type="xsd:string">http://www.vmware.com/storage/tag</vim25:value></vim25:arg></vim25:faultMessage><hub><hubType>Datastore</hubType><hubId>datastore-28</hubId></hub><capabilityInstanceId><namespace>http://www.vmware.com/storage/tag</namespace><id>test-tag-category</id></capabilityInstanceId><requirementPropertyInstance><id>com.vmware.storage.tag.test-tag-category.property</id><value
+        xsi:type="pbm:PbmCapabilityDiscreteSet"><values xsi:type="xsd:string">test-tag</values></value></requirementPropertyInstance></vim25:fault><vim25:localizedMessage>Datastore
+        is incompatible, as it does not match all of the selected VM Storage Policy
+        rules: Tags with name (test-tag) not found on datastore.</vim25:localizedMessage></error></returnval><returnval><hub><hubType>Datastore</hubType><hubId>datastore-26</hubId></hub><error
+        xsi:type="vim25:LocalizedMethodFault" xmlns:vim25="urn:vim25"><vim25:fault
+        xsi:type="pbm:PbmPropertyMismatchFault"><vim25:faultMessage><vim25:key>TagPropertyMismatchFault.locale</vim25:key><vim25:arg><vim25:key>KEY_0</vim25:key><vim25:value
+        xsi:type="xsd:string">test-tag</vim25:value></vim25:arg><vim25:arg><vim25:key>KEY_1</vim25:key><vim25:value
+        xsi:type="xsd:string">http://www.vmware.com/storage/tag</vim25:value></vim25:arg></vim25:faultMessage><hub><hubType>Datastore</hubType><hubId>datastore-26</hubId></hub><capabilityInstanceId><namespace>http://www.vmware.com/storage/tag</namespace><id>test-tag-category</id></capabilityInstanceId><requirementPropertyInstance><id>com.vmware.storage.tag.test-tag-category.property</id><value
+        xsi:type="pbm:PbmCapabilityDiscreteSet"><values xsi:type="xsd:string">test-tag</values></value></requirementPropertyInstance></vim25:fault><vim25:localizedMessage>Datastore
+        is incompatible, as it does not match all of the selected VM Storage Policy
+        rules: Tags with name (test-tag) not found on datastore.</vim25:localizedMessage></error></returnval><returnval><hub><hubType>Datastore</hubType><hubId>datastore-24</hubId></hub><error
+        xsi:type="vim25:LocalizedMethodFault" xmlns:vim25="urn:vim25"><vim25:fault
+        xsi:type="pbm:PbmPropertyMismatchFault"><vim25:faultMessage><vim25:key>TagPropertyMismatchFault.locale</vim25:key><vim25:arg><vim25:key>KEY_0</vim25:key><vim25:value
+        xsi:type="xsd:string">test-tag</vim25:value></vim25:arg><vim25:arg><vim25:key>KEY_1</vim25:key><vim25:value
+        xsi:type="xsd:string">http://www.vmware.com/storage/tag</vim25:value></vim25:arg></vim25:faultMessage><hub><hubType>Datastore</hubType><hubId>datastore-24</hubId></hub><capabilityInstanceId><namespace>http://www.vmware.com/storage/tag</namespace><id>test-tag-category</id></capabilityInstanceId><requirementPropertyInstance><id>com.vmware.storage.tag.test-tag-category.property</id><value
+        xsi:type="pbm:PbmCapabilityDiscreteSet"><values xsi:type="xsd:string">test-tag</values></value></requirementPropertyInstance></vim25:fault><vim25:localizedMessage>Datastore
+        is incompatible, as it does not match all of the selected VM Storage Policy
+        rules: Tags with name (test-tag) not found on datastore.</vim25:localizedMessage></error></returnval><returnval><hub><hubType>Datastore</hubType><hubId>datastore-22</hubId></hub><error
+        xsi:type="vim25:LocalizedMethodFault" xmlns:vim25="urn:vim25"><vim25:fault
+        xsi:type="pbm:PbmPropertyMismatchFault"><vim25:faultMessage><vim25:key>TagPropertyMismatchFault.locale</vim25:key><vim25:arg><vim25:key>KEY_0</vim25:key><vim25:value
+        xsi:type="xsd:string">test-tag</vim25:value></vim25:arg><vim25:arg><vim25:key>KEY_1</vim25:key><vim25:value
+        xsi:type="xsd:string">http://www.vmware.com/storage/tag</vim25:value></vim25:arg></vim25:faultMessage><hub><hubType>Datastore</hubType><hubId>datastore-22</hubId></hub><capabilityInstanceId><namespace>http://www.vmware.com/storage/tag</namespace><id>test-tag-category</id></capabilityInstanceId><requirementPropertyInstance><id>com.vmware.storage.tag.test-tag-category.property</id><value
+        xsi:type="pbm:PbmCapabilityDiscreteSet"><values xsi:type="xsd:string">test-tag</values></value></requirementPropertyInstance></vim25:fault><vim25:localizedMessage>Datastore
+        is incompatible, as it does not match all of the selected VM Storage Policy
+        rules: Tags with name (test-tag) not found on datastore.</vim25:localizedMessage></error></returnval></PbmCheckCompatibilityResponse></soapenv:Body></soapenv:Envelope>'}
+    headers:
+      content-type: [text/xml;charset=utf-8]
+      date: ['Tue, 30 May 2017 19:01:33 GMT']
+      server: [Apache]
+      set-cookie: [vmware_soap_session=eaf572bd-e536-43de-9b48-e36542ad9d63; HttpOnly]
+    status: {code: 200, message: OK}
+version: 1
