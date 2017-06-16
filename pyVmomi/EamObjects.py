@@ -1,5 +1,5 @@
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
-from pyVmomi.VmomiSupport import import CreateDataType, CreateManagedType, CreateEnumType, AddVersion, AddVersionParent, F_LINK, F_LINKABLE, F_OPTIONAL, F_SECRET
+from pyVmomi.VmomiSupport import CreateDataType, CreateManagedType, CreateEnumType, AddVersion, AddVersionParent, F_LINK, F_LINKABLE, F_OPTIONAL, F_SECRET
 from pyVmomi.VmomiSupport import newestVersions, currentVersions, stableVersions, matureVersions, publicVersions, oldestVersions
 
 AddVersion("vmodl.query.version.version1", "", "", 0, "vim25")
