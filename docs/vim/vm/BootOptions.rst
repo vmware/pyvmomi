@@ -27,10 +27,10 @@ Attributes:
        Delay in milliseconds before starting the boot sequence. The boot delay specifies a time interval between virtual machine power on or restart and the beginning of the boot sequence.
     enterBIOSSetup (`bool`_, optional):
 
-       If set totrue, the virtual machine automatically enters BIOS setup the next time it boots. The virtual machine resets this flag tofalseso that subsequent boots proceed normally.
+       If set to true, the virtual machine automatically enters BIOS setup the next time it boots. The virtual machine resets this flag tofalseso that subsequent boots proceed normally.
     bootRetryEnabled (`bool`_, optional):
 
-       If set totrue, a virtual machine that fails to boot will try again after the `bootRetryDelay`_ time period has expired. Whenfalse, the virtual machine waits indefinitely for you to initiate boot retry.
+       If set to true, a virtual machine that fails to boot will try again after the `bootRetryDelay`_ time period has expired. Whenfalse, the virtual machine waits indefinitely for you to initiate boot retry.
     bootRetryDelay (`long`_, optional):
 
        Delay in milliseconds before a boot retry. The boot retry delay specifies a time interval between virtual machine boot failure and the subsequent attempt to boot again. The virtual machine uses this value only if `bootRetryEnabled`_ is true.
