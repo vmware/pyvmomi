@@ -1194,7 +1194,7 @@ class SoapStubAdapter(SoapStubAdapterBase):
                 thumbprint=None, cacertsFile=None, version=None,
                 acceptCompressedResponses=True,
                 connectionPoolTimeout=CONNECTION_POOL_IDLE_TIMEOUT_SEC,
-                samlToken=None, sslContext=None, requestContext=None):
+                samlToken=None, sslContext=None, requestContext=None, socketTimeout=None):
       if ns:
          assert(version is None)
          version = versionMap[ns]
@@ -1250,6 +1250,8 @@ class SoapStubAdapter(SoapStubAdapterBase):
       self.connectionPoolTimeout = connectionPoolTimeout
       self.lock = threading.Lock()
       self.schemeArgs = {}
+      if socketTimeout:
+         self.schemeArgs['timeout'] = socketTimeout
       if certKeyFile:
          self.schemeArgs['key_file'] = certKeyFile
       if certFile:
