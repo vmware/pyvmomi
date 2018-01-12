@@ -1187,6 +1187,7 @@ class SoapStubAdapter(SoapStubAdapterBase):
    # @param samlToken SAML Token that should be used in SOAP security header for login
    # @param sslContext SSL Context describing the various SSL options. It is only
    #                   supported in Python 2.7.9 or higher.
+   # @param socketTimeout timeout for socket
    def __init__(self, host='localhost', port=443, ns=None, path='/sdk',
                 url=None, sock=None, poolSize=5,
                 certFile=None, certKeyFile=None,
