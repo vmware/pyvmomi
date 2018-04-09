@@ -61,10 +61,13 @@ class Vcenter():
         atexit.register(Disconnect, self.si)
         self.content = self.si.RetrieveContent()
         self.children = self.content.rootFolder.childEntity
+        
     def retrieveContent(self):
         return self.content
+    
     def retrieveChildren(self):
         return self.children
+    
     def getNICs(self, summary, guest):
         nics = {}
         for nic in guest.net:
@@ -79,6 +82,7 @@ class Vcenter():
                             nics[nic.macAddress]['prefix'] = ip.prefixLength
                             nics[nic.macAddress]['connected'] = nic.connected
         return nics
+    
     def diskInfo(self, summary):
         if not hasattr(summary, 'storage'):
             return "0"
@@ -99,6 +103,7 @@ class Vcenter():
         vmsum['annotation'] = config.annotation if config.annotation else ''
         vmsum['net'] = net
         return vmsum
+    
     def retrieveVMs(self):
         for child in self.children:  # Iterate though DataCenters
             dc = child
