@@ -65,9 +65,6 @@ class Vcenter():
         return self.content
     def retrieveChildren(self):
         return self.children
-    
-    
-    
     def getNICs(self, summary, guest):
         nics = {}
         for nic in guest.net:
@@ -82,8 +79,6 @@ class Vcenter():
                             nics[nic.macAddress]['prefix'] = ip.prefixLength
                             nics[nic.macAddress]['connected'] = nic.connected
         return nics
-    
-    
     def diskInfo(self, summary):
         if not hasattr(summary, 'storage'):
             return "0"
@@ -92,7 +87,6 @@ class Vcenter():
         return int(summary.storage.committed / 1024**3)   
     
     def vmsummary(self, summary, guest):
-        
         vmsum = {}
         config = summary.config
         net = self.getNICs(summary, guest)
@@ -105,7 +99,6 @@ class Vcenter():
         vmsum['annotation'] = config.annotation if config.annotation else ''
         vmsum['net'] = net
         return vmsum
-    
     def retrieveVMs(self):
         for child in self.children:  # Iterate though DataCenters
             dc = child
@@ -130,8 +123,7 @@ class Vcenter():
                         annotation = summary['annotation']
                         state = summary['state']
                         disk = summary['diskGB']
-                        clustername = cluster.name
-                                                
+                        clustername = cluster.name                        
                         vmSerializedData = {"name": vmname, "vcpus": vcpus, "memory": memory, "network": network, "os": os,
                                           "path": path, "comment": annotation, "state": state, "disk": disk, 
                                           "hostname": hostname, "cluster": clustername, "DC": dc.name}
