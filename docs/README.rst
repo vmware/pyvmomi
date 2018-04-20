@@ -1,4 +1,4 @@
-[DEPRECATED] The API specs listed here are obsolete. Please refer to VMware vSphere API Reference(http://pubs.vmware.com/vsphere-65/index.jsp?topic=%2Fcom.vmware.wssdk.apiref.doc%2Fright-pane.html) for the latest API specs.
+[DEPRECATED] The API specs listed here are obsolete. Please refer to VMware vSphere API Reference(https://code.vmware.com/apis/358/vsphere) for the latest API specs.
 
 
 .. _vim.vm.Message: vim/vm/Message.rst
