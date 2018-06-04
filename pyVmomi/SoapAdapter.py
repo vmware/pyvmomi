@@ -24,6 +24,7 @@ from six import iteritems
 
 import sys
 import os
+import platform
 import socket
 import subprocess
 import time
@@ -93,6 +94,12 @@ WSSE_HEADER_END = "</{0}>".format(WSSE_HEADER_TAG)
 MethodFault = GetVmodlType("vmodl.MethodFault")
 ## Localized MethodFault type
 LocalizedMethodFault = GetVmodlType("vmodl.LocalizedMethodFault")
+
+# These info are included in the http user-agent header
+PYTHON_VERSION = platform.python_version()
+OS_NAME = platform.uname()[0]
+OS_VERSION = platform.uname()[2]
+OS_ARCH = platform.uname()[4]
 
 ## Thumbprint mismatch exception
 #
@@ -1308,7 +1315,8 @@ class SoapStubAdapter(SoapStubAdapterBase):
       headers = {'Cookie' : self.cookie,
                  'SOAPAction' : self.versionId,
                  'Content-Type': 'text/xml; charset={0}'.format(XML_ENCODING),
-                 'User-Agent' : 'pyvmomi'}
+                 'User-Agent': 'pyvmomi Python/{0} ({1}; {2}; {3})'.
+                    format(PYTHON_VERSION, OS_NAME, OS_VERSION, OS_ARCH)}
       if self._acceptCompressedResponses:
          headers['Accept-Encoding'] = 'gzip, deflate'
       req = self.SerializeRequest(mo, info, args)
