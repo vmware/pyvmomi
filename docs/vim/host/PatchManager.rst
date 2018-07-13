@@ -80,20 +80,20 @@ CheckHostPatch(metaUrls, bundleUrls, spec):
 
   Returns:
      `vim.Task`_:
-         
+
 
   Raises:
 
-    `vmodl.fault.RequestCanceled`_: 
+    `vmodl.fault.RequestCanceled`_:
        if the operation is canceled.
 
-    `vim.fault.InvalidState`_: 
+    `vim.fault.InvalidState`_:
        If the feature cannot be supported on the platform, potentially because the hardware configuration does not support it.
 
-    `vim.fault.TaskInProgress`_: 
+    `vim.fault.TaskInProgress`_:
        if there is already a patch installation in progress.
 
-    `vim.fault.PlatformConfigFault`_: 
+    `vim.fault.PlatformConfigFault`_:
        if any error occurs during the operation. More detailed information will be returned within the payload of the exception as xml string.
 
 
@@ -119,17 +119,17 @@ ScanHostPatch(repository, updateID):
 
   Returns:
      `vim.Task`_:
-         
+
 
   Raises:
 
-    `vmodl.fault.RequestCanceled`_: 
+    `vmodl.fault.RequestCanceled`_:
        if the operation is canceled.
 
-    `vim.fault.PatchMetadataInvalid`_: 
+    `vim.fault.PatchMetadataInvalid`_:
        if query required metadata is invalid--for example, it is not found in the repository, is corrupted and so on. Typically a more specific subclass of PatchMetadataInvalid is thrown.
 
-    `vim.fault.PlatformConfigFault`_: 
+    `vim.fault.PlatformConfigFault`_:
        if there is any error in the repository access, metadata download, repository level integrity check, or reading the metadata. See `text`_ for specific details.
 
 
@@ -159,20 +159,20 @@ ScanHostPatchV2(metaUrls, bundleUrls, spec):
 
   Returns:
      `vim.Task`_:
-         
+
 
   Raises:
 
-    `vmodl.fault.RequestCanceled`_: 
+    `vmodl.fault.RequestCanceled`_:
        if the operation is canceled.
 
-    `vim.fault.InvalidState`_: 
+    `vim.fault.InvalidState`_:
        If the feature cannot be supported on the platform, potentially because the hardware configuration does not support it.
 
-    `vim.fault.TaskInProgress`_: 
+    `vim.fault.TaskInProgress`_:
        if there is already a patch installation in progress.
 
-    `vim.fault.PlatformConfigFault`_: 
+    `vim.fault.PlatformConfigFault`_:
        if there is any error in the repository access, metadata download, repository level integrity check, or reading the metadata. See `text`_ for specific details.
 
 
@@ -206,20 +206,20 @@ StageHostPatch(metaUrls, bundleUrls, vibUrls, spec):
 
   Returns:
      `vim.Task`_:
-         
+
 
   Raises:
 
-    `vmodl.fault.RequestCanceled`_: 
+    `vmodl.fault.RequestCanceled`_:
        if the operation is canceled.
 
-    `vim.fault.InvalidState`_: 
+    `vim.fault.InvalidState`_:
        If the feature cannot be supported on the platform, potentially because the hardware configuration does not support it.
 
-    `vim.fault.TaskInProgress`_: 
+    `vim.fault.TaskInProgress`_:
        if there is already a patch installation in progress.
 
-    `vim.fault.PlatformConfigFault`_: 
+    `vim.fault.PlatformConfigFault`_:
        if any error occurs during the operation. More detailed information will be returned within the payload of the exception as xml string.
 
 
@@ -242,39 +242,39 @@ InstallHostPatch(repository, updateID, force):
 
 
     force (`bool`_, optional):
-       Specify whether to force reinstall an update. By default, installing an already-installed update would fail with the `PatchAlreadyInstalled`_ fault. If force is set to true, the update will be forcifully reinstalled, thus overwriting the already installed update.
+       Specify whether to force reinstall an update. By default, installing an already-installed update would fail with the `PatchAlreadyInstalled`_ fault. If force is set to true, the update will be forcefully reinstalled, thus overwriting the already installed update.
 
 
 
 
   Returns:
      `vim.Task`_:
-         
+
 
   Raises:
 
-    `vim.fault.PatchMetadataInvalid`_: 
-       if the requried metadata is invalid--for example, it is not found in the repository, is corrupted and so on. Typically a more specific subclass of PatchMetadataInvalid is thrown.
+    `vim.fault.PatchMetadataInvalid`_:
+       if the required metadata is invalid--for example, it is not found in the repository, is corrupted and so on. Typically a more specific subclass of PatchMetadataInvalid is thrown.
 
-    `vim.fault.PatchBinariesNotFound`_: 
+    `vim.fault.PatchBinariesNotFound`_:
        if required update related binaries were not available.
 
-    `vim.fault.PatchNotApplicable`_: 
+    `vim.fault.PatchNotApplicable`_:
        if the patch is not applicable. Typically a more specific subclass of PatchNotApplicable is thrown to indicate a specific problem--for example, PatchSuperseded if the patch is superseded, MissingDependency if required patch or libraries are not installed, AlreadyInstalled if the patch is already installed.
 
-    `vim.fault.NoDiskSpace`_: 
-       if the update can not be installed because there is insufficent disk space for the installation, including temporary space used for rollback.
+    `vim.fault.NoDiskSpace`_:
+       if the update can not be installed because there is insufficient disk space for the installation, including temporary space used for rollback.
 
-    `vim.fault.PatchInstallFailed`_: 
+    `vim.fault.PatchInstallFailed`_:
        if the installation failed, `text`_ has details of the failure. Automatic rollback might have succeeded or failed.
 
-    `vim.fault.RebootRequired`_: 
+    `vim.fault.RebootRequired`_:
        if the update cannot be installed without restarting the host. This might occur on account of a prior update installation which needed to be installed separately from other updates.
 
-    `vim.fault.InvalidState`_: 
+    `vim.fault.InvalidState`_:
        if the host is not in maintenance mode but the patch install requires all virtual machines to be powered off.
 
-    `vim.fault.TaskInProgress`_: 
+    `vim.fault.TaskInProgress`_:
        if there is already a patch installation in progress.
 
 
@@ -308,20 +308,20 @@ InstallHostPatchV2(metaUrls, bundleUrls, vibUrls, spec):
 
   Returns:
      `vim.Task`_:
-         
+
 
   Raises:
 
-    `vmodl.fault.RequestCanceled`_: 
+    `vmodl.fault.RequestCanceled`_:
        Thrown if the operation is canceled.
 
-    `vim.fault.InvalidState`_: 
+    `vim.fault.InvalidState`_:
        If the feature cannot be supported on the platform, potentially because the hardware configuration does not support it.
 
-    `vim.fault.TaskInProgress`_: 
+    `vim.fault.TaskInProgress`_:
        if there is already a patch installation in progress.
 
-    `vim.fault.PlatformConfigFault`_: 
+    `vim.fault.PlatformConfigFault`_:
        vim.fault.PlatformConfigFault
 
 
@@ -347,17 +347,17 @@ UninstallHostPatch(bulletinIds, spec):
 
   Returns:
      `vim.Task`_:
-         
+
 
   Raises:
 
-    `vim.fault.InvalidState`_: 
+    `vim.fault.InvalidState`_:
        If the feature cannot be supported on the platform, potentially because the hardware configuration does not support it.
 
-    `vim.fault.TaskInProgress`_: 
+    `vim.fault.TaskInProgress`_:
        if there is already a patch installation in progress.
 
-    `vim.fault.PlatformConfigFault`_: 
+    `vim.fault.PlatformConfigFault`_:
        vim.fault.PlatformConfigFault
 
 
@@ -379,20 +379,18 @@ QueryHostPatch(spec):
 
   Returns:
      `vim.Task`_:
-         
+
 
   Raises:
 
-    `vmodl.fault.RequestCanceled`_: 
+    `vmodl.fault.RequestCanceled`_:
        vmodl.fault.RequestCanceled
 
-    `vim.fault.InvalidState`_: 
+    `vim.fault.InvalidState`_:
        If the bulletin ID did not exist.
 
-    `vim.fault.TaskInProgress`_: 
+    `vim.fault.TaskInProgress`_:
        if there is already a patch installation in progress.
 
-    `vim.fault.PlatformConfigFault`_: 
+    `vim.fault.PlatformConfigFault`_:
        vim.fault.PlatformConfigFault
-
-

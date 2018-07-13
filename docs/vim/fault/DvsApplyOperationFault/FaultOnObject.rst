@@ -9,7 +9,7 @@
 
 vim.fault.DvsApplyOperationFault.FaultOnObject
 ==============================================
-  The fault occured during an apply operation.
+  The fault occurred during an apply operation.
 :extends: vmodl.DynamicData_
 :since: `vSphere API 5.1`_
 
@@ -22,4 +22,4 @@ Attributes:
        The Type of the objects.
     fault (`vmodl.LocalizedMethodFault`_):
 
-       The fault that occured.
+       The fault that occurred.

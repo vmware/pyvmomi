@@ -168,7 +168,7 @@ win2000ProGuest
    Windows 2000 Professional
 
 winMeGuest
-   Windows Millenium Edition
+   Windows Millennium Edition
 
 eComStation2Guest
    eComStation 2.0

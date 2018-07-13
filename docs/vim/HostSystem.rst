@@ -185,7 +185,7 @@ QueryTpmAttestationReport():
 
   Returns:
     `vim.host.TpmAttestationReport`_:
-         
+
 
 
 QueryHostConnectionInfo():
@@ -202,7 +202,7 @@ QueryHostConnectionInfo():
 
   Returns:
     `vim.host.ConnectInfo`_:
-         
+
 
 
 UpdateSystemResources(resourceInfo):
@@ -222,16 +222,16 @@ UpdateSystemResources(resourceInfo):
 
   Returns:
     None
-         
+
 
   Raises:
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument`_:
        if the resource specification is invalid.
 
 
 UpdateSystemSwapConfiguration(sysSwapConfig):
-   Update the System Swap Configuration.See `HostSystemSwapConfiguration`_ 
+   Update the System Swap Configuration.See `HostSystemSwapConfiguration`_
   since: `vSphere API 5.1`_
 
 
@@ -242,23 +242,23 @@ UpdateSystemSwapConfiguration(sysSwapConfig):
 
   Args:
     sysSwapConfig (`vim.host.SystemSwapConfiguration`_):
-       Contains a list of system swap options that configure the system swap functionality.See `HostSystemSwapConfiguration`_ 
+       Contains a list of system swap options that configure the system swap functionality.See `HostSystemSwapConfiguration`_
 
 
 
 
   Returns:
     None
-         
+
 
   Raises:
 
-    `vmodl.fault.InvalidArgument`_: 
-       if the supplied sysSwapConfig is not correct.See `HostSystemSwapConfiguration`_ 
+    `vmodl.fault.InvalidArgument`_:
+       if the supplied sysSwapConfig is not correct.See `HostSystemSwapConfiguration`_
 
 
 ReconnectHost(cnxSpec, reconnectSpec):
-   Reconnects to a host. This process reinstalls agents and reconfigures the host, if it has gotten out of date with VirtualCenter. The reconnection process goes through many of the same steps as addHost: ensuring the correct set of licenses for the number of CPUs on the host, ensuring the correct set of agents is installed, and ensuring that networks and datastores are discovered and registered with VirtualCenter.The client can change the IP address and port of the host when doing a reconnect operation. This can be useful if the client wants to preserve existing metadata, even though the host is changing its IP address. For example, clients could preserve existing statistics, alarms, and privileges.This method can also be used to change the SSL thumbprint of a connected host without disconnecting it.Any changes made to the resource hierarchy on the host when the host was disconnected are overriden by VirtualCenter settings on reconnect.This method is only supported through VirtualCenter.
+   Reconnects to a host. This process reinstalls agents and reconfigures the host, if it has gotten out of date with VirtualCenter. The reconnection process goes through many of the same steps as addHost: ensuring the correct set of licenses for the number of CPUs on the host, ensuring the correct set of agents is installed, and ensuring that networks and datastores are discovered and registered with VirtualCenter.The client can change the IP address and port of the host when doing a reconnect operation. This can be useful if the client wants to preserve existing metadata, even though the host is changing its IP address. For example, clients could preserve existing statistics, alarms, and privileges.This method can also be used to change the SSL thumbprint of a connected host without disconnecting it.Any changes made to the resource hierarchy on the host when the host was disconnected are overridden by VirtualCenter settings on reconnect.This method is only supported through VirtualCenter.
 
 
   Privilege:
@@ -279,38 +279,38 @@ ReconnectHost(cnxSpec, reconnectSpec):
 
   Returns:
      `vim.Task`_:
-         
+
 
   Raises:
 
-    `vim.fault.InvalidLogin`_: 
+    `vim.fault.InvalidLogin`_:
        if the method fails to authenticate with the host.
 
-    `vim.fault.InvalidState`_: 
+    `vim.fault.InvalidState`_:
        if the host is not disconnected.
 
-    `vim.fault.InvalidName`_: 
+    `vim.fault.InvalidName`_:
        if the host name is invalid.
 
-    `vim.fault.HostConnectFault`_: 
+    `vim.fault.HostConnectFault`_:
        if an error occurred when attempting to reconnect to a host. Typically, a more specific subclass, such as AlreadyBeingManaged, is thrown.
 
-    `vmodl.fault.NotSupported`_: 
+    `vmodl.fault.NotSupported`_:
        if no host can be added to this group. This is the case if the ComputeResource is a standalone type.
 
-    `vim.fault.AlreadyBeingManaged`_: 
+    `vim.fault.AlreadyBeingManaged`_:
        if host is already being managed by another VirtualCenter server
 
-    `vmodl.fault.NotEnoughLicenses`_: 
+    `vmodl.fault.NotEnoughLicenses`_:
        if there are not enough licenses to add this host.
 
-    `vim.fault.NoHost`_: 
+    `vim.fault.NoHost`_:
        if the method is unable to contact the server.
 
-    `vim.fault.NotSupportedHost`_: 
+    `vim.fault.NotSupportedHost`_:
        if the host is running a software version that is not supported.
 
-    `vim.fault.SSLVerifyFault`_: 
+    `vim.fault.SSLVerifyFault`_:
        if the host certificate could not be authenticated.
 
 
@@ -328,11 +328,11 @@ DisconnectHost():
 
   Returns:
      `vim.Task`_:
-         
+
 
   Raises:
 
-    `vmodl.fault.NotSupported`_: 
+    `vmodl.fault.NotSupported`_:
        if run directly on an ESX Server host.
 
 
@@ -362,17 +362,17 @@ EnterMaintenanceMode(timeout, evacuatePoweredOffVms, maintenanceSpec):
 
   Returns:
      `vim.Task`_:
-         
+
 
   Raises:
 
-    `vim.fault.InvalidState`_: 
+    `vim.fault.InvalidState`_:
        if the host is already in maintenance mode.
 
-    `vim.fault.Timedout`_: 
+    `vim.fault.Timedout`_:
        if the operation timed out.
 
-    `vmodl.fault.RequestCanceled`_: 
+    `vmodl.fault.RequestCanceled`_:
        if the operation is canceled.
 
 
@@ -394,14 +394,14 @@ ExitMaintenanceMode(timeout):
 
   Returns:
      `vim.Task`_:
-         
+
 
   Raises:
 
-    `vim.fault.InvalidState`_: 
+    `vim.fault.InvalidState`_:
        if the host is not in maintenance mode.
 
-    `vim.fault.Timedout`_: 
+    `vim.fault.Timedout`_:
        vim.fault.Timedout
 
 
@@ -423,14 +423,14 @@ RebootHost(force):
 
   Returns:
      `vim.Task`_:
-         
+
 
   Raises:
 
-    `vim.fault.InvalidState`_: 
+    `vim.fault.InvalidState`_:
        if "force" is false and the host is not in maintenance mode.
 
-    `vmodl.fault.NotSupported`_: 
+    `vmodl.fault.NotSupported`_:
        if the host does not support the reboot operation.
 
 
@@ -452,14 +452,14 @@ ShutdownHost(force):
 
   Returns:
      `vim.Task`_:
-         
+
 
   Raises:
 
-    `vim.fault.InvalidState`_: 
+    `vim.fault.InvalidState`_:
        if "force" is false and the host is not in maintenance mode.
 
-    `vmodl.fault.NotSupported`_: 
+    `vmodl.fault.NotSupported`_:
        if the host does not support shutdown.
 
 
@@ -486,23 +486,23 @@ PowerDownHostToStandBy(timeoutSec, evacuatePoweredOffVms):
 
   Returns:
      `vim.Task`_:
-         
+
 
   Raises:
 
-    `vim.fault.HostPowerOpFailed`_: 
+    `vim.fault.HostPowerOpFailed`_:
        if the standby operation fails.
 
-    `vim.fault.InvalidState`_: 
+    `vim.fault.InvalidState`_:
        if the host is already in standby mode, or disconnected.
 
-    `vmodl.fault.NotSupported`_: 
+    `vmodl.fault.NotSupported`_:
        if the host does not support standby mode.
 
-    `vim.fault.Timedout`_: 
+    `vim.fault.Timedout`_:
        vim.fault.Timedout
 
-    `vmodl.fault.RequestCanceled`_: 
+    `vmodl.fault.RequestCanceled`_:
        if the operation is canceled.
 
 
@@ -525,23 +525,23 @@ PowerUpHostFromStandBy(timeoutSec):
 
   Returns:
      `vim.Task`_:
-         
+
 
   Raises:
 
-    `vim.fault.HostPowerOpFailed`_: 
+    `vim.fault.HostPowerOpFailed`_:
        if the standby operation fails.
 
-    `vim.fault.InvalidState`_: 
+    `vim.fault.InvalidState`_:
        if the host is in a state from which it cannot be woken up (e.g., disconnected, poweredOff)
 
-    `vmodl.fault.NotSupported`_: 
+    `vmodl.fault.NotSupported`_:
        if the host does not support standby mode.
 
-    `vim.fault.Timedout`_: 
+    `vim.fault.Timedout`_:
        vim.fault.Timedout
 
-    `vmodl.fault.RequestCanceled`_: 
+    `vmodl.fault.RequestCanceled`_:
        if the operation is canceled.
 
 
@@ -575,7 +575,7 @@ QueryMemoryOverhead(memorySize, videoRamSize, numVcpus):
 
   Raises:
 
-    `vmodl.fault.NotSupported`_: 
+    `vmodl.fault.NotSupported`_:
        if the host does not have memory resource allocation features.
 
 
@@ -602,7 +602,7 @@ QueryMemoryOverheadEx(vmConfigInfo):
 
   Raises:
 
-    `vmodl.fault.NotSupported`_: 
+    `vmodl.fault.NotSupported`_:
        if the host does not have memory resource allocation features.
 
 
@@ -620,14 +620,14 @@ ReconfigureHostForDAS():
 
   Returns:
      `vim.Task`_:
-         
+
 
   Raises:
 
-    `vim.fault.DasConfigFault`_: 
+    `vim.fault.DasConfigFault`_:
        if there is a problem reconfiguring the host for HA.
 
-    `vmodl.fault.NotSupported`_: 
+    `vmodl.fault.NotSupported`_:
        if run directly on an ESX Server host.
 
 
@@ -649,11 +649,11 @@ UpdateFlags(flagInfo):
 
   Returns:
     None
-         
+
 
 
 EnterLockdownMode():
-   Modifies the permissions on the host, so that it will only be accessible through local console or an authorized centralized management application. Any user defined permissions found on the host are lost.Access via a VI client connected to the host is blocked. Access though other services running on the host is also blocked.If the operation is successful, `adminDisabled`_ will be set to true. This API is not supported on the host, If invoked directly on a host, a NotSupported fault will be thrown.See `AuthorizationManager`_ 
+   Modifies the permissions on the host, so that it will only be accessible through local console or an authorized centralized management application. Any user defined permissions found on the host are lost.Access via a VI client connected to the host is blocked. Access though other services running on the host is also blocked.If the operation is successful, `adminDisabled`_ will be set to true. This API is not supported on the host, If invoked directly on a host, a NotSupported fault will be thrown.See `AuthorizationManager`_
   since: `vSphere API 4.1`_
 
 
@@ -667,22 +667,22 @@ EnterLockdownMode():
 
   Returns:
     None
-         
+
 
   Raises:
 
-    `vim.fault.HostConfigFault`_: 
-       See `AuthorizationManager`_ 
+    `vim.fault.HostConfigFault`_:
+       See `AuthorizationManager`_
 
-    `vim.fault.AdminDisabled`_: 
-       If the host's Administrator permission has been disabled.See `AuthorizationManager`_ 
+    `vim.fault.AdminDisabled`_:
+       If the host's Administrator permission has been disabled.See `AuthorizationManager`_
 
-    `vim.fault.DisableAdminNotSupported`_: 
-       If invoked directly on the host or the host doesn't support this operation.See `AuthorizationManager`_ 
+    `vim.fault.DisableAdminNotSupported`_:
+       If invoked directly on the host or the host doesn't support this operation.See `AuthorizationManager`_
 
 
 ExitLockdownMode():
-   Restores Administrator permission for the local administrative account for the host that was removed by prior call to `EnterLockdownMode`_ . If the operation is successful, `adminDisabled`_ will be set to false. This API is not supported on the host. If invoked directly on a host, a NotSupported fault will be thrown.See `AuthorizationManager`_ 
+   Restores Administrator permission for the local administrative account for the host that was removed by prior call to `EnterLockdownMode`_ . If the operation is successful, `adminDisabled`_ will be set to false. This API is not supported on the host. If invoked directly on a host, a NotSupported fault will be thrown.See `AuthorizationManager`_
   since: `vSphere API 4.1`_
 
 
@@ -696,18 +696,18 @@ ExitLockdownMode():
 
   Returns:
     None
-         
+
 
   Raises:
 
-    `vim.fault.HostConfigFault`_: 
-       See `AuthorizationManager`_ 
+    `vim.fault.HostConfigFault`_:
+       See `AuthorizationManager`_
 
-    `vim.fault.DisableAdminNotSupported`_: 
-       If invoked directly on the host or the host doesn't support this operation.See `AuthorizationManager`_ 
+    `vim.fault.DisableAdminNotSupported`_:
+       If invoked directly on the host or the host doesn't support this operation.See `AuthorizationManager`_
 
-    `vim.fault.AdminNotDisabled`_: 
-       If the host's Administrator permission is not disabled.See `AuthorizationManager`_ 
+    `vim.fault.AdminNotDisabled`_:
+       If the host's Administrator permission is not disabled.See `AuthorizationManager`_
 
 
 AcquireCimServicesTicket():
@@ -725,7 +725,7 @@ AcquireCimServicesTicket():
 
   Returns:
     `vim.HostServiceTicket`_:
-         
+
 
 
 UpdateIpmi(ipmiInfo):
@@ -746,14 +746,14 @@ UpdateIpmi(ipmiInfo):
 
   Returns:
     None
-         
+
 
   Raises:
 
-    `vim.fault.InvalidIpmiLoginInfo`_: 
+    `vim.fault.InvalidIpmiLoginInfo`_:
        if the supplied user ID and/or password is invalid.
 
-    `vim.fault.InvalidIpmiMacAddress`_: 
+    `vim.fault.InvalidIpmiMacAddress`_:
        if the supplied MAC address is invalid.
 
 
@@ -772,6 +772,3 @@ RetrieveHardwareUptime():
 
   Returns:
     `long`_:
-         
-
-

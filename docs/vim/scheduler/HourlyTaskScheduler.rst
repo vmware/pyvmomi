@@ -15,4 +15,4 @@ vim.scheduler.HourlyTaskScheduler
 Attributes:
     minute (`int`_):
 
-       The minute at which the `RecurrentTaskScheduler`_ runs the task. Specify the minute value as a UTC (Coordinated Univeral Time) value in the range 0 to 59.For vCenter 2.x and prior releases, use the server's local time. For example, use Australia Northern Territory (UTC +9:30) or Indian (UTC +5:30) time values, rather than a UTC value.
+       The minute at which the `RecurrentTaskScheduler`_ runs the task. Specify the minute value as a UTC (Coordinated Universal Time) value in the range 0 to 59.For vCenter 2.x and prior releases, use the server's local time. For example, use Australia Northern Territory (UTC +9:30) or Indian (UTC +5:30) time values, rather than a UTC value.

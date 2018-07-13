@@ -106,44 +106,44 @@ MakeDirectoryInGuest(vm, auth, directoryPath, createParentDirectories):
 
   Returns:
     None
-         
+
 
   Raises:
 
-    `vim.fault.GuestOperationsFault`_: 
+    `vim.fault.GuestOperationsFault`_:
        if there is an error processing a guest operation.
 
-    `vim.fault.InvalidState`_: 
+    `vim.fault.InvalidState`_:
        if the operation cannot be performed because of the virtual machine's current state.
 
-    `vim.fault.TaskInProgress`_: 
+    `vim.fault.TaskInProgress`_:
        if the virtual machine is busy.
 
-    `vim.fault.FileFault`_: 
+    `vim.fault.FileFault`_:
        if there is a file error in the guest operating system.
 
-    `vim.fault.GuestOperationsUnavailable`_: 
+    `vim.fault.GuestOperationsUnavailable`_:
        if the VM agent for guest operations is not running.
 
-    `vim.fault.InvalidPowerState`_: 
+    `vim.fault.InvalidPowerState`_:
        if the VM is not powered on.
 
-    `vim.fault.GuestPermissionDenied`_: 
+    `vim.fault.GuestPermissionDenied`_:
        if the directory cannot be created because the guest authentication will not allow the operation.
 
-    `vim.fault.InvalidGuestLogin`_: 
+    `vim.fault.InvalidGuestLogin`_:
        if the the guest authentication information was not accepted.
 
-    `vim.fault.FileAlreadyExists`_: 
+    `vim.fault.FileAlreadyExists`_:
        if the specified object already exists.
 
-    `vim.fault.GuestComponentsOutOfDate`_: 
+    `vim.fault.GuestComponentsOutOfDate`_:
        if the guest agent is too old to support the operation.
 
-    `vim.fault.OperationNotSupportedByGuest`_: 
+    `vim.fault.OperationNotSupportedByGuest`_:
        if the operation is not supported by the guest OS.
 
-    `vim.fault.OperationDisabledByGuest`_: 
+    `vim.fault.OperationDisabledByGuest`_:
        if the operation is not enabled due to guest agent configuration.
 
 
@@ -172,44 +172,44 @@ DeleteFileInGuest(vm, auth, filePath):
 
   Returns:
     None
-         
+
 
   Raises:
 
-    `vim.fault.GuestOperationsFault`_: 
+    `vim.fault.GuestOperationsFault`_:
        if there is an error processing a guest operation.
 
-    `vim.fault.InvalidState`_: 
+    `vim.fault.InvalidState`_:
        if the operation cannot be performed because of the virtual machine's current state.
 
-    `vim.fault.TaskInProgress`_: 
+    `vim.fault.TaskInProgress`_:
        if the virtual machine is busy.
 
-    `vim.fault.FileFault`_: 
+    `vim.fault.FileFault`_:
        if there is a file error in the guest operating system.
 
-    `vim.fault.GuestOperationsUnavailable`_: 
+    `vim.fault.GuestOperationsUnavailable`_:
        if the VM agent for guest operations is not running.
 
-    `vim.fault.InvalidPowerState`_: 
+    `vim.fault.InvalidPowerState`_:
        if the VM is not powered on.
 
-    `vim.fault.GuestPermissionDenied`_: 
+    `vim.fault.GuestPermissionDenied`_:
        if the operation fails because the guest authentication will not allow the operation.
 
-    `vim.fault.InvalidGuestLogin`_: 
+    `vim.fault.InvalidGuestLogin`_:
        if the the guest authentication information was not accepted.
 
-    `vim.fault.NotAFile`_: 
+    `vim.fault.NotAFile`_:
        if the specified object is not a file.
 
-    `vim.fault.GuestComponentsOutOfDate`_: 
+    `vim.fault.GuestComponentsOutOfDate`_:
        if the guest agent is too old to support the operation.
 
-    `vim.fault.OperationNotSupportedByGuest`_: 
+    `vim.fault.OperationNotSupportedByGuest`_:
        if the operation is not supported by the guest OS.
 
-    `vim.fault.OperationDisabledByGuest`_: 
+    `vim.fault.OperationDisabledByGuest`_:
        if the operation is not enabled due to guest agent configuration.
 
 
@@ -242,44 +242,44 @@ DeleteDirectoryInGuest(vm, auth, directoryPath, recursive):
 
   Returns:
     None
-         
+
 
   Raises:
 
-    `vim.fault.GuestOperationsFault`_: 
+    `vim.fault.GuestOperationsFault`_:
        if there is an error processing a guest operation.
 
-    `vim.fault.InvalidState`_: 
+    `vim.fault.InvalidState`_:
        if the operation cannot be performed because of the virtual machine's current state.
 
-    `vim.fault.TaskInProgress`_: 
+    `vim.fault.TaskInProgress`_:
        if the virtual machine is busy.
 
-    `vim.fault.FileFault`_: 
+    `vim.fault.FileFault`_:
        if there is a file error in the guest operating system.
 
-    `vim.fault.GuestOperationsUnavailable`_: 
+    `vim.fault.GuestOperationsUnavailable`_:
        if the VM agent for guest operations is not running.
 
-    `vim.fault.InvalidPowerState`_: 
+    `vim.fault.InvalidPowerState`_:
        if the VM is not powered on.
 
-    `vim.fault.GuestPermissionDenied`_: 
+    `vim.fault.GuestPermissionDenied`_:
        if the operation fails because the guest authentication will not allow the operation.
 
-    `vim.fault.InvalidGuestLogin`_: 
+    `vim.fault.InvalidGuestLogin`_:
        if the the guest authentication information was not accepted.
 
-    `vim.fault.NotADirectory`_: 
+    `vim.fault.NotADirectory`_:
        if the specified object is not a directory.
 
-    `vim.fault.GuestComponentsOutOfDate`_: 
+    `vim.fault.GuestComponentsOutOfDate`_:
        if the guest agent is too old to support the operation.
 
-    `vim.fault.OperationNotSupportedByGuest`_: 
+    `vim.fault.OperationNotSupportedByGuest`_:
        if the operation is not supported by the guest OS.
 
-    `vim.fault.OperationDisabledByGuest`_: 
+    `vim.fault.OperationDisabledByGuest`_:
        if the operation is not enabled due to guest agent configuration.
 
 
@@ -312,41 +312,41 @@ MoveDirectoryInGuest(vm, auth, srcDirectoryPath, dstDirectoryPath):
 
   Returns:
     None
-         
+
 
   Raises:
 
-    `vim.fault.GuestOperationsFault`_: 
+    `vim.fault.GuestOperationsFault`_:
        if there is an error processing a guest operation.
 
-    `vim.fault.InvalidState`_: 
+    `vim.fault.InvalidState`_:
        if the operation cannot be performed because of the virtual machine's current state.
 
-    `vim.fault.TaskInProgress`_: 
+    `vim.fault.TaskInProgress`_:
        if the virtual machine is busy.
 
-    `vim.fault.FileFault`_: 
+    `vim.fault.FileFault`_:
        if there is a file error in the guest operating system.
 
-    `vim.fault.GuestOperationsUnavailable`_: 
+    `vim.fault.GuestOperationsUnavailable`_:
        if the VM agent for guest operations is not running.
 
-    `vim.fault.InvalidPowerState`_: 
+    `vim.fault.InvalidPowerState`_:
        if the VM is not powered on.
 
-    `vim.fault.GuestPermissionDenied`_: 
+    `vim.fault.GuestPermissionDenied`_:
        if the operation fails because the guest authentication will not allow the operation.
 
-    `vim.fault.InvalidGuestLogin`_: 
+    `vim.fault.InvalidGuestLogin`_:
        if the the guest authentication information was not accepted.
 
-    `vim.fault.GuestComponentsOutOfDate`_: 
+    `vim.fault.GuestComponentsOutOfDate`_:
        if the guest agent is too old to support the operation.
 
-    `vim.fault.OperationNotSupportedByGuest`_: 
+    `vim.fault.OperationNotSupportedByGuest`_:
        if the operation is not supported by the guest OS.
 
-    `vim.fault.OperationDisabledByGuest`_: 
+    `vim.fault.OperationDisabledByGuest`_:
        if the operation is not enabled due to guest agent configuration.
 
 
@@ -383,41 +383,41 @@ MoveFileInGuest(vm, auth, srcFilePath, dstFilePath, overwrite):
 
   Returns:
     None
-         
+
 
   Raises:
 
-    `vim.fault.GuestOperationsFault`_: 
+    `vim.fault.GuestOperationsFault`_:
        if there is an error processing a guest operation.
 
-    `vim.fault.InvalidState`_: 
+    `vim.fault.InvalidState`_:
        if the operation cannot be performed because of the virtual machine's current state.
 
-    `vim.fault.TaskInProgress`_: 
+    `vim.fault.TaskInProgress`_:
        if the virtual machine is busy.
 
-    `vim.fault.FileFault`_: 
+    `vim.fault.FileFault`_:
        if there is a file error in the guest operating system.
 
-    `vim.fault.GuestOperationsUnavailable`_: 
+    `vim.fault.GuestOperationsUnavailable`_:
        if the VM agent for guest operations is not running.
 
-    `vim.fault.InvalidPowerState`_: 
+    `vim.fault.InvalidPowerState`_:
        if the VM is not powered on.
 
-    `vim.fault.GuestPermissionDenied`_: 
+    `vim.fault.GuestPermissionDenied`_:
        if the operation fails because the guest authentication will not allow the operation.
 
-    `vim.fault.InvalidGuestLogin`_: 
+    `vim.fault.InvalidGuestLogin`_:
        if the the guest authentication information was not accepted.
 
-    `vim.fault.GuestComponentsOutOfDate`_: 
+    `vim.fault.GuestComponentsOutOfDate`_:
        if the guest agent is too old to support the operation.
 
-    `vim.fault.OperationNotSupportedByGuest`_: 
+    `vim.fault.OperationNotSupportedByGuest`_:
        if the operation is not supported by the guest OS.
 
-    `vim.fault.OperationDisabledByGuest`_: 
+    `vim.fault.OperationDisabledByGuest`_:
        if the operation is not enabled due to guest agent configuration.
 
 
@@ -458,37 +458,37 @@ CreateTemporaryFileInGuest(vm, auth, prefix, suffix, directoryPath):
 
   Raises:
 
-    `vim.fault.GuestOperationsFault`_: 
+    `vim.fault.GuestOperationsFault`_:
        if there is an error processing a guest operation.
 
-    `vim.fault.InvalidState`_: 
+    `vim.fault.InvalidState`_:
        if the operation cannot be performed because of the virtual machine's current state.
 
-    `vim.fault.TaskInProgress`_: 
+    `vim.fault.TaskInProgress`_:
        if the virtual machine is busy.
 
-    `vim.fault.FileFault`_: 
+    `vim.fault.FileFault`_:
        if there is a file error in the guest operating system.
 
-    `vim.fault.GuestOperationsUnavailable`_: 
+    `vim.fault.GuestOperationsUnavailable`_:
        if the VM agent for guest operations is not running.
 
-    `vim.fault.InvalidPowerState`_: 
+    `vim.fault.InvalidPowerState`_:
        if the VM is not powered on.
 
-    `vim.fault.GuestPermissionDenied`_: 
+    `vim.fault.GuestPermissionDenied`_:
        if the operation fails because the guest authentication will not allow the operation.
 
-    `vim.fault.InvalidGuestLogin`_: 
+    `vim.fault.InvalidGuestLogin`_:
        if the the guest authentication information was not accepted.
 
-    `vim.fault.GuestComponentsOutOfDate`_: 
+    `vim.fault.GuestComponentsOutOfDate`_:
        if the guest agent is too old to support the operation.
 
-    `vim.fault.OperationNotSupportedByGuest`_: 
+    `vim.fault.OperationNotSupportedByGuest`_:
        if the operation is not supported by the guest OS.
 
-    `vim.fault.OperationDisabledByGuest`_: 
+    `vim.fault.OperationDisabledByGuest`_:
        if the operation is not enabled due to guest agent configuration.
 
 
@@ -529,42 +529,42 @@ CreateTemporaryDirectoryInGuest(vm, auth, prefix, suffix, directoryPath):
 
   Raises:
 
-    `vim.fault.GuestOperationsFault`_: 
+    `vim.fault.GuestOperationsFault`_:
        if there is an error processing a guest operation.
 
-    `vim.fault.InvalidState`_: 
+    `vim.fault.InvalidState`_:
        if the operation cannot be performed because of the virtual machine's current state.
 
-    `vim.fault.TaskInProgress`_: 
+    `vim.fault.TaskInProgress`_:
        if the virtual machine is busy.
 
-    `vim.fault.FileFault`_: 
+    `vim.fault.FileFault`_:
        if there is a file error in the guest operating system.
 
-    `vim.fault.GuestOperationsUnavailable`_: 
+    `vim.fault.GuestOperationsUnavailable`_:
        if the VM agent for guest operations is not running.
 
-    `vim.fault.InvalidPowerState`_: 
+    `vim.fault.InvalidPowerState`_:
        if the VM is not powered on.
 
-    `vim.fault.GuestPermissionDenied`_: 
+    `vim.fault.GuestPermissionDenied`_:
        if the operation fails because the guest authentication will not allow the operation.
 
-    `vim.fault.InvalidGuestLogin`_: 
+    `vim.fault.InvalidGuestLogin`_:
        if the the guest authentication information was not accepted.
 
-    `vim.fault.GuestComponentsOutOfDate`_: 
+    `vim.fault.GuestComponentsOutOfDate`_:
        if the guest agent is too old to support the operation.
 
-    `vim.fault.OperationNotSupportedByGuest`_: 
+    `vim.fault.OperationNotSupportedByGuest`_:
        if the operation is not supported by the guest OS.
 
-    `vim.fault.OperationDisabledByGuest`_: 
+    `vim.fault.OperationDisabledByGuest`_:
        if the operation is not enabled due to guest agent configuration.
 
 
 ListFilesInGuest(vm, auth, filePath, index, maxResults, matchPattern):
-   Returns information about files or directories in the guest.The results could be extermely large, so to minimize the size of the return value for cases where a UI only needs to show the first N results, the answer is batched. Files are returned in OS-specific (inode) order. If the directory is modified between queries, missing or duplicate results can occur.
+   Returns information about files or directories in the guest.The results could be extremely large, so to minimize the size of the return value for cases where a UI only needs to show the first N results, the answer is batched. Files are returned in OS-specific (inode) order. If the directory is modified between queries, missing or duplicate results can occur.
 
 
   Privilege:
@@ -604,40 +604,40 @@ ListFilesInGuest(vm, auth, filePath, index, maxResults, matchPattern):
 
   Raises:
 
-    `vim.fault.GuestOperationsFault`_: 
+    `vim.fault.GuestOperationsFault`_:
        if there is an error processing a guest operation.
 
-    `vim.fault.InvalidState`_: 
+    `vim.fault.InvalidState`_:
        if the operation cannot be performed because of the virtual machine's current state.
 
-    `vim.fault.TaskInProgress`_: 
+    `vim.fault.TaskInProgress`_:
        if the virtual machine is busy.
 
-    `vim.fault.FileFault`_: 
+    `vim.fault.FileFault`_:
        vim.fault.FileFault
 
-    `vim.fault.GuestOperationsUnavailable`_: 
+    `vim.fault.GuestOperationsUnavailable`_:
        if the VM agent for guest operations is not running.
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument`_:
        If the matchPattern is an invalid regular expression.
 
-    `vim.fault.InvalidPowerState`_: 
+    `vim.fault.InvalidPowerState`_:
        if the VM is not powered on.
 
-    `vim.fault.GuestPermissionDenied`_: 
+    `vim.fault.GuestPermissionDenied`_:
        if the operation fails because the guest authentication will not allow the operation.
 
-    `vim.fault.InvalidGuestLogin`_: 
+    `vim.fault.InvalidGuestLogin`_:
        if the the guest authentication information was not accepted.
 
-    `vim.fault.GuestComponentsOutOfDate`_: 
+    `vim.fault.GuestComponentsOutOfDate`_:
        if the guest agent is too old to support the operation.
 
-    `vim.fault.OperationNotSupportedByGuest`_: 
+    `vim.fault.OperationNotSupportedByGuest`_:
        if the operation is not supported by the guest OS.
 
-    `vim.fault.OperationDisabledByGuest`_: 
+    `vim.fault.OperationDisabledByGuest`_:
        if the operation is not enabled due to guest agent configuration.
 
 
@@ -670,41 +670,41 @@ ChangeFileAttributesInGuest(vm, auth, guestFilePath, fileAttributes):
 
   Returns:
     None
-         
+
 
   Raises:
 
-    `vim.fault.GuestOperationsFault`_: 
+    `vim.fault.GuestOperationsFault`_:
        if there is an error processing a guest operation.
 
-    `vim.fault.InvalidState`_: 
+    `vim.fault.InvalidState`_:
        if the operation cannot be performed because of the virtual machine's current state.
 
-    `vim.fault.TaskInProgress`_: 
+    `vim.fault.TaskInProgress`_:
        if the virtual machine is busy.
 
-    `vim.fault.FileFault`_: 
+    `vim.fault.FileFault`_:
        if there is a file error in the guest operating system.
 
-    `vim.fault.GuestOperationsUnavailable`_: 
+    `vim.fault.GuestOperationsUnavailable`_:
        if the VM agent for guest operations is not running.
 
-    `vim.fault.InvalidPowerState`_: 
+    `vim.fault.InvalidPowerState`_:
        if the VM is not powered on.
 
-    `vim.fault.GuestPermissionDenied`_: 
+    `vim.fault.GuestPermissionDenied`_:
        if the operation fails because the guest authentication will not allow the operation.
 
-    `vim.fault.InvalidGuestLogin`_: 
+    `vim.fault.InvalidGuestLogin`_:
        if the the guest authentication information was not accepted.
 
-    `vim.fault.GuestComponentsOutOfDate`_: 
+    `vim.fault.GuestComponentsOutOfDate`_:
        if the guest agent is too old to support the operation.
 
-    `vim.fault.OperationNotSupportedByGuest`_: 
+    `vim.fault.OperationNotSupportedByGuest`_:
        if the operation is not supported by the guest OS.
 
-    `vim.fault.OperationDisabledByGuest`_: 
+    `vim.fault.OperationDisabledByGuest`_:
        if the operation is not enabled due to guest agent configuration.
 
 
@@ -737,37 +737,37 @@ InitiateFileTransferFromGuest(vm, auth, guestFilePath):
 
   Raises:
 
-    `vim.fault.GuestOperationsFault`_: 
+    `vim.fault.GuestOperationsFault`_:
        if there is an error processing a guest operation.
 
-    `vim.fault.InvalidState`_: 
+    `vim.fault.InvalidState`_:
        if the operation cannot be performed because of the virtual machine's current state.
 
-    `vim.fault.TaskInProgress`_: 
+    `vim.fault.TaskInProgress`_:
        if the virtual machine is busy.
 
-    `vim.fault.FileFault`_: 
+    `vim.fault.FileFault`_:
        if there is a file error in the guest operating system.
 
-    `vim.fault.GuestOperationsUnavailable`_: 
+    `vim.fault.GuestOperationsUnavailable`_:
        if the VM agent for guest operations is not running.
 
-    `vim.fault.InvalidPowerState`_: 
+    `vim.fault.InvalidPowerState`_:
        if the VM is not powered on.
 
-    `vim.fault.GuestPermissionDenied`_: 
+    `vim.fault.GuestPermissionDenied`_:
        if the operation fails because the guest authentication will not allow the operation.
 
-    `vim.fault.InvalidGuestLogin`_: 
+    `vim.fault.InvalidGuestLogin`_:
        if the the guest authentication information was not accepted.
 
-    `vim.fault.GuestComponentsOutOfDate`_: 
+    `vim.fault.GuestComponentsOutOfDate`_:
        If the guest agent is too old to support the operation.
 
-    `vim.fault.OperationNotSupportedByGuest`_: 
+    `vim.fault.OperationNotSupportedByGuest`_:
        If the operation is not supported by the guest OS.
 
-    `vim.fault.OperationDisabledByGuest`_: 
+    `vim.fault.OperationDisabledByGuest`_:
        If the operation is not enabled due to guest agent configuration.
 
 
@@ -812,37 +812,35 @@ InitiateFileTransferToGuest(vm, auth, guestFilePath, fileAttributes, fileSize, o
 
   Raises:
 
-    `vim.fault.GuestOperationsFault`_: 
+    `vim.fault.GuestOperationsFault`_:
        if there is an error processing a guest operation.
 
-    `vim.fault.InvalidState`_: 
+    `vim.fault.InvalidState`_:
        if the operation cannot be performed because of the virtual machine's current state.
 
-    `vim.fault.TaskInProgress`_: 
+    `vim.fault.TaskInProgress`_:
        if the virtual machine is busy.
 
-    `vim.fault.FileFault`_: 
+    `vim.fault.FileFault`_:
        if there is a file error in the guest operating system.
 
-    `vim.fault.GuestOperationsUnavailable`_: 
+    `vim.fault.GuestOperationsUnavailable`_:
        if the VM agent for guest operations is not running.
 
-    `vim.fault.InvalidPowerState`_: 
+    `vim.fault.InvalidPowerState`_:
        if the VM is not powered on.
 
-    `vim.fault.GuestPermissionDenied`_: 
+    `vim.fault.GuestPermissionDenied`_:
        if the operation fails because the guest authentication will not allow the operation.
 
-    `vim.fault.InvalidGuestLogin`_: 
+    `vim.fault.InvalidGuestLogin`_:
        if the the guest authentication information was not accepted.
 
-    `vim.fault.GuestComponentsOutOfDate`_: 
+    `vim.fault.GuestComponentsOutOfDate`_:
        If the guest agent is too old to support the operation.
 
-    `vim.fault.OperationNotSupportedByGuest`_: 
+    `vim.fault.OperationNotSupportedByGuest`_:
        If the operation is not supported by the guest OS.
 
-    `vim.fault.OperationDisabledByGuest`_: 
+    `vim.fault.OperationDisabledByGuest`_:
        If the operation is not enabled due to guest agent configuration.
-
-

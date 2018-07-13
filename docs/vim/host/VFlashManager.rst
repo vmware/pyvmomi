@@ -61,11 +61,11 @@ ConfigureVFlashResourceEx(devicePath):
 
   Returns:
      `vim.Task`_:
-         
+
 
   Raises:
 
-    `vim.fault.HostConfigFault`_: 
+    `vim.fault.HostConfigFault`_:
        if batch operation fails on the host. Because the returned VFlashResourceConfigurationResult contains the configuration success or fault for each device, as of vSphere API 5.x, we won't throw fault when batch operation fails.
 
 
@@ -87,14 +87,14 @@ HostConfigureVFlashResource(spec):
 
   Returns:
     None
-         
+
 
   Raises:
 
-    `vim.fault.HostConfigFault`_: 
+    `vim.fault.HostConfigFault`_:
        If vFlash resource cannot be configured on the host
 
-    `vim.fault.ResourceInUse`_: 
+    `vim.fault.ResourceInUse`_:
        The contained VFFS volume is being used.
 
 
@@ -112,22 +112,22 @@ HostRemoveVFlashResource():
 
   Returns:
     None
-         
+
 
   Raises:
 
-    `vim.fault.NotFound`_: 
+    `vim.fault.NotFound`_:
        If vFlash resource is not configured or the contained VFFS volume cannot be found on the host.
 
-    `vim.fault.HostConfigFault`_: 
+    `vim.fault.HostConfigFault`_:
        If vFlash resource or the contained VFFS volume cannot be removed from the host.
 
-    `vim.fault.ResourceInUse`_: 
+    `vim.fault.ResourceInUse`_:
        The contained VFFS volume is being used.
 
 
 HostConfigVFlashCache(spec):
-   Configurate vFlash cache on the host.
+   Configure vFlash cache on the host.
 
 
   Privilege:
@@ -144,17 +144,17 @@ HostConfigVFlashCache(spec):
 
   Returns:
     None
-         
+
 
   Raises:
 
-    `vim.fault.HostConfigFault`_: 
+    `vim.fault.HostConfigFault`_:
        If the swap cache cannot be configured on the host.
 
-    `vim.fault.InaccessibleVFlashSource`_: 
+    `vim.fault.InaccessibleVFlashSource`_:
        vFlash resource is not accessible.
 
-    `vim.fault.ResourceInUse`_: 
+    `vim.fault.ResourceInUse`_:
        The contained VFFS volume is being used.
 
 
@@ -180,10 +180,8 @@ HostGetVFlashModuleDefaultConfig(vFlashModule):
 
   Raises:
 
-    `vim.fault.NotFound`_: 
+    `vim.fault.NotFound`_:
        If vFlash resource is not configured or the contained VFFS volume cannot be found on the host.
 
-    `vim.fault.HostConfigFault`_: 
+    `vim.fault.HostConfigFault`_:
        If the default vFlash module configuration option cannot be retrieved.
-
-

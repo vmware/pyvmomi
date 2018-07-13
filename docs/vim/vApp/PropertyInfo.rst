@@ -45,7 +45,7 @@ Attributes:
         * int : An integer value. Is semantically equivalent to int(-2147483648..2147483647) e.g. signed int32.
         * int(x..y): An integer value with a minimum size x and a maximum size y. For example int(0..255) is a number between 0 and 255 both incl. This is also a way to specify that the number must be a uint8. There is always a lower and lower bound. Max number of digits is 100 including any sign. If exported to OVF the value will be truncated to max of uint64 or int64.
         * real : IEEE 8-byte floating-point value.
-        * real(x..y) : IEEE 8-byte floating-point value with a minimum size x and a maximum size y. For example real(-1.5..1.5) must be a number between -1.5 and 1.5. Because of the nature of float some conversions can truncate the value. Real must be encoded acording to CIM: RealValue = [ "+" | "-" } *decimalDigit "." 1*decimalDigit [ ("e" | "E" ) [ "+" | "-" ] 1*decimalDigit ] ]
+        * real(x..y) : IEEE 8-byte floating-point value with a minimum size x and a maximum size y. For example real(-1.5..1.5) must be a number between -1.5 and 1.5. Because of the nature of float some conversions can truncate the value. Real must be encoded according to CIM: RealValue = [ "+" | "-" } *decimalDigit "." 1*decimalDigit [ ("e" | "E" ) [ "+" | "-" ] 1*decimalDigit ] ]
         * boolean : A boolean. The value can be True or False
         * password : A generic string. Max length 65535 (64k).
         * password(x..) : A string with minimum character length x.
@@ -56,7 +56,7 @@ Attributes:
         * expression: The default value specifies an expression that is calculated by the system.
         * For properties of type 'password', the value field and default value field will always be returned as an empty string when queried. Thus, it is a write-only property. Typically, a client application will also render these as a text field with hidden text and double prompting.
         * An expression follows the general patterns of either ${arg} or ${cmd:arg}. The list of supported expressions are listed below:
-        * 
+        *
         * ${
         * name
         * } : This expression evaluates to the same value as the named property in the parent vApp. A parent vApp is the first vApp in the ancestry chain (resource pools are skipped). If no parent vApp exists or the property is not defined on the parent vApp, the expression evaluates to the empty value.
@@ -89,7 +89,7 @@ Attributes:
         * ${vimIp:} : The IP address of the VIM API provider server. This would typical be an ESX Server or VirtualCenter Server.
         * A vApp will fail to start if any of the properties cannot be computed. For example, if a property reference a gateway on a network, for which is has not been specified. The value of the computed computation is assigned to the 'value' field upon start of the vApp or virtual machine. The value is cleared once the vApp or virtual machine is not-running.
         * The system provides three ways of specifying IP addresses:
-        * 
+        *
         * ip,
         * ip:network type,
         * ${ip:network} expression.Theiptypes are typically used to specify an IP addressed to an external system. Thus, these are not used by a virtual ethernet adapter within the guest itself. Both the ip:network expression and the ${ip:network} expression are intended as a way to obtain an IP address for a virtual machine in a vApp.The behavior of ip:network type is controlled by the ipAssignPolicy, as described in the following table:Policyip:networktypeDHCPThe user is not prompted to enter a value. The variable is set to the empty string during power-on, and later updated with the IP value reported by the guest software.TransientThe user is not prompted to enter a value. An IP address is allocated by the platform and is assigned to the variable which is available to the guest. The IP address is released at power-off.FixedThe user is prompted to enter a value. This value is available to the guest.Fixed AllocatedThe user is not prompted to enter a value. An IP address is allocated by the platform and is assigned to the variable which is available to the guest. The IP address remains allocated at power-off, and are only released if the property is deleted or the vApp is destroyed.Reconfigure privilege: VApp.ApplicationConfig

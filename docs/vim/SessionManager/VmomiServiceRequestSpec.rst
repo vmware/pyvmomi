@@ -11,7 +11,7 @@
 
 vim.SessionManager.VmomiServiceRequestSpec
 ==========================================
-  This data object type describes a request to invoke a specific method in a VMOMI service. It currenly only supports {link vim.SessionManager#cloneSession} method. The GenericServiceTicket.id returned from `AcquireGenericServiceTicket`_ for this request can be use for `CloneSession`_ to clone a session
+  This data object type describes a request to invoke a specific method in a VMOMI service. It currently only supports {link vim.SessionManager#cloneSession} method. The GenericServiceTicket.id returned from `AcquireGenericServiceTicket`_ for this request can be use for `CloneSession`_ to clone a session
 :extends: vim.SessionManager.ServiceRequestSpec_
 :since: `vSphere API 5.1`_
 

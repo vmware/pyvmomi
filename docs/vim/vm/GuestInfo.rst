@@ -43,10 +43,10 @@ Attributes:
        Current version status of VMware Tools in the guest operating system, if known. The set of possible values is described in `VirtualMachineToolsVersionStatus`_ for vSphere API 5.0.
     toolsVersionStatus2 (`str`_, optional):
 
-       Current version status of VMware Tools in the guest operating system, if known. The set of possible values is described in `VirtualMachineToolsVersionStatus`_ 
+       Current version status of VMware Tools in the guest operating system, if known. The set of possible values is described in `VirtualMachineToolsVersionStatus`_
     toolsRunningStatus (`str`_, optional):
 
-       Current running status of VMware Tools in the guest operating system, if known. The set of possible values is described in `VirtualMachineToolsRunningStatus`_ 
+       Current running status of VMware Tools in the guest operating system, if known. The set of possible values is described in `VirtualMachineToolsRunningStatus`_
     toolsVersion (`str`_, optional):
 
        Current version of VMware Tools, if known.
@@ -86,19 +86,19 @@ Attributes:
         * "standby" - Guest has a pending standby command.
         * "notRunning" - Guest is not running.
         * "unknown" - Guest information is not available.
-        * 
+        *
     appHeartbeatStatus (`str`_, optional):
 
-       Application heartbeat status. Please see `VirtualMachineAppHeartbeatStatusType`_ 
+       Application heartbeat status. Please see `VirtualMachineAppHeartbeatStatusType`_
     appState (`str`_, optional):
 
-       Application state. If vSphere HA is enabled and the vm is configured for Application Monitoring and this field's value is "appStateNeedReset" then HA will attempt immediately reset the vm. There are some system conditions which may delay the immediate reset. The immediate reset will be performed as soon as allowed by vSphere HA and ESX. If during these conditions the value is changed to appStateOk the reset will be cancelled.See `GuestInfoAppStateType`_ 
+       Application state. If vSphere HA is enabled and the vm is configured for Application Monitoring and this field's value is "appStateNeedReset" then HA will attempt immediately reset the vm. There are some system conditions which may delay the immediate reset. The immediate reset will be performed as soon as allowed by vSphere HA and ESX. If during these conditions the value is changed to appStateOk the reset will be cancelled.See `GuestInfoAppStateType`_
     guestOperationsReady (`bool`_, optional):
 
-       Guest Operations availability. If true, the vitrual machine is ready to process guest operations.
+       Guest Operations availability. If true, the virtual machine is ready to process guest operations.
     interactiveGuestOperationsReady (`bool`_, optional):
 
-       Interactive Guest Operations availability. If true, the vitrual machine is ready to process guest operations as the user interacting with the guest desktop.
+       Interactive Guest Operations availability. If true, the virtual machine is ready to process guest operations as the user interacting with the guest desktop.
     generationInfo ([`vim.vm.GuestInfo.NamespaceGenerationInfo`_, privilege: VirtualMachine.Namespace.EventNotify], optional):
 
        A list of namespaces and their corresponding generation numbers. Only namespaces with non-zero `maxSizeEventsFromGuest`_ are guaranteed to be present here. Use `ListNamespaces`_ to retrieve list of namespaces.

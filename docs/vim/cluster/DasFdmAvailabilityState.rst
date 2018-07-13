@@ -26,10 +26,10 @@ hostDown
    The slave host appears to be down. This state is reported by the master of a slave host.
 
 fdmUnreachable
-   The Fault Domain Manager (FDM) on the host cannot be reached. This state is reported in two unlikley situations.
+   The Fault Domain Manager (FDM) on the host cannot be reached. This state is reported in two unlikely situations.
     * First, it is reported by a master if the host responds to ICMP pings sent by the master over the management network but the FDM on the host cannot be reached by the master. This situation will occur if the FDM is unable to run or exit the uninitialized state.
     * Second, it is reported by vCenter Server if it cannot connect to a master nor the FDM for the host. This situation would occur if all hosts in the cluster failed but vCenter Server is still running. It may also occur if all FDMs are unable to run or exit the uninitialized state.
-    * 
+    *
 
 connectedToMaster
    The normal operating state for a slave host. In this state, the host is exchanging heartbeats with a master over the management network, and is thus connected to it. If there is a management network partition, the slave will be in this state only if it is in the same partition as the master. This state is reported by the master of a slave host.

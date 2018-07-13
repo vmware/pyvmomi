@@ -21,7 +21,7 @@ vim.cluster.DasVmSettings.IsolationResponse
    * are valid for the cluster-wide default HA configuration for virtual machines (
    * `defaultVmSettings`_
    * ).
-   * 
+   *
    * If you ensure that your network infrastructure is sufficiently redundant and that at least one network path is available at all times, host network isolation should be a rare occurrence.
   :contained by: `vim.cluster.DasVmSettings`_
 
@@ -36,7 +36,7 @@ none
    Do not power off the virtual machine in the event of a host network isolation.
 
 clusterIsolationResponse
-   Use the default isolation reponse defined for the cluster that contains this virtual machine.
+   Use the default isolation response defined for the cluster that contains this virtual machine.
 
 powerOff
    Power off the virtual machine in the event of a host network isolation.

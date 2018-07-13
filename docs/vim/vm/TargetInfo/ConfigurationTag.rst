@@ -4,7 +4,7 @@
 
 vim.vm.TargetInfo.ConfigurationTag
 ==================================
-  Describes how widely the endpoint is availabe in a cluster. Note that these fields are not neccessarily mutual-exclusive.
+  Describes how widely the endpoint is available in a cluster. Note that these fields are not necessarily mutual-exclusive.
   :contained by: `vim.vm.TargetInfo`_
 
   :type: `vim.vm.TargetInfo.ConfigurationTag`_

@@ -9,14 +9,10 @@ vim.fault.NumVirtualCoresPerSocketNotSupported
 
         `vim.fault.VirtualHardwareCompatibilityIssue`_
 
-  The host's software does not support enough cores per socket to accomodate the virtual machine. This is always an error.
+  The host's software does not support enough cores per socket to accommodate the virtual machine. This is always an error.
 
 Attributes:
 
     maxSupportedCoresPerSocketDest (`int`_)
 
     numCoresPerSocketVm (`int`_)
-
-
-
-

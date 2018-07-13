@@ -9,14 +9,10 @@ vim.fault.NoCompatibleHost
 
         `vim.fault.VimFault`_
 
-  A NoCompatibleHost fault is thrown when DRS cannnot find a compatible host in a given compute resource to run a virtual machine on.
+  A NoCompatibleHost fault is thrown when DRS cannot find a compatible host in a given compute resource to run a virtual machine on.
 
 Attributes:
 
     host (`str`_): is optional.
 
     error (`str`_): is optional.
-
-
-
-

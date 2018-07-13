@@ -9,12 +9,8 @@ vim.fault.VspanPortgroupPromiscChangeFault
 
         `vim.fault.DvsFault`_
 
-  Thrown when changing a non-promiscous portgroup to promiscuous mode if any port in this portgroup is used as tranmistted source or dest ports in vspan session.
+  Thrown when changing a non-promiscuous portgroup to promiscuous mode if any port in this portgroup is used as tranmistted source or dest ports in vspan session.
 
 Attributes:
 
     portgroupName (`str`_)
-
-
-
-

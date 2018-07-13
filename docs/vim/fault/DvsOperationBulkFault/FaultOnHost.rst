@@ -9,7 +9,7 @@
 
 vim.fault.DvsOperationBulkFault.FaultOnHost
 ===========================================
-  The fault occured on the host during an operation.
+  The fault occurred on the host during an operation.
 :extends: vmodl.DynamicData_
 :since: `vSphere API 4.0`_
 
@@ -18,4 +18,4 @@ Attributes:
 
     fault (`vmodl.LocalizedMethodFault`_):
 
-       The fault that occured.
+       The fault that occurred.

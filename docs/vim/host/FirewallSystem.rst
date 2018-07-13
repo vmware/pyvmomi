@@ -52,7 +52,7 @@ UpdateDefaultPolicy(defaultPolicy):
 
   Returns:
     None
-         
+
 
 
 EnableRuleset(id):
@@ -72,15 +72,15 @@ EnableRuleset(id):
 
   Returns:
     None
-         
+
 
   Raises:
 
-    `vim.fault.NotFound`_: 
+    `vim.fault.NotFound`_:
        if the ruleset ID is unknown.
 
-    `vim.fault.HostConfigFault`_: 
-       if an internal error happend when reconfigure the ruleset.
+    `vim.fault.HostConfigFault`_:
+       if an internal error happened when reconfigure the ruleset.
 
 
 DisableRuleset(id):
@@ -100,15 +100,15 @@ DisableRuleset(id):
 
   Returns:
     None
-         
+
 
   Raises:
 
-    `vim.fault.NotFound`_: 
+    `vim.fault.NotFound`_:
        if the ruleset ID is unknown.
 
-    `vim.fault.HostConfigFault`_: 
-       if an internal error happend when reconfigure the ruleset.
+    `vim.fault.HostConfigFault`_:
+       if an internal error happened when reconfigure the ruleset.
 
 
 UpdateRuleset(id, spec):
@@ -132,14 +132,14 @@ UpdateRuleset(id, spec):
 
   Returns:
     None
-         
+
 
   Raises:
 
-    `vim.fault.NotFound`_: 
+    `vim.fault.NotFound`_:
        if the ruleset ID is unknown
 
-    `vim.fault.HostConfigFault`_: 
+    `vim.fault.HostConfigFault`_:
        if the update of the ruleset failed.
 
 
@@ -157,6 +157,3 @@ RefreshFirewall():
 
   Returns:
     None
-         
-
-

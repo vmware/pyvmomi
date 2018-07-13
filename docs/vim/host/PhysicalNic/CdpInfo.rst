@@ -15,7 +15,7 @@
 
 vim.host.PhysicalNic.CdpInfo
 ============================
-  CDP (Cisco Discovery Protocol) is a link level protocol that allows for discovering the CDP-awared network hardware at either end of a DIRECT connection. It's only good for direct connection because CDP doesn't get forwarded through switches. It's a simple advertisement protocol which beacons information about the switch or host along with some port information. The CDP information allows ESX Server admins to know which Cisco switch port is connected to any given virtual switch uplink (PNIC).
+  CDP (Cisco Discovery Protocol) is a link level protocol that allows for discovering the CDP-awarded network hardware at either end of a DIRECT connection. It's only good for direct connection because CDP doesn't get forwarded through switches. It's a simple advertisement protocol which beacons information about the switch or host along with some port information. The CDP information allows ESX Server admins to know which Cisco switch port is connected to any given virtual switch uplink (PNIC).
 :extends: vmodl.DynamicData_
 :since: `VI API 2.5`_
 
@@ -43,7 +43,7 @@ Attributes:
        Port ID. An ASCII character string that identifies the port on which the CDP message is sent, e.g. "FastEthernet0/8"
     deviceCapability (`vim.host.PhysicalNic.CdpDeviceCapability`_, optional):
 
-       Device Capability `PhysicalNicCdpDeviceCapability`_ 
+       Device Capability `PhysicalNicCdpDeviceCapability`_
     softwareVersion (`str`_, optional):
 
        Software version on the device. A character string that provides information about the software release version that the device is running. e.g. "Cisco Internetwork Operating Syscisco WS-C2940-8TT-S"

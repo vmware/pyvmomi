@@ -52,14 +52,14 @@ CreateUser(user):
 
   Returns:
     None
-         
+
 
   Raises:
 
-    `vim.fault.AlreadyExists`_: 
+    `vim.fault.AlreadyExists`_:
        if the specified local user account already exists.
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument`_:
        if the user name or password has an invalid format.
 
 
@@ -81,17 +81,17 @@ UpdateUser(user):
 
   Returns:
     None
-         
+
 
   Raises:
 
-    `vim.fault.UserNotFound`_: 
+    `vim.fault.UserNotFound`_:
        if user is not found.
 
-    `vim.fault.AlreadyExists`_: 
+    `vim.fault.AlreadyExists`_:
        if new account specification specifies an existing user's ID.
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument`_:
        if new password or description has an invalid format.
 
 
@@ -113,19 +113,19 @@ CreateGroup(group):
 
   Returns:
     None
-         
+
 
   Raises:
 
-    `vim.fault.AlreadyExists`_: 
+    `vim.fault.AlreadyExists`_:
        if specified local group already exists.
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument`_:
        if group name is in invalid format.
 
 
 RemoveUser(userName):
-   Removes a local user account.As of vSphere API 5.1, this operation will first try to remove all permissions associated with the specifed account. The permissions of the user are removed one by one, not atomically, and the operation is not rolled back, if the removal of some permission fails.
+   Removes a local user account.As of vSphere API 5.1, this operation will first try to remove all permissions associated with the specified account. The permissions of the user are removed one by one, not atomically, and the operation is not rolled back, if the removal of some permission fails.
 
 
   Privilege:
@@ -142,14 +142,14 @@ RemoveUser(userName):
 
   Returns:
     None
-         
+
 
   Raises:
 
-    `vim.fault.UserNotFound`_: 
+    `vim.fault.UserNotFound`_:
        if the specified userName does not exist.
 
-    `vmodl.fault.SecurityError`_: 
+    `vmodl.fault.SecurityError`_:
        if trying to remove the last local user with DCUI access, or if trying to remove the last local user with full administrative privileges, or if the system has encountered an error while trying to remove user's permissions. or if the account cannot be removed due to permission issues.
 
 
@@ -171,11 +171,11 @@ RemoveGroup(groupName):
 
   Returns:
     None
-         
+
 
   Raises:
 
-    `vim.fault.UserNotFound`_: 
+    `vim.fault.UserNotFound`_:
        if the specified groupName does not exist.
 
 
@@ -201,14 +201,14 @@ AssignUserToGroup(user, group):
 
   Returns:
     None
-         
+
 
   Raises:
 
-    `vim.fault.UserNotFound`_: 
+    `vim.fault.UserNotFound`_:
        if the specified user or group does not exist.
 
-    `vim.fault.AlreadyExists`_: 
+    `vim.fault.AlreadyExists`_:
        if the user is already a member of the target group.
 
 
@@ -234,14 +234,12 @@ UnassignUserFromGroup(user, group):
 
   Returns:
     None
-         
+
 
   Raises:
 
-    `vim.fault.UserNotFound`_: 
+    `vim.fault.UserNotFound`_:
        if the specified user or group does not exist.
 
-    `vim.fault.NoPermission`_: 
+    `vim.fault.NoPermission`_:
        if the group is the only group to which the user belongs.
-
-

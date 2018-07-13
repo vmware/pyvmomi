@@ -116,7 +116,7 @@ Attributes:
        Indicates whether a monitor type change is supported while this virtual machine is in the poweredOn state.
     seSparseDiskSupported (`bool`_):
 
-       Indicates whether this virtual machine supports the Flex-SE (space-efficent, sparse) format for virtual disks.
+       Indicates whether this virtual machine supports the Flex-SE (space-efficient, sparse) format for virtual disks.
     nestedHVSupported (`bool`_):
 
        Indicates whether this virtual machine supports nested hardware-assisted virtualization.

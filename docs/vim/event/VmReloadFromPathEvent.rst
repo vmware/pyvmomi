@@ -7,10 +7,9 @@
 
 vim.event.VmReloadFromPathEvent
 ===============================
-  This event records that a virtual machine was sucessfully reloaded from a new configuration path.
+  This event records that a virtual machine was successfully reloaded from a new configuration path.
 :extends: vim.event.VmEvent_
 :since: `vSphere API 4.1`_
 
 Attributes:
     configPath (`str`_):
-

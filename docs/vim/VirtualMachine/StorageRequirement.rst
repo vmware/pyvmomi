@@ -9,7 +9,7 @@
 
 vim.VirtualMachine.StorageRequirement
 =====================================
-  Describes the storage requirment to perform a consolidation operation.
+  Describes the storage requirement to perform a consolidation operation.
 :extends: vmodl.DynamicData_
 :since: `vSphere API 5.0`_
 

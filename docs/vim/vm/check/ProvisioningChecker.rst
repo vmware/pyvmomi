@@ -60,7 +60,7 @@ QueryVMotionCompatibilityEx(vm, host):
 
 
     host (`vim.HostSystem`_):
-       The set of hosts to analyze for compatibility. All hosts are assumed to be connected and not in maintenence mode for the purposes of this operation.
+       The set of hosts to analyze for compatibility. All hosts are assumed to be connected and not in maintenance mode for the purposes of this operation.
 
 
 
@@ -108,13 +108,13 @@ CheckMigrate(vm, host, pool, state, testType):
 
   Raises:
 
-    `vim.fault.InvalidState`_: 
+    `vim.fault.InvalidState`_:
        vim.fault.InvalidState
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument`_:
        if the target host(s) and target pool for a migration are not associated with the same compute resource, or if the host parameter is left unset when the target pool is associated with a non-DRS cluster.
 
-    `vim.fault.InvalidPowerState`_: 
+    `vim.fault.InvalidPowerState`_:
        if the state argument is set and at least one of the specified virtual machines is not in that power state.
 
 
@@ -147,18 +147,16 @@ CheckRelocate(vm, spec, testType):
 
   Raises:
 
-    `vim.fault.InvalidState`_: 
+    `vim.fault.InvalidState`_:
        if the operation cannot be performed because of the host or virtual machine's current state. For example, if the host is in maintenance mode, or if the virtual machine's configuration information is not available.
 
-    `vmodl.fault.NotSupported`_: 
+    `vmodl.fault.NotSupported`_:
        if the virtual machine is marked as a template.
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument`_:
        in the following cases:
         * the target host and target pool are not associated with the same compute resource
         * the target pool represents a cluster without DRS enabled, and the host is not specified
         * Datastore in a diskLocator entry is not specified
         * the specified device ID cannot be found in the virtual machine's current configuration
         * the object specified in relocate cannot be found
-
-

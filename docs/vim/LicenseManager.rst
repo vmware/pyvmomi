@@ -68,13 +68,13 @@ Attributes
        The product's license edition. The edition defines which product license the server requires. This, in turn, determines the core set of functionalities provided by the product and the additional features that can be licensed. If no edition is set the property is set to the empty string (""). To set the edition use `SetLicenseEdition`_ .
     licenses ([`vim.LicenseManager.LicenseInfo`_]):
       privilege: dynamic
-       Get information about all the licenses avaiable.
+       Get information about all the licenses available.
     licenseAssignmentManager (`vim.LicenseAssignmentManager`_):
       privilege: System.View
        License Assignment Manager
     evaluation (`vim.LicenseManager.EvaluationInfo`_):
       privilege: System.Read
-       
+
 
 
 Methods
@@ -100,7 +100,7 @@ QuerySupportedFeatures(host):
 
   Returns:
     [`vim.LicenseManager.FeatureInfo`_]:
-         
+
 
 
 QueryLicenseSourceAvailability(host):
@@ -121,7 +121,7 @@ QueryLicenseSourceAvailability(host):
 
   Returns:
     [`vim.LicenseManager.AvailabilityInfo`_]:
-         
+
 
 
 QueryLicenseUsage(host):
@@ -142,7 +142,7 @@ QueryLicenseUsage(host):
 
   Returns:
     `vim.LicenseManager.LicenseUsageInfo`_:
-         
+
 
 
 SetLicenseEdition(host, featureKey):
@@ -167,17 +167,17 @@ SetLicenseEdition(host, featureKey):
 
   Returns:
     None
-         
+
 
   Raises:
 
-    `vim.fault.InvalidState`_: 
+    `vim.fault.InvalidState`_:
        If the feature cannot be supported on the platform, potentially because the hardware configuration does not support it.
 
-    `vim.fault.LicenseServerUnavailable`_: 
+    `vim.fault.LicenseServerUnavailable`_:
        If the license server is unavailable.
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument`_:
        If a feature key is not an edition feature key.
 
 
@@ -207,10 +207,10 @@ CheckLicenseFeature(host, featureKey):
 
   Raises:
 
-    `vim.fault.InvalidState`_: 
+    `vim.fault.InvalidState`_:
        If the feature cannot be supported on the platform, potentially because the hardware configuration does not support it.
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument`_:
        If a feature name is not found.
 
 
@@ -240,13 +240,13 @@ EnableFeature(host, featureKey):
 
   Raises:
 
-    `vim.fault.InvalidState`_: 
+    `vim.fault.InvalidState`_:
        If the feature cannot be supported on the platform, potentially because the hardware configuration does not support it.
 
-    `vim.fault.LicenseServerUnavailable`_: 
+    `vim.fault.LicenseServerUnavailable`_:
        If the license server is unavailable.
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument`_:
        If a feature name is not found or it is not optional.
 
 
@@ -276,13 +276,13 @@ DisableFeature(host, featureKey):
 
   Raises:
 
-    `vim.fault.InvalidState`_: 
+    `vim.fault.InvalidState`_:
        If the feature is in use.
 
-    `vim.fault.LicenseServerUnavailable`_: 
+    `vim.fault.LicenseServerUnavailable`_:
        If the license server is unavailable.
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument`_:
        If a feature name is not found or it is not optional.
 
 
@@ -308,20 +308,20 @@ ConfigureLicenseSource(host, licenseSource):
 
   Returns:
     None
-         
+
 
   Raises:
 
-    `vim.fault.CannotAccessLocalSource`_: 
+    `vim.fault.CannotAccessLocalSource`_:
        if the local source cannot be accessed.
 
-    `vim.fault.InvalidLicense`_: 
+    `vim.fault.InvalidLicense`_:
        if the new license source is LocalLicenseSource and the license file is not valid.
 
-    `vim.fault.LicenseServerUnavailable`_: 
+    `vim.fault.LicenseServerUnavailable`_:
        if the license server is unreachable.
 
-    `vmodl.fault.NotEnoughLicenses`_: 
+    `vmodl.fault.NotEnoughLicenses`_:
        if the new license source does not have enough licenses.
 
 
@@ -396,7 +396,7 @@ RemoveLicense(licenseKey):
 
   Returns:
     None
-         
+
 
 
 DecodeLicense(licenseKey):
@@ -448,7 +448,7 @@ UpdateLicenseLabel(licenseKey, labelKey, labelValue):
 
   Returns:
     None
-         
+
 
 
 RemoveLicenseLabel(licenseKey, labelKey):
@@ -474,6 +474,3 @@ RemoveLicenseLabel(licenseKey, labelKey):
 
   Returns:
     None
-         
-
-

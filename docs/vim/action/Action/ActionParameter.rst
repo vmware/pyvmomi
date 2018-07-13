@@ -15,7 +15,7 @@ values:
 --------
 
 target
-   The object of the entity where the alarm is assocaited.
+   The object of the entity where the alarm is associated.
 
 eventDescription
    The event description.

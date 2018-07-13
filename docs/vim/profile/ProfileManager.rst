@@ -60,11 +60,11 @@ CreateProfile(createSpec):
 
   Raises:
 
-    `vim.fault.DuplicateName`_: 
+    `vim.fault.DuplicateName`_:
        If a profile with the specified name already exists.
 
-    `vim.fault.InvalidProfileReferenceHost`_: 
-       if the specified reference host is incompatible or no reference host has been specifed.
+    `vim.fault.InvalidProfileReferenceHost`_:
+       if the specified reference host is incompatible or no reference host has been specified.
 
 
 QueryPolicyMetadata(policyName, profile):
@@ -93,10 +93,10 @@ QueryPolicyMetadata(policyName, profile):
 
   Raises:
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument`_:
        If policyName is invalid.
 
-    `vim.fault.InvalidProfileReferenceHost`_: 
+    `vim.fault.InvalidProfileReferenceHost`_:
        if the reference host associated with the profile is incompatible or there is no reference host for the profile.
 
 
@@ -118,6 +118,3 @@ FindAssociatedProfile(entity):
 
   Returns:
     [`vim.profile.Profile`_]:
-         
-
-

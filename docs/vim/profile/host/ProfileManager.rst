@@ -116,14 +116,14 @@ ApplyHostConfig(host, configSpec, userInput):
 
   Returns:
      `vim.Task`_:
-         
+
 
   Raises:
 
-    `vim.fault.InvalidState`_: 
+    `vim.fault.InvalidState`_:
        if the host is not in maintenance mode and the configuration specification requires it.
 
-    `vim.fault.HostConfigFailed`_: 
+    `vim.fault.HostConfigFailed`_:
        if the ESX Server cannot apply the configuration changes.
 
 
@@ -204,10 +204,10 @@ QueryHostProfileMetadata(profileName, profile):
 
   Raises:
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument`_:
        If profileName parameter is invalid.
 
-    `vim.fault.InvalidProfileReferenceHost`_: 
+    `vim.fault.InvalidProfileReferenceHost`_:
        if the reference host associated with the profile is incompatible or there is no reference host for the profile.
 
 
@@ -234,7 +234,7 @@ QueryProfileStructure(profile):
 
   Raises:
 
-    `vim.fault.InvalidProfileReferenceHost`_: 
+    `vim.fault.InvalidProfileReferenceHost`_:
        if the reference host associated with the profile is incompatible or there is no reference host for the profile.
 
 
@@ -293,10 +293,10 @@ CreateDefaultProfile(profileType, profileTypeName, profile):
 
   Raises:
 
-    `vmodl.fault.InvalidArgument`_: 
+    `vmodl.fault.InvalidArgument`_:
        If either the profileType or profileTypeName is incorrect.
 
-    `vim.fault.InvalidProfileReferenceHost`_: 
+    `vim.fault.InvalidProfileReferenceHost`_:
        if the reference host associated with the profile is incompatible or there is no reference host for the profile.
 
 
@@ -323,15 +323,15 @@ UpdateAnswerFile(host, configSpec):
 
   Returns:
      `vim.Task`_:
-         
+
 
   Raises:
 
-    `vim.fault.AnswerFileUpdateFailed`_: 
+    `vim.fault.AnswerFileUpdateFailed`_:
        If the answer file could not be updated.
 
-    `vmodl.fault.InvalidArgument`_: 
-       If the input parameteres are incorrect.
+    `vmodl.fault.InvalidArgument`_:
+       If the input parameters are incorrect.
 
 
 RetrieveAnswerFile(host):
@@ -425,7 +425,7 @@ CheckAnswerFileStatus(host):
 
   Raises:
 
-    `vim.fault.InvalidProfileReferenceHost`_: 
+    `vim.fault.InvalidProfileReferenceHost`_:
        if the reference host associated with the profile is incompatible or there is no reference host for the profile.
 
 
@@ -449,5 +449,3 @@ QueryAnswerFileStatus(host):
   Returns:
     [`vim.profile.host.AnswerFileStatusResult`_]:
          List of answer file status objects.
-
-

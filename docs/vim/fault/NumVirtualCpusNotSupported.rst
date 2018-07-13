@@ -9,14 +9,10 @@ vim.fault.NumVirtualCpusNotSupported
 
         `vim.fault.VirtualHardwareCompatibilityIssue`_
 
-  The host's software does not support enough virtual CPUs to accomodate the virtual machine. This is always an error.
+  The host's software does not support enough virtual CPUs to accommodate the virtual machine. This is always an error.
 
 Attributes:
 
     maxSupportedVcpusDest (`int`_)
 
     numCpuVm (`int`_)
-
-
-
-

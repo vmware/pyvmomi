@@ -9,7 +9,7 @@
 
 vim.host.VFlashManager.VFlashResourceConfigInfo
 ===============================================
-  vFlash resource configuraiton Information.
+  vFlash resource configuration Information.
 :extends: vmodl.DynamicData_
 :since: `vSphere API 5.5`_
 

@@ -16,4 +16,4 @@ vim.host.SystemSwapConfiguration.SystemSwapOption
 Attributes:
     key (`int`_):
 
-       Specifies the order the options are prefered among each other. The lower the value the more important.
+       Specifies the order the options are preferred among each other. The lower the value the more important.

@@ -5,7 +5,7 @@
 
 vim.event.DrsExitStandbyModeFailedEvent
 =======================================
-  This event records that Distributed Power Managment tried to bring a host out from standby mode, but the host failed to exit standby mode.
+  This event records that Distributed Power Management tried to bring a host out from standby mode, but the host failed to exit standby mode.
 :extends: vim.event.ExitStandbyModeFailedEvent_
 :since: `vSphere API 4.0`_
 

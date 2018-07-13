@@ -20,7 +20,7 @@ Attributes:
        Minimum, maximum, and default capacity of the disk.
     ioAllocationOption (`vim.StorageResourceManager.IOAllocationOption`_):
 
-       Minumum, maximum, and default values for Storage I/O allocation.See `StorageIOAllocationInfo`_ 
+       Minimum, maximum, and default values for Storage I/O allocation.See `StorageIOAllocationInfo`_
     vFlashCacheConfigOption (`vim.vm.device.VirtualDiskOption.VFlashCacheConfigOption`_, optional):
 
        vFlash cache configuration on the disk
