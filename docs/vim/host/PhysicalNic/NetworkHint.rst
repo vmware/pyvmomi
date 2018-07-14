@@ -30,7 +30,7 @@ Attributes:
        The list of network names that were detected on this physical network adapter.
     connectedSwitchPort (`vim.host.PhysicalNic.CdpInfo`_, optional):
 
-       If the uplink directly connects to a CDP-awarded network device and the device's CDP broadcast is enabled, this property will be set to return the CDP information that vmkernel received on this Physical NIC. CDP data contains the device information and port ID that the Physical NIC connects to. If the uplink is not connecting to a CDP-awarded device or CDP is not enabled on the device, this property will be unset. `PhysicalNicCdpInfo`_
+       If the uplink directly connects to a CDP-aware network device and the device's CDP broadcast is enabled, this property will be set to return the CDP information that vmkernel received on this Physical NIC. CDP data contains the device information and port ID that the Physical NIC connects to. If the uplink is not connecting to a CDP-aware device or CDP is not enabled on the device, this property will be unset. `PhysicalNicCdpInfo`_
     lldpInfo (`vim.host.PhysicalNic.LldpInfo`_, optional):
 
        If the uplink directly connects to an LLDP-aware network device and the device's LLDP broadcast is enabled, this property will be set to return the LLDP information that is received on this physical network adapter. If the uplink is not connecting to a LLDP-aware device or LLDP is not enabled on the device, this property will be unset.
