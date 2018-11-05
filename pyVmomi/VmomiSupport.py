@@ -1,5 +1,5 @@
 # VMware vSphere Python SDK
-# Copyright (c) 2008-2016 VMware, Inc. All Rights Reserved.
+# Copyright (c) 2008-2018 VMware, Inc. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -27,6 +27,7 @@ from six import PY3
 from datetime import datetime
 from pyVmomi import Iso8601
 import base64
+import json
 import threading
 if PY3:
    from functools import cmp_to_key
@@ -272,6 +273,106 @@ class LazyModule(object):
          return typ.__call__(**kwargs)
       else:
          raise AttributeError("'%s' does not exist" % self.name)
+
+
+class VmomiJSONEncoder(json.JSONEncoder):
+    """
+        Custom JSON encoder to encode vSphere objects.
+
+        When a ManagedObject is encoded, it gains three properties:
+            _vimid is the _moId (ex: 'vm-42')
+            _vimref is the moRef (ex: 'vim.VirtualMachine:vm-42')
+            _vimtype is the class name (ex: 'vim.VirtualMachine')
+
+        @example "Explode only the object passed in"
+            data = json.dumps(vm, cls=VmomiJSONEncoder)
+
+        @example "Explode specific objects"
+            data = json.dumps(vm, cls=VmomiJSONEncoder,
+                              explode=[vm, vm.network[0]])
+
+        @example "Explode all virtual machines in a list and their snapshots"
+            data = json.dumps([vm1, vm2], cls=VmomiJSONEncoder,
+                              explode=[templateOf('VirtualMachine'),
+                                       templateOf('VirtualMachineSnapshot')])
+    """
+    def __init__(self, *args, **kwargs):
+        """
+        Consumer must specify what types to explode into full content
+        and what types to leave as a ManagedObjectReference.  If the
+        root object of the encoding is a ManagedObject, it will be
+        added to the explode list automatically.
+
+        A ManagedObject is only exploded once, the first time it is
+        encountered.  All subsequent times it will be a moRef.
+
+        @param explode (list) A list of objects and/or types to
+            expand in the conversion process.  Directly add any
+            objects to the list, or add the type of any object
+            using type(templateOf('VirtualMachine')) for example.
+        """
+        self._done = set()
+        self._first = True
+        self._explode = kwargs.pop('explode', None)
+        super(VmomiJSONEncoder, self).__init__(*args, **kwargs)
+
+    def default(self, obj):  # pylint: disable=method-hidden
+        if self._first:
+            self._first = False
+            if not self._explode:
+                self._explode = []
+            if isinstance(obj, ManagedObject):
+                self._explode.append(obj)
+        if isinstance(obj, ManagedObject):
+            if self.explode(obj):
+                result = {}
+                result['_vimid'] = obj._moId
+                result['_vimref'] = '{}:{}'.format(obj.__class__.__name__,
+                                                   obj._moId)
+                result['_vimtype'] = obj.__class__.__name__
+                for prop in obj._GetPropertyList():
+                    result[prop.name] = getattr(obj, prop.name)
+                return result
+            return str(obj).strip("'")  # see FormatObject below
+        if isinstance(obj, DataObject):
+            return obj.__dict__
+        if isinstance(obj, binary):
+            result = base64.b64encode(obj)
+            if PY3:  # see FormatObject below
+                result = str(result, 'utf-8')
+            return result
+        if isinstance(obj, datetime):
+            return Iso8601.ISO8601Format(obj)
+        if isinstance(obj, UncallableManagedMethod):
+            return obj.name
+        if isinstance(obj, ManagedMethod):
+            return str(obj)  # see FormatObject below
+        if isinstance(obj, type):
+            return obj.__name__
+        super(VmomiJSONEncoder, self).default(obj)
+
+    def explode(self, obj):
+        """ Determine if the object should be exploded. """
+        if obj in self._done:
+            return False
+        result = False
+        for item in self._explode:
+            if hasattr(item, '_moId'):
+                # If it has a _moId it is an instance
+                if obj._moId == item._moId:
+                    result = True
+            else:
+                # If it does not have a _moId it is a template
+                if obj.__class__.__name__ == item.__name__:
+                    result = True
+        if result:
+            self._done.add(obj)
+        return result
+
+
+def templateOf(typestr):
+    """ Returns a class template. """
+    return GetWsdlType(XMLNS_VMODL_BASE, typestr)
 
 ## Format a python VMOMI object
 #
@@ -1325,7 +1426,14 @@ double = type("double", (float,), {})
 if PY3:
    long = type("long", (int,), {})
 URI = type("URI", (str,), {})
-binary = type("binary", (binary_type,), {})
+if not PY3:
+    # six defines binary_type in python2 as a string; this means the
+    # JSON encoder sees checksum properties as strings and attempts
+    # to perform utf-8 decoding on them because they contain high-bit
+    # characters.
+    binary = type("binary", (bytearray,), {})
+else:
+    binary = type("binary", (binary_type,), {})
 PropertyPath = type("PropertyPath", (text_type,), {})
 
 # _wsdlTypeMapNSs store namespaces added to _wsdlTypeMap in _SetWsdlType

@@ -1,0 +1,1533 @@
+interactions:
+- request:
+    body: null
+    headers: {}
+    method: GET
+    uri: https://vcenter/sdk/vimServiceVersions.xml
+  response:
+    body: {string: !!python/unicode '<?xml version="1.0" encoding="UTF-8" ?><namespaces
+        version="1.0"><namespace><name>urn:vim25</name><version>6.7</version><priorVersions><version>6.5</version><version>6.0</version><version>5.5</version><version>5.1</version><version>5.0</version><version>4.1</version><version>4.0</version></priorVersions></namespace></namespaces>
+
+        '}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['331']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:08 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrieveServiceContent xmlns="urn:vim25"><_this type="ServiceInstance">ServiceInstance</_this></RetrieveServiceContent></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: ['']
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrieveServiceContentResponse xmlns=\"urn:vim25\"><returnval><rootFolder\
+        \ type=\"Folder\">group-d1</rootFolder><propertyCollector type=\"PropertyCollector\"\
+        >propertyCollector</propertyCollector><viewManager type=\"ViewManager\">ViewManager</viewManager><about><name>VMware\
+        \ vCenter Server</name><fullName>VMware vCenter Server 6.7.0 build-9433931</fullName><vendor>VMware,\
+        \ Inc.</vendor><version>6.7.0</version><build>9433931</build><localeVersion>INTL</localeVersion><localeBuild>000</localeBuild><osType>linux-x64</osType><productLineId>vpx</productLineId><apiType>VirtualCenter</apiType><apiVersion>6.7</apiVersion><instanceUuid>19af0684-a957-4eaf-8863-a92317a5b4d6</instanceUuid><licenseProductName>VMware\
+        \ VirtualCenter Server</licenseProductName><licenseProductVersion>6.0</licenseProductVersion></about><setting\
+        \ type=\"OptionManager\">VpxSettings</setting><userDirectory type=\"UserDirectory\"\
+        >UserDirectory</userDirectory><sessionManager type=\"SessionManager\">SessionManager</sessionManager><authorizationManager\
+        \ type=\"AuthorizationManager\">AuthorizationManager</authorizationManager><serviceManager\
+        \ type=\"ServiceManager\">ServiceMgr</serviceManager><perfManager type=\"\
+        PerformanceManager\">PerfMgr</perfManager><scheduledTaskManager type=\"ScheduledTaskManager\"\
+        >ScheduledTaskManager</scheduledTaskManager><alarmManager type=\"AlarmManager\"\
+        >AlarmManager</alarmManager><eventManager type=\"EventManager\">EventManager</eventManager><taskManager\
+        \ type=\"TaskManager\">TaskManager</taskManager><extensionManager type=\"\
+        ExtensionManager\">ExtensionManager</extensionManager><customizationSpecManager\
+        \ type=\"CustomizationSpecManager\">CustomizationSpecManager</customizationSpecManager><customFieldsManager\
+        \ type=\"CustomFieldsManager\">CustomFieldsManager</customFieldsManager><diagnosticManager\
+        \ type=\"DiagnosticManager\">DiagMgr</diagnosticManager><licenseManager type=\"\
+        LicenseManager\">LicenseManager</licenseManager><searchIndex type=\"SearchIndex\"\
+        >SearchIndex</searchIndex><fileManager type=\"FileManager\">FileManager</fileManager><datastoreNamespaceManager\
+        \ type=\"DatastoreNamespaceManager\">DatastoreNamespaceManager</datastoreNamespaceManager><virtualDiskManager\
+        \ type=\"VirtualDiskManager\">virtualDiskManager</virtualDiskManager><snmpSystem\
+        \ type=\"HostSnmpSystem\">SnmpSystem</snmpSystem><vmProvisioningChecker type=\"\
+        VirtualMachineProvisioningChecker\">ProvChecker</vmProvisioningChecker><vmCompatibilityChecker\
+        \ type=\"VirtualMachineCompatibilityChecker\">CompatChecker</vmCompatibilityChecker><ovfManager\
+        \ type=\"OvfManager\">OvfManager</ovfManager><ipPoolManager type=\"IpPoolManager\"\
+        >IpPoolManager</ipPoolManager><dvSwitchManager type=\"DistributedVirtualSwitchManager\"\
+        >DVSManager</dvSwitchManager><hostProfileManager type=\"HostProfileManager\"\
+        >HostProfileManager</hostProfileManager><clusterProfileManager type=\"ClusterProfileManager\"\
+        >ClusterProfileManager</clusterProfileManager><complianceManager type=\"ProfileComplianceManager\"\
+        >MoComplianceManager</complianceManager><localizationManager type=\"LocalizationManager\"\
+        >LocalizationManager</localizationManager><storageResourceManager type=\"\
+        StorageResourceManager\">StorageResourceManager</storageResourceManager><guestOperationsManager\
+        \ type=\"GuestOperationsManager\">guestOperationsManager</guestOperationsManager><overheadMemoryManager\
+        \ type=\"OverheadMemoryManager\">OverheadMemoryManager</overheadMemoryManager><certificateManager\
+        \ type=\"CertificateManager\">certificateManager</certificateManager><ioFilterManager\
+        \ type=\"IoFilterManager\">IoFilterManager</ioFilterManager><vStorageObjectManager\
+        \ type=\"VcenterVStorageObjectManager\">VStorageObjectManager</vStorageObjectManager><hostSpecManager\
+        \ type=\"HostSpecificationManager\">HostSpecificationManager</hostSpecManager><cryptoManager\
+        \ type=\"CryptoManagerKmip\">CryptoManager</cryptoManager><healthUpdateManager\
+        \ type=\"HealthUpdateManager\">HealthUpdateManager</healthUpdateManager><failoverClusterConfigurator\
+        \ type=\"FailoverClusterConfigurator\">FailoverClusterConfigurator</failoverClusterConfigurator><failoverClusterManager\
+        \ type=\"FailoverClusterManager\">FailoverClusterManager</failoverClusterManager></returnval></RetrieveServiceContentResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['4429']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:08 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><Login xmlns="urn:vim25"><_this type="SessionManager">SessionManager</_this><userName>my_user</userName><password>my_pass</password></Login></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: ['']
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<LoginResponse xmlns=\"urn:vim25\"><returnval><key>5277fac2-3221-be89-047f-f4c7390024de</key><userName>my_user</userName><fullName>my_user\
+        \ </fullName><loginTime>2018-10-25T00:21:08.935558Z</loginTime><lastActiveTime>2018-10-25T00:21:08.935558Z</lastActiveTime><locale>en</locale><messageLocale>en</messageLocale><extensionSession>false</extensionSession><ipAddress>10.0.20.1</ipAddress><userAgent>pyvmomi\
+        \ Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)</userAgent><callCount>0</callCount></returnval></LoginResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['845']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:08 GMT']
+      set-cookie: [vmware_soap_session="b11e0848b8aab912ac44518cf2aca092893fb2a3";
+          Path=/; HttpOnly; Secure;]
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrieveServiceContent xmlns="urn:vim25"><_this type="ServiceInstance">ServiceInstance</_this></RetrieveServiceContent></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="b11e0848b8aab912ac44518cf2aca092893fb2a3"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrieveServiceContentResponse xmlns=\"urn:vim25\"><returnval><rootFolder\
+        \ type=\"Folder\">group-d1</rootFolder><propertyCollector type=\"PropertyCollector\"\
+        >propertyCollector</propertyCollector><viewManager type=\"ViewManager\">ViewManager</viewManager><about><name>VMware\
+        \ vCenter Server</name><fullName>VMware vCenter Server 6.7.0 build-9433931</fullName><vendor>VMware,\
+        \ Inc.</vendor><version>6.7.0</version><build>9433931</build><localeVersion>INTL</localeVersion><localeBuild>000</localeBuild><osType>linux-x64</osType><productLineId>vpx</productLineId><apiType>VirtualCenter</apiType><apiVersion>6.7</apiVersion><instanceUuid>19af0684-a957-4eaf-8863-a92317a5b4d6</instanceUuid><licenseProductName>VMware\
+        \ VirtualCenter Server</licenseProductName><licenseProductVersion>6.0</licenseProductVersion></about><setting\
+        \ type=\"OptionManager\">VpxSettings</setting><userDirectory type=\"UserDirectory\"\
+        >UserDirectory</userDirectory><sessionManager type=\"SessionManager\">SessionManager</sessionManager><authorizationManager\
+        \ type=\"AuthorizationManager\">AuthorizationManager</authorizationManager><serviceManager\
+        \ type=\"ServiceManager\">ServiceMgr</serviceManager><perfManager type=\"\
+        PerformanceManager\">PerfMgr</perfManager><scheduledTaskManager type=\"ScheduledTaskManager\"\
+        >ScheduledTaskManager</scheduledTaskManager><alarmManager type=\"AlarmManager\"\
+        >AlarmManager</alarmManager><eventManager type=\"EventManager\">EventManager</eventManager><taskManager\
+        \ type=\"TaskManager\">TaskManager</taskManager><extensionManager type=\"\
+        ExtensionManager\">ExtensionManager</extensionManager><customizationSpecManager\
+        \ type=\"CustomizationSpecManager\">CustomizationSpecManager</customizationSpecManager><customFieldsManager\
+        \ type=\"CustomFieldsManager\">CustomFieldsManager</customFieldsManager><diagnosticManager\
+        \ type=\"DiagnosticManager\">DiagMgr</diagnosticManager><licenseManager type=\"\
+        LicenseManager\">LicenseManager</licenseManager><searchIndex type=\"SearchIndex\"\
+        >SearchIndex</searchIndex><fileManager type=\"FileManager\">FileManager</fileManager><datastoreNamespaceManager\
+        \ type=\"DatastoreNamespaceManager\">DatastoreNamespaceManager</datastoreNamespaceManager><virtualDiskManager\
+        \ type=\"VirtualDiskManager\">virtualDiskManager</virtualDiskManager><snmpSystem\
+        \ type=\"HostSnmpSystem\">SnmpSystem</snmpSystem><vmProvisioningChecker type=\"\
+        VirtualMachineProvisioningChecker\">ProvChecker</vmProvisioningChecker><vmCompatibilityChecker\
+        \ type=\"VirtualMachineCompatibilityChecker\">CompatChecker</vmCompatibilityChecker><ovfManager\
+        \ type=\"OvfManager\">OvfManager</ovfManager><ipPoolManager type=\"IpPoolManager\"\
+        >IpPoolManager</ipPoolManager><dvSwitchManager type=\"DistributedVirtualSwitchManager\"\
+        >DVSManager</dvSwitchManager><hostProfileManager type=\"HostProfileManager\"\
+        >HostProfileManager</hostProfileManager><clusterProfileManager type=\"ClusterProfileManager\"\
+        >ClusterProfileManager</clusterProfileManager><complianceManager type=\"ProfileComplianceManager\"\
+        >MoComplianceManager</complianceManager><localizationManager type=\"LocalizationManager\"\
+        >LocalizationManager</localizationManager><storageResourceManager type=\"\
+        StorageResourceManager\">StorageResourceManager</storageResourceManager><guestOperationsManager\
+        \ type=\"GuestOperationsManager\">guestOperationsManager</guestOperationsManager><overheadMemoryManager\
+        \ type=\"OverheadMemoryManager\">OverheadMemoryManager</overheadMemoryManager><certificateManager\
+        \ type=\"CertificateManager\">certificateManager</certificateManager><ioFilterManager\
+        \ type=\"IoFilterManager\">IoFilterManager</ioFilterManager><vStorageObjectManager\
+        \ type=\"VcenterVStorageObjectManager\">VStorageObjectManager</vStorageObjectManager><hostSpecManager\
+        \ type=\"HostSpecificationManager\">HostSpecificationManager</hostSpecManager><cryptoManager\
+        \ type=\"CryptoManagerKmip\">CryptoManager</cryptoManager><healthUpdateManager\
+        \ type=\"HealthUpdateManager\">HealthUpdateManager</healthUpdateManager><failoverClusterConfigurator\
+        \ type=\"FailoverClusterConfigurator\">FailoverClusterConfigurator</failoverClusterConfigurator><failoverClusterManager\
+        \ type=\"FailoverClusterManager\">FailoverClusterManager</failoverClusterManager></returnval></RetrieveServiceContentResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['4429']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:08 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>Datacenter</type><all>false</all><pathSet>value</pathSet></propSet><objectSet><obj
+      type="Datacenter">datacenter-2</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="b11e0848b8aab912ac44518cf2aca092893fb2a3"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"Datacenter\">datacenter-2</obj><propSet><name>value</name><val xsi:type=\"\
+        ArrayOfCustomFieldValue\"></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['572']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:08 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>Datacenter</type><all>false</all><pathSet>availableField</pathSet></propSet><objectSet><obj
+      type="Datacenter">datacenter-2</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="b11e0848b8aab912ac44518cf2aca092893fb2a3"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"Datacenter\">datacenter-2</obj><propSet><name>availableField</name><val\
+        \ xsi:type=\"ArrayOfCustomFieldDef\"></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['579']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:08 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>Datacenter</type><all>false</all><pathSet>parent</pathSet></propSet><objectSet><obj
+      type="Datacenter">datacenter-2</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="b11e0848b8aab912ac44518cf2aca092893fb2a3"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"Datacenter\">datacenter-2</obj><propSet><name>parent</name><val type=\"\
+        Folder\" xsi:type=\"ManagedObjectReference\">group-d1</val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['594']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:08 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>Datacenter</type><all>false</all><pathSet>customValue</pathSet></propSet><objectSet><obj
+      type="Datacenter">datacenter-2</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="b11e0848b8aab912ac44518cf2aca092893fb2a3"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"Datacenter\">datacenter-2</obj><propSet><name>customValue</name><val\
+        \ xsi:type=\"ArrayOfCustomFieldValue\"></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['578']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:08 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>Datacenter</type><all>false</all><pathSet>overallStatus</pathSet></propSet><objectSet><obj
+      type="Datacenter">datacenter-2</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="b11e0848b8aab912ac44518cf2aca092893fb2a3"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"Datacenter\">datacenter-2</obj><propSet><name>overallStatus</name><val\
+        \ xsi:type=\"ManagedEntityStatus\">gray</val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['580']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:08 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>Datacenter</type><all>false</all><pathSet>configStatus</pathSet></propSet><objectSet><obj
+      type="Datacenter">datacenter-2</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="b11e0848b8aab912ac44518cf2aca092893fb2a3"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"Datacenter\">datacenter-2</obj><propSet><name>configStatus</name><val\
+        \ xsi:type=\"ManagedEntityStatus\">gray</val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['579']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:08 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>Datacenter</type><all>false</all><pathSet>configIssue</pathSet></propSet><objectSet><obj
+      type="Datacenter">datacenter-2</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="b11e0848b8aab912ac44518cf2aca092893fb2a3"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"Datacenter\">datacenter-2</obj><propSet><name>configIssue</name><val\
+        \ xsi:type=\"ArrayOfEvent\"></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['567']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:08 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>Datacenter</type><all>false</all><pathSet>effectiveRole</pathSet></propSet><objectSet><obj
+      type="Datacenter">datacenter-2</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="b11e0848b8aab912ac44518cf2aca092893fb2a3"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"Datacenter\">datacenter-2</obj><propSet><name>effectiveRole</name><val\
+        \ xsi:type=\"ArrayOfInt\"><int xsi:type=\"xsd:int\">-1</int></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['599']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:08 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>Datacenter</type><all>false</all><pathSet>permission</pathSet></propSet><objectSet><obj
+      type="Datacenter">datacenter-2</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="b11e0848b8aab912ac44518cf2aca092893fb2a3"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"Datacenter\">datacenter-2</obj><propSet><name>permission</name><val\
+        \ xsi:type=\"ArrayOfPermission\"></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['571']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:08 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>Datacenter</type><all>false</all><pathSet>name</pathSet></propSet><objectSet><obj
+      type="Datacenter">datacenter-2</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="b11e0848b8aab912ac44518cf2aca092893fb2a3"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"Datacenter\">datacenter-2</obj><propSet><name>name</name><val xsi:type=\"\
+        xsd:string\">Marlboro</val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['566']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:08 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>Datacenter</type><all>false</all><pathSet>disabledMethod</pathSet></propSet><objectSet><obj
+      type="Datacenter">datacenter-2</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="b11e0848b8aab912ac44518cf2aca092893fb2a3"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"Datacenter\">datacenter-2</obj><propSet><name>disabledMethod</name><val\
+        \ xsi:type=\"ArrayOfString\"></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['571']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:08 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>Datacenter</type><all>false</all><pathSet>recentTask</pathSet></propSet><objectSet><obj
+      type="Datacenter">datacenter-2</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="b11e0848b8aab912ac44518cf2aca092893fb2a3"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"Datacenter\">datacenter-2</obj><propSet><name>recentTask</name><val\
+        \ xsi:type=\"ArrayOfManagedObjectReference\"></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['583']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:09 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>Datacenter</type><all>false</all><pathSet>declaredAlarmState</pathSet></propSet><objectSet><obj
+      type="Datacenter">datacenter-2</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="b11e0848b8aab912ac44518cf2aca092893fb2a3"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"Datacenter\">datacenter-2</obj><propSet><name>declaredAlarmState</name><val\
+        \ xsi:type=\"ArrayOfAlarmState\"><AlarmState xsi:type=\"AlarmState\"><key>alarm-1.datacenter-2</key><entity\
+        \ type=\"Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-1</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.63422Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-10.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-10</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.630376Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-109.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-109</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.634279Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-11.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-11</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.634328Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-110.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-110</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.641817Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-113.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-113</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.630529Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-114.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-114</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.634378Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-115.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-115</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.634429Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-116.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-116</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.6345Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-117.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-117</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.634553Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-118.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-118</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.634623Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-119.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-119</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.634681Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-12.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-12</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.630592Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-120.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-120</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.634735Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-121.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-121</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.634786Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-122.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-122</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.634838Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-123.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-123</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.63489Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-124.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-124</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.634944Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-125.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-125</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.634997Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-13.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-13</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.635049Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-131.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-131</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.642292Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-132.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-132</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.642355Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-133.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-133</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.642414Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-134.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-134</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.642474Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-135.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-135</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.642535Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-136.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-136</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.642624Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-137.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-137</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.645819Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-138.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-138</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.649002Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-139.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-139</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.649079Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-14.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-14</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.635109Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-140.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-140</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.649143Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-141.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-141</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.649236Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-142.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-142</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.649323Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-143.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-143</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.649388Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-144.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-144</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.64945Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-145.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-145</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.649511Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-146.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-146</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.649575Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-147.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-147</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.649639Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-148.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-148</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.649747Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-149.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-149</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.655691Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-15.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-15</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.630656Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-150.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-150</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.655799Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-151.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-151</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.655872Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-152.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-152</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.655938Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-153.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-153</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.656008Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-154.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-154</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.656074Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-155.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-155</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.65614Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-156.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-156</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.658306Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-157.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-157</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.65842Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-158.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-158</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.658499Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-159.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-159</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.658563Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-16.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-16</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.63517Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-160.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-160</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.660955Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-161.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-161</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.66199Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-162.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-162</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.662064Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-163.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-163</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.662127Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-164.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-164</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.662193Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-165.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-165</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.662257Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-166.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-166</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.662324Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-167.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-167</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.662387Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-168.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-168</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.66245Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-169.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-169</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.662512Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-17.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-17</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.635221Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-170.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-170</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.662573Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-171.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-171</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.662635Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-172.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-172</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.662701Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-173.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-173</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.662766Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-174.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-174</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.662829Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-175.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-175</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.66387Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-176.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-176</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.663971Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-177.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-177</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.664038Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-178.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-178</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.664127Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-179.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-179</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.664194Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-180.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-180</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.66426Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-181.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-181</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.664324Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-182.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-182</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.664389Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-183.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-183</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.66445Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-184.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-184</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.664512Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-185.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-185</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.664577Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-186.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-186</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.666815Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-187.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-187</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.66727Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-188.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-188</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.667346Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-189.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-189</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.667458Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-19.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-19</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.630717Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-190.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-190</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.667539Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-191.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-191</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.667607Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-192.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-192</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.66767Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-193.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-193</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.667734Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-194.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-194</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.667795Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-195.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-195</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.667864Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-196.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-196</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.667926Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-197.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-197</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.667989Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-198.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-198</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.668893Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-199.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-199</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.668969Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-2.datacenter-2</key><entity type=\"Datacenter\"\
+        >datacenter-2</entity><alarm type=\"Alarm\">alarm-2</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.630785Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-20.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-20</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.635274Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-200.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-200</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.669036Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-201.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-201</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.670188Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-202.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-202</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.670279Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-203.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-203</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.670347Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-204.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-204</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.67041Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-205.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-205</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.670493Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-206.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-206</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.670561Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-207.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-207</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.670623Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-208.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-208</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.670686Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-209.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-209</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.670987Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-21.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-21</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.635328Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-210.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-210</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.671074Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-211.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-211</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.671168Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-212.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-212</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.671233Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-213.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-213</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.671298Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-214.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-214</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.671362Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-215.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-215</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.671464Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-216.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-216</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.67154Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-217.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-217</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.671605Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-218.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-218</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.671669Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-219.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-219</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.67173Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-22.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-22</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.635379Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-220.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-220</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.671794Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-221.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-221</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.671854Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-222.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-222</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.671915Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-223.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-223</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.671975Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-224.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-224</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.672057Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-225.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-225</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.672124Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-226.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-226</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.672188Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-227.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-227</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.672253Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-228.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-228</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.672316Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-229.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-229</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.672377Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-23.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-23</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.640313Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-230.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-230</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.672437Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-231.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-231</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.672522Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-232.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-232</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.672591Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-233.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-233</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.672652Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-234.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-234</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.672731Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-235.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-235</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.672797Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-236.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-236</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.672861Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-237.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-237</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.672923Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-238.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-238</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.672986Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-239.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-239</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.673046Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-24.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-24</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.641868Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-240.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-240</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.673107Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-241.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-241</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.673168Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-242.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-242</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.673229Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-243.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-243</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.673293Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-244.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-244</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.673355Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-245.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-245</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.673414Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-246.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-246</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.673474Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-247.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-247</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.673539Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-248.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-248</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.673598Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-249.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-249</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.673659Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-25.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-25</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.640555Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-250.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-250</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.67372Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-251.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-251</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.673785Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-252.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-252</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.673847Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-253.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-253</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.673907Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-254.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-254</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.67397Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-255.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-255</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.680456Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-256.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-256</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.680535Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-26.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-26</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.640638Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-260.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-260</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:55:18.667815Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-261.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-261</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:55:27.359245Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-262.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-262</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:55:37.557292Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-263.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-263</alarm><overallStatus>gray</overallStatus><time>2018-09-19T18:05:18.506522Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-264.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-264</alarm><overallStatus>gray</overallStatus><time>2018-09-19T18:05:22.858979Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-265.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-265</alarm><overallStatus>gray</overallStatus><time>2018-09-19T18:05:27.278166Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-266.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-266</alarm><overallStatus>gray</overallStatus><time>2018-09-19T18:05:34.893828Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-28.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-28</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.641919Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-29.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-29</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.641973Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-3.datacenter-2</key><entity type=\"Datacenter\"\
+        >datacenter-2</entity><alarm type=\"Alarm\">alarm-3</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.640697Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-30.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-30</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.683833Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-31.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-31</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.683889Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-32.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-32</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.683943Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-33.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-33</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.683999Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-34.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-34</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.680602Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-35.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-35</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.68066Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-36.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-36</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.680716Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-37.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-37</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.640761Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-38.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-38</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.630843Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-39.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-39</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.631164Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-4.datacenter-2</key><entity type=\"Datacenter\"\
+        >datacenter-2</entity><alarm type=\"Alarm\">alarm-4</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.640869Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-40.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-40</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.631214Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-42.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-42</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.640937Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-43.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-43</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.640988Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-44.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-44</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.64104Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-45.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-45</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.641091Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-46.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-46</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.641285Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-47.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-47</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.631262Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-48.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-48</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.641349Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-49.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-49</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.641402Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-5.datacenter-2</key><entity type=\"Datacenter\"\
+        >datacenter-2</entity><alarm type=\"Alarm\">alarm-5</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.633376Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-50.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-50</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.641454Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-51.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-51</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.683544Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-52.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-52</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.633914Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-53.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-53</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.642026Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-54.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-54</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.634005Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-6.datacenter-2</key><entity type=\"Datacenter\"\
+        >datacenter-2</entity><alarm type=\"Alarm\">alarm-6</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.634057Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-7.datacenter-2</key><entity type=\"Datacenter\"\
+        >datacenter-2</entity><alarm type=\"Alarm\">alarm-7</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.642078Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-77.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-77</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.641508Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-79.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-79</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.64213Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-80.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-80</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.642183Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-81.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-81</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.634119Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-82.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-82</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.64156Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-84.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-84</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.642237Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-85.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-85</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.64161Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-86.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-86</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.683711Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-88.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-88</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.641666Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-9.datacenter-2</key><entity type=\"Datacenter\"\
+        >datacenter-2</entity><alarm type=\"Alarm\">alarm-9</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.63417Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-90.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-90</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.641716Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-91.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-91</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.683776Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-93.datacenter-2</key><entity type=\"\
+        Datacenter\">datacenter-2</entity><alarm type=\"Alarm\">alarm-93</alarm><overallStatus>gray</overallStatus><time>2018-09-19T17:52:11.641766Z</time><acknowledged>false</acknowledged></AlarmState></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:09 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>Datacenter</type><all>false</all><pathSet>triggeredAlarmState</pathSet></propSet><objectSet><obj
+      type="Datacenter">datacenter-2</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="b11e0848b8aab912ac44518cf2aca092893fb2a3"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"Datacenter\">datacenter-2</obj><propSet><name>triggeredAlarmState</name><val\
+        \ xsi:type=\"ArrayOfAlarmState\"><AlarmState xsi:type=\"AlarmState\"><key>alarm-7.datastore-26</key><entity\
+        \ type=\"Datastore\">datastore-26</entity><alarm type=\"Alarm\">alarm-7</alarm><overallStatus>red</overallStatus><time>2018-10-24T21:35:19.352378Z</time><acknowledged>false</acknowledged></AlarmState></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['847']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:09 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>Datacenter</type><all>false</all><pathSet>alarmActionsEnabled</pathSet></propSet><objectSet><obj
+      type="Datacenter">datacenter-2</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="b11e0848b8aab912ac44518cf2aca092893fb2a3"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"Datacenter\">datacenter-2</obj><propSet><name>alarmActionsEnabled</name><val\
+        \ xsi:type=\"xsd:boolean\">true</val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['578']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:09 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>Datacenter</type><all>false</all><pathSet>tag</pathSet></propSet><objectSet><obj
+      type="Datacenter">datacenter-2</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="b11e0848b8aab912ac44518cf2aca092893fb2a3"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"Datacenter\">datacenter-2</obj><propSet><name>tag</name><val xsi:type=\"\
+        ArrayOfTag\"></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['557']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:09 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>Datacenter</type><all>false</all><pathSet>vmFolder</pathSet></propSet><objectSet><obj
+      type="Datacenter">datacenter-2</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="b11e0848b8aab912ac44518cf2aca092893fb2a3"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"Datacenter\">datacenter-2</obj><propSet><name>vmFolder</name><val\
+        \ type=\"Folder\" xsi:type=\"ManagedObjectReference\">group-v3</val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['596']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:09 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>Datacenter</type><all>false</all><pathSet>hostFolder</pathSet></propSet><objectSet><obj
+      type="Datacenter">datacenter-2</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="b11e0848b8aab912ac44518cf2aca092893fb2a3"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"Datacenter\">datacenter-2</obj><propSet><name>hostFolder</name><val\
+        \ type=\"Folder\" xsi:type=\"ManagedObjectReference\">group-h4</val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['598']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:09 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>Datacenter</type><all>false</all><pathSet>datastoreFolder</pathSet></propSet><objectSet><obj
+      type="Datacenter">datacenter-2</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="b11e0848b8aab912ac44518cf2aca092893fb2a3"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"Datacenter\">datacenter-2</obj><propSet><name>datastoreFolder</name><val\
+        \ type=\"Folder\" xsi:type=\"ManagedObjectReference\">group-s5</val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['603']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:09 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>Datacenter</type><all>false</all><pathSet>networkFolder</pathSet></propSet><objectSet><obj
+      type="Datacenter">datacenter-2</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="b11e0848b8aab912ac44518cf2aca092893fb2a3"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"Datacenter\">datacenter-2</obj><propSet><name>networkFolder</name><val\
+        \ type=\"Folder\" xsi:type=\"ManagedObjectReference\">group-n6</val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['601']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:09 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>Datacenter</type><all>false</all><pathSet>datastore</pathSet></propSet><objectSet><obj
+      type="Datacenter">datacenter-2</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="b11e0848b8aab912ac44518cf2aca092893fb2a3"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"Datacenter\">datacenter-2</obj><propSet><name>datastore</name><val\
+        \ xsi:type=\"ArrayOfManagedObjectReference\"><ManagedObjectReference type=\"\
+        Datastore\" xsi:type=\"ManagedObjectReference\">datastore-15</ManagedObjectReference><ManagedObjectReference\
+        \ type=\"Datastore\" xsi:type=\"ManagedObjectReference\">datastore-26</ManagedObjectReference></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['806']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:09 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>Datacenter</type><all>false</all><pathSet>network</pathSet></propSet><objectSet><obj
+      type="Datacenter">datacenter-2</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="b11e0848b8aab912ac44518cf2aca092893fb2a3"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"Datacenter\">datacenter-2</obj><propSet><name>network</name><val\
+        \ xsi:type=\"ArrayOfManagedObjectReference\"><ManagedObjectReference type=\"\
+        Network\" xsi:type=\"ManagedObjectReference\">network-16</ManagedObjectReference></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['688']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:09 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>Datacenter</type><all>false</all><pathSet>configuration</pathSet></propSet><objectSet><obj
+      type="Datacenter">datacenter-2</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="b11e0848b8aab912ac44518cf2aca092893fb2a3"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"Datacenter\">datacenter-2</obj><propSet><name>configuration</name><val\
+        \ xsi:type=\"DatacenterConfigInfo\"></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['577']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:09 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+version: 1

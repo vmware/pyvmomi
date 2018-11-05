@@ -1,0 +1,1140 @@
+interactions:
+- request:
+    body: null
+    headers: {}
+    method: GET
+    uri: https://vcenter/sdk/vimServiceVersions.xml
+  response:
+    body: {string: !!python/unicode '<?xml version="1.0" encoding="UTF-8" ?><namespaces
+        version="1.0"><namespace><name>urn:vim25</name><version>6.7</version><priorVersions><version>6.5</version><version>6.0</version><version>5.5</version><version>5.1</version><version>5.0</version><version>4.1</version><version>4.0</version></priorVersions></namespace></namespaces>
+
+        '}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['331']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:09 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrieveServiceContent xmlns="urn:vim25"><_this type="ServiceInstance">ServiceInstance</_this></RetrieveServiceContent></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: ['']
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrieveServiceContentResponse xmlns=\"urn:vim25\"><returnval><rootFolder\
+        \ type=\"Folder\">group-d1</rootFolder><propertyCollector type=\"PropertyCollector\"\
+        >propertyCollector</propertyCollector><viewManager type=\"ViewManager\">ViewManager</viewManager><about><name>VMware\
+        \ vCenter Server</name><fullName>VMware vCenter Server 6.7.0 build-9433931</fullName><vendor>VMware,\
+        \ Inc.</vendor><version>6.7.0</version><build>9433931</build><localeVersion>INTL</localeVersion><localeBuild>000</localeBuild><osType>linux-x64</osType><productLineId>vpx</productLineId><apiType>VirtualCenter</apiType><apiVersion>6.7</apiVersion><instanceUuid>19af0684-a957-4eaf-8863-a92317a5b4d6</instanceUuid><licenseProductName>VMware\
+        \ VirtualCenter Server</licenseProductName><licenseProductVersion>6.0</licenseProductVersion></about><setting\
+        \ type=\"OptionManager\">VpxSettings</setting><userDirectory type=\"UserDirectory\"\
+        >UserDirectory</userDirectory><sessionManager type=\"SessionManager\">SessionManager</sessionManager><authorizationManager\
+        \ type=\"AuthorizationManager\">AuthorizationManager</authorizationManager><serviceManager\
+        \ type=\"ServiceManager\">ServiceMgr</serviceManager><perfManager type=\"\
+        PerformanceManager\">PerfMgr</perfManager><scheduledTaskManager type=\"ScheduledTaskManager\"\
+        >ScheduledTaskManager</scheduledTaskManager><alarmManager type=\"AlarmManager\"\
+        >AlarmManager</alarmManager><eventManager type=\"EventManager\">EventManager</eventManager><taskManager\
+        \ type=\"TaskManager\">TaskManager</taskManager><extensionManager type=\"\
+        ExtensionManager\">ExtensionManager</extensionManager><customizationSpecManager\
+        \ type=\"CustomizationSpecManager\">CustomizationSpecManager</customizationSpecManager><customFieldsManager\
+        \ type=\"CustomFieldsManager\">CustomFieldsManager</customFieldsManager><diagnosticManager\
+        \ type=\"DiagnosticManager\">DiagMgr</diagnosticManager><licenseManager type=\"\
+        LicenseManager\">LicenseManager</licenseManager><searchIndex type=\"SearchIndex\"\
+        >SearchIndex</searchIndex><fileManager type=\"FileManager\">FileManager</fileManager><datastoreNamespaceManager\
+        \ type=\"DatastoreNamespaceManager\">DatastoreNamespaceManager</datastoreNamespaceManager><virtualDiskManager\
+        \ type=\"VirtualDiskManager\">virtualDiskManager</virtualDiskManager><snmpSystem\
+        \ type=\"HostSnmpSystem\">SnmpSystem</snmpSystem><vmProvisioningChecker type=\"\
+        VirtualMachineProvisioningChecker\">ProvChecker</vmProvisioningChecker><vmCompatibilityChecker\
+        \ type=\"VirtualMachineCompatibilityChecker\">CompatChecker</vmCompatibilityChecker><ovfManager\
+        \ type=\"OvfManager\">OvfManager</ovfManager><ipPoolManager type=\"IpPoolManager\"\
+        >IpPoolManager</ipPoolManager><dvSwitchManager type=\"DistributedVirtualSwitchManager\"\
+        >DVSManager</dvSwitchManager><hostProfileManager type=\"HostProfileManager\"\
+        >HostProfileManager</hostProfileManager><clusterProfileManager type=\"ClusterProfileManager\"\
+        >ClusterProfileManager</clusterProfileManager><complianceManager type=\"ProfileComplianceManager\"\
+        >MoComplianceManager</complianceManager><localizationManager type=\"LocalizationManager\"\
+        >LocalizationManager</localizationManager><storageResourceManager type=\"\
+        StorageResourceManager\">StorageResourceManager</storageResourceManager><guestOperationsManager\
+        \ type=\"GuestOperationsManager\">guestOperationsManager</guestOperationsManager><overheadMemoryManager\
+        \ type=\"OverheadMemoryManager\">OverheadMemoryManager</overheadMemoryManager><certificateManager\
+        \ type=\"CertificateManager\">certificateManager</certificateManager><ioFilterManager\
+        \ type=\"IoFilterManager\">IoFilterManager</ioFilterManager><vStorageObjectManager\
+        \ type=\"VcenterVStorageObjectManager\">VStorageObjectManager</vStorageObjectManager><hostSpecManager\
+        \ type=\"HostSpecificationManager\">HostSpecificationManager</hostSpecManager><cryptoManager\
+        \ type=\"CryptoManagerKmip\">CryptoManager</cryptoManager><healthUpdateManager\
+        \ type=\"HealthUpdateManager\">HealthUpdateManager</healthUpdateManager><failoverClusterConfigurator\
+        \ type=\"FailoverClusterConfigurator\">FailoverClusterConfigurator</failoverClusterConfigurator><failoverClusterManager\
+        \ type=\"FailoverClusterManager\">FailoverClusterManager</failoverClusterManager></returnval></RetrieveServiceContentResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['4429']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:09 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><Login xmlns="urn:vim25"><_this type="SessionManager">SessionManager</_this><userName>my_user</userName><password>my_pass</password></Login></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: ['']
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<LoginResponse xmlns=\"urn:vim25\"><returnval><key>526998d0-62f8-3517-0391-c321d7a15d87</key><userName>my_user</userName><fullName>my_user\
+        \ </fullName><loginTime>2018-10-25T00:21:09.461605Z</loginTime><lastActiveTime>2018-10-25T00:21:09.461605Z</lastActiveTime><locale>en</locale><messageLocale>en</messageLocale><extensionSession>false</extensionSession><ipAddress>10.0.20.1</ipAddress><userAgent>pyvmomi\
+        \ Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)</userAgent><callCount>0</callCount></returnval></LoginResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['845']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:09 GMT']
+      set-cookie: [vmware_soap_session="aa0ddb0349783e86213159bdc861bb39a4afa1cb";
+          Path=/; HttpOnly; Secure;]
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrieveServiceContent xmlns="urn:vim25"><_this type="ServiceInstance">ServiceInstance</_this></RetrieveServiceContent></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="aa0ddb0349783e86213159bdc861bb39a4afa1cb"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrieveServiceContentResponse xmlns=\"urn:vim25\"><returnval><rootFolder\
+        \ type=\"Folder\">group-d1</rootFolder><propertyCollector type=\"PropertyCollector\"\
+        >propertyCollector</propertyCollector><viewManager type=\"ViewManager\">ViewManager</viewManager><about><name>VMware\
+        \ vCenter Server</name><fullName>VMware vCenter Server 6.7.0 build-9433931</fullName><vendor>VMware,\
+        \ Inc.</vendor><version>6.7.0</version><build>9433931</build><localeVersion>INTL</localeVersion><localeBuild>000</localeBuild><osType>linux-x64</osType><productLineId>vpx</productLineId><apiType>VirtualCenter</apiType><apiVersion>6.7</apiVersion><instanceUuid>19af0684-a957-4eaf-8863-a92317a5b4d6</instanceUuid><licenseProductName>VMware\
+        \ VirtualCenter Server</licenseProductName><licenseProductVersion>6.0</licenseProductVersion></about><setting\
+        \ type=\"OptionManager\">VpxSettings</setting><userDirectory type=\"UserDirectory\"\
+        >UserDirectory</userDirectory><sessionManager type=\"SessionManager\">SessionManager</sessionManager><authorizationManager\
+        \ type=\"AuthorizationManager\">AuthorizationManager</authorizationManager><serviceManager\
+        \ type=\"ServiceManager\">ServiceMgr</serviceManager><perfManager type=\"\
+        PerformanceManager\">PerfMgr</perfManager><scheduledTaskManager type=\"ScheduledTaskManager\"\
+        >ScheduledTaskManager</scheduledTaskManager><alarmManager type=\"AlarmManager\"\
+        >AlarmManager</alarmManager><eventManager type=\"EventManager\">EventManager</eventManager><taskManager\
+        \ type=\"TaskManager\">TaskManager</taskManager><extensionManager type=\"\
+        ExtensionManager\">ExtensionManager</extensionManager><customizationSpecManager\
+        \ type=\"CustomizationSpecManager\">CustomizationSpecManager</customizationSpecManager><customFieldsManager\
+        \ type=\"CustomFieldsManager\">CustomFieldsManager</customFieldsManager><diagnosticManager\
+        \ type=\"DiagnosticManager\">DiagMgr</diagnosticManager><licenseManager type=\"\
+        LicenseManager\">LicenseManager</licenseManager><searchIndex type=\"SearchIndex\"\
+        >SearchIndex</searchIndex><fileManager type=\"FileManager\">FileManager</fileManager><datastoreNamespaceManager\
+        \ type=\"DatastoreNamespaceManager\">DatastoreNamespaceManager</datastoreNamespaceManager><virtualDiskManager\
+        \ type=\"VirtualDiskManager\">virtualDiskManager</virtualDiskManager><snmpSystem\
+        \ type=\"HostSnmpSystem\">SnmpSystem</snmpSystem><vmProvisioningChecker type=\"\
+        VirtualMachineProvisioningChecker\">ProvChecker</vmProvisioningChecker><vmCompatibilityChecker\
+        \ type=\"VirtualMachineCompatibilityChecker\">CompatChecker</vmCompatibilityChecker><ovfManager\
+        \ type=\"OvfManager\">OvfManager</ovfManager><ipPoolManager type=\"IpPoolManager\"\
+        >IpPoolManager</ipPoolManager><dvSwitchManager type=\"DistributedVirtualSwitchManager\"\
+        >DVSManager</dvSwitchManager><hostProfileManager type=\"HostProfileManager\"\
+        >HostProfileManager</hostProfileManager><clusterProfileManager type=\"ClusterProfileManager\"\
+        >ClusterProfileManager</clusterProfileManager><complianceManager type=\"ProfileComplianceManager\"\
+        >MoComplianceManager</complianceManager><localizationManager type=\"LocalizationManager\"\
+        >LocalizationManager</localizationManager><storageResourceManager type=\"\
+        StorageResourceManager\">StorageResourceManager</storageResourceManager><guestOperationsManager\
+        \ type=\"GuestOperationsManager\">guestOperationsManager</guestOperationsManager><overheadMemoryManager\
+        \ type=\"OverheadMemoryManager\">OverheadMemoryManager</overheadMemoryManager><certificateManager\
+        \ type=\"CertificateManager\">certificateManager</certificateManager><ioFilterManager\
+        \ type=\"IoFilterManager\">IoFilterManager</ioFilterManager><vStorageObjectManager\
+        \ type=\"VcenterVStorageObjectManager\">VStorageObjectManager</vStorageObjectManager><hostSpecManager\
+        \ type=\"HostSpecificationManager\">HostSpecificationManager</hostSpecManager><cryptoManager\
+        \ type=\"CryptoManagerKmip\">CryptoManager</cryptoManager><healthUpdateManager\
+        \ type=\"HealthUpdateManager\">HealthUpdateManager</healthUpdateManager><failoverClusterConfigurator\
+        \ type=\"FailoverClusterConfigurator\">FailoverClusterConfigurator</failoverClusterConfigurator><failoverClusterManager\
+        \ type=\"FailoverClusterManager\">FailoverClusterManager</failoverClusterManager></returnval></RetrieveServiceContentResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['4429']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:09 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>Datastore</type><all>false</all><pathSet>value</pathSet></propSet><objectSet><obj
+      type="Datastore">datastore-15</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="aa0ddb0349783e86213159bdc861bb39a4afa1cb"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"Datastore\">datastore-15</obj><propSet><name>value</name><val xsi:type=\"\
+        ArrayOfCustomFieldValue\"></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['571']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:09 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>Datastore</type><all>false</all><pathSet>availableField</pathSet></propSet><objectSet><obj
+      type="Datastore">datastore-15</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="aa0ddb0349783e86213159bdc861bb39a4afa1cb"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"Datastore\">datastore-15</obj><propSet><name>availableField</name><val\
+        \ xsi:type=\"ArrayOfCustomFieldDef\"></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['578']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:09 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>Datastore</type><all>false</all><pathSet>parent</pathSet></propSet><objectSet><obj
+      type="Datastore">datastore-15</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="aa0ddb0349783e86213159bdc861bb39a4afa1cb"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"Datastore\">datastore-15</obj><propSet><name>parent</name><val type=\"\
+        Folder\" xsi:type=\"ManagedObjectReference\">group-s5</val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['593']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:09 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>Datastore</type><all>false</all><pathSet>customValue</pathSet></propSet><objectSet><obj
+      type="Datastore">datastore-15</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="aa0ddb0349783e86213159bdc861bb39a4afa1cb"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"Datastore\">datastore-15</obj><propSet><name>customValue</name><val\
+        \ xsi:type=\"ArrayOfCustomFieldValue\"></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['577']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:09 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>Datastore</type><all>false</all><pathSet>overallStatus</pathSet></propSet><objectSet><obj
+      type="Datastore">datastore-15</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="aa0ddb0349783e86213159bdc861bb39a4afa1cb"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"Datastore\">datastore-15</obj><propSet><name>overallStatus</name><val\
+        \ xsi:type=\"ManagedEntityStatus\">green</val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['580']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:09 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>Datastore</type><all>false</all><pathSet>configStatus</pathSet></propSet><objectSet><obj
+      type="Datastore">datastore-15</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="aa0ddb0349783e86213159bdc861bb39a4afa1cb"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"Datastore\">datastore-15</obj><propSet><name>configStatus</name><val\
+        \ xsi:type=\"ManagedEntityStatus\">gray</val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['578']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:09 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>Datastore</type><all>false</all><pathSet>configIssue</pathSet></propSet><objectSet><obj
+      type="Datastore">datastore-15</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="aa0ddb0349783e86213159bdc861bb39a4afa1cb"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"Datastore\">datastore-15</obj><propSet><name>configIssue</name><val\
+        \ xsi:type=\"ArrayOfEvent\"></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['566']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:09 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>Datastore</type><all>false</all><pathSet>effectiveRole</pathSet></propSet><objectSet><obj
+      type="Datastore">datastore-15</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="aa0ddb0349783e86213159bdc861bb39a4afa1cb"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"Datastore\">datastore-15</obj><propSet><name>effectiveRole</name><val\
+        \ xsi:type=\"ArrayOfInt\"><int xsi:type=\"xsd:int\">-1</int></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['598']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:09 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>Datastore</type><all>false</all><pathSet>permission</pathSet></propSet><objectSet><obj
+      type="Datastore">datastore-15</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="aa0ddb0349783e86213159bdc861bb39a4afa1cb"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"Datastore\">datastore-15</obj><propSet><name>permission</name><val\
+        \ xsi:type=\"ArrayOfPermission\"></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['570']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:09 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>Datastore</type><all>false</all><pathSet>name</pathSet></propSet><objectSet><obj
+      type="Datastore">datastore-15</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="aa0ddb0349783e86213159bdc861bb39a4afa1cb"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"Datastore\">datastore-15</obj><propSet><name>name</name><val xsi:type=\"\
+        xsd:string\">datastore1</val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['567']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:09 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>Datastore</type><all>false</all><pathSet>disabledMethod</pathSet></propSet><objectSet><obj
+      type="Datastore">datastore-15</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="aa0ddb0349783e86213159bdc861bb39a4afa1cb"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"Datastore\">datastore-15</obj><propSet><name>disabledMethod</name><val\
+        \ xsi:type=\"ArrayOfString\"><string xsi:type=\"xsd:string\">DatastoreExitMaintenanceMode_Task</string></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['642']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:09 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>Datastore</type><all>false</all><pathSet>recentTask</pathSet></propSet><objectSet><obj
+      type="Datastore">datastore-15</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="aa0ddb0349783e86213159bdc861bb39a4afa1cb"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"Datastore\">datastore-15</obj><propSet><name>recentTask</name><val\
+        \ xsi:type=\"ArrayOfManagedObjectReference\"></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['582']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:09 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>Datastore</type><all>false</all><pathSet>declaredAlarmState</pathSet></propSet><objectSet><obj
+      type="Datastore">datastore-15</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="aa0ddb0349783e86213159bdc861bb39a4afa1cb"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"Datastore\">datastore-15</obj><propSet><name>declaredAlarmState</name><val\
+        \ xsi:type=\"ArrayOfAlarmState\"><AlarmState xsi:type=\"AlarmState\"><key>alarm-110.datastore-15</key><entity\
+        \ type=\"Datastore\">datastore-15</entity><alarm type=\"Alarm\">alarm-110</alarm><overallStatus>gray</overallStatus><time>2018-09-19T18:00:22.353264Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-24.datastore-15</key><entity type=\"\
+        Datastore\">datastore-15</entity><alarm type=\"Alarm\">alarm-24</alarm><overallStatus>gray</overallStatus><time>2018-09-19T18:00:22.353397Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-28.datastore-15</key><entity type=\"\
+        Datastore\">datastore-15</entity><alarm type=\"Alarm\">alarm-28</alarm><overallStatus>gray</overallStatus><time>2018-09-19T18:00:22.353475Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-29.datastore-15</key><entity type=\"\
+        Datastore\">datastore-15</entity><alarm type=\"Alarm\">alarm-29</alarm><overallStatus>gray</overallStatus><time>2018-09-19T18:00:22.353541Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-53.datastore-15</key><entity type=\"\
+        Datastore\">datastore-15</entity><alarm type=\"Alarm\">alarm-53</alarm><overallStatus>gray</overallStatus><time>2018-09-19T18:00:22.353598Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-7.datastore-15</key><entity type=\"Datastore\"\
+        >datastore-15</entity><alarm type=\"Alarm\">alarm-7</alarm><overallStatus>green</overallStatus><time>2018-09-19T18:00:22.353783Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-79.datastore-15</key><entity type=\"\
+        Datastore\">datastore-15</entity><alarm type=\"Alarm\">alarm-79</alarm><overallStatus>gray</overallStatus><time>2018-09-19T18:00:22.353844Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-80.datastore-15</key><entity type=\"\
+        Datastore\">datastore-15</entity><alarm type=\"Alarm\">alarm-80</alarm><overallStatus>gray</overallStatus><time>2018-09-19T18:00:22.356378Z</time><acknowledged>false</acknowledged></AlarmState><AlarmState\
+        \ xsi:type=\"AlarmState\"><key>alarm-84.datastore-15</key><entity type=\"\
+        Datastore\">datastore-15</entity><alarm type=\"Alarm\">alarm-84</alarm><overallStatus>gray</overallStatus><time>2018-09-19T18:00:22.356497Z</time><acknowledged>false</acknowledged></AlarmState></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['3009']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:09 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>Datastore</type><all>false</all><pathSet>triggeredAlarmState</pathSet></propSet><objectSet><obj
+      type="Datastore">datastore-15</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="aa0ddb0349783e86213159bdc861bb39a4afa1cb"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"Datastore\">datastore-15</obj><propSet><name>triggeredAlarmState</name><val\
+        \ xsi:type=\"ArrayOfAlarmState\"></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['579']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:09 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>Datastore</type><all>false</all><pathSet>alarmActionsEnabled</pathSet></propSet><objectSet><obj
+      type="Datastore">datastore-15</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="aa0ddb0349783e86213159bdc861bb39a4afa1cb"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"Datastore\">datastore-15</obj><propSet><name>alarmActionsEnabled</name><val\
+        \ xsi:type=\"xsd:boolean\">true</val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['577']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:09 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>Datastore</type><all>false</all><pathSet>tag</pathSet></propSet><objectSet><obj
+      type="Datastore">datastore-15</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="aa0ddb0349783e86213159bdc861bb39a4afa1cb"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"Datastore\">datastore-15</obj><propSet><name>tag</name><val xsi:type=\"\
+        ArrayOfTag\"></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['556']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:09 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>Datastore</type><all>false</all><pathSet>info</pathSet></propSet><objectSet><obj
+      type="Datastore">datastore-15</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="aa0ddb0349783e86213159bdc861bb39a4afa1cb"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"Datastore\">datastore-15</obj><propSet><name>info</name><val xsi:type=\"\
+        VmfsDatastoreInfo\"><name>datastore1</name><url>ds:///vmfs/volumes/5b7ee5c9-4e8f1921-93b3-90b11c51ac73/</url><freeSpace>177978998784</freeSpace><maxFileSize>70368744177664</maxFileSize><maxVirtualDiskCapacity>68169720922112</maxVirtualDiskCapacity><maxMemoryFileSize>70368744177664</maxMemoryFileSize><timestamp>2018-10-25T00:07:06.456385Z</timestamp><maxPhysicalRDMFileSize>70368744177664</maxPhysicalRDMFileSize><maxVirtualRDMFileSize>68169720922112</maxVirtualRDMFileSize><vmfs><type>VMFS</type><name>datastore1</name><capacity>590826438656</capacity><blockSizeMb>1</blockSizeMb><blockSize>1024</blockSize><unmapGranularity>1024</unmapGranularity><unmapPriority>low</unmapPriority><maxBlocks>63963136</maxBlocks><majorVersion>6</majorVersion><version>6.82</version><uuid>5b7ee5c9-4e8f1921-93b3-90b11c51ac73</uuid><extent><diskName>naa.6b8ca3a0e65228002312a2e3098048bf</diskName><partition>3</partition></extent><vmfsUpgradable>false</vmfsUpgradable><ssd>false</ssd><local>true</local></vmfs></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['1538']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:09 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>Datastore</type><all>false</all><pathSet>summary</pathSet></propSet><objectSet><obj
+      type="Datastore">datastore-15</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="aa0ddb0349783e86213159bdc861bb39a4afa1cb"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"Datastore\">datastore-15</obj><propSet><name>summary</name><val xsi:type=\"\
+        DatastoreSummary\"><datastore type=\"Datastore\">datastore-15</datastore><name>datastore1</name><url>ds:///vmfs/volumes/5b7ee5c9-4e8f1921-93b3-90b11c51ac73/</url><capacity>590826438656</capacity><freeSpace>177978998784</freeSpace><uncommitted>335226992919</uncommitted><accessible>true</accessible><multipleHostAccess>false</multipleHostAccess><type>VMFS</type><maintenanceMode>normal</maintenanceMode></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['947']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:09 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>Datastore</type><all>false</all><pathSet>host</pathSet></propSet><objectSet><obj
+      type="Datastore">datastore-15</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="aa0ddb0349783e86213159bdc861bb39a4afa1cb"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"Datastore\">datastore-15</obj><propSet><name>host</name><val xsi:type=\"\
+        ArrayOfDatastoreHostMount\"><DatastoreHostMount xsi:type=\"DatastoreHostMount\"\
+        ><key type=\"HostSystem\">host-14</key><mountInfo><path>/vmfs/volumes/5b7ee5c9-4e8f1921-93b3-90b11c51ac73</path><accessMode>readWrite</accessMode><mounted>true</mounted><accessible>true</accessible></mountInfo></DatastoreHostMount></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['850']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:09 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>Datastore</type><all>false</all><pathSet>vm</pathSet></propSet><objectSet><obj
+      type="Datastore">datastore-15</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="aa0ddb0349783e86213159bdc861bb39a4afa1cb"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"Datastore\">datastore-15</obj><propSet><name>vm</name><val xsi:type=\"\
+        ArrayOfManagedObjectReference\"><ManagedObjectReference type=\"VirtualMachine\"\
+        \ xsi:type=\"ManagedObjectReference\">vm-127</ManagedObjectReference><ManagedObjectReference\
+        \ type=\"VirtualMachine\" xsi:type=\"ManagedObjectReference\">vm-69</ManagedObjectReference><ManagedObjectReference\
+        \ type=\"VirtualMachine\" xsi:type=\"ManagedObjectReference\">vm-17</ManagedObjectReference><ManagedObjectReference\
+        \ type=\"VirtualMachine\" xsi:type=\"ManagedObjectReference\">vm-42</ManagedObjectReference><ManagedObjectReference\
+        \ type=\"VirtualMachine\" xsi:type=\"ManagedObjectReference\">vm-18</ManagedObjectReference><ManagedObjectReference\
+        \ type=\"VirtualMachine\" xsi:type=\"ManagedObjectReference\">vm-36</ManagedObjectReference><ManagedObjectReference\
+        \ type=\"VirtualMachine\" xsi:type=\"ManagedObjectReference\">vm-19</ManagedObjectReference><ManagedObjectReference\
+        \ type=\"VirtualMachine\" xsi:type=\"ManagedObjectReference\">vm-21</ManagedObjectReference><ManagedObjectReference\
+        \ type=\"VirtualMachine\" xsi:type=\"ManagedObjectReference\">vm-20</ManagedObjectReference><ManagedObjectReference\
+        \ type=\"VirtualMachine\" xsi:type=\"ManagedObjectReference\">vm-22</ManagedObjectReference><ManagedObjectReference\
+        \ type=\"VirtualMachine\" xsi:type=\"ManagedObjectReference\">vm-32</ManagedObjectReference></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['1785']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:09 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>Datastore</type><all>false</all><pathSet>browser</pathSet></propSet><objectSet><obj
+      type="Datastore">datastore-15</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="aa0ddb0349783e86213159bdc861bb39a4afa1cb"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"Datastore\">datastore-15</obj><propSet><name>browser</name><val type=\"\
+        HostDatastoreBrowser\" xsi:type=\"ManagedObjectReference\">datastoreBrowser-datastore-15</val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['629']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:09 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>Datastore</type><all>false</all><pathSet>capability</pathSet></propSet><objectSet><obj
+      type="Datastore">datastore-15</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="aa0ddb0349783e86213159bdc861bb39a4afa1cb"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"Datastore\">datastore-15</obj><propSet><name>capability</name><val\
+        \ xsi:type=\"DatastoreCapability\"><directoryHierarchySupported>true</directoryHierarchySupported><rawDiskMappingsSupported>true</rawDiskMappingsSupported><perFileThinProvisioningSupported>true</perFileThinProvisioningSupported><storageIORMSupported>true</storageIORMSupported><nativeSnapshotSupported>false</nativeSnapshotSupported><topLevelDirectoryCreateSupported>true</topLevelDirectoryCreateSupported><seSparseSupported>true</seSparseSupported><vmfsSparseSupported>false</vmfsSparseSupported><vsanSparseSupported>false</vsanSparseSupported><vmdkExpandSupported>true</vmdkExpandSupported></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['1129']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:09 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+      <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
+
+      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>Datastore</type><all>false</all><pathSet>iormConfiguration</pathSet></propSet><objectSet><obj
+      type="Datastore">datastore-15</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+
+      </soapenv:Envelope>'
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Content-Type: [text/xml; charset=UTF-8]
+      Cookie: [vmware_soap_session="aa0ddb0349783e86213159bdc861bb39a4afa1cb"; Path=/;
+          HttpOnly; Secure;]
+      SOAPAction: ['"urn:vim25/6.7"']
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+    method: POST
+    uri: https://vcenter/sdk
+  response:
+    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
+        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
+        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
+        \ type=\"Datastore\">datastore-15</obj><propSet><name>iormConfiguration</name><val\
+        \ xsi:type=\"StorageIORMInfo\"><enabled>false</enabled><congestionThresholdMode>automatic</congestionThresholdMode><congestionThreshold>30</congestionThreshold><percentOfPeakThroughput>90</percentOfPeakThroughput><statsCollectionEnabled>false</statsCollectionEnabled><reservationEnabled>true</reservationEnabled><statsAggregationDisabled>false</statsAggregationDisabled></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        </soapenv:Body>\n</soapenv:Envelope>"}
+    headers:
+      cache-control: [no-cache]
+      connection: [Keep-Alive]
+      content-length: ['914']
+      content-type: [text/xml; charset=utf-8]
+      date: ['Thu, 25 Oct 2018 00:21:09 GMT']
+      x-frame-options: [DENY]
+    status: {code: 200, message: OK}
+version: 1
