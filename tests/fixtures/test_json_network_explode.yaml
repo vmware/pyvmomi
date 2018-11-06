@@ -14,15 +14,14 @@ interactions:
       connection: [Keep-Alive]
       content-length: ['331']
       content-type: [text/xml; charset=utf-8]
-      date: ['Thu, 25 Oct 2018 00:21:13 GMT']
+      date: ['Tue, 18 Dec 2018 12:21:55 GMT']
       x-frame-options: [DENY]
     status: {code: 200, message: OK}
 - request:
     body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
 
-      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
-      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
       <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
 
@@ -34,7 +33,7 @@ interactions:
       Content-Type: [text/xml; charset=UTF-8]
       Cookie: ['']
       SOAPAction: ['"urn:vim25/6.7"']
-      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-42-generic; x86_64)]
     method: POST
     uri: https://vcenter/sdk
   response:
@@ -91,15 +90,14 @@ interactions:
       connection: [Keep-Alive]
       content-length: ['4429']
       content-type: [text/xml; charset=utf-8]
-      date: ['Thu, 25 Oct 2018 00:21:13 GMT']
+      date: ['Tue, 18 Dec 2018 12:21:55 GMT']
       x-frame-options: [DENY]
     status: {code: 200, message: OK}
 - request:
     body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
 
-      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
-      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
       <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
 
@@ -111,7 +109,7 @@ interactions:
       Content-Type: [text/xml; charset=UTF-8]
       Cookie: ['']
       SOAPAction: ['"urn:vim25/6.7"']
-      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-42-generic; x86_64)]
     method: POST
     uri: https://vcenter/sdk
   response:
@@ -119,26 +117,25 @@ interactions:
         <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
         \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
         http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
-        >\n<soapenv:Body>\n<LoginResponse xmlns=\"urn:vim25\"><returnval><key>52ef282d-74ff-375a-3cbb-b7a9a38f768e</key><userName>my_user</userName><fullName>my_user\
-        \ </fullName><loginTime>2018-10-25T00:21:13.062028Z</loginTime><lastActiveTime>2018-10-25T00:21:13.062028Z</lastActiveTime><locale>en</locale><messageLocale>en</messageLocale><extensionSession>false</extensionSession><ipAddress>10.0.20.1</ipAddress><userAgent>pyvmomi\
-        \ Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)</userAgent><callCount>0</callCount></returnval></LoginResponse>\n\
+        >\n<soapenv:Body>\n<LoginResponse xmlns=\"urn:vim25\"><returnval><key>520c1dbb-33ed-2cba-4242-1b659b066fa7</key><userName>my_user</userName><fullName>my_user\
+        \ </fullName><loginTime>2018-12-18T12:21:55.18175Z</loginTime><lastActiveTime>2018-12-18T12:21:55.18175Z</lastActiveTime><locale>en</locale><messageLocale>en</messageLocale><extensionSession>false</extensionSession><ipAddress>10.0.20.1</ipAddress><userAgent>pyvmomi\
+        \ Python/2.7.15rc1 (Linux; 4.15.0-42-generic; x86_64)</userAgent><callCount>0</callCount></returnval></LoginResponse>\n\
         </soapenv:Body>\n</soapenv:Envelope>"}
     headers:
       cache-control: [no-cache]
       connection: [Keep-Alive]
-      content-length: ['845']
+      content-length: ['843']
       content-type: [text/xml; charset=utf-8]
-      date: ['Thu, 25 Oct 2018 00:21:13 GMT']
-      set-cookie: [vmware_soap_session="f63a1f97f7a7bf127d084b19fea887dbdafc5740";
+      date: ['Tue, 18 Dec 2018 12:21:55 GMT']
+      set-cookie: [vmware_soap_session="86c700bde3f09c2650516fad6f4e8d4c41352685";
           Path=/; HttpOnly; Secure;]
       x-frame-options: [DENY]
     status: {code: 200, message: OK}
 - request:
     body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
 
-      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
-      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
       <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
 
@@ -148,10 +145,10 @@ interactions:
     headers:
       Accept-Encoding: ['gzip, deflate']
       Content-Type: [text/xml; charset=UTF-8]
-      Cookie: [vmware_soap_session="f63a1f97f7a7bf127d084b19fea887dbdafc5740"; Path=/;
+      Cookie: [vmware_soap_session="86c700bde3f09c2650516fad6f4e8d4c41352685"; Path=/;
           HttpOnly; Secure;]
       SOAPAction: ['"urn:vim25/6.7"']
-      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-42-generic; x86_64)]
     method: POST
     uri: https://vcenter/sdk
   response:
@@ -208,15 +205,14 @@ interactions:
       connection: [Keep-Alive]
       content-length: ['4429']
       content-type: [text/xml; charset=utf-8]
-      date: ['Thu, 25 Oct 2018 00:21:13 GMT']
+      date: ['Tue, 18 Dec 2018 12:21:55 GMT']
       x-frame-options: [DENY]
     status: {code: 200, message: OK}
 - request:
     body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
 
-      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
-      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
       <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
 
@@ -227,10 +223,10 @@ interactions:
     headers:
       Accept-Encoding: ['gzip, deflate']
       Content-Type: [text/xml; charset=UTF-8]
-      Cookie: [vmware_soap_session="f63a1f97f7a7bf127d084b19fea887dbdafc5740"; Path=/;
+      Cookie: [vmware_soap_session="86c700bde3f09c2650516fad6f4e8d4c41352685"; Path=/;
           HttpOnly; Secure;]
       SOAPAction: ['"urn:vim25/6.7"']
-      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-42-generic; x86_64)]
     method: POST
     uri: https://vcenter/sdk
   response:
@@ -247,15 +243,14 @@ interactions:
       connection: [Keep-Alive]
       content-length: ['567']
       content-type: [text/xml; charset=utf-8]
-      date: ['Thu, 25 Oct 2018 00:21:13 GMT']
+      date: ['Tue, 18 Dec 2018 12:21:55 GMT']
       x-frame-options: [DENY]
     status: {code: 200, message: OK}
 - request:
     body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
 
-      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
-      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
       <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
 
@@ -266,10 +261,10 @@ interactions:
     headers:
       Accept-Encoding: ['gzip, deflate']
       Content-Type: [text/xml; charset=UTF-8]
-      Cookie: [vmware_soap_session="f63a1f97f7a7bf127d084b19fea887dbdafc5740"; Path=/;
+      Cookie: [vmware_soap_session="86c700bde3f09c2650516fad6f4e8d4c41352685"; Path=/;
           HttpOnly; Secure;]
       SOAPAction: ['"urn:vim25/6.7"']
-      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-42-generic; x86_64)]
     method: POST
     uri: https://vcenter/sdk
   response:
@@ -286,15 +281,14 @@ interactions:
       connection: [Keep-Alive]
       content-length: ['574']
       content-type: [text/xml; charset=utf-8]
-      date: ['Thu, 25 Oct 2018 00:21:13 GMT']
+      date: ['Tue, 18 Dec 2018 12:21:55 GMT']
       x-frame-options: [DENY]
     status: {code: 200, message: OK}
 - request:
     body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
 
-      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
-      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
       <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
 
@@ -305,10 +299,10 @@ interactions:
     headers:
       Accept-Encoding: ['gzip, deflate']
       Content-Type: [text/xml; charset=UTF-8]
-      Cookie: [vmware_soap_session="f63a1f97f7a7bf127d084b19fea887dbdafc5740"; Path=/;
+      Cookie: [vmware_soap_session="86c700bde3f09c2650516fad6f4e8d4c41352685"; Path=/;
           HttpOnly; Secure;]
       SOAPAction: ['"urn:vim25/6.7"']
-      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-42-generic; x86_64)]
     method: POST
     uri: https://vcenter/sdk
   response:
@@ -325,15 +319,14 @@ interactions:
       connection: [Keep-Alive]
       content-length: ['589']
       content-type: [text/xml; charset=utf-8]
-      date: ['Thu, 25 Oct 2018 00:21:13 GMT']
+      date: ['Tue, 18 Dec 2018 12:21:55 GMT']
       x-frame-options: [DENY]
     status: {code: 200, message: OK}
 - request:
     body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
 
-      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
-      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
       <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
 
@@ -344,10 +337,10 @@ interactions:
     headers:
       Accept-Encoding: ['gzip, deflate']
       Content-Type: [text/xml; charset=UTF-8]
-      Cookie: [vmware_soap_session="f63a1f97f7a7bf127d084b19fea887dbdafc5740"; Path=/;
+      Cookie: [vmware_soap_session="86c700bde3f09c2650516fad6f4e8d4c41352685"; Path=/;
           HttpOnly; Secure;]
       SOAPAction: ['"urn:vim25/6.7"']
-      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-42-generic; x86_64)]
     method: POST
     uri: https://vcenter/sdk
   response:
@@ -364,15 +357,14 @@ interactions:
       connection: [Keep-Alive]
       content-length: ['573']
       content-type: [text/xml; charset=utf-8]
-      date: ['Thu, 25 Oct 2018 00:21:13 GMT']
+      date: ['Tue, 18 Dec 2018 12:21:55 GMT']
       x-frame-options: [DENY]
     status: {code: 200, message: OK}
 - request:
     body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
 
-      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
-      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
       <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
 
@@ -383,10 +375,10 @@ interactions:
     headers:
       Accept-Encoding: ['gzip, deflate']
       Content-Type: [text/xml; charset=UTF-8]
-      Cookie: [vmware_soap_session="f63a1f97f7a7bf127d084b19fea887dbdafc5740"; Path=/;
+      Cookie: [vmware_soap_session="86c700bde3f09c2650516fad6f4e8d4c41352685"; Path=/;
           HttpOnly; Secure;]
       SOAPAction: ['"urn:vim25/6.7"']
-      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-42-generic; x86_64)]
     method: POST
     uri: https://vcenter/sdk
   response:
@@ -403,15 +395,14 @@ interactions:
       connection: [Keep-Alive]
       content-length: ['576']
       content-type: [text/xml; charset=utf-8]
-      date: ['Thu, 25 Oct 2018 00:21:13 GMT']
+      date: ['Tue, 18 Dec 2018 12:21:55 GMT']
       x-frame-options: [DENY]
     status: {code: 200, message: OK}
 - request:
     body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
 
-      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
-      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
       <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
 
@@ -422,10 +413,10 @@ interactions:
     headers:
       Accept-Encoding: ['gzip, deflate']
       Content-Type: [text/xml; charset=UTF-8]
-      Cookie: [vmware_soap_session="f63a1f97f7a7bf127d084b19fea887dbdafc5740"; Path=/;
+      Cookie: [vmware_soap_session="86c700bde3f09c2650516fad6f4e8d4c41352685"; Path=/;
           HttpOnly; Secure;]
       SOAPAction: ['"urn:vim25/6.7"']
-      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-42-generic; x86_64)]
     method: POST
     uri: https://vcenter/sdk
   response:
@@ -442,15 +433,14 @@ interactions:
       connection: [Keep-Alive]
       content-length: ['575']
       content-type: [text/xml; charset=utf-8]
-      date: ['Thu, 25 Oct 2018 00:21:13 GMT']
+      date: ['Tue, 18 Dec 2018 12:21:55 GMT']
       x-frame-options: [DENY]
     status: {code: 200, message: OK}
 - request:
     body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
 
-      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
-      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
       <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
 
@@ -461,10 +451,10 @@ interactions:
     headers:
       Accept-Encoding: ['gzip, deflate']
       Content-Type: [text/xml; charset=UTF-8]
-      Cookie: [vmware_soap_session="f63a1f97f7a7bf127d084b19fea887dbdafc5740"; Path=/;
+      Cookie: [vmware_soap_session="86c700bde3f09c2650516fad6f4e8d4c41352685"; Path=/;
           HttpOnly; Secure;]
       SOAPAction: ['"urn:vim25/6.7"']
-      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-42-generic; x86_64)]
     method: POST
     uri: https://vcenter/sdk
   response:
@@ -481,15 +471,14 @@ interactions:
       connection: [Keep-Alive]
       content-length: ['562']
       content-type: [text/xml; charset=utf-8]
-      date: ['Thu, 25 Oct 2018 00:21:13 GMT']
+      date: ['Tue, 18 Dec 2018 12:21:55 GMT']
       x-frame-options: [DENY]
     status: {code: 200, message: OK}
 - request:
     body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
 
-      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
-      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
       <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
 
@@ -500,10 +489,10 @@ interactions:
     headers:
       Accept-Encoding: ['gzip, deflate']
       Content-Type: [text/xml; charset=UTF-8]
-      Cookie: [vmware_soap_session="f63a1f97f7a7bf127d084b19fea887dbdafc5740"; Path=/;
+      Cookie: [vmware_soap_session="86c700bde3f09c2650516fad6f4e8d4c41352685"; Path=/;
           HttpOnly; Secure;]
       SOAPAction: ['"urn:vim25/6.7"']
-      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-42-generic; x86_64)]
     method: POST
     uri: https://vcenter/sdk
   response:
@@ -520,15 +509,14 @@ interactions:
       connection: [Keep-Alive]
       content-length: ['594']
       content-type: [text/xml; charset=utf-8]
-      date: ['Thu, 25 Oct 2018 00:21:13 GMT']
+      date: ['Tue, 18 Dec 2018 12:21:55 GMT']
       x-frame-options: [DENY]
     status: {code: 200, message: OK}
 - request:
     body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
 
-      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
-      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
       <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
 
@@ -539,10 +527,10 @@ interactions:
     headers:
       Accept-Encoding: ['gzip, deflate']
       Content-Type: [text/xml; charset=UTF-8]
-      Cookie: [vmware_soap_session="f63a1f97f7a7bf127d084b19fea887dbdafc5740"; Path=/;
+      Cookie: [vmware_soap_session="86c700bde3f09c2650516fad6f4e8d4c41352685"; Path=/;
           HttpOnly; Secure;]
       SOAPAction: ['"urn:vim25/6.7"']
-      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-42-generic; x86_64)]
     method: POST
     uri: https://vcenter/sdk
   response:
@@ -559,15 +547,14 @@ interactions:
       connection: [Keep-Alive]
       content-length: ['566']
       content-type: [text/xml; charset=utf-8]
-      date: ['Thu, 25 Oct 2018 00:21:13 GMT']
+      date: ['Tue, 18 Dec 2018 12:21:55 GMT']
       x-frame-options: [DENY]
     status: {code: 200, message: OK}
 - request:
     body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
 
-      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
-      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
       <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
 
@@ -578,10 +565,10 @@ interactions:
     headers:
       Accept-Encoding: ['gzip, deflate']
       Content-Type: [text/xml; charset=UTF-8]
-      Cookie: [vmware_soap_session="f63a1f97f7a7bf127d084b19fea887dbdafc5740"; Path=/;
+      Cookie: [vmware_soap_session="86c700bde3f09c2650516fad6f4e8d4c41352685"; Path=/;
           HttpOnly; Secure;]
       SOAPAction: ['"urn:vim25/6.7"']
-      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-42-generic; x86_64)]
     method: POST
     uri: https://vcenter/sdk
   response:
@@ -598,15 +585,14 @@ interactions:
       connection: [Keep-Alive]
       content-length: ['563']
       content-type: [text/xml; charset=utf-8]
-      date: ['Thu, 25 Oct 2018 00:21:13 GMT']
+      date: ['Tue, 18 Dec 2018 12:21:55 GMT']
       x-frame-options: [DENY]
     status: {code: 200, message: OK}
 - request:
     body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
 
-      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
-      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
       <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
 
@@ -617,10 +603,10 @@ interactions:
     headers:
       Accept-Encoding: ['gzip, deflate']
       Content-Type: [text/xml; charset=UTF-8]
-      Cookie: [vmware_soap_session="f63a1f97f7a7bf127d084b19fea887dbdafc5740"; Path=/;
+      Cookie: [vmware_soap_session="86c700bde3f09c2650516fad6f4e8d4c41352685"; Path=/;
           HttpOnly; Secure;]
       SOAPAction: ['"urn:vim25/6.7"']
-      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-42-generic; x86_64)]
     method: POST
     uri: https://vcenter/sdk
   response:
@@ -637,15 +623,14 @@ interactions:
       connection: [Keep-Alive]
       content-length: ['566']
       content-type: [text/xml; charset=utf-8]
-      date: ['Thu, 25 Oct 2018 00:21:13 GMT']
+      date: ['Tue, 18 Dec 2018 12:21:55 GMT']
       x-frame-options: [DENY]
     status: {code: 200, message: OK}
 - request:
     body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
 
-      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
-      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
       <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
 
@@ -656,10 +641,10 @@ interactions:
     headers:
       Accept-Encoding: ['gzip, deflate']
       Content-Type: [text/xml; charset=UTF-8]
-      Cookie: [vmware_soap_session="f63a1f97f7a7bf127d084b19fea887dbdafc5740"; Path=/;
+      Cookie: [vmware_soap_session="86c700bde3f09c2650516fad6f4e8d4c41352685"; Path=/;
           HttpOnly; Secure;]
       SOAPAction: ['"urn:vim25/6.7"']
-      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-42-generic; x86_64)]
     method: POST
     uri: https://vcenter/sdk
   response:
@@ -676,15 +661,14 @@ interactions:
       connection: [Keep-Alive]
       content-length: ['578']
       content-type: [text/xml; charset=utf-8]
-      date: ['Thu, 25 Oct 2018 00:21:13 GMT']
+      date: ['Tue, 18 Dec 2018 12:21:55 GMT']
       x-frame-options: [DENY]
     status: {code: 200, message: OK}
 - request:
     body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
 
-      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
-      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
       <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
 
@@ -695,10 +679,10 @@ interactions:
     headers:
       Accept-Encoding: ['gzip, deflate']
       Content-Type: [text/xml; charset=UTF-8]
-      Cookie: [vmware_soap_session="f63a1f97f7a7bf127d084b19fea887dbdafc5740"; Path=/;
+      Cookie: [vmware_soap_session="86c700bde3f09c2650516fad6f4e8d4c41352685"; Path=/;
           HttpOnly; Secure;]
       SOAPAction: ['"urn:vim25/6.7"']
-      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-42-generic; x86_64)]
     method: POST
     uri: https://vcenter/sdk
   response:
@@ -715,15 +699,14 @@ interactions:
       connection: [Keep-Alive]
       content-length: ['574']
       content-type: [text/xml; charset=utf-8]
-      date: ['Thu, 25 Oct 2018 00:21:13 GMT']
+      date: ['Tue, 18 Dec 2018 12:21:55 GMT']
       x-frame-options: [DENY]
     status: {code: 200, message: OK}
 - request:
     body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
 
-      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
-      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
       <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
 
@@ -734,10 +717,10 @@ interactions:
     headers:
       Accept-Encoding: ['gzip, deflate']
       Content-Type: [text/xml; charset=UTF-8]
-      Cookie: [vmware_soap_session="f63a1f97f7a7bf127d084b19fea887dbdafc5740"; Path=/;
+      Cookie: [vmware_soap_session="86c700bde3f09c2650516fad6f4e8d4c41352685"; Path=/;
           HttpOnly; Secure;]
       SOAPAction: ['"urn:vim25/6.7"']
-      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-42-generic; x86_64)]
     method: POST
     uri: https://vcenter/sdk
   response:
@@ -754,15 +737,14 @@ interactions:
       connection: [Keep-Alive]
       content-length: ['575']
       content-type: [text/xml; charset=utf-8]
-      date: ['Thu, 25 Oct 2018 00:21:13 GMT']
+      date: ['Tue, 18 Dec 2018 12:21:55 GMT']
       x-frame-options: [DENY]
     status: {code: 200, message: OK}
 - request:
     body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
 
-      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
-      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
       <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
 
@@ -773,10 +755,10 @@ interactions:
     headers:
       Accept-Encoding: ['gzip, deflate']
       Content-Type: [text/xml; charset=UTF-8]
-      Cookie: [vmware_soap_session="f63a1f97f7a7bf127d084b19fea887dbdafc5740"; Path=/;
+      Cookie: [vmware_soap_session="86c700bde3f09c2650516fad6f4e8d4c41352685"; Path=/;
           HttpOnly; Secure;]
       SOAPAction: ['"urn:vim25/6.7"']
-      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-42-generic; x86_64)]
     method: POST
     uri: https://vcenter/sdk
   response:
@@ -793,15 +775,14 @@ interactions:
       connection: [Keep-Alive]
       content-length: ['573']
       content-type: [text/xml; charset=utf-8]
-      date: ['Thu, 25 Oct 2018 00:21:13 GMT']
+      date: ['Tue, 18 Dec 2018 12:21:55 GMT']
       x-frame-options: [DENY]
     status: {code: 200, message: OK}
 - request:
     body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
 
-      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
-      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
       <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
 
@@ -812,10 +793,10 @@ interactions:
     headers:
       Accept-Encoding: ['gzip, deflate']
       Content-Type: [text/xml; charset=UTF-8]
-      Cookie: [vmware_soap_session="f63a1f97f7a7bf127d084b19fea887dbdafc5740"; Path=/;
+      Cookie: [vmware_soap_session="86c700bde3f09c2650516fad6f4e8d4c41352685"; Path=/;
           HttpOnly; Secure;]
       SOAPAction: ['"urn:vim25/6.7"']
-      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-42-generic; x86_64)]
     method: POST
     uri: https://vcenter/sdk
   response:
@@ -832,15 +813,14 @@ interactions:
       connection: [Keep-Alive]
       content-length: ['552']
       content-type: [text/xml; charset=utf-8]
-      date: ['Thu, 25 Oct 2018 00:21:13 GMT']
+      date: ['Tue, 18 Dec 2018 12:21:55 GMT']
       x-frame-options: [DENY]
     status: {code: 200, message: OK}
 - request:
     body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
 
-      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
-      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
       <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
 
@@ -851,10 +831,10 @@ interactions:
     headers:
       Accept-Encoding: ['gzip, deflate']
       Content-Type: [text/xml; charset=UTF-8]
-      Cookie: [vmware_soap_session="f63a1f97f7a7bf127d084b19fea887dbdafc5740"; Path=/;
+      Cookie: [vmware_soap_session="86c700bde3f09c2650516fad6f4e8d4c41352685"; Path=/;
           HttpOnly; Secure;]
       SOAPAction: ['"urn:vim25/6.7"']
-      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-42-generic; x86_64)]
     method: POST
     uri: https://vcenter/sdk
   response:
@@ -871,15 +851,14 @@ interactions:
       connection: [Keep-Alive]
       content-length: ['681']
       content-type: [text/xml; charset=utf-8]
-      date: ['Thu, 25 Oct 2018 00:21:13 GMT']
+      date: ['Tue, 18 Dec 2018 12:21:55 GMT']
       x-frame-options: [DENY]
     status: {code: 200, message: OK}
 - request:
     body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
 
-      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
-      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
       <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
 
@@ -890,10 +869,10 @@ interactions:
     headers:
       Accept-Encoding: ['gzip, deflate']
       Content-Type: [text/xml; charset=UTF-8]
-      Cookie: [vmware_soap_session="f63a1f97f7a7bf127d084b19fea887dbdafc5740"; Path=/;
+      Cookie: [vmware_soap_session="86c700bde3f09c2650516fad6f4e8d4c41352685"; Path=/;
           HttpOnly; Secure;]
       SOAPAction: ['"urn:vim25/6.7"']
-      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-42-generic; x86_64)]
     method: POST
     uri: https://vcenter/sdk
   response:
@@ -912,15 +891,14 @@ interactions:
       connection: [Keep-Alive]
       content-length: ['788']
       content-type: [text/xml; charset=utf-8]
-      date: ['Thu, 25 Oct 2018 00:21:13 GMT']
+      date: ['Tue, 18 Dec 2018 12:21:55 GMT']
       x-frame-options: [DENY]
     status: {code: 200, message: OK}
 - request:
     body: !!python/unicode '<?xml version="1.0" encoding="UTF-8"?>
 
-      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
-      xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
       <soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>
 
@@ -931,10 +909,10 @@ interactions:
     headers:
       Accept-Encoding: ['gzip, deflate']
       Content-Type: [text/xml; charset=UTF-8]
-      Cookie: [vmware_soap_session="f63a1f97f7a7bf127d084b19fea887dbdafc5740"; Path=/;
+      Cookie: [vmware_soap_session="86c700bde3f09c2650516fad6f4e8d4c41352685"; Path=/;
           HttpOnly; Secure;]
       SOAPAction: ['"urn:vim25/6.7"']
-      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-38-generic; x86_64)]
+      User-Agent: [pyvmomi Python/2.7.15rc1 (Linux; 4.15.0-42-generic; x86_64)]
     method: POST
     uri: https://vcenter/sdk
   response:
@@ -945,29 +923,27 @@ interactions:
         >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
         \ type=\"Network\">network-16</obj><propSet><name>vm</name><val xsi:type=\"\
         ArrayOfManagedObjectReference\"><ManagedObjectReference type=\"VirtualMachine\"\
-        \ xsi:type=\"ManagedObjectReference\">vm-17</ManagedObjectReference><ManagedObjectReference\
-        \ type=\"VirtualMachine\" xsi:type=\"ManagedObjectReference\">vm-18</ManagedObjectReference><ManagedObjectReference\
-        \ type=\"VirtualMachine\" xsi:type=\"ManagedObjectReference\">vm-19</ManagedObjectReference><ManagedObjectReference\
-        \ type=\"VirtualMachine\" xsi:type=\"ManagedObjectReference\">vm-20</ManagedObjectReference><ManagedObjectReference\
-        \ type=\"VirtualMachine\" xsi:type=\"ManagedObjectReference\">vm-21</ManagedObjectReference><ManagedObjectReference\
+        \ xsi:type=\"ManagedObjectReference\">vm-20</ManagedObjectReference><ManagedObjectReference\
         \ type=\"VirtualMachine\" xsi:type=\"ManagedObjectReference\">vm-22</ManagedObjectReference><ManagedObjectReference\
         \ type=\"VirtualMachine\" xsi:type=\"ManagedObjectReference\">vm-27</ManagedObjectReference><ManagedObjectReference\
-        \ type=\"VirtualMachine\" xsi:type=\"ManagedObjectReference\">vm-28</ManagedObjectReference><ManagedObjectReference\
-        \ type=\"VirtualMachine\" xsi:type=\"ManagedObjectReference\">vm-29</ManagedObjectReference><ManagedObjectReference\
+        \ type=\"VirtualMachine\" xsi:type=\"ManagedObjectReference\">vm-849</ManagedObjectReference><ManagedObjectReference\
         \ type=\"VirtualMachine\" xsi:type=\"ManagedObjectReference\">vm-32</ManagedObjectReference><ManagedObjectReference\
+        \ type=\"VirtualMachine\" xsi:type=\"ManagedObjectReference\">vm-1717</ManagedObjectReference><ManagedObjectReference\
         \ type=\"VirtualMachine\" xsi:type=\"ManagedObjectReference\">vm-36</ManagedObjectReference><ManagedObjectReference\
-        \ type=\"VirtualMachine\" xsi:type=\"ManagedObjectReference\">vm-42</ManagedObjectReference><ManagedObjectReference\
+        \ type=\"VirtualMachine\" xsi:type=\"ManagedObjectReference\">vm-175</ManagedObjectReference><ManagedObjectReference\
+        \ type=\"VirtualMachine\" xsi:type=\"ManagedObjectReference\">vm-176</ManagedObjectReference><ManagedObjectReference\
+        \ type=\"VirtualMachine\" xsi:type=\"ManagedObjectReference\">vm-1638</ManagedObjectReference><ManagedObjectReference\
         \ type=\"VirtualMachine\" xsi:type=\"ManagedObjectReference\">vm-69</ManagedObjectReference><ManagedObjectReference\
         \ type=\"VirtualMachine\" xsi:type=\"ManagedObjectReference\">vm-86</ManagedObjectReference><ManagedObjectReference\
-        \ type=\"VirtualMachine\" xsi:type=\"ManagedObjectReference\">vm-111</ManagedObjectReference><ManagedObjectReference\
-        \ type=\"VirtualMachine\" xsi:type=\"ManagedObjectReference\">vm-127</ManagedObjectReference></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
+        \ type=\"VirtualMachine\" xsi:type=\"ManagedObjectReference\">vm-227</ManagedObjectReference><ManagedObjectReference\
+        \ type=\"VirtualMachine\" xsi:type=\"ManagedObjectReference\">vm-1731</ManagedObjectReference></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
         </soapenv:Body>\n</soapenv:Envelope>"}
     headers:
       cache-control: [no-cache]
       connection: [Keep-Alive]
-      content-length: ['2332']
+      content-length: ['2120']
       content-type: [text/xml; charset=utf-8]
-      date: ['Thu, 25 Oct 2018 00:21:13 GMT']
+      date: ['Tue, 18 Dec 2018 12:21:55 GMT']
       x-frame-options: [DENY]
     status: {code: 200, message: OK}
 version: 1

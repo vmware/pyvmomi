@@ -44,6 +44,5 @@ class VCRTestBase(unittest.TestCase):
     def setUp(self):
         monkey_patch_vcrpy()
         logging.basicConfig()
-      # pretty loud with mismatch warnings...
-      # vcr_log = logging.getLogger('vcr')
-      # vcr_log.setLevel(logging.DEBUG)
+        vcr_log = logging.getLogger('vcr')
+        vcr_log.setLevel(logging.WARNING)
