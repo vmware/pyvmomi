@@ -55,11 +55,11 @@ class JSONTests(tests.VCRTestBase):
 
     @property
     def vm(self):
-        return getattr(vim, 'VirtualMachine')('vm-127', self.si._stub)
+        return getattr(vim, 'VirtualMachine')('vm-22', self.si._stub)
 
     @property
     def vm2(self):
-        return getattr(vim, 'VirtualMachine')('vm-22', self.si._stub)
+        return getattr(vim, 'VirtualMachine')('vm-227', self.si._stub)
 
     def expect(self, data):
         """
@@ -89,14 +89,34 @@ class JSONTests(tests.VCRTestBase):
     def test_json_vm_explode_default(self):
         raw = json.dumps(self.vm, cls=VmomiJSONEncoder, sort_keys=True)
         self.expect(raw)
-        # Basic saniy check
+        # Basic sanity check
         data = json.loads(raw)
-        self.assertEqual(data['_vimid'], 'vm-127')
-        self.assertEqual(data['_vimref'], 'vim.VirtualMachine:vm-127')
+        self.assertEqual(data['_vimid'], 'vm-22')
+        self.assertEqual(data['_vimref'], 'vim.VirtualMachine:vm-22')
         self.assertEqual(data['_vimtype'], 'vim.VirtualMachine')
         self.assertEqual(data['overallStatus'], 'green')
         self.assertEqual(len(data['network']), 1)
-        self.assertEqual(len(data['guest']['disk']), 1)
+        self.assertEqual(len(data['capability']['dynamicProperty']), 0)
+        self.assertIsNone(data['capability']['dynamicType'])
+
+    # Explodes the VM disabling the dynamic field stripping
+    # By definition if the input is a ManagedObject then it explodes.
+    @tests.VCRTestBase.my_vcr.use_cassette(
+        'test_json_vm_explode_strip_dynamic.yaml',
+        cassette_library_dir=tests.fixtures_path, record_mode='once')
+    def test_json_vm_explode_strip_dynamic(self):
+        raw = json.dumps(self.vm, cls=VmomiJSONEncoder, sort_keys=True,
+                         strip_dynamic=True)
+        self.expect(raw)
+        # Basic sanity check
+        data = json.loads(raw)
+        self.assertEqual(data['_vimid'], 'vm-22')
+        self.assertEqual(data['_vimref'], 'vim.VirtualMachine:vm-22')
+        self.assertEqual(data['_vimtype'], 'vim.VirtualMachine')
+        self.assertEqual(data['overallStatus'], 'green')
+        self.assertEqual(len(data['network']), 1)
+        self.assertTrue('dynamicProperty' not in data['capability'])
+        self.assertTrue('dynamicType' not in data['capability'])
 
     # Explodes the VM and the VM's networks
     # Here self.vm is redundant (see above) but not harmful.

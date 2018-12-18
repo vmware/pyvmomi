@@ -284,6 +284,12 @@ class VmomiJSONEncoder(json.JSONEncoder):
             _vimref is the moRef (ex: 'vim.VirtualMachine:vm-42')
             _vimtype is the class name (ex: 'vim.VirtualMachine')
 
+        When a DataObject is encoded, it gains one property:
+            _vimtype is the class name (ex: 'vim.VirtualMachineQuestionInfo')
+
+        If the dynamicProperty and dynamicType are empty, they are optionally
+            omitted from the results of DataObjects and ManagedObjects
+
         @example "Explode only the object passed in"
             data = json.dumps(vm, cls=VmomiJSONEncoder)
 
@@ -310,11 +316,28 @@ class VmomiJSONEncoder(json.JSONEncoder):
             expand in the conversion process.  Directly add any
             objects to the list, or add the type of any object
             using type(templateOf('VirtualMachine')) for example.
+
+        @param strip_dynamic (bool) Every object normally contains
+            a dynamicProperty list and a dynamicType field even if
+            the contents are [] and None respectively.  These fields
+            clutter the output making it more difficult for a person
+            to read and bloat the size of the result unnecessarily.
+            This option removes them if they are the empty values above.
+            The default is False.
         """
         self._done = set()
         self._first = True
         self._explode = kwargs.pop('explode', None)
+        self._strip_dynamic = kwargs.pop('strip_dynamic', False)
         super(VmomiJSONEncoder, self).__init__(*args, **kwargs)
+
+    def _remove_empty_dynamic_if(self, result):
+        if self._strip_dynamic:
+            if 'dynamicProperty' in result and len(result['dynamicProperty']) == 0:
+                result.pop('dynamicProperty') 
+            if 'dynamicType' in result and not result['dynamicType']:
+                result.pop('dynamicType')
+        return result
 
     def default(self, obj):  # pylint: disable=method-hidden
         if self._first:
@@ -332,10 +355,12 @@ class VmomiJSONEncoder(json.JSONEncoder):
                 result['_vimtype'] = obj.__class__.__name__
                 for prop in obj._GetPropertyList():
                     result[prop.name] = getattr(obj, prop.name)
-                return result
+                return self._remove_empty_dynamic_if(result)
             return str(obj).strip("'")  # see FormatObject below
         if isinstance(obj, DataObject):
-            return obj.__dict__
+            result = {k:v for k,v in obj.__dict__.items()}
+            result['_vimtype'] = obj.__class__.__name__
+            return self._remove_empty_dynamic_if(result)
         if isinstance(obj, binary):
             result = base64.b64encode(obj)
             if PY3:  # see FormatObject below
