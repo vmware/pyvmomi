@@ -603,6 +603,7 @@ def __GetElementTree(protocol, server, port, path, sslContext):
       raise Exception("Protocol " + protocol + " not supported.")
    conn.request("GET", path)
    response = conn.getresponse()
+   conn.close()
    if response.status == 200:
       try:
          tree = ElementTree.fromstring(response.read())
