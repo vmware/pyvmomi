@@ -101,6 +101,11 @@ OS_NAME = platform.uname()[0]
 OS_VERSION = platform.uname()[2]
 OS_ARCH = platform.uname()[4]
 
+SOAP_ADAPTER_ARGS = [
+   "server_side", "cert_reqs", "ssl_version", "ca_certs", "do_handshake_on_connect",
+   "suppress_ragged_eofs", "ciphers"]
+
+
 ## Thumbprint mismatch exception
 #
 class ThumbprintMismatchException(Exception):
@@ -1016,9 +1021,7 @@ class _HTTPSConnection(http_client.HTTPSConnection):
       # and push back the params in connect()
       self._sslArgs = {}
       tmpKwargs = kwargs.copy()
-      for key in ["server_side", "cert_reqs", "ssl_version", "ca_certs",
-                  "do_handshake_on_connect", "suppress_ragged_eofs",
-                  "ciphers"]:
+      for key in SOAP_ADAPTER_ARGS:
          if key in tmpKwargs:
             self._sslArgs[key] = tmpKwargs.pop(key)
       http_client.HTTPSConnection.__init__(self, *args, **tmpKwargs)
@@ -1061,8 +1064,10 @@ class _HTTPSConnection(http_client.HTTPSConnection):
          #      dercert = self.sock.getpeercert(False)
          #      # pemcert = ssl.DER_cert_to_PEM_cert(dercert)
 
-## Stand-in for the HTTPSConnection class that will connect to a proxy and
-## issue a CONNECT command to start an SSL tunnel.
+
+## Stand-in for the HTTPSConnection class that will connect to a SSL proxy,
+## VCenter's /sdkTunnel endpoint. It will issue a CONNECT command to start
+## an SSL tunnel.
 class SSLTunnelConnection(object):
    # @param proxyPath The path to pass to the CONNECT command.
    def __init__(self, proxyPath):
@@ -1093,6 +1098,25 @@ class SSLTunnelConnection(object):
                                    keyfile=key_file, certfile=cert_file)
       return retval
 
+
+## Stand-in for the HTTPSConnection class that will connect to a regular HTTP
+## proxy.
+class HTTPProxyConnection(object):
+   # @param proxyPath The path to pass to the CONNECT command.
+   def __init__(self, proxyPath):
+      self.proxyPath = proxyPath
+
+   # Connects to a HTTP proxy server and initiates a tunnel to the destination
+   # specified by proxyPath.  If successful, a new HTTPSConnection is returned.
+   #
+   # @param path The destination URL path.
+   # @param args Arguments are ignored
+   # @param kwargs Arguments for HTTPSConnection
+   def __call__(self, path, *args, **kwargs):
+      httpsConnArgs = {k: kwargs[k] for k in kwargs if k not in SOAP_ADAPTER_ARGS}
+      conn = http_client.HTTPSConnection(path, **httpsConnArgs)
+      conn.set_tunnel(self.proxyPath)
+      return conn
 
 class GzipReader:
    GZIP        = 1
@@ -1237,20 +1261,13 @@ class SoapStubAdapter(SoapStubAdapterBase):
       else:
          self.thumbprint = None
 
-      self.is_ssl_tunnel = False
+      self.is_tunnel = False
       if sslProxyPath:
          self.scheme = SSLTunnelConnection(sslProxyPath)
-         self.is_ssl_tunnel = True
+         self.is_tunnel = True
       elif httpProxyHost:
-         if self.scheme == _HTTPSConnection:
-            self.scheme = SSLTunnelConnection(self.host)
-            self.is_ssl_tunnel = True
-         else:
-            if url:
-               self.path = url
-            else:
-               self.path = "http://{0}/{1}".format(self.host, path)
-         # Swap the actual host with the proxy.
+         self.scheme = HTTPProxyConnection(self.host)
+         self.is_tunnel = True
          self.host = "{0}:{1}".format(httpProxyHost, httpProxyPort)
       self.poolSize = poolSize
       self.pool = []
@@ -1439,7 +1456,7 @@ class SoapStubAdapter(SoapStubAdapterBase):
       self.lock.acquire()
       self._CloseIdleConnections()
       # In case of ssl tunneling, only add the conn if the conn has not been closed
-      if len(self.pool) < self.poolSize and (not self.is_ssl_tunnel or conn.sock):
+      if len(self.pool) < self.poolSize and (not self.is_tunnel or conn.sock):
          self.pool.insert(0, (conn, time.time()))
          self.lock.release()
       else:
