@@ -1,3 +1,5 @@
+#This is a sample branch for GIT PR scenario - CBRE
+
 #!/usr/bin/env python
 # VMware vSphere Python SDK
 # Copyright (c) 2008-2013 VMware, Inc. All Rights Reserved.
