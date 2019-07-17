@@ -1371,7 +1371,11 @@ class SoapStubAdapter(SoapStubAdapterBase):
          if status == 200:
             return obj
          else:
-            raise obj # pylint: disable-msg=E0702
+            try:
+                raise obj # pylint: disable-msg=E0702
+            finally:
+                del deserializer
+                del obj
       else:
          self._CloseConnection(conn)
          raise http_client.HTTPException("{0} {1}".format(resp.status, resp.reason))
