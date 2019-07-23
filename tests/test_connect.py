@@ -15,9 +15,15 @@
 
 import tests
 import unittest
+import sys
 
 from pyVim import connect
 from pyVmomi import vim
+
+if sys.version_info >= (3, 3):
+    from unittest.mock import patch, MagicMock
+else:
+    from mock import patch, MagicMock
 
 
 class ConnectionTests(tests.VCRTestBase):
@@ -89,14 +95,41 @@ class ConnectionTests(tests.VCRTestBase):
     def test_ssl_tunnel(self):
         connect.SoapStubAdapter('sdkTunnel', 8089, httpProxyHost='vcsa').GetConnection()
 
-    @tests.VCRTestBase.my_vcr.use_cassette('ssl_tunnel_http_failure.yaml',
+    def test_ssl_tunnel_http_failure(self):
+        import socket
+        def should_fail():
+            conn = connect.SoapStubAdapter('vcsa', 80, httpProxyHost='unreachable').GetConnection()
+            conn.request('GET', '/')
+            conn.getresponse()
+        self.assertRaises((OSError, socket.gaierror), should_fail)
+
+    @tests.VCRTestBase.my_vcr.use_cassette('ssl_tunnel.yaml',
                       cassette_library_dir=tests.fixtures_path,
                       record_mode='none')
-    def test_ssl_tunnel_http_failure(self):
-        from six.moves import http_client
-        def should_fail():
-            connect.SoapStubAdapter('vcsa', 80, httpProxyHost='vcsa').GetConnection()
-        self.assertRaises(http_client.HTTPException, should_fail)
+    def test_http_proxy(self):
+        connect.SoapStubAdapter('sdkTunnel', 8089, httpProxyHost='vcsa').GetConnection()
+
+    @patch('six.moves.http_client.HTTPSConnection')
+    def test_http_proxy_with_cert_file(self, hs):
+        conn = connect.SoapStubAdapter(
+            'sdkTunnel', 8089, httpProxyHost='vcsa',
+            certKeyFile='my_key_file', certFile='my_cert_file').GetConnection()
+        conn.request('GET', '/')
+        hs.assert_called_once_with('vcsa:80', cert_file='my_cert_file', key_file='my_key_file')
+        conn.set_tunnel.assert_called_once_with('sdkTunnel:8089')
+
+    @tests.VCRTestBase.my_vcr.use_cassette('http_proxy.yaml',
+                      cassette_library_dir=tests.fixtures_path,
+                      record_mode='once')
+    def test_http_proxy(self):
+        conn = connect.SoapStubAdapter(
+            'vcenter.test', httpProxyHost='my-http-proxy',
+            httpProxyPort=8080).GetConnection()
+        self.assertEqual(conn._tunnel_host, 'vcenter.test')
+        self.assertEqual(conn._tunnel_port, 443)
+        conn.request('GET', '/')
+        conn.getresponse()
+
 
 if __name__ == '__main__':
     unittest.main()
