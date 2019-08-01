@@ -904,7 +904,7 @@ def OpenUrlWithBasicAuth(url, user='root', pwd=''):
    the specified credentials to the server as part of the request.
    Returns the response as a file-like object.
    """
-   return requests.get(url, auth=HTTPBasicAuth(user, pwd), verify=False)
+   return requests.get(url, auth=HTTPBasicAuth(user, pwd))
 
 def OpenPathWithStub(path, stub):
    """
@@ -927,5 +927,5 @@ def OpenPathWithStub(path, stub):
    headers = {}
    if stub.cookie:
       headers["Cookie"] = stub.cookie
-   return requests.get(url, headers=headers, verify=False)
+   return requests.get(url, headers=headers)
 
