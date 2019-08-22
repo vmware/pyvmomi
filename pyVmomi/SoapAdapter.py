@@ -885,6 +885,11 @@ class StubAdapterBase(StubAdapterAccessorMixin):
    #
    # @param ns the namespace
    def ComputeVersionInfo(self, version):
+      # Make sure we do NOT fallback to an older version
+      if hasattr(self, 'version') and IsChildVersion(self.version, version):
+         # print("WARNING: stub degrading: " + self.version + " -> " + version)
+         return
+
       versionNS = GetVersionNamespace(version)
       if versionNS.find("/") >= 0:
          self.versionId = '"urn:{0}"'.format(versionNS)
@@ -1336,6 +1341,7 @@ class SoapStubAdapter(SoapStubAdapterBase):
                     format(PYTHON_VERSION, OS_NAME, OS_VERSION, OS_ARCH)}
       if self._acceptCompressedResponses:
          headers['Accept-Encoding'] = 'gzip, deflate'
+
       req = self.SerializeRequest(mo, info, args)
       for modifier in self.requestModifierList:
          req = modifier(req)
@@ -1495,7 +1501,7 @@ def ParseHttpResponse(httpResponse):
    headerEnd = httpResponse.find(HEADER_SECTION_END)
    if headerEnd == -1:
       return ('', '')
-   headerEnd += len(HEADER_SECTION_END);
+   headerEnd += len(HEADER_SECTION_END)
    headerText = httpResponse[:headerEnd]
    bodyText = httpResponse[headerEnd:]
    return (headerText, bodyText)
