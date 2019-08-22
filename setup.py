@@ -64,5 +64,6 @@ setup(
    platforms=['Windows', 'Linux', 'Solaris', 'Mac OS-X', 'Unix'],
    test_suite='tests',
    tests_require=required_for_tests,
+   extras_require={'sso':['pyOpenSSL', 'lxml']},
    zip_safe=True
 )
