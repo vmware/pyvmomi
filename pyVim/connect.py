@@ -898,15 +898,15 @@ def SmartConnectNoSSL(protocol='https', host='localhost', port=443, user='root',
                        b64token=b64token,
                        mechanism=mechanism)
 
-def OpenUrlWithBasicAuth(url, user='root', pwd=''):
+def OpenUrlWithBasicAuth(url, user='root', pwd='', verify=True):
    """
    Open the specified URL, using HTTP basic authentication to provide
    the specified credentials to the server as part of the request.
    Returns the response as a file-like object.
    """
-   return requests.get(url, auth=HTTPBasicAuth(user, pwd), verify=False)
+   return requests.get(url, auth=HTTPBasicAuth(user, pwd), verify=verify)
 
-def OpenPathWithStub(path, stub):
+def OpenPathWithStub(path, stub, verify=True):
    """
    Open the specified path using HTTP, using the host/port/protocol
    associated with the specified stub.  If the stub has a session cookie,
@@ -918,6 +918,7 @@ def OpenPathWithStub(path, stub):
       raise vmodl.fault.NotSupported()
    elif stub.scheme == http_client.HTTPConnection:
       protocol = 'http'
+      verify = False
    elif stub.scheme == http_client.HTTPSConnection:
       protocol = 'https'
    else:
@@ -927,5 +928,5 @@ def OpenPathWithStub(path, stub):
    headers = {}
    if stub.cookie:
       headers["Cookie"] = stub.cookie
-   return requests.get(url, headers=headers, verify=False)
+   return requests.get(url, headers=headers, verify=verify)
 
