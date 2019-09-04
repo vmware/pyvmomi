@@ -29,7 +29,9 @@ posted to `pypi <https://pypi.python.org/pypi/pyvmomi/>`_
   ``pip install --upgrade pyvmomi``. 
 * To install the version in `github <https://github.com/vmware/pyvmomi>`_ use 
   ``python setup.py develop`` for development install or 
-  ``python setup.py install``. 
+  ``python setup.py install``.
+* To install `github's version <https://github.com/vmware/pyvmomi>`_ with sso support, just run
+  ``pip install -e .[sso]`` inside project's home folder.
 
 Testing
 =======
