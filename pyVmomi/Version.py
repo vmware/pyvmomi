@@ -17,9 +17,9 @@ from pyVmomi.VmomiSupport import nsMap, versionMap, versionIdMap, serviceNsMap, 
 
 ## Add an API version
 def AddVersion(version, ns, versionId='', isLegacy=0, serviceNs=''):
-  if not ns:
-     ns = serviceNs
-  if not (version in parentMap):
+   if not ns:
+      ns = serviceNs
+   if version not in parentMap:
       nsMap[version] = ns
       if len(versionId) > 0:
          versionMap[ns + '/' + versionId] = version
@@ -29,7 +29,7 @@ def AddVersion(version, ns, versionId='', isLegacy=0, serviceNs=''):
       if not serviceNs:
          serviceNs = ns
       serviceNsMap[version] = serviceNs
-      parentMap[version] = {}
+      parentMap[version] = set()
 
 ## Check if a version is a child of another
 def IsChildVersion(child, parent):
