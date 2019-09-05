@@ -52,6 +52,8 @@ For general language neutral documentation of vSphere Management API see:
 
 Python Support
 ==============
+* pyVmomi 6.7.3 supports 2.7, 3.3, 3.4, 3.5, 3.6 & 3.7
+* pyVmomi 6.7.1 supports 2.7, 3.3, 3.4, 3.5 & 3.6
 * pyVmomi 6.7 supports 2.7, 3.3, 3.4, 3.5 & 3.6
 * pyVmomi 6.5 supports 2.7, 3.3, 3.4 and 3.5
 * pyVmomi 6.0.0.2016.4 and later support 2.7, 3.3 and 3.4
