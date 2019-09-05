@@ -2,6 +2,7 @@
 build
 dist
 .idea
+.tox
 *.iml
 *.patch
 *.diff

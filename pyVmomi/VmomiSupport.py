@@ -1,5 +1,5 @@
 # VMware vSphere Python SDK
-# Copyright (c) 2008-2016 VMware, Inc. All Rights Reserved.
+# Copyright (c) 2008-2018 VMware, Inc. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -27,6 +27,7 @@ from six import PY3
 from datetime import datetime
 from pyVmomi import Iso8601
 import base64
+import json
 import threading
 if PY3:
    from functools import cmp_to_key
@@ -272,6 +273,131 @@ class LazyModule(object):
          return typ.__call__(**kwargs)
       else:
          raise AttributeError("'%s' does not exist" % self.name)
+
+
+class VmomiJSONEncoder(json.JSONEncoder):
+    """
+        Custom JSON encoder to encode vSphere objects.
+
+        When a ManagedObject is encoded, it gains three properties:
+            _vimid is the _moId (ex: 'vm-42')
+            _vimref is the moRef (ex: 'vim.VirtualMachine:vm-42')
+            _vimtype is the class name (ex: 'vim.VirtualMachine')
+
+        When a DataObject is encoded, it gains one property:
+            _vimtype is the class name (ex: 'vim.VirtualMachineQuestionInfo')
+
+        If the dynamicProperty and dynamicType are empty, they are optionally
+            omitted from the results of DataObjects and ManagedObjects
+
+        @example "Explode only the object passed in"
+            data = json.dumps(vm, cls=VmomiJSONEncoder)
+
+        @example "Explode specific objects"
+            data = json.dumps(vm, cls=VmomiJSONEncoder,
+                              explode=[vm, vm.network[0]])
+
+        @example "Explode all virtual machines in a list and their snapshots"
+            data = json.dumps([vm1, vm2], cls=VmomiJSONEncoder,
+                              explode=[templateOf('VirtualMachine'),
+                                       templateOf('VirtualMachineSnapshot')])
+    """
+    def __init__(self, *args, **kwargs):
+        """
+        Consumer must specify what types to explode into full content
+        and what types to leave as a ManagedObjectReference.  If the
+        root object of the encoding is a ManagedObject, it will be
+        added to the explode list automatically.
+
+        A ManagedObject is only exploded once, the first time it is
+        encountered.  All subsequent times it will be a moRef.
+
+        @param explode (list) A list of objects and/or types to
+            expand in the conversion process.  Directly add any
+            objects to the list, or add the type of any object
+            using type(templateOf('VirtualMachine')) for example.
+
+        @param strip_dynamic (bool) Every object normally contains
+            a dynamicProperty list and a dynamicType field even if
+            the contents are [] and None respectively.  These fields
+            clutter the output making it more difficult for a person
+            to read and bloat the size of the result unnecessarily.
+            This option removes them if they are the empty values above.
+            The default is False.
+        """
+        self._done = set()
+        self._first = True
+        self._explode = kwargs.pop('explode', None)
+        self._strip_dynamic = kwargs.pop('strip_dynamic', False)
+        super(VmomiJSONEncoder, self).__init__(*args, **kwargs)
+
+    def _remove_empty_dynamic_if(self, result):
+        if self._strip_dynamic:
+            if 'dynamicProperty' in result and len(result['dynamicProperty']) == 0:
+                result.pop('dynamicProperty') 
+            if 'dynamicType' in result and not result['dynamicType']:
+                result.pop('dynamicType')
+        return result
+
+    def default(self, obj):  # pylint: disable=method-hidden
+        if self._first:
+            self._first = False
+            if not self._explode:
+                self._explode = []
+            if isinstance(obj, ManagedObject):
+                self._explode.append(obj)
+        if isinstance(obj, ManagedObject):
+            if self.explode(obj):
+                result = {}
+                result['_vimid'] = obj._moId
+                result['_vimref'] = '{}:{}'.format(obj.__class__.__name__,
+                                                   obj._moId)
+                result['_vimtype'] = obj.__class__.__name__
+                for prop in obj._GetPropertyList():
+                    result[prop.name] = getattr(obj, prop.name)
+                return self._remove_empty_dynamic_if(result)
+            return str(obj).strip("'")  # see FormatObject below
+        if isinstance(obj, DataObject):
+            result = {k:v for k,v in obj.__dict__.items()}
+            result['_vimtype'] = obj.__class__.__name__
+            return self._remove_empty_dynamic_if(result)
+        if isinstance(obj, binary):
+            result = base64.b64encode(obj)
+            if PY3:  # see FormatObject below
+                result = str(result, 'utf-8')
+            return result
+        if isinstance(obj, datetime):
+            return Iso8601.ISO8601Format(obj)
+        if isinstance(obj, UncallableManagedMethod):
+            return obj.name
+        if isinstance(obj, ManagedMethod):
+            return str(obj)  # see FormatObject below
+        if isinstance(obj, type):
+            return obj.__name__
+        super(VmomiJSONEncoder, self).default(obj)
+
+    def explode(self, obj):
+        """ Determine if the object should be exploded. """
+        if obj in self._done:
+            return False
+        result = False
+        for item in self._explode:
+            if hasattr(item, '_moId'):
+                # If it has a _moId it is an instance
+                if obj._moId == item._moId:
+                    result = True
+            else:
+                # If it does not have a _moId it is a template
+                if obj.__class__.__name__ == item.__name__:
+                    result = True
+        if result:
+            self._done.add(obj)
+        return result
+
+
+def templateOf(typestr):
+    """ Returns a class template. """
+    return GetWsdlType(XMLNS_VMODL_BASE, typestr)
 
 ## Format a python VMOMI object
 #
@@ -1118,7 +1244,20 @@ def UncapitalizeVmodlName(str):
 
 ## Add a parent version
 def AddVersionParent(version, parent):
-   parentMap[version][parent] = True
+   parentMap[version].add(parent)
+
+def GetVersionProps(version):
+   """Get version properties
+
+   This function is a fixed version of GetVersion().
+   """
+
+   ns = nsMap[version]
+   versionId = versionIdMap[version]
+   isLegacy = versionMap.get(ns) == version
+   serviceNs =  serviceNsMap[version]
+   return ns, versionId, isLegacy, serviceNs
+
 
 ## Get version namespace from version
 def GetVersionNamespace(version):
@@ -1141,6 +1280,10 @@ def GetVersionFromVersionUri(version):
 def GetWsdlNamespace(version):
    """ Get wsdl namespace from version """
    return "urn:" + serviceNsMap[version]
+
+## Get an iterable with all version parents
+def GetVersionParents(version):
+   return parentMap[version]
 
 ## Get all the versions for the service with specified namespace (partially) ordered
 ## by compatibility (i.e. any version in the list that is compatible with some version
@@ -1277,28 +1420,10 @@ def GetCompatibleType(type, version):
 def InverseMap(map):
    return dict([ (v, k) for (k, v) in iteritems(map) ])
 
-## Support for build-time versions
-class _BuildVersions:
-   def __init__(self):
-      self._verMap = {}
-      self._nsMap = {}
-
-   def Add(self, version):
-      assert '.version.' in version, 'Invalid version %s' % version
-
-      vmodlNs = version.split(".version.", 1)[0].split(".")
-      for idx in [1, len(vmodlNs)]:
-         subVmodlNs = ".".join(vmodlNs[:idx])
-         if not (subVmodlNs in self._verMap):
-            self._verMap[subVmodlNs] = version
-         if not (subVmodlNs in self._nsMap):
-            self._nsMap[subVmodlNs] = GetVersionNamespace(version)
-
-   def Get(self, vmodlNs):
-      return self._verMap[vmodlNs]
-
-   def GetNamespace(self, vmodlNs):
-      return self._nsMap[vmodlNs]
+def GetVmodlNs(version):
+   versionParts = version.split('.version.')
+   assert len(versionParts) == 2, 'Unsupported version format: %s' % version
+   return versionParts[0]
 
 types = Object()
 nsMap = {}
@@ -1307,14 +1432,107 @@ versionMap = {}
 serviceNsMap = { BASE_VERSION : XMLNS_VMODL_BASE.split(":")[-1] }
 parentMap = {}
 
-newestVersions = _BuildVersions()
-currentVersions = _BuildVersions()
-stableVersions = _BuildVersions()
-matureVersions = _BuildVersions()
-publicVersions = _BuildVersions()
-oldestVersions = _BuildVersions()
+class _MaturitySet:
+   """
+   Registry for versions from all namespaces defining a given maturity.
+   The registration is automatic (relevant code is generated by emitters),
+   while for the query one may use either the VMODL namespace id (e.g. 'vim'),
+   or the wire namespace id (e.g. 'vim25').
+   """
+   def __init__(self):
+      self._verNameMap = {}   # e.g. 'vim'   -> 'vim.version.version12'
+      self._verNameMapW = {}  # e.g. 'vim25' -> 'vim.version.version12'
+      self._wireIdMap = {}    # e.g. 'vim'   -> 'vim25/6.7'
+      self._wireIdMapW = {}   # e.g. 'vim25' -> 'vim25/6.7'
 
-from pyVmomi.Version import AddVersion, IsChildVersion
+   def Add(self, version):
+      """
+      Register the version at corresponding maturity for a given VMODL
+      namespace. The 'version' parameter is in the VMODL name format
+      e.g. 'vim.version.version12'. This method is typically used by
+      auto-generated code.
+      """
+      vmodlNs = GetVmodlNs(version)
+
+      # TODO fix the VSAN-related part of vcenter-all to enable the assert
+      # assert not (vmodlNs in self._verNameMap), 'Re-definition: %s' % vmodlNs
+
+      wireId = GetVersionNamespace(version)
+      wireNs = wireId.split('/')[0]
+      self._verNameMap[vmodlNs] = version
+      self._verNameMapW[wireNs] = version
+      self._wireIdMap[vmodlNs] = wireId
+      self._wireIdMapW[wireNs] = wireId
+      return wireId, wireNs
+
+   def GetName(self, vmodlNs):
+      """
+      VMODL namespace to registered version name mapping, e.g.
+      'vim' -> 'vim.version.version12'
+      """
+      return self._verNameMap[vmodlNs]
+
+   def GetNameW(self, wireNs):
+      """
+      Wire namespace to registered version name mapping, e.g.
+      'vim25' -> 'vim.version.version12'
+      """
+      return self._verNameMapW[wireNs]
+
+   def GetWireId(self, vmodlNs):
+      """
+      VMODL namespace to registered version wire-id mapping, e.g.
+      'vim' -> 'vim25/6.7'
+      """
+      return self._wireIdMap[vmodlNs]
+
+   def GetWireIdW(self, wireNs):
+      """
+      Wire namespace to registered version wire-id mapping, e.g.
+      'vim25' -> 'vim25/6.7'
+      """
+      return self._wireIdMapW[wireNs]
+
+   def EnumerateVmodlNs(self):
+      """
+      Returns an iterable with registered VMODL namespace, e.g.
+      ['vim', 'vpx', ... ]
+      """
+      return self._verNameMap.keys()
+
+   def EnumerateWireNs(self):
+      """
+      Returns an iterable with registered wire namespace, e.g.
+      ['vim25', 'vpxd3', ... ]
+      """
+      return self._verNameMapW.keys()
+
+   def EnumerateVersions(self):
+      """
+      Returns an iterable with registered VMODL versions, e.g.
+      ['vim.version.version12', 'vpx.version.version12', ... ]
+      """
+      return self._verNameMap.values()
+
+   def EnumerateWireIds(self):
+      """
+      Returns an iterable with registered versions wire-ids, e.g.
+      e.g. ['vim25/6.7', 'vpxd3/6.7', ... ]
+      """
+      return self._wireIdMap.values()
+
+# Backward compatibility aliases
+_MaturitySet.Get = _MaturitySet.GetName
+_MaturitySet.GetNamespace = _MaturitySet.GetWireId
+
+
+newestVersions = _MaturitySet()
+stableVersions = _MaturitySet()
+publicVersions = _MaturitySet()
+dottedVersions = _MaturitySet()
+oldestVersions = _MaturitySet()
+
+from .Version import AddVersion, IsChildVersion
 
 if not isinstance(bool, type): # bool not a type in python <= 2.2
    bool = type("bool", (int,),
@@ -1325,7 +1543,14 @@ double = type("double", (float,), {})
 if PY3:
    long = type("long", (int,), {})
 URI = type("URI", (str,), {})
-binary = type("binary", (binary_type,), {})
+if not PY3:
+    # six defines binary_type in python2 as a string; this means the
+    # JSON encoder sees checksum properties as strings and attempts
+    # to perform utf-8 decoding on them because they contain high-bit
+    # characters.
+    binary = type("binary", (bytearray,), {})
+else:
+    binary = type("binary", (binary_type,), {})
 PropertyPath = type("PropertyPath", (text_type,), {})
 
 # _wsdlTypeMapNSs store namespaces added to _wsdlTypeMap in _SetWsdlType
@@ -1717,3 +1942,17 @@ def ResolveLinks(keys, obj):
       return None
    linkResolver = LinkResolver(obj)
    return linkResolver.ResolveLinks(keys)
+
+
+# Dictionary of type { 'branch' : { 'namespace' : count } }
+# used by Vmodl Vcdb B2B code.
+
+_breakingChanges = {}
+
+
+def AddBreakingChangesInfo(branchName, vmodlNamespace, count):
+   _breakingChanges.setdefault(branchName, {})[vmodlNamespace] = count
+
+
+def GetBreakingChanges():
+   return _breakingChanges

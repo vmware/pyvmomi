@@ -577,7 +577,7 @@ class SmartConnection(object):
          Disconnect(self.si)
          self.si = None
 
-def __GetElementTree(protocol, server, port, path, sslContext):
+def __GetElementTree(protocol, server, port, path, sslContext, httpProxyHost=None, httpProxyPort=None):
    """
    Private method that returns a root from ElementTree for a remote XML document.
 
@@ -594,7 +594,11 @@ def __GetElementTree(protocol, server, port, path, sslContext):
    @type  sslContext: SSL.Context
    """
 
-   if protocol == "https":
+   if httpProxyHost:
+      kwargs = {"context": sslContext} if sslContext else {}
+      conn = http_client.HTTPSConnection(httpProxyHost, port=httpProxyPort, **kwargs)
+      conn.set_tunnel(server, port)
+   elif protocol == "https":
       kwargs = {"context": sslContext} if sslContext else {}
       conn = http_client.HTTPSConnection(server, port=port, **kwargs)
    elif protocol == "http":
@@ -615,7 +619,7 @@ def __GetElementTree(protocol, server, port, path, sslContext):
 ## supported by the specified server.  The result will be vimServiceVersions.xml
 ## if it exists, otherwise vimService.wsdl if it exists, otherwise None.
 
-def __GetServiceVersionDescription(protocol, server, port, path, sslContext):
+def __GetServiceVersionDescription(protocol, server, port, path, sslContext, httpProxyHost=None, httpProxyPort=None):
    """
    Private method that returns a root from an ElementTree describing the API versions
    supported by the specified server.  The result will be vimServiceVersions.xml
@@ -635,12 +639,14 @@ def __GetServiceVersionDescription(protocol, server, port, path, sslContext):
    """
 
    tree = __GetElementTree(protocol, server, port,
-                           path + "/vimServiceVersions.xml", sslContext)
+                           path + "/vimServiceVersions.xml", sslContext,
+                           httpProxyHost, httpProxyPort)
    if tree is not None:
       return tree
 
    tree = __GetElementTree(protocol, server, port,
-                           path + "/vimService.wsdl", sslContext)
+                           path + "/vimService.wsdl", sslContext,
+                           httpProxyHost, httpProxyPort)
    return tree
 
 
@@ -689,7 +695,7 @@ def __VersionIsSupported(desiredVersion, serviceVersionDescription):
 ## Private method that returns the most preferred API version supported by the
 ## specified server,
 
-def __FindSupportedVersion(protocol, server, port, path, preferredApiVersions, sslContext):
+def __FindSupportedVersion(protocol, server, port, path, preferredApiVersions, sslContext, httpProxyHost=None, httpProxyPort=None):
    """
    Private method that returns the most preferred API version supported by the
    specified server,
@@ -715,7 +721,9 @@ def __FindSupportedVersion(protocol, server, port, path, preferredApiVersions, s
                                                               server,
                                                               port,
                                                               path,
-                                                              sslContext)
+                                                              sslContext,
+                                                              httpProxyHost,
+                                                              httpProxyPort)
    if serviceVersionDescription is None:
       return None
 
@@ -759,7 +767,10 @@ def SmartStubAdapter(host='localhost', port=443, path='/sdk',
                                              port,
                                              path,
                                              preferredApiVersions,
-                                             sslContext)
+                                             sslContext,
+                                             httpProxyHost,
+                                             httpProxyPort
+                                             )
    if supportedVersion is None:
       raise Exception("%s:%s is not a VIM server" % (host, port))
 
@@ -887,15 +898,15 @@ def SmartConnectNoSSL(protocol='https', host='localhost', port=443, user='root',
                        b64token=b64token,
                        mechanism=mechanism)
 
-def OpenUrlWithBasicAuth(url, user='root', pwd=''):
+def OpenUrlWithBasicAuth(url, user='root', pwd='', verify=True):
    """
    Open the specified URL, using HTTP basic authentication to provide
    the specified credentials to the server as part of the request.
    Returns the response as a file-like object.
    """
-   return requests.get(url, auth=HTTPBasicAuth(user, pwd), verify=False)
+   return requests.get(url, auth=HTTPBasicAuth(user, pwd), verify=verify)
 
-def OpenPathWithStub(path, stub):
+def OpenPathWithStub(path, stub, verify=True):
    """
    Open the specified path using HTTP, using the host/port/protocol
    associated with the specified stub.  If the stub has a session cookie,
@@ -907,6 +918,7 @@ def OpenPathWithStub(path, stub):
       raise vmodl.fault.NotSupported()
    elif stub.scheme == http_client.HTTPConnection:
       protocol = 'http'
+      verify = False
    elif stub.scheme == http_client.HTTPSConnection:
       protocol = 'https'
    else:
@@ -916,5 +928,5 @@ def OpenPathWithStub(path, stub):
    headers = {}
    if stub.cookie:
       headers["Cookie"] = stub.cookie
-   return requests.get(url, headers=headers, verify=False)
+   return requests.get(url, headers=headers, verify=verify)
 
