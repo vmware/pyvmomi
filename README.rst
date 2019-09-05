@@ -52,7 +52,7 @@ For general language neutral documentation of vSphere Management API see:
 
 Python Support
 ==============
-* pyVmomi supports 2.7.x, and 3.3+
+* pyVmomi supports 2.7.x and 3.3+
 
 Compatibility Policy
 ====================
