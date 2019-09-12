@@ -65,7 +65,7 @@ own previous four releases. Compatibility with much older versions may continue
 to work but will not be actively supported.
 
 For example, version v6.0.0 is most compatible with vSphere 6.0, 5.5, 5.1 and
-5.0. Initial releases compatible with a version of vSphere will bare a naked
+5.0. Initial releases compatible with a version of vSphere will bear a naked
 version number of v6.0.0 indicating that version of pyVmomi was released
 simultaneously with the *GA* version of vSphere with the same version number.
 
