@@ -14,7 +14,6 @@ Getting Started
 To get started, see the `getting started guide <http://vmware.github.io/pyvmomi-community-samples/#getting-started>`_. You'll need `Python <https://www.python.org/downloads/>`_, `pip <https://pip.pypa.io/en/latest/installing.html#using-package-managers>`_, and the `samples project <https://github.com/vmware/pyvmomi-community-samples/tarball/master>`_.
 
 * http://vmware.github.io/pyvmomi-community-samples/
-* Pydoc https://www.pydoc.io/pypi/pyvmomi-6.7.0/index.html
 * community discussion on IRC freenode.net channels `#pyvmomi and #pyvmomi-dev <http://webchat.freenode.net/?channels=#pyvmomi,#pyvmomi-dev>`_
 * community email is on `nabble <http://pyvmomi.2338814.n4.nabble.com>`_
 
