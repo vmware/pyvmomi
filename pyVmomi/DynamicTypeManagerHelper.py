@@ -19,7 +19,7 @@ This module is a converter from dynamic type to pyVmomi type
 __author__ = "VMware, Inc."
 
 from pyVmomi import VmomiSupport, vmodl
-from Cache import Cache
+from .Cache import Cache
 
 ## Dynamic type importer
 #
