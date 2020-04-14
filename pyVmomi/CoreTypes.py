@@ -1,5 +1,5 @@
 # VMware vSphere Python SDK
-# Copyright (c) 2008-2018 VMware, Inc. All Rights Reserved.
+# Copyright (c) 2008-2020 VMware, Inc. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,15 +18,15 @@ from __future__ import absolute_import
 from pyVmomi.VmomiSupport import CreateDataType, CreateManagedType, CreateEnumType, AddVersion, AddVersionParent, F_LINK, F_LINKABLE, F_OPTIONAL, F_SECRET
 from pyVmomi.VmomiSupport import newestVersions, stableVersions, publicVersions, oldestVersions
 
-AddVersion("vmodl.version.version2", "", "", 0, "vim25")
-AddVersion("vmodl.version.version1", "", "", 0, "vim25")
 AddVersion("vmodl.version.version0", "", "", 0, "vim25")
-AddVersionParent("vmodl.version.version2", "vmodl.version.version2")
-AddVersionParent("vmodl.version.version2", "vmodl.version.version1")
-AddVersionParent("vmodl.version.version2", "vmodl.version.version0")
-AddVersionParent("vmodl.version.version1", "vmodl.version.version1")
-AddVersionParent("vmodl.version.version1", "vmodl.version.version0")
+AddVersion("vmodl.version.version1", "", "", 0, "vim25")
+AddVersion("vmodl.version.version2", "", "", 0, "vim25")
 AddVersionParent("vmodl.version.version0", "vmodl.version.version0")
+AddVersionParent("vmodl.version.version1", "vmodl.version.version0")
+AddVersionParent("vmodl.version.version1", "vmodl.version.version1")
+AddVersionParent("vmodl.version.version2", "vmodl.version.version0")
+AddVersionParent("vmodl.version.version2", "vmodl.version.version1")
+AddVersionParent("vmodl.version.version2", "vmodl.version.version2")
 
 newestVersions.Add("vmodl.version.version2")
 stableVersions.Add("vmodl.version.version2")

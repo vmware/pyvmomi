@@ -14,7 +14,6 @@ Getting Started
 To get started, see the `getting started guide <http://vmware.github.io/pyvmomi-community-samples/#getting-started>`_. You'll need `Python <https://www.python.org/downloads/>`_, `pip <https://pip.pypa.io/en/latest/installing.html#using-package-managers>`_, and the `samples project <https://github.com/vmware/pyvmomi-community-samples/tarball/master>`_.
 
 * http://vmware.github.io/pyvmomi-community-samples/
-* Pydoc https://www.pydoc.io/pypi/pyvmomi-6.7.0/index.html
 * community discussion on IRC freenode.net channels `#pyvmomi and #pyvmomi-dev <http://webchat.freenode.net/?channels=#pyvmomi,#pyvmomi-dev>`_
 * community email is on `nabble <http://pyvmomi.2338814.n4.nabble.com>`_
 
@@ -51,11 +50,13 @@ Documentation
 =============
 For general language neutral documentation of vSphere Management API see: 
 
-* `vSphere WS SDK API Docs <https://vdc-download.vmware.com/vmwb-repository/dcr-public/6b586ed2-655c-49d9-9029-bc416323cb22/fa0b429a-a695-4c11-b7d2-2cbc284049dc/doc/index.html>`_
+* `vSphere WS SDK API Docs <https://code.vmware.com/apis/968/vsphere>`_
 
 Python Support
 ==============
 * pyVmomi supports 2.7.x and 3.3+
+
+Note: python2 is deprecated from 01/2020 https://www.python.org/doc/sunset-python-2/. Please switch to Python3 
 
 Compatibility Policy
 ====================
@@ -71,7 +72,7 @@ simultaneously with the *GA* version of vSphere with the same version number.
 
 Related Projects
 ================
-* VMware vSphere Automation SDK for Python: https://developercenter.vmware.com/web/sdk/65/vsphere-automation-python
+* VMware vSphere Automation SDK for Python: https://github.com/vmware/vsphere-automation-sdk-python
 * Samples Project: https://github.com/vmware/pyvmomi-community-samples
 * Feature Incubator: pyvmomi-tools https://github.com/vmware/pyvmomi-tools
 
