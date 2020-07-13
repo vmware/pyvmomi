@@ -38,7 +38,7 @@ setup(
    author_email='jhu@vmware.com',
    packages=['pyVmomi', 'pyVim'],
    install_requires=required,
-   license='License :: OSI Approved :: Apache Software License',
+   license='Apache v2.0',
    classifiers=[
       'Development Status :: 5 - Production/Stable',
       'License :: OSI Approved :: Apache Software License',
