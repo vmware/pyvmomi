@@ -14,6 +14,7 @@
 # limitations under the License.
 from __future__ import absolute_import
 
+import functools
 import six
 from six import reraise
 from six.moves import http_client
@@ -116,6 +117,24 @@ class ThumbprintMismatchException(Exception):
 
       self.expected = expected
       self.actual = actual
+
+## Retry decorator. Can be used for temp connections failure, with specific or broad exceptions
+def Retry(func=None, exception_class=Exception, tries=2):
+   if func is None:
+      return functools.partial(Retry, exception_class=exception_class, tries=tries)
+   @functools.wraps(func)
+   def wrapper(*args, **kwargs):
+      retry_count = tries
+      while True:
+         try:
+            return func(*args, **kwargs)
+         except exception_class:
+            retry_count -= 1
+            if retry_count > 0:
+               continue
+            raise
+   return wrapper
+
 
 ## Escape <, >, &
 def XmlEscape(xmlStr):
@@ -1346,13 +1365,7 @@ class SoapStubAdapter(SoapStubAdapterBase):
       for modifier in self.requestModifierList:
          req = modifier(req)
       conn = self.GetConnection()
-      try:
-         conn.request('POST', self.path, req, headers)
-         resp = conn.getresponse()
-      except (socket.error, http_client.HTTPException):
-         # The server is probably sick, drop all of the cached connections.
-         self.DropConnections()
-         raise
+      resp = self.GetResponse(conn, req, headers)
       # NOTE (hartsocks): this cookie handling code should go away in a future
       # release. The string 'set-cookie' and 'Set-Cookie' but both are
       # acceptable, but the supporting library may have a bug making it
@@ -1398,6 +1411,16 @@ class SoapStubAdapter(SoapStubAdapterBase):
       else:
          self._CloseConnection(conn)
          raise http_client.HTTPException("{0} {1}".format(resp.status, resp.reason))
+
+   @Retry(exception_class=http_client.BadStatusLine, tries=2)
+   def GetResponse(self, conn, req, headers):
+      try:
+         conn.request('POST', self.path, req, headers)
+         return conn.getresponse()
+      except (socket.error, http_client.HTTPException):
+         # The server is probably sick, drop all of the cached connections.
+         self.DropConnections()
+         raise
 
    ## Clean up connection pool to throw away idle timed-out connections
    #  SoapStubAdapter lock must be acquired before this method is called.
