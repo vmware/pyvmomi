@@ -23,7 +23,7 @@ def AddVersion(version, ns, versionId='', isLegacy=0, serviceNs=''):
       nsMap[version] = ns
       if len(versionId) > 0:
          versionMap[ns + '/' + versionId] = version
-      if isLegacy or ns is "":
+      if isLegacy or ns == "":
          versionMap[ns] = version
       versionIdMap[version] = versionId
       if not serviceNs:
