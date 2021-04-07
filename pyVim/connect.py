@@ -275,6 +275,7 @@ def Connect(host='localhost', port=443, user='root', pwd='',
 
    return si
 
+# ConnectNoSSL() is deprecated. Use Connect(disableSslCertValidation=True).
 def ConnectNoSSL(host='localhost', port=443, user='root', pwd='',
                  service="hostd", adapter="SOAP", namespace=None, path="/sdk",
                  version=None, keyFile=None, certFile=None, thumbprint=None,
@@ -869,6 +870,7 @@ def SmartConnect(protocol='https', host='localhost', port=443, user='root', pwd=
                   mechanism=mechanism,
                   disableSslCertValidation=disableSslCertValidation)
 
+# SmartConnectNoSSL() is deprecated. Use SmartConnect(disableSslCertValidation=True).
 def SmartConnectNoSSL(protocol='https', host='localhost', port=443, user='root', pwd='',
                       service="hostd", path="/sdk", connectionPoolTimeout=CONNECTION_POOL_IDLE_TIMEOUT_SEC,
                       preferredApiVersions=None, keyFile=None, certFile=None,
