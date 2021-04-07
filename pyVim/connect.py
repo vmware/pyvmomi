@@ -54,16 +54,14 @@ Global (thread-shared) ServiceInstance
 """
 
 
-def localSslFixup(host, sslContext):
+def getSslContext(host, sslContext, disableSslCertValidation):
     """
     Connections to 'localhost' do not need SSL verification as a certificate
     will never match. The OS provides security by only allowing root to bind
     to low-numbered ports.
     """
-    if not sslContext and host in ['localhost', '127.0.0.1', '::1']:
-        import ssl
-        if hasattr(ssl, '_create_unverified_context'):
-            sslContext = ssl._create_unverified_context()
+    if disableSslCertValidation or (not sslContext and host in ['localhost', '127.0.0.1', '::1']):
+        sslContext = ssl._create_unverified_context()
     return sslContext
 
 class closing(object):
@@ -194,7 +192,7 @@ def Connect(host='localhost', port=443, user='root', pwd='',
             service="hostd", adapter="SOAP", namespace=None, path="/sdk",
             connectionPoolTimeout=CONNECTION_POOL_IDLE_TIMEOUT_SEC,
             version=None, keyFile=None, certFile=None, thumbprint=None,
-            sslContext=None, b64token=None, mechanism='userpass'):
+            sslContext=None, b64token=None, mechanism='userpass', disableSslCertValidation=False):
    """
    Connect to the specified server, login and return the service
    instance object.
@@ -240,6 +238,8 @@ def Connect(host='localhost', port=443, user='root', pwd='',
    @type  b64token: string
    @param mechanism: authentication mechanism: userpass or sspi
    @type  mechanism: string
+   @type disableSslCertValidation: bool
+   @param disableSslCertValidation: Creates an unverified SSL context when True.
    """
    try:
       info = re.match(_rx, host)
@@ -252,7 +252,7 @@ def Connect(host='localhost', port=443, user='root', pwd='',
    except ValueError as ve:
       pass
 
-   sslContext = localSslFixup(host, sslContext)
+   sslContext = getSslContext(host, sslContext, disableSslCertValidation)
 
    if namespace:
       assert(version is None)
@@ -286,10 +286,7 @@ def ConnectNoSSL(host='localhost', port=443, user='root', pwd='',
    SSL context and then connect via the Connect method.
    """
 
-   if hasattr(ssl, '_create_unverified_context'):
-      sslContext = ssl._create_unverified_context()
-   else:
-      sslContext = None
+   sslContext = ssl._create_unverified_context()
 
    return Connect(host=host,
                   port=port,
@@ -742,7 +739,7 @@ def SmartStubAdapter(host='localhost', port=443, path='/sdk',
                      thumbprint=None, cacertsFile=None, preferredApiVersions=None,
                      acceptCompressedResponses=True,
                      connectionPoolTimeout=CONNECTION_POOL_IDLE_TIMEOUT_SEC,
-                     samlToken=None, sslContext=None):
+                     samlToken=None, sslContext=None, disableSslCertValidation=False):
    """
    Determine the most preferred API version supported by the specified server,
    then create a soap stub adapter using that version
@@ -756,11 +753,13 @@ def SmartStubAdapter(host='localhost', port=443, path='/sdk',
                                 specified, the list of versions support by pyVmomi will
                                 be used.
    @type  preferredApiVersions: string or string list
+   @type disableSslCertValidation: bool
+   @param disableSslCertValidation: Creates an unverified SSL context when True.
    """
    if preferredApiVersions is None:
       preferredApiVersions = GetServiceVersions('vim25')
 
-   sslContext = localSslFixup(host, sslContext)
+   sslContext = getSslContext(host, sslContext, disableSslCertValidation)
 
    supportedVersion = __FindSupportedVersion('https' if port > 0 else 'http',
                                              host,
@@ -787,7 +786,8 @@ def SmartStubAdapter(host='localhost', port=443, path='/sdk',
 def SmartConnect(protocol='https', host='localhost', port=443, user='root', pwd='',
                  service="hostd", path="/sdk", connectionPoolTimeout=CONNECTION_POOL_IDLE_TIMEOUT_SEC,
                  preferredApiVersions=None, keyFile=None, certFile=None,
-                 thumbprint=None, sslContext=None, b64token=None, mechanism='userpass'):
+                 thumbprint=None, sslContext=None, b64token=None, mechanism='userpass',
+                 disableSslCertValidation=False):
    """
    Determine the most preferred API version supported by the specified server,
    then connect to the specified server using that API version, login and return
@@ -832,12 +832,14 @@ def SmartConnect(protocol='https', host='localhost', port=443, user='root', pwd=
    @param sslContext: SSL Context describing the various SSL options. It is only
                       supported in Python 2.7.9 or higher.
    @type  sslContext: SSL.Context
+   @type disableSslCertValidation: bool
+   @param disableSslCertValidation: Creates an unverified SSL context when True.
    """
 
    if preferredApiVersions is None:
       preferredApiVersions = GetServiceVersions('vim25')
 
-   sslContext = localSslFixup(host, sslContext)
+   sslContext = getSslContext(host, sslContext, disableSslCertValidation)
 
    supportedVersion = __FindSupportedVersion(protocol,
                                              host,
@@ -864,7 +866,8 @@ def SmartConnect(protocol='https', host='localhost', port=443, user='root', pwd=
                   thumbprint=thumbprint,
                   sslContext=sslContext,
                   b64token=b64token,
-                  mechanism=mechanism)
+                  mechanism=mechanism,
+                  disableSslCertValidation=disableSslCertValidation)
 
 def SmartConnectNoSSL(protocol='https', host='localhost', port=443, user='root', pwd='',
                       service="hostd", path="/sdk", connectionPoolTimeout=CONNECTION_POOL_IDLE_TIMEOUT_SEC,
@@ -877,10 +880,7 @@ def SmartConnectNoSSL(protocol='https', host='localhost', port=443, user='root',
    SSL context and then connect via the SmartConnect method.
    """
 
-   if hasattr(ssl, '_create_unverified_context'):
-      sslContext = ssl._create_unverified_context()
-   else:
-      sslContext = None
+   sslContext = ssl._create_unverified_context()
 
    return SmartConnect(protocol=protocol,
                        host=host,
