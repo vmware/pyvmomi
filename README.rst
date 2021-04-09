@@ -54,7 +54,7 @@ For general language neutral documentation of vSphere Management API see:
 
 Python Support
 ==============
-* pyVmomi supports 2.7.x and 3.3+
+* pyVmomi supports 2.7.x and 3.4+
 
 Note: python2 is deprecated from 01/2020 https://www.python.org/doc/sunset-python-2/. Please switch to Python3 
 
