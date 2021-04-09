@@ -74,6 +74,5 @@ Related Projects
 ================
 * VMware vSphere Automation SDK for Python: https://github.com/vmware/vsphere-automation-sdk-python
 * Samples Project: https://github.com/vmware/pyvmomi-community-samples
-* Feature Incubator: pyvmomi-tools https://github.com/vmware/pyvmomi-tools
 
 Have fun!
