@@ -69,6 +69,12 @@ setup(
     python_requires='>=2.7, !=3.0.*, !=3.1.*, !=3.2.*',
     test_suite='tests',
     tests_require=required_for_tests,
-    extras_require={'sso':['pyOpenSSL', 'lxml']},
+    extras_require={
+        'sso': [
+            'pyOpenSSL',
+            'lxml',
+            'pywin32; sys_platform == "win32"'
+        ]
+    },
     zip_safe=True
 )
