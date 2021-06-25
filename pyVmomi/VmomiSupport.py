@@ -1527,9 +1527,12 @@ _MaturitySet.GetNamespace = _MaturitySet.GetWireId
 
 
 newestVersions = _MaturitySet()
-publicVersions = _MaturitySet()
+ltsVersions = _MaturitySet()
 dottedVersions = _MaturitySet()
 oldestVersions = _MaturitySet()
+
+# Alias for backward compatibility.
+publicVersions = ltsVersions
 
 from .Version import AddVersion, IsChildVersion
 
