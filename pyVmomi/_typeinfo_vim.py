@@ -20,7 +20,7 @@ from .VmomiSupport import AddVersion, AddVersionParent
 from .VmomiSupport import AddBreakingChangesInfo
 from .VmomiSupport import F_LINK, F_LINKABLE
 from .VmomiSupport import F_OPTIONAL, F_SECRET
-from .VmomiSupport import newestVersions, stableVersions
+from .VmomiSupport import newestVersions
 from .VmomiSupport import publicVersions, dottedVersions
 from .VmomiSupport import oldestVersions
 
@@ -503,7 +503,6 @@ AddVersionParent("vim.version.v7_0", "vim.version.v7_0")
 newestVersions.Add("vim.version.v7_0_2_0")
 publicVersions.Add("vim.version.v7_0_2_0")
 dottedVersions.Add("vim.version.v7_0_2_0")
-stableVersions.Add("vim.version.v7_0_2_0")
 oldestVersions.Add("vim.version.version5")
 
 CreateDataType("vim.AboutInfo", "AboutInfo", "vmodl.DynamicData", "vim.version.version1", [("name", "string", "vim.version.version1", 0), ("fullName", "string", "vim.version.version1", 0), ("vendor", "string", "vim.version.version1", 0), ("version", "string", "vim.version.version1", 0), ("patchLevel", "string", "vim.version.v7_0_2_0", F_OPTIONAL), ("build", "string", "vim.version.version1", 0), ("localeVersion", "string", "vim.version.version1", F_OPTIONAL), ("localeBuild", "string", "vim.version.version1", F_OPTIONAL), ("osType", "string", "vim.version.version1", 0), ("productLineId", "string", "vim.version.version1", 0), ("apiType", "string", "vim.version.version1", 0), ("apiVersion", "string", "vim.version.version1", 0), ("instanceUuid", "string", "vim.version.version5", F_OPTIONAL), ("licenseProductName", "string", "vim.version.version5", F_OPTIONAL), ("licenseProductVersion", "string", "vim.version.version5", F_OPTIONAL)])

@@ -5,7 +5,7 @@ from .VmomiSupport import AddVersion, AddVersionParent
 from .VmomiSupport import AddBreakingChangesInfo
 from .VmomiSupport import F_LINK, F_LINKABLE
 from .VmomiSupport import F_OPTIONAL, F_SECRET
-from .VmomiSupport import newestVersions, stableVersions
+from .VmomiSupport import newestVersions
 from .VmomiSupport import publicVersions, dottedVersions
 from .VmomiSupport import oldestVersions
 
@@ -609,7 +609,6 @@ AddVersionParent("vim.version.version12", "vim.version.version12")
 newestVersions.Add("eam.version.version7_4")
 publicVersions.Add("eam.version.version7_4")
 dottedVersions.Add("eam.version.version7_4")
-stableVersions.Add("eam.version.version7_4")
 oldestVersions.Add("eam.version.version1")
 
 CreateManagedType("eam.EamObject", "EamObject", "vmodl.ManagedObject", "eam.version.version1", None, [("resolve", "Resolve", "eam.version.version1", (("issueKey", "int[]", "eam.version.version1", 0, None),), (F_OPTIONAL, "int[]", "int[]"), None, None), ("resolveAll", "ResolveAll", "eam.version.version1", (), (0, "void", "void"), None, None), ("queryIssue", "QueryIssue", "eam.version.version1", (("issueKey", "int[]", "eam.version.version1", F_OPTIONAL, None),), (F_OPTIONAL, "eam.issue.Issue[]", "eam.issue.Issue[]"), None, None)])

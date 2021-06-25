@@ -5,7 +5,7 @@ from .VmomiSupport import AddVersion, AddVersionParent
 from .VmomiSupport import AddBreakingChangesInfo
 from .VmomiSupport import F_LINK, F_LINKABLE
 from .VmomiSupport import F_OPTIONAL, F_SECRET
-from .VmomiSupport import newestVersions, stableVersions
+from .VmomiSupport import newestVersions
 from .VmomiSupport import publicVersions, dottedVersions
 from .VmomiSupport import oldestVersions
 
@@ -758,7 +758,6 @@ AddVersionParent("pbm.version.version13", "pbm.version.version13")
 
 newestVersions.Add("pbm.version.v7_0_2_0")
 publicVersions.Add("pbm.version.v7_0_2_0")
-stableVersions.Add("pbm.version.v7_0_2_0")
 dottedVersions.Add("pbm.version.v7_0_2_0")
 oldestVersions.Add("pbm.version.version1")
 

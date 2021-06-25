@@ -1527,7 +1527,6 @@ _MaturitySet.GetNamespace = _MaturitySet.GetWireId
 
 
 newestVersions = _MaturitySet()
-stableVersions = _MaturitySet()
 publicVersions = _MaturitySet()
 dottedVersions = _MaturitySet()
 oldestVersions = _MaturitySet()
