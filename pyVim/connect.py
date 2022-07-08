@@ -312,6 +312,7 @@ def Disconnect(si):
    """
    # Logout
    __Logout(si)
+   si._stub.DropConnections()
    SetSi(None)
 
 

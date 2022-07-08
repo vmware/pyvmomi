@@ -1612,6 +1612,7 @@ class SessionOrientedStub(StubAdapterBase):
 
       self.lock = threading.Lock()
       self.soapStub = soapStub
+      self.DropConnections = soapStub.DropConnections
       self.state = self.STATE_UNAUTHENTICATED
 
       self.loginMethod = loginMethod
