@@ -305,15 +305,28 @@ def ConnectNoSSL(host='localhost', port=443, user='root', pwd='',
                   b64token=b64token,
                   mechanism=mechanism)
 
-def Disconnect(si):
-   """
-   Disconnect (logout) service instance
-   @param si: Service instance (returned from Connect)
-   """
-   # Logout
-   __Logout(si)
-   si._stub.DropConnections()
-   SetSi(None)
+def Disconnect(si = None):
+    """
+    Logout and disconnect the service instance
+    @param si: Service instance (returned from Connect)
+               Defaults to the saved service instance
+    """
+    if not si:
+        si = GetSi()
+
+    if not si:
+        return
+
+    try:
+        content = si.RetrieveContent()
+        content.sessionManager.Logout()
+    except Exception as e:
+        pass
+
+    si._stub.DropConnections()
+
+    if si == GetSi():
+        SetSi(None)
 
 
 ## Method that gets a local ticket for the specified user
@@ -447,19 +460,6 @@ def __LoginBySSPI(host, port, service, adapter, version, path,
       raise
    return si, stub
 
-## Private method that performs the actual Disonnect
-
-def __Logout(si):
-   """
-   Disconnect (logout) service instance
-   @param si: Service instance (returned from Connect)
-   """
-   try:
-      if si:
-         content = si.RetrieveContent()
-         content.sessionManager.Logout()
-   except Exception as e:
-      pass
 
 ## Private method that returns the service content
 
