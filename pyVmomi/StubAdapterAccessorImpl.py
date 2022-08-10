@@ -1,5 +1,5 @@
 # VMware vSphere Python SDK
-# Copyright (c) 2008-2015 VMware, Inc. All Rights Reserved.
+# Copyright (c) 2008-2022 VMware, Inc. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,13 +13,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 from __future__ import absolute_import
-from pyVmomi.VmomiSupport import GetVmodlType
+from pyVmomi.VmomiSupport import GetVmodlType, ManagedObject, Object
+
 
 class StubAdapterAccessorMixin:
-   def __init__(self):
-      self._pc = None
-      self._pcType = GetVmodlType("vmodl.query.PropertyCollector")
-      self._siType = GetVmodlType("vim.ServiceInstance")
 
    ## Retrieve a managed property
    #
@@ -27,22 +24,15 @@ class StubAdapterAccessorMixin:
    # @param mo managed object
    # @param info property info
    def InvokeAccessor(self, mo, info):
-      filterSpec = self._pcType.FilterSpec(
-         objectSet=[self._pcType.ObjectSpec(obj=mo, skip=False)],
-         propSet=[self._pcType.PropertySpec(all=False, type=mo.__class__,
-                                                 pathSet=[info.name])],
-         )
-      ## Cache the property collector if it isn't already
-      #  No need to lock _pc since multiple instances of PropertyCollector on
-      #  the client will talk to the same instance on the server.
-      if not self._pc:
-         si = self._siType("ServiceInstance", self)
-         self._pc = si.RetrieveContent().propertyCollector
-      result = self._pc.RetrievePropertiesEx(specSet=[filterSpec],
-                                             options=self._pcType.RetrieveOptions(maxObjects=1))
-      objectContent = result.objects[0]
-      if len(objectContent.propSet) > 0:
-         return objectContent.propSet[0].val
-      if len(objectContent.missingSet) > 0 and objectContent.missingSet[0].fault:
-         raise objectContent.missingSet[0].fault
-      return None
+      prop = info.name
+      param = Object(name="prop", type=str, version=self.version, flags=0)
+      info = Object(name=info.name,
+                    type=ManagedObject,
+                    wsdlName="Fetch",
+                    version=info.version,
+                    params=(param, ),
+                    isTask=False,
+                    resultFlags=info.flags,
+                    result=info.type,
+                    methodResult=info.type)
+      return self.InvokeMethod(mo, info, (prop, ))
