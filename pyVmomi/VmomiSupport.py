@@ -597,8 +597,8 @@ class ManagedObject(object):
       if other is None:
          return False
       else:
-         return self._moId == other._moId and \
-                self.__class__ == other.__class__ and \
+         return self.__class__ == other.__class__ and \
+                self._moId == other._moId and \
                 self._serverGuid == other._serverGuid
 
    def __ne__(self, other):
