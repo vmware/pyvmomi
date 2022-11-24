@@ -1,9 +1,8 @@
-"""
-A python helper module to do SSO related operations.
-"""
-
+#############################################################
+# Copyright (c) 2012-2022 VMware, Inc.
+# A python helper module to do SSO related operations.
+#############################################################
 __author__ = 'VMware, Inc.'
-__copyright__ = 'Copyright 2012, 2017 VMware, Inc. All rights reserved.'
 
 #Standard library imports.
 import six.moves.http_client
@@ -18,7 +17,10 @@ import datetime
 import base64
 import hashlib
 
-from pyVmomi import ThumbprintMismatchException
+from pyVmomi.Security import VerifyCertThumbprint
+from pyVmomi import _legacyThumbprintException
+if _legacyThumbprintException:
+    from pyVmomi import ThumbprintMismatchException  # noqa: F401
 
 from uuid import uuid4
 from io import BytesIO
@@ -31,6 +33,10 @@ import ssl
 UTF_8 = 'utf-8'
 SHA256 = 'sha256'
 SHA512 = 'sha512'
+
+# add default parser to etree with resolve_entities set to False
+default_parser = etree.XMLParser(resolve_entities=False)
+etree.set_default_parser(default_parser)
 
 def _extract_certificate(cert):
     '''
@@ -57,10 +63,12 @@ def _extract_certificate(cert):
     # Unknown format.
     raise IOError('Invalid certificate file format')
 
+
 #time.strftime() method returns 6 digit millisecond
 #Formatting time with 3 digit milliseconds
 def format_time(time):
     return time[:-3] + 'Z'
+
 
 class SoapException(Exception):
     '''
@@ -93,6 +101,24 @@ class SoapException(Exception):
                 "faultstring: %(_fault_string)s\n"
                 "faultxml: %(_soap_msg)s" % self.__dict__)
 
+
+class SSOHTTPConnection(six.moves.http_client.HTTPConnection):
+    '''
+    A class that establishes HTTP Connection.
+    Only intened to be used for calls routing through
+    a local sidecar proxy (localhost:1080).
+    '''
+    def __init__(self, *args, **kwargs):
+        '''
+        Initializer.  See httplib.HTTPConnection for other arguments
+        '''
+        tmpKwargs = {}
+        httpConn = six.moves.http_client.HTTPConnection
+        for key in httpConn.__init__.__code__.co_varnames:
+            if key in kwargs and key != 'self':
+                tmpKwargs[key] = kwargs[key]
+        self.host = kwargs.pop('host')
+        six.moves.http_client.HTTPConnection.__init__(self, *args, **tmpKwargs)
 
 class SSOHTTPSConnection(six.moves.http_client.HTTPSConnection):
     '''
@@ -137,18 +163,16 @@ class SSOHTTPSConnection(six.moves.http_client.HTTPSConnection):
         @rtype: boolean
         @return: True if peerCert is acceptable.  False otherwise.
         '''
-        if self.server_cert is not None:
-            if peerCert != self.server_cert:
-                self.sock.close()
-                self.sock = None
-                raise IOError("Invalid certificate")
-        if self.server_thumbprint is not None:
-            thumbprint = hashlib.sha1(peerCert).hexdigest().lower()  # pylint: disable=E1101
-            if thumbprint != self.server_thumbprint:
-                self.sock.close()
-                self.sock = None
-                raise ThumbprintMismatchException(
-                   expected=self.server_thumbprint, actual=thumbprint)
+        try:
+            if self.server_cert is not None:
+                if peerCert != self.server_cert:
+                    raise Exception("Invalid certificate")
+            if self.server_thumbprint:
+                VerifyCertThumbprint(peerCert, self.server_thumbprint)
+        except Exception:
+            self.sock.close()
+            self.sock = None
+            raise
 
     def connect(self):
         '''
@@ -163,17 +187,21 @@ class SSOHTTPSConnection(six.moves.http_client.HTTPSConnection):
         self._check_cert(self.sock.getpeercert(True))
 
 
+def is_sidecar_request(scheme, host):
+    '''
+    Check if the request is through
+    local sidecar (localhost:1080)
+    '''
+    if scheme == "http" and host == "localhost:1080":
+        return True;
+
+
 class SsoAuthenticator(object):
     '''
     A class to handle the transport layer communication between the client and
     the STS service.
     '''
-
-    def __init__(self,
-                 sts_url,
-                 sts_cert=None,
-                 thumbprint=None
-                 ):
+    def __init__(self, sts_url, sts_cert=None, thumbprint=None):
         '''
         Initializer for SsoAuthenticator.
 
@@ -218,8 +246,16 @@ class SsoAuthenticator(object):
         '''
         parsed = urlparse(self._sts_url)
         host = parsed.netloc  # pylint: disable=E1101
+        scheme = parsed.scheme
         encoded_message = soap_message.encode(UTF_8)
-        if hasattr(ssl, '_create_unverified_context'):
+
+        '''
+        Allow creation of HTTPConnection, only for calls routing
+        through local sidecar (localhost:1080)
+        '''
+        if is_sidecar_request(scheme, host):
+            webservice = SSOHTTPConnection(host=host)
+        elif hasattr(ssl, '_create_unverified_context'):
             # Python 2.7.9 has stronger SSL certificate validation, so we need
             # to pass in a context when dealing with self-signed certificates.
             webservice = SSOHTTPSConnection(host=host,
@@ -244,7 +280,8 @@ class SsoAuthenticator(object):
         webservice.putheader("Content-type", "text/xml; charset=\"UTF-8\"")
         webservice.putheader("Content-length", "%d" % len(encoded_message))
         webservice.putheader("Connection", "keep-alive")
-        webservice.putheader("SOAPAction",
+        webservice.putheader(
+            "SOAPAction",
             "http://docs.oasis-open.org/ws-sx/ws-trust/200512/RST/Issue")
         webservice.endheaders()
         webservice.send(encoded_message)
@@ -317,15 +354,12 @@ class SsoAuthenticator(object):
                                        token_duration=token_duration)
         soap_message = request.construct_bearer_token_request(
             delegatable=delegatable, renewable=renewable)
-        bearer_token = self.perform_request(soap_message,
-                                            public_key,
-                                            private_key,
-                                            ssl_context)
-        return etree.tostring(
-                    _extract_element(etree.fromstring(bearer_token),
-                        'Assertion',
-                        {'saml2': "urn:oasis:names:tc:SAML:2.0:assertion"}),
-                        pretty_print=False).decode(UTF_8)
+        bearer_token = self.perform_request(soap_message, public_key,
+                                            private_key, ssl_context)
+        return etree.tostring(_extract_element(
+            etree.fromstring(bearer_token), 'Assertion',
+            {'saml2': "urn:oasis:names:tc:SAML:2.0:assertion"}),
+                              pretty_print=False).decode(UTF_8)
 
     def _get_gss_soap_response(self,
                                binary_token,
@@ -367,8 +401,7 @@ class SsoAuthenticator(object):
                                        gss_binary_token=binary_token)
         soap_message = request.construct_bearer_token_request_with_binary_token(
             delegatable=delegatable, renewable=renewable)
-        return self.perform_request(soap_message,
-                                    ssl_context=ssl_context)
+        return self.perform_request(soap_message, ssl_context=ssl_context)
 
     def _get_bearer_saml_assertion_win(self,
                                        request_duration=60,
@@ -410,27 +443,25 @@ class SsoAuthenticator(object):
         while True:
             err, out_buf = sspiclient.authorize(in_buf)
             sectoken = base64.b64encode(out_buf[0].Buffer)
-            soap_response = self._get_gss_soap_response(sectoken,
-                                request_duration, token_duration,
-                                delegatable, renewable, ssl_context)
+            soap_response = self._get_gss_soap_response(
+                sectoken, request_duration, token_duration, delegatable,
+                renewable, ssl_context)
             et = etree.fromstring(soap_response)
             try:
                 # Check if we have received a challenge token from the server
-                element = _extract_element(et,
-                        'BinaryExchange',
-                        {'ns': "http://docs.oasis-open.org/ws-sx/ws-trust/200512"})
+                element = _extract_element(
+                    et, 'BinaryExchange',
+                    {'ns': "http://docs.oasis-open.org/ws-sx/ws-trust/200512"})
                 negotiate_token = element.text
                 out_buf[0].Buffer = base64.b64decode(negotiate_token)
                 in_buf = out_buf
             except KeyError:
                 # Response does not contain the negotiate token.
                 # It should contain SAML token then.
-                saml_token = etree.tostring(
-                    _extract_element(
-                        et,
-                        'Assertion',
-                        {'saml2': "urn:oasis:names:tc:SAML:2.0:assertion"}),
-                    pretty_print=False).decode(UTF_8)
+                saml_token = etree.tostring(_extract_element(
+                    et, 'Assertion',
+                    {'saml2': "urn:oasis:names:tc:SAML:2.0:assertion"}),
+                                            pretty_print=False).decode(UTF_8)
                 break
         return saml_token
 
@@ -472,26 +503,24 @@ class SsoAuthenticator(object):
             if result < 0:
                 break
             sectoken = kerberos.authGSSClientResponse(context)
-            soap_response = self._get_gss_soap_response(sectoken,
-                                request_duration, token_duration, delegatable,
-                                renewable)
+            soap_response = self._get_gss_soap_response(
+                sectoken, request_duration, token_duration, delegatable,
+                renewable)
             et = etree.fromstring(soap_response)
             try:
                 # Check if we have received a challenge token from the server
-                element = _extract_element(et,
-                        'BinaryExchange',
-                        {'ns': "http://docs.oasis-open.org/ws-sx/ws-trust/200512"})
+                element = _extract_element(
+                    et, 'BinaryExchange',
+                    {'ns': "http://docs.oasis-open.org/ws-sx/ws-trust/200512"})
                 negotiate_token = element.text
                 challenge = negotiate_token
             except KeyError:
                 # Response does not contain the negotiate token.
                 # It should contain SAML token then.
-                saml_token = etree.tostring(
-                    _extract_element(
-                        et,
-                        'Assertion',
-                        {'saml2': "urn:oasis:names:tc:SAML:2.0:assertion"}),
-                    pretty_print=False).decode(UTF_8)
+                saml_token = etree.tostring(_extract_element(
+                    et, 'Assertion',
+                    {'saml2': "urn:oasis:names:tc:SAML:2.0:assertion"}),
+                                            pretty_print=False).decode(UTF_8)
                 break
         return saml_token
 
@@ -523,8 +552,8 @@ class SsoAuthenticator(object):
         @return: The SAML assertion.
         '''
         if sys.platform == "win32":
-            saml_token = self._get_bearer_saml_assertion_win(request_duration,
-                            token_duration, delegatable, renewable)
+            saml_token = self._get_bearer_saml_assertion_win(
+                request_duration, token_duration, delegatable, renewable)
         else:
             raise Exception("Currently, not supported on this platform")
             ## TODO Remove this exception once SSO supports validation of tickets
@@ -580,16 +609,12 @@ class SsoAuthenticator(object):
         soap_message = request.construct_hok_request(delegatable=delegatable,
                                                      act_as_token=act_as_token,
                                                      renewable=renewable)
-        hok_token = self.perform_request(soap_message,
-                                         public_key,
-                                         private_key,
+        hok_token = self.perform_request(soap_message, public_key, private_key,
                                          ssl_context)
-        return etree.tostring(
-            _extract_element(
-                etree.fromstring(hok_token),
-                'Assertion',
-                {'saml2': "urn:oasis:names:tc:SAML:2.0:assertion"}),
-            pretty_print=False).decode(UTF_8)
+        return etree.tostring(_extract_element(
+            etree.fromstring(hok_token), 'Assertion',
+            {'saml2': "urn:oasis:names:tc:SAML:2.0:assertion"}),
+                              pretty_print=False).decode(UTF_8)
 
     def get_token_by_token(self,
                            hok_token,
@@ -641,12 +666,11 @@ class SsoAuthenticator(object):
 
         hok_token = self.perform_request(soap_message=soap_message,
                                          ssl_context=ssl_context)
-        return etree.tostring(
-            _extract_element(
-                etree.fromstring(hok_token),
-                'Assertion',
-                {'saml2': "urn:oasis:names:tc:SAML:2.0:assertion"}),
-            pretty_print=False).decode(UTF_8)
+        return etree.tostring(_extract_element(
+            etree.fromstring(hok_token), 'Assertion',
+            {'saml2': "urn:oasis:names:tc:SAML:2.0:assertion"}),
+                              pretty_print=False).decode(UTF_8)
+
 
 class SecurityTokenRequest(object):
     '''
@@ -696,10 +720,12 @@ class SecurityTokenRequest(object):
         self._security_token_id = _generate_id()
         current = datetime.datetime.utcnow()
         self._created = format_time(current.strftime(TIME_FORMAT))
-        self._expires = format_time((current + datetime.timedelta(seconds=
-                                token_duration)).strftime(TIME_FORMAT))
-        self._request_expires = format_time((current + datetime.timedelta(seconds=
-                                request_duration)).strftime(TIME_FORMAT))
+        self._expires = format_time(
+            (current +
+             datetime.timedelta(seconds=token_duration)).strftime(TIME_FORMAT))
+        self._request_expires = format_time(
+            (current + datetime.timedelta(seconds=request_duration)
+             ).strftime(TIME_FORMAT))
         self._timestamp = TIMESTAMP_TEMPLATE % self.__dict__
         self._username = escape(username) if username else username
         self._password = escape(password) if password else password
@@ -713,7 +739,7 @@ class SecurityTokenRequest(object):
         self._binary_exchange = None
         self._public_key = None
         if gss_binary_token:
-            self._binary_exchange =  BINARY_EXCHANGE_TEMPLATE % gss_binary_token
+            self._binary_exchange = BINARY_EXCHANGE_TEMPLATE % gss_binary_token
         #The following are populated later. Set to None here to keep in-line
         #with PEP8.
         self._binary_security_token = None
@@ -738,7 +764,9 @@ class SecurityTokenRequest(object):
             with open(self._public_key_file) as fp:
                 self._public_key = fp.read()
 
-    def construct_bearer_token_request(self, delegatable=False, renewable=False):
+    def construct_bearer_token_request(self,
+                                       delegatable=False,
+                                       renewable=False):
         '''
         Constructs the actual Bearer token SOAP request.
 
@@ -756,9 +784,8 @@ class SecurityTokenRequest(object):
         self._renewable = str(renewable).lower()
         return _canonicalize(REQUEST_TEMPLATE % self.__dict__)
 
-    def construct_bearer_token_request_with_binary_token(self,
-                                                         delegatable=False,
-                                                         renewable=False):
+    def construct_bearer_token_request_with_binary_token(
+            self, delegatable=False, renewable=False):
         '''
         Constructs the actual Bearer token SOAP request using the binary exchange GSS/SSPI token.
 
@@ -775,7 +802,9 @@ class SecurityTokenRequest(object):
         self._renewable = str(renewable).lower()
         return _canonicalize(GSS_REQUEST_TEMPLATE % self.__dict__)
 
-    def construct_hok_request(self, delegatable=False, act_as_token=None,
+    def construct_hok_request(self,
+                              delegatable=False,
+                              act_as_token=None,
                               renewable=False):
         '''
         Constructs the actual HoK token SOAP request.
@@ -828,20 +857,25 @@ class SecurityTokenRequest(object):
         trusted service.
         '''
         base_xml = etree.fromstring(self._xml_text)
-        request_tree = _extract_element(base_xml,
-                            'Body',
-                            {'SOAP-ENV': "http://schemas.xmlsoap.org/soap/envelope/"})
+        request_tree = _extract_element(
+            base_xml, 'Body',
+            {'SOAP-ENV': "http://schemas.xmlsoap.org/soap/envelope/"})
         request = _canonicalize(etree.tostring(request_tree))
-        request_tree = _extract_element(base_xml,
-                            'Timestamp',
-                            {'ns3': "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"})
+        request_tree = _extract_element(
+            base_xml, 'Timestamp', {
+                'ns3':
+                "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+            })
         timestamp = _canonicalize(etree.tostring(request_tree))
         self._request_digest = _make_hash(request.encode(UTF_8)).decode(UTF_8)  # pylint: disable=W0612
-        self._timestamp_digest = _make_hash(timestamp.encode(UTF_8)).decode(UTF_8)  # pylint: disable=W0612
+        self._timestamp_digest = _make_hash(timestamp.encode(UTF_8)).decode(
+            UTF_8)  # pylint: disable=W0612
         self._algorithm = SHA256
         self._signed_info = _canonicalize(SIGNED_INFO_TEMPLATE % self.__dict__)
-        self._signature_value = _sign(self._private_key, self._signed_info).decode(UTF_8)
-        self._signature_text = _canonicalize(SIGNATURE_TEMPLATE % self.__dict__)
+        self._signature_value = _sign(self._private_key,
+                                      self._signed_info).decode(UTF_8)
+        self._signature_text = _canonicalize(SIGNATURE_TEMPLATE %
+                                             self.__dict__)
         self.embed_signature()
 
     def embed_signature(self):
@@ -849,15 +883,20 @@ class SecurityTokenRequest(object):
         Embeds the signature in to the header of the SOAP request.
         '''
         self._xml = etree.fromstring(self._xml_text)
-        security = _extract_element(self._xml,
-                                   'Security',
-                                   {'ns6': "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"})
+        security = _extract_element(
+            self._xml, 'Security', {
+                'ns6':
+                "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+            })
         self._signature = etree.fromstring(self._signature_text)
         security.append(self._signature)
         self._xml_text = etree.tostring(self._xml).decode(UTF_8)
 
 
-def add_saml_context(serialized_request, saml_token, private_key_file, request_duration=60):
+def add_saml_context(serialized_request,
+                     saml_token,
+                     private_key_file,
+                     request_duration=60):
     '''
     A helper method provided to sign the outgoing LoginByToken requests with the
     HoK token.
@@ -883,21 +922,26 @@ def add_saml_context(serialized_request, saml_token, private_key_file, request_d
     xml = etree.fromstring(serialized_request)
     value_map = {}
     value_map['_request_id'] = _generate_id()
-    request_body = _extract_element(xml,
-                                  'Body',
-                                  {'soapenv': "http://schemas.xmlsoap.org/soap/envelope/"})
-    request_body.nsmap["wsu"] = "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
-    request_body.set("{http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd}Id", value_map['_request_id'])
+    request_body = _extract_element(
+        xml, 'Body', {'soapenv': "http://schemas.xmlsoap.org/soap/envelope/"})
+    request_body.nsmap[
+        "wsu"] = "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+    request_body.set(
+        "{http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd}Id",
+        value_map['_request_id'])
     value_map['_request_digest'] = _make_hash_sha512(
-                                    _canonicalize(etree.tostring(request_body))
-                                        .encode(UTF_8)).decode(UTF_8)
-    security = _extract_element(xml,
-                               'Security',
-                               {'ns6': "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"})
+        _canonicalize(
+            etree.tostring(request_body)).encode(UTF_8)).decode(UTF_8)
+    security = _extract_element(
+        xml, 'Security', {
+            'ns6':
+            "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+        })
     current = datetime.datetime.utcnow()
     value_map['_created'] = format_time(current.strftime(TIME_FORMAT))
-    value_map['_request_expires'] = format_time((current + datetime.timedelta(seconds=
-                                            request_duration)).strftime(TIME_FORMAT))
+    value_map['_request_expires'] = format_time(
+        (current +
+         datetime.timedelta(seconds=request_duration)).strftime(TIME_FORMAT))
     value_map['_timestamp_id'] = _generate_id()
     timestamp = _canonicalize(TIMESTAMP_TEMPLATE % value_map)
     value_map['_timestamp_digest'] = _make_hash_sha512(
@@ -910,8 +954,8 @@ def add_saml_context(serialized_request, saml_token, private_key_file, request_d
                                           value_map['_signed_info'],
                                           SHA512).decode(UTF_8)
     value_map['samlId'] = etree.fromstring(saml_token).get("ID")
-    signature = etree.fromstring(_canonicalize(REQUEST_SIGNATURE_TEMPLATE %
-                                               value_map))
+    signature = etree.fromstring(
+        _canonicalize(REQUEST_SIGNATURE_TEMPLATE % value_map))
     security.append(signature)
     return etree.tostring(xml, pretty_print=False).decode(UTF_8)
 
@@ -948,15 +992,15 @@ def _load_private_key(der_key):
     # Unencrypted PKCS8 for OpenSSL 0.9.8, and PKCS1, just in case...
     for key_type in ('PRIVATE KEY', 'RSA PRIVATE KEY'):
         try:
-            return crypto.load_privatekey(crypto.FILETYPE_PEM,
-                                          '-----BEGIN ' + key_type + '-----\n' +
-                                          base64.encodestring(der_key).decode(UTF_8) +
-                                          '-----END ' + key_type + '-----\n',
-                                          b'')
+            return crypto.load_privatekey(
+                crypto.FILETYPE_PEM, '-----BEGIN ' + key_type + '-----\n' +
+                base64.encodebytes(der_key).decode(UTF_8) + '-----END ' +
+                key_type + '-----\n', b'')
         except (crypto.Error, ValueError):
             pass
     # We could try 'ENCRYPTED PRIVATE KEY' here - but we do not know passphrase.
     raise
+
 
 def _sign(private_key, data, digest=SHA256):
     '''
@@ -979,6 +1023,7 @@ def _sign(private_key, data, digest=SHA256):
     pkey = _load_private_key(_extract_certificate(private_key))
     return base64.b64encode(crypto.sign(pkey, data.encode(UTF_8), digest))
 
+
 def _canonicalize(xml_string):
     '''
     Given an xml string, canonicalize the string per
@@ -990,11 +1035,13 @@ def _canonicalize(xml_string):
     @rtype: C{str}
     @return: Canonicalized string in Unicode.
     '''
-    parser = etree.XMLParser(remove_blank_text=True)
+    # TODO: keep the parser between _canonicalize() invocations.
+    parser = etree.XMLParser(remove_blank_text=True, resolve_entities=False)
     tree = etree.fromstring(xml_string, parser=parser).getroottree()
     string = BytesIO()
     tree.write_c14n(string, exclusive=True, with_comments=False)
     return string.getvalue().decode(UTF_8)
+
 
 def _extract_element(xml, element_name, namespace):
     '''
@@ -1011,9 +1058,9 @@ def _extract_element(xml, element_name, namespace):
     @rtype: etree element.
     @return: The extracted element.
     '''
-    assert(len(namespace) == 1)
-    result = xml.xpath("//%s:%s" % (list(namespace.keys())[0], element_name),
-                                    namespaces=namespace)
+    assert (len(namespace) == 1)
+    result = xml.xpath("//{0}:{1}".format(list(namespace.keys())[0], element_name),
+                       namespaces=namespace)
     if result:
         return result[0]
     else:

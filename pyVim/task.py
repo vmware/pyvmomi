@@ -1,17 +1,6 @@
-# VMware vSphere Python SDK
-# Copyright (c) 2016 VMware, Inc. All Rights Reserved.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+#############################################################
+# Copyright (c) 2005-2022 VMware, Inc.
+#############################################################
 
 ## @file task.py
 ## @brief Task functions
@@ -19,7 +8,6 @@
 ## This module provies synchronization of client/server operations
 ## since many VIM operations return 'tasks' which can have
 ## varying completion times.
-
 """
 Task functions
 
@@ -28,7 +16,11 @@ many VIM operations return 'tasks' which can have varying completion
 times.
 """
 
+__author__ = 'VMware, Inc'
+
 from pyVmomi import vmodl, vim
+
+import time
 
 
 ##
@@ -48,12 +40,12 @@ class TaskBlocked(Exception):
 #     verbose information about task progress
 #
 def TaskUpdatesVerbose(task, progress):
-    if isinstance(task.info.progress, int):
-        info = task.info
+    info = task.info
+    if isinstance(info.progress, int):
         if not isinstance(progress, str):
-            progress = '%d%% (%s)' % (info.progress, info.state)
-        print('Task %s (key:%s, desc:%s) - %s' % (
-            info.name.info.name, info.key, info.description, progress))
+            progress = '{:.0f}% ({})'.format(info.progress, info.state)
+        print('Task %s (key:%s, desc:%s) - %s' %
+              (info.name.info.name, info.key, info.description, progress))
 
 
 globalTaskUpdate = None
@@ -72,11 +64,14 @@ def SetTasksVerbose(verbose=True):
 ## raiseOnError is set to true
 ## @param si [in] ServiceInstance to use. If set to None, use the default one.
 ## @param pc [in] property collector to use else retrieve one from cache
+## @param maxWaitTime [in] The maximum amount of time the task is allowed to
+## run. Throws an exception if raiseOnError is True.
 ## @param onProgressUpdate [in] callable to call with task progress updates.
 ##    For example:
 ##
 ##    def OnTaskProgressUpdate(task, percentDone):
-##       sys.stderr.write('# Task %s: %d%% complete ...\n' % (task, percentDone))
+##       sys.stderr.write('# Task {}: {:.0f}% complete ...\n'
+##                        .format(task, percentDone))
 ##
 ## Given a task object and a service instance, wait for the task completion
 ##
@@ -89,58 +84,85 @@ def WaitForTask(task,
                 raiseOnError=True,
                 si=None,
                 pc=None,
-                onProgressUpdate=None):
+                maxWaitTime=None,
+                onProgressUpdate=None,
+                log=None,
+                getAllUpdates=False):
     """
     Wait for task to complete.
 
     @type  raiseOnError      : bool
     @param raiseOnError      : Any exception thrown is thrown up to the caller
-                               if raiseOnError is set to true.
+                                if raiseOnError is set to true.
     @type  si                : ManagedObjectReference to a ServiceInstance.
     @param si                : ServiceInstance to use. If None, use the
-                               information from the task.
+                                information from the task.
     @type  pc                : ManagedObjectReference to a PropertyCollector.
     @param pc                : Property collector to use. If None, get it from
-                               the ServiceInstance.
+                                the ServiceInstance.
+    @type  maxWaitTime       : numeric value
+    @param maxWaitTime       : The maximum amount of time the task is allowed to
+                                run. Throws an exception if raiseOnError is True.
     @type  onProgressUpdate  : callable
     @param onProgressUpdate  : Callable to call with task progress updates.
+    @type  log               : Optional logger.
+    @param log               : Logging.
+    @type  getAllUpdates     : Optional bool value. Default is False.
+    @param getAllUpdates     : Get all updates for the task.
 
         For example::
 
             def OnTaskProgressUpdate(task, percentDone):
-                print 'Task %s is %d%% complete.' % (task, percentDone)
+                print 'Task {} is {:.0f}% complete.'.format(task, percentDone)
     """
 
-    if si is None:
-        si = vim.ServiceInstance("ServiceInstance", task._stub)
     if pc is None:
+        if si is None: si = vim.ServiceInstance("ServiceInstance", task._stub)
         pc = si.content.propertyCollector
 
-    progressUpdater = ProgressUpdater(task, onProgressUpdate)
+    progressUpdater = ProgressUpdater(task, onProgressUpdate, getAllUpdates)
     progressUpdater.Update('created')
 
     filter = CreateFilter(pc, task)
 
     version, state = None, None
+
+    if maxWaitTime:
+        waitTime = maxWaitTime + time.time()
+
     # Loop looking for updates till the state moves to a completed state.
     while state not in (vim.TaskInfo.State.success, vim.TaskInfo.State.error):
         try:
             version, state = GetTaskStatus(task, version, pc)
             progressUpdater.UpdateIfNeeded()
-        except vmodl.fault.ManagedObjectNotFound as e:
+
+            if maxWaitTime and waitTime < time.time():
+                err = "Task exceeded timeout of %d seconds" % maxWaitTime
+                progressUpdater.Update(err)
+                if raiseOnError is True:
+                    raise Exception(err)
+                break
+        except vmodl.Fault.ManagedObjectNotFound as e:
             print("Task object has been deleted: %s" % e.obj)
             break
 
     filter.Destroy()
 
+    info = task.info
     if state == "error":
-        progressUpdater.Update('error: %s' % str(task.info.error))
+        progressUpdater.Update("error: %s" % info.error)
         if raiseOnError:
-            raise task.info.error
+            raise info.error
         else:
-            print("Task reported error: " + str(task.info.error))
-    else:
+            _LogMsg(log, "Task reported error: %s" % info.error)
+    elif state == "success":
         progressUpdater.Update('completed')
+    elif state == "queued":
+        _LogMsg(log, "Task reports as queued: %s" % info)
+        progressUpdater.UpdateIfNeeded()
+    else:  # state = running
+        _LogMsg(log, "Task reports as still running: %s" % info)
+        progressUpdater.UpdateIfNeeded()
 
     return state
 
@@ -157,25 +179,23 @@ def WaitForTasks(tasks,
                  si=None,
                  pc=None,
                  onProgressUpdate=None,
-                 results=None):
+                 results=None,
+                 getAllUpdates=False):
     """
-    Wait for mulitiple tasks to complete. Much faster than calling WaitForTask
-    N times
+    Wait for multiple tasks to complete. Much faster than calling WaitForTask
+    N times.
     """
 
     if not tasks:
         return
 
-    if si is None:
-        si = vim.ServiceInstance("ServiceInstance", tasks[0]._stub)
-    if pc is None:
-        pc = si.content.propertyCollector
-    if results is None:
-        results = []
+    if si is None: si = vim.ServiceInstance("ServiceInstance", tasks[0]._stub)
+    if pc is None: pc = si.content.propertyCollector
+    if results is None: results = []
 
     progressUpdaters = {}
     for task in tasks:
-        progressUpdater = ProgressUpdater(task, onProgressUpdate)
+        progressUpdater = ProgressUpdater(task, onProgressUpdate, getAllUpdates)
         progressUpdater.Update('created')
         progressUpdaters[str(task)] = progressUpdater
 
@@ -215,7 +235,8 @@ def WaitForTasks(tasks,
                             if raiseOnError:
                                 raise err
                             else:
-                                print("Task %s reported error: %s" % (taskId, str(err)))
+                                print("Task %s reported error: %s" %
+                                      (taskId, str(err)))
                                 progressUpdaters.pop(taskId)
                         else:
                             if onProgressUpdate:
@@ -230,11 +251,12 @@ def WaitForTasks(tasks,
 
 def GetTaskStatus(task, version, pc):
     update = pc.WaitForUpdates(version)
-    state = task.info.state
+    info = task.info
+    state = info.state
 
-    if (state == 'running' and task.info.name is not None and task.info.name.info.name != "Destroy"
-        and task.info.name.info.name != "Relocate"):
-        CheckForQuestionPending(task)
+    if (state == 'running' and info.name is not None and info.name.info.name
+            not in ['Destroy', 'Relocate', 'CreateVm']):
+        CheckForQuestionPending(info)
 
     return update.version, state
 
@@ -250,15 +272,17 @@ def CreateTasksFilter(pc, tasks):
         return None
 
     # First create the object specification as the task object.
-    objspecs = [vmodl.query.PropertyCollector.ObjectSpec(obj=task)
-                for task in tasks]
+    objspecs = [
+        vmodl.Query.PropertyCollector.ObjectSpec(obj=task) for task in tasks
+    ]
 
     # Next, create the property specification as the state.
-    propspec = vmodl.query.PropertyCollector.PropertySpec(
-        type=vim.Task, pathSet=[], all=True)
+    propspec = vmodl.Query.PropertyCollector.PropertySpec(type=vim.Task,
+                                                          pathSet=[],
+                                                          all=True)
 
     # Create a filter spec with the specified object and property spec.
-    filterspec = vmodl.query.PropertyCollector.FilterSpec()
+    filterspec = vmodl.Query.PropertyCollector.FilterSpec()
     filterspec.objectSet = objspecs
     filterspec.propSet = [propspec]
 
@@ -266,16 +290,22 @@ def CreateTasksFilter(pc, tasks):
     return pc.CreateFilter(filterspec, True)
 
 
-def CheckForQuestionPending(task):
-    """
-    Check to see if VM needs to ask a question, throw exception
-    """
+def CheckForQuestionPending(info):
+    """ Check to see if VM needs to ask a question, throw exception """
 
-    vm = task.info.entity
+    vm = info.entity
     if vm is not None and isinstance(vm, vim.VirtualMachine):
         qst = vm.runtime.question
         if qst is not None:
             raise TaskBlocked("Task blocked, User Intervention required")
+
+
+def _LogMsg(log, message):
+    """Helper logging a message with logger or print depending on the flag."""
+    if log:
+        log(message)
+    else:
+        print(message)
 
 
 ##
@@ -287,10 +317,10 @@ class ProgressUpdater(object):
     Class that keeps track of task percentage complete and calls a
     provided callback when it changes.
     """
-
-    def __init__(self, task, onProgressUpdate):
+    def __init__(self, task, onProgressUpdate, getAllUpdates=False):
         self.task = task
         self.onProgressUpdate = onProgressUpdate
+        self.getAllUpdates = getAllUpdates
         self.prevProgress = 0
         self.progress = 0
 
@@ -305,7 +335,7 @@ class ProgressUpdater(object):
     def UpdateIfNeeded(self):
         self.progress = self.task.info.progress
 
-        if self.progress != self.prevProgress:
+        if self.getAllUpdates or self.progress != self.prevProgress:
             self.Update(self.progress)
 
         self.prevProgress = self.progress
