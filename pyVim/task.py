@@ -142,7 +142,7 @@ def WaitForTask(task,
                 if raiseOnError is True:
                     raise Exception(err)
                 break
-        except vmodl.Fault.ManagedObjectNotFound as e:
+        except vmodl.fault.ManagedObjectNotFound as e:
             print("Task object has been deleted: %s" % e.obj)
             break
 
@@ -273,16 +273,16 @@ def CreateTasksFilter(pc, tasks):
 
     # First create the object specification as the task object.
     objspecs = [
-        vmodl.Query.PropertyCollector.ObjectSpec(obj=task) for task in tasks
+        vmodl.query.PropertyCollector.ObjectSpec(obj=task) for task in tasks
     ]
 
     # Next, create the property specification as the state.
-    propspec = vmodl.Query.PropertyCollector.PropertySpec(type=vim.Task,
+    propspec = vmodl.query.PropertyCollector.PropertySpec(type=vim.Task,
                                                           pathSet=[],
                                                           all=True)
 
     # Create a filter spec with the specified object and property spec.
-    filterspec = vmodl.Query.PropertyCollector.FilterSpec()
+    filterspec = vmodl.query.PropertyCollector.FilterSpec()
     filterspec.objectSet = objspecs
     filterspec.propSet = [propspec]
 
