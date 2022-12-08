@@ -987,7 +987,6 @@ class SoapResponseDeserializer(ExpatDeserializerNSHandlers):
 # -- InvokeMethod(ManagedObject mo, Object methodInfo, Object[] args)
 class StubAdapterBase(StubAdapterAccessorMixin):
     def __init__(self, version):
-        StubAdapterAccessorMixin.__init__(self)
         self.ComputeVersionInfo(version)
 
     # Compute the version information for the specified namespace
