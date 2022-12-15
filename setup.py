@@ -65,7 +65,7 @@ setup(
     ],
     keywords='pyvmomi, vsphere, vmware, esx',
     platforms=['Windows', 'Linux', 'Solaris', 'Mac OS-X', 'Unix'],
-    python_requires='>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*',
+    python_requires='>=2.7.9, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*',
     test_suite='tests',
     tests_require=required_for_tests,
     extras_require={
