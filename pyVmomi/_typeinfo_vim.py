@@ -21,7 +21,7 @@ from .VmomiSupport import AddBreakingChangesInfo
 from .VmomiSupport import F_LINK, F_LINKABLE
 from .VmomiSupport import F_OPTIONAL, F_SECRET
 from .VmomiSupport import newestVersions
-from .VmomiSupport import publicVersions, dottedVersions
+from .VmomiSupport import ltsVersions, dottedVersions
 from .VmomiSupport import oldestVersions
 
 AddVersion("vmodl.query.version.version4", "", "", 0, "vim25")
@@ -714,7 +714,7 @@ AddVersionParent("vim.version.v7_0", "vim.version.version12")
 AddVersionParent("vim.version.v7_0", "vim.version.v7_0")
 
 newestVersions.Add("vim.version.v8_0_0_1")
-publicVersions.Add("vim.version.v8_0_0_1")
+ltsVersions.Add("vim.version.v8_0_0_1")
 dottedVersions.Add("vim.version.v8_0_0_1")
 oldestVersions.Add("vim.version.version5")
 

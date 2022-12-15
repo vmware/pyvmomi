@@ -3,7 +3,7 @@
 from pyVmomi.VmomiSupport import CreateDataType, CreateManagedType, CreateEnumType
 from pyVmomi.VmomiSupport import AddVersion, AddVersionParent
 from pyVmomi.VmomiSupport import F_OPTIONAL, F_SECRET
-from pyVmomi.VmomiSupport import newestVersions, publicVersions, oldestVersions, dottedVersions
+from pyVmomi.VmomiSupport import newestVersions, ltsVersions, oldestVersions, dottedVersions
 
 AddVersion("vmodl.query.version.version4", "", "", 0, "vim25")
 AddVersion("vmodl.query.version.version3", "", "", 0, "vim25")
@@ -1096,7 +1096,7 @@ AddVersionParent("sms.version.v7_0", "vim.version.version3")
 AddVersionParent("sms.version.v7_0", "sms.version.v7_0")
 
 newestVersions.Add("sms.version.v8_0_0_0")
-publicVersions.Add("sms.version.v8_0_0_0")
+ltsVersions.Add("sms.version.v8_0_0_0")
 dottedVersions.Add("sms.version.v8_0_0_0")
 oldestVersions.Add("sms.version.version1")
 
