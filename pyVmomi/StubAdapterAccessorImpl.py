@@ -33,6 +33,19 @@ class StubAdapterAccessorMixin:
         if replacement:
             info.type = GetVmodlType(replacement)
 
+        # When the type is a list of instances of ManagedObject
+        # the legacy behavior was to return the base class
+        # e.g. The returned object type was ManagedObject[] for
+        # vim.Datastore[] or vim.ManagedEntity[]
+        if info.type.__name__.endswith("[]"):
+            elementTypeName = info.type.__name__[:-2]
+            try:
+                elementType = GetVmodlType(elementTypeName)
+                if issubclass(elementType, ManagedObject):
+                    info.type = GetVmodlType('vmodl.ManagedObject[]')
+            except KeyError:
+                pass
+
         info = Object(name=info.name,
                       type=ManagedObject,
                       wsdlName="Fetch",
