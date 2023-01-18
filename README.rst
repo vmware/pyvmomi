@@ -47,7 +47,7 @@ Documentation
 =============
 For general language neutral documentation of vSphere Management API see:
 
-* `vSphere WS SDK API Docs <https://code.vmware.com/apis/968/vsphere>`_
+* `vSphere Web Services API Doc <https://code.vmware.com/apis/1355/vsphere>`_
 
 Python Support
 ==============
