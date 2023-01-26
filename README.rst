@@ -30,7 +30,7 @@ posted to `pypi <https://pypi.python.org/pypi/pyvmomi/>`_
   ``python setup.py develop`` for development install or
   ``python setup.py install``.
 * To install `github's version <https://github.com/vmware/pyvmomi>`_ with sso support, just run
-  ``pip install -e .[sso]`` inside project's home folder.
+  ``pip install -e ".[sso]"`` inside project's home folder.
 
 Testing
 =======
