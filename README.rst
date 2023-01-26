@@ -1,3 +1,5 @@
+pyvmomi
+------------
 .. image:: https://travis-ci.org/vmware/pyvmomi.svg?branch=v6.0.0.2016.4
     :target: https://travis-ci.org/vmware/pyvmomi
     :alt: Build Status
