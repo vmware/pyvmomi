@@ -1,5 +1,5 @@
 #############################################################
-# Copyright (c) 2005-2022 VMware, Inc.
+# Copyright (c) 2005-2023 VMware, Inc.
 #############################################################
 
 ## @file connect.py
@@ -118,13 +118,14 @@ class VimSessionOrientedStub(SessionOrientedStub):
         return _doLogin
 
     @staticmethod
-    def makeCertHokTokenLoginMethod(stsUrl, stsCert=None):
+    def makeCertHokTokenLoginMethod(stsUrl, stsCert=None, ssl_context=None):
         '''Return a function that will call the vim.SessionManager.LoginByToken()
         after obtaining a HoK SAML token from the STS. The result of this function
         can be passed as the "loginMethod" to a SessionOrientedStub constructor.
 
         @param stsUrl: URL of the SAML Token issuing service. (i.e. SSO server).
         @param stsCert: public key of the STS service.
+        @param ssl_context: SSL context
         '''
         assert (stsUrl)
 
@@ -135,7 +136,8 @@ class VimSessionOrientedStub(SessionOrientedStub):
             authenticator = sso.SsoAuthenticator(sts_url=stsUrl,
                                                  sts_cert=stsCert)
 
-            samlAssertion = authenticator.get_hok_saml_assertion(cert, key)
+            samlAssertion = authenticator.get_hok_saml_assertion(
+                cert, key, ssl_context=ssl_context)
 
             def _requestModifier(request):
                 return sso.add_saml_context(request, samlAssertion, key)
@@ -156,7 +158,8 @@ class VimSessionOrientedStub(SessionOrientedStub):
     def makeCredBearerTokenLoginMethod(username,
                                        password,
                                        stsUrl,
-                                       stsCert=None):
+                                       stsCert=None,
+                                       ssl_context=None):
         '''Return a function that will call the vim.SessionManager.LoginByToken()
         after obtaining a Bearer token from the STS. The result of this function
         can be passed as the "loginMethod" to a SessionOrientedStub constructor.
@@ -165,6 +168,7 @@ class VimSessionOrientedStub(SessionOrientedStub):
         @param password: password of the user/service registered with STS.
         @param stsUrl: URL of the SAML Token issueing service. (i.e. SSO server).
         @param stsCert: public key of the STS service.
+        @param ssl_context: SSL context
         '''
         assert (username)
         assert (password)
@@ -177,7 +181,7 @@ class VimSessionOrientedStub(SessionOrientedStub):
             authenticator = sso.SsoAuthenticator(sts_url=stsUrl,
                                                  sts_cert=stsCert)
             samlAssertion = authenticator.get_bearer_saml_assertion(
-                username, password, cert, key)
+                username, password, cert, key, ssl_context=ssl_context)
             si = vim.ServiceInstance("ServiceInstance", soapStub)
             sm = si.content.sessionManager
             if not sm.currentSession:
