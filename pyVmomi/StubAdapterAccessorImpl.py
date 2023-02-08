@@ -1,48 +1,61 @@
-# VMware vSphere Python SDK
-# Copyright (c) 2008-2015 VMware, Inc. All Rights Reserved.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-from __future__ import absolute_import
-from pyVmomi.VmomiSupport import GetVmodlType
+# **********************************************************
+# Copyright (c) 2011-2023 VMware, Inc.
+# **********************************************************
+
+from .VmomiSupport import GetVmodlType, ManagedObject, Object
+
+
+# Used to replace few type definitions for emulating
+# legacy behavior. Ref. VmomiSupport._wsdlTypeMap
+_legacyTypes = {
+    "type": "string",
+    "ManagedMethod": "string",
+    "PropertyPath": "string",
+    "type[]": "string[]",
+    "ManagedMethod[]": "string[]",
+    "PropertyPath[]": "string[]"
+}
+
 
 class StubAdapterAccessorMixin:
-   def __init__(self):
-      self._pc = None
-      self._pcType = GetVmodlType("vmodl.query.PropertyCollector")
-      self._siType = GetVmodlType("vim.ServiceInstance")
 
-   ## Retrieve a managed property
-   #
-   # @param self self
-   # @param mo managed object
-   # @param info property info
-   def InvokeAccessor(self, mo, info):
-      filterSpec = self._pcType.FilterSpec(
-         objectSet=[self._pcType.ObjectSpec(obj=mo, skip=False)],
-         propSet=[self._pcType.PropertySpec(all=False, type=mo.__class__,
-                                                 pathSet=[info.name])],
-         )
-      ## Cache the property collector if it isn't already
-      #  No need to lock _pc since multiple instances of PropertyCollector on
-      #  the client will talk to the same instance on the server.
-      if not self._pc:
-         si = self._siType("ServiceInstance", self)
-         self._pc = si.RetrieveContent().propertyCollector
-      result = self._pc.RetrievePropertiesEx(specSet=[filterSpec],
-                                             options=self._pcType.RetrieveOptions(maxObjects=1))
-      objectContent = result.objects[0]
-      if len(objectContent.propSet) > 0:
-         return objectContent.propSet[0].val
-      if len(objectContent.missingSet) > 0 and objectContent.missingSet[0].fault:
-         raise objectContent.missingSet[0].fault
-      return None
+    # Retrieve a managed property
+    #
+    # @param self self
+    # @param mo managed object
+    # @param info property info
+    def InvokeAccessor(self, mo, info):
+        prop = info.name
+        param = Object(name="prop", type=str, version=self.version, flags=0)
+
+        # Emulate legacy behavior for backward compatibility
+        replacement = _legacyTypes.get(info.type.__name__, None)
+        if replacement:
+            info.type = GetVmodlType(replacement)
+
+        # When the type is a list of instances of ManagedObject
+        # the legacy behavior was to return the base class
+        # e.g. The returned object type was ManagedObject[] for
+        # vim.Datastore[] or vim.ManagedEntity[]
+        if info.type.__name__.endswith("[]"):
+            elementTypeName = info.type.__name__[:-2]
+            try:
+                elementType = GetVmodlType(elementTypeName)
+                if issubclass(elementType, ManagedObject):
+                    info.type = GetVmodlType('vmodl.ManagedObject[]')
+            except KeyError:
+                pass
+
+        info = Object(name=info.name,
+                      type=ManagedObject,
+                      wsdlName="Fetch",
+                      version=info.version,
+                      params=(param, ),
+                      isTask=False,
+                      resultFlags=info.flags,
+                      result=info.type,
+                      methodResult=info.type)
+        return self.InvokeMethod(mo, info, (prop, ))
+
+    def SupportServerGUIDs(self):
+        return False

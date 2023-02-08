@@ -1,216 +1,74 @@
-# VMware vSphere Python SDK
-# Copyright (c) 2008-2015 VMware, Inc. All Rights Reserved.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-from __future__ import absolute_import
-# In VmomiSupport, to support dynamic type loading, all the data types are
-# wrapped around using a meta type which can intercept attribute access and
-# load the necessary nested classes. This can be implemented only in python 2.5
-# version or more.
+# **********************************************************
+# Copyright (c) 2005-2022 VMware, Inc.
+# **********************************************************
+
 import sys
-if sys.version_info < (2,5):
-   sys.stderr.write("You need Python 2.5 or later to import pyVmomi module\n")
-   sys.exit(1)
+import importlib
 
-import pyVmomi.VmomiSupport
-import pyVmomi.CoreTypes
-import pyVmomi.QueryTypes
-try:
-   import ReflectTypes
-except ImportError:
-   pass
-try:
-   import pyVmomi.ServerObjects
-except ImportError:
-   pass
-try:
-   import pyVmomi.InternalServerObjects
-except ImportError:
-   pass
+if sys.version_info < (2, 7, 9):
+    sys.stderr.write("pyVmomi requires Python 2.7.9 or newer")
+    sys.exit(1)
 
-# Import all the known product-specific types
-# XXX: Make this search the package for types?
-try:
-   import pyVmomi.DrObjects
-except ImportError:
-   pass
+_initialized = False
 
-try:
-   import pyVmomi.DrextObjects
-except ImportError:
-   pass
+
+# Definition precedes pyVmomi modules imports to escape circular
+# dependency error if modules import _assert_not_initialized()
+def _assert_not_initialized():
+    if _initialized:
+        raise RuntimeError("pyVmomi is already initialized!")
+
+
+def _import_typeinfo(typeinfo):
+    try:
+        __import__('_typeinfo_' + typeinfo, globals(), level=1)
+    except ImportError:
+        pass
+
+
+def _load_typeinfos():
+    from ._typeinfos import typeinfos
+    for typeinfo in typeinfos:
+        _import_typeinfo(typeinfo)
 
 try:
-   import pyVmomi.HbrReplicaTypes
+    settings = importlib.import_module('.pyVmomiSettings', 'pyVmomi')
 except ImportError:
-   pass
-try:
-   import pyVmomi.HmsObjects
-except ImportError:
-   pass
-try:
-   import pyVmomi.HostdObjects
-except ImportError:
-   pass
-try:
-   import pyVmomi.VpxObjects
-except ImportError:
-   pass
-try:
-   import pyVmomi.VorbTypes
-except ImportError:
-   pass
-try:
-   import pyVmomi.DodoTypes
-except ImportError:
-   pass
-try:
-   import pyVmomi.VmwauthproxyTypes
-except ImportError:
-   pass
-try:
-   import pyVmomi.DmsTypes
-except ImportError:
-   pass
-try:
-   import pyVmomi.OmsTypes
-except ImportError:
-   pass
-try:
-   import pyVmomi.HmoTypes
-except ImportError:
-   pass
-try:
-   import pyVmomi.CimsfccTypes
-except ImportError:
-   pass
-try:
-   import pyVmomi.TaskupdaterTypes
-except ImportError:
-   pass
-try:
-   import pyVmomi.ImgFactTypes
-except ImportError:
-   pass
+    settings = None
 
-try:
-   import pyVmomi.VpxapiTypes
-except ImportError:
-   pass
-try:
-   import pyVmomi.CsiObjects
-except ImportError:
-   pass
+# set default settings
+_allowGetSet = getattr(settings, 'allowGetSet', True)
+_allowCapitalizedNames = \
+    getattr(settings, 'allowCapitalizedNames', True)
+_binaryIsBytearray = \
+    getattr(settings, 'binaryIsBytearray', False)
+_legacyThumbprintException = \
+    getattr(settings, 'legacyThumbprintException', False)
 
-try:
-   import pyVmomi.HostdTypes
-except ImportError:
-   pass
 
-try:
-   import pyVmomi.TaggingObjects
-except ImportError:
-   pass
+from . import VmomiSupport  # noqa: E402
+from . import Feature  # noqa: E402
 
-try:
-   import pyVmomi.NfcTypes
-except ImportError:
-   pass
-
-try:
-   import pyVmomi.SmsObjects
-except ImportError:
-   pass
-
-try:
-   import pyVmomi.SpsObjects
-except ImportError:
-   pass
-
-try:
-   import pyVmomi.DataserviceObjects
-except ImportError:
-   pass
-
-# Start of update manager specific types
-try:
-   import pyVmomi.IntegrityObjects
-except ImportError:
-   pass
-
-try:
-   import pyVmomi.SysimageObjects
-except ImportError:
-   pass
-# End of update manager specific types
-
-try:
-   import pyVmomi.RbdTypes
-except ImportError:
-   pass
-
-# Import Profile based management specific VMODL
-try:
-   import pyVmomi.PbmObjects
-except ImportError:
-   pass
-
-try:
-   import pyVmomi.CisLicenseTypes
-except ImportError:
-   pass
-
-try:
-   import pyVmomi.TestTypes
-except ImportError:
-   pass
-
-try:
-   import pyVmomi.SsoTypes
-except ImportError:
-   pass
-
-try:
-   import pyVmomi.CisCmTypes
-except ImportError:
-    pass
-
-try:
-   import pyVmomi.DataserviceTypes
-except ImportError:
-   pass
-
-try:
-   import pyVmomi.EamObjects
-except ImportError:
-   pass
+_load_typeinfos()
 
 # All data object types and fault types have DynamicData as an ancestor
 # As well load it proactively.
 # Note: This should be done before importing SoapAdapter as it uses
 # some fault types
-pyVmomi.VmomiSupport.GetVmodlType("vmodl.DynamicData")
+VmomiSupport.GetVmodlType("vmodl.DynamicData")
 
-from pyVmomi.SoapAdapter import SoapStubAdapter, StubAdapterBase, SoapCmdStubAdapter, \
-    SessionOrientedStub, ThumbprintMismatchException
+from .SoapAdapter import (  # noqa: E402,F401
+    SessionOrientedStub, SoapStubAdapter, StubAdapterBase)
+if _legacyThumbprintException:
+    from .Security import ThumbprintMismatchException  # noqa: F401
 
-types = pyVmomi.VmomiSupport.types
+types = VmomiSupport.types
 
 # This will allow files to use Create** functions
 # directly from pyVmomi
-CreateEnumType = pyVmomi.VmomiSupport.CreateEnumType
-CreateDataType = pyVmomi.VmomiSupport.CreateDataType
-CreateManagedType = pyVmomi.VmomiSupport.CreateManagedType
+CreateEnumType = VmomiSupport.CreateEnumType
+CreateDataType = VmomiSupport.CreateDataType
+CreateManagedType = VmomiSupport.CreateManagedType
 
 # For all the top level names, creating a LazyModule object
 # in the global namespace of pyVmomi. Files can just import the
@@ -219,14 +77,21 @@ CreateManagedType = pyVmomi.VmomiSupport.CreateManagedType
 # ALLOWED: from pyVmomi import vim
 # NOT ALLOWED: from pyVmomi import vim.host
 _globals = globals()
-for name in pyVmomi.VmomiSupport._topLevelNames:
-   upperCaseName = pyVmomi.VmomiSupport.Capitalize(name)
-   obj = pyVmomi.VmomiSupport.LazyModule(name)
-   _globals[name] = obj
-   if pyVmomi.VmomiSupport._allowCapitalizedNames:
-      _globals[upperCaseName] = obj
-   if not hasattr(pyVmomi.VmomiSupport.types, name):
-      setattr(pyVmomi.VmomiSupport.types, name, obj)
-      if pyVmomi.VmomiSupport._allowCapitalizedNames:
-         setattr(pyVmomi.VmomiSupport.types, upperCaseName, obj)
+for name in VmomiSupport._topLevelNames:
+    upperCaseName = VmomiSupport.Capitalize(name)
+    obj = VmomiSupport.LazyModule(name)
+    _globals[name] = obj
+    if _allowCapitalizedNames:
+        _globals[upperCaseName] = obj
+    if not hasattr(VmomiSupport.types, name):
+        setattr(VmomiSupport.types, name, obj)
+        if _allowCapitalizedNames:
+            setattr(VmomiSupport.types, upperCaseName, obj)
 del _globals
+
+
+def init():
+    _assert_not_initialized()
+    Feature._init()
+    global _initialized
+    _initialized = True

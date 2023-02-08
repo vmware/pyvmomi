@@ -1,3 +1,4 @@
+mock
 tox
 testtools>=0.9.34
-vcrpy<2
+vcrpy~=2.1

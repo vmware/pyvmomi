@@ -3,21 +3,21 @@ interactions:
     body: null
     headers: {}
     method: GET
-    uri: https://vcsa:80/
+    uri: https://my-http-proxy:8080/
   response:
     body:
-      string: ""
+      string: "bla"
     headers:
       Connection:
       - Keep-Alive
       Content-Length:
-      - '0'
+      - '3'
       Content-Security-Policy:
       - block-all-mixed-content
       Content-Type:
       - text/html
       Date:
-      - Wed, 26 Jun 2019 20:19:39 GMT
+      - Wed, 26 Jun 2019 20:49:55 GMT
       Strict-Transport-Security:
       - max-age=31536000
       X-Content-Type-Options:
@@ -27,6 +27,6 @@ interactions:
       X-XSS-Protection:
       - '1'
     status:
-      code: 404
-      message: KO
+      code: 200
+      message: OK
 version: 1
