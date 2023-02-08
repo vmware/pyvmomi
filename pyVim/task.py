@@ -233,7 +233,10 @@ def WaitForTasks(tasks,
                             err = task.info.error
                             progressUpdater.Update('error: %s' % str(err))
                             if raiseOnError:
-                                raise err
+                                try:
+                                    raise err
+                                finally:
+                                    del err
                             else:
                                 print("Task %s reported error: %s" %
                                       (taskId, str(err)))

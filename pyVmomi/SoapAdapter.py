@@ -1,5 +1,5 @@
 # **********************************************************
-# Copyright (c) 2005-2022 VMware, Inc.
+# Copyright (c) 2005-2023 VMware, Inc.
 # **********************************************************
 
 import base64
@@ -987,6 +987,7 @@ class SoapResponseDeserializer(ExpatDeserializerNSHandlers):
 # -- InvokeMethod(ManagedObject mo, Object methodInfo, Object[] args)
 class StubAdapterBase(StubAdapterAccessorMixin):
     def __init__(self, version):
+        StubAdapterAccessorMixin.__init__(self)
         self.ComputeVersionInfo(version)
 
     # Compute the version information for the specified namespace
@@ -1572,7 +1573,10 @@ class SoapStubAdapter(SoapStubAdapterBase):
                                  "  Attributes: {}\n  Hierarchy: {}")
                     msg = formatMsg.format(_dict, str(inheritanceTree))
                     raise Exception(msg)
-                raise obj  # pylint: disable-msg=E0702
+                try:
+                    raise obj  # pylint: disable-msg=E0702
+                finally:
+                    del obj
         else:
             conn.close()
             raise six.moves.http_client.HTTPException(
