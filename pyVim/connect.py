@@ -454,12 +454,6 @@ def __Login(host,
     if adapter != "SOAP":
         raise ValueError(adapter)
 
-    # Add an HTTP authorization header if a token is provided
-    if token and tokenType == TOKEN_TYPE_SAML:
-        if customHeaders is None:
-            customHeaders = {}
-        customHeaders.update({"Authorization": "Bearer {}".format(token)})
-
     # Create the SOAP stub adapter
     stub = SoapStubAdapter(
         host,
@@ -474,7 +468,8 @@ def __Login(host,
         sslContext=sslContext,
         httpConnectionTimeout=httpConnectionTimeout,
         connectionPoolTimeout=connectionPoolTimeout,
-        customHeaders=customHeaders)
+        customHeaders=customHeaders,
+        samlToken=token)
 
     # Get Service instance
     si = vim.ServiceInstance("ServiceInstance", stub)
