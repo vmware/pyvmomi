@@ -32,9 +32,10 @@ except ImportError:
     from elementtree.ElementTree import ElementTree
 
 
+TOKEN_TYPE_OAUTH_BEARER = 'oauth-bearer'
 TOKEN_TYPE_SAML = 'saml'
 TOKEN_TYPE_SSPI = 'sspi'
-TOKEN_TYPES = [TOKEN_TYPE_SAML, TOKEN_TYPE_SSPI]
+TOKEN_TYPES = [TOKEN_TYPE_OAUTH_BEARER, TOKEN_TYPE_SAML, TOKEN_TYPE_SSPI]
 
 """
 Global regular expression for parsing host and port connection
@@ -212,7 +213,7 @@ def Connect(host='localhost',
             httpConnectionTimeout=None,
             connectionPoolTimeout=CONNECTION_POOL_IDLE_TIMEOUT_SEC,
             token=None,
-            tokenType=TOKEN_TYPE_SAML,
+            tokenType=None,
             disableSslCertValidation=False,
             customHeaders=None,
             # Deprecated
@@ -454,11 +455,17 @@ def __Login(host,
     if adapter != "SOAP":
         raise ValueError(adapter)
 
-    # Add an HTTP authorization header if a token is provided
-    if token and tokenType == TOKEN_TYPE_SAML:
-        if customHeaders is None:
-            customHeaders = {}
-        customHeaders.update({"Authorization": "Bearer {}".format(token)})
+    # If a token is provided
+    # add OAuth token in HTTP authorization header or
+    # add SAML token to SOAP's message wsse header
+    samlToken = None
+    if token:
+        if tokenType == TOKEN_TYPE_OAUTH_BEARER:
+            if customHeaders is None:
+                customHeaders = {}
+            customHeaders.update({"Authorization": "Bearer {}".format(token)})
+        elif tokenType == TOKEN_TYPE_SAML:
+            samlToken = token
 
     # Create the SOAP stub adapter
     stub = SoapStubAdapter(
@@ -474,6 +481,7 @@ def __Login(host,
         sslContext=sslContext,
         httpConnectionTimeout=httpConnectionTimeout,
         connectionPoolTimeout=connectionPoolTimeout,
+        samlToken=samlToken,
         customHeaders=customHeaders)
 
     # Get Service instance
@@ -508,7 +516,7 @@ def __Login(host,
     if not token:
         content.sessionManager.Login(user, pwd, None)
     else:
-        if tokenType == TOKEN_TYPE_SAML:
+        if tokenType in [TOKEN_TYPE_OAUTH_BEARER, TOKEN_TYPE_SAML]:
             content.sessionManager.LoginByToken()
         elif tokenType == TOKEN_TYPE_SSPI:
             content.sessionManager.LoginBySSPI(token)
@@ -853,7 +861,7 @@ def SmartConnect(protocol='https',
                  httpConnectionTimeout=None,
                  connectionPoolTimeout=CONNECTION_POOL_IDLE_TIMEOUT_SEC,
                  token=None,
-                 tokenType=TOKEN_TYPE_SAML,
+                 tokenType=None,
                  disableSslCertValidation=False,
                  customHeaders=None,
                  # Deprecated
