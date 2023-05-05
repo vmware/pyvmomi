@@ -49,7 +49,7 @@ Documentation
 =============
 For general language neutral documentation of vSphere Management API see:
 
-* `vSphere Web Services API Doc <https://code.vmware.com/apis/1355/vsphere>`_
+* `vSphere Web Services API Doc <https://code.vmware.com/apis/1639/vsphere>`_
 
 Python Support
 ==============
