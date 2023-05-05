@@ -1,0 +1,9 @@
+from typing import List
+from pyVmomi import vim
+from pyVmomi.VmomiSupport import ManagedObject, NoneType
+
+
+class TenantManager(ManagedObject):
+    def MarkServiceProviderEntities(self, entity: List[vim.ManagedEntity]) -> NoneType: ...
+    def UnmarkServiceProviderEntities(self, entity: List[vim.ManagedEntity]) -> NoneType: ...
+    def RetrieveServiceProviderEntities(self) -> List[vim.ManagedEntity]: ...

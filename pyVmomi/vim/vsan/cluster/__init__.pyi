@@ -1,0 +1,19 @@
+from pyVmomi import vmodl
+
+
+class ConfigInfo(vmodl.DynamicData):
+    @property
+    def enabled(self) -> bool: ...
+    @property
+    def defaultConfig(self) -> ConfigInfo.HostDefaultInfo: ...
+    @property
+    def vsanEsaEnabled(self) -> bool: ...
+
+
+    class HostDefaultInfo(vmodl.DynamicData):
+        @property
+        def uuid(self) -> str: ...
+        @property
+        def autoClaimStorage(self) -> bool: ...
+        @property
+        def checksumEnabled(self) -> bool: ...

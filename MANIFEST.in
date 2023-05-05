@@ -2,5 +2,7 @@ include README.*
 include *.txt
 include setup.py
 include tox.ini
+include py.typed
 recursive-include tests *
 recursive-include sample *
+recursive-include pyVmomi *.pyi

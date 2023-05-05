@@ -1,0 +1,279 @@
+from typing import List
+from enum import Enum
+from pyVmomi import sms, vim, vmodl
+from datetime import datetime
+from pyVmomi.VmomiSupport import long
+
+
+class BackingConfig(vmodl.DynamicData):
+    @property
+    def thinProvisionBackingIdentifier(self) -> str: ...
+    @property
+    def deduplicationBackingIdentifier(self) -> str: ...
+    @property
+    def autoTieringEnabled(self) -> bool: ...
+    @property
+    def deduplicationEfficiency(self) -> long: ...
+    @property
+    def performanceOptimizationInterval(self) -> long: ...
+
+
+class BackingStoragePool(vmodl.DynamicData):
+    @property
+    def uuid(self) -> str: ...
+    @property
+    def type(self) -> str: ...
+    @property
+    def capacityInMB(self) -> long: ...
+    @property
+    def usedSpaceInMB(self) -> long: ...
+
+
+    class BackingStoragePoolType(Enum):
+        thinProvisioningPool = "thinprovisioningpool"
+        deduplicationPool = "deduplicationpool"
+        thinAndDeduplicationCombinedPool = "thinanddeduplicationcombinedpool"
+
+
+class DatastoreBackingPoolMapping(vmodl.DynamicData):
+    @property
+    def datastore(self) -> List[vim.Datastore]: ...
+    @property
+    def backingStoragePool(self) -> List[BackingStoragePool]: ...
+
+
+class DatastorePair(vmodl.DynamicData):
+    @property
+    def datastore1(self) -> vim.Datastore: ...
+    @property
+    def datastore2(self) -> vim.Datastore: ...
+
+
+class DrsMigrationCapabilityResult(vmodl.DynamicData):
+    @property
+    def recommendedDatastorePair(self) -> List[DatastorePair]: ...
+    @property
+    def nonRecommendedDatastorePair(self) -> List[DatastorePair]: ...
+
+
+class FaultDomainProviderMapping(vmodl.DynamicData):
+    @property
+    def activeProvider(self) -> sms.provider.Provider: ...
+    @property
+    def faultDomainId(self) -> List[vim.vm.replication.FaultDomainId]: ...
+
+
+class FcStoragePort(StoragePort):
+    @property
+    def portWwn(self) -> str: ...
+    @property
+    def nodeWwn(self) -> str: ...
+
+
+class FcoeStoragePort(StoragePort):
+    @property
+    def portWwn(self) -> str: ...
+    @property
+    def nodeWwn(self) -> str: ...
+
+
+class FileSystemInfo(vmodl.DynamicData):
+    @property
+    def fileServerName(self) -> str: ...
+    @property
+    def fileSystemPath(self) -> str: ...
+    @property
+    def ipAddress(self) -> str: ...
+
+
+class IscsiStoragePort(StoragePort):
+    @property
+    def identifier(self) -> str: ...
+
+
+class LunHbaAssociation(vmodl.DynamicData):
+    @property
+    def canonicalName(self) -> str: ...
+    @property
+    def hba(self) -> List[vim.host.HostBusAdapter]: ...
+
+
+class NameValuePair(vmodl.DynamicData):
+    @property
+    def parameterName(self) -> str: ...
+    @property
+    def parameterValue(self) -> str: ...
+
+
+class StorageAlarm(vmodl.DynamicData):
+    @property
+    def alarmId(self) -> long: ...
+    @property
+    def alarmType(self) -> str: ...
+    @property
+    def containerId(self) -> str: ...
+    @property
+    def objectId(self) -> str: ...
+    @property
+    def objectType(self) -> str: ...
+    @property
+    def status(self) -> str: ...
+    @property
+    def alarmTimeStamp(self) -> datetime: ...
+    @property
+    def messageId(self) -> str: ...
+    @property
+    def parameterList(self) -> List[NameValuePair]: ...
+    @property
+    def alarmObject(self) -> object: ...
+
+
+class StorageArray(vmodl.DynamicData):
+    @property
+    def name(self) -> str: ...
+    @property
+    def uuid(self) -> str: ...
+    @property
+    def vendorId(self) -> str: ...
+    @property
+    def modelId(self) -> str: ...
+    @property
+    def firmware(self) -> str: ...
+    @property
+    def alternateName(self) -> List[str]: ...
+    @property
+    def supportedBlockInterface(self) -> List[str]: ...
+    @property
+    def supportedFileSystemInterface(self) -> List[str]: ...
+    @property
+    def supportedProfile(self) -> List[str]: ...
+    @property
+    def priority(self) -> int: ...
+    @property
+    def discoverySvc(self) -> List[vim.VasaStorageArray.DiscoverySvcInfo]: ...
+
+
+    class BlockDeviceInterface(Enum):
+        fc = "fc"
+        iscsi = "iscsi"
+        fcoe = "fcoe"
+        otherBlock = "otherblock"
+
+
+    class FileSystemInterface(Enum):
+        nfs = "nfs"
+        otherFileSystem = "otherfilesystem"
+
+
+    class VasaProfile(Enum):
+        blockDevice = "blockdevice"
+        fileSystem = "filesystem"
+        capability = "capability"
+        policy = "policy"
+        object = "object"
+        statistics = "statistics"
+        storageDrsBlockDevice = "storagedrsblockdevice"
+        storageDrsFileSystem = "storagedrsfilesystem"
+
+
+class StorageCapability(vmodl.DynamicData):
+    @property
+    def uuid(self) -> str: ...
+    @property
+    def name(self) -> str: ...
+    @property
+    def description(self) -> str: ...
+
+
+class StorageContainer(vmodl.DynamicData):
+    @property
+    def uuid(self) -> str: ...
+    @property
+    def name(self) -> str: ...
+    @property
+    def maxVvolSizeInMB(self) -> long: ...
+    @property
+    def providerId(self) -> List[str]: ...
+    @property
+    def arrayId(self) -> List[str]: ...
+    @property
+    def vvolContainerType(self) -> str: ...
+
+
+    class VvolContainerTypeEnum(Enum):
+        NFS = "nfs"
+        NFS4x = "nfs4x"
+        SCSI = "scsi"
+        NVMe = "nvme"
+
+
+class StorageContainerResult(vmodl.DynamicData):
+    @property
+    def storageContainer(self) -> List[StorageContainer]: ...
+    @property
+    def providerInfo(self) -> List[sms.provider.ProviderInfo]: ...
+
+
+class StorageContainerSpec(vmodl.DynamicData):
+    @property
+    def containerId(self) -> List[str]: ...
+
+
+class StorageFileSystem(vmodl.DynamicData):
+    @property
+    def uuid(self) -> str: ...
+    @property
+    def info(self) -> List[FileSystemInfo]: ...
+    @property
+    def nativeSnapshotSupported(self) -> bool: ...
+    @property
+    def thinProvisioningStatus(self) -> str: ...
+    @property
+    def type(self) -> str: ...
+    @property
+    def version(self) -> str: ...
+    @property
+    def backingConfig(self) -> BackingConfig: ...
+
+
+    class FileSystemInterfaceVersion(Enum):
+        NFSV3_0 = "nfsv3_0"
+
+
+class StorageLun(vmodl.DynamicData):
+    @property
+    def uuid(self) -> str: ...
+    @property
+    def vSphereLunIdentifier(self) -> str: ...
+    @property
+    def vendorDisplayName(self) -> str: ...
+    @property
+    def capacityInMB(self) -> long: ...
+    @property
+    def usedSpaceInMB(self) -> long: ...
+    @property
+    def lunThinProvisioned(self) -> bool: ...
+    @property
+    def alternateIdentifier(self) -> List[str]: ...
+    @property
+    def drsManagementPermitted(self) -> bool: ...
+    @property
+    def thinProvisioningStatus(self) -> str: ...
+    @property
+    def backingConfig(self) -> BackingConfig: ...
+
+
+class StoragePort(vmodl.DynamicData):
+    @property
+    def uuid(self) -> str: ...
+    @property
+    def type(self) -> str: ...
+    @property
+    def alternateName(self) -> List[str]: ...
+
+
+class StorageProcessor(vmodl.DynamicData):
+    @property
+    def uuid(self) -> str: ...
+    @property
+    def alternateIdentifer(self) -> List[str]: ...

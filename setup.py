@@ -30,7 +30,7 @@ with open('test-requirements.txt') as f:
 
 setup(
     name='pyvmomi',
-    version='8.0.0.1.2',
+    version='8.0.1.0',
     description='VMware vSphere Python SDK',
     # NOTE: pypi prefers the use of RST to render docs
     long_description=read('README.rst'),
@@ -38,6 +38,7 @@ setup(
     author='VMware, Inc.',
     author_email='jhu@vmware.com',
     packages=['pyVmomi', 'pyVim'],
+    package_data={"pyVmomi": ["py.typed", "*.pyi", "**/*.pyi"]},
     install_requires=required,
     license='License :: OSI Approved :: Apache Software License',
     classifiers=[

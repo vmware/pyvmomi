@@ -1,0 +1,13 @@
+from pyVmomi import eam
+
+
+class CannotDeleteSoftware(VUMIssue): ...
+
+
+class CannotStageSoftware(VUMIssue): ...
+
+
+class VUMIssue(eam.issue.AgencyIssue): ...
+
+
+class VUMUnavailable(VUMIssue): ...
