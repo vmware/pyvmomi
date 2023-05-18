@@ -48,21 +48,21 @@ class Action(vmodl.DynamicData):
 
 
     class ActionType(Enum):
-        MigrationV1 = "migrationv1"
-        VmPowerV1 = "vmpowerv1"
-        HostPowerV1 = "hostpowerv1"
-        IncreaseLimitV1 = "increaselimitv1"
-        IncreaseSizeV1 = "increasesizev1"
-        IncreaseSharesV1 = "increasesharesv1"
-        IncreaseReservationV1 = "increasereservationv1"
-        DecreaseOthersReservationV1 = "decreaseothersreservationv1"
-        IncreaseClusterCapacityV1 = "increaseclustercapacityv1"
-        DecreaseMigrationThresholdV1 = "decreasemigrationthresholdv1"
-        HostMaintenanceV1 = "hostmaintenancev1"
-        StorageMigrationV1 = "storagemigrationv1"
-        StoragePlacementV1 = "storageplacementv1"
-        PlacementV1 = "placementv1"
-        HostInfraUpdateHaV1 = "hostinfraupdatehav1"
+        MigrationV1 = "MigrationV1"
+        VmPowerV1 = "VmPowerV1"
+        HostPowerV1 = "HostPowerV1"
+        IncreaseLimitV1 = "IncreaseLimitV1"
+        IncreaseSizeV1 = "IncreaseSizeV1"
+        IncreaseSharesV1 = "IncreaseSharesV1"
+        IncreaseReservationV1 = "IncreaseReservationV1"
+        DecreaseOthersReservationV1 = "DecreaseOthersReservationV1"
+        IncreaseClusterCapacityV1 = "IncreaseClusterCapacityV1"
+        DecreaseMigrationThresholdV1 = "DecreaseMigrationThresholdV1"
+        HostMaintenanceV1 = "HostMaintenanceV1"
+        StorageMigrationV1 = "StorageMigrationV1"
+        StoragePlacementV1 = "StoragePlacementV1"
+        PlacementV1 = "PlacementV1"
+        HostInfraUpdateHaV1 = "HostInfraUpdateHaV1"
 
 
 class ActionHistory(vmodl.DynamicData):
@@ -202,8 +202,8 @@ class CryptoConfigInfo(vmodl.DynamicData):
 
 
     class CryptoMode(Enum):
-        onDemand = "ondemand"
-        forceEnable = "forceenable"
+        onDemand = "onDemand"
+        forceEnable = "forceEnable"
 
 
 class DasAamHostInfo(DasHostInfo):
@@ -231,8 +231,8 @@ class DasAamNodeState(vmodl.DynamicData):
         unconfiguring = "unconfiguring"
         running = "running"
         error = "error"
-        agentShutdown = "agentshutdown"
-        nodeFailed = "nodefailed"
+        agentShutdown = "agentShutdown"
+        nodeFailed = "nodeFailed"
 
 
 class DasAdmissionControlInfo(vmodl.DynamicData): ...
@@ -294,9 +294,9 @@ class DasConfigInfo(vmodl.DynamicData):
 
 
     class HBDatastoreCandidate(Enum):
-        userSelectedDs = "userselectedds"
-        allFeasibleDs = "allfeasibleds"
-        allFeasibleDsWithUserPreference = "allfeasibledswithuserpreference"
+        userSelectedDs = "userSelectedDs"
+        allFeasibleDs = "allFeasibleDs"
+        allFeasibleDsWithUserPreference = "allFeasibleDsWithUserPreference"
 
 
     class ServiceState(Enum):
@@ -305,9 +305,9 @@ class DasConfigInfo(vmodl.DynamicData):
 
 
     class VmMonitoringState(Enum):
-        vmMonitoringDisabled = "vmmonitoringdisabled"
-        vmMonitoringOnly = "vmmonitoringonly"
-        vmAndAppMonitoring = "vmandappmonitoring"
+        vmMonitoringDisabled = "vmMonitoringDisabled"
+        vmMonitoringOnly = "vmMonitoringOnly"
+        vmAndAppMonitoring = "vmAndAppMonitoring"
 
 
 class DasData(vmodl.DynamicData): ...
@@ -421,9 +421,9 @@ class DasVmSettings(vmodl.DynamicData):
 
     class IsolationResponse(Enum):
         none = "none"
-        powerOff = "poweroff"
+        powerOff = "powerOff"
         shutdown = "shutdown"
-        clusterIsolationResponse = "clusterisolationresponse"
+        clusterIsolationResponse = "clusterIsolationResponse"
 
 
     class RestartPriority(Enum):
@@ -433,7 +433,7 @@ class DasVmSettings(vmodl.DynamicData):
         medium = "medium"
         high = "high"
         highest = "highest"
-        clusterRestartPriority = "clusterrestartpriority"
+        clusterRestartPriority = "clusterRestartPriority"
 
 
 class DatastoreUpdateSpec(vim.option.ArrayUpdateSpec):
@@ -495,8 +495,8 @@ class DrsConfigInfo(vmodl.DynamicData):
 
     class DrsBehavior(Enum):
         manual = "manual"
-        partiallyAutomated = "partiallyautomated"
-        fullyAutomated = "fullyautomated"
+        partiallyAutomated = "partiallyAutomated"
+        fullyAutomated = "fullyAutomated"
 
 
 class DrsFaults(vmodl.DynamicData):
@@ -557,11 +557,11 @@ class DrsRecommendation(vmodl.DynamicData):
 
 
     class ReasonCode(Enum):
-        fairnessCpuAvg = "fairnesscpuavg"
-        fairnessMemAvg = "fairnessmemavg"
-        jointAffin = "jointaffin"
-        antiAffin = "antiaffin"
-        hostMaint = "hostmaint"
+        fairnessCpuAvg = "fairnessCpuAvg"
+        fairnessMemAvg = "fairnessMemAvg"
+        jointAffin = "jointAffin"
+        antiAffin = "antiAffin"
+        hostMaint = "hostMaint"
 
 
 class DrsVmConfigInfo(vmodl.DynamicData):
@@ -672,9 +672,9 @@ class HostInfraUpdateHaModeAction(Action):
 
 
     class OperationType(Enum):
-        enterQuarantine = "enterquarantine"
-        exitQuarantine = "exitquarantine"
-        enterMaintenance = "entermaintenance"
+        enterQuarantine = "enterQuarantine"
+        exitQuarantine = "exitQuarantine"
+        enterMaintenance = "enterMaintenance"
 
 
 class HostPowerAction(Action):
@@ -709,13 +709,13 @@ class InfraUpdateHaConfigInfo(vmodl.DynamicData):
 
 
     class BehaviorType(Enum):
-        Manual = "manual"
-        Automated = "automated"
+        Manual = "Manual"
+        Automated = "Automated"
 
 
     class RemediationType(Enum):
-        QuarantineMode = "quarantinemode"
-        MaintenanceMode = "maintenancemode"
+        QuarantineMode = "QuarantineMode"
+        MaintenanceMode = "MaintenanceMode"
 
 
 class InitialPlacementAction(Action):
@@ -848,7 +848,7 @@ class Recommendation(vmodl.DynamicData):
 
 
     class RecommendationType(Enum):
-        V1 = "v1"
+        V1 = "V1"
 
 
 class ResourceUsageSummary(vmodl.DynamicData):
@@ -965,15 +965,15 @@ class VmComponentProtectionSettings(vmodl.DynamicData):
     class StorageVmReaction(Enum):
         disabled = "disabled"
         warning = "warning"
-        restartConservative = "restartconservative"
-        restartAggressive = "restartaggressive"
-        clusterDefault = "clusterdefault"
+        restartConservative = "restartConservative"
+        restartAggressive = "restartAggressive"
+        clusterDefault = "clusterDefault"
 
 
     class VmReactionOnAPDCleared(Enum):
         none = "none"
         reset = "reset"
-        useClusterDefault = "useclusterdefault"
+        useClusterDefault = "useClusterDefault"
 
 
 class VmGroup(GroupInfo):
@@ -1011,10 +1011,10 @@ class VmReadiness(vmodl.DynamicData):
 
     class ReadyCondition(Enum):
         none = "none"
-        poweredOn = "poweredon"
-        guestHbStatusGreen = "guesthbstatusgreen"
-        appHbStatusGreen = "apphbstatusgreen"
-        useClusterDefault = "useclusterdefault"
+        poweredOn = "poweredOn"
+        guestHbStatusGreen = "guestHbStatusGreen"
+        appHbStatusGreen = "appHbStatusGreen"
+        useClusterDefault = "useClusterDefault"
 
 
 class VmToolsMonitoringSettings(vmodl.DynamicData):

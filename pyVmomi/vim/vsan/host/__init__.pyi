@@ -89,9 +89,9 @@ class DecommissionMode(vmodl.DynamicData):
 
 
     class ObjectAction(Enum):
-        noAction = "noaction"
-        ensureObjectAccessibility = "ensureobjectaccessibility"
-        evacuateAllData = "evacuatealldata"
+        noAction = "noAction"
+        ensureObjectAccessibility = "ensureObjectAccessibility"
+        evacuateAllData = "evacuateAllData"
 
 
 class DiskMapInfo(vmodl.DynamicData):
@@ -131,7 +131,7 @@ class DiskResult(vmodl.DynamicData):
 
 
     class State(Enum):
-        inUse = "inuse"
+        inUse = "inUse"
         eligible = "eligible"
         ineligible = "ineligible"
 
@@ -174,6 +174,6 @@ class VsanRuntimeInfo(vmodl.DynamicData):
 
 
     class DiskIssueType(Enum):
-        nonExist = "nonexist"
-        stampMismatch = "stampmismatch"
+        nonExist = "nonExist"
+        stampMismatch = "stampMismatch"
         unknown = "unknown"

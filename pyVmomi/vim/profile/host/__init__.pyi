@@ -89,16 +89,16 @@ class HostProfile(vim.profile.Profile):
 
 
         class UpdateType(Enum):
-            HostBased = "hostbased"
-            Import = "import"
-            Edit = "edit"
-            Compose = "compose"
+            HostBased = "HostBased"
+            Import = "Import"
+            Edit = "Edit"
+            Compose = "Compose"
 
 
     class ValidationState(Enum):
-        Ready = "ready"
-        Running = "running"
-        Failed = "failed"
+        Ready = "Ready"
+        Running = "Running"
+        Failed = "Failed"
 
 
 class HostSpecificationManager(ManagedObject):
@@ -254,8 +254,8 @@ class ProfileManager(vim.profile.ProfileManager):
 
 
     class TaskListRequirement(Enum):
-        maintenanceModeRequired = "maintenancemoderequired"
-        rebootRequired = "rebootrequired"
+        maintenanceModeRequired = "maintenanceModeRequired"
+        rebootRequired = "rebootRequired"
 
 
 class ActiveDirectoryProfile(vim.profile.ApplyProfile): ...
@@ -340,7 +340,7 @@ class ExecuteResult(vmodl.DynamicData):
 
     class Status(Enum):
         success = "success"
-        needInput = "needinput"
+        needInput = "needInput"
         error = "error"
 
 

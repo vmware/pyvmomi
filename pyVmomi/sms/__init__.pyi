@@ -68,18 +68,18 @@ class EntityReference(vmodl.DynamicData):
 
     class EntityType(Enum):
         datacenter = "datacenter"
-        resourcePool = "resourcepool"
-        storagePod = "storagepod"
+        resourcePool = "resourcePool"
+        storagePod = "storagePod"
         cluster = "cluster"
         vm = "vm"
         datastore = "datastore"
         host = "host"
-        vmFile = "vmfile"
-        scsiPath = "scsipath"
-        scsiTarget = "scsitarget"
-        scsiVolume = "scsivolume"
-        scsiAdapter = "scsiadapter"
-        nasMount = "nasmount"
+        vmFile = "vmFile"
+        scsiPath = "scsiPath"
+        scsiTarget = "scsiTarget"
+        scsiVolume = "scsiVolume"
+        scsiAdapter = "scsiAdapter"
+        nasMount = "nasMount"
 
 
 class FaultDomainFilter(vmodl.DynamicData):

@@ -38,14 +38,14 @@ class ComplianceResult(vmodl.DynamicData):
 
     class ComplianceStatus(Enum):
         compliant = "compliant"
-        nonCompliant = "noncompliant"
+        nonCompliant = "nonCompliant"
         unknown = "unknown"
-        notApplicable = "notapplicable"
-        outOfDate = "outofdate"
+        notApplicable = "notApplicable"
+        outOfDate = "outOfDate"
 
 
     class ComplianceTaskStatus(Enum):
-        inProgress = "inprogress"
+        inProgress = "inProgress"
         success = "success"
         failed = "failed"
 

@@ -111,9 +111,9 @@ class IPSettings(vmodl.DynamicData):
 
 
     class NetBIOSMode(Enum):
-        enableNetBIOSViaDhcp = "enablenetbiosviadhcp"
-        enableNetBIOS = "enablenetbios"
-        disableNetBIOS = "disablenetbios"
+        enableNetBIOSViaDhcp = "enableNetBIOSViaDhcp"
+        enableNetBIOS = "enableNetBIOS"
+        disableNetBIOS = "disableNetBIOS"
 
 
 class Identification(vmodl.DynamicData):
@@ -144,8 +144,8 @@ class LicenseFilePrintData(vmodl.DynamicData):
 
 
     class AutoMode(Enum):
-        perServer = "perserver"
-        perSeat = "perseat"
+        perServer = "perServer"
+        perSeat = "perSeat"
 
 
 class LinuxOptions(Options): ...

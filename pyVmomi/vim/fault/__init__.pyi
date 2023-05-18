@@ -45,15 +45,15 @@ class AgentInstallFailed(HostConnectFault):
 
 
     class Reason(Enum):
-        NotEnoughSpaceOnDevice = "notenoughspaceondevice"
-        PrepareToUpgradeFailed = "preparetoupgradefailed"
-        AgentNotRunning = "agentnotrunning"
-        AgentNotReachable = "agentnotreachable"
-        InstallTimedout = "installtimedout"
-        SignatureVerificationFailed = "signatureverificationfailed"
-        AgentUploadFailed = "agentuploadfailed"
-        AgentUploadTimedout = "agentuploadtimedout"
-        UnknownInstallerError = "unknowninstallererror"
+        NotEnoughSpaceOnDevice = "NotEnoughSpaceOnDevice"
+        PrepareToUpgradeFailed = "PrepareToUpgradeFailed"
+        AgentNotRunning = "AgentNotRunning"
+        AgentNotReachable = "AgentNotReachable"
+        InstallTimedout = "InstallTimedout"
+        SignatureVerificationFailed = "SignatureVerificationFailed"
+        AgentUploadFailed = "AgentUploadFailed"
+        AgentUploadTimedout = "AgentUploadTimedout"
+        UnknownInstallerError = "UnknownInstallerError"
 
 
 class AlreadyBeingManaged(HostConnectFault):
@@ -225,7 +225,7 @@ class CannotMoveFaultToleranceVm(VimFault):
 
 
     class MoveType(Enum):
-        resourcePool = "resourcepool"
+        resourcePool = "resourcePool"
         cluster = "cluster"
 
 
@@ -257,9 +257,9 @@ class CannotPowerOffVmInCluster(InvalidState):
 
     class Operation(Enum):
         suspend = "suspend"
-        powerOff = "poweroff"
-        guestShutdown = "guestshutdown"
-        guestSuspend = "guestsuspend"
+        powerOff = "powerOff"
+        guestShutdown = "guestShutdown"
+        guestSuspend = "guestSuspend"
 
 
 class CannotReconfigureVsanWhenHaEnabled(VsanFault): ...
@@ -388,17 +388,17 @@ class DasConfigFault(VimFault):
 
 
     class DasConfigFaultReason(Enum):
-        HostNetworkMisconfiguration = "hostnetworkmisconfiguration"
-        HostMisconfiguration = "hostmisconfiguration"
-        InsufficientPrivileges = "insufficientprivileges"
-        NoPrimaryAgentAvailable = "noprimaryagentavailable"
-        Other = "other"
-        NoDatastoresConfigured = "nodatastoresconfigured"
-        CreateConfigVvolFailed = "createconfigvvolfailed"
-        VSanNotSupportedOnHost = "vsannotsupportedonhost"
-        DasNetworkMisconfiguration = "dasnetworkmisconfiguration"
-        SetDesiredImageSpecFailed = "setdesiredimagespecfailed"
-        ApplyHAVibsOnClusterFailed = "applyhavibsonclusterfailed"
+        HostNetworkMisconfiguration = "HostNetworkMisconfiguration"
+        HostMisconfiguration = "HostMisconfiguration"
+        InsufficientPrivileges = "InsufficientPrivileges"
+        NoPrimaryAgentAvailable = "NoPrimaryAgentAvailable"
+        Other = "Other"
+        NoDatastoresConfigured = "NoDatastoresConfigured"
+        CreateConfigVvolFailed = "CreateConfigVvolFailed"
+        VSanNotSupportedOnHost = "VSanNotSupportedOnHost"
+        DasNetworkMisconfiguration = "DasNetworkMisconfiguration"
+        SetDesiredImageSpecFailed = "SetDesiredImageSpecFailed"
+        ApplyHAVibsOnClusterFailed = "ApplyHAVibsOnClusterFailed"
 
 
 class DatabaseError(vmodl.RuntimeFault): ...
@@ -488,7 +488,7 @@ class DisallowedChangeByService(vmodl.RuntimeFault):
 
 
     class DisallowedChange(Enum):
-        hotExtendDisk = "hotextenddisk"
+        hotExtendDisk = "hotExtendDisk"
 
 
 class DisallowedDiskModeChange(InvalidDeviceSpec): ...
@@ -998,7 +998,7 @@ class HostHasComponentFailure(VimFault):
 
 
     class HostComponentType(Enum):
-        Datastore = "datastore"
+        Datastore = "Datastore"
 
 
 class HostInDomain(HostConfigFault): ...
@@ -1111,7 +1111,7 @@ class IncompatibleHostForVmReplication(ReplicationFault):
 
     class IncompatibleReason(Enum):
         rpo = "rpo"
-        netCompression = "netcompression"
+        netCompression = "netCompression"
 
 
 class IncompatibleSetting(InvalidArgument):
@@ -1276,9 +1276,9 @@ class InvalidDasConfigArgument(InvalidArgument):
 
 
     class EntryForInvalidArgument(Enum):
-        admissionControl = "admissioncontrol"
-        userHeartbeatDs = "userheartbeatds"
-        vmConfig = "vmconfig"
+        admissionControl = "admissionControl"
+        userHeartbeatDs = "userHeartbeatDs"
+        vmConfig = "vmConfig"
 
 
 class InvalidDasRestartPriorityForFtVm(InvalidArgument):
@@ -2000,8 +2000,8 @@ class NotSupportedDeviceForFT(VmFaultToleranceIssue):
 
 
     class DeviceType(Enum):
-        virtualVmxnet3 = "virtualvmxnet3"
-        paraVirtualSCSIController = "paravirtualscsicontroller"
+        virtualVmxnet3 = "virtualVmxnet3"
+        paraVirtualSCSIController = "paraVirtualSCSIController"
 
 
 class NotSupportedHost(HostConnectFault):
@@ -2609,9 +2609,9 @@ class QuarantineModeFault(VmConfigFault):
 
 
     class FaultType(Enum):
-        NoCompatibleNonQuarantinedHost = "nocompatiblenonquarantinedhost"
-        CorrectionDisallowed = "correctiondisallowed"
-        CorrectionImpact = "correctionimpact"
+        NoCompatibleNonQuarantinedHost = "NoCompatibleNonQuarantinedHost"
+        CorrectionDisallowed = "CorrectionDisallowed"
+        CorrectionImpact = "CorrectionImpact"
 
 
 class QuestionPending(InvalidState):
@@ -2695,13 +2695,13 @@ class ReplicationDiskConfigFault(ReplicationConfigFault):
 
 
     class ReasonForFault(Enum):
-        diskNotFound = "disknotfound"
-        diskTypeNotSupported = "disktypenotsupported"
-        invalidDiskKey = "invaliddiskkey"
-        invalidDiskReplicationId = "invaliddiskreplicationid"
-        duplicateDiskReplicationId = "duplicatediskreplicationid"
-        invalidPersistentFilePath = "invalidpersistentfilepath"
-        reconfigureDiskReplicationIdNotAllowed = "reconfigurediskreplicationidnotallowed"
+        diskNotFound = "diskNotFound"
+        diskTypeNotSupported = "diskTypeNotSupported"
+        invalidDiskKey = "invalidDiskKey"
+        invalidDiskReplicationId = "invalidDiskReplicationId"
+        duplicateDiskReplicationId = "duplicateDiskReplicationId"
+        invalidPersistentFilePath = "invalidPersistentFilePath"
+        reconfigureDiskReplicationIdNotAllowed = "reconfigureDiskReplicationIdNotAllowed"
 
 
 class ReplicationFault(VimFault): ...
@@ -2746,7 +2746,7 @@ class ReplicationVmInProgressFault(ReplicationVmFault):
 
 
     class Activity(Enum):
-        fullSync = "fullsync"
+        fullSync = "fullSync"
         delta = "delta"
 
 
@@ -3253,43 +3253,43 @@ class VmFaultToleranceConfigIssue(VmFaultToleranceIssue):
 
 
     class ReasonForIssue(Enum):
-        haNotEnabled = "hanotenabled"
-        moreThanOneSecondary = "morethanonesecondary"
-        recordReplayNotSupported = "recordreplaynotsupported"
-        replayNotSupported = "replaynotsupported"
-        templateVm = "templatevm"
-        multipleVCPU = "multiplevcpu"
-        hostInactive = "hostinactive"
-        ftUnsupportedHardware = "ftunsupportedhardware"
-        ftUnsupportedProduct = "ftunsupportedproduct"
-        missingVMotionNic = "missingvmotionnic"
-        missingFTLoggingNic = "missingftloggingnic"
-        thinDisk = "thindisk"
-        verifySSLCertificateFlagNotSet = "verifysslcertificateflagnotset"
-        hasSnapshots = "hassnapshots"
-        noConfig = "noconfig"
-        ftSecondaryVm = "ftsecondaryvm"
-        hasLocalDisk = "haslocaldisk"
-        esxAgentVm = "esxagentvm"
-        video3dEnabled = "video3denabled"
-        hasUnsupportedDisk = "hasunsupporteddisk"
-        insufficientBandwidth = "insufficientbandwidth"
-        hasNestedHVConfiguration = "hasnestedhvconfiguration"
-        hasVFlashConfiguration = "hasvflashconfiguration"
-        unsupportedProduct = "unsupportedproduct"
-        cpuHvUnsupported = "cpuhvunsupported"
-        cpuHwmmuUnsupported = "cpuhwmmuunsupported"
-        cpuHvDisabled = "cpuhvdisabled"
-        hasEFIFirmware = "hasefifirmware"
-        tooManyVCPUs = "toomanyvcpus"
-        tooMuchMemory = "toomuchmemory"
-        vMotionNotLicensed = "vmotionnotlicensed"
-        ftNotLicensed = "ftnotlicensed"
-        haAgentIssue = "haagentissue"
-        unsupportedSPBM = "unsupportedspbm"
-        hasLinkedCloneDisk = "haslinkedclonedisk"
-        unsupportedPMemHAFailOver = "unsupportedpmemhafailover"
-        unsupportedEncryptedDisk = "unsupportedencrypteddisk"
+        haNotEnabled = "haNotEnabled"
+        moreThanOneSecondary = "moreThanOneSecondary"
+        recordReplayNotSupported = "recordReplayNotSupported"
+        replayNotSupported = "replayNotSupported"
+        templateVm = "templateVm"
+        multipleVCPU = "multipleVCPU"
+        hostInactive = "hostInactive"
+        ftUnsupportedHardware = "ftUnsupportedHardware"
+        ftUnsupportedProduct = "ftUnsupportedProduct"
+        missingVMotionNic = "missingVMotionNic"
+        missingFTLoggingNic = "missingFTLoggingNic"
+        thinDisk = "thinDisk"
+        verifySSLCertificateFlagNotSet = "verifySSLCertificateFlagNotSet"
+        hasSnapshots = "hasSnapshots"
+        noConfig = "noConfig"
+        ftSecondaryVm = "ftSecondaryVm"
+        hasLocalDisk = "hasLocalDisk"
+        esxAgentVm = "esxAgentVm"
+        video3dEnabled = "video3dEnabled"
+        hasUnsupportedDisk = "hasUnsupportedDisk"
+        insufficientBandwidth = "insufficientBandwidth"
+        hasNestedHVConfiguration = "hasNestedHVConfiguration"
+        hasVFlashConfiguration = "hasVFlashConfiguration"
+        unsupportedProduct = "unsupportedProduct"
+        cpuHvUnsupported = "cpuHvUnsupported"
+        cpuHwmmuUnsupported = "cpuHwmmuUnsupported"
+        cpuHvDisabled = "cpuHvDisabled"
+        hasEFIFirmware = "hasEFIFirmware"
+        tooManyVCPUs = "tooManyVCPUs"
+        tooMuchMemory = "tooMuchMemory"
+        vMotionNotLicensed = "vMotionNotLicensed"
+        ftNotLicensed = "ftNotLicensed"
+        haAgentIssue = "haAgentIssue"
+        unsupportedSPBM = "unsupportedSPBM"
+        hasLinkedCloneDisk = "hasLinkedCloneDisk"
+        unsupportedPMemHAFailOver = "unsupportedPMemHAFailOver"
+        unsupportedEncryptedDisk = "unsupportedEncryptedDisk"
 
 
 class VmFaultToleranceConfigIssueWrapper(VmFaultToleranceIssue):

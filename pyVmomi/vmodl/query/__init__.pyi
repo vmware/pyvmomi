@@ -41,7 +41,7 @@ class PropertyCollector(ManagedObject):
             add = "add"
             remove = "remove"
             assign = "assign"
-            indirectRemove = "indirectremove"
+            indirectRemove = "indirectRemove"
 
 
     class FilterSpec(vmodl.DynamicData):

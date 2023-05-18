@@ -190,8 +190,8 @@ class Agent(EamObject):
 
         class VmState(Enum):
             provisioned = "provisioned"
-            poweredOn = "poweredon"
-            prePowerOn = "prepoweron"
+            poweredOn = "poweredOn"
+            prePowerOn = "prePowerOn"
 
 
     class VsanStoragePolicy(Agent.StoragePolicy):
@@ -241,8 +241,8 @@ class EsxAgentManager(EamObject):
 
 
     class MaintenanceModePolicy(Enum):
-        singleHost = "singlehost"
-        multipleHosts = "multiplehosts"
+        singleHost = "singleHost"
+        multipleHosts = "multipleHosts"
 
 
 class Task(ManagedObject): ...

@@ -95,15 +95,15 @@ class PlacementAffinityRule(vmodl.DynamicData):
     class RuleScope(Enum):
         cluster = "cluster"
         host = "host"
-        storagePod = "storagepod"
+        storagePod = "storagePod"
         datastore = "datastore"
 
 
     class RuleType(Enum):
         affinity = "affinity"
-        antiAffinity = "antiaffinity"
-        softAffinity = "softaffinity"
-        softAntiAffinity = "softantiaffinity"
+        antiAffinity = "antiAffinity"
+        softAffinity = "softAffinity"
+        softAntiAffinity = "softAntiAffinity"
 
 
 class PlacementRankResult(vmodl.DynamicData):
@@ -234,7 +234,7 @@ class SpaceLoadBalanceConfig(vmodl.DynamicData):
 
     class SpaceThresholdMode(Enum):
         utilization = "utilization"
-        freeSpace = "freespace"
+        freeSpace = "freeSpace"
 
 
 class StorageMigrationAction(vim.cluster.Action):

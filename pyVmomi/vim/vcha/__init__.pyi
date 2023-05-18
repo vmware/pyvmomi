@@ -120,7 +120,7 @@ class FailoverClusterConfigurator(ManagedObject):
 
     class VchaState(Enum):
         configured = "configured"
-        notConfigured = "notconfigured"
+        notConfigured = "notConfigured"
         invalid = "invalid"
         prepared = "prepared"
 

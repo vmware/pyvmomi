@@ -138,33 +138,33 @@ class VasaProviderInfo(ProviderInfo):
 
     class CertificateStatus(Enum):
         valid = "valid"
-        expirySoftLimitReached = "expirysoftlimitreached"
-        expiryHardLimitReached = "expiryhardlimitreached"
+        expirySoftLimitReached = "expirySoftLimitReached"
+        expiryHardLimitReached = "expiryHardLimitReached"
         expired = "expired"
         invalid = "invalid"
 
 
     class ProviderProfile(Enum):
-        ProfileBasedManagement = "profilebasedmanagement"
-        Replication = "replication"
+        ProfileBasedManagement = "ProfileBasedManagement"
+        Replication = "Replication"
 
 
     class Type(Enum):
-        PERSISTENCE = "persistence"
-        DATASERVICE = "dataservice"
-        UNKNOWN = "unknown"
+        PERSISTENCE = "PERSISTENCE"
+        DATASERVICE = "DATASERVICE"
+        UNKNOWN = "UNKNOWN"
 
 
     class VasaProviderProfile(Enum):
-        blockDevice = "blockdevice"
-        fileSystem = "filesystem"
+        blockDevice = "blockDevice"
+        fileSystem = "fileSystem"
         capability = "capability"
 
 
     class VasaProviderStatus(Enum):
         online = "online"
         offline = "offline"
-        syncError = "syncerror"
+        syncError = "syncError"
         unknown = "unknown"
         connected = "connected"
         disconnected = "disconnected"
@@ -185,5 +185,5 @@ class VmodlVasaProviderSpec():
 
 
     class AuthenticationType(Enum):
-        LoginByToken = "loginbytoken"
-        UseSessionId = "usesessionid"
+        LoginByToken = "LoginByToken"
+        UseSessionId = "UseSessionId"

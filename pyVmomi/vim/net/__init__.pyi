@@ -214,7 +214,7 @@ class NetBIOSConfigInfo(vmodl.DynamicData):
         unknown = "unknown"
         enabled = "enabled"
         disabled = "disabled"
-        enabledViaDHCP = "enabledviadhcp"
+        enabledViaDHCP = "enabledViaDHCP"
 
 
 class WinNetBIOSConfigInfo(NetBIOSConfigInfo):

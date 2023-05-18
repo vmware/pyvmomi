@@ -20,7 +20,7 @@ class ActiveDirectoryAuthentication(DirectoryStore):
 
 
     class CertificateDigest(Enum):
-        SHA1 = "sha1"
+        SHA1 = "SHA1"
 
 
 class AssignableHardwareManager(ManagedObject):
@@ -74,7 +74,7 @@ class AutoStartManager(ManagedObject):
         class WaitHeartbeatSetting(Enum):
             yes = "yes"
             no = "no"
-            systemDefault = "systemdefault"
+            systemDefault = "systemDefault"
 
 
     class Config(vmodl.DynamicData):
@@ -99,10 +99,10 @@ class AutoStartManager(ManagedObject):
 
     class Action(Enum):
         none = "none"
-        systemDefault = "systemdefault"
-        powerOn = "poweron"
-        powerOff = "poweroff"
-        guestShutdown = "guestshutdown"
+        systemDefault = "systemDefault"
+        powerOn = "powerOn"
+        powerOff = "powerOff"
+        guestShutdown = "guestShutdown"
         suspend = "suspend"
 
 
@@ -169,8 +169,8 @@ class CertificateManager(ManagedObject):
             unknown = "unknown"
             expired = "expired"
             expiring = "expiring"
-            expiringShortly = "expiringshortly"
-            expirationImminent = "expirationimminent"
+            expiringShortly = "expiringShortly"
+            expirationImminent = "expirationImminent"
             good = "good"
             revoked = "revoked"
 
@@ -181,8 +181,8 @@ class CertificateManager(ManagedObject):
 
 
     class CertificateKind(Enum):
-        Machine = "machine"
-        VASAClient = "vasaclient"
+        Machine = "Machine"
+        VASAClient = "VASAClient"
 
 
 class CpuSchedulerSystem(vim.ExtensibleManagedObject):
@@ -572,17 +572,17 @@ class HostAccessManager(ManagedObject):
 
 
     class AccessMode(Enum):
-        accessNone = "accessnone"
-        accessAdmin = "accessadmin"
-        accessNoAccess = "accessnoaccess"
-        accessReadOnly = "accessreadonly"
-        accessOther = "accessother"
+        accessNone = "accessNone"
+        accessAdmin = "accessAdmin"
+        accessNoAccess = "accessNoAccess"
+        accessReadOnly = "accessReadOnly"
+        accessOther = "accessOther"
 
 
     class LockdownMode(Enum):
-        lockdownDisabled = "lockdowndisabled"
-        lockdownNormal = "lockdownnormal"
-        lockdownStrict = "lockdownstrict"
+        lockdownDisabled = "lockdownDisabled"
+        lockdownNormal = "lockdownNormal"
+        lockdownStrict = "lockdownStrict"
 
 
 class ImageConfigManager(ManagedObject):
@@ -669,10 +669,10 @@ class IscsiManager(ManagedObject):
 
 
         class PathStatus(Enum):
-            notUsed = "notused"
+            notUsed = "notUsed"
             active = "active"
-            standBy = "standby"
-            lastActive = "lastactive"
+            standBy = "standBy"
+            lastActive = "lastActive"
 
 
     class IscsiStatus(vmodl.DynamicData):
@@ -782,9 +782,9 @@ class MemoryManagerSystem(vim.ExtensibleManagedObject):
 
 
         class AllocationPolicy(Enum):
-            swapNone = "swapnone"
-            swapSome = "swapsome"
-            swapMost = "swapmost"
+            swapNone = "swapNone"
+            swapSome = "swapSome"
+            swapMost = "swapMost"
 
 
     class VirtualMachineReservationSpec(vmodl.DynamicData):
@@ -962,15 +962,15 @@ class NvdimmSystem(ManagedObject):
         class NamespaceHealthStatus(Enum):
             normal = "normal"
             missing = "missing"
-            labelMissing = "labelmissing"
-            interleaveBroken = "interleavebroken"
-            labelInconsistent = "labelinconsistent"
+            labelMissing = "labelMissing"
+            interleaveBroken = "interleaveBroken"
+            labelInconsistent = "labelInconsistent"
 
 
         class NamespaceState(Enum):
             invalid = "invalid"
-            notInUse = "notinuse"
-            inUse = "inuse"
+            notInUse = "notInUse"
+            inUse = "inUse"
 
 
     class NamespaceInfo(vmodl.DynamicData):
@@ -1055,19 +1055,19 @@ class NvdimmSystem(ManagedObject):
 
 
     class NamespaceType(Enum):
-        blockNamespace = "blocknamespace"
-        persistentNamespace = "persistentnamespace"
+        blockNamespace = "blockNamespace"
+        persistentNamespace = "persistentNamespace"
 
 
     class RangeType(Enum):
-        volatileRange = "volatilerange"
-        persistentRange = "persistentrange"
-        controlRange = "controlrange"
-        blockRange = "blockrange"
-        volatileVirtualDiskRange = "volatilevirtualdiskrange"
-        volatileVirtualCDRange = "volatilevirtualcdrange"
-        persistentVirtualDiskRange = "persistentvirtualdiskrange"
-        persistentVirtualCDRange = "persistentvirtualcdrange"
+        volatileRange = "volatileRange"
+        persistentRange = "persistentRange"
+        controlRange = "controlRange"
+        blockRange = "blockRange"
+        volatileVirtualDiskRange = "volatileVirtualDiskRange"
+        volatileVirtualCDRange = "volatileVirtualCDRange"
+        persistentVirtualDiskRange = "persistentVirtualDiskRange"
+        persistentVirtualCDRange = "persistentVirtualCDRange"
 
 
 class PatchManager(ManagedObject):
@@ -1143,27 +1143,27 @@ class PatchManager(ManagedObject):
 
 
         class InstallState(Enum):
-            hostRestarted = "hostrestarted"
-            imageActive = "imageactive"
+            hostRestarted = "hostRestarted"
+            imageActive = "imageActive"
 
 
         class Integrity(Enum):
             validated = "validated"
-            keyNotFound = "keynotfound"
-            keyRevoked = "keyrevoked"
-            keyExpired = "keyexpired"
-            digestMismatch = "digestmismatch"
-            notEnoughSignatures = "notenoughsignatures"
-            validationError = "validationerror"
+            keyNotFound = "keyNotFound"
+            keyRevoked = "keyRevoked"
+            keyExpired = "keyExpired"
+            digestMismatch = "digestMismatch"
+            notEnoughSignatures = "notEnoughSignatures"
+            validationError = "validationError"
 
 
         class Reason(Enum):
             obsoleted = "obsoleted"
-            missingPatch = "missingpatch"
-            missingLib = "missinglib"
-            hasDependentPatch = "hasdependentpatch"
-            conflictPatch = "conflictpatch"
-            conflictLib = "conflictlib"
+            missingPatch = "missingPatch"
+            missingLib = "missingLib"
+            hasDependentPatch = "hasDependentPatch"
+            conflictPatch = "conflictPatch"
+            conflictLib = "conflictLib"
 
 
 class PciPassthruSystem(vim.ExtensibleManagedObject):
@@ -1238,9 +1238,9 @@ class SnmpSystem(ManagedObject):
 
 
         class Capability(Enum):
-            COMPLETE = "complete"
-            DIAGNOSTICS = "diagnostics"
-            CONFIGURATION = "configuration"
+            COMPLETE = "COMPLETE"
+            DIAGNOSTICS = "DIAGNOSTICS"
+            CONFIGURATION = "CONFIGURATION"
 
 
     class SnmpConfigSpec(vmodl.DynamicData):
@@ -1500,18 +1500,18 @@ class VirtualNicManager(vim.ExtensibleManagedObject):
 
     class NicType(Enum):
         vmotion = "vmotion"
-        faultToleranceLogging = "faulttolerancelogging"
-        vSphereReplication = "vspherereplication"
-        vSphereReplicationNFC = "vspherereplicationnfc"
+        faultToleranceLogging = "faultToleranceLogging"
+        vSphereReplication = "vSphereReplication"
+        vSphereReplicationNFC = "vSphereReplicationNFC"
         management = "management"
         vsan = "vsan"
-        vSphereProvisioning = "vsphereprovisioning"
-        vsanWitness = "vsanwitness"
-        vSphereBackupNFC = "vspherebackupnfc"
+        vSphereProvisioning = "vSphereProvisioning"
+        vsanWitness = "vsanWitness"
+        vSphereBackupNFC = "vSphereBackupNFC"
         ptp = "ptp"
-        vsanReplication = "vsanreplication"
-        nvmeTcp = "nvmetcp"
-        nvmeRdma = "nvmerdma"
+        vsanReplication = "vsanReplication"
+        nvmeTcp = "nvmeTcp"
+        nvmeRdma = "nvmeRdma"
 
 
 class VsanInternalSystem(ManagedObject):
@@ -1639,11 +1639,11 @@ class ActiveDirectoryInfo(DirectoryStoreInfo):
     class DomainMembershipStatus(Enum):
         unknown = "unknown"
         ok = "ok"
-        noServers = "noservers"
-        clientTrustBroken = "clienttrustbroken"
-        serverTrustBroken = "servertrustbroken"
-        inconsistentTrust = "inconsistenttrust"
-        otherProblem = "otherproblem"
+        noServers = "noServers"
+        clientTrustBroken = "clientTrustBroken"
+        serverTrustBroken = "serverTrustBroken"
+        inconsistentTrust = "inconsistentTrust"
+        otherProblem = "otherProblem"
 
 
 class ActiveDirectorySpec(vmodl.DynamicData):
@@ -2021,23 +2021,23 @@ class Capability(vmodl.DynamicData):
 
 
     class FtUnsupportedReason(Enum):
-        vMotionNotLicensed = "vmotionnotlicensed"
-        missingVMotionNic = "missingvmotionnic"
-        missingFTLoggingNic = "missingftloggingnic"
-        ftNotLicensed = "ftnotlicensed"
-        haAgentIssue = "haagentissue"
-        unsupportedProduct = "unsupportedproduct"
-        cpuHvUnsupported = "cpuhvunsupported"
-        cpuHwmmuUnsupported = "cpuhwmmuunsupported"
-        cpuHvDisabled = "cpuhvdisabled"
+        vMotionNotLicensed = "vMotionNotLicensed"
+        missingVMotionNic = "missingVMotionNic"
+        missingFTLoggingNic = "missingFTLoggingNic"
+        ftNotLicensed = "ftNotLicensed"
+        haAgentIssue = "haAgentIssue"
+        unsupportedProduct = "unsupportedProduct"
+        cpuHvUnsupported = "cpuHvUnsupported"
+        cpuHwmmuUnsupported = "cpuHwmmuUnsupported"
+        cpuHvDisabled = "cpuHvDisabled"
 
 
     class ReplayUnsupportedReason(Enum):
-        incompatibleProduct = "incompatibleproduct"
-        incompatibleCpu = "incompatiblecpu"
-        hvDisabled = "hvdisabled"
-        cpuidLimitSet = "cpuidlimitset"
-        oldBIOS = "oldbios"
+        incompatibleProduct = "incompatibleProduct"
+        incompatibleCpu = "incompatibleCpu"
+        hvDisabled = "hvDisabled"
+        cpuidLimitSet = "cpuidLimitSet"
+        oldBIOS = "oldBIOS"
         unknown = "unknown"
 
 
@@ -2048,9 +2048,9 @@ class Capability(vmodl.DynamicData):
 
 
     class VmDirectPathGen2UnsupportedReason(Enum):
-        hostNptIncompatibleProduct = "hostnptincompatibleproduct"
-        hostNptIncompatibleHardware = "hostnptincompatiblehardware"
-        hostNptDisabled = "hostnptdisabled"
+        hostNptIncompatibleProduct = "hostNptIncompatibleProduct"
+        hostNptIncompatibleHardware = "hostNptIncompatibleHardware"
+        hostNptDisabled = "hostNptDisabled"
 
 
 class ConfigChange(vmodl.DynamicData):
@@ -2449,8 +2449,8 @@ class CpuPowerManagementInfo(vmodl.DynamicData):
 
     class PolicyType(Enum):
         off = "off"
-        staticPolicy = "staticpolicy"
-        dynamicPolicy = "dynamicpolicy"
+        staticPolicy = "staticPolicy"
+        dynamicPolicy = "dynamicPolicy"
 
 
 class DataTransportConnectionInfo(vmodl.DynamicData):
@@ -2605,13 +2605,13 @@ class DiagnosticPartition(vmodl.DynamicData):
 
 
     class DiagnosticType(Enum):
-        singleHost = "singlehost"
-        multiHost = "multihost"
+        singleHost = "singleHost"
+        multiHost = "multiHost"
 
 
     class StorageType(Enum):
-        directAttached = "directattached"
-        networkAttached = "networkattached"
+        directAttached = "directAttached"
+        networkAttached = "networkAttached"
 
 
 class DigestInfo(vmodl.DynamicData):
@@ -2624,12 +2624,12 @@ class DigestInfo(vmodl.DynamicData):
 
 
     class DigestMethodType(Enum):
-        SHA1 = "sha1"
-        MD5 = "md5"
-        SHA256 = "sha256"
-        SHA384 = "sha384"
-        SHA512 = "sha512"
-        SM3_256 = "sm3_256"
+        SHA1 = "SHA1"
+        MD5 = "MD5"
+        SHA256 = "SHA256"
+        SHA384 = "SHA384"
+        SHA512 = "SHA512"
+        SM3_256 = "SM3_256"
 
 
 class DirectoryStoreInfo(AuthenticationStoreInfo): ...
@@ -2729,11 +2729,11 @@ class DiskPartitionInfo(vmodl.DynamicData):
     class Type(Enum):
         none = "none"
         vmfs = "vmfs"
-        linuxNative = "linuxnative"
-        linuxSwap = "linuxswap"
+        linuxNative = "linuxNative"
+        linuxSwap = "linuxSwap"
         extended = "extended"
         ntfs = "ntfs"
-        vmkDiagnostic = "vmkdiagnostic"
+        vmkDiagnostic = "vmkDiagnostic"
         vffs = "vffs"
 
 
@@ -2855,7 +2855,7 @@ class FeatureVersionInfo(vmodl.DynamicData):
 
 
     class FeatureVersionKey(Enum):
-        faultTolerance = "faulttolerance"
+        faultTolerance = "faultTolerance"
 
 
 class FibreChannelHba(HostBusAdapter):
@@ -2872,7 +2872,7 @@ class FibreChannelHba(HostBusAdapter):
     class PortType(Enum):
         fabric = "fabric"
         loop = "loop"
-        pointToPoint = "pointtopoint"
+        pointToPoint = "pointToPoint"
         unknown = "unknown"
 
 
@@ -2944,9 +2944,9 @@ class FileSystemMountInfo(vmodl.DynamicData):
 
 
     class VStorageSupportStatus(Enum):
-        vStorageSupported = "vstoragesupported"
-        vStorageUnsupported = "vstorageunsupported"
-        vStorageUnknown = "vstorageunknown"
+        vStorageSupported = "vStorageSupported"
+        vStorageUnsupported = "vStorageUnsupported"
+        vStorageUnknown = "vStorageUnknown"
 
 
 class FileSystemVolume(vmodl.DynamicData):
@@ -2959,16 +2959,16 @@ class FileSystemVolume(vmodl.DynamicData):
 
 
     class FileSystemType(Enum):
-        VMFS = "vmfs"
-        NFS = "nfs"
-        NFS41 = "nfs41"
-        CIFS = "cifs"
+        VMFS = "VMFS"
+        NFS = "NFS"
+        NFS41 = "NFS41"
+        CIFS = "CIFS"
         vsan = "vsan"
-        VFFS = "vffs"
-        VVOL = "vvol"
-        PMEM = "pmem"
-        vsanD = "vsand"
-        OTHER = "other"
+        VFFS = "VFFS"
+        VVOL = "VVOL"
+        PMEM = "PMEM"
+        vsanD = "vsanD"
+        OTHER = "OTHER"
 
 
 class FileSystemVolumeInfo(vmodl.DynamicData):
@@ -3070,7 +3070,7 @@ class GraphicsConfig(vmodl.DynamicData):
 
     class GraphicsType(Enum):
         shared = "shared"
-        sharedDirect = "shareddirect"
+        sharedDirect = "sharedDirect"
 
 
     class SharedPassthruAssignmentPolicy(Enum):
@@ -3183,10 +3183,10 @@ class HardwareStatusInfo(vmodl.DynamicData):
 
 
     class Status(Enum):
-        Unknown = "unknown"
-        Green = "green"
-        Yellow = "yellow"
-        Red = "red"
+        Unknown = "Unknown"
+        Green = "Green"
+        Yellow = "Yellow"
+        Red = "Red"
 
 
 class HbaCreateSpec(vmodl.DynamicData): ...
@@ -3424,16 +3424,16 @@ class InternetScsiHba(HostBusAdapter):
 
 
         class ISnsDiscoveryMethod(Enum):
-            isnsStatic = "isnsstatic"
-            isnsDhcp = "isnsdhcp"
-            isnsSlp = "isnsslp"
+            isnsStatic = "isnsStatic"
+            isnsDhcp = "isnsDhcp"
+            isnsSlp = "isnsSlp"
 
 
         class SlpDiscoveryMethod(Enum):
-            slpDhcp = "slpdhcp"
-            slpAutoUnicast = "slpautounicast"
-            slpAutoMulticast = "slpautomulticast"
-            slpManual = "slpmanual"
+            slpDhcp = "slpDhcp"
+            slpAutoUnicast = "slpAutoUnicast"
+            slpAutoMulticast = "slpAutoMulticast"
+            slpManual = "slpManual"
 
 
     class IPCapabilities(vmodl.DynamicData):
@@ -3539,10 +3539,10 @@ class InternetScsiHba(HostBusAdapter):
 
 
         class AddressConfigurationType(Enum):
-            DHCP = "dhcp"
-            AutoConfigured = "autoconfigured"
-            Static = "static"
-            Other = "other"
+            DHCP = "DHCP"
+            AutoConfigured = "AutoConfigured"
+            Static = "Static"
+            Other = "Other"
 
 
         class IPv6AddressOperation(Enum):
@@ -3594,11 +3594,11 @@ class InternetScsiHba(HostBusAdapter):
 
 
         class TargetDiscoveryMethod(Enum):
-            staticMethod = "staticmethod"
-            sendTargetMethod = "sendtargetmethod"
-            slpMethod = "slpmethod"
-            isnsMethod = "isnsmethod"
-            unknownMethod = "unknownmethod"
+            staticMethod = "staticMethod"
+            sendTargetMethod = "sendTargetMethod"
+            slpMethod = "slpMethod"
+            isnsMethod = "isnsMethod"
+            unknownMethod = "unknownMethod"
 
 
     class TargetSet(vmodl.DynamicData):
@@ -3609,17 +3609,17 @@ class InternetScsiHba(HostBusAdapter):
 
 
     class ChapAuthenticationType(Enum):
-        chapProhibited = "chapprohibited"
-        chapDiscouraged = "chapdiscouraged"
-        chapPreferred = "chappreferred"
-        chapRequired = "chaprequired"
+        chapProhibited = "chapProhibited"
+        chapDiscouraged = "chapDiscouraged"
+        chapPreferred = "chapPreferred"
+        chapRequired = "chapRequired"
 
 
     class DigestType(Enum):
-        digestProhibited = "digestprohibited"
-        digestDiscouraged = "digestdiscouraged"
-        digestPreferred = "digestpreferred"
-        digestRequired = "digestrequired"
+        digestProhibited = "digestProhibited"
+        digestDiscouraged = "digestDiscouraged"
+        digestPreferred = "digestPreferred"
+        digestRequired = "digestRequired"
 
 
     class NetworkBindingSupportType(Enum):
@@ -3885,14 +3885,14 @@ class LowLevelProvisioningManager():
 
 
     class FileType(Enum):
-        File = "file"
-        VirtualDisk = "virtualdisk"
-        Directory = "directory"
+        File = "File"
+        VirtualDisk = "VirtualDisk"
+        Directory = "Directory"
 
 
     class ReloadTarget(Enum):
-        currentConfig = "currentconfig"
-        snapshotConfig = "snapshotconfig"
+        currentConfig = "currentConfig"
+        snapshotConfig = "snapshotConfig"
 
 
 class MaintenanceSpec(vmodl.DynamicData):
@@ -3903,7 +3903,7 @@ class MaintenanceSpec(vmodl.DynamicData):
 
 
     class Purpose(Enum):
-        hostUpgrade = "hostupgrade"
+        hostUpgrade = "hostUpgrade"
 
 
 class MemorySpec(vmodl.DynamicData):
@@ -3944,21 +3944,21 @@ class MountInfo(vmodl.DynamicData):
 
 
     class InaccessibleReason(Enum):
-        AllPathsDown_Start = "allpathsdown_start"
-        AllPathsDown_Timeout = "allpathsdown_timeout"
-        PermanentDeviceLoss = "permanentdeviceloss"
+        AllPathsDown_Start = "AllPathsDown_Start"
+        AllPathsDown_Timeout = "AllPathsDown_Timeout"
+        PermanentDeviceLoss = "PermanentDeviceLoss"
 
 
     class MountFailedReason(Enum):
-        CONNECT_FAILURE = "connect_failure"
-        MOUNT_NOT_SUPPORTED = "mount_not_supported"
-        NFS_NOT_SUPPORTED = "nfs_not_supported"
-        MOUNT_DENIED = "mount_denied"
-        MOUNT_NOT_DIR = "mount_not_dir"
-        VOLUME_LIMIT_EXCEEDED = "volume_limit_exceeded"
-        CONN_LIMIT_EXCEEDED = "conn_limit_exceeded"
-        MOUNT_EXISTS = "mount_exists"
-        OTHERS = "others"
+        CONNECT_FAILURE = "CONNECT_FAILURE"
+        MOUNT_NOT_SUPPORTED = "MOUNT_NOT_SUPPORTED"
+        NFS_NOT_SUPPORTED = "NFS_NOT_SUPPORTED"
+        MOUNT_DENIED = "MOUNT_DENIED"
+        MOUNT_NOT_DIR = "MOUNT_NOT_DIR"
+        VOLUME_LIMIT_EXCEEDED = "VOLUME_LIMIT_EXCEEDED"
+        CONN_LIMIT_EXCEEDED = "CONN_LIMIT_EXCEEDED"
+        MOUNT_EXISTS = "MOUNT_EXISTS"
+        OTHERS = "OTHERS"
 
 
 class MultipathInfo(vmodl.DynamicData):
@@ -4108,9 +4108,9 @@ class NasVolume(FileSystemVolume):
 
 
     class SecurityType(Enum):
-        AUTH_SYS = "auth_sys"
-        SEC_KRB5 = "sec_krb5"
-        SEC_KRB5I = "sec_krb5i"
+        AUTH_SYS = "AUTH_SYS"
+        SEC_KRB5 = "SEC_KRB5"
+        SEC_KRB5I = "SEC_KRB5I"
 
 
 class NatService(vmodl.DynamicData):
@@ -4245,9 +4245,9 @@ class NetStackInstance(vmodl.DynamicData):
 
 
     class SystemStackKey(Enum):
-        defaultTcpipStack = "defaulttcpipstack"
+        defaultTcpipStack = "defaultTcpipStack"
         vmotion = "vmotion"
-        vSphereProvisioning = "vsphereprovisioning"
+        vSphereProvisioning = "vSphereProvisioning"
         mirror = "mirror"
         ops = "ops"
 
@@ -4491,7 +4491,7 @@ class NumericSensorInfo(vmodl.DynamicData):
         processor = "processor"
         memory = "memory"
         storage = "storage"
-        systemBoard = "systemboard"
+        systemBoard = "systemBoard"
         battery = "battery"
         bios = "bios"
         cable = "cable"
@@ -4588,9 +4588,9 @@ class NvmeDiscoveryLog(vmodl.DynamicData):
 
 
     class TransportRequirements(Enum):
-        secureChannelRequired = "securechannelrequired"
-        secureChannelNotRequired = "securechannelnotrequired"
-        requirementsNotSpecified = "requirementsnotspecified"
+        secureChannelRequired = "secureChannelRequired"
+        secureChannelNotRequired = "secureChannelNotRequired"
+        requirementsNotSpecified = "requirementsNotSpecified"
 
 
 class NvmeNamespace(vmodl.DynamicData):
@@ -4671,7 +4671,7 @@ class NvmeTransportParameters(vmodl.DynamicData):
     class NvmeAddressFamily(Enum):
         ipv4 = "ipv4"
         ipv6 = "ipv6"
-        infiniBand = "infiniband"
+        infiniBand = "infiniBand"
         fc = "fc"
         loopback = "loopback"
         unknown = "unknown"
@@ -4982,8 +4982,8 @@ class PhysicalNic(vmodl.DynamicData):
 
 
     class ResourcePoolSchedulerDisallowedReason(Enum):
-        userOptOut = "useroptout"
-        hardwareUnsupported = "hardwareunsupported"
+        userOptOut = "userOptOut"
+        hardwareUnsupported = "hardwareUnsupported"
 
 
     class VmDirectPathGen2SupportedMode(Enum):
@@ -5099,8 +5099,8 @@ class PortGroup(vmodl.DynamicData):
 
 
     class PortConnecteeType(Enum):
-        virtualMachine = "virtualmachine"
-        systemManagement = "systemmanagement"
+        virtualMachine = "virtualMachine"
+        systemManagement = "systemManagement"
         host = "host"
         unknown = "unknown"
 
@@ -5163,8 +5163,8 @@ class PtpConfig(vmodl.DynamicData):
 
     class DeviceType(Enum):
         none = "none"
-        virtualNic = "virtualnic"
-        pciPassthruNic = "pcipassthrunic"
+        virtualNic = "virtualNic"
+        pciPassthruNic = "pciPassthruNic"
 
 
 class QualifiedName(vmodl.DynamicData):
@@ -5223,7 +5223,7 @@ class RdmaDevice(vmodl.DynamicData):
         init = "init"
         armed = "armed"
         active = "active"
-        activeDefer = "activedefer"
+        activeDefer = "activeDefer"
 
 
 class RdmaHba(HostBusAdapter):
@@ -5407,7 +5407,7 @@ class RuntimeInfo(vmodl.DynamicData):
 
     class StatelessNvdsMigrationState(Enum):
         ready = "ready"
-        notNeeded = "notneeded"
+        notNeeded = "notNeeded"
         unknown = "unknown"
 
 
@@ -5441,7 +5441,7 @@ class ScsiDisk(ScsiLun):
         native512 = "native512"
         emulated512 = "emulated512"
         native4k = "native4k"
-        SoftwareEmulated4k = "softwareemulated4k"
+        SoftwareEmulated4k = "SoftwareEmulated4k"
         unknown = "unknown"
 
 
@@ -5516,15 +5516,15 @@ class ScsiLun(Device):
 
 
     class DescriptorQuality(Enum):
-        highQuality = "highquality"
-        mediumQuality = "mediumquality"
-        lowQuality = "lowquality"
-        unknownQuality = "unknownquality"
+        highQuality = "highQuality"
+        mediumQuality = "mediumQuality"
+        lowQuality = "lowQuality"
+        unknownQuality = "unknownQuality"
 
 
     class DeviceProtocol(Enum):
-        NVMe = "nvme"
-        SCSI = "scsi"
+        NVMe = "NVMe"
+        SCSI = "SCSI"
 
 
     class ScsiLunType(Enum):
@@ -5535,10 +5535,10 @@ class ScsiLun(Device):
         worm = "worm"
         cdrom = "cdrom"
         scanner = "scanner"
-        opticalDevice = "opticaldevice"
-        mediaChanger = "mediachanger"
+        opticalDevice = "opticalDevice"
+        mediaChanger = "mediaChanger"
         communications = "communications"
-        storageArrayController = "storagearraycontroller"
+        storageArrayController = "storageArrayController"
         enclosure = "enclosure"
         unknown = "unknown"
 
@@ -5671,13 +5671,13 @@ class SgxInfo(vmodl.DynamicData):
 
 
     class SgxStates(Enum):
-        notPresent = "notpresent"
-        disabledBIOS = "disabledbios"
-        disabledCFW101 = "disabledcfw101"
-        disabledCPUMismatch = "disabledcpumismatch"
-        disabledNoFLC = "disablednoflc"
-        disabledNUMAUnsup = "disablednumaunsup"
-        disabledMaxEPCRegs = "disabledmaxepcregs"
+        notPresent = "notPresent"
+        disabledBIOS = "disabledBIOS"
+        disabledCFW101 = "disabledCFW101"
+        disabledCPUMismatch = "disabledCPUMismatch"
+        disabledNoFLC = "disabledNoFLC"
+        disabledNUMAUnsup = "disabledNUMAUnsup"
+        disabledMaxEPCRegs = "disabledMaxEPCRegs"
         enabled = "enabled"
 
 
@@ -5697,14 +5697,14 @@ class SgxRegistrationInfo(vmodl.DynamicData):
 
 
     class RegistrationStatus(Enum):
-        notApplicable = "notapplicable"
+        notApplicable = "notApplicable"
         incomplete = "incomplete"
         complete = "complete"
 
 
     class RegistrationType(Enum):
         manifest = "manifest"
-        addPackage = "addpackage"
+        addPackage = "addPackage"
 
 
 class SharedGpuCapabilities(vmodl.DynamicData):
@@ -5781,10 +5781,10 @@ class SoftwarePackage(vmodl.DynamicData):
 
     class Constraint(Enum):
         equals = "equals"
-        lessThan = "lessthan"
-        lessThanEqual = "lessthanequal"
-        greaterThanEqual = "greaterthanequal"
-        greaterThan = "greaterthan"
+        lessThan = "lessThan"
+        lessThanEqual = "lessThanEqual"
+        greaterThanEqual = "greaterThanEqual"
+        greaterThan = "greaterThan"
 
 
     class VibType(Enum):
@@ -5989,11 +5989,11 @@ class SystemIdentificationInfo(vmodl.DynamicData):
 
 
     class Identifier(Enum):
-        AssetTag = "assettag"
-        ServiceTag = "servicetag"
-        OemSpecificString = "oemspecificstring"
-        EnclosureSerialNumberTag = "enclosureserialnumbertag"
-        SerialNumberTag = "serialnumbertag"
+        AssetTag = "AssetTag"
+        ServiceTag = "ServiceTag"
+        OemSpecificString = "OemSpecificString"
+        EnclosureSerialNumberTag = "EnclosureSerialNumberTag"
+        SerialNumberTag = "SerialNumberTag"
 
 
 class SystemInfo(vmodl.DynamicData):
@@ -6074,7 +6074,7 @@ class TpmAttestationInfo(vmodl.DynamicData):
 
 
     class AcceptanceStatus(Enum):
-        notAccepted = "notaccepted"
+        notAccepted = "notAccepted"
         accepted = "accepted"
 
 
@@ -6163,7 +6163,7 @@ class TrustAuthorityAttestationInfo(vmodl.DynamicData):
 
     class AttestationStatus(Enum):
         attested = "attested"
-        notAttested = "notattested"
+        notAttested = "notAttested"
         unknown = "unknown"
 
 
@@ -6187,8 +6187,8 @@ class UnresolvedVmfsExtent(vmodl.DynamicData):
 
 
     class UnresolvedReason(Enum):
-        diskIdMismatch = "diskidmismatch"
-        uuidConflict = "uuidconflict"
+        diskIdMismatch = "diskIdMismatch"
+        uuidConflict = "uuidConflict"
 
 
 class UnresolvedVmfsResignatureSpec(vmodl.DynamicData):
@@ -6214,7 +6214,7 @@ class UnresolvedVmfsResolutionSpec(vmodl.DynamicData):
 
     class VmfsUuidResolution(Enum):
         resignature = "resignature"
-        forceMount = "forcemount"
+        forceMount = "forceMount"
 
 
 class UnresolvedVmfsVolume(vmodl.DynamicData):

@@ -162,8 +162,8 @@ class VirtualDevice(vmodl.DynamicData):
 
         class Status(Enum):
             ok = "ok"
-            recoverableError = "recoverableerror"
-            unrecoverableError = "unrecoverableerror"
+            recoverableError = "recoverableError"
+            unrecoverableError = "unrecoverableError"
             untried = "untried"
 
 
@@ -543,19 +543,19 @@ class VirtualDisk(VirtualDevice):
 
 
     class DeltaDiskFormat(Enum):
-        redoLogFormat = "redologformat"
-        nativeFormat = "nativeformat"
-        seSparseFormat = "sesparseformat"
+        redoLogFormat = "redoLogFormat"
+        nativeFormat = "nativeFormat"
+        seSparseFormat = "seSparseFormat"
 
 
     class DeltaDiskFormatVariant(Enum):
-        vmfsSparseVariant = "vmfssparsevariant"
-        vsanSparseVariant = "vsansparsevariant"
+        vmfsSparseVariant = "vmfsSparseVariant"
+        vsanSparseVariant = "vsanSparseVariant"
 
 
     class Sharing(Enum):
-        sharingNone = "sharingnone"
-        sharingMultiWriter = "sharingmultiwriter"
+        sharingNone = "sharingNone"
+        sharingMultiWriter = "sharingMultiWriter"
 
 
 class VirtualDiskId(vmodl.DynamicData):
@@ -700,8 +700,8 @@ class VirtualDiskOption(VirtualDeviceOption):
 
 
     class CompatibilityMode(Enum):
-        virtualMode = "virtualmode"
-        physicalMode = "physicalmode"
+        virtualMode = "virtualMode"
+        physicalMode = "physicalMode"
 
 
     class DiskMode(Enum):
@@ -1085,12 +1085,12 @@ class VirtualPointingDeviceOption(VirtualDeviceOption):
 
         class HostPointingDeviceChoice(Enum):
             autodetect = "autodetect"
-            intellimouseExplorer = "intellimouseexplorer"
-            intellimousePs2 = "intellimouseps2"
-            logitechMouseman = "logitechmouseman"
+            intellimouseExplorer = "intellimouseExplorer"
+            intellimousePs2 = "intellimousePs2"
+            logitechMouseman = "logitechMouseman"
             microsoft_serial = "microsoft_serial"
-            mouseSystems = "mousesystems"
-            mousemanSerial = "mousemanserial"
+            mouseSystems = "mouseSystems"
+            mousemanSerial = "mousemanSerial"
             ps2 = "ps2"
 
 
@@ -1390,7 +1390,7 @@ class VirtualVMCIDevice(VirtualDevice):
         queuepair = "queuepair"
         datagram = "datagram"
         stream = "stream"
-        anyProtocol = "anyprotocol"
+        anyProtocol = "anyProtocol"
 
 
 class VirtualVMCIDeviceOption(VirtualDeviceOption):

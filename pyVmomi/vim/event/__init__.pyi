@@ -264,10 +264,10 @@ class CustomizationFailed(CustomizationEvent):
 
 
     class ReasonCode(Enum):
-        userDefinedScriptDisabled = "userdefinedscriptdisabled"
-        customizationDisabled = "customizationdisabled"
-        rawDataIsNotSupported = "rawdataisnotsupported"
-        wrongMetadataFormat = "wrongmetadataformat"
+        userDefinedScriptDisabled = "userDefinedScriptDisabled"
+        customizationDisabled = "customizationDisabled"
+        rawDataIsNotSupported = "rawDataIsNotSupported"
+        wrongMetadataFormat = "wrongMetadataFormat"
 
 
 class CustomizationLinuxIdentityFailed(CustomizationFailed): ...
@@ -1106,13 +1106,13 @@ class HostDasErrorEvent(HostEvent):
 
 
     class HostDasErrorReason(Enum):
-        configFailed = "configfailed"
+        configFailed = "configFailed"
         timeout = "timeout"
-        communicationInitFailed = "communicationinitfailed"
-        healthCheckScriptFailed = "healthcheckscriptfailed"
-        agentFailed = "agentfailed"
-        agentShutdown = "agentshutdown"
-        isolationAddressUnpingable = "isolationaddressunpingable"
+        communicationInitFailed = "communicationInitFailed"
+        healthCheckScriptFailed = "healthCheckScriptFailed"
+        agentFailed = "agentFailed"
+        agentShutdown = "agentShutdown"
+        isolationAddressUnpingable = "isolationAddressUnpingable"
         other = "other"
 
 
@@ -2024,10 +2024,10 @@ class VmFailedStartingSecondaryEvent(VmEvent):
 
 
     class FailureReason(Enum):
-        incompatibleHost = "incompatiblehost"
-        loginFailed = "loginfailed"
-        registerVmFailed = "registervmfailed"
-        migrateFailed = "migratefailed"
+        incompatibleHost = "incompatibleHost"
+        loginFailed = "loginFailed"
+        registerVmFailed = "registerVmFailed"
+        migrateFailed = "migrateFailed"
 
 
 class VmFailedToPowerOffEvent(VmEvent):
@@ -2334,7 +2334,7 @@ class VmShutdownOnIsolationEvent(VmPoweredOffEvent):
 
     class Operation(Enum):
         shutdown = "shutdown"
-        poweredOff = "poweredoff"
+        poweredOff = "poweredOff"
 
 
 class VmStartRecordingEvent(VmEvent): ...

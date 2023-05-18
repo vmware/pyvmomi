@@ -47,17 +47,17 @@ class CapabilityBasedProfile(Profile):
 
 
     class ProfileCategoryEnum(Enum):
-        REQUIREMENT = "requirement"
-        RESOURCE = "resource"
-        DATA_SERVICE_POLICY = "data_service_policy"
+        REQUIREMENT = "REQUIREMENT"
+        RESOURCE = "RESOURCE"
+        DATA_SERVICE_POLICY = "DATA_SERVICE_POLICY"
 
 
     class SystemCreatedProfileType(Enum):
-        VsanDefaultProfile = "vsandefaultprofile"
-        VVolDefaultProfile = "vvoldefaultprofile"
-        PmemDefaultProfile = "pmemdefaultprofile"
-        VmcManagementProfile = "vmcmanagementprofile"
-        VsanMaxDefaultProfile = "vsanmaxdefaultprofile"
+        VsanDefaultProfile = "VsanDefaultProfile"
+        VVolDefaultProfile = "VVolDefaultProfile"
+        PmemDefaultProfile = "PmemDefaultProfile"
+        VmcManagementProfile = "VmcManagementProfile"
+        VsanMaxDefaultProfile = "VsanMaxDefaultProfile"
 
 
 class CapabilityBasedProfileCreateSpec(vmodl.DynamicData):
@@ -183,33 +183,33 @@ class EntityAssociations():
 
 
     class Operation(Enum):
-        CREATE = "create"
-        REGISTER = "register"
-        RECONFIGURE = "reconfigure"
-        MIGRATE = "migrate"
-        CLONE = "clone"
+        CREATE = "CREATE"
+        REGISTER = "REGISTER"
+        RECONFIGURE = "RECONFIGURE"
+        MIGRATE = "MIGRATE"
+        CLONE = "CLONE"
 
 
 class IofilterInfo():
 
 
     class FilterType(Enum):
-        INSPECTION = "inspection"
-        COMPRESSION = "compression"
-        ENCRYPTION = "encryption"
-        REPLICATION = "replication"
-        CACHE = "cache"
-        DATAPROVIDER = "dataprovider"
-        DATASTOREIOCONTROL = "datastoreiocontrol"
+        INSPECTION = "INSPECTION"
+        COMPRESSION = "COMPRESSION"
+        ENCRYPTION = "ENCRYPTION"
+        REPLICATION = "REPLICATION"
+        CACHE = "CACHE"
+        DATAPROVIDER = "DATAPROVIDER"
+        DATASTOREIOCONTROL = "DATASTOREIOCONTROL"
 
 
 class PolicyAssociation():
 
 
     class VolumeAllocationType(Enum):
-        FullyInitialized = "fullyinitialized"
-        ReserveSpace = "reservespace"
-        ConserveSpaceWhenPossible = "conservespacewhenpossible"
+        FullyInitialized = "FullyInitialized"
+        ReserveSpace = "ReserveSpace"
+        ConserveSpaceWhenPossible = "ConserveSpaceWhenPossible"
 
 
 class VmAssociations(): ...

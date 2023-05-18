@@ -30,10 +30,10 @@ class ClusterProfile(vim.profile.Profile):
 
 
     class ServiceType(Enum):
-        DRS = "drs"
-        HA = "ha"
-        DPM = "dpm"
-        FT = "ft"
+        DRS = "DRS"
+        HA = "HA"
+        DPM = "DPM"
+        FT = "FT"
 
 
 class ProfileManager(vim.profile.ProfileManager): ...

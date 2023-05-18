@@ -35,15 +35,15 @@ class Hooks():
 
 
     class ExternalProcessingResult(Enum):
-        SUCCESS = "success"
-        UNKNOWN_ERROR = "unknown_error"
-        VM_CONFIG_ERROR = "vm_config_error"
+        SUCCESS = "SUCCESS"
+        UNKNOWN_ERROR = "UNKNOWN_ERROR"
+        VM_CONFIG_ERROR = "VM_CONFIG_ERROR"
 
 
     class HookType(Enum):
-        POST_PROVISIONING = "post_provisioning"
-        PRE_POWER_ON = "pre_power_on"
-        POST_POWER_ON = "post_power_on"
+        POST_PROVISIONING = "POST_PROVISIONING"
+        PRE_POWER_ON = "PRE_POWER_ON"
+        POST_POWER_ON = "POST_POWER_ON"
 
 
 class Solutions():
@@ -243,30 +243,30 @@ class Solutions():
 
 
     class InvalidReason(Enum):
-        INVALID_OVF_DESCRIPTOR = "invalid_ovf_descriptor"
-        INACCESSBLE_VM_SOURCE = "inaccessble_vm_source"
-        INVALID_NETWORKS = "invalid_networks"
-        INVALID_DATASTORES = "invalid_datastores"
-        INVALID_RESOURCE_POOL = "invalid_resource_pool"
-        INVALID_FOLDER = "invalid_folder"
-        INVALID_PROPERTIES = "invalid_properties"
-        INVALID_TRANSITION = "invalid_transition"
+        INVALID_OVF_DESCRIPTOR = "INVALID_OVF_DESCRIPTOR"
+        INACCESSBLE_VM_SOURCE = "INACCESSBLE_VM_SOURCE"
+        INVALID_NETWORKS = "INVALID_NETWORKS"
+        INVALID_DATASTORES = "INVALID_DATASTORES"
+        INVALID_RESOURCE_POOL = "INVALID_RESOURCE_POOL"
+        INVALID_FOLDER = "INVALID_FOLDER"
+        INVALID_PROPERTIES = "INVALID_PROPERTIES"
+        INVALID_TRANSITION = "INVALID_TRANSITION"
 
 
     class NonComplianceReason(Enum):
-        WORKING = "working"
-        ISSUE = "issue"
-        IN_HOOK = "in_hook"
-        OBSOLETE_SPEC = "obsolete_spec"
-        NO_SPEC = "no_spec"
+        WORKING = "WORKING"
+        ISSUE = "ISSUE"
+        IN_HOOK = "IN_HOOK"
+        OBSOLETE_SPEC = "OBSOLETE_SPEC"
+        NO_SPEC = "NO_SPEC"
 
 
     class VMDeploymentOptimization(Enum):
-        ALL_CLONES = "all_clones"
-        FULL_CLONES_ONLY = "full_clones_only"
-        NO_CLONES = "no_clones"
+        ALL_CLONES = "ALL_CLONES"
+        FULL_CLONES_ONLY = "FULL_CLONES_ONLY"
+        NO_CLONES = "NO_CLONES"
 
 
     class VMDiskProvisioning(Enum):
-        THIN = "thin"
-        THICK = "thick"
+        THIN = "THIN"
+        THICK = "THICK"

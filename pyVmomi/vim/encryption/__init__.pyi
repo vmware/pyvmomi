@@ -138,13 +138,13 @@ class CryptoManagerKmip(CryptoManager):
 
 
         class KeyUnavailableReason(Enum):
-            KeyStateMissingInCache = "keystatemissingincache"
-            KeyStateClusterInvalid = "keystateclusterinvalid"
-            KeyStateClusterUnreachable = "keystateclusterunreachable"
-            KeyStateMissingInKMS = "keystatemissinginkms"
-            KeyStateNotActiveOrEnabled = "keystatenotactiveorenabled"
-            KeyStateManagedByTrustAuthority = "keystatemanagedbytrustauthority"
-            KeyStateManagedByNKP = "keystatemanagedbynkp"
+            KeyStateMissingInCache = "KeyStateMissingInCache"
+            KeyStateClusterInvalid = "KeyStateClusterInvalid"
+            KeyStateClusterUnreachable = "KeyStateClusterUnreachable"
+            KeyStateMissingInKMS = "KeyStateMissingInKMS"
+            KeyStateNotActiveOrEnabled = "KeyStateNotActiveOrEnabled"
+            KeyStateManagedByTrustAuthority = "KeyStateManagedByTrustAuthority"
+            KeyStateManagedByNKP = "KeyStateManagedByNKP"
 
 
     class CustomAttributeSpec(vmodl.DynamicData):
@@ -258,9 +258,9 @@ class KmipClusterInfo(vmodl.DynamicData):
 
     class KmsManagementType(Enum):
         unknown = "unknown"
-        vCenter = "vcenter"
-        trustAuthority = "trustauthority"
-        nativeProvider = "nativeprovider"
+        vCenter = "vCenter"
+        trustAuthority = "trustAuthority"
+        nativeProvider = "nativeProvider"
 
 
 class KmipServerInfo(vmodl.DynamicData):

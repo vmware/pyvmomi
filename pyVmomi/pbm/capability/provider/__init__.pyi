@@ -61,15 +61,15 @@ class LineOfServiceInfo(vmodl.DynamicData):
 
 
     class LineOfServiceEnum(Enum):
-        INSPECTION = "inspection"
-        COMPRESSION = "compression"
-        ENCRYPTION = "encryption"
-        REPLICATION = "replication"
-        CACHING = "caching"
-        PERSISTENCE = "persistence"
-        DATA_PROVIDER = "data_provider"
-        DATASTORE_IO_CONTROL = "datastore_io_control"
-        DATA_PROTECTION = "data_protection"
+        INSPECTION = "INSPECTION"
+        COMPRESSION = "COMPRESSION"
+        ENCRYPTION = "ENCRYPTION"
+        REPLICATION = "REPLICATION"
+        CACHING = "CACHING"
+        PERSISTENCE = "PERSISTENCE"
+        DATA_PROVIDER = "DATA_PROVIDER"
+        DATASTORE_IO_CONTROL = "DATASTORE_IO_CONTROL"
+        DATA_PROTECTION = "DATA_PROTECTION"
 
 
 class PersistenceBasedDataServiceInfo(LineOfServiceInfo):

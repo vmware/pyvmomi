@@ -30,9 +30,9 @@ class BackingStoragePool(vmodl.DynamicData):
 
 
     class BackingStoragePoolType(Enum):
-        thinProvisioningPool = "thinprovisioningpool"
-        deduplicationPool = "deduplicationpool"
-        thinAndDeduplicationCombinedPool = "thinanddeduplicationcombinedpool"
+        thinProvisioningPool = "thinProvisioningPool"
+        deduplicationPool = "deduplicationPool"
+        thinAndDeduplicationCombinedPool = "thinAndDeduplicationCombinedPool"
 
 
 class DatastoreBackingPoolMapping(vmodl.DynamicData):
@@ -157,23 +157,23 @@ class StorageArray(vmodl.DynamicData):
         fc = "fc"
         iscsi = "iscsi"
         fcoe = "fcoe"
-        otherBlock = "otherblock"
+        otherBlock = "otherBlock"
 
 
     class FileSystemInterface(Enum):
         nfs = "nfs"
-        otherFileSystem = "otherfilesystem"
+        otherFileSystem = "otherFileSystem"
 
 
     class VasaProfile(Enum):
-        blockDevice = "blockdevice"
-        fileSystem = "filesystem"
+        blockDevice = "blockDevice"
+        fileSystem = "fileSystem"
         capability = "capability"
         policy = "policy"
         object = "object"
         statistics = "statistics"
-        storageDrsBlockDevice = "storagedrsblockdevice"
-        storageDrsFileSystem = "storagedrsfilesystem"
+        storageDrsBlockDevice = "storageDrsBlockDevice"
+        storageDrsFileSystem = "storageDrsFileSystem"
 
 
 class StorageCapability(vmodl.DynamicData):
@@ -201,10 +201,10 @@ class StorageContainer(vmodl.DynamicData):
 
 
     class VvolContainerTypeEnum(Enum):
-        NFS = "nfs"
-        NFS4x = "nfs4x"
-        SCSI = "scsi"
-        NVMe = "nvme"
+        NFS = "NFS"
+        NFS4x = "NFS4x"
+        SCSI = "SCSI"
+        NVMe = "NVMe"
 
 
 class StorageContainerResult(vmodl.DynamicData):
@@ -237,7 +237,7 @@ class StorageFileSystem(vmodl.DynamicData):
 
 
     class FileSystemInterfaceVersion(Enum):
-        NFSV3_0 = "nfsv3_0"
+        NFSV3_0 = "NFSV3_0"
 
 
 class StorageLun(vmodl.DynamicData):

@@ -45,8 +45,8 @@ class BaseConfigInfo(vmodl.DynamicData):
 
         class ProvisioningType(Enum):
             thin = "thin"
-            eagerZeroedThick = "eagerzeroedthick"
-            lazyZeroedThick = "lazyzeroedthick"
+            eagerZeroedThick = "eagerZeroedThick"
+            lazyZeroedThick = "lazyZeroedThick"
 
 
     class FileBackingInfo(BaseConfigInfo.BackingInfo):

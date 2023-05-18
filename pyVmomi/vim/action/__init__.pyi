@@ -8,13 +8,13 @@ class Action(vmodl.DynamicData):
 
 
     class ActionParameter(Enum):
-        targetName = "targetname"
-        alarmName = "alarmname"
-        oldStatus = "oldstatus"
-        newStatus = "newstatus"
-        triggeringSummary = "triggeringsummary"
-        declaringSummary = "declaringsummary"
-        eventDescription = "eventdescription"
+        targetName = "targetName"
+        alarmName = "alarmName"
+        oldStatus = "oldStatus"
+        newStatus = "newStatus"
+        triggeringSummary = "triggeringSummary"
+        declaringSummary = "declaringSummary"
+        eventDescription = "eventDescription"
         target = "target"
         alarm = "alarm"
 

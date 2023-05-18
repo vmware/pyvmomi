@@ -67,15 +67,15 @@ class AlarmFilterSpec(vmodl.DynamicData):
 
 
     class AlarmTypeByEntity(Enum):
-        entityTypeAll = "entitytypeall"
-        entityTypeHost = "entitytypehost"
-        entityTypeVm = "entitytypevm"
+        entityTypeAll = "entityTypeAll"
+        entityTypeHost = "entityTypeHost"
+        entityTypeVm = "entityTypeVm"
 
 
     class AlarmTypeByTrigger(Enum):
-        triggerTypeAll = "triggertypeall"
-        triggerTypeEvent = "triggertypeevent"
-        triggerTypeMetric = "triggertypemetric"
+        triggerTypeAll = "triggerTypeAll"
+        triggerTypeEvent = "triggerTypeEvent"
+        triggerTypeMetric = "triggerTypeMetric"
 
 
 class AlarmInfo(AlarmSpec):
@@ -195,11 +195,11 @@ class EventAlarmExpression(AlarmExpression):
 
     class ComparisonOperator(Enum):
         equals = "equals"
-        notEqualTo = "notequalto"
-        startsWith = "startswith"
-        doesNotStartWith = "doesnotstartwith"
-        endsWith = "endswith"
-        doesNotEndWith = "doesnotendwith"
+        notEqualTo = "notEqualTo"
+        startsWith = "startsWith"
+        doesNotStartWith = "doesNotStartWith"
+        endsWith = "endsWith"
+        doesNotEndWith = "doesNotEndWith"
 
 
 class GroupAlarmAction(AlarmAction):
@@ -225,8 +225,8 @@ class MetricAlarmExpression(AlarmExpression):
 
 
     class MetricOperator(Enum):
-        isAbove = "isabove"
-        isBelow = "isbelow"
+        isAbove = "isAbove"
+        isBelow = "isBelow"
 
 
 class OrAlarmExpression(AlarmExpression):
@@ -248,5 +248,5 @@ class StateAlarmExpression(AlarmExpression):
 
 
     class StateOperator(Enum):
-        isEqual = "isequal"
-        isUnequal = "isunequal"
+        isEqual = "isEqual"
+        isUnequal = "isUnequal"

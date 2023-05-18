@@ -168,7 +168,7 @@ class ComplianceResult(vmodl.DynamicData):
 
     class Status(Enum):
         compliant = "compliant"
-        nonCompliant = "noncompliant"
+        nonCompliant = "nonCompliant"
         unknown = "unknown"
         running = "running"
 

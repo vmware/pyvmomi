@@ -133,14 +133,14 @@ class DistributedVirtualPortgroup(vim.Network):
 
 
     class MetaTagName(Enum):
-        dvsName = "dvsname"
-        portgroupName = "portgroupname"
-        portIndex = "portindex"
+        dvsName = "dvsName"
+        portgroupName = "portgroupName"
+        portIndex = "portIndex"
 
 
     class PortgroupType(Enum):
-        earlyBinding = "earlybinding"
-        lateBinding = "latebinding"
+        earlyBinding = "earlyBinding"
+        lateBinding = "lateBinding"
         ephemeral = "ephemeral"
 
 
@@ -638,31 +638,31 @@ class VmwareDistributedVirtualSwitch(vim.DistributedVirtualSwitch):
 
 
     class LacpApiVersion(Enum):
-        singleLag = "singlelag"
-        multipleLag = "multiplelag"
+        singleLag = "singleLag"
+        multipleLag = "multipleLag"
 
 
     class LacpLoadBalanceAlgorithm(Enum):
-        srcMac = "srcmac"
-        destMac = "destmac"
-        srcDestMac = "srcdestmac"
-        destIpVlan = "destipvlan"
-        srcIpVlan = "srcipvlan"
-        srcDestIpVlan = "srcdestipvlan"
-        destTcpUdpPort = "desttcpudpport"
-        srcTcpUdpPort = "srctcpudpport"
-        srcDestTcpUdpPort = "srcdesttcpudpport"
-        destIpTcpUdpPort = "destiptcpudpport"
-        srcIpTcpUdpPort = "srciptcpudpport"
-        srcDestIpTcpUdpPort = "srcdestiptcpudpport"
-        destIpTcpUdpPortVlan = "destiptcpudpportvlan"
-        srcIpTcpUdpPortVlan = "srciptcpudpportvlan"
-        srcDestIpTcpUdpPortVlan = "srcdestiptcpudpportvlan"
-        destIp = "destip"
-        srcIp = "srcip"
-        srcDestIp = "srcdestip"
+        srcMac = "srcMac"
+        destMac = "destMac"
+        srcDestMac = "srcDestMac"
+        destIpVlan = "destIpVlan"
+        srcIpVlan = "srcIpVlan"
+        srcDestIpVlan = "srcDestIpVlan"
+        destTcpUdpPort = "destTcpUdpPort"
+        srcTcpUdpPort = "srcTcpUdpPort"
+        srcDestTcpUdpPort = "srcDestTcpUdpPort"
+        destIpTcpUdpPort = "destIpTcpUdpPort"
+        srcIpTcpUdpPort = "srcIpTcpUdpPort"
+        srcDestIpTcpUdpPort = "srcDestIpTcpUdpPort"
+        destIpTcpUdpPortVlan = "destIpTcpUdpPortVlan"
+        srcIpTcpUdpPortVlan = "srcIpTcpUdpPortVlan"
+        srcDestIpTcpUdpPortVlan = "srcDestIpTcpUdpPortVlan"
+        destIp = "destIp"
+        srcIp = "srcIp"
+        srcDestIp = "srcDestIp"
         vlan = "vlan"
-        srcPortId = "srcportid"
+        srcPortId = "srcPortId"
 
 
     class MacLimitPolicyType(Enum):
@@ -671,7 +671,7 @@ class VmwareDistributedVirtualSwitch(vim.DistributedVirtualSwitch):
 
 
     class MulticastFilteringMode(Enum):
-        legacyFiltering = "legacyfiltering"
+        legacyFiltering = "legacyFiltering"
         snooping = "snooping"
 
 
@@ -682,10 +682,10 @@ class VmwareDistributedVirtualSwitch(vim.DistributedVirtualSwitch):
 
 
     class TeamingMatchStatus(Enum):
-        iphashMatch = "iphashmatch"
-        nonIphashMatch = "noniphashmatch"
-        iphashMismatch = "iphashmismatch"
-        nonIphashMismatch = "noniphashmismatch"
+        iphashMatch = "iphashMatch"
+        nonIphashMatch = "nonIphashMatch"
+        iphashMismatch = "iphashMismatch"
+        nonIphashMismatch = "nonIphashMismatch"
 
 
     class UplinkLacpMode(Enum):
@@ -705,11 +705,11 @@ class VmwareDistributedVirtualSwitch(vim.DistributedVirtualSwitch):
 
 
     class VspanSessionType(Enum):
-        mixedDestMirror = "mixeddestmirror"
-        dvPortMirror = "dvportmirror"
-        remoteMirrorSource = "remotemirrorsource"
-        remoteMirrorDest = "remotemirrordest"
-        encapsulatedRemoteMirrorSource = "encapsulatedremotemirrorsource"
+        mixedDestMirror = "mixedDestMirror"
+        dvPortMirror = "dvPortMirror"
+        remoteMirrorSource = "remoteMirrorSource"
+        remoteMirrorDest = "remoteMirrorDest"
+        encapsulatedRemoteMirrorSource = "encapsulatedRemoteMirrorSource"
 
 
 class DistributedVirtualPort(vmodl.DynamicData):
@@ -840,15 +840,15 @@ class DistributedVirtualPort(vmodl.DynamicData):
 
 
         class VmDirectPathGen2InactiveReasonNetwork(Enum):
-            portNptIncompatibleDvs = "portnptincompatibledvs"
-            portNptNoCompatibleNics = "portnptnocompatiblenics"
-            portNptNoVirtualFunctionsAvailable = "portnptnovirtualfunctionsavailable"
-            portNptDisabledForPort = "portnptdisabledforport"
+            portNptIncompatibleDvs = "portNptIncompatibleDvs"
+            portNptNoCompatibleNics = "portNptNoCompatibleNics"
+            portNptNoVirtualFunctionsAvailable = "portNptNoVirtualFunctionsAvailable"
+            portNptDisabledForPort = "portNptDisabledForPort"
 
 
         class VmDirectPathGen2InactiveReasonOther(Enum):
-            portNptIncompatibleHost = "portnptincompatiblehost"
-            portNptIncompatibleConnectee = "portnptincompatibleconnectee"
+            portNptIncompatibleHost = "portNptIncompatibleHost"
+            portNptIncompatibleConnectee = "portNptIncompatibleConnectee"
 
 
     class Setting(vmodl.DynamicData):
@@ -904,8 +904,8 @@ class DistributedVirtualPort(vmodl.DynamicData):
 
 
     class FilterOnFailure(Enum):
-        failOpen = "failopen"
-        failClosed = "failclosed"
+        failOpen = "failOpen"
+        failClosed = "failClosed"
 
 
 class DistributedVirtualPortgroupInfo(vmodl.DynamicData):
@@ -975,14 +975,14 @@ class EntityBackup(vmodl.DynamicData):
 
 
     class EntityType(Enum):
-        distributedVirtualSwitch = "distributedvirtualswitch"
-        distributedVirtualPortgroup = "distributedvirtualportgroup"
+        distributedVirtualSwitch = "distributedVirtualSwitch"
+        distributedVirtualPortgroup = "distributedVirtualPortgroup"
 
 
     class ImportType(Enum):
-        createEntityWithNewIdentifier = "createentitywithnewidentifier"
-        createEntityWithOriginalIdentifier = "createentitywithoriginalidentifier"
-        applyToEntitySpecified = "applytoentityspecified"
+        createEntityWithNewIdentifier = "createEntityWithNewIdentifier"
+        createEntityWithOriginalIdentifier = "createEntityWithOriginalIdentifier"
+        applyToEntitySpecified = "applyToEntitySpecified"
 
 
 class HostMember(vmodl.DynamicData):
@@ -1095,7 +1095,7 @@ class HostMember(vmodl.DynamicData):
     class HostComponentState(Enum):
         up = "up"
         pending = "pending"
-        outOfSync = "outofsync"
+        outOfSync = "outOfSync"
         warning = "warning"
         disconnected = "disconnected"
         down = "down"
@@ -1177,10 +1177,10 @@ class PortConnectee(vmodl.DynamicData):
 
     class ConnecteeType(Enum):
         pnic = "pnic"
-        vmVnic = "vmvnic"
-        hostConsoleVnic = "hostconsolevnic"
-        hostVmkVnic = "hostvmkvnic"
-        systemCrxVnic = "systemcrxvnic"
+        vmVnic = "vmVnic"
+        hostConsoleVnic = "hostConsoleVnic"
+        hostVmkVnic = "hostVmkVnic"
+        systemCrxVnic = "systemCrxVnic"
 
 
 class PortConnection(vmodl.DynamicData):
@@ -1378,8 +1378,8 @@ class TrafficRule(vmodl.DynamicData):
 
 
     class RuleDirectionType(Enum):
-        incomingPackets = "incomingpackets"
-        outgoingPackets = "outgoingpackets"
+        incomingPackets = "incomingPackets"
+        outgoingPackets = "outgoingPackets"
         both = "both"
 
 

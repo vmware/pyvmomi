@@ -206,9 +206,9 @@ class WindowsRegistryManager(ManagedObject):
 
 
         class RegistryKeyWowBitness(Enum):
-            WOWNative = "wownative"
-            WOW32 = "wow32"
-            WOW64 = "wow64"
+            WOWNative = "WOWNative"
+            WOW32 = "WOW32"
+            WOW64 = "WOW64"
 
 
     class RegistryKeyRecord(vmodl.DynamicData):

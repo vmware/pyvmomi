@@ -52,9 +52,9 @@ class LoggingConfiguration(vmodl.DynamicData):
 
 
     class LogLevel(Enum):
-        INFO = "info"
-        DEBUG = "debug"
-        TRACE = "trace"
+        INFO = "INFO"
+        DEBUG = "DEBUG"
+        TRACE = "TRACE"
 
 
 class ServerObjectRef(vmodl.DynamicData):
@@ -67,22 +67,22 @@ class ServerObjectRef(vmodl.DynamicData):
 
 
     class ObjectType(Enum):
-        virtualMachine = "virtualmachine"
-        virtualMachineAndDisks = "virtualmachineanddisks"
-        virtualDiskId = "virtualdiskid"
-        virtualDiskUUID = "virtualdiskuuid"
+        virtualMachine = "virtualMachine"
+        virtualMachineAndDisks = "virtualMachineAndDisks"
+        virtualDiskId = "virtualDiskId"
+        virtualDiskUUID = "virtualDiskUUID"
         datastore = "datastore"
-        vsanObjectId = "vsanobjectid"
-        fileShareId = "fileshareid"
+        vsanObjectId = "vsanObjectId"
+        fileShareId = "fileShareId"
         host = "host"
         cluster = "cluster"
         unknown = "unknown"
 
 
     class VvolType(Enum):
-        Config = "config"
-        Data = "data"
-        Swap = "swap"
+        Config = "Config"
+        Data = "Data"
+        Swap = "Swap"
 
 
 class ServiceInstanceContent(vmodl.DynamicData):
@@ -106,5 +106,5 @@ class PbmDebugManager():
 
 
     class KeystoreName(Enum):
-        SMS = "sms"
-        TRUSTED_ROOTS = "trusted_roots"
+        SMS = "SMS"
+        TRUSTED_ROOTS = "TRUSTED_ROOTS"

@@ -611,8 +611,8 @@ class Datastore(ManagedEntity):
 
         class MaintenanceModeState(Enum):
             normal = "normal"
-            enteringMaintenance = "enteringmaintenance"
-            inMaintenance = "inmaintenance"
+            enteringMaintenance = "enteringMaintenance"
+            inMaintenance = "inMaintenance"
 
 
     class VVolContainerFailoverPair(vmodl.DynamicData):
@@ -687,8 +687,8 @@ class DiagnosticManager(ManagedObject):
             hostd = "hostd"
             serverd = "serverd"
             install = "install"
-            vpxClient = "vpxclient"
-            recordLog = "recordlog"
+            vpxClient = "vpxClient"
+            recordLog = "recordLog"
 
 
         class Format(Enum):
@@ -1007,15 +1007,15 @@ class DistributedVirtualSwitch(ManagedEntity):
 
     class HostInfrastructureTrafficClass(Enum):
         management = "management"
-        faultTolerance = "faulttolerance"
+        faultTolerance = "faultTolerance"
         vmotion = "vmotion"
-        virtualMachine = "virtualmachine"
-        iSCSI = "iscsi"
+        virtualMachine = "virtualMachine"
+        iSCSI = "iSCSI"
         nfs = "nfs"
         hbr = "hbr"
         vsan = "vsan"
         vdp = "vdp"
-        backupNfc = "backupnfc"
+        backupNfc = "backupNfc"
         nvmetcp = "nvmetcp"
 
 
@@ -1033,11 +1033,11 @@ class DistributedVirtualSwitch(ManagedEntity):
 
 
     class ProductSpecOperationType(Enum):
-        preInstall = "preinstall"
+        preInstall = "preInstall"
         upgrade = "upgrade"
-        notifyAvailableUpgrade = "notifyavailableupgrade"
-        proceedWithUpgrade = "proceedwithupgrade"
-        updateBundleInfo = "updatebundleinfo"
+        notifyAvailableUpgrade = "notifyAvailableUpgrade"
+        proceedWithUpgrade = "proceedWithUpgrade"
+        updateBundleInfo = "updateBundleInfo"
 
 
 class EnvironmentBrowser(ManagedObject):
@@ -1279,7 +1279,7 @@ class HostSystem(ManagedEntity):
 
     class ConnectionState(Enum):
         connected = "connected"
-        notResponding = "notresponding"
+        notResponding = "notResponding"
         disconnected = "disconnected"
 
 
@@ -1287,13 +1287,13 @@ class HostSystem(ManagedEntity):
         incapable = "incapable"
         prepared = "prepared"
         safe = "safe"
-        pendingIncapable = "pendingincapable"
+        pendingIncapable = "pendingIncapable"
 
 
     class PowerState(Enum):
-        poweredOn = "poweredon"
-        poweredOff = "poweredoff"
-        standBy = "standby"
+        poweredOn = "poweredOn"
+        poweredOff = "poweredOff"
+        standBy = "standBy"
         unknown = "unknown"
 
 
@@ -1430,7 +1430,7 @@ class HttpNfcLease(ManagedObject):
 
 
     class Mode(Enum):
-        pushOrGet = "pushorget"
+        pushOrGet = "pushOrGet"
         pull = "pull"
 
 
@@ -1494,9 +1494,9 @@ class IoFilterManager(ManagedObject):
         encryption = "encryption"
         compression = "compression"
         inspection = "inspection"
-        datastoreIoControl = "datastoreiocontrol"
-        dataProvider = "dataprovider"
-        dataCapture = "datacapture"
+        datastoreIoControl = "datastoreIoControl"
+        dataProvider = "dataProvider"
+        dataCapture = "dataCapture"
 
 
     class OperationType(Enum):
@@ -1638,8 +1638,8 @@ class LicenseManager(ManagedObject):
 
         class CostUnit(Enum):
             host = "host"
-            cpuCore = "cpucore"
-            cpuPackage = "cpupackage"
+            cpuCore = "cpuCore"
+            cpuPackage = "cpuPackage"
             server = "server"
             vm = "vm"
 
@@ -1656,12 +1656,12 @@ class LicenseManager(ManagedObject):
 
 
         class ResourceKey(Enum):
-            numCpuPackages = "numcpupackages"
-            numCpuCores = "numcpucores"
-            memorySize = "memorysize"
-            memoryForVms = "memoryforvms"
-            numVmsStarted = "numvmsstarted"
-            numVmsStarting = "numvmsstarting"
+            numCpuPackages = "numCpuPackages"
+            numCpuCores = "numCpuCores"
+            memorySize = "memorySize"
+            memoryForVms = "memoryForVms"
+            numVmsStarted = "numVmsStarted"
+            numVmsStarting = "numVmsStarting"
 
 
     class LicenseInfo(vmodl.DynamicData):
@@ -1717,20 +1717,20 @@ class LicenseManager(ManagedObject):
 
 
     class LicenseKey(Enum):
-        esxFull = "esxfull"
-        esxVmtn = "esxvmtn"
-        esxExpress = "esxexpress"
+        esxFull = "esxFull"
+        esxVmtn = "esxVmtn"
+        esxExpress = "esxExpress"
         san = "san"
         iscsi = "iscsi"
         nas = "nas"
         vsmp = "vsmp"
         backup = "backup"
         vc = "vc"
-        vcExpress = "vcexpress"
-        esxHost = "esxhost"
-        gsxHost = "gsxhost"
-        serverHost = "serverhost"
-        drsPower = "drspower"
+        vcExpress = "vcExpress"
+        esxHost = "esxHost"
+        gsxHost = "gsxHost"
+        serverHost = "serverHost"
+        drsPower = "drsPower"
         vmotion = "vmotion"
         drs = "drs"
         das = "das"
@@ -1922,14 +1922,14 @@ class OvfManager(ManagedObject):
 
 
         class DiskProvisioningType(Enum):
-            monolithicSparse = "monolithicsparse"
-            monolithicFlat = "monolithicflat"
-            twoGbMaxExtentSparse = "twogbmaxextentsparse"
-            twoGbMaxExtentFlat = "twogbmaxextentflat"
+            monolithicSparse = "monolithicSparse"
+            monolithicFlat = "monolithicFlat"
+            twoGbMaxExtentSparse = "twoGbMaxExtentSparse"
+            twoGbMaxExtentFlat = "twoGbMaxExtentFlat"
             thin = "thin"
             thick = "thick"
-            seSparse = "sesparse"
-            eagerZeroedThick = "eagerzeroedthick"
+            seSparse = "seSparse"
+            eagerZeroedThick = "eagerZeroedThick"
             sparse = "sparse"
             flat = "flat"
 
@@ -2145,20 +2145,20 @@ class PerformanceManager(ManagedObject):
 
         class Unit(Enum):
             percent = "percent"
-            kiloBytes = "kilobytes"
-            megaBytes = "megabytes"
-            megaHertz = "megahertz"
+            kiloBytes = "kiloBytes"
+            megaBytes = "megaBytes"
+            megaHertz = "megaHertz"
             number = "number"
             microsecond = "microsecond"
             millisecond = "millisecond"
             second = "second"
-            kiloBytesPerSecond = "kilobytespersecond"
-            megaBytesPerSecond = "megabytespersecond"
+            kiloBytesPerSecond = "kiloBytesPerSecond"
+            megaBytesPerSecond = "megaBytesPerSecond"
             watt = "watt"
             joule = "joule"
-            teraBytes = "terabytes"
+            teraBytes = "teraBytes"
             celsius = "celsius"
-            mgCO2eqPerHour = "mgco2eqperhour"
+            mgCO2eqPerHour = "mgCO2eqPerHour"
             nanosecond = "nanosecond"
 
 
@@ -2443,10 +2443,10 @@ class ServiceInstance(ManagedObject):
 
 
     class ValidateMigrationTestType(Enum):
-        sourceTests = "sourcetests"
-        compatibilityTests = "compatibilitytests"
-        diskAccessibilityTests = "diskaccessibilitytests"
-        resourceTests = "resourcetests"
+        sourceTests = "sourceTests"
+        compatibilityTests = "compatibilityTests"
+        diskAccessibilityTests = "diskAccessibilityTests"
+        resourceTests = "resourceTests"
 
 
 class ServiceManager(ManagedObject):
@@ -2510,9 +2510,9 @@ class SessionManager(ManagedObject):
 
 
         class TicketType(Enum):
-            HttpNfcServiceTicket = "httpnfcserviceticket"
-            HostServiceTicket = "hostserviceticket"
-            VcServiceTicket = "vcserviceticket"
+            HttpNfcServiceTicket = "HttpNfcServiceTicket"
+            HostServiceTicket = "HostServiceTicket"
+            VcServiceTicket = "VcServiceTicket"
 
 
     class HttpServiceRequestSpec(SessionManager.ServiceRequestSpec):
@@ -2523,14 +2523,14 @@ class SessionManager(ManagedObject):
 
 
         class Method(Enum):
-            httpOptions = "httpoptions"
-            httpGet = "httpget"
-            httpHead = "httphead"
-            httpPost = "httppost"
-            httpPut = "httpput"
-            httpDelete = "httpdelete"
-            httpTrace = "httptrace"
-            httpConnect = "httpconnect"
+            httpOptions = "httpOptions"
+            httpGet = "httpGet"
+            httpHead = "httpHead"
+            httpPost = "httpPost"
+            httpPut = "httpPut"
+            httpDelete = "httpDelete"
+            httpTrace = "httpTrace"
+            httpConnect = "httpConnect"
 
 
     class LocalTicket(vmodl.DynamicData):
@@ -2557,9 +2557,9 @@ class SimpleCommand(ManagedObject):
 
 
     class Encoding(Enum):
-        CSV = "csv"
-        HEX = "hex"
-        STRING = "string"
+        CSV = "CSV"
+        HEX = "HEX"
+        STRING = "STRING"
 
 
 class SiteInfoManager(ManagedObject):
@@ -2839,23 +2839,23 @@ class VirtualDiskManager(ManagedObject):
 
     class VirtualDiskAdapterType(Enum):
         ide = "ide"
-        busLogic = "buslogic"
-        lsiLogic = "lsilogic"
+        busLogic = "busLogic"
+        lsiLogic = "lsiLogic"
 
 
     class VirtualDiskType(Enum):
         preallocated = "preallocated"
         thin = "thin"
-        seSparse = "sesparse"
+        seSparse = "seSparse"
         rdm = "rdm"
         rdmp = "rdmp"
         raw = "raw"
         delta = "delta"
-        sparse2Gb = "sparse2gb"
-        thick2Gb = "thick2gb"
-        eagerZeroedThick = "eagerzeroedthick"
-        sparseMonolithic = "sparsemonolithic"
-        flatMonolithic = "flatmonolithic"
+        sparse2Gb = "sparse2Gb"
+        thick2Gb = "thick2Gb"
+        eagerZeroedThick = "eagerZeroedThick"
+        sparseMonolithic = "sparseMonolithic"
+        flatMonolithic = "flatMonolithic"
         thick = "thick"
 
 
@@ -3044,39 +3044,39 @@ class VirtualMachine(ManagedEntity):
 
 
     class AppHeartbeatStatusType(Enum):
-        appStatusGray = "appstatusgray"
-        appStatusGreen = "appstatusgreen"
-        appStatusRed = "appstatusred"
+        appStatusGray = "appStatusGray"
+        appStatusGreen = "appStatusGreen"
+        appStatusRed = "appStatusRed"
 
 
     class FaultToleranceState(Enum):
-        notConfigured = "notconfigured"
+        notConfigured = "notConfigured"
         disabled = "disabled"
         enabled = "enabled"
-        needSecondary = "needsecondary"
+        needSecondary = "needSecondary"
         starting = "starting"
         running = "running"
 
 
     class FaultToleranceType(Enum):
         unset = "unset"
-        recordReplay = "recordreplay"
+        recordReplay = "recordReplay"
         checkpointing = "checkpointing"
 
 
     class MovePriority(Enum):
-        lowPriority = "lowpriority"
-        highPriority = "highpriority"
-        defaultPriority = "defaultpriority"
+        lowPriority = "lowPriority"
+        highPriority = "highPriority"
+        defaultPriority = "defaultPriority"
 
 
     class NeedSecondaryReason(Enum):
         initializing = "initializing"
         divergence = "divergence"
-        lostConnection = "lostconnection"
-        partialHardwareFailure = "partialhardwarefailure"
-        userAction = "useraction"
-        checkpointError = "checkpointerror"
+        lostConnection = "lostConnection"
+        partialHardwareFailure = "partialHardwareFailure"
+        userAction = "userAction"
+        checkpointError = "checkpointError"
         other = "other"
 
 
@@ -3609,11 +3609,11 @@ class HealthUpdateInfo(vmodl.DynamicData):
 
 
     class ComponentType(Enum):
-        Memory = "memory"
-        Power = "power"
-        Fan = "fan"
-        Network = "network"
-        Storage = "storage"
+        Memory = "Memory"
+        Power = "Power"
+        Fan = "Fan"
+        Network = "Network"
+        Storage = "Storage"
 
 
 class HistoricalInterval(vmodl.DynamicData):
@@ -3757,8 +3757,8 @@ class OvfConsumer():
 
     class OstNodeType(Enum):
         envelope = "envelope"
-        virtualSystem = "virtualsystem"
-        virtualSystemCollection = "virtualsystemcollection"
+        virtualSystem = "virtualSystem"
+        virtualSystemCollection = "virtualSystemCollection"
 
 
 class PasswordField(vmodl.DynamicData):
@@ -3833,7 +3833,7 @@ class ResourceConfigSpec(vmodl.DynamicData):
 
     class ScaleSharesBehavior(Enum):
         disabled = "disabled"
-        scaleCpuAndMemoryShares = "scalecpuandmemoryshares"
+        scaleCpuAndMemoryShares = "scaleCpuAndMemoryShares"
 
 
 class SDDCBase(vmodl.DynamicData): ...
@@ -4084,9 +4084,9 @@ class TaskFilterSpec(vmodl.DynamicData):
 
 
     class TimeOption(Enum):
-        queuedTime = "queuedtime"
-        startedTime = "startedtime"
-        completedTime = "completedtime"
+        queuedTime = "queuedTime"
+        startedTime = "startedTime"
+        completedTime = "completedTime"
 
 
 class TaskInfo(vmodl.DynamicData):
@@ -4367,7 +4367,7 @@ class vApp():
 
 
         class ProvisioningType(Enum):
-            sameAsSource = "sameassource"
+            sameAsSource = "sameAsSource"
             thin = "thin"
             thick = "thick"
 
@@ -4395,9 +4395,9 @@ class vApp():
 
         class Action(Enum):
             none = "none"
-            powerOn = "poweron"
-            powerOff = "poweroff"
-            guestShutdown = "guestshutdown"
+            powerOn = "powerOn"
+            powerOff = "powerOff"
+            guestShutdown = "guestShutdown"
             suspend = "suspend"
 
 
@@ -4418,15 +4418,15 @@ class vApp():
 
 
         class IpAllocationPolicy(Enum):
-            dhcpPolicy = "dhcppolicy"
-            transientPolicy = "transientpolicy"
-            fixedPolicy = "fixedpolicy"
-            fixedAllocatedPolicy = "fixedallocatedpolicy"
+            dhcpPolicy = "dhcpPolicy"
+            transientPolicy = "transientPolicy"
+            fixedPolicy = "fixedPolicy"
+            fixedAllocatedPolicy = "fixedAllocatedPolicy"
 
 
         class Protocols(Enum):
-            IPv4 = "ipv4"
-            IPv6 = "ipv6"
+            IPv4 = "IPv4"
+            IPv6 = "IPv6"
 
 
     class IpPool(vmodl.DynamicData):
@@ -4638,5 +4638,5 @@ class DrsStatsManager():
 
 
         class CorrelationState(Enum):
-            Correlated = "correlated"
-            Uncorrelated = "uncorrelated"
+            Correlated = "Correlated"
+            Uncorrelated = "Uncorrelated"
