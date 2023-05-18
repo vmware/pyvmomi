@@ -72,12 +72,6 @@ class Agency(EamObject):
         def folders(self) -> List[Agency.VMFolder]: ...
 
 
-        class OvfDiskProvisioning(Enum):
-            none = "none"
-            thin = "thin"
-            thick = "thick"
-
-
     class Scope(vmodl.DynamicData): ...
 
 
@@ -103,6 +97,39 @@ class Agent(EamObject):
     def QueryRuntime(self) -> Agent.RuntimeInfo: ...
     def MarkAsAvailable(self) -> NoneType: ...
     def QueryConfig(self) -> Agent.ConfigInfo: ...
+
+
+    class ConfigInfo(vmodl.DynamicData):
+        @property
+        def productLineId(self) -> str: ...
+        @property
+        def hostVersion(self) -> str: ...
+        @property
+        def ovfPackageUrl(self) -> str: ...
+        @property
+        def ovfEnvironment(self) -> Agent.OvfEnvironmentInfo: ...
+        @property
+        def vibUrl(self) -> str: ...
+        @property
+        def vibMatchingRules(self) -> List[Agent.VibMatchingRule]: ...
+        @property
+        def vibName(self) -> str: ...
+        @property
+        def dvFilterEnabled(self) -> bool: ...
+        @property
+        def rebootHostAfterVibUninstall(self) -> bool: ...
+        @property
+        def vmciService(self) -> List[str]: ...
+        @property
+        def ovfDiskProvisioning(self) -> str: ...
+        @property
+        def vmStoragePolicies(self) -> List[Agent.StoragePolicy]: ...
+
+
+        class OvfDiskProvisioning(Enum):
+            none = "none"
+            thin = "thin"
+            thick = "thick"
 
 
     class OvfEnvironmentInfo(vmodl.DynamicData):
@@ -144,18 +171,6 @@ class Agent(EamObject):
         def vmHook(self) -> Agent.VmHook: ...
 
 
-        class GoalState(Enum):
-            enabled = "enabled"
-            disabled = "disabled"
-            uninstalled = "uninstalled"
-
-
-        class Status(Enum):
-            green = "green"
-            yellow = "yellow"
-            red = "red"
-
-
     class StoragePolicy(vmodl.DynamicData): ...
 
 
@@ -188,6 +203,29 @@ class EamObject(ManagedObject):
     def Resolve(self, issueKey: List[int]) -> List[int]: ...
     def ResolveAll(self) -> NoneType: ...
     def QueryIssue(self, issueKey: List[int]) -> List[issue.Issue]: ...
+
+
+    class RuntimeInfo(vmodl.DynamicData):
+        @property
+        def status(self) -> str: ...
+        @property
+        def issue(self) -> List[issue.Issue]: ...
+        @property
+        def goalState(self) -> str: ...
+        @property
+        def entity(self) -> EamObject: ...
+
+
+        class GoalState(Enum):
+            enabled = "enabled"
+            disabled = "disabled"
+            uninstalled = "uninstalled"
+
+
+        class Status(Enum):
+            green = "green"
+            yellow = "yellow"
+            red = "red"
 
 
 class EsxAgentManager(EamObject):

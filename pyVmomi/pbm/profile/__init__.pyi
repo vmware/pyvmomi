@@ -170,16 +170,46 @@ class SubProfileCapabilityConstraints(CapabilityConstraints):
         def forceProvision(self) -> bool: ...
 
 
-class PolicyStatus(pbm.version.version1): ...
+class AssociateAndApplyPolicyStatus():
 
 
-class Operation(pbm.version.version11): ...
+    class PolicyStatus(Enum):
+        success = "success"
+        failed = "failed"
+        invalid = "invalid"
 
 
-class FilterType(pbm.version.version1): ...
+class EntityAssociations():
 
 
-class VolumeAllocationType(pbm.version.v8_0_0_1): ...
+    class Operation(Enum):
+        CREATE = "create"
+        REGISTER = "register"
+        RECONFIGURE = "reconfigure"
+        MIGRATE = "migrate"
+        CLONE = "clone"
 
 
-class Operation(pbm.version.version11): ...
+class IofilterInfo():
+
+
+    class FilterType(Enum):
+        INSPECTION = "inspection"
+        COMPRESSION = "compression"
+        ENCRYPTION = "encryption"
+        REPLICATION = "replication"
+        CACHE = "cache"
+        DATAPROVIDER = "dataprovider"
+        DATASTOREIOCONTROL = "datastoreiocontrol"
+
+
+class PolicyAssociation():
+
+
+    class VolumeAllocationType(Enum):
+        FullyInitialized = "fullyinitialized"
+        ReserveSpace = "reservespace"
+        ConserveSpaceWhenPossible = "conservespacewhenpossible"
+
+
+class VmAssociations(): ...

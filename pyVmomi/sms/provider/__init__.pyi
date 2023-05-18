@@ -181,4 +181,9 @@ class VasaProviderSpec(ProviderSpec):
     def certificate(self) -> str: ...
 
 
-class AuthenticationType(sms.version.version12): ...
+class VmodlVasaProviderSpec():
+
+
+    class AuthenticationType(Enum):
+        LoginByToken = "loginbytoken"
+        UseSessionId = "usesessionid"

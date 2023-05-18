@@ -36,11 +36,14 @@ class LegacyHubsNotSupported(PBMFault):
     def hubs(self) -> List[pbm.placement.PlacementHub]: ...
 
 
-class EntityPrivileges(vmodl.DynamicData):
-    @property
-    def profileId(self) -> pbm.profile.ProfileId: ...
-    @property
-    def privilegeIds(self) -> List[str]: ...
+class NoPermission():
+
+
+    class EntityPrivileges(vmodl.DynamicData):
+        @property
+        def profileId(self) -> pbm.profile.ProfileId: ...
+        @property
+        def privilegeIds(self) -> List[str]: ...
 
 
 class NonExistentHubs(PBMFault):

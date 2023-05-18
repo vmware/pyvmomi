@@ -1,6 +1,6 @@
 from typing import List
 from enum import Enum
-from pyVmomi import pbm, vmodl
+from pyVmomi import vmodl
 from pyVmomi.VmomiSupport import ManagedObject
 from . import auth, capability, compliance, placement, profile, replication
 
@@ -102,4 +102,9 @@ class ServiceInstanceContent(vmodl.DynamicData):
     def replicationManager(self) -> replication.ReplicationManager: ...
 
 
-class KeystoreName(version.v8_0_0_0): ...
+class PbmDebugManager():
+
+
+    class KeystoreName(Enum):
+        SMS = "sms"
+        TRUSTED_ROOTS = "trusted_roots"

@@ -2594,6 +2594,13 @@ class ProfileUpdateFailed(VimFault):
     def warnings(self) -> List[ProfileUpdateFailed.UpdateFailure]: ...
 
 
+    class UpdateFailure(vmodl.DynamicData):
+        @property
+        def profilePath(self) -> vim.profile.ProfilePropertyPath: ...
+        @property
+        def errMsg(self) -> vmodl.LocalizableMessage: ...
+
+
 class QuarantineModeFault(VmConfigFault):
     @property
     def vmName(self) -> str: ...

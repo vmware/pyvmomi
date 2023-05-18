@@ -1,6 +1,6 @@
 from typing import List
 from enum import Enum
-from pyVmomi import MetadataManager, vim, vmodl
+from pyVmomi import vim, vmodl
 from datetime import datetime
 from pyVmomi.VmomiSupport import ManagedObject, NoneType, PropertyPath, binary, long, short
 from . import customization, device, guest, replication
@@ -1007,9 +1007,44 @@ class FileLayoutEx(vmodl.DynamicData):
     def timestamp(self) -> datetime: ...
 
 
+    class DiskLayout(vmodl.DynamicData):
+        @property
+        def key(self) -> int: ...
+        @property
+        def chain(self) -> List[FileLayoutEx.DiskUnit]: ...
+
+
     class DiskUnit(vmodl.DynamicData):
         @property
         def fileKey(self) -> List[int]: ...
+
+
+    class FileInfo(vmodl.DynamicData):
+        @property
+        def key(self) -> int: ...
+        @property
+        def name(self) -> str: ...
+        @property
+        def type(self) -> str: ...
+        @property
+        def size(self) -> long: ...
+        @property
+        def uniqueSize(self) -> long: ...
+        @property
+        def backingObjectId(self) -> str: ...
+        @property
+        def accessible(self) -> bool: ...
+
+
+    class SnapshotLayout(vmodl.DynamicData):
+        @property
+        def key(self) -> Snapshot: ...
+        @property
+        def dataKey(self) -> int: ...
+        @property
+        def memoryKey(self) -> int: ...
+        @property
+        def disk(self) -> List[FileLayoutEx.DiskLayout]: ...
 
 
     class FileType(Enum):
@@ -1727,34 +1762,42 @@ class Message(vmodl.DynamicData):
     def text(self) -> str: ...
 
 
-class VmMetadata(vmodl.DynamicData):
-    @property
-    def vmId(self) -> str: ...
-    @property
-    def metadata(self) -> str: ...
+class MetadataManager():
 
 
-class VmMetadataInput(vmodl.DynamicData):
-    @property
-    def operation(self) -> str: ...
-    @property
-    def vmMetadata(self) -> MetadataManager.VmMetadata: ...
+    class VmMetadata(vmodl.DynamicData):
+        @property
+        def vmId(self) -> str: ...
+        @property
+        def metadata(self) -> str: ...
 
 
-class VmMetadataOwner(vmodl.DynamicData):
-    @property
-    def name(self) -> str: ...
+    class VmMetadataInput(vmodl.DynamicData):
+        @property
+        def operation(self) -> str: ...
+        @property
+        def vmMetadata(self) -> MetadataManager.VmMetadata: ...
 
 
-    class Owner(Enum):
-        ComVmwareVsphereHA = "comvmwarevsphereha"
+    class VmMetadataOwner(vmodl.DynamicData):
+        @property
+        def name(self) -> str: ...
 
 
-class VmMetadataResult(vmodl.DynamicData):
-    @property
-    def vmMetadata(self) -> MetadataManager.VmMetadata: ...
-    @property
-    def error(self) -> vmodl.MethodFault: ...
+        class Owner(Enum):
+            ComVmwareVsphereHA = "comvmwarevsphereha"
+
+
+    class VmMetadataResult(vmodl.DynamicData):
+        @property
+        def vmMetadata(self) -> MetadataManager.VmMetadata: ...
+        @property
+        def error(self) -> vmodl.MethodFault: ...
+
+
+    class VmMetadataOp(Enum):
+        Update = "update"
+        Remove = "remove"
 
 
 class NetworkInfo(TargetInfo):
@@ -2723,10 +2766,8 @@ class WindowsQuiesceSpec(GuestQuiesceSpec):
         ctx_file_share_backup = "ctx_file_share_backup"
 
 
-class EndGuestQuiesceError(vim.version.version1): ...
+class GuestQuiesce():
 
 
-class VmMetadataOp(vim.version.version9): ...
-
-
-class Owner(vim.version.version9): ...
+    class EndGuestQuiesceError(Enum):
+        failure = "failure"

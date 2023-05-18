@@ -92,4 +92,11 @@ class RollupComplianceResult(vmodl.DynamicData):
     def profileMismatch(self) -> bool: ...
 
 
-class HealthStatus(pbm.version.v7_0): ...
+class EntityHealthStatus():
+
+
+    class HealthStatus(Enum):
+        red = "red"
+        yellow = "yellow"
+        green = "green"
+        unknown = "unknown"

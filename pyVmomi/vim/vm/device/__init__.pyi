@@ -265,17 +265,6 @@ class VirtualDeviceOption(vmodl.DynamicData):
         def autoDetectAvailable(self) -> vim.option.BoolOption: ...
 
 
-        class HostPointingDeviceChoice(Enum):
-            autodetect = "autodetect"
-            intellimouseExplorer = "intellimouseexplorer"
-            intellimousePs2 = "intellimouseps2"
-            logitechMouseman = "logitechmouseman"
-            microsoft_serial = "microsoft_serial"
-            mouseSystems = "mousesystems"
-            mousemanSerial = "mousemanserial"
-            ps2 = "ps2"
-
-
     class FileBackingOption(VirtualDeviceOption.BackingOption):
         @property
         def fileNameExtensions(self) -> vim.option.ChoiceOption: ...
@@ -835,13 +824,25 @@ class VirtualEthernetCardOption(VirtualDeviceOption):
 class VirtualFloppy(VirtualDevice):
 
 
+    class DeviceBackingInfo(VirtualDevice.DeviceBackingInfo): ...
+
+
     class ImageBackingInfo(VirtualDevice.FileBackingInfo): ...
+
+
+    class RemoteDeviceBackingInfo(VirtualDevice.RemoteDeviceBackingInfo): ...
 
 
 class VirtualFloppyOption(VirtualDeviceOption):
 
 
+    class DeviceBackingOption(VirtualDeviceOption.DeviceBackingOption): ...
+
+
     class ImageBackingOption(VirtualDeviceOption.FileBackingOption): ...
+
+
+    class RemoteDeviceBackingOption(VirtualDeviceOption.RemoteDeviceBackingOption): ...
 
 
 class VirtualHdAudioCard(VirtualSoundCard): ...
@@ -883,6 +884,13 @@ class VirtualNVDIMM(VirtualDevice):
     def capacityInMB(self) -> long: ...
     @property
     def configuredCapacityInMB(self) -> long: ...
+
+
+    class BackingInfo(VirtualDevice.FileBackingInfo):
+        @property
+        def parent(self) -> VirtualNVDIMM.BackingInfo: ...
+        @property
+        def changeId(self) -> str: ...
 
 
 class VirtualNVDIMMController(VirtualController): ...
@@ -960,6 +968,17 @@ class VirtualPCIPassthrough(VirtualDevice):
         def revisionId(self) -> short: ...
 
 
+    class DeviceBackingInfo(VirtualDevice.DeviceBackingInfo):
+        @property
+        def id(self) -> str: ...
+        @property
+        def deviceId(self) -> str: ...
+        @property
+        def systemId(self) -> str: ...
+        @property
+        def vendorId(self) -> short: ...
+
+
     class DvxBackingInfo(VirtualDevice.BackingInfo):
         @property
         def deviceClass(self) -> str: ...
@@ -991,6 +1010,9 @@ class VirtualPCIPassthrough(VirtualDevice):
 
 
 class VirtualPCIPassthroughOption(VirtualDeviceOption):
+
+
+    class DeviceBackingOption(VirtualDeviceOption.DeviceBackingOption): ...
 
 
     class DvxBackingOption(VirtualDeviceOption.BackingOption): ...
@@ -1027,16 +1049,49 @@ class VirtualPS2ControllerOption(VirtualControllerOption):
     def numPointingDevices(self) -> vim.option.IntOption: ...
 
 
-class VirtualParallelPort(VirtualDevice): ...
+class VirtualParallelPort(VirtualDevice):
 
 
-class VirtualParallelPortOption(VirtualDeviceOption): ...
+    class DeviceBackingInfo(VirtualDevice.DeviceBackingInfo): ...
 
 
-class VirtualPointingDevice(VirtualDevice): ...
+    class FileBackingInfo(VirtualDevice.FileBackingInfo): ...
 
 
-class VirtualPointingDeviceOption(VirtualDeviceOption): ...
+class VirtualParallelPortOption(VirtualDeviceOption):
+
+
+    class DeviceBackingOption(VirtualDeviceOption.DeviceBackingOption): ...
+
+
+    class FileBackingOption(VirtualDeviceOption.FileBackingOption): ...
+
+
+class VirtualPointingDevice(VirtualDevice):
+
+
+    class DeviceBackingInfo(VirtualDevice.DeviceBackingInfo):
+        @property
+        def hostPointingDevice(self) -> str: ...
+
+
+class VirtualPointingDeviceOption(VirtualDeviceOption):
+
+
+    class DeviceBackingOption(VirtualDeviceOption.DeviceBackingOption):
+        @property
+        def hostPointingDevice(self) -> vim.option.ChoiceOption: ...
+
+
+        class HostPointingDeviceChoice(Enum):
+            autodetect = "autodetect"
+            intellimouseExplorer = "intellimouseexplorer"
+            intellimousePs2 = "intellimouseps2"
+            logitechMouseman = "logitechmouseman"
+            microsoft_serial = "microsoft_serial"
+            mouseSystems = "mousesystems"
+            mousemanSerial = "mousemanserial"
+            ps2 = "ps2"
 
 
 class VirtualPrecisionClock(VirtualDevice):
@@ -1091,10 +1146,16 @@ class VirtualSCSIControllerOption(VirtualControllerOption):
     def scsiCtlrUnitNumber(self) -> int: ...
 
 
-class VirtualSCSIPassthrough(VirtualDevice): ...
+class VirtualSCSIPassthrough(VirtualDevice):
 
 
-class VirtualSCSIPassthroughOption(VirtualDeviceOption): ...
+    class DeviceBackingInfo(VirtualDevice.DeviceBackingInfo): ...
+
+
+class VirtualSCSIPassthroughOption(VirtualDeviceOption):
+
+
+    class DeviceBackingOption(VirtualDeviceOption.DeviceBackingOption): ...
 
 
 class VirtualSIOController(VirtualController): ...
@@ -1114,7 +1175,23 @@ class VirtualSerialPort(VirtualDevice):
     def yieldOnPoll(self) -> bool: ...
 
 
+    class DeviceBackingInfo(VirtualDevice.DeviceBackingInfo): ...
+
+
+    class FileBackingInfo(VirtualDevice.FileBackingInfo): ...
+
+
+    class PipeBackingInfo(VirtualDevice.PipeBackingInfo):
+        @property
+        def endpoint(self) -> str: ...
+        @property
+        def noRxLoss(self) -> bool: ...
+
+
     class ThinPrintBackingInfo(VirtualDevice.BackingInfo): ...
+
+
+    class URIBackingInfo(VirtualDevice.URIBackingInfo): ...
 
 
 class VirtualSerialPortOption(VirtualDeviceOption):
@@ -1122,7 +1199,23 @@ class VirtualSerialPortOption(VirtualDeviceOption):
     def yieldOnPoll(self) -> vim.option.BoolOption: ...
 
 
+    class DeviceBackingOption(VirtualDeviceOption.DeviceBackingOption): ...
+
+
+    class FileBackingOption(VirtualDeviceOption.FileBackingOption): ...
+
+
+    class PipeBackingOption(VirtualDeviceOption.PipeBackingOption):
+        @property
+        def endpoint(self) -> vim.option.ChoiceOption: ...
+        @property
+        def noRxLoss(self) -> vim.option.BoolOption: ...
+
+
     class ThinPrintBackingOption(VirtualDeviceOption.BackingOption): ...
+
+
+    class URIBackingOption(VirtualDeviceOption.URIBackingOption): ...
 
 
     class EndPoint(Enum):
@@ -1136,10 +1229,16 @@ class VirtualSoundBlaster16(VirtualSoundCard): ...
 class VirtualSoundBlaster16Option(VirtualSoundCardOption): ...
 
 
-class VirtualSoundCard(VirtualDevice): ...
+class VirtualSoundCard(VirtualDevice):
 
 
-class VirtualSoundCardOption(VirtualDeviceOption): ...
+    class DeviceBackingInfo(VirtualDevice.DeviceBackingInfo): ...
+
+
+class VirtualSoundCardOption(VirtualDeviceOption):
+
+
+    class DeviceBackingOption(VirtualDeviceOption.DeviceBackingOption): ...
 
 
 class VirtualSriovEthernetCard(VirtualEthernetCard):
@@ -1209,6 +1308,11 @@ class VirtualUSBController(VirtualController):
     def autoConnectDevices(self) -> bool: ...
     @property
     def ehciEnabled(self) -> bool: ...
+
+
+    class PciBusSlotInfo(VirtualDevice.PciBusSlotInfo):
+        @property
+        def ehciPciSlotNumber(self) -> int: ...
 
 
 class VirtualUSBControllerOption(VirtualControllerOption):
