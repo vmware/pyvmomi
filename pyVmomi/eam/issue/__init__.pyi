@@ -1,6 +1,7 @@
 from typing import List
 from pyVmomi import eam, vim, vmodl
 from datetime import datetime
+from . import cluster, integrity, personality
 
 
 class AgencyDisabled(AgencyIssue): ...

@@ -1,6 +1,7 @@
 from typing import List
 from pyVmomi import pbm, vmodl
 from pyVmomi.VmomiSupport import ManagedObject
+from . import provider, types
 
 
 class CapabilityMetadataManager(ManagedObject): ...

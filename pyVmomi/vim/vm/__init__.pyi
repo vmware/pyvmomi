@@ -3,7 +3,7 @@ from enum import Enum
 from pyVmomi import vim, vmodl
 from datetime import datetime
 from pyVmomi.VmomiSupport import ManagedObject, NoneType, PropertyPath, binary, long, short
-from . import customization, device, guest, replication
+from . import check, customization, device, guest, replication
 
 
 class GuestCustomizationManager(ManagedObject):

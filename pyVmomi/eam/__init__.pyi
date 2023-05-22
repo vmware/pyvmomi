@@ -2,7 +2,7 @@ from typing import List
 from enum import Enum
 from pyVmomi import eam, vim, vmodl
 from pyVmomi.VmomiSupport import ManagedObject, NoneType
-from . import issue, vib
+from . import fault, issue, lccm, vib
 
 
 class Agency(EamObject):

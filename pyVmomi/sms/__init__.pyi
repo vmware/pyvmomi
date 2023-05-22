@@ -3,7 +3,7 @@ from enum import Enum
 from pyVmomi import auth, vim, vmodl
 from datetime import datetime
 from pyVmomi.VmomiSupport import ManagedObject
-from . import provider, storage
+from . import fault, provider, storage
 
 
 class ServiceInstance(ManagedObject):
