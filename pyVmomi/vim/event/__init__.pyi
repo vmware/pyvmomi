@@ -110,11 +110,12 @@ class AlarmClearedEvent(AlarmEvent):
     @entity.setter
     def entity(self, value: ManagedEntityEventArgument):
         self._entity = value
-    @property
-    def from(self) -> str: ...
-    @from.setter
-    def from(self, value: str):
-        self._from = value
+    # "from" is available at runtime but excluded from the type hints to pass static code checks.
+    # @property
+    # def from(self) -> str: ...
+    # @from.setter
+    # def from(self, value: str):
+        # self._from = value
 
 
 class AlarmCreatedEvent(AlarmEvent):
@@ -256,11 +257,12 @@ class AlarmStatusChangedEvent(AlarmEvent):
     @entity.setter
     def entity(self, value: ManagedEntityEventArgument):
         self._entity = value
-    @property
-    def from(self) -> str: ...
-    @from.setter
-    def from(self, value: str):
-        self._from = value
+    # "from" is available at runtime but excluded from the type hints to pass static code checks.
+    # @property
+    # def from(self) -> str: ...
+    # @from.setter
+    # def from(self, value: str):
+        # self._from = value
     @property
     def to(self) -> str: ...
     @to.setter

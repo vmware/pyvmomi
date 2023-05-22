@@ -2188,7 +2188,8 @@ class HostSystem(ManagedEntity):
     class StandbyMode(Enum):
         entering = "entering"
         exiting = "exiting"
-        in = "in"
+        # "in" is available at runtime but excluded from the type hints to pass static code checks.
+        # in = "in"
         none = "none"
 
 
