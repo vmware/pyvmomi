@@ -14,30 +14,60 @@ class ServiceInstance(ManagedObject):
 class AboutInfo(vmodl.DynamicData):
     @property
     def name(self) -> str: ...
+    @name.setter
+    def name(self, value: str):
+        self._name = value
     @property
     def version(self) -> str: ...
+    @version.setter
+    def version(self, value: str):
+        self._version = value
     @property
     def instanceUuid(self) -> str: ...
+    @instanceUuid.setter
+    def instanceUuid(self, value: str):
+        self._instanceUuid = value
 
 
 class ExtendedElementDescription(vmodl.DynamicData):
     @property
     def label(self) -> str: ...
+    @label.setter
+    def label(self, value: str):
+        self._label = value
     @property
     def summary(self) -> str: ...
+    @summary.setter
+    def summary(self, value: str):
+        self._summary = value
     @property
     def key(self) -> str: ...
+    @key.setter
+    def key(self, value: str):
+        self._key = value
     @property
     def messageCatalogKeyPrefix(self) -> str: ...
+    @messageCatalogKeyPrefix.setter
+    def messageCatalogKeyPrefix(self, value: str):
+        self._messageCatalogKeyPrefix = value
     @property
     def messageArg(self) -> List[vmodl.KeyAnyValue]: ...
+    @messageArg.setter
+    def messageArg(self, value: List[vmodl.KeyAnyValue]):
+        self._messageArg = value
 
 
 class LoggingConfiguration(vmodl.DynamicData):
     @property
     def component(self) -> str: ...
+    @component.setter
+    def component(self, value: str):
+        self._component = value
     @property
     def logLevel(self) -> str: ...
+    @logLevel.setter
+    def logLevel(self, value: str):
+        self._logLevel = value
 
 
     class Component(Enum):
@@ -60,10 +90,19 @@ class LoggingConfiguration(vmodl.DynamicData):
 class ServerObjectRef(vmodl.DynamicData):
     @property
     def objectType(self) -> str: ...
+    @objectType.setter
+    def objectType(self, value: str):
+        self._objectType = value
     @property
     def key(self) -> str: ...
+    @key.setter
+    def key(self, value: str):
+        self._key = value
     @property
     def serverUuid(self) -> str: ...
+    @serverUuid.setter
+    def serverUuid(self, value: str):
+        self._serverUuid = value
 
 
     class ObjectType(Enum):
@@ -88,18 +127,39 @@ class ServerObjectRef(vmodl.DynamicData):
 class ServiceInstanceContent(vmodl.DynamicData):
     @property
     def aboutInfo(self) -> AboutInfo: ...
+    @aboutInfo.setter
+    def aboutInfo(self, value: AboutInfo):
+        self._aboutInfo = value
     @property
     def sessionManager(self) -> auth.SessionManager: ...
+    @sessionManager.setter
+    def sessionManager(self, value: auth.SessionManager):
+        self._sessionManager = value
     @property
     def capabilityMetadataManager(self) -> capability.CapabilityMetadataManager: ...
+    @capabilityMetadataManager.setter
+    def capabilityMetadataManager(self, value: capability.CapabilityMetadataManager):
+        self._capabilityMetadataManager = value
     @property
     def profileManager(self) -> profile.ProfileManager: ...
+    @profileManager.setter
+    def profileManager(self, value: profile.ProfileManager):
+        self._profileManager = value
     @property
     def complianceManager(self) -> compliance.ComplianceManager: ...
+    @complianceManager.setter
+    def complianceManager(self, value: compliance.ComplianceManager):
+        self._complianceManager = value
     @property
     def placementSolver(self) -> placement.PlacementSolver: ...
+    @placementSolver.setter
+    def placementSolver(self, value: placement.PlacementSolver):
+        self._placementSolver = value
     @property
     def replicationManager(self) -> replication.ReplicationManager: ...
+    @replicationManager.setter
+    def replicationManager(self, value: replication.ReplicationManager):
+        self._replicationManager = value
 
 
 class PbmDebugManager():

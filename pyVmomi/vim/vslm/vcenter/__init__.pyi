@@ -42,21 +42,42 @@ class VStorageObjectManager(vim.vslm.VStorageObjectManagerBase):
 class RetrieveVStorageObjSpec(vmodl.DynamicData):
     @property
     def id(self) -> vim.vslm.ID: ...
+    @id.setter
+    def id(self, value: vim.vslm.ID):
+        self._id = value
     @property
     def datastore(self) -> vim.Datastore: ...
+    @datastore.setter
+    def datastore(self, value: vim.Datastore):
+        self._datastore = value
 
 
 class VStorageObjectAssociations(vmodl.DynamicData):
     @property
     def id(self) -> vim.vslm.ID: ...
+    @id.setter
+    def id(self, value: vim.vslm.ID):
+        self._id = value
     @property
     def vmDiskAssociations(self) -> List[VStorageObjectAssociations.VmDiskAssociations]: ...
+    @vmDiskAssociations.setter
+    def vmDiskAssociations(self, value: List[VStorageObjectAssociations.VmDiskAssociations]):
+        self._vmDiskAssociations = value
     @property
     def fault(self) -> vmodl.MethodFault: ...
+    @fault.setter
+    def fault(self, value: vmodl.MethodFault):
+        self._fault = value
 
 
     class VmDiskAssociations(vmodl.DynamicData):
         @property
         def vmId(self) -> str: ...
+        @vmId.setter
+        def vmId(self, value: str):
+            self._vmId = value
         @property
         def diskKey(self) -> int: ...
+        @diskKey.setter
+        def diskKey(self, value: int):
+            self._diskKey = value

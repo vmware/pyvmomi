@@ -20,9 +20,21 @@ class ProvisioningChecker(ManagedObject):
 class Result(vmodl.DynamicData):
     @property
     def vm(self) -> vim.VirtualMachine: ...
+    @vm.setter
+    def vm(self, value: vim.VirtualMachine):
+        self._vm = value
     @property
     def host(self) -> vim.HostSystem: ...
+    @host.setter
+    def host(self, value: vim.HostSystem):
+        self._host = value
     @property
     def warning(self) -> List[vmodl.MethodFault]: ...
+    @warning.setter
+    def warning(self, value: List[vmodl.MethodFault]):
+        self._warning = value
     @property
     def error(self) -> List[vmodl.MethodFault]: ...
+    @error.setter
+    def error(self, value: List[vmodl.MethodFault]):
+        self._error = value

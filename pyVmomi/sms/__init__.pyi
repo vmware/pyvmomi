@@ -47,23 +47,47 @@ class Task(ManagedObject):
 class AboutInfo(vmodl.DynamicData):
     @property
     def name(self) -> str: ...
+    @name.setter
+    def name(self, value: str):
+        self._name = value
     @property
     def fullName(self) -> str: ...
+    @fullName.setter
+    def fullName(self, value: str):
+        self._fullName = value
     @property
     def vendor(self) -> str: ...
+    @vendor.setter
+    def vendor(self, value: str):
+        self._vendor = value
     @property
     def apiVersion(self) -> str: ...
+    @apiVersion.setter
+    def apiVersion(self, value: str):
+        self._apiVersion = value
     @property
     def instanceUuid(self) -> str: ...
+    @instanceUuid.setter
+    def instanceUuid(self, value: str):
+        self._instanceUuid = value
     @property
     def vasaApiVersion(self) -> str: ...
+    @vasaApiVersion.setter
+    def vasaApiVersion(self, value: str):
+        self._vasaApiVersion = value
 
 
 class EntityReference(vmodl.DynamicData):
     @property
     def id(self) -> str: ...
+    @id.setter
+    def id(self, value: str):
+        self._id = value
     @property
     def type(self) -> EntityReference.EntityType: ...
+    @type.setter
+    def type(self, value: EntityReference.EntityType):
+        self._type = value
 
 
     class EntityType(Enum):
@@ -85,32 +109,65 @@ class EntityReference(vmodl.DynamicData):
 class FaultDomainFilter(vmodl.DynamicData):
     @property
     def providerId(self) -> str: ...
+    @providerId.setter
+    def providerId(self, value: str):
+        self._providerId = value
 
 
 class ReplicationGroupFilter(vmodl.DynamicData):
     @property
     def groupId(self) -> List[vim.vm.replication.ReplicationGroupId]: ...
+    @groupId.setter
+    def groupId(self, value: List[vim.vm.replication.ReplicationGroupId]):
+        self._groupId = value
 
 
 class TaskInfo(vmodl.DynamicData):
     @property
     def key(self) -> str: ...
+    @key.setter
+    def key(self, value: str):
+        self._key = value
     @property
     def task(self) -> Task: ...
+    @task.setter
+    def task(self, value: Task):
+        self._task = value
     @property
     def object(self) -> ManagedObject: ...
+    @object.setter
+    def object(self, value: ManagedObject):
+        self._object = value
     @property
     def error(self) -> vmodl.MethodFault: ...
+    @error.setter
+    def error(self, value: vmodl.MethodFault):
+        self._error = value
     @property
     def result(self) -> object: ...
+    @result.setter
+    def result(self, value: object):
+        self._result = value
     @property
     def startTime(self) -> datetime: ...
+    @startTime.setter
+    def startTime(self, value: datetime):
+        self._startTime = value
     @property
     def completionTime(self) -> datetime: ...
+    @completionTime.setter
+    def completionTime(self, value: datetime):
+        self._completionTime = value
     @property
     def state(self) -> str: ...
+    @state.setter
+    def state(self, value: str):
+        self._state = value
     @property
     def progress(self) -> int: ...
+    @progress.setter
+    def progress(self, value: int):
+        self._progress = value
 
 
     class State(Enum):
