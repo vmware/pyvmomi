@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Literal
 from enum import Enum
 from pyVmomi import vim, vmodl
 from datetime import datetime
@@ -173,9 +173,9 @@ class CryptoManagerKmip(CryptoManager):
         def clusterId(self, value: KeyProviderId):
             self._clusterId = value
         @property
-        def overallStatus(self) -> vim.ManagedEntity.Status: ...
+        def overallStatus(self) -> vim.ManagedEntity.Status | Literal['gray', 'green', 'yellow', 'red']: ...
         @overallStatus.setter
-        def overallStatus(self, value: vim.ManagedEntity.Status):
+        def overallStatus(self, value: vim.ManagedEntity.Status | Literal['gray', 'green', 'yellow', 'red']):
             self._overallStatus = value
         @property
         def managementType(self) -> str: ...
@@ -270,9 +270,9 @@ class CryptoManagerKmip(CryptoManager):
         def name(self, value: str):
             self._name = value
         @property
-        def status(self) -> vim.ManagedEntity.Status: ...
+        def status(self) -> vim.ManagedEntity.Status | Literal['gray', 'green', 'yellow', 'red']: ...
         @status.setter
-        def status(self, value: vim.ManagedEntity.Status):
+        def status(self, value: vim.ManagedEntity.Status | Literal['gray', 'green', 'yellow', 'red']):
             self._status = value
         @property
         def connectionStatus(self) -> str: ...
@@ -532,9 +532,9 @@ class KmipServerStatus(vmodl.DynamicData):
     def name(self, value: str):
         self._name = value
     @property
-    def status(self) -> vim.ManagedEntity.Status: ...
+    def status(self) -> vim.ManagedEntity.Status | Literal['gray', 'green', 'yellow', 'red']: ...
     @status.setter
-    def status(self, value: vim.ManagedEntity.Status):
+    def status(self, value: vim.ManagedEntity.Status | Literal['gray', 'green', 'yellow', 'red']):
         self._status = value
     @property
     def description(self) -> str: ...

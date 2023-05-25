@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Literal
 from enum import Enum
 from pyVmomi import vim, vmodl
 from datetime import datetime
@@ -1499,9 +1499,9 @@ class EventFilterSpec(vmodl.DynamicData):
         def entity(self, value: vim.ManagedEntity):
             self._entity = value
         @property
-        def recursion(self) -> EventFilterSpec.RecursionOption: ...
+        def recursion(self) -> EventFilterSpec.RecursionOption | Literal['self', 'children', 'all']: ...
         @recursion.setter
-        def recursion(self, value: EventFilterSpec.RecursionOption):
+        def recursion(self, value: EventFilterSpec.RecursionOption | Literal['self', 'children', 'all']):
             self._recursion = value
 
 
@@ -3301,14 +3301,14 @@ class VmFailoverFailed(VmEvent):
 
 class VmFaultToleranceStateChangedEvent(VmEvent):
     @property
-    def oldState(self) -> vim.VirtualMachine.FaultToleranceState: ...
+    def oldState(self) -> vim.VirtualMachine.FaultToleranceState | Literal['notConfigured', 'disabled', 'enabled', 'needSecondary', 'starting', 'running']: ...
     @oldState.setter
-    def oldState(self, value: vim.VirtualMachine.FaultToleranceState):
+    def oldState(self, value: vim.VirtualMachine.FaultToleranceState | Literal['notConfigured', 'disabled', 'enabled', 'needSecondary', 'starting', 'running']):
         self._oldState = value
     @property
-    def newState(self) -> vim.VirtualMachine.FaultToleranceState: ...
+    def newState(self) -> vim.VirtualMachine.FaultToleranceState | Literal['notConfigured', 'disabled', 'enabled', 'needSecondary', 'starting', 'running']: ...
     @newState.setter
-    def newState(self, value: vim.VirtualMachine.FaultToleranceState):
+    def newState(self, value: vim.VirtualMachine.FaultToleranceState | Literal['notConfigured', 'disabled', 'enabled', 'needSecondary', 'starting', 'running']):
         self._newState = value
 
 

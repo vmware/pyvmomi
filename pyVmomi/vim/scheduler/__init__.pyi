@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Literal
 from enum import Enum
 from pyVmomi import vim, vmodl
 from datetime import datetime
@@ -58,14 +58,14 @@ class MonthlyByDayTaskScheduler(MonthlyTaskScheduler):
 
 class MonthlyByWeekdayTaskScheduler(MonthlyTaskScheduler):
     @property
-    def offset(self) -> MonthlyByWeekdayTaskScheduler.WeekOfMonth: ...
+    def offset(self) -> MonthlyByWeekdayTaskScheduler.WeekOfMonth | Literal['first', 'second', 'third', 'fourth', 'last']: ...
     @offset.setter
-    def offset(self, value: MonthlyByWeekdayTaskScheduler.WeekOfMonth):
+    def offset(self, value: MonthlyByWeekdayTaskScheduler.WeekOfMonth | Literal['first', 'second', 'third', 'fourth', 'last']):
         self._offset = value
     @property
-    def weekday(self) -> MonthlyByWeekdayTaskScheduler.DayOfWeek: ...
+    def weekday(self) -> MonthlyByWeekdayTaskScheduler.DayOfWeek | Literal['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']: ...
     @weekday.setter
-    def weekday(self, value: MonthlyByWeekdayTaskScheduler.DayOfWeek):
+    def weekday(self, value: MonthlyByWeekdayTaskScheduler.DayOfWeek | Literal['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']):
         self._weekday = value
 
 
@@ -174,9 +174,9 @@ class ScheduledTaskInfo(ScheduledTaskSpec):
     def prevRunTime(self, value: datetime):
         self._prevRunTime = value
     @property
-    def state(self) -> vim.TaskInfo.State: ...
+    def state(self) -> vim.TaskInfo.State | Literal['queued', 'running', 'success', 'error']: ...
     @state.setter
-    def state(self, value: vim.TaskInfo.State):
+    def state(self, value: vim.TaskInfo.State | Literal['queued', 'running', 'success', 'error']):
         self._state = value
     @property
     def error(self) -> vmodl.MethodFault: ...

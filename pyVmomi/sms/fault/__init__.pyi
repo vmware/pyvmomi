@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Literal
 from pyVmomi import sms, vim, vmodl
 from pyVmomi.VmomiSupport import long
 from . import replication
@@ -150,14 +150,14 @@ class QueryExecutionFault(vmodl.MethodFault): ...
 
 class QueryNotSupported(InvalidArgument):
     @property
-    def entityType(self) -> sms.EntityReference.EntityType: ...
+    def entityType(self) -> sms.EntityReference.EntityType | Literal['datacenter', 'resourcePool', 'storagePod', 'cluster', 'vm', 'datastore', 'host', 'vmFile', 'scsiPath', 'scsiTarget', 'scsiVolume', 'scsiAdapter', 'nasMount']: ...
     @entityType.setter
-    def entityType(self, value: sms.EntityReference.EntityType):
+    def entityType(self, value: sms.EntityReference.EntityType | Literal['datacenter', 'resourcePool', 'storagePod', 'cluster', 'vm', 'datastore', 'host', 'vmFile', 'scsiPath', 'scsiTarget', 'scsiVolume', 'scsiAdapter', 'nasMount']):
         self._entityType = value
     @property
-    def relatedEntityType(self) -> sms.EntityReference.EntityType: ...
+    def relatedEntityType(self) -> sms.EntityReference.EntityType | Literal['datacenter', 'resourcePool', 'storagePod', 'cluster', 'vm', 'datastore', 'host', 'vmFile', 'scsiPath', 'scsiTarget', 'scsiVolume', 'scsiAdapter', 'nasMount']: ...
     @relatedEntityType.setter
-    def relatedEntityType(self, value: sms.EntityReference.EntityType):
+    def relatedEntityType(self, value: sms.EntityReference.EntityType | Literal['datacenter', 'resourcePool', 'storagePod', 'cluster', 'vm', 'datastore', 'host', 'vmFile', 'scsiPath', 'scsiTarget', 'scsiVolume', 'scsiAdapter', 'nasMount']):
         self._relatedEntityType = value
 
 

@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Literal
 from enum import Enum
 from pyVmomi import vim, vmodl
 from pyVmomi.VmomiSupport import PropertyPath, binary, long, short
@@ -499,14 +499,14 @@ class VirtualDeviceOption(vmodl.DynamicData):
 
 class VirtualDeviceSpec(vmodl.DynamicData):
     @property
-    def operation(self) -> VirtualDeviceSpec.Operation: ...
+    def operation(self) -> VirtualDeviceSpec.Operation | Literal['add', 'remove', 'edit']: ...
     @operation.setter
-    def operation(self, value: VirtualDeviceSpec.Operation):
+    def operation(self, value: VirtualDeviceSpec.Operation | Literal['add', 'remove', 'edit']):
         self._operation = value
     @property
-    def fileOperation(self) -> VirtualDeviceSpec.FileOperation: ...
+    def fileOperation(self) -> VirtualDeviceSpec.FileOperation | Literal['create', 'destroy', 'replace']: ...
     @fileOperation.setter
-    def fileOperation(self, value: VirtualDeviceSpec.FileOperation):
+    def fileOperation(self, value: VirtualDeviceSpec.FileOperation | Literal['create', 'destroy', 'replace']):
         self._fileOperation = value
     @property
     def device(self) -> VirtualDevice: ...
@@ -1976,9 +1976,9 @@ class VirtualSCSIController(VirtualController):
     def hotAddRemove(self, value: bool):
         self._hotAddRemove = value
     @property
-    def sharedBus(self) -> VirtualSCSIController.Sharing: ...
+    def sharedBus(self) -> VirtualSCSIController.Sharing | Literal['noSharing', 'virtualSharing', 'physicalSharing']: ...
     @sharedBus.setter
-    def sharedBus(self, value: VirtualSCSIController.Sharing):
+    def sharedBus(self, value: VirtualSCSIController.Sharing | Literal['noSharing', 'virtualSharing', 'physicalSharing']):
         self._sharedBus = value
     @property
     def scsiCtlrUnitNumber(self) -> int: ...

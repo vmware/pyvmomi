@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Literal
 from enum import Enum
 from pyVmomi import ClusterStatus, DecommissionMode, DiskMapping, DiskResult, VsanDiskInfo, VsanRuntimeInfo, vim, vmodl
 from datetime import datetime
@@ -71,9 +71,9 @@ class AutoStartManager(ManagedObject):
         def startDelay(self, value: int):
             self._startDelay = value
         @property
-        def waitForHeartbeat(self) -> AutoStartManager.AutoPowerInfo.WaitHeartbeatSetting: ...
+        def waitForHeartbeat(self) -> AutoStartManager.AutoPowerInfo.WaitHeartbeatSetting | Literal['yes', 'no', 'systemDefault']: ...
         @waitForHeartbeat.setter
-        def waitForHeartbeat(self, value: AutoStartManager.AutoPowerInfo.WaitHeartbeatSetting):
+        def waitForHeartbeat(self, value: AutoStartManager.AutoPowerInfo.WaitHeartbeatSetting | Literal['yes', 'no', 'systemDefault']):
             self._waitForHeartbeat = value
         @property
         def startAction(self) -> str: ...
@@ -840,14 +840,14 @@ class HealthStatusSystem(ManagedObject):
 
 class HostAccessManager(ManagedObject):
     @property
-    def lockdownMode(self) -> HostAccessManager.LockdownMode: ...
+    def lockdownMode(self) -> HostAccessManager.LockdownMode | Literal['lockdownDisabled', 'lockdownNormal', 'lockdownStrict']: ...
     def RetrieveAccessEntries(self) -> List[HostAccessManager.AccessEntry]: ...
-    def ChangeAccessMode(self, principal: str, isGroup: bool, accessMode: HostAccessManager.AccessMode) -> NoneType: ...
+    def ChangeAccessMode(self, principal: str, isGroup: bool, accessMode: HostAccessManager.AccessMode | Literal['accessNone', 'accessAdmin', 'accessNoAccess', 'accessReadOnly', 'accessOther']) -> NoneType: ...
     def QuerySystemUsers(self) -> List[str]: ...
     def UpdateSystemUsers(self, users: List[str]) -> NoneType: ...
     def QueryLockdownExceptions(self) -> List[str]: ...
     def UpdateLockdownExceptions(self, users: List[str]) -> NoneType: ...
-    def ChangeLockdownMode(self, mode: HostAccessManager.LockdownMode) -> NoneType: ...
+    def ChangeLockdownMode(self, mode: HostAccessManager.LockdownMode | Literal['lockdownDisabled', 'lockdownNormal', 'lockdownStrict']) -> NoneType: ...
 
 
     class AccessEntry(vmodl.DynamicData):
@@ -862,9 +862,9 @@ class HostAccessManager(ManagedObject):
         def group(self, value: bool):
             self._group = value
         @property
-        def accessMode(self) -> HostAccessManager.AccessMode: ...
+        def accessMode(self) -> HostAccessManager.AccessMode | Literal['accessNone', 'accessAdmin', 'accessNoAccess', 'accessReadOnly', 'accessOther']: ...
         @accessMode.setter
-        def accessMode(self, value: HostAccessManager.AccessMode):
+        def accessMode(self, value: HostAccessManager.AccessMode | Literal['accessNone', 'accessAdmin', 'accessNoAccess', 'accessReadOnly', 'accessOther']):
             self._accessMode = value
 
 
@@ -2014,9 +2014,9 @@ class SnmpSystem(ManagedObject):
         def maxBufferSize(self, value: int):
             self._maxBufferSize = value
         @property
-        def capability(self) -> SnmpSystem.AgentLimits.Capability: ...
+        def capability(self) -> SnmpSystem.AgentLimits.Capability | Literal['COMPLETE', 'DIAGNOSTICS', 'CONFIGURATION']: ...
         @capability.setter
-        def capability(self, value: SnmpSystem.AgentLimits.Capability):
+        def capability(self, value: SnmpSystem.AgentLimits.Capability | Literal['COMPLETE', 'DIAGNOSTICS', 'CONFIGURATION']):
             self._capability = value
 
 
@@ -3733,9 +3733,9 @@ class ConfigInfo(vmodl.DynamicData):
     def adminDisabled(self, value: bool):
         self._adminDisabled = value
     @property
-    def lockdownMode(self) -> HostAccessManager.LockdownMode: ...
+    def lockdownMode(self) -> HostAccessManager.LockdownMode | Literal['lockdownDisabled', 'lockdownNormal', 'lockdownStrict']: ...
     @lockdownMode.setter
-    def lockdownMode(self, value: HostAccessManager.LockdownMode):
+    def lockdownMode(self, value: HostAccessManager.LockdownMode | Literal['lockdownDisabled', 'lockdownNormal', 'lockdownStrict']):
         self._lockdownMode = value
     @property
     def ipmi(self) -> IpmiInfo: ...
@@ -4328,9 +4328,9 @@ class ConnectSpec(vmodl.DynamicData):
     def managementIp(self, value: str):
         self._managementIp = value
     @property
-    def lockdownMode(self) -> HostAccessManager.LockdownMode: ...
+    def lockdownMode(self) -> HostAccessManager.LockdownMode | Literal['lockdownDisabled', 'lockdownNormal', 'lockdownStrict']: ...
     @lockdownMode.setter
-    def lockdownMode(self, value: HostAccessManager.LockdownMode):
+    def lockdownMode(self, value: HostAccessManager.LockdownMode | Literal['lockdownDisabled', 'lockdownNormal', 'lockdownStrict']):
         self._lockdownMode = value
     @property
     def hostGateway(self) -> GatewaySpec: ...
@@ -5255,9 +5255,9 @@ class FibreChannelHba(HostBusAdapter):
     def nodeWorldWideName(self, value: long):
         self._nodeWorldWideName = value
     @property
-    def portType(self) -> FibreChannelHba.PortType: ...
+    def portType(self) -> FibreChannelHba.PortType | Literal['fabric', 'loop', 'pointToPoint', 'unknown']: ...
     @portType.setter
-    def portType(self, value: FibreChannelHba.PortType):
+    def portType(self, value: FibreChannelHba.PortType | Literal['fabric', 'loop', 'pointToPoint', 'unknown']):
         self._portType = value
     @property
     def speed(self) -> long: ...
@@ -6109,9 +6109,9 @@ class InternetScsiHba(HostBusAdapter):
     def canBeDisabled(self, value: bool):
         self._canBeDisabled = value
     @property
-    def networkBindingSupport(self) -> InternetScsiHba.NetworkBindingSupportType: ...
+    def networkBindingSupport(self) -> InternetScsiHba.NetworkBindingSupportType | Literal['notsupported', 'optional', 'required']: ...
     @networkBindingSupport.setter
-    def networkBindingSupport(self, value: InternetScsiHba.NetworkBindingSupportType):
+    def networkBindingSupport(self, value: InternetScsiHba.NetworkBindingSupportType | Literal['notsupported', 'optional', 'required']):
         self._networkBindingSupport = value
     @property
     def discoveryCapabilities(self) -> InternetScsiHba.DiscoveryCapabilities: ...
@@ -10058,14 +10058,14 @@ class Ruleset(vmodl.DynamicData):
         def endPort(self, value: int):
             self._endPort = value
         @property
-        def direction(self) -> Ruleset.Rule.Direction: ...
+        def direction(self) -> Ruleset.Rule.Direction | Literal['inbound', 'outbound']: ...
         @direction.setter
-        def direction(self, value: Ruleset.Rule.Direction):
+        def direction(self, value: Ruleset.Rule.Direction | Literal['inbound', 'outbound']):
             self._direction = value
         @property
-        def portType(self) -> Ruleset.Rule.PortType: ...
+        def portType(self) -> Ruleset.Rule.PortType | Literal['src', 'dst']: ...
         @portType.setter
-        def portType(self, value: Ruleset.Rule.PortType):
+        def portType(self, value: Ruleset.Rule.PortType | Literal['src', 'dst']):
             self._portType = value
         @property
         def protocol(self) -> str: ...
@@ -10089,14 +10089,14 @@ class Ruleset(vmodl.DynamicData):
 
 class RuntimeInfo(vmodl.DynamicData):
     @property
-    def connectionState(self) -> vim.HostSystem.ConnectionState: ...
+    def connectionState(self) -> vim.HostSystem.ConnectionState | Literal['connected', 'notResponding', 'disconnected']: ...
     @connectionState.setter
-    def connectionState(self, value: vim.HostSystem.ConnectionState):
+    def connectionState(self, value: vim.HostSystem.ConnectionState | Literal['connected', 'notResponding', 'disconnected']):
         self._connectionState = value
     @property
-    def powerState(self) -> vim.HostSystem.PowerState: ...
+    def powerState(self) -> vim.HostSystem.PowerState | Literal['poweredOn', 'poweredOff', 'standBy', 'unknown']: ...
     @powerState.setter
-    def powerState(self, value: vim.HostSystem.PowerState):
+    def powerState(self, value: vim.HostSystem.PowerState | Literal['poweredOn', 'poweredOff', 'standBy', 'unknown']):
         self._powerState = value
     @property
     def standbyMode(self) -> str: ...
@@ -11176,9 +11176,9 @@ class Summary(vmodl.DynamicData):
     def quickStats(self, value: Summary.QuickStats):
         self._quickStats = value
     @property
-    def overallStatus(self) -> vim.ManagedEntity.Status: ...
+    def overallStatus(self) -> vim.ManagedEntity.Status | Literal['gray', 'green', 'yellow', 'red']: ...
     @overallStatus.setter
-    def overallStatus(self, value: vim.ManagedEntity.Status):
+    def overallStatus(self, value: vim.ManagedEntity.Status | Literal['gray', 'green', 'yellow', 'red']):
         self._overallStatus = value
     @property
     def rebootRequired(self) -> bool: ...
@@ -11564,9 +11564,9 @@ class TpmAttestationInfo(vmodl.DynamicData):
     def time(self, value: datetime):
         self._time = value
     @property
-    def status(self) -> TpmAttestationInfo.AcceptanceStatus: ...
+    def status(self) -> TpmAttestationInfo.AcceptanceStatus | Literal['notAccepted', 'accepted']: ...
     @status.setter
-    def status(self, value: TpmAttestationInfo.AcceptanceStatus):
+    def status(self, value: TpmAttestationInfo.AcceptanceStatus | Literal['notAccepted', 'accepted']):
         self._status = value
     @property
     def message(self) -> vmodl.LocalizableMessage: ...

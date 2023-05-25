@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Literal
 from enum import Enum
 from pyVmomi import vim, vmodl
 from datetime import datetime
@@ -729,9 +729,9 @@ class DasVmConfigInfo(vmodl.DynamicData):
     def key(self, value: vim.VirtualMachine):
         self._key = value
     @property
-    def restartPriority(self) -> DasVmConfigInfo.Priority: ...
+    def restartPriority(self) -> DasVmConfigInfo.Priority | Literal['disabled', 'low', 'medium', 'high']: ...
     @restartPriority.setter
-    def restartPriority(self, value: DasVmConfigInfo.Priority):
+    def restartPriority(self, value: DasVmConfigInfo.Priority | Literal['disabled', 'low', 'medium', 'high']):
         self._restartPriority = value
     @property
     def powerOffOnIsolation(self) -> bool: ...
@@ -833,9 +833,9 @@ class DpmConfigInfo(vmodl.DynamicData):
     def enabled(self, value: bool):
         self._enabled = value
     @property
-    def defaultDpmBehavior(self) -> DpmConfigInfo.DpmBehavior: ...
+    def defaultDpmBehavior(self) -> DpmConfigInfo.DpmBehavior | Literal['manual', 'automated']: ...
     @defaultDpmBehavior.setter
-    def defaultDpmBehavior(self, value: DpmConfigInfo.DpmBehavior):
+    def defaultDpmBehavior(self, value: DpmConfigInfo.DpmBehavior | Literal['manual', 'automated']):
         self._defaultDpmBehavior = value
     @property
     def hostPowerActionRate(self) -> int: ...
@@ -866,9 +866,9 @@ class DpmHostConfigInfo(vmodl.DynamicData):
     def enabled(self, value: bool):
         self._enabled = value
     @property
-    def behavior(self) -> DpmConfigInfo.DpmBehavior: ...
+    def behavior(self) -> DpmConfigInfo.DpmBehavior | Literal['manual', 'automated']: ...
     @behavior.setter
-    def behavior(self, value: DpmConfigInfo.DpmBehavior):
+    def behavior(self, value: DpmConfigInfo.DpmBehavior | Literal['manual', 'automated']):
         self._behavior = value
 
 
@@ -892,9 +892,9 @@ class DrsConfigInfo(vmodl.DynamicData):
     def enableVmBehaviorOverrides(self, value: bool):
         self._enableVmBehaviorOverrides = value
     @property
-    def defaultVmBehavior(self) -> DrsConfigInfo.DrsBehavior: ...
+    def defaultVmBehavior(self) -> DrsConfigInfo.DrsBehavior | Literal['manual', 'partiallyAutomated', 'fullyAutomated']: ...
     @defaultVmBehavior.setter
-    def defaultVmBehavior(self, value: DrsConfigInfo.DrsBehavior):
+    def defaultVmBehavior(self, value: DrsConfigInfo.DrsBehavior | Literal['manual', 'partiallyAutomated', 'fullyAutomated']):
         self._defaultVmBehavior = value
     @property
     def vmotionRate(self) -> int: ...
@@ -1059,9 +1059,9 @@ class DrsVmConfigInfo(vmodl.DynamicData):
     def enabled(self, value: bool):
         self._enabled = value
     @property
-    def behavior(self) -> DrsConfigInfo.DrsBehavior: ...
+    def behavior(self) -> DrsConfigInfo.DrsBehavior | Literal['manual', 'partiallyAutomated', 'fullyAutomated']: ...
     @behavior.setter
-    def behavior(self, value: DrsConfigInfo.DrsBehavior):
+    def behavior(self, value: DrsConfigInfo.DrsBehavior | Literal['manual', 'partiallyAutomated', 'fullyAutomated']):
         self._behavior = value
 
 
@@ -1101,9 +1101,9 @@ class FailoverHostAdmissionControlInfo(DasAdmissionControlInfo):
         def host(self, value: vim.HostSystem):
             self._host = value
         @property
-        def status(self) -> vim.ManagedEntity.Status: ...
+        def status(self) -> vim.ManagedEntity.Status | Literal['gray', 'green', 'yellow', 'red']: ...
         @status.setter
-        def status(self, value: vim.ManagedEntity.Status):
+        def status(self, value: vim.ManagedEntity.Status | Literal['gray', 'green', 'yellow', 'red']):
             self._status = value
 
 
@@ -1255,9 +1255,9 @@ class HostInfraUpdateHaModeAction(Action):
 
 class HostPowerAction(Action):
     @property
-    def operationType(self) -> HostPowerAction.OperationType: ...
+    def operationType(self) -> HostPowerAction.OperationType | Literal['powerOn', 'powerOff']: ...
     @operationType.setter
-    def operationType(self, value: HostPowerAction.OperationType):
+    def operationType(self, value: HostPowerAction.OperationType | Literal['powerOn', 'powerOff']):
         self._operationType = value
     @property
     def powerConsumptionWatt(self) -> int: ...
@@ -1402,9 +1402,9 @@ class PlacementResult(vmodl.DynamicData):
 
 class PlacementSpec(vmodl.DynamicData):
     @property
-    def priority(self) -> vim.VirtualMachine.MovePriority: ...
+    def priority(self) -> vim.VirtualMachine.MovePriority | Literal['lowPriority', 'highPriority', 'defaultPriority']: ...
     @priority.setter
-    def priority(self, value: vim.VirtualMachine.MovePriority):
+    def priority(self, value: vim.VirtualMachine.MovePriority | Literal['lowPriority', 'highPriority', 'defaultPriority']):
         self._priority = value
     @property
     def vm(self) -> vim.VirtualMachine: ...
@@ -1639,9 +1639,9 @@ class RuleInfo(vmodl.DynamicData):
     def key(self, value: int):
         self._key = value
     @property
-    def status(self) -> vim.ManagedEntity.Status: ...
+    def status(self) -> vim.ManagedEntity.Status | Literal['gray', 'green', 'yellow', 'red']: ...
     @status.setter
-    def status(self, value: vim.ManagedEntity.Status):
+    def status(self, value: vim.ManagedEntity.Status | Literal['gray', 'green', 'yellow', 'red']):
         self._status = value
     @property
     def enabled(self) -> bool: ...

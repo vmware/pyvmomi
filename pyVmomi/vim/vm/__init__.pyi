@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Literal
 from enum import Enum
 from pyVmomi import vim, vmodl
 from datetime import datetime
@@ -2401,9 +2401,9 @@ class ForkConfigInfo(vmodl.DynamicData):
 
 class GuestInfo(vmodl.DynamicData):
     @property
-    def toolsStatus(self) -> GuestInfo.ToolsStatus: ...
+    def toolsStatus(self) -> GuestInfo.ToolsStatus | Literal['toolsNotInstalled', 'toolsNotRunning', 'toolsOld', 'toolsOk']: ...
     @toolsStatus.setter
-    def toolsStatus(self, value: GuestInfo.ToolsStatus):
+    def toolsStatus(self, value: GuestInfo.ToolsStatus | Literal['toolsNotInstalled', 'toolsNotRunning', 'toolsOld', 'toolsOk']):
         self._toolsStatus = value
     @property
     def toolsVersionStatus(self) -> str: ...
@@ -3652,9 +3652,9 @@ class RelocateSpec(vmodl.DynamicData):
     def disk(self, value: List[RelocateSpec.DiskLocator]):
         self._disk = value
     @property
-    def transform(self) -> RelocateSpec.Transformation: ...
+    def transform(self) -> RelocateSpec.Transformation | Literal['flat', 'sparse']: ...
     @transform.setter
-    def transform(self, value: RelocateSpec.Transformation):
+    def transform(self, value: RelocateSpec.Transformation | Literal['flat', 'sparse']):
         self._transform = value
     @property
     def deviceChange(self) -> List[device.VirtualDeviceSpec]: ...
@@ -3840,14 +3840,14 @@ class RuntimeInfo(vmodl.DynamicData):
     def host(self, value: vim.HostSystem):
         self._host = value
     @property
-    def connectionState(self) -> vim.VirtualMachine.ConnectionState: ...
+    def connectionState(self) -> vim.VirtualMachine.ConnectionState | Literal['connected', 'disconnected', 'orphaned', 'inaccessible', 'invalid']: ...
     @connectionState.setter
-    def connectionState(self, value: vim.VirtualMachine.ConnectionState):
+    def connectionState(self, value: vim.VirtualMachine.ConnectionState | Literal['connected', 'disconnected', 'orphaned', 'inaccessible', 'invalid']):
         self._connectionState = value
     @property
-    def powerState(self) -> vim.VirtualMachine.PowerState: ...
+    def powerState(self) -> vim.VirtualMachine.PowerState | Literal['poweredOff', 'poweredOn', 'suspended']: ...
     @powerState.setter
-    def powerState(self, value: vim.VirtualMachine.PowerState):
+    def powerState(self, value: vim.VirtualMachine.PowerState | Literal['poweredOff', 'poweredOn', 'suspended']):
         self._powerState = value
     @property
     def vmFailoverInProgress(self) -> bool: ...
@@ -3855,9 +3855,9 @@ class RuntimeInfo(vmodl.DynamicData):
     def vmFailoverInProgress(self, value: bool):
         self._vmFailoverInProgress = value
     @property
-    def faultToleranceState(self) -> vim.VirtualMachine.FaultToleranceState: ...
+    def faultToleranceState(self) -> vim.VirtualMachine.FaultToleranceState | Literal['notConfigured', 'disabled', 'enabled', 'needSecondary', 'starting', 'running']: ...
     @faultToleranceState.setter
-    def faultToleranceState(self, value: vim.VirtualMachine.FaultToleranceState):
+    def faultToleranceState(self, value: vim.VirtualMachine.FaultToleranceState | Literal['notConfigured', 'disabled', 'enabled', 'needSecondary', 'starting', 'running']):
         self._faultToleranceState = value
     @property
     def dasVmProtection(self) -> RuntimeInfo.DasProtectionState: ...
@@ -3910,9 +3910,9 @@ class RuntimeInfo(vmodl.DynamicData):
     def numMksConnections(self, value: int):
         self._numMksConnections = value
     @property
-    def recordReplayState(self) -> vim.VirtualMachine.RecordReplayState: ...
+    def recordReplayState(self) -> vim.VirtualMachine.RecordReplayState | Literal['recording', 'replaying', 'inactive']: ...
     @recordReplayState.setter
-    def recordReplayState(self, value: vim.VirtualMachine.RecordReplayState):
+    def recordReplayState(self, value: vim.VirtualMachine.RecordReplayState | Literal['recording', 'replaying', 'inactive']):
         self._recordReplayState = value
     @property
     def cleanPowerOff(self) -> bool: ...
@@ -4195,9 +4195,9 @@ class SnapshotTree(vmodl.DynamicData):
     def createTime(self, value: datetime):
         self._createTime = value
     @property
-    def state(self) -> vim.VirtualMachine.PowerState: ...
+    def state(self) -> vim.VirtualMachine.PowerState | Literal['poweredOff', 'poweredOn', 'suspended']: ...
     @state.setter
-    def state(self, value: vim.VirtualMachine.PowerState):
+    def state(self, value: vim.VirtualMachine.PowerState | Literal['poweredOff', 'poweredOn', 'suspended']):
         self._state = value
     @property
     def quiesced(self) -> bool: ...
@@ -4331,9 +4331,9 @@ class Summary(vmodl.DynamicData):
     def quickStats(self, value: Summary.QuickStats):
         self._quickStats = value
     @property
-    def overallStatus(self) -> vim.ManagedEntity.Status: ...
+    def overallStatus(self) -> vim.ManagedEntity.Status | Literal['gray', 'green', 'yellow', 'red']: ...
     @overallStatus.setter
-    def overallStatus(self, value: vim.ManagedEntity.Status):
+    def overallStatus(self, value: vim.ManagedEntity.Status | Literal['gray', 'green', 'yellow', 'red']):
         self._overallStatus = value
     @property
     def customValue(self) -> List[vim.CustomFieldsManager.Value]: ...
@@ -4462,9 +4462,9 @@ class Summary(vmodl.DynamicData):
         def guestFullName(self, value: str):
             self._guestFullName = value
         @property
-        def toolsStatus(self) -> GuestInfo.ToolsStatus: ...
+        def toolsStatus(self) -> GuestInfo.ToolsStatus | Literal['toolsNotInstalled', 'toolsNotRunning', 'toolsOld', 'toolsOk']: ...
         @toolsStatus.setter
-        def toolsStatus(self, value: GuestInfo.ToolsStatus):
+        def toolsStatus(self, value: GuestInfo.ToolsStatus | Literal['toolsNotInstalled', 'toolsNotRunning', 'toolsOld', 'toolsOk']):
             self._toolsStatus = value
         @property
         def toolsVersionStatus(self) -> str: ...
@@ -4525,9 +4525,9 @@ class Summary(vmodl.DynamicData):
         def hostMemoryUsage(self, value: int):
             self._hostMemoryUsage = value
         @property
-        def guestHeartbeatStatus(self) -> vim.ManagedEntity.Status: ...
+        def guestHeartbeatStatus(self) -> vim.ManagedEntity.Status | Literal['gray', 'green', 'yellow', 'red']: ...
         @guestHeartbeatStatus.setter
-        def guestHeartbeatStatus(self, value: vim.ManagedEntity.Status):
+        def guestHeartbeatStatus(self, value: vim.ManagedEntity.Status | Literal['gray', 'green', 'yellow', 'red']):
             self._guestHeartbeatStatus = value
         @property
         def distributedCpuEntitlement(self) -> int: ...
@@ -4590,9 +4590,9 @@ class Summary(vmodl.DynamicData):
         def ftSecondaryLatency(self, value: int):
             self._ftSecondaryLatency = value
         @property
-        def ftLatencyStatus(self) -> vim.ManagedEntity.Status: ...
+        def ftLatencyStatus(self) -> vim.ManagedEntity.Status | Literal['gray', 'green', 'yellow', 'red']: ...
         @ftLatencyStatus.setter
-        def ftLatencyStatus(self, value: vim.ManagedEntity.Status):
+        def ftLatencyStatus(self, value: vim.ManagedEntity.Status | Literal['gray', 'green', 'yellow', 'red']):
             self._ftLatencyStatus = value
         @property
         def compressedMemory(self) -> long: ...

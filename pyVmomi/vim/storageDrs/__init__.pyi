@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Literal
 from enum import Enum
 from pyVmomi import vim, vmodl
 from pyVmomi.VmomiSupport import double, long
@@ -600,9 +600,9 @@ class StoragePlacementSpec(vmodl.DynamicData):
     def type(self, value: str):
         self._type = value
     @property
-    def priority(self) -> vim.VirtualMachine.MovePriority: ...
+    def priority(self) -> vim.VirtualMachine.MovePriority | Literal['lowPriority', 'highPriority', 'defaultPriority']: ...
     @priority.setter
-    def priority(self, value: vim.VirtualMachine.MovePriority):
+    def priority(self, value: vim.VirtualMachine.MovePriority | Literal['lowPriority', 'highPriority', 'defaultPriority']):
         self._priority = value
     @property
     def vm(self) -> vim.VirtualMachine: ...

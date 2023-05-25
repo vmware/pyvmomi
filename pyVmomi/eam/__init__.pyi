@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Literal
 from enum import Enum
 from pyVmomi import eam, vim, vmodl
 from pyVmomi.VmomiSupport import ManagedObject, NoneType
@@ -257,9 +257,9 @@ class Agent(EamObject):
 
     class RuntimeInfo(EamObject.RuntimeInfo):
         @property
-        def vmPowerState(self) -> vim.VirtualMachine.PowerState: ...
+        def vmPowerState(self) -> vim.VirtualMachine.PowerState | Literal['poweredOff', 'poweredOn', 'suspended']: ...
         @vmPowerState.setter
-        def vmPowerState(self, value: vim.VirtualMachine.PowerState):
+        def vmPowerState(self, value: vim.VirtualMachine.PowerState | Literal['poweredOff', 'poweredOn', 'suspended']):
             self._vmPowerState = value
         @property
         def receivingHeartBeat(self) -> bool: ...

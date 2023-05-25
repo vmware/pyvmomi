@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Literal
 from enum import Enum
 from pyVmomi import vim, vmodl
 from datetime import datetime
@@ -223,9 +223,9 @@ class AlarmState(vmodl.DynamicData):
     def alarm(self, value: Alarm):
         self._alarm = value
     @property
-    def overallStatus(self) -> vim.ManagedEntity.Status: ...
+    def overallStatus(self) -> vim.ManagedEntity.Status | Literal['gray', 'green', 'yellow', 'red']: ...
     @overallStatus.setter
-    def overallStatus(self, value: vim.ManagedEntity.Status):
+    def overallStatus(self, value: vim.ManagedEntity.Status | Literal['gray', 'green', 'yellow', 'red']):
         self._overallStatus = value
     @property
     def time(self) -> datetime: ...
@@ -294,14 +294,14 @@ class AlarmTriggeringAction(AlarmAction):
 
     class TransitionSpec(vmodl.DynamicData):
         @property
-        def startState(self) -> vim.ManagedEntity.Status: ...
+        def startState(self) -> vim.ManagedEntity.Status | Literal['gray', 'green', 'yellow', 'red']: ...
         @startState.setter
-        def startState(self, value: vim.ManagedEntity.Status):
+        def startState(self, value: vim.ManagedEntity.Status | Literal['gray', 'green', 'yellow', 'red']):
             self._startState = value
         @property
-        def finalState(self) -> vim.ManagedEntity.Status: ...
+        def finalState(self) -> vim.ManagedEntity.Status | Literal['gray', 'green', 'yellow', 'red']: ...
         @finalState.setter
-        def finalState(self, value: vim.ManagedEntity.Status):
+        def finalState(self, value: vim.ManagedEntity.Status | Literal['gray', 'green', 'yellow', 'red']):
             self._finalState = value
         @property
         def repeats(self) -> bool: ...
@@ -340,9 +340,9 @@ class EventAlarmExpression(AlarmExpression):
     def objectType(self, value: type):
         self._objectType = value
     @property
-    def status(self) -> vim.ManagedEntity.Status: ...
+    def status(self) -> vim.ManagedEntity.Status | Literal['gray', 'green', 'yellow', 'red']: ...
     @status.setter
-    def status(self, value: vim.ManagedEntity.Status):
+    def status(self, value: vim.ManagedEntity.Status | Literal['gray', 'green', 'yellow', 'red']):
         self._status = value
 
 
@@ -383,9 +383,9 @@ class GroupAlarmAction(AlarmAction):
 
 class MetricAlarmExpression(AlarmExpression):
     @property
-    def operator(self) -> MetricAlarmExpression.MetricOperator: ...
+    def operator(self) -> MetricAlarmExpression.MetricOperator | Literal['isAbove', 'isBelow']: ...
     @operator.setter
-    def operator(self, value: MetricAlarmExpression.MetricOperator):
+    def operator(self, value: MetricAlarmExpression.MetricOperator | Literal['isAbove', 'isBelow']):
         self._operator = value
     @property
     def type(self) -> type: ...
@@ -434,9 +434,9 @@ class OrAlarmExpression(AlarmExpression):
 
 class StateAlarmExpression(AlarmExpression):
     @property
-    def operator(self) -> StateAlarmExpression.StateOperator: ...
+    def operator(self) -> StateAlarmExpression.StateOperator | Literal['isEqual', 'isUnequal']: ...
     @operator.setter
-    def operator(self, value: StateAlarmExpression.StateOperator):
+    def operator(self, value: StateAlarmExpression.StateOperator | Literal['isEqual', 'isUnequal']):
         self._operator = value
     @property
     def type(self) -> type: ...

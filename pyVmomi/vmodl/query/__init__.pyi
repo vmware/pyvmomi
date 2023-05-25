@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Literal
 from enum import Enum
 from pyVmomi import vmodl
 from pyVmomi.VmomiSupport import ManagedObject, NoneType, PropertyPath
@@ -35,9 +35,9 @@ class PropertyCollector(ManagedObject):
         def name(self, value: PropertyPath):
             self._name = value
         @property
-        def op(self) -> PropertyCollector.Change.Op: ...
+        def op(self) -> PropertyCollector.Change.Op | Literal['add', 'remove', 'assign', 'indirectRemove']: ...
         @op.setter
-        def op(self, value: PropertyCollector.Change.Op):
+        def op(self, value: PropertyCollector.Change.Op | Literal['add', 'remove', 'assign', 'indirectRemove']):
             self._op = value
         @property
         def val(self) -> object: ...
@@ -153,9 +153,9 @@ class PropertyCollector(ManagedObject):
 
     class ObjectUpdate(vmodl.DynamicData):
         @property
-        def kind(self) -> PropertyCollector.ObjectUpdate.Kind: ...
+        def kind(self) -> PropertyCollector.ObjectUpdate.Kind | Literal['modify', 'enter', 'leave']: ...
         @kind.setter
-        def kind(self, value: PropertyCollector.ObjectUpdate.Kind):
+        def kind(self, value: PropertyCollector.ObjectUpdate.Kind | Literal['modify', 'enter', 'leave']):
             self._kind = value
         @property
         def obj(self) -> ManagedObject: ...

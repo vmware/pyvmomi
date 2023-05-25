@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Literal
 from enum import Enum
 from pyVmomi import vim, vmodl
 from pyVmomi.VmomiSupport import ManagedObject, NoneType, long
@@ -15,9 +15,9 @@ class OptionManager(ManagedObject):
 
 class ArrayUpdateSpec(vmodl.DynamicData):
     @property
-    def operation(self) -> ArrayUpdateSpec.Operation: ...
+    def operation(self) -> ArrayUpdateSpec.Operation | Literal['add', 'remove', 'edit']: ...
     @operation.setter
-    def operation(self, value: ArrayUpdateSpec.Operation):
+    def operation(self, value: ArrayUpdateSpec.Operation | Literal['add', 'remove', 'edit']):
         self._operation = value
     @property
     def removeKey(self) -> object: ...

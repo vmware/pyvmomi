@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Literal
 from enum import Enum
 from pyVmomi import vim, vmodl
 from pyVmomi.VmomiSupport import byte
@@ -178,9 +178,9 @@ class IPSettings(vmodl.DynamicData):
     def secondaryWINS(self, value: str):
         self._secondaryWINS = value
     @property
-    def netBIOS(self) -> IPSettings.NetBIOSMode: ...
+    def netBIOS(self) -> IPSettings.NetBIOSMode | Literal['enableNetBIOSViaDhcp', 'enableNetBIOS', 'disableNetBIOS']: ...
     @netBIOS.setter
-    def netBIOS(self, value: IPSettings.NetBIOSMode):
+    def netBIOS(self, value: IPSettings.NetBIOSMode | Literal['enableNetBIOSViaDhcp', 'enableNetBIOS', 'disableNetBIOS']):
         self._netBIOS = value
 
 
@@ -237,9 +237,9 @@ class IpV6Generator(vmodl.DynamicData): ...
 
 class LicenseFilePrintData(vmodl.DynamicData):
     @property
-    def autoMode(self) -> LicenseFilePrintData.AutoMode: ...
+    def autoMode(self) -> LicenseFilePrintData.AutoMode | Literal['perServer', 'perSeat']: ...
     @autoMode.setter
-    def autoMode(self, value: LicenseFilePrintData.AutoMode):
+    def autoMode(self, value: LicenseFilePrintData.AutoMode | Literal['perServer', 'perSeat']):
         self._autoMode = value
     @property
     def autoUsers(self) -> int: ...
@@ -425,9 +425,9 @@ class WinOptions(Options):
     def deleteAccounts(self, value: bool):
         self._deleteAccounts = value
     @property
-    def reboot(self) -> WinOptions.SysprepRebootOption: ...
+    def reboot(self) -> WinOptions.SysprepRebootOption | Literal['reboot', 'noreboot', 'shutdown']: ...
     @reboot.setter
-    def reboot(self, value: WinOptions.SysprepRebootOption):
+    def reboot(self, value: WinOptions.SysprepRebootOption | Literal['reboot', 'noreboot', 'shutdown']):
         self._reboot = value
 
 

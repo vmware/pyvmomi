@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Literal
 from enum import Enum
 from pyVmomi import auth, vim, vmodl
 from datetime import datetime
@@ -84,9 +84,9 @@ class EntityReference(vmodl.DynamicData):
     def id(self, value: str):
         self._id = value
     @property
-    def type(self) -> EntityReference.EntityType: ...
+    def type(self) -> EntityReference.EntityType | Literal['datacenter', 'resourcePool', 'storagePod', 'cluster', 'vm', 'datastore', 'host', 'vmFile', 'scsiPath', 'scsiTarget', 'scsiVolume', 'scsiAdapter', 'nasMount']: ...
     @type.setter
-    def type(self, value: EntityReference.EntityType):
+    def type(self, value: EntityReference.EntityType | Literal['datacenter', 'resourcePool', 'storagePod', 'cluster', 'vm', 'datastore', 'host', 'vmFile', 'scsiPath', 'scsiTarget', 'scsiVolume', 'scsiAdapter', 'nasMount']):
         self._type = value
 
 

@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Literal
 from enum import Enum
 from pyVmomi import vim, vmodl
 from datetime import datetime
@@ -2069,14 +2069,14 @@ class InvalidDeviceBacking(InvalidDeviceSpec): ...
 
 class InvalidDeviceOperation(InvalidDeviceSpec):
     @property
-    def badOp(self) -> vim.vm.device.VirtualDeviceSpec.Operation: ...
+    def badOp(self) -> vim.vm.device.VirtualDeviceSpec.Operation | Literal['add', 'remove', 'edit']: ...
     @badOp.setter
-    def badOp(self, value: vim.vm.device.VirtualDeviceSpec.Operation):
+    def badOp(self, value: vim.vm.device.VirtualDeviceSpec.Operation | Literal['add', 'remove', 'edit']):
         self._badOp = value
     @property
-    def badFileOp(self) -> vim.vm.device.VirtualDeviceSpec.FileOperation: ...
+    def badFileOp(self) -> vim.vm.device.VirtualDeviceSpec.FileOperation | Literal['create', 'destroy', 'replace']: ...
     @badFileOp.setter
-    def badFileOp(self, value: vim.vm.device.VirtualDeviceSpec.FileOperation):
+    def badFileOp(self, value: vim.vm.device.VirtualDeviceSpec.FileOperation | Literal['create', 'destroy', 'replace']):
         self._badFileOp = value
 
 
@@ -2236,14 +2236,14 @@ class InvalidOperationOnSecondaryVm(VmFaultToleranceIssue):
 
 class InvalidPowerState(InvalidState):
     @property
-    def requestedState(self) -> vim.VirtualMachine.PowerState: ...
+    def requestedState(self) -> vim.VirtualMachine.PowerState | Literal['poweredOff', 'poweredOn', 'suspended']: ...
     @requestedState.setter
-    def requestedState(self, value: vim.VirtualMachine.PowerState):
+    def requestedState(self, value: vim.VirtualMachine.PowerState | Literal['poweredOff', 'poweredOn', 'suspended']):
         self._requestedState = value
     @property
-    def existingState(self) -> vim.VirtualMachine.PowerState: ...
+    def existingState(self) -> vim.VirtualMachine.PowerState | Literal['poweredOff', 'poweredOn', 'suspended']: ...
     @existingState.setter
-    def existingState(self, value: vim.VirtualMachine.PowerState):
+    def existingState(self, value: vim.VirtualMachine.PowerState | Literal['poweredOff', 'poweredOn', 'suspended']):
         self._existingState = value
 
 
@@ -4071,9 +4071,9 @@ class PowerOnFtSecondaryFailed(VmFaultToleranceIssue):
     def vmName(self, value: str):
         self._vmName = value
     @property
-    def hostSelectionBy(self) -> FtIssuesOnHost.HostSelectionType: ...
+    def hostSelectionBy(self) -> FtIssuesOnHost.HostSelectionType | Literal['user', 'vc', 'drs']: ...
     @hostSelectionBy.setter
-    def hostSelectionBy(self, value: FtIssuesOnHost.HostSelectionType):
+    def hostSelectionBy(self, value: FtIssuesOnHost.HostSelectionType | Literal['user', 'vc', 'drs']):
         self._hostSelectionBy = value
     @property
     def hostErrors(self) -> List[vmodl.MethodFault]: ...
