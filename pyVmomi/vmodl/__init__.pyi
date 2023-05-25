@@ -69,7 +69,7 @@ class LocalizedMethodFault(MethodFault):
         self._localizedMessage = value
 
 
-class MethodFault(DynamicData):
+class MethodFault(DynamicData, Exception):
     @property
     def msg(self) -> str: ...
     @msg.setter
