@@ -146,7 +146,7 @@ def WaitForTask(task,
             print("Task object has been deleted: %s" % e.obj)
             break
 
-    filter.Destroy()
+    DestroyFilter(filter)
 
     info = task.info
     if state == "error":
@@ -248,7 +248,7 @@ def WaitForTasks(tasks,
             version = update.version
     finally:
         if filter:
-            filter.Destroy()
+            DestroyFilter(filter)
     return
 
 
@@ -291,6 +291,13 @@ def CreateTasksFilter(pc, tasks):
 
     # Create the filter
     return pc.CreateFilter(filterspec, True)
+
+
+def DestroyFilter(filter):
+    try:
+        filter.Destroy()
+    except vmodl.fault.ManagedObjectNotFound:
+        pass
 
 
 def CheckForQuestionPending(info):
