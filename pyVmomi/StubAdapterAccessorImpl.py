@@ -17,7 +17,7 @@ _legacyTypes = {
 }
 
 
-class StubAdapterAccessorMixin:
+class StubAdapterAccessorMixin(object):
 
     # Retrieve a managed property
     #
