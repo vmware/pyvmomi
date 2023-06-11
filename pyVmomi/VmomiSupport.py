@@ -1,4 +1,4 @@
-# Copyright (c) 2005-2022 VMware, Inc.
+# Copyright (c) 2005-2023 VMware, Inc.
 """VMOMI support code
 
 This module contains support for VMOMI abstractions such as VMODL types,
@@ -361,7 +361,7 @@ class ManagedObject(object):
     # Invoke a managed method
     #
     # @param info method info
-    # @param self self
+    # @param self The object pointer
     # @param ... arguments
     def _InvokeMethod(info, self, *posargs, **kwargs):
         if len(posargs) > len(info.params):
@@ -392,7 +392,7 @@ class ManagedObject(object):
     # Invoke a managed property accessor
     #
     # @param info property info
-    # @param self self
+    # @param self The object pointer
     def _InvokeAccessor(info, self):
         return self._stub.InvokeAccessor(self, info)
 
@@ -580,7 +580,7 @@ class Array(list):
 class Curry(object):
     # Constructor
     #
-    # @param self self
+    # @param self The object pointer
     # @param f the function object
     # @param args arguments to fix
     def __init__(self, f, *args):
@@ -603,7 +603,7 @@ class Curry(object):
 class ManagedMethod(Curry):
     # Constructor
     #
-    # @param self self
+    # @param self The object pointer
     # @param info method info
     def __init__(self, info):
         Curry.__init__(self, ManagedObject._InvokeMethod, info)
@@ -1977,7 +1977,7 @@ def GetHttpContext():
 class LinkResolver:
     # Constructor
     #
-    # @param self self
+    # @param self The object pointer
     # @param scope DataObject to be used against for resolving links
     def __init__(self, scope):
         self.linkables = {}
@@ -1986,7 +1986,7 @@ class LinkResolver:
     # Visit a DataObject and add it to linkable if it is one. Also
     # visit its properties that are DataObjects
     #
-    # @param self self
+    # @param self The object pointer
     # @param obj DataObject to be visited
     def _VisitDataObject(self, obj):
         if isinstance(obj, DataObject):
@@ -2007,7 +2007,7 @@ class LinkResolver:
 
     # Adds a DataObject to linkable dictionary using its key
     #
-    # @param self self
+    # @param self The object pointer
     # @param obj DataObject to be added to linkable
     def _AddLinkable(self, obj):
         key = getattr(obj, "key")
@@ -2023,7 +2023,7 @@ class LinkResolver:
 
     # Resolves a key by looking up linkable dictionary
     #
-    # @param self self
+    # @param self The object pointer
     # @param key Key to be resolved
     def ResolveLink(self, key):
         val = self.linkables[key]
@@ -2031,7 +2031,7 @@ class LinkResolver:
 
     # Resolves a list of keys by resolving each key
     #
-    # @param self self
+    # @param self The object pointer
     # @param keys keys to be resolved
     def ResolveLinks(self, keys):
         val = [self.linkables[k] for k in keys]

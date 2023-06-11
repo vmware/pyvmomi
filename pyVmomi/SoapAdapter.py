@@ -16,7 +16,7 @@ import threading
 import time
 from datetime import datetime
 from xml.parsers.expat import ExpatError, ParserCreate
-# For Visor, space is very limited. Import xml.sax pull in too many junk.
+# For Visor, space is very limited. Import xml.sax pull in too much junk.
 # Define our own xml escape instead
 # from xml.sax.saxutils import escape
 
@@ -191,7 +191,7 @@ def SetHandlers(obj, handlers):
 # @return the serialized object as bytes
 # @param encoding Deprecated this is not used during serialization since we
 #        always use utf-8 to encode a request message. We didn't remove the
-#        parameter so it is still compatible with clients that are still
+#        parameter, so it is still compatible with clients that are still
 #        using it.
 def Serialize(val,
               info=None,
@@ -305,7 +305,7 @@ class SoapSerializer:
     # @param nsMap a dict of xml ns -> prefix
     # @param encoding Deprecated this is not used during serialization since we
     #                 always use utf-8 to encode a request message. We didn't
-    #                 remove the parameter so it is still compatible with
+    #                 remove the parameter, so it is still compatible with
     #                 clients that are still using it.
     def __init__(self, writer, version, nsMap, encoding=None):
         """ Constructor """
@@ -566,7 +566,7 @@ class SoapSerializer:
             self.writer.write(u'<{0}{1}>{2}</{0}>'.format(
                 info.name, attr, result))
 
-    # Serialize a a data object (internal)
+    # Serialize a data object (internal)
     #
     # @param val the value to serialize
     # @param info the field
@@ -605,7 +605,7 @@ class SoapSerializer:
 # This function will deserialize one top-level XML node.
 # @param data the data to deserialize (a file object or string)
 # @param resultType expected result type
-# @param stub stub for moRef deserialization
+# @param stub the stub for moRef deserialization
 # @return the deserialized object
 def Deserialize(data, resultType=object, stub=None):
     parser = ParserCreate(namespace_separator=NS_SEP)
@@ -672,8 +672,8 @@ class ExpatDeserializerNSHandlers:
 class SoapDeserializer(ExpatDeserializerNSHandlers):
     # Constructor
     #
-    # @param self self
-    # @param stub Stub adapter to use for deserializing moRefs
+    # @param self The object pointer
+    # @param stub The stub adapter to use for deserializing moRefs
     def __init__(self, stub=None, version=None):
         ExpatDeserializerNSHandlers.__init__(self)
         self.stub = stub
@@ -687,7 +687,7 @@ class SoapDeserializer(ExpatDeserializerNSHandlers):
 
     # Deserialize a SOAP object
     #
-    # @param self self
+    # @param self The object pointer
     # @param parser an expat parser
     # @param resultType the static type of the result
     # @param isFault true if the response is a fault response
@@ -912,8 +912,8 @@ class SoapDeserializer(ExpatDeserializerNSHandlers):
 class SoapResponseDeserializer(ExpatDeserializerNSHandlers):
     # Constructor
     #
-    # @param self self
-    # @param stub Stub adapter to use for deserializing moRefs
+    # @param self The object pointer
+    # @param stub The stub adapter to use for deserializing moRefs
     def __init__(self, stub):
         ExpatDeserializerNSHandlers.__init__(self)
         self.stub = stub
@@ -922,7 +922,7 @@ class SoapResponseDeserializer(ExpatDeserializerNSHandlers):
 
     # Deserialize a SOAP response
     #
-    # @param self self
+    # @param self The object pointer
     # @param response the response (a file object or a string)
     # @param resultType expected result type
     # @param nsMap a dict of prefix -> [xml ns stack]
@@ -994,7 +994,7 @@ class StubAdapterBase(StubAdapterAccessorMixin):
     #
     # @param ns the namespace
     def ComputeVersionInfo(self, version):
-        # Make sure we do NOT fallback to an older version
+        # Make sure we do NOT fall back to an older version
         if hasattr(self, 'version') and IsChildVersion(self.version, version):
             # print("WARNING: stub degrading: " +
             #       self.version + " -> " + version)
@@ -1095,10 +1095,10 @@ class UnixSocketConnection(six.moves.http_client.HTTPConnection):
 
 
 def _VerifyThumbprint(thumbprint, connection):
-    '''If there is a thumbprint, connect to the server and verify that the
+    """If there is a thumbprint, connect to the server and verify that the
     SSL certificate matches the given thumbprint.  An exception is thrown
     if there is a mismatch.
-    '''
+    """
     if thumbprint and isinstance(connection,
                                  six.moves.http_client.HTTPSConnection):
         if not connection.sock:
@@ -1324,7 +1324,7 @@ class GzipReader:
             leftoverChunks = []
         else:
             leftoverBytes = bufSize - bytes
-            # Adjust last chunk to hold only the left over bytes
+            # Adjust last chunk to hold only the leftover bytes
             lastChunk = chunks.pop()
             chunks.append(lastChunk[:-leftoverBytes])
             leftoverChunks = [lastChunk[-leftoverBytes:]]
@@ -1342,7 +1342,7 @@ class SoapStubAdapter(SoapStubAdapterBase):
     #
     # The endpoint can be specified individually as either a host/port
     # combination, or with a URL (using a url= keyword).
-    # @param self self
+    # @param self The object pointer
     # @param host host
     # @param port port (pass negative port number for no SSL)
     # @param **** Deprecated. Please use version instead **** ns API namespace
@@ -1480,7 +1480,7 @@ class SoapStubAdapter(SoapStubAdapterBase):
 
     # Context modifier used to modify the SOAP request.
     # @param func The func that takes in the serialized message and
-    #   modifies the the request. The func is appended to the
+    #   modifies the request. The func is appended to the
     #   requestModifierList and then popped after the request is modified.
     @contextlib.contextmanager
     def requestModifier(self, func):
@@ -1492,7 +1492,7 @@ class SoapStubAdapter(SoapStubAdapterBase):
 
     # Invoke a managed method
     #
-    # @param self self
+    # @param self The object pointer
     # @param mo the 'this'
     # @param info method info
     # @param args arguments
@@ -1529,7 +1529,7 @@ class SoapStubAdapter(SoapStubAdapterBase):
             conn.request('POST', self.path, req, headers)
             resp = conn.getresponse()
         except (socket.error, six.moves.http_client.HTTPException):
-            # The server is probably sick, drop all of the cached connections.
+            # The server is probably sick, drop all the cached connections.
             self.DropConnections()
             raise
         cookie = resp.getheader('Set-Cookie')
@@ -1554,7 +1554,7 @@ class SoapStubAdapter(SoapStubAdapterBase):
             # TODO Add specific exception(s)
             except:  # noqa: E722
                 conn.close()
-                # The server might be sick, drop all of the cached connections.
+                # The server might be sick, drop all the cached connections.
                 self.DropConnections()
                 raise
             else:
@@ -1599,7 +1599,7 @@ class SoapStubAdapter(SoapStubAdapterBase):
             for conn, _ in idleConnections:
                 conn.close()
 
-    # Get a HTTP connection from the pool
+    # Get an HTTP connection from the pool
     def GetConnection(self):
         self.lock.acquire()
         self._CloseIdleConnections()
@@ -1623,7 +1623,7 @@ class SoapStubAdapter(SoapStubAdapterBase):
         for conn, _ in oldConnections:
             conn.close()
 
-    # Return a HTTP connection to the pool
+    # Return an HTTP connection to the pool
     def ReturnConnection(self, conn):
         self.lock.acquire()
         self._CloseIdleConnections()
@@ -1660,11 +1660,11 @@ def ParseHttpResponse(httpResponse):
 
 
 class SessionOrientedStub(StubAdapterBase):
-    '''A session-oriented stub adapter that will relogin to the destination if
+    """A session-oriented stub adapter that will relogin to the destination if
     a session-oriented exception is thrown.
 
 
-    Here's an example.  First, we setup the communication substrate:
+    Here's an example.  First, we set up the communication substrate:
 
     >>> soapStub = SoapStubAdapter(host="192.168.1.2", ns="vim25/5.5")
 
@@ -1682,7 +1682,7 @@ class SessionOrientedStub(StubAdapterBase):
     >>> si.content.sessionManager.sessionList
     >>> si.content.sessionManager.Logout()
     >>> si.content.sessionManager.sessionList
-    '''
+    """
 
     STATE_UNAUTHENTICATED = 0
     STATE_AUTHENTICATED = 1
@@ -1690,7 +1690,7 @@ class SessionOrientedStub(StubAdapterBase):
     SESSION_EXCEPTIONS = tuple()
 
     def __init__(self, soapStub, loginMethod, retryDelay=0.1, retryCount=4):
-        '''Construct a SessionOrientedStub.
+        """Construct a SessionOrientedStub.
 
         The stub starts off in the "unauthenticated" state, so it will
         call the loginMethod on the first invocation of a method.  If a
@@ -1709,7 +1709,7 @@ class SessionOrientedStub(StubAdapterBase):
             communication error.
         @param retryCount The number of times to retry connecting to the
             server.
-        '''
+        """
         assert callable(loginMethod)
         assert retryCount >= 0
         StubAdapterBase.__init__(self, version=soapStub.version)
@@ -1763,7 +1763,7 @@ class SessionOrientedStub(StubAdapterBase):
 
     # Retrieve a managed property
     #
-    # @param self self
+    # @param self The object pointer
     # @param mo managed object
     # @param info property info
     def InvokeAccessor(self, mo, info):

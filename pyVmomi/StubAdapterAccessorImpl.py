@@ -21,7 +21,7 @@ class StubAdapterAccessorMixin:
 
     # Retrieve a managed property
     #
-    # @param self self
+    # @param self The object pointer
     # @param mo managed object
     # @param info property info
     def InvokeAccessor(self, mo, info):

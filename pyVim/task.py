@@ -2,12 +2,12 @@
 # Copyright (c) 2005-2023 VMware, Inc.
 #############################################################
 
-## @file task.py
-## @brief Task functions
-##
-## This module provies synchronization of client/server operations
-## since many VIM operations return 'tasks' which can have
-## varying completion times.
+# @file task.py
+# @brief Task functions
+#
+# This module provies synchronization of client/server operations
+# since many VIM operations return 'tasks' which can have
+# varying completion times.
 """
 Task functions
 
@@ -23,14 +23,14 @@ from pyVmomi import vmodl, vim
 import time
 
 
-##
-## @brief Exception class to represent when task is blocked (e.g.:
-## waiting for an answer to a question.
-##
+#
+# @brief Exception class to represent when task is blocked (e.g.:
+# waiting for an answer to a question.
+#
 class TaskBlocked(Exception):
     """
-    Exception class to represent when task is blocked (e.g.: waiting
-    for an answer to a question.
+    Exception class to represent when task is blocked
+    e.g.: waiting for an answer to a question
     """
     pass
 
@@ -59,27 +59,27 @@ def SetTasksVerbose(verbose=True):
         globalTaskUpdate = None
 
 
-##
-## @param raiseOnError [in] Any exception thrown is thrown up to the caller if
-## raiseOnError is set to true
-## @param si [in] ServiceInstance to use. If set to None, use the default one.
-## @param pc [in] property collector to use else retrieve one from cache
-## @param maxWaitTime [in] The maximum amount of time the task is allowed to
-## run. Throws an exception if raiseOnError is True.
-## @param onProgressUpdate [in] callable to call with task progress updates.
-##    For example:
-##
-##    def OnTaskProgressUpdate(task, percentDone):
-##       sys.stderr.write('# Task {}: {:.0f}% complete ...\n'
-##                        .format(task, percentDone))
-##
-## Given a task object and a service instance, wait for the task completion
-##
-## @return state as either "success" or "error". To look at any errors, the
-## user should reexamine the task object.
-##
-## NOTE: This is a blocking call.
-##
+#
+# @param raiseOnError [in] Any exception thrown is thrown up to the caller if
+# raiseOnError is set to true
+# @param si [in] ServiceInstance to use. If set to None, use the default one.
+# @param pc [in] property collector to use else retrieve one from cache
+# @param maxWaitTime [in] The maximum amount of time the task is allowed to
+# run. Throws an exception if raiseOnError is True.
+# @param onProgressUpdate [in] callable to call with task progress updates.
+#    For example:
+#
+#    def OnTaskProgressUpdate(task, percentDone):
+#       sys.stderr.write('# Task {}: {:.0f}% complete ...\n'
+#                        .format(task, percentDone))
+#
+# Given a task object and a service instance, wait for the task completion
+#
+# @return state as either "success" or "error". To look at any errors, the
+# user should reexamine the task object.
+#
+# NOTE: This is a blocking call.
+#
 def WaitForTask(task,
                 raiseOnError=True,
                 si=None,
@@ -104,7 +104,7 @@ def WaitForTask(task,
     @param maxWaitTime       : The maximum amount of time the task is allowed to
                                 run. Throws an exception if raiseOnError is True.
     @type  onProgressUpdate  : callable
-    @param onProgressUpdate  : Callable to call with task progress updates.
+    @param onProgressUpdate  : The callable to call with task progress updates.
     @type  log               : Optional logger.
     @param log               : Logging.
     @type  getAllUpdates     : Optional bool value. Default is False.
@@ -167,7 +167,7 @@ def WaitForTask(task,
     return state
 
 
-## Wait for multiple tasks to complete
+# Wait for multiple tasks to complete
 #  See WaitForTask for detail
 #
 #  Difference: WaitForTasks won't return the state of tasks. User can check
@@ -318,10 +318,10 @@ def _LogMsg(log, message):
         print(message)
 
 
-##
-## @brief Class that keeps track of task percentage complete and calls
-## a provided callback when it changes.
-##
+#
+# @brief Class that keeps track of task percentage complete and calls
+# a provided callback when it changes.
+#
 class ProgressUpdater(object):
     """
     Class that keeps track of task percentage complete and calls a

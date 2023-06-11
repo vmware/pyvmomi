@@ -1,5 +1,5 @@
 #############################################################
-# Copyright (c) 2012-2022 VMware, Inc.
+# Copyright (c) 2012-2023 VMware, Inc.
 # A python helper module to do SSO related operations.
 #############################################################
 __author__ = 'VMware, Inc.'
@@ -39,7 +39,7 @@ default_parser = etree.XMLParser(resolve_entities=False)
 etree.set_default_parser(default_parser)
 
 def _extract_certificate(cert):
-    '''
+    """
     Extract DER certificate/private key from DER/base64-ed DER/PEM string.
 
     @type           cert: C{str}
@@ -47,7 +47,7 @@ def _extract_certificate(cert):
 
     @rtype: C{str}
     @return: Certificate/private key in DER (binary ASN.1) format.
-    '''
+    """
     if not cert:
         raise IOError('Empty certificate')
     signature = cert[0]
@@ -71,11 +71,11 @@ def format_time(time):
 
 
 class SoapException(Exception):
-    '''
+    """
     Exception raised in case of STS request failure.
-    '''
+    """
     def __init__(self, soap_msg, fault_code, fault_string):
-        '''
+        """
         Initializer for SoapException.
 
         @type      soap_msg: C{str}
@@ -84,34 +84,34 @@ class SoapException(Exception):
         @param   fault_code: The fault code returned by STS.
         @type  fault_string: C{str}
         @param fault_string: The fault string returned by STS.
-        '''
+        """
         self._soap_msg = soap_msg
         self._fault_code = fault_code
         self._fault_string = fault_string
         Exception.__init__(self)
 
     def __str__(self):
-        '''
+        """
         Returns the string representation of SoapException.
 
         @rtype: C{str}
         @return: string representation of SoapException
-        '''
+        """
         return ("SoapException:\nfaultcode: %(_fault_code)s\n"
                 "faultstring: %(_fault_string)s\n"
                 "faultxml: %(_soap_msg)s" % self.__dict__)
 
 
 class SSOHTTPConnection(six.moves.http_client.HTTPConnection):
-    '''
+    """
     A class that establishes HTTP Connection.
     Only intened to be used for calls routing through
     a local sidecar proxy (localhost:1080).
-    '''
+    """
     def __init__(self, *args, **kwargs):
-        '''
+        """
         Initializer.  See httplib.HTTPConnection for other arguments
-        '''
+        """
         tmpKwargs = {}
         httpConn = six.moves.http_client.HTTPConnection
         for key in httpConn.__init__.__code__.co_varnames:
@@ -120,12 +120,13 @@ class SSOHTTPConnection(six.moves.http_client.HTTPConnection):
         self.host = kwargs.pop('host')
         six.moves.http_client.HTTPConnection.__init__(self, *args, **tmpKwargs)
 
+
 class SSOHTTPSConnection(six.moves.http_client.HTTPSConnection):
-    '''
+    """
     An HTTPS class that verifies server's certificate on connect.
-    '''
+    """
     def __init__(self, *args, **kwargs):
-        '''
+        """
         Initializer.  See httplib.HTTPSConnection for other arguments
         than thumbprint and server_cert.
 
@@ -139,7 +140,7 @@ class SSOHTTPSConnection(six.moves.http_client.HTTPSConnection):
         @type          server_cert: C(str)
         @param         server_cert: File with expected server certificate.
                                     May be None.
-        '''
+        """
         self.server_thumbprint = kwargs.pop('thumbprint')
         if self.server_thumbprint is not None:
             self.server_thumbprint = re.sub(':', '',
@@ -154,7 +155,7 @@ class SSOHTTPSConnection(six.moves.http_client.HTTPSConnection):
         six.moves.http_client.HTTPSConnection.__init__(self, *args, **kwargs)
 
     def _check_cert(self, peerCert):
-        '''
+        """
         Verify that peer certificate matches one we expect.
 
         @type             peerCert: C(str)
@@ -162,7 +163,7 @@ class SSOHTTPSConnection(six.moves.http_client.HTTPSConnection):
 
         @rtype: boolean
         @return: True if peerCert is acceptable.  False otherwise.
-        '''
+        """
         try:
             if self.server_cert is not None:
                 if peerCert != self.server_cert:
@@ -175,34 +176,34 @@ class SSOHTTPSConnection(six.moves.http_client.HTTPSConnection):
             raise
 
     def connect(self):
-        '''
+        """
         Connect method: connects to the remote system, and upon
         successful connection validates certificate.
 
         Throws an exception when something is wrong.  See
         httplib.HTTPSConnection.connect() for details.
-        '''
+        """
         six.moves.http_client.HTTPSConnection.connect(self)
 
         self._check_cert(self.sock.getpeercert(True))
 
 
 def is_sidecar_request(scheme, host):
-    '''
+    """
     Check if the request is through
     local sidecar (localhost:1080)
-    '''
+    """
     if scheme == "http" and host == "localhost:1080":
-        return True;
+        return True
 
 
 class SsoAuthenticator(object):
-    '''
+    """
     A class to handle the transport layer communication between the client and
     the STS service.
-    '''
+    """
     def __init__(self, sts_url, sts_cert=None, thumbprint=None):
-        '''
+        """
         Initializer for SsoAuthenticator.
 
         @type           sts_url: C{str}
@@ -216,7 +217,7 @@ class SsoAuthenticator(object):
         @param       thumbprint: The SHA-1 thumbprint of the certificate used
                                  by the Security Token Service.  It is same
                                  thumbprint you can pass to pyVmomi SoapAdapter.
-        '''
+        """
         self._sts_cert = sts_cert
         self._sts_url = sts_url
         self._sts_thumbprint = thumbprint
@@ -226,7 +227,7 @@ class SsoAuthenticator(object):
                         public_key=None,
                         private_key=None,
                         ssl_context=None):
-        '''
+        """
         Performs a Holder-of-Key SAML token request using the service user's
         certificates or a bearer token request using the user credentials.
 
@@ -243,16 +244,16 @@ class SsoAuthenticator(object):
                                  It is only supported in Python 2.7.9 or higher.
         @rtype: C{str}
         @return: Response received from the STS after the HoK request.
-        '''
+        """
         parsed = urlparse(self._sts_url)
         host = parsed.netloc  # pylint: disable=E1101
         scheme = parsed.scheme
         encoded_message = soap_message.encode(UTF_8)
 
-        '''
+        """
         Allow creation of HTTPConnection, only for calls routing
         through local sidecar (localhost:1080)
-        '''
+        """
         if is_sidecar_request(scheme, host):
             webservice = SSOHTTPConnection(host=host)
         elif hasattr(ssl, '_create_unverified_context'):
@@ -311,7 +312,7 @@ class SsoAuthenticator(object):
                                   delegatable=False,
                                   renewable=False,
                                   ssl_context=None):
-        '''
+        """
         Extracts the assertion from the Bearer Token received from the Security
         Token Service.
 
@@ -345,7 +346,7 @@ class SsoAuthenticator(object):
                                  It is only supported in Python 2.7.9 or higher.
         @rtype: C{str}
         @return: The SAML assertion in Unicode.
-        '''
+        """
         request = SecurityTokenRequest(username=username,
                                        password=password,
                                        public_key=public_key,
@@ -368,7 +369,7 @@ class SsoAuthenticator(object):
                                delegatable=False,
                                renewable=False,
                                ssl_context=None):
-        '''
+        """
         Extracts the assertion from the Bearer Token received from the Security
         Token Service using the binary token generated using either sspi or gss module.
 
@@ -395,7 +396,7 @@ class SsoAuthenticator(object):
                                  It is only supported in Python 2.7.9 or higher.
         @rtype: C{str}
         @return: The SAML assertion.
-        '''
+        """
         request = SecurityTokenRequest(request_duration=request_duration,
                                        token_duration=token_duration,
                                        gss_binary_token=binary_token)
@@ -409,7 +410,7 @@ class SsoAuthenticator(object):
                                        delegatable=False,
                                        renewable=False,
                                        ssl_context=None):
-        '''
+        """
         Extracts the assertion from the Bearer Token received from the Security
         Token Service using the SSPI module.
 
@@ -433,7 +434,7 @@ class SsoAuthenticator(object):
                                  It is only supported in Python 2.7.9 or higher.
         @rtype: C{str}
         @return: The SAML assertion.
-        '''
+        """
         import sspi, win32api
         spn = "sts/%s.com" % win32api.GetDomainName()
         sspiclient = sspi.ClientAuth("Kerberos", targetspn=spn)
@@ -470,7 +471,7 @@ class SsoAuthenticator(object):
                                        token_duration=600,
                                        delegatable=False,
                                        renewable=False):
-        '''
+        """
         Extracts the assertion from the Bearer Token received from the Security
         Token Service using kerberos.
 
@@ -491,7 +492,7 @@ class SsoAuthenticator(object):
                                  The default value is False
         @rtype: C{str}
         @return: The SAML assertion in Unicode.
-        '''
+        """
         import kerberos, platform
         service = 'host@%s' % platform.node()
         _, context = kerberos.authGSSClientInit(service, 0)
@@ -529,7 +530,7 @@ class SsoAuthenticator(object):
                                           token_duration=600,
                                           delegatable=False,
                                           renewable=False):
-        '''
+        """
         Extracts the assertion from the Bearer Token received from the Security
         Token Service using the GSS API.
 
@@ -550,13 +551,13 @@ class SsoAuthenticator(object):
                                  The default value is False
         @rtype: C{str}
         @return: The SAML assertion.
-        '''
+        """
         if sys.platform == "win32":
             saml_token = self._get_bearer_saml_assertion_win(
                 request_duration, token_duration, delegatable, renewable)
         else:
             raise Exception("Currently, not supported on this platform")
-            ## TODO Remove this exception once SSO supports validation of tickets
+            # TODO Remove this exception once SSO supports validation of tickets
             #       generated against host machines
             # saml_token = self._get_bearer_saml_assertion_lin(request_duration, token_duration, delegatable)
         return saml_token
@@ -570,7 +571,7 @@ class SsoAuthenticator(object):
                                delegatable=False,
                                renewable=False,
                                ssl_context=None):
-        '''
+        """
         Extracts the assertion from the response received from the Security
         Token Service.
 
@@ -601,7 +602,7 @@ class SsoAuthenticator(object):
                                  It is only supported in Python 2.7.9 or higher.
         @rtype: C{str}
         @return: The SAML assertion in Unicode.
-        '''
+        """
         request = SecurityTokenRequest(public_key=public_key,
                                        private_key=private_key,
                                        request_duration=request_duration,
@@ -673,10 +674,10 @@ class SsoAuthenticator(object):
 
 
 class SecurityTokenRequest(object):
-    '''
+    """
     SecurityTokenRequest class handles the serialization of request to the STS
     for a SAML token.
-    '''
+    """
 
     #pylint: disable=R0902
     def __init__(self,
@@ -688,7 +689,7 @@ class SecurityTokenRequest(object):
                  token_duration=600,
                  gss_binary_token=None,
                  hok_token=None):
-        '''
+        """
         Initializer for the SecurityToken Request class.
 
         @type          username: C{str}
@@ -713,7 +714,7 @@ class SecurityTokenRequest(object):
         @param   token_duraiton: The duration for which the SAML token is issued
                                  for. The duration is specified in seconds and
                                  the default is 600s.
-        '''
+        """
         self._timestamp_id = _generate_id()
         self._signature_id = _generate_id()
         self._request_id = _generate_id()
@@ -767,7 +768,7 @@ class SecurityTokenRequest(object):
     def construct_bearer_token_request(self,
                                        delegatable=False,
                                        renewable=False):
-        '''
+        """
         Constructs the actual Bearer token SOAP request.
 
         @type  delegatable: C{boolean}
@@ -777,7 +778,7 @@ class SecurityTokenRequest(object):
                             The default value is False
         @rtype:  C{str}
         @return: Bearer token SOAP request.
-        '''
+        """
         self._key_type = "http://docs.oasis-open.org/ws-sx/ws-trust/200512/Bearer"
         self._security_token = USERNAME_TOKEN_TEMPLATE % self.__dict__
         self._delegatable = str(delegatable).lower()
@@ -786,7 +787,7 @@ class SecurityTokenRequest(object):
 
     def construct_bearer_token_request_with_binary_token(
             self, delegatable=False, renewable=False):
-        '''
+        """
         Constructs the actual Bearer token SOAP request using the binary exchange GSS/SSPI token.
 
         @type  delegatable: C{boolean}
@@ -796,7 +797,7 @@ class SecurityTokenRequest(object):
                             The default value is False
         @rtype:  C{str}
         @return: Bearer token SOAP request.
-        '''
+        """
         self._key_type = "http://docs.oasis-open.org/ws-sx/ws-trust/200512/Bearer"
         self._delegatable = str(delegatable).lower()
         self._renewable = str(renewable).lower()
@@ -806,7 +807,7 @@ class SecurityTokenRequest(object):
                               delegatable=False,
                               act_as_token=None,
                               renewable=False):
-        '''
+        """
         Constructs the actual HoK token SOAP request.
 
         @type   delegatable: C{boolean}
@@ -818,7 +819,7 @@ class SecurityTokenRequest(object):
                             The default value is False
         @rtype: C{str}
         @return: HoK token SOAP request in Unicode.
-        '''
+        """
         self._binary_security_token = base64.b64encode(
             _extract_certificate(self._public_key)).decode(UTF_8)
         self._use_key = USE_KEY_TEMPLATE % self.__dict__
@@ -851,11 +852,11 @@ class SecurityTokenRequest(object):
         return _canonicalize(REQUEST_TEMPLATE_TOKEN_BY_TOKEN) % self.__dict__
 
     def sign_request(self):
-        '''
+        """
         Calculates the signature to the header of the SOAP request which can be
         used by the STS to verify that the SOAP message originated from a
         trusted service.
-        '''
+        """
         base_xml = etree.fromstring(self._xml_text)
         request_tree = _extract_element(
             base_xml, 'Body',
@@ -879,9 +880,9 @@ class SecurityTokenRequest(object):
         self.embed_signature()
 
     def embed_signature(self):
-        '''
+        """
         Embeds the signature in to the header of the SOAP request.
-        '''
+        """
         self._xml = etree.fromstring(self._xml_text)
         security = _extract_element(
             self._xml, 'Security', {
@@ -897,7 +898,7 @@ def add_saml_context(serialized_request,
                      saml_token,
                      private_key_file,
                      request_duration=60):
-    '''
+    """
     A helper method provided to sign the outgoing LoginByToken requests with the
     HoK token.
 
@@ -916,7 +917,7 @@ def add_saml_context(serialized_request,
                                  duration is in seconds and the default is 60s.
     @rtype: C{str}
     @return: signed SOAP request in Unicode.
-    '''
+    """
     with open(private_key_file) as fp:
         private_key = fp.read()
     xml = etree.fromstring(serialized_request)
@@ -961,17 +962,17 @@ def add_saml_context(serialized_request,
 
 
 def _generate_id():
-    '''
+    """
     An internal helper method to generate UUIDs.
 
     @rtype: C{str}
     @return: UUID
-    '''
+    """
     return "_%s" % uuid4()
 
 
 def _load_private_key(der_key):
-    '''
+    """
     An internal helper to load private key.
 
     @type  der_key: C{str}
@@ -979,7 +980,7 @@ def _load_private_key(der_key):
 
     @rtype: crypto.privatekey
     @return: Loaded private key.
-    '''
+    """
 
     # OpenSSL 0.9.8 does not handle correctly PKCS8 keys passed in DER format
     # (only PKCS1 keys are understood in DER format).
@@ -1003,7 +1004,7 @@ def _load_private_key(der_key):
 
 
 def _sign(private_key, data, digest=SHA256):
-    '''
+    """
     An internal helper method to sign the 'data' with the 'private_key'.
 
     @type  private_key: C{str}
@@ -1017,7 +1018,7 @@ def _sign(private_key, data, digest=SHA256):
 
     @rtype: C{str}
     @return: Signed string.
-    '''
+    """
     # Convert private key in arbitrary format into DER (DER is binary format
     # so we get rid of \n / \r\n differences, and line breaks in PEM).
     pkey = _load_private_key(_extract_certificate(private_key))
@@ -1025,7 +1026,7 @@ def _sign(private_key, data, digest=SHA256):
 
 
 def _canonicalize(xml_string):
-    '''
+    """
     Given an xml string, canonicalize the string per
     U{http://www.w3.org/2001/10/xml-exc-c14n#}
 
@@ -1034,7 +1035,7 @@ def _canonicalize(xml_string):
 
     @rtype: C{str}
     @return: Canonicalized string in Unicode.
-    '''
+    """
     # TODO: keep the parser between _canonicalize() invocations.
     parser = etree.XMLParser(remove_blank_text=True, resolve_entities=False)
     tree = etree.fromstring(xml_string, parser=parser).getroottree()
@@ -1044,7 +1045,7 @@ def _canonicalize(xml_string):
 
 
 def _extract_element(xml, element_name, namespace):
-    '''
+    """
     An internal method provided to extract an element from the given XML.
 
     @type           xml: C{str}
@@ -1057,7 +1058,7 @@ def _extract_element(xml, element_name, namespace):
 
     @rtype: etree element.
     @return: The extracted element.
-    '''
+    """
     assert (len(namespace) == 1)
     result = xml.xpath("//{0}:{1}".format(list(namespace.keys())[0], element_name),
                        namespaces=namespace)
@@ -1069,7 +1070,7 @@ def _extract_element(xml, element_name, namespace):
 
 
 def _make_hash(data):
-    '''
+    """
     An internal method to calculate the sha256 hash of the data.
 
     @type  data: C{str}
@@ -1077,12 +1078,12 @@ def _make_hash(data):
 
     @rtype: C{str}
     @return: Base64 encoded sha256 hash.
-    '''
+    """
     return base64.b64encode(hashlib.sha256(data).digest())  # pylint: disable=E1101
 
 
 def _make_hash_sha512(data):
-    '''
+    """
     An internal method to calculate the sha512 hash of the data.
 
     @type  data:      C{str}
@@ -1090,15 +1091,15 @@ def _make_hash_sha512(data):
 
     @rtype: C{str}
     @return: Base64 encoded sha512 hash.
-    '''
+    """
     return base64.b64encode(hashlib.sha512(data).digest())  # pylint: disable=E1101
 
 
 TIME_FORMAT = "%Y-%m-%dT%H:%M:%S.%f"
 
-#The SAML token requests usually contain an xmldsig which guarantees that the
-#message hasn't been tampered with during the transport. The following
-#SIGNED_INFO_TEMPLATE is used to construct the signedinfo part of the signature.
+# The SAML token requests usually contain an xmldsig which guarantees that the
+# message hasn't been tampered with during the transport. The following
+# SIGNED_INFO_TEMPLATE is used to construct the signedinfo part of the signature.
 SIGNED_INFO_TEMPLATE = """\
 <ds:SignedInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
 <ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
@@ -1120,11 +1121,11 @@ SIGNED_INFO_TEMPLATE = """\
 </ds:SignedInfo>
 """
 
-#The following template is used as the container for signed info in WS-Trust
-#SOAP requests signed with the SAML token. It contains the digest of the
-#signed info, signed with the private key of the Solution user and contains a
-#reference to the actual SAML token which contains the solution user's public
-#key.
+# The following template is used as the container for signed info in WS-Trust
+# SOAP requests signed with the SAML token. It contains the digest of the
+# signed info, signed with the private key of the Solution user and contains a
+# reference to the actual SAML token which contains the solution user's public
+# key.
 REQUEST_SIGNATURE_TEMPLATE = """\
 <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
 %(_signed_info)s
@@ -1138,9 +1139,9 @@ REQUEST_SIGNATURE_TEMPLATE = """\
 </ds:KeyInfo>
 </ds:Signature>"""
 
-#The following template is used as a signed info container for the actual SAML
-#token requests requesting a SAML token. It contains the digest of the signed
-#info signed with the Service User's private key.
+# The following template is used as a signed info container for the actual SAML
+# token requests requesting a SAML token. It contains the digest of the signed
+# info signed with the Service User's private key.
 SIGNATURE_TEMPLATE = """\
 <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Id="%(_signature_id)s">
 %(_signed_info)s
@@ -1152,7 +1153,7 @@ SIGNATURE_TEMPLATE = """\
 </ds:KeyInfo>
 </ds:Signature>"""
 
-#The following template is used to construct the token requests to the STS.
+# The following template is used to construct the token requests to the STS.
 REQUEST_TEMPLATE = """\
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
 <SOAP-ENV:Header>
@@ -1182,7 +1183,7 @@ REQUEST_TEMPLATE = """\
 </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>"""
 
-#The following template is used to construct the token-by-token requests to the STS.
+# The following template is used to construct the token-by-token requests to the STS.
 REQUEST_TEMPLATE_TOKEN_BY_TOKEN = """\
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
 <SOAP-ENV:Header>
@@ -1239,8 +1240,8 @@ GSS_REQUEST_TEMPLATE = """\
 </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>"""
 
-#Template container for the service user's public key when requesting an HoK
-#token.
+# Template container for the service user's public key when requesting an HoK
+# token.
 BINARY_SECURITY_TOKEN_TEMPLATE = """\
 <ns2:BinarySecurityToken xmlns:ns1="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
                          xmlns:ns2="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
@@ -1249,19 +1250,19 @@ BINARY_SECURITY_TOKEN_TEMPLATE = """\
                          ns1:Id="%(_security_token_id)s">%(_binary_security_token)s</ns2:BinarySecurityToken>
 """
 
-#Template container for user's credentials when requesting a bearer token.
+# Template container for user's credentials when requesting a bearer token.
 USERNAME_TOKEN_TEMPLATE = """\
 <ns2:UsernameToken xmlns:ns2="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
 <ns2:Username>%(_username)s</ns2:Username>
 <ns2:Password>%(_password)s</ns2:Password>
 </ns2:UsernameToken>"""
 
-#Template containing the anchor to the signature.
+# Template containing the anchor to the signature.
 USE_KEY_TEMPLATE = """\
 <UseKey Sig="%(_signature_id)s"/>"""
 
-#The follwoing template is used to create a timestamp for the various messages.
-#The timestamp is used to indicate the duration of the request itself.
+# The follwoing template is used to create a timestamp for the various messages.
+# The timestamp is used to indicate the duration of the request itself.
 TIMESTAMP_TEMPLATE = """\
 <ns3:Timestamp xmlns:ns3="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" ns3:Id="%(_timestamp_id)s">
 <ns3:Created>%(_created)s</ns3:Created><ns3:Expires>%(_request_expires)s</ns3:Expires></ns3:Timestamp>"""

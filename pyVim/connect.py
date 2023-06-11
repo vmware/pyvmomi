@@ -2,10 +2,10 @@
 # Copyright (c) 2005-2023 VMware, Inc.
 #############################################################
 
-## @file connect.py
-## @brief Connect to a VMOMI ServiceInstance.
-##
-## Detailed description (for Doxygen goes here)
+# @file connect.py
+# @brief Connect to a VMOMI ServiceInstance.
+#
+# Detailed description (for Doxygen goes here)
 """
 Connect to a VMOMI ServiceInstance.
 
@@ -39,7 +39,7 @@ TOKEN_TYPES = [TOKEN_TYPE_OAUTH_BEARER, TOKEN_TYPE_SAML, TOKEN_TYPE_SSPI]
 
 """
 Global regular expression for parsing host and port connection
-See http://www.ietf.org/rfc/rfc3986.txt sec 3.2.2
+See https://www.ietf.org/rfc/rfc3986.txt sec 3.2.2
 """
 _rx = re.compile(r"(^\[.+\]|[^:]+)(:\d+)?$")
 
@@ -82,19 +82,19 @@ class closing(object):
 
 
 class VimSessionOrientedStub(SessionOrientedStub):
-    '''A vim-specific SessionOrientedStub.  See the SessionOrientedStub class
+    """A vim-specific SessionOrientedStub.  See the SessionOrientedStub class
     in pyVmomi/SoapAdapter.py for more information.
-    '''
+    """
 
     # The set of exceptions that should trigger a relogin by the session stub.
     SESSION_EXCEPTIONS = (vim.fault.NotAuthenticated, )
 
     @staticmethod
     def makeUserLoginMethod(username, password, locale=None):
-        '''Return a function that will call the vim.SessionManager.Login() method
+        """Return a function that will call the vim.SessionManager.Login() method
         with the given parameters.  The result of this function can be passed as
         the "loginMethod" to a SessionOrientedStub constructor.
-        '''
+        """
         def _doLogin(soapStub):
             si = vim.ServiceInstance("ServiceInstance", soapStub)
             sm = si.content.sessionManager
@@ -105,10 +105,10 @@ class VimSessionOrientedStub(SessionOrientedStub):
 
     @staticmethod
     def makeExtensionLoginMethod(extensionKey):
-        '''Return a function that will call the vim.SessionManager.Login() method
+        """Return a function that will call the vim.SessionManager.Login() method
         with the given parameters.  The result of this function can be passed as
         the "loginMethod" to a SessionOrientedStub constructor.
-        '''
+        """
         def _doLogin(soapStub):
             si = vim.ServiceInstance("ServiceInstance", soapStub)
             sm = si.content.sessionManager
@@ -120,14 +120,14 @@ class VimSessionOrientedStub(SessionOrientedStub):
 
     @staticmethod
     def makeCertHokTokenLoginMethod(stsUrl, stsCert=None, ssl_context=None):
-        '''Return a function that will call the vim.SessionManager.LoginByToken()
+        """Return a function that will call the vim.SessionManager.LoginByToken()
         after obtaining a HoK SAML token from the STS. The result of this function
         can be passed as the "loginMethod" to a SessionOrientedStub constructor.
 
         @param stsUrl: URL of the SAML Token issuing service. (i.e. SSO server).
         @param stsCert: public key of the STS service.
         @param ssl_context: SSL context
-        '''
+        """
         assert (stsUrl)
 
         def _doLogin(soapStub):
@@ -161,7 +161,7 @@ class VimSessionOrientedStub(SessionOrientedStub):
                                        stsUrl,
                                        stsCert=None,
                                        ssl_context=None):
-        '''Return a function that will call the vim.SessionManager.LoginByToken()
+        """Return a function that will call the vim.SessionManager.LoginByToken()
         after obtaining a Bearer token from the STS. The result of this function
         can be passed as the "loginMethod" to a SessionOrientedStub constructor.
 
@@ -170,7 +170,7 @@ class VimSessionOrientedStub(SessionOrientedStub):
         @param stsUrl: URL of the SAML Token issueing service. (i.e. SSO server).
         @param stsCert: public key of the STS service.
         @param ssl_context: SSL context
-        '''
+        """
         assert (username)
         assert (password)
         assert (stsUrl)
@@ -274,7 +274,7 @@ def Connect(host='localhost',
     @param tokenType: Select which type of Authentication and Authorization token to use.
     @type  disableSslCertValidation: bool
     @param disableSslCertValidation: Creates an unverified SSL context when True.
-    @type  customHeaders: dictionary
+    @type  customHeaders: dict
     @param customHeaders: Dictionary with custom HTTP headers.
     @param b64token: base64 encoded token
            *** Deprecated: Use token instead ***
@@ -339,10 +339,10 @@ def Connect(host='localhost',
     return si
 
 
-def Disconnect(si = None):
+def Disconnect(si=None):
     """
     Logout and disconnect the service instance
-    @param si: Service instance (returned from Connect)
+    @param si: The service instance (returned from Connect)
                Defaults to the saved service instance
     """
     if not si:
@@ -363,7 +363,7 @@ def Disconnect(si = None):
         SetSi(None)
 
 
-## Method that gets a local ticket for the specified user
+# Method that gets a local ticket for the specified user
 def GetLocalTicket(si, user):
     try:
         sessionManager = si.content.sessionManager
@@ -380,8 +380,8 @@ def GetLocalTicket(si, user):
     return localTicket.userName, content
 
 
-## Private method that performs the actual Connect and returns a
-## connected service instance object.
+# Private method that performs the actual Connect and returns a
+# connected service instance object.
 
 
 def __Login(host,
@@ -447,7 +447,7 @@ def __Login(host,
                     The presence of this token overrides the user and pwd parameters.
     @type  tokenType: string
     @param tokenType: Select which type of Authentication and Authorization token to use.
-    @type  customHeaders: dictionary
+    @type  customHeaders: dict
     @param customHeaders: Dictionary with custom HTTP headers.
     """
 
@@ -526,7 +526,7 @@ def __Login(host,
     return si, stub
 
 
-## Get the saved service instance.
+# Get the saved service instance.
 
 
 def GetSi():
@@ -534,7 +534,7 @@ def GetSi():
     return _si
 
 
-## Set the saved service instance.
+# Set the saved service instance.
 
 
 def SetSi(si):
@@ -544,7 +544,7 @@ def SetSi(si):
     _si = si
 
 
-## Get the global saved stub
+# Get the global saved stub
 
 
 def GetStub():
@@ -555,7 +555,7 @@ def GetStub():
     return None
 
 
-## RAII-style class for managing connections
+# RAII-style class for managing connections
 
 
 class Connection(object):
@@ -590,7 +590,7 @@ class SmartConnection(object):
             self.si = None
 
 
-## Deprecated, use __GetElementTree method instead
+# Deprecated, use __GetElementTree method instead
 def __GetElementTreeFromUrl(url, sslContext):
     """
     Private method that returns an ElementTree for the XML document referenced by
@@ -666,9 +666,9 @@ def __GetElementTree(protocol, server, port, path, sslContext,
         conn.close()
 
 
-## Private method that returns an ElementTree describing the API versions
-## supported by the specified server.  The result will be vimServiceVersions.xml
-## if it exists, otherwise None.
+# Private method that returns an ElementTree describing the API versions
+# supported by the specified server.  The result will be vimServiceVersions.xml
+# if it exists, otherwise None.
 
 
 def __GetServiceVersionDescription(protocol, server, port, path, sslContext,
@@ -696,8 +696,8 @@ def __GetServiceVersionDescription(protocol, server, port, path, sslContext,
                             httpProxyHost, httpProxyPort)
 
 
-## Private method that returns true if the service version description document
-##  indicates that the desired version is supported
+# Private method that returns true if the service version description document
+#  indicates that the desired version is supported
 
 
 def __VersionIsSupported(desiredVersion, serviceVersionDescription):
@@ -733,8 +733,8 @@ def __VersionIsSupported(desiredVersion, serviceVersionDescription):
     return False
 
 
-## Private method that returns the most preferred API version supported by the
-## specified server,
+# Private method that returns the most preferred API version supported by the
+# specified server,
 
 
 def __FindSupportedVersion(protocol, server, port, path, preferredApiVersions,
