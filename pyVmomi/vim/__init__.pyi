@@ -2431,6 +2431,13 @@ class HttpNfcLease(ManagedObject):
         pull = "pull"
 
 
+    class State(Enum):
+        initializing = "initializing"
+        ready = "ready"
+        done = "done"
+        error = "error"
+
+
 class IoFilterManager(ManagedObject):
     def InstallIoFilter(self, vibUrl: str, compRes: ComputeResource) -> Task: ...
     def UninstallIoFilter(self, filterId: str, compRes: ComputeResource) -> Task: ...
