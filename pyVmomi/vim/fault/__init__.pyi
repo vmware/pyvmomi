@@ -3,6 +3,7 @@ from enum import Enum
 from pyVmomi import vim, vmodl
 from datetime import datetime
 from pyVmomi.VmomiSupport import ManagedObject, PropertyPath, long
+from pyVmomi.vmodl.fault import SecurityError
 
 
 class ActiveDirectoryFault(VimFault):
