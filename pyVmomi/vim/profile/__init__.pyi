@@ -3,7 +3,8 @@ from enum import Enum
 from pyVmomi import vim, vmodl
 from datetime import datetime
 from pyVmomi.VmomiSupport import ManagedObject, NoneType, PropertyPath
-from . import cluster, host
+from . import cluster as cluster
+from . import host as host
 
 
 class ComplianceManager(ManagedObject):

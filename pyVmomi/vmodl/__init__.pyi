@@ -1,7 +1,8 @@
 from typing import List
 from pyVmomi import vmodl
 from pyVmomi.VmomiSupport import DataObject, PropertyPath
-from . import fault, query
+from . import fault as fault
+from . import query as query
 
 
 class DynamicArray(DataObject):

@@ -3,7 +3,7 @@ from enum import Enum
 from pyVmomi import vim, vmodl
 from datetime import datetime
 from pyVmomi.VmomiSupport import ManagedObject, NoneType, PropertyPath, binary, byte
-from . import profileEngine
+from . import profileEngine as profileEngine
 
 
 class HostProfile(vim.profile.Profile):

@@ -2,7 +2,10 @@ from typing import List, Literal
 from enum import Enum
 from pyVmomi import eam, vim, vmodl
 from pyVmomi.VmomiSupport import ManagedObject, NoneType
-from . import fault, issue, lccm, vib
+from . import fault as fault
+from . import issue as issue
+from . import lccm as lccm
+from . import vib as vib
 
 
 class Agency(EamObject):

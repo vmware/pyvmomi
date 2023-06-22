@@ -1,7 +1,9 @@
 from typing import List
 from pyVmomi import eam, vim, vmodl
 from datetime import datetime
-from . import cluster, integrity, personality
+from . import cluster as cluster
+from . import integrity as integrity
+from . import personality as personality
 
 
 class AgencyDisabled(AgencyIssue): ...

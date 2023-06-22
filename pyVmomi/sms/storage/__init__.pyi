@@ -3,7 +3,7 @@ from enum import Enum
 from pyVmomi import sms, vim, vmodl
 from datetime import datetime
 from pyVmomi.VmomiSupport import long
-from . import replication
+from . import replication as replication
 
 
 class BackingConfig(vmodl.DynamicData):

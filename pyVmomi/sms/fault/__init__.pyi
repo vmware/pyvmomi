@@ -1,7 +1,7 @@
 from typing import List, Literal
 from pyVmomi import sms, vim, vmodl
 from pyVmomi.VmomiSupport import long
-from . import replication
+from . import replication as replication
 
 
 class AuthConnectionFailed(NoPermission): ...

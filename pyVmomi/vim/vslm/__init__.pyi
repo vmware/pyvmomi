@@ -3,7 +3,8 @@ from enum import Enum
 from pyVmomi import vim, vmodl
 from datetime import datetime
 from pyVmomi.VmomiSupport import ManagedObject, long
-from . import host, vcenter
+from . import host as host
+from . import vcenter as vcenter
 
 
 class VStorageObjectManagerBase(ManagedObject): ...

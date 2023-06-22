@@ -3,7 +3,7 @@ from enum import Enum
 from pyVmomi import pbm, vmodl
 from datetime import datetime
 from pyVmomi.VmomiSupport import ManagedObject, NoneType, long
-from . import provider
+from . import provider as provider
 
 
 class ProfileManager(ManagedObject):

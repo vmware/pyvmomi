@@ -3,7 +3,26 @@ from enum import Enum
 from pyVmomi import vim, vmodl
 from datetime import datetime
 from pyVmomi.VmomiSupport import ManagedMethod, ManagedObject, NoneType, byte, double, long, short
-from . import action, alarm, cluster, dvs, encryption, event, ext, fault, host, net, option, profile, scheduler, storageDrs, tenant, vcha, view, vm, vsan, vslm
+from . import action as action
+from . import alarm as alarm
+from . import cluster as cluster
+from . import dvs as dvs
+from . import encryption as encryption
+from . import event as event
+from . import ext as ext
+from . import fault as fault
+from . import host as host
+from . import net as net
+from . import option as option
+from . import profile as profile
+from . import scheduler as scheduler
+from . import storageDrs as storageDrs
+from . import tenant as tenant
+from . import vcha as vcha
+from . import view as view
+from . import vm as vm
+from . import vsan as vsan
+from . import vslm as vslm
 
 
 class AuthorizationManager(ManagedObject):

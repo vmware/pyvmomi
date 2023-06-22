@@ -2,7 +2,14 @@ from typing import List
 from enum import Enum
 from pyVmomi import vmodl
 from pyVmomi.VmomiSupport import ManagedObject
-from . import auth, capability, compliance, fault, placement, profile, provider, replication
+from . import auth as auth
+from . import capability as capability
+from . import compliance as compliance
+from . import fault as fault
+from . import placement as placement
+from . import profile as profile
+from . import provider as provider
+from . import replication as replication
 
 
 class ServiceInstance(ManagedObject):
