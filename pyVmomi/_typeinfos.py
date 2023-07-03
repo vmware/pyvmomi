@@ -4,15 +4,6 @@
 
 import sys
 
-typeinfos = [
-    'core',
-    'eam',
-    'pbm',
-    'query',
-    'sms',
-    'vim',
-]
-
 # Deprecated
 # VmomiJSONEncoder was originally part of VmomiSupport and not a separate module.
 # This insertion into VmomiSupport is for backwards compatibility.
