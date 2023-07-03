@@ -1,5 +1,5 @@
 from typing import List
-from pyVmomi import DeviceId, sms, vmodl
+from pyVmomi import sms, vmodl
 
 
 class AlreadyDone(ReplicationFault): ...
@@ -26,9 +26,9 @@ class NoReplicationTarget(ReplicationFault): ...
 
 class NoValidReplica(ReplicationFault):
     @property
-    def deviceId(self) -> DeviceId: ...
+    def deviceId(self) -> sms.storage.replication.DeviceId: ...
     @deviceId.setter
-    def deviceId(self, value: DeviceId):
+    def deviceId(self, value: sms.storage.replication.DeviceId):
         self._deviceId = value
 
 

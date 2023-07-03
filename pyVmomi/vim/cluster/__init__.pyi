@@ -238,9 +238,9 @@ class ConfigInfoEx(vim.ComputeResource.ConfigInfo):
     def dpmHostConfig(self, value: List[DpmHostConfigInfo]):
         self._dpmHostConfig = value
     @property
-    def vsanConfigInfo(self) -> ConfigInfo: ...
+    def vsanConfigInfo(self) -> vim.vsan.cluster.ConfigInfo: ...
     @vsanConfigInfo.setter
-    def vsanConfigInfo(self, value: ConfigInfo):
+    def vsanConfigInfo(self, value: vim.vsan.cluster.ConfigInfo):
         self._vsanConfigInfo = value
     @property
     def vsanHostConfig(self) -> List[vim.vsan.host.ConfigInfo]: ...
@@ -349,9 +349,9 @@ class ConfigSpecEx(vim.ComputeResource.ConfigSpec):
     def dpmHostConfigSpec(self, value: List[DpmHostConfigSpec]):
         self._dpmHostConfigSpec = value
     @property
-    def vsanConfig(self) -> ConfigInfo: ...
+    def vsanConfig(self) -> vim.vsan.cluster.ConfigInfo: ...
     @vsanConfig.setter
-    def vsanConfig(self, value: ConfigInfo):
+    def vsanConfig(self, value: vim.vsan.cluster.ConfigInfo):
         self._vsanConfig = value
     @property
     def vsanHostConfigSpec(self) -> List[vim.vsan.host.ConfigInfo]: ...

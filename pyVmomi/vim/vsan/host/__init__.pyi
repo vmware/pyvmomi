@@ -1,6 +1,6 @@
 from typing import List
 from enum import Enum
-from pyVmomi import ScsiDisk, vim, vmodl
+from pyVmomi import vim, vmodl
 from datetime import datetime
 
 
@@ -208,22 +208,22 @@ class DiskMapResult(vmodl.DynamicData):
 
 class DiskMapping(vmodl.DynamicData):
     @property
-    def ssd(self) -> ScsiDisk: ...
+    def ssd(self) -> vim.host.ScsiDisk: ...
     @ssd.setter
-    def ssd(self, value: ScsiDisk):
+    def ssd(self, value: vim.host.ScsiDisk):
         self._ssd = value
     @property
-    def nonSsd(self) -> List[ScsiDisk]: ...
+    def nonSsd(self) -> List[vim.host.ScsiDisk]: ...
     @nonSsd.setter
-    def nonSsd(self, value: List[ScsiDisk]):
+    def nonSsd(self, value: List[vim.host.ScsiDisk]):
         self._nonSsd = value
 
 
 class DiskResult(vmodl.DynamicData):
     @property
-    def disk(self) -> ScsiDisk: ...
+    def disk(self) -> vim.host.ScsiDisk: ...
     @disk.setter
-    def disk(self, value: ScsiDisk):
+    def disk(self, value: vim.host.ScsiDisk):
         self._disk = value
     @property
     def state(self) -> str: ...

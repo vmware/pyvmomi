@@ -1076,7 +1076,7 @@ class ExpiredAddonLicense(ExpiredFeatureLicense): ...
 class ExpiredEditionLicense(ExpiredFeatureLicense): ...
 
 
-class ExpiredFeatureLicense(NotEnoughLicenses):
+class ExpiredFeatureLicense(vmodl.fault.NotEnoughLicenses):
     @property
     def feature(self) -> str: ...
     @feature.setter
@@ -1107,7 +1107,7 @@ class ExtendedFault(VimFault):
         self._data = value
 
 
-class FailToEnableSPBM(NotEnoughLicenses):
+class FailToEnableSPBM(vmodl.fault.NotEnoughLicenses):
     @property
     def cs(self) -> vim.ComputeResource: ...
     @cs.setter
@@ -1524,7 +1524,7 @@ class HAErrorsAtDest(MigrationFault): ...
 class HeterogenousHostsBlockingEVC(EVCConfigFault): ...
 
 
-class HostAccessRestrictedToManagementServer(NotSupported):
+class HostAccessRestrictedToManagementServer(vmodl.fault.NotSupported):
     @property
     def managementServer(self) -> str: ...
     @managementServer.setter
@@ -1597,7 +1597,7 @@ class HostIncompatibleForRecordReplay(VimFault):
         self._reason = value
 
 
-class HostInventoryFull(NotEnoughLicenses):
+class HostInventoryFull(vmodl.fault.NotEnoughLicenses):
     @property
     def capacity(self) -> int: ...
     @capacity.setter
@@ -1687,7 +1687,7 @@ class ImportOperationBulkFault(DvsFault):
             self._fault = value
 
 
-class InUseFeatureManipulationDisallowed(NotEnoughLicenses): ...
+class InUseFeatureManipulationDisallowed(vmodl.fault.NotEnoughLicenses): ...
 
 
 class InaccessibleDatastore(InvalidDatastore):
@@ -1753,7 +1753,7 @@ class IncompatibleHostForVmReplication(ReplicationFault):
         netCompression = "netCompression"
 
 
-class IncompatibleSetting(InvalidArgument):
+class IncompatibleSetting(vmodl.fault.InvalidArgument):
     @property
     def conflictingProperty(self) -> PropertyPath: ...
     @conflictingProperty.setter
@@ -1764,7 +1764,7 @@ class IncompatibleSetting(InvalidArgument):
 class IncorrectFileType(FileFault): ...
 
 
-class IncorrectHostInformation(NotEnoughLicenses): ...
+class IncorrectHostInformation(vmodl.fault.NotEnoughLicenses): ...
 
 
 class IndependentDiskVMotionNotSupported(MigrationFeatureNotSupported): ...
@@ -2003,7 +2003,7 @@ class InvalidController(InvalidDeviceSpec):
         self._controllerKey = value
 
 
-class InvalidDasConfigArgument(InvalidArgument):
+class InvalidDasConfigArgument(vmodl.fault.InvalidArgument):
     @property
     def entry(self) -> str: ...
     @entry.setter
@@ -2022,7 +2022,7 @@ class InvalidDasConfigArgument(InvalidArgument):
         vmConfig = "vmConfig"
 
 
-class InvalidDasRestartPriorityForFtVm(InvalidArgument):
+class InvalidDasRestartPriorityForFtVm(vmodl.fault.InvalidArgument):
     @property
     def vm(self) -> vim.VirtualMachine: ...
     @vm.setter
@@ -2091,7 +2091,7 @@ class InvalidDeviceSpec(InvalidVmConfig):
 class InvalidDiskFormat(InvalidFormat): ...
 
 
-class InvalidDrsBehaviorForFtVm(InvalidArgument):
+class InvalidDrsBehaviorForFtVm(vmodl.fault.InvalidArgument):
     @property
     def vm(self) -> vim.VirtualMachine: ...
     @vm.setter
@@ -2104,7 +2104,7 @@ class InvalidDrsBehaviorForFtVm(InvalidArgument):
         self._vmName = value
 
 
-class InvalidEditionLicense(NotEnoughLicenses):
+class InvalidEditionLicense(vmodl.fault.NotEnoughLicenses):
     @property
     def feature(self) -> str: ...
     @feature.setter
@@ -2143,7 +2143,7 @@ class InvalidHostState(InvalidState):
         self._host = value
 
 
-class InvalidIndexArgument(InvalidArgument):
+class InvalidIndexArgument(vmodl.fault.InvalidArgument):
     @property
     def key(self) -> str: ...
     @key.setter
@@ -2309,7 +2309,7 @@ class InvalidVmState(InvalidState):
         self._vm = value
 
 
-class InventoryHasStandardAloneHosts(NotEnoughLicenses):
+class InventoryHasStandardAloneHosts(vmodl.fault.NotEnoughLicenses):
     @property
     def hosts(self) -> List[str]: ...
     @hosts.setter
@@ -2456,7 +2456,7 @@ class LicenseAssignmentFailed(vmodl.RuntimeFault):
         self._reason = value
 
 
-class LicenseDowngradeDisallowed(NotEnoughLicenses):
+class LicenseDowngradeDisallowed(vmodl.fault.NotEnoughLicenses):
     @property
     def edition(self) -> str: ...
     @edition.setter
@@ -2482,7 +2482,7 @@ class LicenseEntityNotFound(VimFault):
         self._entityId = value
 
 
-class LicenseExpired(NotEnoughLicenses):
+class LicenseExpired(vmodl.fault.NotEnoughLicenses):
     @property
     def licenseKey(self) -> str: ...
     @licenseKey.setter
@@ -2490,10 +2490,10 @@ class LicenseExpired(NotEnoughLicenses):
         self._licenseKey = value
 
 
-class LicenseKeyEntityMismatch(NotEnoughLicenses): ...
+class LicenseKeyEntityMismatch(vmodl.fault.NotEnoughLicenses): ...
 
 
-class LicenseRestricted(NotEnoughLicenses): ...
+class LicenseRestricted(vmodl.fault.NotEnoughLicenses): ...
 
 
 class LicenseServerUnavailable(VimFault):
@@ -2504,7 +2504,7 @@ class LicenseServerUnavailable(VimFault):
         self._licenseServer = value
 
 
-class LicenseSourceUnavailable(NotEnoughLicenses):
+class LicenseSourceUnavailable(vmodl.fault.NotEnoughLicenses):
     @property
     def licenseSource(self) -> vim.LicenseManager.LicenseSource: ...
     @licenseSource.setter
@@ -3000,13 +3000,13 @@ class NoHostSuitableForFtSecondary(VmFaultToleranceIssue):
         self._vmName = value
 
 
-class NoLicenseServerConfigured(NotEnoughLicenses): ...
+class NoLicenseServerConfigured(vmodl.fault.NotEnoughLicenses): ...
 
 
 class NoPeerHostFound(HostPowerOpFailed): ...
 
 
-class NoPermission(SecurityError):
+class NoPermission(vmodl.fault.SecurityError):
     @property
     def object(self) -> ManagedObject: ...
     @object.setter
@@ -4403,7 +4403,7 @@ class RestrictedByAdministrator(vmodl.RuntimeFault):
         self._details = value
 
 
-class RestrictedVersion(SecurityError): ...
+class RestrictedVersion(vmodl.fault.SecurityError): ...
 
 
 class RollbackFailure(DvsFault):
@@ -4568,7 +4568,7 @@ class SoftRuleVioCorrectionImpact(VmConfigFault):
         self._vmName = value
 
 
-class SolutionUserRequired(SecurityError): ...
+class SolutionUserRequired(vmodl.fault.SecurityError): ...
 
 
 class SsdDiskNotAvailable(VimFault):
@@ -5205,7 +5205,7 @@ class VmHostAffinityRuleViolation(VmConfigFault):
         self._hostName = value
 
 
-class VmLimitLicense(NotEnoughLicenses):
+class VmLimitLicense(vmodl.fault.NotEnoughLicenses):
     @property
     def limit(self) -> int: ...
     @limit.setter
@@ -5299,7 +5299,7 @@ class VmotionInterfaceNotEnabled(HostPowerOpFailed): ...
 class VolumeEditorError(CustomizationFault): ...
 
 
-class VramLimitLicense(NotEnoughLicenses):
+class VramLimitLicense(vmodl.fault.NotEnoughLicenses):
     @property
     def limit(self) -> int: ...
     @limit.setter

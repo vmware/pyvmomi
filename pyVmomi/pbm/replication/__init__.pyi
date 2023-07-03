@@ -1,5 +1,5 @@
 from typing import List
-from pyVmomi import ReplicationGroupId, pbm, vmodl
+from pyVmomi import pbm, vim, vmodl
 from pyVmomi.VmomiSupport import ManagedObject
 
 
@@ -14,9 +14,9 @@ class QueryReplicationGroupResult(vmodl.DynamicData):
     def object(self, value: pbm.ServerObjectRef):
         self._object = value
     @property
-    def replicationGroupId(self) -> ReplicationGroupId: ...
+    def replicationGroupId(self) -> vim.vm.replication.ReplicationGroupId: ...
     @replicationGroupId.setter
-    def replicationGroupId(self, value: ReplicationGroupId):
+    def replicationGroupId(self, value: vim.vm.replication.ReplicationGroupId):
         self._replicationGroupId = value
     @property
     def fault(self) -> vmodl.MethodFault: ...

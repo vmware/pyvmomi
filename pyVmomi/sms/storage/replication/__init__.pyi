@@ -1,5 +1,5 @@
 from typing import List
-from pyVmomi import DeviceGroupId, FaultDomainId, ReplicationGroupId, sms, vim, vmodl
+from pyVmomi import sms, vim, vmodl
 from datetime import datetime
 
 
@@ -49,9 +49,9 @@ class FailoverParam(vmodl.DynamicData):
 
     class ReplicationGroupData(vmodl.DynamicData):
         @property
-        def groupId(self) -> ReplicationGroupId: ...
+        def groupId(self) -> vim.vm.replication.ReplicationGroupId: ...
         @groupId.setter
-        def groupId(self, value: ReplicationGroupId):
+        def groupId(self, value: vim.vm.replication.ReplicationGroupId):
             self._groupId = value
         @property
         def pitId(self) -> PointInTimeReplicaId: ...
@@ -149,7 +149,7 @@ class FailoverSuccessResult(GroupOperationResult):
             self._diskPath = value
 
 
-class FaultDomainInfo(FaultDomainId):
+class FaultDomainInfo(vim.vm.replication.FaultDomainId):
     @property
     def name(self) -> str: ...
     @name.setter
@@ -166,9 +166,9 @@ class FaultDomainInfo(FaultDomainId):
     def storageArrayId(self, value: str):
         self._storageArrayId = value
     @property
-    def children(self) -> List[FaultDomainId]: ...
+    def children(self) -> List[vim.vm.replication.FaultDomainId]: ...
     @children.setter
-    def children(self, value: List[FaultDomainId]):
+    def children(self, value: List[vim.vm.replication.FaultDomainId]):
         self._children = value
     @property
     def provider(self) -> sms.provider.Provider: ...
@@ -187,17 +187,17 @@ class GroupErrorResult(GroupOperationResult):
 
 class GroupInfo(vmodl.DynamicData):
     @property
-    def groupId(self) -> ReplicationGroupId: ...
+    def groupId(self) -> vim.vm.replication.ReplicationGroupId: ...
     @groupId.setter
-    def groupId(self, value: ReplicationGroupId):
+    def groupId(self, value: vim.vm.replication.ReplicationGroupId):
         self._groupId = value
 
 
 class GroupOperationResult(vmodl.DynamicData):
     @property
-    def groupId(self) -> ReplicationGroupId: ...
+    def groupId(self) -> vim.vm.replication.ReplicationGroupId: ...
     @groupId.setter
-    def groupId(self, value: ReplicationGroupId):
+    def groupId(self, value: vim.vm.replication.ReplicationGroupId):
         self._groupId = value
     @property
     def warning(self) -> List[vmodl.MethodFault]: ...
@@ -221,9 +221,9 @@ class PromoteParam(vmodl.DynamicData):
     def isPlanned(self, value: bool):
         self._isPlanned = value
     @property
-    def replicationGroupsToPromote(self) -> List[ReplicationGroupId]: ...
+    def replicationGroupsToPromote(self) -> List[vim.vm.replication.ReplicationGroupId]: ...
     @replicationGroupsToPromote.setter
-    def replicationGroupsToPromote(self, value: List[ReplicationGroupId]):
+    def replicationGroupsToPromote(self, value: List[vim.vm.replication.ReplicationGroupId]):
         self._replicationGroupsToPromote = value
 
 
@@ -335,14 +335,14 @@ class QueryReplicationGroupSuccessResult(GroupOperationResult):
 
 class QueryReplicationPeerResult(vmodl.DynamicData):
     @property
-    def sourceDomain(self) -> FaultDomainId: ...
+    def sourceDomain(self) -> vim.vm.replication.FaultDomainId: ...
     @sourceDomain.setter
-    def sourceDomain(self, value: FaultDomainId):
+    def sourceDomain(self, value: vim.vm.replication.FaultDomainId):
         self._sourceDomain = value
     @property
-    def targetDomain(self) -> List[FaultDomainId]: ...
+    def targetDomain(self) -> List[vim.vm.replication.FaultDomainId]: ...
     @targetDomain.setter
-    def targetDomain(self, value: List[FaultDomainId]):
+    def targetDomain(self, value: List[vim.vm.replication.FaultDomainId]):
         self._targetDomain = value
     @property
     def error(self) -> List[vmodl.MethodFault]: ...
@@ -374,9 +374,9 @@ class ReplicaId(vmodl.DynamicData):
 
 class ReverseReplicationSuccessResult(GroupOperationResult):
     @property
-    def newGroupId(self) -> DeviceGroupId: ...
+    def newGroupId(self) -> vim.vm.replication.DeviceGroupId: ...
     @newGroupId.setter
-    def newGroupId(self, value: DeviceGroupId):
+    def newGroupId(self, value: vim.vm.replication.DeviceGroupId):
         self._newGroupId = value
 
 
@@ -410,9 +410,9 @@ class SourceGroupInfo(GroupInfo):
 
     class ReplicationTargetInfo(vmodl.DynamicData):
         @property
-        def targetGroupId(self) -> ReplicationGroupId: ...
+        def targetGroupId(self) -> vim.vm.replication.ReplicationGroupId: ...
         @targetGroupId.setter
-        def targetGroupId(self, value: ReplicationGroupId):
+        def targetGroupId(self, value: vim.vm.replication.ReplicationGroupId):
             self._targetGroupId = value
         @property
         def replicationAgreementDescription(self) -> str: ...
@@ -436,9 +436,9 @@ class SourceGroupMemberInfo(vmodl.DynamicData):
 
     class TargetDeviceId(vmodl.DynamicData):
         @property
-        def domainId(self) -> FaultDomainId: ...
+        def domainId(self) -> vim.vm.replication.FaultDomainId: ...
         @domainId.setter
-        def domainId(self, value: FaultDomainId):
+        def domainId(self, value: vim.vm.replication.FaultDomainId):
             self._domainId = value
         @property
         def deviceId(self) -> ReplicaId: ...
@@ -490,9 +490,9 @@ class TargetGroupInfo(GroupInfo):
 
     class TargetToSourceInfo(vmodl.DynamicData):
         @property
-        def sourceGroupId(self) -> ReplicationGroupId: ...
+        def sourceGroupId(self) -> vim.vm.replication.ReplicationGroupId: ...
         @sourceGroupId.setter
-        def sourceGroupId(self, value: ReplicationGroupId):
+        def sourceGroupId(self, value: vim.vm.replication.ReplicationGroupId):
             self._sourceGroupId = value
         @property
         def replicationAgreementDescription(self) -> str: ...

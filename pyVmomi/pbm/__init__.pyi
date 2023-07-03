@@ -1,6 +1,6 @@
 from typing import List
 from enum import Enum
-from pyVmomi import vmodl
+from pyVmomi import pbm, vmodl
 from pyVmomi.VmomiSupport import ManagedObject
 from . import auth as auth
 from . import capability as capability
@@ -138,34 +138,34 @@ class ServiceInstanceContent(vmodl.DynamicData):
     def aboutInfo(self, value: AboutInfo):
         self._aboutInfo = value
     @property
-    def sessionManager(self) -> auth.SessionManager: ...
+    def sessionManager(self) -> pbm.auth.SessionManager: ...
     @sessionManager.setter
-    def sessionManager(self, value: auth.SessionManager):
+    def sessionManager(self, value: pbm.auth.SessionManager):
         self._sessionManager = value
     @property
-    def capabilityMetadataManager(self) -> capability.CapabilityMetadataManager: ...
+    def capabilityMetadataManager(self) -> pbm.capability.CapabilityMetadataManager: ...
     @capabilityMetadataManager.setter
-    def capabilityMetadataManager(self, value: capability.CapabilityMetadataManager):
+    def capabilityMetadataManager(self, value: pbm.capability.CapabilityMetadataManager):
         self._capabilityMetadataManager = value
     @property
-    def profileManager(self) -> profile.ProfileManager: ...
+    def profileManager(self) -> pbm.profile.ProfileManager: ...
     @profileManager.setter
-    def profileManager(self, value: profile.ProfileManager):
+    def profileManager(self, value: pbm.profile.ProfileManager):
         self._profileManager = value
     @property
-    def complianceManager(self) -> compliance.ComplianceManager: ...
+    def complianceManager(self) -> pbm.compliance.ComplianceManager: ...
     @complianceManager.setter
-    def complianceManager(self, value: compliance.ComplianceManager):
+    def complianceManager(self, value: pbm.compliance.ComplianceManager):
         self._complianceManager = value
     @property
-    def placementSolver(self) -> placement.PlacementSolver: ...
+    def placementSolver(self) -> pbm.placement.PlacementSolver: ...
     @placementSolver.setter
-    def placementSolver(self, value: placement.PlacementSolver):
+    def placementSolver(self, value: pbm.placement.PlacementSolver):
         self._placementSolver = value
     @property
-    def replicationManager(self) -> replication.ReplicationManager: ...
+    def replicationManager(self) -> pbm.replication.ReplicationManager: ...
     @replicationManager.setter
-    def replicationManager(self, value: replication.ReplicationManager):
+    def replicationManager(self, value: pbm.replication.ReplicationManager):
         self._replicationManager = value
 
 

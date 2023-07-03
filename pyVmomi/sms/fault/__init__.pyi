@@ -4,7 +4,7 @@ from pyVmomi.VmomiSupport import long
 from . import replication as replication
 
 
-class AuthConnectionFailed(NoPermission): ...
+class AuthConnectionFailed(vim.fault.NoPermission): ...
 
 
 class CertificateAuthorityFault(ProviderRegistrationFault):
@@ -65,7 +65,7 @@ class InvalidLogin(vmodl.MethodFault): ...
 class InvalidProfile(vmodl.MethodFault): ...
 
 
-class InvalidSession(NoPermission):
+class InvalidSession(vim.fault.NoPermission):
     @property
     def sessionCookie(self) -> str: ...
     @sessionCookie.setter
@@ -81,7 +81,7 @@ class InvalidUrl(ProviderRegistrationFault):
         self._url = value
 
 
-class MultipleSortSpecsNotSupported(InvalidArgument): ...
+class MultipleSortSpecsNotSupported(vmodl.fault.InvalidArgument): ...
 
 
 class NoCommonProviderForAllBackings(QueryExecutionFault): ...
@@ -148,7 +148,7 @@ class ProxyRegistrationFailed(vmodl.RuntimeFault): ...
 class QueryExecutionFault(vmodl.MethodFault): ...
 
 
-class QueryNotSupported(InvalidArgument):
+class QueryNotSupported(vmodl.fault.InvalidArgument):
     @property
     def entityType(self) -> sms.EntityReference.EntityType | Literal['datacenter', 'resourcePool', 'storagePod', 'cluster', 'vm', 'datastore', 'host', 'vmFile', 'scsiPath', 'scsiTarget', 'scsiVolume', 'scsiAdapter', 'nasMount']: ...
     @entityType.setter
@@ -161,7 +161,7 @@ class QueryNotSupported(InvalidArgument):
         self._relatedEntityType = value
 
 
-class ResourceInUse(ResourceInUse):
+class ResourceInUse(vim.fault.ResourceInUse):
     @property
     def deviceIds(self) -> List[sms.storage.replication.DeviceId]: ...
     @deviceIds.setter

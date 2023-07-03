@@ -11,9 +11,9 @@ from . import replication as replication
 
 
 class GuestCustomizationManager(ManagedObject):
-    def Customize(self, vm: vim.VirtualMachine, auth: guest.GuestAuthentication, spec: customization.Specification, configParams: List[vim.option.OptionValue]) -> vim.Task: ...
-    def StartNetwork(self, vm: vim.VirtualMachine, auth: guest.GuestAuthentication) -> vim.Task: ...
-    def AbortCustomization(self, vm: vim.VirtualMachine, auth: guest.GuestAuthentication) -> vim.Task: ...
+    def Customize(self, vm: vim.VirtualMachine, auth: vim.vm.guest.GuestAuthentication, spec: vim.vm.customization.Specification, configParams: List[vim.option.OptionValue]) -> vim.Task: ...
+    def StartNetwork(self, vm: vim.VirtualMachine, auth: vim.vm.guest.GuestAuthentication) -> vim.Task: ...
+    def AbortCustomization(self, vm: vim.VirtualMachine, auth: vim.vm.guest.GuestAuthentication) -> vim.Task: ...
 
 
 class Snapshot(vim.ExtensibleManagedObject):
@@ -398,9 +398,9 @@ class CloneSpec(vmodl.DynamicData):
     def config(self, value: ConfigSpec):
         self._config = value
     @property
-    def customization(self) -> customization.Specification: ...
+    def customization(self) -> vim.vm.customization.Specification: ...
     @customization.setter
-    def customization(self, value: customization.Specification):
+    def customization(self, value: vim.vm.customization.Specification):
         self._customization = value
     @property
     def powerOn(self) -> bool: ...
@@ -912,9 +912,9 @@ class ConfigOption(vmodl.DynamicData):
     def datastore(self, value: DatastoreOption):
         self._datastore = value
     @property
-    def defaultDevice(self) -> List[device.VirtualDevice]: ...
+    def defaultDevice(self) -> List[vim.vm.device.VirtualDevice]: ...
     @defaultDevice.setter
-    def defaultDevice(self, value: List[device.VirtualDevice]):
+    def defaultDevice(self, value: List[vim.vm.device.VirtualDevice]):
         self._defaultDevice = value
     @property
     def supportedMonitorType(self) -> List[str]: ...
@@ -1143,9 +1143,9 @@ class ConfigSpec(vmodl.DynamicData):
     def virtualSMCPresent(self, value: bool):
         self._virtualSMCPresent = value
     @property
-    def deviceChange(self) -> List[device.VirtualDeviceSpec]: ...
+    def deviceChange(self) -> List[vim.vm.device.VirtualDeviceSpec]: ...
     @deviceChange.setter
-    def deviceChange(self, value: List[device.VirtualDeviceSpec]):
+    def deviceChange(self, value: List[vim.vm.device.VirtualDeviceSpec]):
         self._deviceChange = value
     @property
     def cpuAllocation(self) -> vim.ResourceAllocationInfo: ...
@@ -1738,9 +1738,9 @@ class DefinedProfileSpec(ProfileSpec):
     def profileId(self, value: str):
         self._profileId = value
     @property
-    def replicationSpec(self) -> replication.ReplicationSpec: ...
+    def replicationSpec(self) -> vim.vm.replication.ReplicationSpec: ...
     @replicationSpec.setter
-    def replicationSpec(self, value: replication.ReplicationSpec):
+    def replicationSpec(self, value: vim.vm.replication.ReplicationSpec):
         self._replicationSpec = value
     @property
     def profileData(self) -> ProfileRawData: ...
@@ -2008,9 +2008,9 @@ class FaultToleranceVMConfigSpec(vmodl.DynamicData):
 
     class FaultToleranceDiskSpec(vmodl.DynamicData):
         @property
-        def disk(self) -> device.VirtualDevice: ...
+        def disk(self) -> vim.vm.device.VirtualDevice: ...
         @disk.setter
-        def disk(self, value: device.VirtualDevice):
+        def disk(self, value: vim.vm.device.VirtualDevice):
             self._disk = value
         @property
         def datastore(self) -> vim.Datastore: ...
@@ -3661,9 +3661,9 @@ class RelocateSpec(vmodl.DynamicData):
     def transform(self, value: RelocateSpec.Transformation | Literal['flat', 'sparse']):
         self._transform = value
     @property
-    def deviceChange(self) -> List[device.VirtualDeviceSpec]: ...
+    def deviceChange(self) -> List[vim.vm.device.VirtualDeviceSpec]: ...
     @deviceChange.setter
-    def deviceChange(self, value: List[device.VirtualDeviceSpec]):
+    def deviceChange(self, value: List[vim.vm.device.VirtualDeviceSpec]):
         self._deviceChange = value
     @property
     def profile(self) -> List[ProfileSpec]: ...
@@ -3694,9 +3694,9 @@ class RelocateSpec(vmodl.DynamicData):
         def diskMoveType(self, value: str):
             self._diskMoveType = value
         @property
-        def diskBackingInfo(self) -> device.VirtualDevice.BackingInfo: ...
+        def diskBackingInfo(self) -> vim.vm.device.VirtualDevice.BackingInfo: ...
         @diskBackingInfo.setter
-        def diskBackingInfo(self, value: device.VirtualDevice.BackingInfo):
+        def diskBackingInfo(self, value: vim.vm.device.VirtualDevice.BackingInfo):
             self._diskBackingInfo = value
         @property
         def profile(self) -> List[ProfileSpec]: ...
@@ -4955,9 +4955,9 @@ class VendorDeviceGroupInfo(TargetInfo):
         def isConfigurable(self, value: bool):
             self._isConfigurable = value
         @property
-        def device(self) -> device.VirtualDevice: ...
+        def device(self) -> vim.vm.device.VirtualDevice: ...
         @device.setter
-        def device(self, value: device.VirtualDevice):
+        def device(self, value: vim.vm.device.VirtualDevice):
             self._device = value
 
 
@@ -5139,9 +5139,9 @@ class VirtualHardware(vmodl.DynamicData):
     def virtualSMCPresent(self, value: bool):
         self._virtualSMCPresent = value
     @property
-    def device(self) -> List[device.VirtualDevice]: ...
+    def device(self) -> List[vim.vm.device.VirtualDevice]: ...
     @device.setter
-    def device(self, value: List[device.VirtualDevice]):
+    def device(self, value: List[vim.vm.device.VirtualDevice]):
         self._device = value
     @property
     def motherboardLayout(self) -> str: ...
@@ -5167,9 +5167,9 @@ class VirtualHardwareOption(vmodl.DynamicData):
     def hwVersion(self, value: int):
         self._hwVersion = value
     @property
-    def virtualDeviceOption(self) -> List[device.VirtualDeviceOption]: ...
+    def virtualDeviceOption(self) -> List[vim.vm.device.VirtualDeviceOption]: ...
     @virtualDeviceOption.setter
-    def virtualDeviceOption(self, value: List[device.VirtualDeviceOption]):
+    def virtualDeviceOption(self, value: List[vim.vm.device.VirtualDeviceOption]):
         self._virtualDeviceOption = value
     @property
     def deviceListReadonly(self) -> bool: ...
