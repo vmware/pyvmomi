@@ -1,6 +1,7 @@
 import tests
 
 from pyVim import connect
+from pyVmomi import vim
 
 
 class SoapAdapterTests(tests.VCRTestBase):
@@ -10,4 +11,4 @@ class SoapAdapterTests(tests.VCRTestBase):
 
         stub = connect.SoapStubAdapter()
         vim_session = connect.VimSessionOrientedStub(stub, login_fail)
-        self.assertRaises(SystemError, vim_session.InvokeAccessor, "mo", "info")
+        self.assertRaises(vim.fault.NotAuthenticated, vim_session.InvokeAccessor, "mo", "info")
