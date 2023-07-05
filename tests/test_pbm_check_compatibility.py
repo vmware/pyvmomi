@@ -18,7 +18,7 @@ import unittest
 import tests
 
 from pyVmomi import pbm, VmomiSupport, SoapStubAdapter
-from pyVim.connect import SmartConnectNoSSL
+from pyVim.connect import SmartConnect
 
 
 class PBMTests(tests.VCRTestBase):
@@ -53,9 +53,10 @@ class PBMTests(tests.VCRTestBase):
                                            record_mode='Once')
     def test_pbm_check_compatibility(self):
 
-        si = SmartConnectNoSSL(host='vcsa',
+        si = SmartConnect(host='vcsa',
                                user='Administrator@vsphere.local',
-                               pwd='Admin!23')
+                               pwd='Admin!23',
+                               disableSslCertValidation=True)
 
         # Connect to SPBM Endpoint
         pbm_content = self.get_pbm_connection(si._stub)

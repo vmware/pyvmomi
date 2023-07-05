@@ -49,8 +49,8 @@ class JSONTests(tests.VCRTestBase):
     @property
     def si(self):
         if not hasattr(self, '_si'):
-            self._si = connect.SmartConnectNoSSL(
-                host='vcenter', user='my_user', pwd='my_pass')
+            self._si = connect.SmartConnect(
+                host='vcenter', user='my_user', pwd='my_pass', disableSslCertValidation=True)
             atexit.register(connect.Disconnect, self._si)
         return self._si
 
