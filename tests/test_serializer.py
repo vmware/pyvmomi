@@ -43,12 +43,12 @@ class SerializerTests(tests.VCRTestBase):
         SoapAdapter.Serialize(pc, version='vim.version.version10')
 
     def test_serialize_unicode(self):
-        self.assertEqual(SoapAdapter.SerializeToUnicode('Ḃ'),
-                         u'<object xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:vim25" xsi:type="xsd:string">\u1e02</object>')
-        self.assertEqual(SoapAdapter.SerializeToUnicode(u'Ḃ'),
-                         u'<object xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:vim25" xsi:type="xsd:string">\u1e02</object>')
-        self.assertEqual(SoapAdapter.SerializeToUnicode(u'\u1e02'),
-                         u'<object xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:vim25" xsi:type="xsd:string">\u1e02</object>')
+        self.assertEqual(SoapAdapter.SerializeToStr('Ḃ'),
+                         u'<obj versionId="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:vim25" xsi:type="xsd:string">\u1e02</obj>')
+        self.assertEqual(SoapAdapter.SerializeToStr(u'Ḃ'),
+                         u'<obj versionId="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:vim25" xsi:type="xsd:string">\u1e02</obj>')
+        self.assertEqual(SoapAdapter.SerializeToStr(u'\u1e02'),
+                         u'<obj versionId="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:vim25" xsi:type="xsd:string">\u1e02</obj>')
 
     def _base_serialize_test(self, soap_creator, request_matcher):
         my_vcr = config.VCR(
@@ -72,7 +72,7 @@ class SerializerTests(tests.VCRTestBase):
     def _body_request_matcher(self, r1, r2):
         soap_msg = ('<soapenv:Body>'
                     '<RetrieveServiceContent xmlns="urn:vim25">'
-                    '<_this type="ServiceInstance">'
+                    '<_this versionId="5.5" type="ServiceInstance">'
                     'ServiceInstance'
                     '</_this>'
                     '</RetrieveServiceContent>'
@@ -82,7 +82,7 @@ class SerializerTests(tests.VCRTestBase):
         raise SystemError('serialization error occurred')
 
     def _request_context_request_matcher(self, r1, r2):
-        request_context = ('<soapenv:Header><vcSessionCookie>123456789</vcSessionCookie></soapenv:Header>')
+        request_context = ('<soapenv:Header><vcSessionCookie versionId="5.5">123456789</vcSessionCookie></soapenv:Header>')
         if request_context in r1.body.decode("utf-8"):
             return True
         raise SystemError('serialization error occurred')
