@@ -19,17 +19,14 @@ def _assert_not_initialized():
         raise RuntimeError("pyVmomi is already initialized!")
 
 
-def _import_typeinfo(typeinfo):
-    try:
-        __import__('_typeinfo_' + typeinfo, globals(), level=1)
-    except ImportError:
-        pass
-
-
 def _load_typeinfos():
-    from ._typeinfos import typeinfos
-    for typeinfo in typeinfos:
-        _import_typeinfo(typeinfo)
+    from . import _typeinfos
+    from . import _typeinfos_core
+    from . import _typeinfos_eam
+    from . import _typeinfos_pbm
+    from . import _typeinfos_query
+    from . import _typeinfos_sms
+    from . import _typeinfos_vim
 
 try:
     settings = importlib.import_module('.pyVmomiSettings', 'pyVmomi')
