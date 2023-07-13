@@ -1,5 +1,5 @@
 # **********************************************************
-# Copyright (c) 2005-2022 VMware, Inc.
+# Copyright (c) 2005-2023 VMware, Inc.
 # **********************************************************
 
 import sys
@@ -19,18 +19,6 @@ def _assert_not_initialized():
         raise RuntimeError("pyVmomi is already initialized!")
 
 
-def _import_typeinfo(typeinfo):
-    try:
-        __import__('_typeinfo_' + typeinfo, globals(), level=1)
-    except ImportError:
-        pass
-
-
-def _load_typeinfos():
-    from ._typeinfos import typeinfos
-    for typeinfo in typeinfos:
-        _import_typeinfo(typeinfo)
-
 try:
     settings = importlib.import_module('.pyVmomiSettings', 'pyVmomi')
 except ImportError:
@@ -48,8 +36,8 @@ _legacyThumbprintException = \
 
 from . import VmomiSupport  # noqa: E402
 from . import Feature  # noqa: E402
-
-_load_typeinfos()
+from ._typeinfos import load_typeinfos  # noqa: E402
+load_typeinfos()
 
 # All data object types and fault types have DynamicData as an ancestor
 # As well load it proactively.

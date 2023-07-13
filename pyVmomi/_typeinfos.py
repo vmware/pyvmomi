@@ -1,19 +1,42 @@
 # **********************************************************
-# Copyright (c) 2005-2022 VMware, Inc.
+# Copyright (c) 2005-2023 VMware, Inc.
 # **********************************************************
 
 import sys
 
-typeinfos = [
-    'core',
-    'eam',
-    'pbm',
-    'query',
-    'sms',
-    'vim',
-]
 
-# Deprecated
+def load_typeinfos():
+    try:
+        from . import _typeinfo_core
+    except ImportError:
+        pass
+
+    try:
+        from . import _typeinfo_eam
+    except ImportError:
+        pass
+
+    try:
+        from . import _typeinfo_pbm
+    except ImportError:
+        pass
+
+    try:
+        from . import _typeinfo_query
+    except ImportError:
+        pass
+
+    try:
+        from . import _typeinfo_sms
+    except ImportError:
+        pass
+
+    try:
+        from . import _typeinfo_vim
+    except ImportError:
+        pass
+
+
 # VmomiJSONEncoder was originally part of VmomiSupport and not a separate module.
 # This insertion into VmomiSupport is for backwards compatibility.
 from .VmomiJSONEncoder import VmomiJSONEncoder
