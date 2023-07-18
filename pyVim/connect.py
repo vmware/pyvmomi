@@ -816,7 +816,8 @@ def SmartStubAdapter(host='localhost',
                      sslContext=None,
                      httpConnectionTimeout=None,
                      connectionPoolTimeout=CONNECTION_POOL_IDLE_TIMEOUT_SEC,
-                     disableSslCertValidation=False):
+                     disableSslCertValidation=False,
+                     customHeaders=None):
     """
     Determine the most preferred API version supported by the specified server,
     then create a soap stub adapter using that version
@@ -832,6 +833,8 @@ def SmartStubAdapter(host='localhost',
     @type  preferredApiVersions: string or string list
     @type disableSslCertValidation: bool
     @param disableSslCertValidation: Creates an unverified SSL context when True.
+    @type  customHeaders: dict
+    @param customHeaders: Dictionary with custom HTTP headers.
     """
     if preferredApiVersions is None:
         preferredApiVersions = GetServiceVersions('vim25')
@@ -841,7 +844,8 @@ def SmartStubAdapter(host='localhost',
     supportedVersion = __FindSupportedVersion('https' if port > 0 else 'http',
                                               host, port, path,
                                               preferredApiVersions, sslContext,
-                                              httpProxyHost, httpProxyPort, {})
+                                              httpProxyHost, httpProxyPort,
+                                              customHeaders)
     if supportedVersion is None:
         raise Exception("{0}:{1} is down or is not a VIM server"
                         .format(host, port))
@@ -864,7 +868,8 @@ def SmartStubAdapter(host='localhost',
                            samlToken=samlToken,
                            sslContext=sslContext,
                            httpConnectionTimeout=httpConnectionTimeout,
-                           connectionPoolTimeout=connectionPoolTimeout)
+                           connectionPoolTimeout=connectionPoolTimeout,
+                           customHeaders=customHeaders)
 
 
 def SmartConnect(protocol='https',
