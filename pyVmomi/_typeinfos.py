@@ -36,6 +36,11 @@ def load_typeinfos():
     except ImportError:
         pass
 
+    try:
+        from . import _typeinfo_vslm
+    except ImportError:
+        pass
+
 
 # VmomiJSONEncoder was originally part of VmomiSupport and not a separate module.
 # This insertion into VmomiSupport is for backwards compatibility.
