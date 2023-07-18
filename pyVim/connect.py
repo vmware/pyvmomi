@@ -256,7 +256,7 @@ def Connect(host='localhost',
     @param httpProxyHost The host name of the proxy server.
     @type  httpProxyHost: string
     @param httpProxyPort The proxy server port.
-    @type  httpProxyPort: string
+    @type  httpProxyPort: int
     @param thumbprint: host cert thumbprint
     @type  thumbprint: string
     @param sslContext: SSL Context describing the various SSL options. It is only
@@ -431,7 +431,7 @@ def __Login(host,
     @param httpProxyHost The host name of the proxy server.
     @type  httpProxyHost: string
     @param httpProxyPort The proxy server port.
-    @type  httpProxyPort: string
+    @type  httpProxyPort: int
     @param thumbprint: host cert thumbprint
     @type  thumbprint: string
     @param sslContext: SSL Context describing the various SSL options. It is only
@@ -642,7 +642,7 @@ def __GetElementTree(protocol, server, port, path, sslContext,
     @param httpProxyHost The host name of the proxy server.
     @type  httpProxyHost: string
     @param httpProxyPort The proxy server port.
-    @type  httpProxyPort: string
+    @type  httpProxyPort: int
     @type  customHeaders: dict
     @param customHeaders: Dictionary with custom HTTP headers.
     """
@@ -701,7 +701,7 @@ def __GetServiceVersionDescription(protocol, server, port, path, sslContext,
     @param httpProxyHost The host name of the proxy server.
     @type  httpProxyHost: string
     @param httpProxyPort The proxy server port.
-    @type  httpProxyPort: string
+    @type  httpProxyPort: int
     @type  customHeaders: dict
     @param customHeaders: Dictionary with custom HTTP headers.
     """
@@ -777,7 +777,7 @@ def __FindSupportedVersion(protocol, server, port, path, preferredApiVersions,
     @param httpProxyHost The host name of the proxy server.
     @type  httpProxyHost: string
     @param httpProxyPort The proxy server port.
-    @type  httpProxyPort: string
+    @type  httpProxyPort: int
     @type  customHeaders: dict
     @param customHeaders: Dictionary with custom HTTP headers.
     """
@@ -831,7 +831,7 @@ def SmartStubAdapter(host='localhost',
                                     specified, the list of versions support by pyVmomi will
                                     be used.
     @type  preferredApiVersions: string or string list
-    @type disableSslCertValidation: bool
+    @type  disableSslCertValidation: bool
     @param disableSslCertValidation: Creates an unverified SSL context when True.
     @type  customHeaders: dict
     @param customHeaders: Dictionary with custom HTTP headers.
@@ -935,7 +935,7 @@ def SmartConnect(protocol='https',
     @param httpProxyHost The host name of the proxy server.
     @type  httpProxyHost: string
     @param httpProxyPort The proxy server port.
-    @type  httpProxyPort: string
+    @type  httpProxyPort: int
     @param thumbprint: host cert thumbprint
     @type  thumbprint: string
     @param sslContext: SSL Context describing the various SSL options. It is only
