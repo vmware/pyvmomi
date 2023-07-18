@@ -1167,8 +1167,10 @@ class _HTTPSConnection(six.moves.http_client.HTTPSConnection):
 # issue a CONNECT command to start an SSL tunnel.
 class SSLTunnelConnection(object):
     # @param proxyPath The path to pass to the CONNECT command.
-    def __init__(self, proxyPath):
+    # @param customHeaders Dictionary with custom HTTP headers.
+    def __init__(self, proxyPath, customHeaders=None):
         self.proxyPath = proxyPath
+        self.customHeaders = customHeaders if customHeaders else {}
 
     # Connects to a proxy server and initiates a tunnel to the destination
     # specified by proxyPath. If successful, a new HTTPSConnection is returned.
@@ -1228,7 +1230,7 @@ class SSLTunnelConnection(object):
             proxyHost = splitport(self.proxyPath)[0]
             if (_CheckIPv4(proxyHost) or _CheckIPv6(proxyHost)
                     or _CheckHostname(proxyHost)):
-                retval.set_tunnel(self.proxyPath)
+                retval.set_tunnel(self.proxyPath, headers=self.customHeaders)
             # Call wrap_socket if ProxyPath is VC inbuilt proxyPath
             # ex: /sdkTunnel
             else:
@@ -1248,8 +1250,10 @@ class SSLTunnelConnection(object):
 # proxy.
 class HTTPProxyConnection(object):
     # @param proxyPath The path to pass to the CONNECT command.
-    def __init__(self, proxyPath):
+    # @param customHeaders Dictionary with custom HTTP headers.
+    def __init__(self, proxyPath, customHeaders=None):
         self.proxyPath = proxyPath
+        self.customHeaders = customHeaders if customHeaders else {}
 
     # Connects to an HTTP proxy server and initiates a tunnel to the destination
     # specified by proxyPath. If successful, a new HTTPSConnection is returned.
@@ -1260,7 +1264,7 @@ class HTTPProxyConnection(object):
     def __call__(self, path, **kwargs):
         httpsConnArgs = {k: kwargs[k] for k in kwargs if k not in SOAP_ADAPTER_ARGS}
         conn = six.moves.http_client.HTTPSConnection(path, **httpsConnArgs)
-        conn.set_tunnel(self.proxyPath)
+        conn.set_tunnel(self.proxyPath, headers=self.customHeaders)
         return conn
 
 
@@ -1441,10 +1445,10 @@ class SoapStubAdapter(SoapStubAdapterBase):
 
         self.is_tunnel = False
         if sslProxyPath:
-            self.scheme = SSLTunnelConnection(sslProxyPath)
+            self.scheme = SSLTunnelConnection(sslProxyPath, customHeaders)
             self.is_tunnel = True
         elif httpProxyHost:
-            self.scheme = HTTPProxyConnection(self.host)
+            self.scheme = HTTPProxyConnection(self.host, customHeaders)
             self.is_tunnel = True
 
             # Is httpProxyHost IPv6

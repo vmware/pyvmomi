@@ -623,7 +623,8 @@ def __GetElementTreeFromUrl(url, sslContext):
 
 
 def __GetElementTree(protocol, server, port, path, sslContext,
-                     httpProxyHost, httpProxyPort):
+                     httpProxyHost, httpProxyPort,
+                     customHeaders):
     """
     Private method that returns ElementTree for a remote XML document.
 
@@ -638,13 +639,20 @@ def __GetElementTree(protocol, server, port, path, sslContext,
     @param sslContext: SSL Context describing the various SSL options. It is only
                         supported in Python 2.7.9 or higher.
     @type  sslContext: SSL.Context
+    @param httpProxyHost The host name of the proxy server.
+    @type  httpProxyHost: string
+    @param httpProxyPort The proxy server port.
+    @type  httpProxyPort: string
+    @type  customHeaders: dict
+    @param customHeaders: Dictionary with custom HTTP headers.
     """
     tree = ElementTree()
+    headers = customHeaders if customHeaders else {}
 
     if httpProxyHost:
         kwargs = {"context": sslContext} if sslContext else {}
         conn = http_client.HTTPSConnection(httpProxyHost, port=httpProxyPort, **kwargs)
-        conn.set_tunnel(server, port)
+        conn.set_tunnel(server, port, headers)
     elif protocol == "https":
         kwargs = {"context": sslContext} if sslContext else {}
         conn = http_client.HTTPSConnection(server, port=port, **kwargs)
@@ -652,7 +660,7 @@ def __GetElementTree(protocol, server, port, path, sslContext,
         conn = http_client.HTTPConnection(server, port=port)
     else:
         raise Exception("Protocol " + protocol + " not supported.")
-    conn.request("GET", path)
+    conn.request(method="GET", url=path, headers=headers)
     try:
         response = conn.getresponse()
         if response.status == 200:
@@ -672,7 +680,8 @@ def __GetElementTree(protocol, server, port, path, sslContext,
 
 
 def __GetServiceVersionDescription(protocol, server, port, path, sslContext,
-                                   httpProxyHost, httpProxyPort):
+                                   httpProxyHost, httpProxyPort,
+                                   customHeaders):
     """
     Private method that returns an ElementTree describing the API versions
     supported by the specified server.  The result will be vimServiceVersions.xml
@@ -689,11 +698,17 @@ def __GetServiceVersionDescription(protocol, server, port, path, sslContext,
     @param sslContext: SSL Context describing the various SSL options. It is only
                         supported in Python 2.7.9 or higher.
     @type  sslContext: SSL.Context
+    @param httpProxyHost The host name of the proxy server.
+    @type  httpProxyHost: string
+    @param httpProxyPort The proxy server port.
+    @type  httpProxyPort: string
+    @type  customHeaders: dict
+    @param customHeaders: Dictionary with custom HTTP headers.
     """
 
     return __GetElementTree(protocol, server, port,
                             path + "/vimServiceVersions.xml", sslContext,
-                            httpProxyHost, httpProxyPort)
+                            httpProxyHost, httpProxyPort, customHeaders)
 
 
 # Private method that returns true if the service version description document
@@ -738,7 +753,8 @@ def __VersionIsSupported(desiredVersion, serviceVersionDescription):
 
 
 def __FindSupportedVersion(protocol, server, port, path, preferredApiVersions,
-                           sslContext, httpProxyHost, httpProxyPort):
+                           sslContext, httpProxyHost, httpProxyPort,
+                           customHeaders):
     """
     Private method that returns the most preferred API version supported by the
     specified server,
@@ -758,10 +774,17 @@ def __FindSupportedVersion(protocol, server, port, path, preferredApiVersions,
     @param sslContext: SSL Context describing the various SSL options. It is only
                         supported in Python 2.7.9 or higher.
     @type  sslContext: SSL.Context
+    @param httpProxyHost The host name of the proxy server.
+    @type  httpProxyHost: string
+    @param httpProxyPort The proxy server port.
+    @type  httpProxyPort: string
+    @type  customHeaders: dict
+    @param customHeaders: Dictionary with custom HTTP headers.
     """
 
     serviceVersionDescription = __GetServiceVersionDescription(
-        protocol, server, port, path, sslContext, httpProxyHost, httpProxyPort)
+        protocol, server, port, path, sslContext, httpProxyHost,
+        httpProxyPort, customHeaders)
     if serviceVersionDescription is None:
         return None
 
@@ -818,7 +841,7 @@ def SmartStubAdapter(host='localhost',
     supportedVersion = __FindSupportedVersion('https' if port > 0 else 'http',
                                               host, port, path,
                                               preferredApiVersions, sslContext,
-                                              httpProxyHost, httpProxyPort)
+                                              httpProxyHost, httpProxyPort, {})
     if supportedVersion is None:
         raise Exception("{0}:{1} is down or is not a VIM server"
                         .format(host, port))
@@ -923,6 +946,8 @@ def SmartConnect(protocol='https',
                     The presence of this token overrides the user and pwd parameters.
     @type disableSslCertValidation: bool
     @param disableSslCertValidation: Creates an unverified SSL context when True.
+    @type  customHeaders: dict
+    @param customHeaders: Dictionary with custom HTTP headers.
     @param b64token: base64 encoded token
            *** Deprecated: Use token instead ***
     @type  b64token: string
@@ -938,7 +963,8 @@ def SmartConnect(protocol='https',
 
     supportedVersion = __FindSupportedVersion(protocol, host, port, path,
                                               preferredApiVersions, sslContext,
-                                              httpProxyHost, httpProxyPort)
+                                              httpProxyHost, httpProxyPort,
+                                              customHeaders)
     if supportedVersion is None:
         raise Exception("{0}:{1} is down or is not a VIM server"
                         .format(host, port))
