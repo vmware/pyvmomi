@@ -224,6 +224,11 @@ class Identification(vmodl.DynamicData):
     @domainAdminPassword.setter
     def domainAdminPassword(self, value: Password):
         self._domainAdminPassword = value
+    @property
+    def domainOU(self) -> str: ...
+    @domainOU.setter
+    def domainOU(self, value: str):
+        self._domainOU = value
 
 
 class IdentitySettings(vmodl.DynamicData): ...

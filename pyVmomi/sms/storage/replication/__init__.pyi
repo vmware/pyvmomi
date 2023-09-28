@@ -486,6 +486,11 @@ class TargetGroupInfo(GroupInfo):
     @isPromoteCapable.setter
     def isPromoteCapable(self, value: bool):
         self._isPromoteCapable = value
+    @property
+    def name(self) -> str: ...
+    @name.setter
+    def name(self, value: str):
+        self._name = value
 
 
     class TargetToSourceInfo(vmodl.DynamicData):

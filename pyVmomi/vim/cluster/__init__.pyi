@@ -1702,6 +1702,16 @@ class SystemVMsConfigInfo(vmodl.DynamicData):
     @dsTagCategoriesToExclude.setter
     def dsTagCategoriesToExclude(self, value: List[str]):
         self._dsTagCategoriesToExclude = value
+    @property
+    def deploymentMode(self) -> str: ...
+    @deploymentMode.setter
+    def deploymentMode(self, value: str):
+        self._deploymentMode = value
+
+
+    class DeploymentMode(Enum):
+        SYSTEM_MANAGED = "SYSTEM_MANAGED"
+        ABSENT = "ABSENT"
 
 
 class SystemVMsConfigSpec(vmodl.DynamicData):
@@ -1720,6 +1730,11 @@ class SystemVMsConfigSpec(vmodl.DynamicData):
     @dsTagCategoriesToExclude.setter
     def dsTagCategoriesToExclude(self, value: List[TagCategoryUpdateSpec]):
         self._dsTagCategoriesToExclude = value
+    @property
+    def deploymentMode(self) -> str: ...
+    @deploymentMode.setter
+    def deploymentMode(self, value: str):
+        self._deploymentMode = value
 
 
 class TagCategoryUpdateSpec(vim.option.ArrayUpdateSpec):

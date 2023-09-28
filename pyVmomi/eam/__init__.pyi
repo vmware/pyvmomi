@@ -168,6 +168,9 @@ class Agent(EamObject):
     def QueryConfig(self) -> Agent.ConfigInfo: ...
 
 
+    class AnyCertificate(Agent.SslTrust): ...
+
+
     class ConfigInfo(vmodl.DynamicData):
         @property
         def productLineId(self) -> str: ...
@@ -185,6 +188,11 @@ class Agent(EamObject):
         def ovfPackageUrl(self, value: str):
             self._ovfPackageUrl = value
         @property
+        def ovfSslTrust(self) -> Agent.SslTrust: ...
+        @ovfSslTrust.setter
+        def ovfSslTrust(self, value: Agent.SslTrust):
+            self._ovfSslTrust = value
+        @property
         def ovfEnvironment(self) -> Agent.OvfEnvironmentInfo: ...
         @ovfEnvironment.setter
         def ovfEnvironment(self, value: Agent.OvfEnvironmentInfo):
@@ -194,6 +202,11 @@ class Agent(EamObject):
         @vibUrl.setter
         def vibUrl(self, value: str):
             self._vibUrl = value
+        @property
+        def vibSslTrust(self) -> Agent.SslTrust: ...
+        @vibSslTrust.setter
+        def vibSslTrust(self, value: Agent.SslTrust):
+            self._vibSslTrust = value
         @property
         def vibMatchingRules(self) -> List[Agent.VibMatchingRule]: ...
         @vibMatchingRules.setter
@@ -258,6 +271,14 @@ class Agent(EamObject):
                 self._value = value
 
 
+    class PinnedPemCertificate(Agent.SslTrust):
+        @property
+        def sslCertificate(self) -> str: ...
+        @sslCertificate.setter
+        def sslCertificate(self, value: str):
+            self._sslCertificate = value
+
+
     class RuntimeInfo(EamObject.RuntimeInfo):
         @property
         def vmPowerState(self) -> vim.VirtualMachine.PowerState | Literal['poweredOff', 'poweredOn', 'suspended']: ...
@@ -319,6 +340,9 @@ class Agent(EamObject):
         @vmHook.setter
         def vmHook(self, value: Agent.VmHook):
             self._vmHook = value
+
+
+    class SslTrust(vmodl.DynamicData): ...
 
 
     class StoragePolicy(vmodl.DynamicData): ...

@@ -2,6 +2,14 @@ from typing import List
 from pyVmomi import eam, vim, vmodl
 
 
+class CertificateNotTrustedFault(EamAppFault):
+    @property
+    def url(self) -> str: ...
+    @url.setter
+    def url(self, value: str):
+        self._url = value
+
+
 class DisabledClusterFault(EamAppFault):
     @property
     def disabledComputeResource(self) -> List[vim.ComputeResource]: ...

@@ -172,6 +172,11 @@ class DefaultProfileInfo(vmodl.DynamicData):
     @defaultProfile.setter
     def defaultProfile(self, value: Profile):
         self._defaultProfile = value
+    @property
+    def methodFault(self) -> vmodl.MethodFault: ...
+    @methodFault.setter
+    def methodFault(self, value: vmodl.MethodFault):
+        self._methodFault = value
 
 
 class Profile(vmodl.DynamicData):

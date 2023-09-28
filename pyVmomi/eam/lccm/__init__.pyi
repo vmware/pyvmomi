@@ -43,7 +43,7 @@ class Hooks():
             self._hosts = value
 
 
-    class HookProcessSpec(vmodl.DynamicData):
+    class MarkAsProcessedSpec(vmodl.DynamicData):
         @property
         def vm(self) -> vim.VirtualMachine: ...
         @vm.setter
@@ -55,33 +55,18 @@ class Hooks():
         def hookType(self, value: str):
             self._hookType = value
         @property
-        def processingResult(self) -> str: ...
-        @processingResult.setter
-        def processingResult(self, value: str):
-            self._processingResult = value
-
-
-    class ExternalProcessingResult(Enum):
-        SUCCESS = "SUCCESS"
-        UNKNOWN_ERROR = "UNKNOWN_ERROR"
-        VM_CONFIG_ERROR = "VM_CONFIG_ERROR"
+        def success(self) -> bool: ...
+        @success.setter
+        def success(self, value: bool):
+            self._success = value
 
 
     class HookType(Enum):
         POST_PROVISIONING = "POST_PROVISIONING"
-        PRE_POWER_ON = "PRE_POWER_ON"
         POST_POWER_ON = "POST_POWER_ON"
 
 
 class Solutions():
-
-
-    class ApplicationResult(vmodl.DynamicData):
-        @property
-        def hosts(self) -> List[Solutions.HostApplicationResult]: ...
-        @hosts.setter
-        def hosts(self, value: List[Solutions.HostApplicationResult]):
-            self._hosts = value
 
 
     class ApplySpec(vmodl.DynamicData):
@@ -90,11 +75,6 @@ class Solutions():
         @desiredState.setter
         def desiredState(self, value: List[Solutions.SolutionConfig]):
             self._desiredState = value
-        @property
-        def transitionMap(self) -> List[Solutions.TransitionInfo]: ...
-        @transitionMap.setter
-        def transitionMap(self, value: List[Solutions.TransitionInfo]):
-            self._transitionMap = value
         @property
         def solutions(self) -> List[str]: ...
         @solutions.setter
@@ -152,29 +132,6 @@ class Solutions():
         @acknowledgement.setter
         def acknowledgement(self, value: Solutions.HookAcknowledgeConfig):
             self._acknowledgement = value
-
-
-    class HostApplicationResult(vmodl.DynamicData):
-        @property
-        def host(self) -> vim.HostSystem: ...
-        @host.setter
-        def host(self, value: vim.HostSystem):
-            self._host = value
-        @property
-        def started(self) -> bool: ...
-        @started.setter
-        def started(self, value: bool):
-            self._started = value
-        @property
-        def hostOperational(self) -> bool: ...
-        @hostOperational.setter
-        def hostOperational(self, value: bool):
-            self._hostOperational = value
-        @property
-        def solutions(self) -> List[Solutions.SolutionApplicationResult]: ...
-        @solutions.setter
-        def solutions(self, value: List[Solutions.SolutionApplicationResult]):
-            self._solutions = value
 
 
     class HostBoundSolutionConfig(Solutions.TypeSpecificSolutionConfig):
@@ -242,24 +199,6 @@ class Solutions():
             self._profileId = value
 
 
-    class SolutionApplicationResult(vmodl.DynamicData):
-        @property
-        def solution(self) -> str: ...
-        @solution.setter
-        def solution(self, value: str):
-            self._solution = value
-        @property
-        def installing(self) -> bool: ...
-        @installing.setter
-        def installing(self, value: bool):
-            self._installing = value
-        @property
-        def validation(self) -> Solutions.SolutionValidationResult: ...
-        @validation.setter
-        def validation(self, value: Solutions.SolutionValidationResult):
-            self._validation = value
-
-
     class SolutionComplianceResult(vmodl.DynamicData):
         @property
         def solution(self) -> str: ...
@@ -271,11 +210,6 @@ class Solutions():
         @compliant.setter
         def compliant(self, value: bool):
             self._compliant = value
-        @property
-        def installing(self) -> bool: ...
-        @installing.setter
-        def installing(self, value: bool):
-            self._installing = value
         @property
         def nonComplianceReason(self) -> str: ...
         @nonComplianceReason.setter
@@ -397,7 +331,7 @@ class Solutions():
     class StoragePolicy(vmodl.DynamicData): ...
 
 
-    class TransitionInfo(vmodl.DynamicData):
+    class TransitionSpec(vmodl.DynamicData):
         @property
         def solution(self) -> str: ...
         @solution.setter
@@ -435,11 +369,6 @@ class Solutions():
         @desiredState.setter
         def desiredState(self, value: List[Solutions.SolutionConfig]):
             self._desiredState = value
-        @property
-        def transitionMap(self) -> List[Solutions.TransitionInfo]: ...
-        @transitionMap.setter
-        def transitionMap(self, value: List[Solutions.TransitionInfo]):
-            self._transitionMap = value
 
 
     class ValidationResult(vmodl.DynamicData):

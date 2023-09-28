@@ -51,7 +51,12 @@ class LegacyHubsNotSupported(PBMFault):
         self._hubs = value
 
 
-class NoPermission():
+class NoPermission(vmodl.fault.SecurityError):
+    @property
+    def missingPrivileges(self) -> List[NoPermission.EntityPrivileges]: ...
+    @missingPrivileges.setter
+    def missingPrivileges(self, value: List[NoPermission.EntityPrivileges]):
+        self._missingPrivileges = value
 
 
     class EntityPrivileges(vmodl.DynamicData):

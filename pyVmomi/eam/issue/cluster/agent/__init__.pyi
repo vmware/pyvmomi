@@ -15,6 +15,14 @@ class AgentIssue(eam.issue.AgencyIssue):
         self._cluster = value
 
 
+class CertificateNotTrusted(VmNotDeployed):
+    @property
+    def url(self) -> str: ...
+    @url.setter
+    def url(self, value: str):
+        self._url = value
+
+
 class InsufficientClusterResources(VmPoweredOff): ...
 
 

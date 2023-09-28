@@ -2450,6 +2450,11 @@ class GuestInfo(vmodl.DynamicData):
     def guestFullName(self, value: str):
         self._guestFullName = value
     @property
+    def guestDetailedData(self) -> str: ...
+    @guestDetailedData.setter
+    def guestDetailedData(self, value: str):
+        self._guestDetailedData = value
+    @property
     def hostName(self) -> str: ...
     @hostName.setter
     def hostName(self, value: str):
@@ -4907,6 +4912,19 @@ class VFlashModuleInfo(TargetInfo):
         self._vFlashModule = value
 
 
+class VMotionStunTimeInfo(TargetInfo):
+    @property
+    def migrationBW(self) -> long: ...
+    @migrationBW.setter
+    def migrationBW(self, value: long):
+        self._migrationBW = value
+    @property
+    def stunTime(self) -> long: ...
+    @stunTime.setter
+    def stunTime(self, value: long):
+        self._stunTime = value
+
+
 class VcpuConfig(vmodl.DynamicData):
     @property
     def latencySensitivity(self) -> vim.LatencySensitivity: ...
@@ -5032,6 +5050,11 @@ class VgpuProfileInfo(TargetInfo):
     @profileClass.setter
     def profileClass(self, value: str):
         self._profileClass = value
+    @property
+    def stunTimeEstimates(self) -> List[VMotionStunTimeInfo]: ...
+    @stunTimeEstimates.setter
+    def stunTimeEstimates(self, value: List[VMotionStunTimeInfo]):
+        self._stunTimeEstimates = value
 
 
     class ProfileClass(Enum):

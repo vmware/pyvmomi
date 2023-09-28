@@ -2287,6 +2287,9 @@ class InvalidPropertyValue(VAppPropertyFault): ...
 class InvalidResourcePoolStructureFault(InsufficientResourcesFault): ...
 
 
+class InvalidScheduledTask(vmodl.RuntimeFault): ...
+
+
 class InvalidSnapshotFormat(InvalidFormat): ...
 
 
@@ -5117,6 +5120,8 @@ class VmFaultToleranceConfigIssue(VmFaultToleranceIssue):
         hasLinkedCloneDisk = "hasLinkedCloneDisk"
         unsupportedPMemHAFailOver = "unsupportedPMemHAFailOver"
         unsupportedEncryptedDisk = "unsupportedEncryptedDisk"
+        ftMetroClusterNotEditable = "ftMetroClusterNotEditable"
+        noVmRulesConfigured = "noVmRulesConfigured"
 
 
 class VmFaultToleranceConfigIssueWrapper(VmFaultToleranceIssue):

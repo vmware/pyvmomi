@@ -621,6 +621,11 @@ class VirtualDisk(VirtualDevice):
     @independentFilters.setter
     def independentFilters(self, value: List[vim.vm.BaseIndependentFilterSpec]):
         self._independentFilters = value
+    @property
+    def guestReadOnly(self) -> bool: ...
+    @guestReadOnly.setter
+    def guestReadOnly(self, value: bool):
+        self._guestReadOnly = value
 
 
     class FlatVer1BackingInfo(VirtualDevice.FileBackingInfo):
@@ -1632,7 +1637,12 @@ class VirtualNVDIMMOption(VirtualDeviceOption):
         self._granularityInMB = value
 
 
-class VirtualNVMEController(VirtualController): ...
+class VirtualNVMEController(VirtualController):
+    @property
+    def sharedBus(self) -> str: ...
+    @sharedBus.setter
+    def sharedBus(self, value: str):
+        self._sharedBus = value
 
 
 class VirtualNVMEControllerOption(VirtualControllerOption):
@@ -1641,6 +1651,11 @@ class VirtualNVMEControllerOption(VirtualControllerOption):
     @numNVMEDisks.setter
     def numNVMEDisks(self, value: vim.option.IntOption):
         self._numNVMEDisks = value
+    @property
+    def sharing(self) -> List[str]: ...
+    @sharing.setter
+    def sharing(self, value: List[str]):
+        self._sharing = value
 
 
 class VirtualPCIController(VirtualController): ...

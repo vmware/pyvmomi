@@ -7,7 +7,12 @@ from . import host as host
 from . import vcenter as vcenter
 
 
-class VStorageObjectManagerBase(ManagedObject): ...
+class VStorageObjectManagerBase(ManagedObject):
+    def ExtendDiskEx(self, id: ID, datastore: vim.Datastore, newCapacityInMB: long) -> vim.Task: ...
+    def RenameVStorageObjectEx(self, id: ID, datastore: vim.Datastore, name: str) -> VClockInfo: ...
+    def CreateSnapshotEx(self, id: ID, datastore: vim.Datastore, description: str) -> vim.Task: ...
+    def DeleteSnapshotEx(self, id: ID, datastore: vim.Datastore, snapshotId: ID) -> vim.Task: ...
+    def RevertVStorageObjectEx(self, id: ID, datastore: vim.Datastore, snapshotId: ID) -> vim.Task: ...
 
 
 class BaseConfigInfo(vmodl.DynamicData):
@@ -366,6 +371,19 @@ class VStorageObject(vmodl.DynamicData):
 
     class ConsumptionType(Enum):
         disk = "disk"
+
+
+class VStorageObjectSnapshot(vmodl.DynamicData):
+    @property
+    def id(self) -> ID: ...
+    @id.setter
+    def id(self, value: ID):
+        self._id = value
+    @property
+    def vclock(self) -> VClockInfo: ...
+    @vclock.setter
+    def vclock(self, value: VClockInfo):
+        self._vclock = value
 
 
 class VStorageObjectSnapshotDetails(vmodl.DynamicData):

@@ -1861,6 +1861,7 @@ class DistributedVirtualSwitch(ManagedEntity):
         vdp = "vdp"
         backupNfc = "backupNfc"
         nvmetcp = "nvmetcp"
+        provisioning = "provisioning"
 
 
     class NetworkResourceControlVersion(Enum):
@@ -1930,6 +1931,7 @@ class ExtensionManager(ManagedObject):
     def GetPublicKey(self) -> str: ...
     def SetPublicKey(self, extensionKey: str, publicKey: str) -> NoneType: ...
     def SetCertificate(self, extensionKey: str, certificatePem: str) -> NoneType: ...
+    def SetServiceAccount(self, extensionKey: str, serviceAccount: str) -> NoneType: ...
     def QueryManagedBy(self, extensionKey: str) -> List[ManagedEntity]: ...
     def QueryExtensionIpAllocationUsage(self, extensionKeys: List[str]) -> List[ExtensionManager.IpAllocationUsage]: ...
 
@@ -1953,6 +1955,73 @@ class FileManager(ManagedObject):
     def DeleteFile(self, name: str, datacenter: Datacenter) -> Task: ...
     def MakeDirectory(self, name: str, datacenter: Datacenter, createParentDirectories: bool) -> NoneType: ...
     def ChangeOwner(self, name: str, datacenter: Datacenter, owner: str) -> NoneType: ...
+    def QueryFileLockInfo(self, path: str, host: HostSystem) -> FileManager.FileLockInfoResult: ...
+
+
+    class FileLockInfo(vmodl.DynamicData):
+        @property
+        def filePath(self) -> str: ...
+        @filePath.setter
+        def filePath(self, value: str):
+            self._filePath = value
+        @property
+        def host(self) -> str: ...
+        @host.setter
+        def host(self, value: str):
+            self._host = value
+        @property
+        def mac(self) -> str: ...
+        @mac.setter
+        def mac(self, value: str):
+            self._mac = value
+        @property
+        def id(self) -> str: ...
+        @id.setter
+        def id(self, value: str):
+            self._id = value
+        @property
+        def worldName(self) -> str: ...
+        @worldName.setter
+        def worldName(self, value: str):
+            self._worldName = value
+        @property
+        def ownerId(self) -> str: ...
+        @ownerId.setter
+        def ownerId(self, value: str):
+            self._ownerId = value
+        @property
+        def lockMode(self) -> str: ...
+        @lockMode.setter
+        def lockMode(self, value: str):
+            self._lockMode = value
+        @property
+        def acquired(self) -> datetime: ...
+        @acquired.setter
+        def acquired(self, value: datetime):
+            self._acquired = value
+        @property
+        def heartbeat(self) -> datetime: ...
+        @heartbeat.setter
+        def heartbeat(self, value: datetime):
+            self._heartbeat = value
+        @property
+        def refCount(self) -> int: ...
+        @refCount.setter
+        def refCount(self, value: int):
+            self._refCount = value
+
+
+    class FileLockInfoResult(vmodl.DynamicData):
+        @property
+        def lockInfo(self) -> List[FileManager.FileLockInfo]: ...
+        @lockInfo.setter
+        def lockInfo(self, value: List[FileManager.FileLockInfo]):
+            self._lockInfo = value
+        @property
+        def fault(self) -> vmodl.MethodFault: ...
+        @fault.setter
+        def fault(self, value: vmodl.MethodFault):
+            self._fault = value
 
 
 class Folder(ManagedEntity):
@@ -5943,6 +6012,11 @@ class Extension(vmodl.DynamicData):
         @serverThumbprint.setter
         def serverThumbprint(self, value: str):
             self._serverThumbprint = value
+        @property
+        def serverCertificate(self) -> str: ...
+        @serverCertificate.setter
+        def serverCertificate(self, value: str):
+            self._serverCertificate = value
 
 
     class TaskTypeInfo(vmodl.DynamicData):

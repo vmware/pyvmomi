@@ -1,5 +1,5 @@
 from typing import List
-from pyVmomi import vmodl
+from pyVmomi import eam, vmodl
 from datetime import datetime
 
 
@@ -47,3 +47,20 @@ class VibInfo(vmodl.DynamicData):
         @tags.setter
         def tags(self, value: List[str]):
             self._tags = value
+
+
+class VibServices():
+
+
+    class AnyCertificate(VibServices.SslTrust): ...
+
+
+    class PinnedPemCertificate(VibServices.SslTrust):
+        @property
+        def sslCertificate(self) -> str: ...
+        @sslCertificate.setter
+        def sslCertificate(self, value: str):
+            self._sslCertificate = value
+
+
+    class SslTrust(vmodl.DynamicData): ...

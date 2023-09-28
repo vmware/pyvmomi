@@ -124,6 +124,7 @@ class LineOfServiceInfo(vmodl.DynamicData):
         DATA_PROVIDER = "DATA_PROVIDER"
         DATASTORE_IO_CONTROL = "DATASTORE_IO_CONTROL"
         DATA_PROTECTION = "DATA_PROTECTION"
+        STRETCHED_CLUSTER = "STRETCHED_CLUSTER"
 
 
 class PersistenceBasedDataServiceInfo(LineOfServiceInfo):

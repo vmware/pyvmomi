@@ -3,6 +3,7 @@ from enum import Enum
 from pyVmomi import sms, vim, vmodl
 from datetime import datetime
 from pyVmomi.VmomiSupport import ManagedObject
+from . import auth as auth
 from . import fault as fault
 from . import provider as provider
 from . import storage as storage

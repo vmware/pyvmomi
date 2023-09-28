@@ -71,6 +71,14 @@ class CannotAccessAgentVib(VibNotInstalled):
         self._downloadUrl = value
 
 
+class CertificateNotTrusted(AgentIssue):
+    @property
+    def url(self) -> str: ...
+    @url.setter
+    def url(self, value: str):
+        self._url = value
+
+
 class ExtensibleIssue(Issue):
     @property
     def typeId(self) -> str: ...

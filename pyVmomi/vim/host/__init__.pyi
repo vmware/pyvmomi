@@ -250,7 +250,6 @@ class CertificateManager(ManagedObject):
             expiringShortly = "expiringShortly"
             expirationImminent = "expirationImminent"
             good = "good"
-            revoked = "revoked"
 
 
     class CertificateSpec(vmodl.DynamicData):
@@ -791,6 +790,17 @@ class FirewallSystem(vim.ExtensibleManagedObject):
     def DisableRuleset(self, id: str) -> NoneType: ...
     def UpdateRuleset(self, id: str, spec: Ruleset.RulesetSpec) -> NoneType: ...
     def Refresh(self) -> NoneType: ...
+
+
+    class RuleSetId(Enum):
+        faultTolerance = "faultTolerance"
+        fdm = "fdm"
+        updateManager = "updateManager"
+        vpxHeartbeats = "vpxHeartbeats"
+
+
+    class ServiceName(Enum):
+        vpxa = "vpxa"
 
 
 class FirmwareSystem(ManagedObject):
@@ -2799,6 +2809,16 @@ class BIOSInfo(vmodl.DynamicData):
     @firmwareMinorRelease.setter
     def firmwareMinorRelease(self, value: int):
         self._firmwareMinorRelease = value
+    @property
+    def firmwareType(self) -> str: ...
+    @firmwareType.setter
+    def firmwareType(self, value: str):
+        self._firmwareType = value
+
+
+    class FirmwareType(Enum):
+        BIOS = "BIOS"
+        UEFI = "UEFI"
 
 
 class BlockAdapterTargetTransport(TargetTransport): ...
@@ -3536,6 +3556,16 @@ class Capability(vmodl.DynamicData):
     @mconnectSupported.setter
     def mconnectSupported(self, value: bool):
         self._mconnectSupported = value
+    @property
+    def vsanNicMgmtSupported(self) -> bool: ...
+    @vsanNicMgmtSupported.setter
+    def vsanNicMgmtSupported(self, value: bool):
+        self._vsanNicMgmtSupported = value
+    @property
+    def vvolNQNSupported(self) -> bool: ...
+    @vvolNQNSupported.setter
+    def vvolNQNSupported(self, value: bool):
+        self._vvolNQNSupported = value
 
 
     class FtUnsupportedReason(Enum):
@@ -10013,6 +10043,16 @@ class Ruleset(vmodl.DynamicData):
     @allowedHosts.setter
     def allowedHosts(self, value: Ruleset.IpList):
         self._allowedHosts = value
+    @property
+    def userControllable(self) -> bool: ...
+    @userControllable.setter
+    def userControllable(self, value: bool):
+        self._userControllable = value
+    @property
+    def ipListUserConfigurable(self) -> bool: ...
+    @ipListUserConfigurable.setter
+    def ipListUserConfigurable(self, value: bool):
+        self._ipListUserConfigurable = value
 
 
     class IpList(vmodl.DynamicData):
@@ -12707,6 +12747,24 @@ class VvolDatastoreInfo(vim.Datastore.Info):
         self._vvolDS = value
 
 
+class VvolNQN(vmodl.DynamicData):
+    @property
+    def targetNQN(self) -> str: ...
+    @targetNQN.setter
+    def targetNQN(self, value: str):
+        self._targetNQN = value
+    @property
+    def storageArray(self) -> str: ...
+    @storageArray.setter
+    def storageArray(self, value: str):
+        self._storageArray = value
+    @property
+    def online(self) -> bool: ...
+    @online.setter
+    def online(self, value: bool):
+        self._online = value
+
+
 class VvolVolume(FileSystemVolume):
     @property
     def scId(self) -> str: ...
@@ -12718,6 +12776,11 @@ class VvolVolume(FileSystemVolume):
     @hostPE.setter
     def hostPE(self, value: List[VvolVolume.HostProtocolEndpoint]):
         self._hostPE = value
+    @property
+    def hostVvolNQN(self) -> List[VvolVolume.HostVvolNQN]: ...
+    @hostVvolNQN.setter
+    def hostVvolNQN(self, value: List[VvolVolume.HostVvolNQN]):
+        self._hostVvolNQN = value
     @property
     def vasaProviderInfo(self) -> List[vim.VimVasaProviderInfo]: ...
     @vasaProviderInfo.setter
@@ -12733,6 +12796,11 @@ class VvolVolume(FileSystemVolume):
     @protocolEndpointType.setter
     def protocolEndpointType(self, value: str):
         self._protocolEndpointType = value
+    @property
+    def vvolNQNFieldsAvailable(self) -> bool: ...
+    @vvolNQNFieldsAvailable.setter
+    def vvolNQNFieldsAvailable(self, value: bool):
+        self._vvolNQNFieldsAvailable = value
 
 
     class HostProtocolEndpoint(vmodl.DynamicData):
@@ -12746,6 +12814,19 @@ class VvolVolume(FileSystemVolume):
         @protocolEndpoint.setter
         def protocolEndpoint(self, value: List[ProtocolEndpoint]):
             self._protocolEndpoint = value
+
+
+    class HostVvolNQN(vmodl.DynamicData):
+        @property
+        def host(self) -> vim.HostSystem: ...
+        @host.setter
+        def host(self, value: vim.HostSystem):
+            self._host = value
+        @property
+        def vvolNQN(self) -> List[VvolNQN]: ...
+        @vvolNQN.setter
+        def vvolNQN(self, value: List[VvolNQN]):
+            self._vvolNQN = value
 
 
     class Specification(vmodl.DynamicData):
