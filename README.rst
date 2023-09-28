@@ -7,6 +7,10 @@ pyvmomi
 pyVmomi is the Python SDK for the VMware vSphere API that allows you to manage 
 ESX, ESXi, and vCenter.
 
+.. contents:: Table of Contents
+   :depth: 1
+   :local:
+
 Getting Started
 ================
 To get started, see the
@@ -45,7 +49,7 @@ Documentation
 =============
 For general language neutral documentation of vSphere Management API see:
 
-* `vSphere Web Services API Doc <https://code.vmware.com/apis/1639/vsphere>`_
+* `vSphere Web Services API Doc <https://code.vmware.com/apis/1720/vsphere>`_
 
 Python Support
 ==============
@@ -72,6 +76,11 @@ For example, version v6.0.0 is most compatible with vSphere 6.0, 5.5, 5.1 and
 5.0. Initial releases compatible with a version of vSphere will bare a naked
 version number of v6.0.0 indicating that version of pyVmomi was released
 simultaneously with the *GA* version of vSphere with the same version number.
+
+Support
+====================
+For official support, users with Premium SDK Support, Standard SDK Support and Premier/Success360 customers can reach out to [VMware Global Support](https://kb.vmware.com/s/article/87265?lang=en_US) for any issues.
+For community support, please open a [Github issue](https://github.com/vmware/pyvmomi/issues) or start a [Discussion](https://github.com/vmware/pyvmomi/discussions)
 
 Related Projects
 ================
