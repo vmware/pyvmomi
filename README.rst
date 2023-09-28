@@ -79,8 +79,8 @@ simultaneously with the *GA* version of vSphere with the same version number.
 
 Support
 ====================
-For official support, users with Premium SDK Support, Standard SDK Support and Premier/Success360 customers can reach out to [VMware Global Support](https://kb.vmware.com/s/article/87265?lang=en_US) for any issues.
-For community support, please open a [Github issue](https://github.com/vmware/pyvmomi/issues) or start a [Discussion](https://github.com/vmware/pyvmomi/discussions)
+For official support, users with Premium SDK Support, Standard SDK Support and Premier/Success360 customers can reach out to `VMware Global Support <https://kb.vmware.com/s/article/87265?lang=en_US>`_ for any issues.
+For community support, please open a `Github issue <https://github.com/vmware/pyvmomi/issues>`_ or start a `Discussion <https://github.com/vmware/pyvmomi/discussions>`_
 
 Related Projects
 ================
