@@ -283,17 +283,7 @@ def Connect(host='localhost',
            *** Deprecated: Use tokenType instead ***
     @type  mechanism: string
     """
-    try:
-        info = re.match(_rx, host)
-        if info is not None:
-            host = info.group(1)
-            if host[0] == '[':
-                host = info.group(1)[1:-1]
-            if info.group(2) is not None:
-                port = int(info.group(2)[1:])
-    except ValueError as ve:
-        pass
-
+    host, port = parse_hostport(host, port)
     sslContext = getSslContext(host, sslContext, disableSslCertValidation)
 
     if namespace:
@@ -839,6 +829,7 @@ def SmartStubAdapter(host='localhost',
     if preferredApiVersions is None:
         preferredApiVersions = GetServiceVersions('vim25')
 
+    host, port = parse_hostport(host, port)
     sslContext = getSslContext(host, sslContext, disableSslCertValidation)
 
     supportedVersion = __FindSupportedVersion('https' if port > 0 else 'http',
@@ -964,6 +955,7 @@ def SmartConnect(protocol='https',
     if preferredApiVersions is None:
         preferredApiVersions = GetServiceVersions('vim25')
 
+    host, port = parse_hostport(host, port)
     sslContext = getSslContext(host, sslContext, disableSslCertValidation)
 
     supportedVersion = __FindSupportedVersion(protocol, host, port, path,
@@ -1058,3 +1050,18 @@ def IsManagedHost():
     except Exception as e:
         # connect to local server will be refused when host managed by vCenter
         return True
+
+
+def parse_hostport(host, port):
+    try:
+        info = re.match(_rx, host)
+        if info is not None:
+            host = info.group(1)
+            if host[0] == '[':
+                host = info.group(1)[1:-1]
+            if info.group(2) is not None:
+                port = int(info.group(2)[1:])
+    except ValueError as ve:
+        pass
+
+    return host, port
