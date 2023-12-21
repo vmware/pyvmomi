@@ -30,7 +30,7 @@ class ConnectionTests(tests.VCRTestBase):
 
     @tests.VCRTestBase.my_vcr.use_cassette('basic_connection.yaml',
                       cassette_library_dir=tests.fixtures_path,
-                      record_mode='none')
+                      record_mode='once', decode_compressed_response=True)
     def test_basic_connection(self):
         # see: http://python3porting.com/noconv.html
         si = connect.Connect(host='vcsa',
@@ -43,11 +43,11 @@ class ConnectionTests(tests.VCRTestBase):
         self.assertEqual(cookie, si._stub.cookie)
         # NOTE (hartsock): assertIsNotNone does not work in Python 2.6
         self.assertTrue(session_id is not None)
-        self.assertEqual('52b5395a-85c2-9902-7835-13a9b77e1fec', session_id)
+        self.assertEqual('5220f274-9ba1-a663-b51f-9b16fca182f1', session_id)
 
     @tests.VCRTestBase.my_vcr.use_cassette('sspi_connection.yaml',
                       cassette_library_dir=tests.fixtures_path,
-                      record_mode='none')
+                      record_mode='once')
     def test_sspi_connection(self):
         # see: http://python3porting.com/noconv.html
         si = connect.Connect(host='vcsa',
@@ -60,7 +60,7 @@ class ConnectionTests(tests.VCRTestBase):
         self.assertEqual(cookie, si._stub.cookie)
         # NOTE (hartsock): assertIsNotNone does not work in Python 2.6
         self.assertTrue(session_id is not None)
-        self.assertEqual('52b5395a-85c2-9902-7835-13a9b77e1fec', session_id)
+        self.assertEqual('5220f274-9ba1-a663-b51f-9b16fca182f1', session_id)
 
     @tests.VCRTestBase.my_vcr.use_cassette('basic_connection_bad_password.yaml',
                       cassette_library_dir=tests.fixtures_path,
@@ -75,7 +75,7 @@ class ConnectionTests(tests.VCRTestBase):
 
     @tests.VCRTestBase.my_vcr.use_cassette('smart_connection.yaml',
                       cassette_library_dir=tests.fixtures_path,
-                      record_mode='none')
+                      record_mode='once', decode_compressed_response=True)
     def test_smart_connection(self):
         # see: http://python3porting.com/noconv.html
         si = connect.SmartConnect(host='vcsa',
@@ -84,7 +84,7 @@ class ConnectionTests(tests.VCRTestBase):
         session_id = si.content.sessionManager.currentSession.key
         # NOTE (hartsock): assertIsNotNone does not work in Python 2.6
         self.assertTrue(session_id is not None)
-        self.assertEqual('52ad453a-13a7-e8af-9186-a1b5c5ab85b7', session_id)
+        self.assertEqual('52a67ed8-0f0b-1714-4534-86a177fc5158', session_id)
 
     def test_disconnect_on_no_connection(self):
         connect.Disconnect(None)

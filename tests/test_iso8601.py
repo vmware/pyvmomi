@@ -29,21 +29,21 @@ class Iso8601Tests(tests.VCRTestBase):
 
     @tests.VCRTestBase.my_vcr.use_cassette('test_vm_config_iso8601.yaml',
                       cassette_library_dir=tests.fixtures_path,
-                      record_mode='once')
+                      record_mode='once', decode_compressed_response=True)
     def test_vm_config_iso8601(self):
         si = connect.SmartConnect(host='vcsa',
                                   user='my_user',
                                   pwd='my_password')
 
         search_index = si.content.searchIndex
-        uuid = "5001ad1b-c78d-179e-ecd7-1cc0e1cf1b96"
+        uuid = "50201f05-b37c-db69-fda5-fb077e87af04"
         vm = search_index.FindByUuid(None, uuid, True, True)
         boot_time = vm.runtime.bootTime
         # NOTE (hartsock): assertIsNone does not work in Python 2.6
         self.assertTrue(boot_time is not None)
 
-        # 2014-08-05T17:50:20.594958Z
-        expected_time = datetime(2014, 8, 5, 17, 50, 20, 594958,
+        # 2023-12-12T10:06:39Z
+        expected_time = datetime(2023, 12, 12, 10, 6, 39, 0,
                                  boot_time.tzinfo)
         self.assertEqual(expected_time, boot_time)
 
@@ -90,14 +90,16 @@ class Iso8601Tests(tests.VCRTestBase):
                                  cassette_library_dir=tests.fixtures_path,
                                  record_mode='once',
                                  match_on=['method', 'scheme', 'host', 'port',
-                                           'path', 'query', 'document']):
+                                           'path', 'query', 'document'], decode_compressed_response=True):
+            
             si = connect.SmartConnect(host='vcsa',
                                       user='my_user',
                                       pwd='my_password')
 
             search_index = si.content.searchIndex
-            uuid = "4c4c4544-0043-4d10-8056-b1c04f4c5331"
-            host = search_index.FindByUuid(None, uuid, False)
-            date_time_system = host.configManager.dateTimeSystem
+            uuid = "4220824e-c2eb-ed46-47db-8e5746f5bde4"
+
+            vm = search_index.FindByUuid(None, uuid, True)
+            date_time_system = vm.runtime.host.configManager.dateTimeSystem
             # NOTE (hartsock): sending the date time 'now' to host.
             date_time_system.UpdateDateTime(now)

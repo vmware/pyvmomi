@@ -1,359 +1,457 @@
 interactions:
 - request:
     body: null
-    headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      User-Agent: [python-requests/2.7.0 CPython/2.7.10 Darwin/15.0.0]
+    headers: {}
     method: GET
     uri: https://vcsa/sdk/vimServiceVersions.xml
   response:
-    body: {string: !!python/unicode '<?xml version="1.0" encoding="UTF-8" ?><namespaces
-        version="1.0"><namespace><name>urn:vim25</name><version>6.0</version><priorVersions><version>5.5</version><version>5.1</version><version>5.0</version><version>4.1</version><version>4.0</version><version>2.5u2server</version><version>2.5u2</version><version>2.5</version></priorVersions></namespace><namespace><name>urn:vim2</name><version>2.0</version></namespace></namespaces>
+    body:
+      string: '<?xml version="1.0" encoding="UTF-8" ?><namespaces version="1.0"><namespace><name>urn:vim25</name><version>uA046D008</version><priorVersions><version>8.0.2.0</version><version>8.0.1.0</version><version>8.0.0.2</version><version>8.0.0.1</version><version>8.0.0.0</version><version>7.0.3.2</version><version>7.0.3.1</version><version>7.0.3.0</version><version>7.0.2.1</version><version>7.0.2.0</version><version>7.0.1.1</version><version>7.0.1.0</version><version>7.0.0.2</version><version>7.0.0.0</version><version>6.9.1</version><version>6.8.7</version><version>6.7.3</version><version>6.7.2</version><version>6.7.1</version><version>6.7</version><version>6.5</version><version>6.0</version><version>5.5</version><version>5.1</version><version>5.0</version><version>4.1</version><version>4.0</version></priorVersions></namespace></namespaces>
 
-        '}
+        '
     headers:
-      connection: [Keep-Alive]
-      content-length: ['429']
-      content-type: [text/xml]
-      date: ['Mon, 12 Oct 2015 16:24:13 GMT']
-    status: {code: 200, message: OK}
+      cache-control:
+      - no-cache
+      content-length:
+      - '843'
+      content-type:
+      - text/xml; charset=utf-8
+      date:
+      - Thu, 14 Dec 2023 07:29:52 GMT
+      vary:
+      - Accept-Encoding
+      x-envoy-upstream-service-time:
+      - '1'
+    status:
+      code: 200
+      message: OK
 - request:
     body: '<?xml version="1.0" encoding="UTF-8"?>
 
       <soapenv:Envelope xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
-      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
-      <soapenv:Body><RetrieveServiceContent xmlns="urn:vim25"><_this type="ServiceInstance">ServiceInstance</_this></RetrieveServiceContent></soapenv:Body>
+      <soapenv:Body><RetrieveServiceContent xmlns="urn:vim25"><_this versionId="8.0.2.0"
+      type="ServiceInstance">ServiceInstance</_this></RetrieveServiceContent></soapenv:Body>
 
       </soapenv:Envelope>'
     headers:
-      Accept-Encoding: ['gzip, deflate']
-      Content-Type: [text/xml; charset=UTF-8]
-      Cookie: ['']
-      SOAPAction: ['"urn:vim25/6.0"']
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - text/xml; charset=UTF-8
+      Cookie:
+      - ''
+      SOAPAction:
+      - '"urn:vim25/8.0.2.0"'
+      User-Agent:
+      - pyvmomi Python/3.9.8 (Darwin; 22.6.0; arm64)
     method: POST
     uri: https://vcsa/sdk
   response:
-    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
-        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
-        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
-        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
-        >\n<soapenv:Body>\n<RetrieveServiceContentResponse xmlns=\"urn:vim25\"><returnval><rootFolder\
-        \ type=\"Folder\">group-d1</rootFolder><propertyCollector type=\"PropertyCollector\"\
-        >propertyCollector</propertyCollector><viewManager type=\"ViewManager\">ViewManager</viewManager><about><name>VMware\
-        \ vCenter Server</name><fullName>VMware vCenter Server 6.0.0 build-3018523</fullName><vendor>VMware,\
-        \ Inc.</vendor><version>6.0.0</version><build>3018523</build><localeVersion>INTL</localeVersion><localeBuild>000</localeBuild><osType>linux-x64</osType><productLineId>vpx</productLineId><apiType>VirtualCenter</apiType><apiVersion>6.0</apiVersion><instanceUuid>6cbd40cc-1416-4b2d-ba7c-ae53a166d00a</instanceUuid><licenseProductName>VMware\
-        \ VirtualCenter Server</licenseProductName><licenseProductVersion>6.0</licenseProductVersion></about><setting\
-        \ type=\"OptionManager\">VpxSettings</setting><userDirectory type=\"UserDirectory\"\
-        >UserDirectory</userDirectory><sessionManager type=\"SessionManager\">SessionManager</sessionManager><authorizationManager\
-        \ type=\"AuthorizationManager\">AuthorizationManager</authorizationManager><serviceManager\
-        \ type=\"ServiceManager\">ServiceMgr</serviceManager><perfManager type=\"\
-        PerformanceManager\">PerfMgr</perfManager><scheduledTaskManager type=\"ScheduledTaskManager\"\
-        >ScheduledTaskManager</scheduledTaskManager><alarmManager type=\"AlarmManager\"\
-        >AlarmManager</alarmManager><eventManager type=\"EventManager\">EventManager</eventManager><taskManager\
-        \ type=\"TaskManager\">TaskManager</taskManager><extensionManager type=\"\
-        ExtensionManager\">ExtensionManager</extensionManager><customizationSpecManager\
-        \ type=\"CustomizationSpecManager\">CustomizationSpecManager</customizationSpecManager><customFieldsManager\
-        \ type=\"CustomFieldsManager\">CustomFieldsManager</customFieldsManager><diagnosticManager\
-        \ type=\"DiagnosticManager\">DiagMgr</diagnosticManager><licenseManager type=\"\
-        LicenseManager\">LicenseManager</licenseManager><searchIndex type=\"SearchIndex\"\
-        >SearchIndex</searchIndex><fileManager type=\"FileManager\">FileManager</fileManager><datastoreNamespaceManager\
-        \ type=\"DatastoreNamespaceManager\">DatastoreNamespaceManager</datastoreNamespaceManager><virtualDiskManager\
-        \ type=\"VirtualDiskManager\">virtualDiskManager</virtualDiskManager><snmpSystem\
-        \ type=\"HostSnmpSystem\">SnmpSystem</snmpSystem><vmProvisioningChecker type=\"\
-        VirtualMachineProvisioningChecker\">ProvChecker</vmProvisioningChecker><vmCompatibilityChecker\
-        \ type=\"VirtualMachineCompatibilityChecker\">CompatChecker</vmCompatibilityChecker><ovfManager\
-        \ type=\"OvfManager\">OvfManager</ovfManager><ipPoolManager type=\"IpPoolManager\"\
-        >IpPoolManager</ipPoolManager><dvSwitchManager type=\"DistributedVirtualSwitchManager\"\
-        >DVSManager</dvSwitchManager><hostProfileManager type=\"HostProfileManager\"\
-        >HostProfileManager</hostProfileManager><clusterProfileManager type=\"ClusterProfileManager\"\
-        >ClusterProfileManager</clusterProfileManager><complianceManager type=\"ProfileComplianceManager\"\
-        >MoComplianceManager</complianceManager><localizationManager type=\"LocalizationManager\"\
-        >LocalizationManager</localizationManager><storageResourceManager type=\"\
-        StorageResourceManager\">StorageResourceManager</storageResourceManager><guestOperationsManager\
-        \ type=\"GuestOperationsManager\">guestOperationsManager</guestOperationsManager><overheadMemoryManager\
-        \ type=\"OverheadMemoryManager\">OverheadMemoryManger</overheadMemoryManager><certificateManager\
-        \ type=\"CertificateManager\">certificateManager</certificateManager><ioFilterManager\
-        \ type=\"IoFilterManager\">IoFilterManager</ioFilterManager></returnval></RetrieveServiceContentResponse>\n\
-        </soapenv:Body>\n</soapenv:Envelope>"}
+    body:
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\n
+        xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"\n
+        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n<soapenv:Body>\n<RetrieveServiceContentResponse
+        xmlns=\"urn:vim25\"><returnval><rootFolder type=\"Folder\">group-d1</rootFolder><propertyCollector
+        type=\"PropertyCollector\">propertyCollector</propertyCollector><viewManager
+        type=\"ViewManager\">ViewManager</viewManager><about><name>VMware vCenter
+        Server</name><fullName>VMware vCenter Server 8.0.3 build-69507950</fullName><vendor>VMware,
+        Inc.</vendor><version>8.0.3</version><patchLevel>00000</patchLevel><build>69507950</build><localeVersion>INTL</localeVersion><localeBuild>000</localeBuild><osType>linux-x64</osType><productLineId>vpx</productLineId><apiType>VirtualCenter</apiType><apiVersion>8.0.2.0</apiVersion><instanceUuid>61f12cb6-9de0-40cb-9c47-61d494229f4f</instanceUuid><licenseProductName>VMware
+        VirtualCenter Server</licenseProductName><licenseProductVersion>8.0</licenseProductVersion></about><setting
+        type=\"OptionManager\">VpxSettings</setting><userDirectory type=\"UserDirectory\">UserDirectory</userDirectory><sessionManager
+        type=\"SessionManager\">SessionManager</sessionManager><authorizationManager
+        type=\"AuthorizationManager\">AuthorizationManager</authorizationManager><serviceManager
+        type=\"ServiceManager\">ServiceMgr</serviceManager><perfManager type=\"PerformanceManager\">PerfMgr</perfManager><scheduledTaskManager
+        type=\"ScheduledTaskManager\">ScheduledTaskManager</scheduledTaskManager><alarmManager
+        type=\"AlarmManager\">AlarmManager</alarmManager><eventManager type=\"EventManager\">EventManager</eventManager><taskManager
+        type=\"TaskManager\">TaskManager</taskManager><extensionManager type=\"ExtensionManager\">ExtensionManager</extensionManager><customizationSpecManager
+        type=\"CustomizationSpecManager\">CustomizationSpecManager</customizationSpecManager><guestCustomizationManager
+        type=\"VirtualMachineGuestCustomizationManager\">GuestCustomizationManager</guestCustomizationManager><customFieldsManager
+        type=\"CustomFieldsManager\">CustomFieldsManager</customFieldsManager><diagnosticManager
+        type=\"DiagnosticManager\">DiagMgr</diagnosticManager><licenseManager type=\"LicenseManager\">LicenseManager</licenseManager><searchIndex
+        type=\"SearchIndex\">SearchIndex</searchIndex><fileManager type=\"FileManager\">FileManager</fileManager><datastoreNamespaceManager
+        type=\"DatastoreNamespaceManager\">DatastoreNamespaceManager</datastoreNamespaceManager><virtualDiskManager
+        type=\"VirtualDiskManager\">virtualDiskManager</virtualDiskManager><snmpSystem
+        type=\"HostSnmpSystem\">SnmpSystem</snmpSystem><vmProvisioningChecker type=\"VirtualMachineProvisioningChecker\">ProvChecker</vmProvisioningChecker><vmCompatibilityChecker
+        type=\"VirtualMachineCompatibilityChecker\">CompatChecker</vmCompatibilityChecker><ovfManager
+        type=\"OvfManager\">OvfManager</ovfManager><ipPoolManager type=\"IpPoolManager\">IpPoolManager</ipPoolManager><dvSwitchManager
+        type=\"DistributedVirtualSwitchManager\">DVSManager</dvSwitchManager><hostProfileManager
+        type=\"HostProfileManager\">HostProfileManager</hostProfileManager><clusterProfileManager
+        type=\"ClusterProfileManager\">ClusterProfileManager</clusterProfileManager><complianceManager
+        type=\"ProfileComplianceManager\">MoComplianceManager</complianceManager><localizationManager
+        type=\"LocalizationManager\">LocalizationManager</localizationManager><storageResourceManager
+        type=\"StorageResourceManager\">StorageResourceManager</storageResourceManager><guestOperationsManager
+        type=\"GuestOperationsManager\">guestOperationsManager</guestOperationsManager><overheadMemoryManager
+        type=\"OverheadMemoryManager\">OverheadMemoryManager</overheadMemoryManager><certificateManager
+        type=\"CertificateManager\">certificateManager</certificateManager><ioFilterManager
+        type=\"IoFilterManager\">IoFilterManager</ioFilterManager><vStorageObjectManager
+        type=\"VcenterVStorageObjectManager\">VStorageObjectManager</vStorageObjectManager><hostSpecManager
+        type=\"HostSpecificationManager\">HostSpecificationManager</hostSpecManager><cryptoManager
+        type=\"CryptoManagerKmip\">CryptoManager</cryptoManager><healthUpdateManager
+        type=\"HealthUpdateManager\">HealthUpdateManager</healthUpdateManager><failoverClusterConfigurator
+        type=\"FailoverClusterConfigurator\">FailoverClusterConfigurator</failoverClusterConfigurator><failoverClusterManager
+        type=\"FailoverClusterManager\">FailoverClusterManager</failoverClusterManager><tenantManager
+        type=\"TenantTenantManager\">TenantManager-69507950</tenantManager><siteInfoManager
+        type=\"SiteInfoManager\">SiteInfoManager</siteInfoManager><storageQueryManager
+        type=\"StorageQueryManager\">StorageQueryManager</storageQueryManager></returnval></RetrieveServiceContentResponse>\n</soapenv:Body>\n</soapenv:Envelope>"
     headers:
-      cache-control: [no-cache]
-      connection: [Keep-Alive]
-      content-length: ['3853']
-      content-type: [text/xml; charset=utf-8]
-      date: ['Mon, 12 Oct 2015 16:24:13 GMT']
-    status: {code: 200, message: OK}
+      cache-control:
+      - no-cache
+      content-length:
+      - '4834'
+      content-type:
+      - text/xml; charset=utf-8
+      date:
+      - Thu, 14 Dec 2023 07:29:53 GMT
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      x-envoy-upstream-service-time:
+      - '7'
+    status:
+      code: 200
+      message: OK
 - request:
     body: '<?xml version="1.0" encoding="UTF-8"?>
 
       <soapenv:Envelope xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
-      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
-      <soapenv:Body><Login xmlns="urn:vim25"><_this type="SessionManager">SessionManager</_this><userName>my_user</userName><password>my_password</password></Login></soapenv:Body>
+      <soapenv:Body><Login xmlns="urn:vim25"><_this versionId="8.0.2.0" type="SessionManager">SessionManager</_this><userName
+      versionId="8.0.2.0">my_user</userName><password versionId="8.0.2.0">my_password</password></Login></soapenv:Body>
 
       </soapenv:Envelope>'
     headers:
-      Accept-Encoding: ['gzip, deflate']
-      Content-Type: [text/xml; charset=UTF-8]
-      Cookie: ['']
-      SOAPAction: ['"urn:vim25/6.0"']
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - text/xml; charset=UTF-8
+      Cookie:
+      - ''
+      SOAPAction:
+      - '"urn:vim25/8.0.2.0"'
+      User-Agent:
+      - pyvmomi Python/3.9.8 (Darwin; 22.6.0; arm64)
     method: POST
     uri: https://vcsa/sdk
   response:
-    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
-        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
-        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
-        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
-        >\n<soapenv:Body>\n<LoginResponse xmlns=\"urn:vim25\"><returnval><key>52e6ecdc-512d-b041-aea8-efa4a4f168e2</key><userName>my_user</userName><fullName>my_user</fullName><loginTime>2015-10-12T16:24:13.702261Z</loginTime><lastActiveTime>2015-10-12T16:24:13.702261Z</lastActiveTime><locale>en</locale><messageLocale>en</messageLocale><extensionSession>false</extensionSession><ipAddress>10.20.125.215</ipAddress><userAgent></userAgent><callCount>0</callCount></returnval></LoginResponse>\n\
-        </soapenv:Body>\n</soapenv:Envelope>"}
+    body:
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\n
+        xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"\n
+        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n<soapenv:Body>\n<LoginResponse
+        xmlns=\"urn:vim25\"><returnval><key>5296701e-9e56-a69b-0b98-52a96e14b1b9</key><userName>my_user</userName><fullName>my_user</fullName><loginTime>2023-12-14T07:29:53.566909Z</loginTime><lastActiveTime>2023-12-14T07:29:53.566909Z</lastActiveTime><locale>en</locale><messageLocale>en</messageLocale><extensionSession>false</extensionSession><ipAddress>10.234.46.97</ipAddress><userAgent>pyvmomi
+        Python/3.9.8 (Darwin; 22.6.0; arm64)</userAgent><callCount>0</callCount></returnval></LoginResponse>\n</soapenv:Body>\n</soapenv:Envelope>"
     headers:
-      cache-control: [no-cache]
-      connection: [Keep-Alive]
-      content-length: ['829']
-      content-type: [text/xml; charset=utf-8]
-      date: ['Mon, 12 Oct 2015 16:24:13 GMT']
-      set-cookie: [vmware_soap_session="403d909855cc71d655e4312dff16aa2e4bb8cd4d";
-          Path=/; HttpOnly; Secure;]
-    status: {code: 200, message: OK}
+      cache-control:
+      - no-cache
+      content-length:
+      - '872'
+      content-type:
+      - text/xml; charset=utf-8
+      date:
+      - Thu, 14 Dec 2023 07:29:53 GMT
+      set-cookie:
+      - vmware_soap_session="e8e523a0068c958f2f9b75264c5fd79dbf715702"; Path=/; HttpOnly;
+        Secure;
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      x-envoy-upstream-service-time:
+      - '82'
+    status:
+      code: 200
+      message: OK
 - request:
     body: '<?xml version="1.0" encoding="UTF-8"?>
 
       <soapenv:Envelope xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
-      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
-      <soapenv:Body><RetrieveServiceContent xmlns="urn:vim25"><_this type="ServiceInstance">ServiceInstance</_this></RetrieveServiceContent></soapenv:Body>
+      <soapenv:Body><RetrieveServiceContent xmlns="urn:vim25"><_this versionId="8.0.2.0"
+      type="ServiceInstance">ServiceInstance</_this></RetrieveServiceContent></soapenv:Body>
 
       </soapenv:Envelope>'
     headers:
-      Accept-Encoding: ['gzip, deflate']
-      Content-Type: [text/xml; charset=UTF-8]
-      Cookie: [vmware_soap_session="403d909855cc71d655e4312dff16aa2e4bb8cd4d"; Path=/;
-          HttpOnly; Secure;]
-      SOAPAction: ['"urn:vim25/6.0"']
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - text/xml; charset=UTF-8
+      Cookie:
+      - vmware_soap_session="e8e523a0068c958f2f9b75264c5fd79dbf715702"; Path=/; HttpOnly;
+        Secure;
+      SOAPAction:
+      - '"urn:vim25/8.0.2.0"'
+      User-Agent:
+      - pyvmomi Python/3.9.8 (Darwin; 22.6.0; arm64)
     method: POST
     uri: https://vcsa/sdk
   response:
-    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
-        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
-        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
-        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
-        >\n<soapenv:Body>\n<RetrieveServiceContentResponse xmlns=\"urn:vim25\"><returnval><rootFolder\
-        \ type=\"Folder\">group-d1</rootFolder><propertyCollector type=\"PropertyCollector\"\
-        >propertyCollector</propertyCollector><viewManager type=\"ViewManager\">ViewManager</viewManager><about><name>VMware\
-        \ vCenter Server</name><fullName>VMware vCenter Server 6.0.0 build-3018523</fullName><vendor>VMware,\
-        \ Inc.</vendor><version>6.0.0</version><build>3018523</build><localeVersion>INTL</localeVersion><localeBuild>000</localeBuild><osType>linux-x64</osType><productLineId>vpx</productLineId><apiType>VirtualCenter</apiType><apiVersion>6.0</apiVersion><instanceUuid>6cbd40cc-1416-4b2d-ba7c-ae53a166d00a</instanceUuid><licenseProductName>VMware\
-        \ VirtualCenter Server</licenseProductName><licenseProductVersion>6.0</licenseProductVersion></about><setting\
-        \ type=\"OptionManager\">VpxSettings</setting><userDirectory type=\"UserDirectory\"\
-        >UserDirectory</userDirectory><sessionManager type=\"SessionManager\">SessionManager</sessionManager><authorizationManager\
-        \ type=\"AuthorizationManager\">AuthorizationManager</authorizationManager><serviceManager\
-        \ type=\"ServiceManager\">ServiceMgr</serviceManager><perfManager type=\"\
-        PerformanceManager\">PerfMgr</perfManager><scheduledTaskManager type=\"ScheduledTaskManager\"\
-        >ScheduledTaskManager</scheduledTaskManager><alarmManager type=\"AlarmManager\"\
-        >AlarmManager</alarmManager><eventManager type=\"EventManager\">EventManager</eventManager><taskManager\
-        \ type=\"TaskManager\">TaskManager</taskManager><extensionManager type=\"\
-        ExtensionManager\">ExtensionManager</extensionManager><customizationSpecManager\
-        \ type=\"CustomizationSpecManager\">CustomizationSpecManager</customizationSpecManager><customFieldsManager\
-        \ type=\"CustomFieldsManager\">CustomFieldsManager</customFieldsManager><diagnosticManager\
-        \ type=\"DiagnosticManager\">DiagMgr</diagnosticManager><licenseManager type=\"\
-        LicenseManager\">LicenseManager</licenseManager><searchIndex type=\"SearchIndex\"\
-        >SearchIndex</searchIndex><fileManager type=\"FileManager\">FileManager</fileManager><datastoreNamespaceManager\
-        \ type=\"DatastoreNamespaceManager\">DatastoreNamespaceManager</datastoreNamespaceManager><virtualDiskManager\
-        \ type=\"VirtualDiskManager\">virtualDiskManager</virtualDiskManager><snmpSystem\
-        \ type=\"HostSnmpSystem\">SnmpSystem</snmpSystem><vmProvisioningChecker type=\"\
-        VirtualMachineProvisioningChecker\">ProvChecker</vmProvisioningChecker><vmCompatibilityChecker\
-        \ type=\"VirtualMachineCompatibilityChecker\">CompatChecker</vmCompatibilityChecker><ovfManager\
-        \ type=\"OvfManager\">OvfManager</ovfManager><ipPoolManager type=\"IpPoolManager\"\
-        >IpPoolManager</ipPoolManager><dvSwitchManager type=\"DistributedVirtualSwitchManager\"\
-        >DVSManager</dvSwitchManager><hostProfileManager type=\"HostProfileManager\"\
-        >HostProfileManager</hostProfileManager><clusterProfileManager type=\"ClusterProfileManager\"\
-        >ClusterProfileManager</clusterProfileManager><complianceManager type=\"ProfileComplianceManager\"\
-        >MoComplianceManager</complianceManager><localizationManager type=\"LocalizationManager\"\
-        >LocalizationManager</localizationManager><storageResourceManager type=\"\
-        StorageResourceManager\">StorageResourceManager</storageResourceManager><guestOperationsManager\
-        \ type=\"GuestOperationsManager\">guestOperationsManager</guestOperationsManager><overheadMemoryManager\
-        \ type=\"OverheadMemoryManager\">OverheadMemoryManger</overheadMemoryManager><certificateManager\
-        \ type=\"CertificateManager\">certificateManager</certificateManager><ioFilterManager\
-        \ type=\"IoFilterManager\">IoFilterManager</ioFilterManager></returnval></RetrieveServiceContentResponse>\n\
-        </soapenv:Body>\n</soapenv:Envelope>"}
+    body:
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\n
+        xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"\n
+        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n<soapenv:Body>\n<RetrieveServiceContentResponse
+        xmlns=\"urn:vim25\"><returnval><rootFolder type=\"Folder\">group-d1</rootFolder><propertyCollector
+        type=\"PropertyCollector\">propertyCollector</propertyCollector><viewManager
+        type=\"ViewManager\">ViewManager</viewManager><about><name>VMware vCenter
+        Server</name><fullName>VMware vCenter Server 8.0.3 build-69507950</fullName><vendor>VMware,
+        Inc.</vendor><version>8.0.3</version><patchLevel>00000</patchLevel><build>69507950</build><localeVersion>INTL</localeVersion><localeBuild>000</localeBuild><osType>linux-x64</osType><productLineId>vpx</productLineId><apiType>VirtualCenter</apiType><apiVersion>8.0.2.0</apiVersion><instanceUuid>61f12cb6-9de0-40cb-9c47-61d494229f4f</instanceUuid><licenseProductName>VMware
+        VirtualCenter Server</licenseProductName><licenseProductVersion>8.0</licenseProductVersion></about><setting
+        type=\"OptionManager\">VpxSettings</setting><userDirectory type=\"UserDirectory\">UserDirectory</userDirectory><sessionManager
+        type=\"SessionManager\">SessionManager</sessionManager><authorizationManager
+        type=\"AuthorizationManager\">AuthorizationManager</authorizationManager><serviceManager
+        type=\"ServiceManager\">ServiceMgr</serviceManager><perfManager type=\"PerformanceManager\">PerfMgr</perfManager><scheduledTaskManager
+        type=\"ScheduledTaskManager\">ScheduledTaskManager</scheduledTaskManager><alarmManager
+        type=\"AlarmManager\">AlarmManager</alarmManager><eventManager type=\"EventManager\">EventManager</eventManager><taskManager
+        type=\"TaskManager\">TaskManager</taskManager><extensionManager type=\"ExtensionManager\">ExtensionManager</extensionManager><customizationSpecManager
+        type=\"CustomizationSpecManager\">CustomizationSpecManager</customizationSpecManager><guestCustomizationManager
+        type=\"VirtualMachineGuestCustomizationManager\">GuestCustomizationManager</guestCustomizationManager><customFieldsManager
+        type=\"CustomFieldsManager\">CustomFieldsManager</customFieldsManager><diagnosticManager
+        type=\"DiagnosticManager\">DiagMgr</diagnosticManager><licenseManager type=\"LicenseManager\">LicenseManager</licenseManager><searchIndex
+        type=\"SearchIndex\">SearchIndex</searchIndex><fileManager type=\"FileManager\">FileManager</fileManager><datastoreNamespaceManager
+        type=\"DatastoreNamespaceManager\">DatastoreNamespaceManager</datastoreNamespaceManager><virtualDiskManager
+        type=\"VirtualDiskManager\">virtualDiskManager</virtualDiskManager><snmpSystem
+        type=\"HostSnmpSystem\">SnmpSystem</snmpSystem><vmProvisioningChecker type=\"VirtualMachineProvisioningChecker\">ProvChecker</vmProvisioningChecker><vmCompatibilityChecker
+        type=\"VirtualMachineCompatibilityChecker\">CompatChecker</vmCompatibilityChecker><ovfManager
+        type=\"OvfManager\">OvfManager</ovfManager><ipPoolManager type=\"IpPoolManager\">IpPoolManager</ipPoolManager><dvSwitchManager
+        type=\"DistributedVirtualSwitchManager\">DVSManager</dvSwitchManager><hostProfileManager
+        type=\"HostProfileManager\">HostProfileManager</hostProfileManager><clusterProfileManager
+        type=\"ClusterProfileManager\">ClusterProfileManager</clusterProfileManager><complianceManager
+        type=\"ProfileComplianceManager\">MoComplianceManager</complianceManager><localizationManager
+        type=\"LocalizationManager\">LocalizationManager</localizationManager><storageResourceManager
+        type=\"StorageResourceManager\">StorageResourceManager</storageResourceManager><guestOperationsManager
+        type=\"GuestOperationsManager\">guestOperationsManager</guestOperationsManager><overheadMemoryManager
+        type=\"OverheadMemoryManager\">OverheadMemoryManager</overheadMemoryManager><certificateManager
+        type=\"CertificateManager\">certificateManager</certificateManager><ioFilterManager
+        type=\"IoFilterManager\">IoFilterManager</ioFilterManager><vStorageObjectManager
+        type=\"VcenterVStorageObjectManager\">VStorageObjectManager</vStorageObjectManager><hostSpecManager
+        type=\"HostSpecificationManager\">HostSpecificationManager</hostSpecManager><cryptoManager
+        type=\"CryptoManagerKmip\">CryptoManager</cryptoManager><healthUpdateManager
+        type=\"HealthUpdateManager\">HealthUpdateManager</healthUpdateManager><failoverClusterConfigurator
+        type=\"FailoverClusterConfigurator\">FailoverClusterConfigurator</failoverClusterConfigurator><failoverClusterManager
+        type=\"FailoverClusterManager\">FailoverClusterManager</failoverClusterManager><tenantManager
+        type=\"TenantTenantManager\">TenantManager-69507950</tenantManager><siteInfoManager
+        type=\"SiteInfoManager\">SiteInfoManager</siteInfoManager><storageQueryManager
+        type=\"StorageQueryManager\">StorageQueryManager</storageQueryManager></returnval></RetrieveServiceContentResponse>\n</soapenv:Body>\n</soapenv:Envelope>"
     headers:
-      cache-control: [no-cache]
-      connection: [Keep-Alive]
-      content-length: ['3853']
-      content-type: [text/xml; charset=utf-8]
-      date: ['Mon, 12 Oct 2015 16:24:13 GMT']
-    status: {code: 200, message: OK}
+      cache-control:
+      - no-cache
+      content-length:
+      - '4834'
+      content-type:
+      - text/xml; charset=utf-8
+      date:
+      - Thu, 14 Dec 2023 07:29:53 GMT
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      x-envoy-upstream-service-time:
+      - '4'
+    status:
+      code: 200
+      message: OK
 - request:
     body: '<?xml version="1.0" encoding="UTF-8"?>
 
       <soapenv:Envelope xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
-      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
-      <soapenv:Body><CreateContainerView xmlns="urn:vim25"><_this type="ViewManager">ViewManager</_this><container
-      type="Folder">group-d1</container><type>Datacenter</type><recursive>true</recursive></CreateContainerView></soapenv:Body>
+      <soapenv:Body><CreateContainerView xmlns="urn:vim25"><_this versionId="8.0.2.0"
+      type="ViewManager">ViewManager</_this><container versionId="8.0.2.0" type="Folder">group-d1</container><type>Datacenter</type><recursive
+      versionId="8.0.2.0">true</recursive></CreateContainerView></soapenv:Body>
 
       </soapenv:Envelope>'
     headers:
-      Accept-Encoding: ['gzip, deflate']
-      Content-Type: [text/xml; charset=UTF-8]
-      Cookie: [vmware_soap_session="403d909855cc71d655e4312dff16aa2e4bb8cd4d"; Path=/;
-          HttpOnly; Secure;]
-      SOAPAction: ['"urn:vim25/6.0"']
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - text/xml; charset=UTF-8
+      Cookie:
+      - vmware_soap_session="e8e523a0068c958f2f9b75264c5fd79dbf715702"; Path=/; HttpOnly;
+        Secure;
+      SOAPAction:
+      - '"urn:vim25/8.0.2.0"'
+      User-Agent:
+      - pyvmomi Python/3.9.8 (Darwin; 22.6.0; arm64)
     method: POST
     uri: https://vcsa/sdk
   response:
-    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
-        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
-        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
-        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
-        >\n<soapenv:Body>\n<CreateContainerViewResponse xmlns=\"urn:vim25\"><returnval\
-        \ type=\"ContainerView\">session[522e381b-f862-604d-fc91-f833d412e504]52af39e2-2cf1-3ba5-e212-6f8658cd2e1e</returnval></CreateContainerViewResponse>\n\
-        </soapenv:Body>\n</soapenv:Envelope>"}
+    body:
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\n
+        xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"\n
+        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n<soapenv:Body>\n<CreateContainerViewResponse
+        xmlns=\"urn:vim25\"><returnval type=\"ContainerView\">session[52bb85b0-adbe-7f20-156d-6130b6dc066e]5286fa88-7318-63fc-4917-f258ec859d33</returnval></CreateContainerViewResponse>\n</soapenv:Body>\n</soapenv:Envelope>"
     headers:
-      cache-control: [no-cache]
-      connection: [Keep-Alive]
-      content-length: ['529']
-      content-type: [text/xml; charset=utf-8]
-      date: ['Mon, 12 Oct 2015 16:24:13 GMT']
-    status: {code: 200, message: OK}
+      cache-control:
+      - no-cache
+      content-length:
+      - '529'
+      content-type:
+      - text/xml; charset=utf-8
+      date:
+      - Thu, 14 Dec 2023 07:29:54 GMT
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      x-envoy-upstream-service-time:
+      - '5'
+    status:
+      code: 200
+      message: OK
 - request:
     body: '<?xml version="1.0" encoding="UTF-8"?>
 
       <soapenv:Envelope xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
-      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
-      <soapenv:Body><RetrieveServiceContent xmlns="urn:vim25"><_this type="ServiceInstance">ServiceInstance</_this></RetrieveServiceContent></soapenv:Body>
+      <soapenv:Body><Fetch xmlns="urn:vim25"><_this versionId="8.0.2.0" type="ContainerView">session[52bb85b0-adbe-7f20-156d-6130b6dc066e]5286fa88-7318-63fc-4917-f258ec859d33</_this><prop
+      versionId="8.0.2.0">view</prop></Fetch></soapenv:Body>
 
       </soapenv:Envelope>'
     headers:
-      Accept-Encoding: ['gzip, deflate']
-      Content-Type: [text/xml; charset=UTF-8]
-      Cookie: [vmware_soap_session="403d909855cc71d655e4312dff16aa2e4bb8cd4d"; Path=/;
-          HttpOnly; Secure;]
-      SOAPAction: ['"urn:vim25/6.0"']
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - text/xml; charset=UTF-8
+      Cookie:
+      - vmware_soap_session="e8e523a0068c958f2f9b75264c5fd79dbf715702"; Path=/; HttpOnly;
+        Secure;
+      SOAPAction:
+      - '"urn:vim25/8.0.2.0"'
+      User-Agent:
+      - pyvmomi Python/3.9.8 (Darwin; 22.6.0; arm64)
     method: POST
     uri: https://vcsa/sdk
   response:
-    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
-        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
-        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
-        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
-        >\n<soapenv:Body>\n<RetrieveServiceContentResponse xmlns=\"urn:vim25\"><returnval><rootFolder\
-        \ type=\"Folder\">group-d1</rootFolder><propertyCollector type=\"PropertyCollector\"\
-        >propertyCollector</propertyCollector><viewManager type=\"ViewManager\">ViewManager</viewManager><about><name>VMware\
-        \ vCenter Server</name><fullName>VMware vCenter Server 6.0.0 build-3018523</fullName><vendor>VMware,\
-        \ Inc.</vendor><version>6.0.0</version><build>3018523</build><localeVersion>INTL</localeVersion><localeBuild>000</localeBuild><osType>linux-x64</osType><productLineId>vpx</productLineId><apiType>VirtualCenter</apiType><apiVersion>6.0</apiVersion><instanceUuid>6cbd40cc-1416-4b2d-ba7c-ae53a166d00a</instanceUuid><licenseProductName>VMware\
-        \ VirtualCenter Server</licenseProductName><licenseProductVersion>6.0</licenseProductVersion></about><setting\
-        \ type=\"OptionManager\">VpxSettings</setting><userDirectory type=\"UserDirectory\"\
-        >UserDirectory</userDirectory><sessionManager type=\"SessionManager\">SessionManager</sessionManager><authorizationManager\
-        \ type=\"AuthorizationManager\">AuthorizationManager</authorizationManager><serviceManager\
-        \ type=\"ServiceManager\">ServiceMgr</serviceManager><perfManager type=\"\
-        PerformanceManager\">PerfMgr</perfManager><scheduledTaskManager type=\"ScheduledTaskManager\"\
-        >ScheduledTaskManager</scheduledTaskManager><alarmManager type=\"AlarmManager\"\
-        >AlarmManager</alarmManager><eventManager type=\"EventManager\">EventManager</eventManager><taskManager\
-        \ type=\"TaskManager\">TaskManager</taskManager><extensionManager type=\"\
-        ExtensionManager\">ExtensionManager</extensionManager><customizationSpecManager\
-        \ type=\"CustomizationSpecManager\">CustomizationSpecManager</customizationSpecManager><customFieldsManager\
-        \ type=\"CustomFieldsManager\">CustomFieldsManager</customFieldsManager><diagnosticManager\
-        \ type=\"DiagnosticManager\">DiagMgr</diagnosticManager><licenseManager type=\"\
-        LicenseManager\">LicenseManager</licenseManager><searchIndex type=\"SearchIndex\"\
-        >SearchIndex</searchIndex><fileManager type=\"FileManager\">FileManager</fileManager><datastoreNamespaceManager\
-        \ type=\"DatastoreNamespaceManager\">DatastoreNamespaceManager</datastoreNamespaceManager><virtualDiskManager\
-        \ type=\"VirtualDiskManager\">virtualDiskManager</virtualDiskManager><snmpSystem\
-        \ type=\"HostSnmpSystem\">SnmpSystem</snmpSystem><vmProvisioningChecker type=\"\
-        VirtualMachineProvisioningChecker\">ProvChecker</vmProvisioningChecker><vmCompatibilityChecker\
-        \ type=\"VirtualMachineCompatibilityChecker\">CompatChecker</vmCompatibilityChecker><ovfManager\
-        \ type=\"OvfManager\">OvfManager</ovfManager><ipPoolManager type=\"IpPoolManager\"\
-        >IpPoolManager</ipPoolManager><dvSwitchManager type=\"DistributedVirtualSwitchManager\"\
-        >DVSManager</dvSwitchManager><hostProfileManager type=\"HostProfileManager\"\
-        >HostProfileManager</hostProfileManager><clusterProfileManager type=\"ClusterProfileManager\"\
-        >ClusterProfileManager</clusterProfileManager><complianceManager type=\"ProfileComplianceManager\"\
-        >MoComplianceManager</complianceManager><localizationManager type=\"LocalizationManager\"\
-        >LocalizationManager</localizationManager><storageResourceManager type=\"\
-        StorageResourceManager\">StorageResourceManager</storageResourceManager><guestOperationsManager\
-        \ type=\"GuestOperationsManager\">guestOperationsManager</guestOperationsManager><overheadMemoryManager\
-        \ type=\"OverheadMemoryManager\">OverheadMemoryManger</overheadMemoryManager><certificateManager\
-        \ type=\"CertificateManager\">certificateManager</certificateManager><ioFilterManager\
-        \ type=\"IoFilterManager\">IoFilterManager</ioFilterManager></returnval></RetrieveServiceContentResponse>\n\
-        </soapenv:Body>\n</soapenv:Envelope>"}
+    body:
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\n
+        xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"\n
+        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n<soapenv:Body>\n<FetchResponse
+        xmlns=\"urn:vim25\"><returnval xsi:type=\"ArrayOfManagedObjectReference\"><ManagedObjectReference
+        type=\"Datacenter\" xsi:type=\"ManagedObjectReference\">datacenter-3</ManagedObjectReference></returnval></FetchResponse>\n</soapenv:Body>\n</soapenv:Envelope>"
     headers:
-      cache-control: [no-cache]
-      connection: [Keep-Alive]
-      content-length: ['3853']
-      content-type: [text/xml; charset=utf-8]
-      date: ['Mon, 12 Oct 2015 16:24:13 GMT']
-    status: {code: 200, message: OK}
+      cache-control:
+      - no-cache
+      content-length:
+      - '553'
+      content-type:
+      - text/xml; charset=utf-8
+      date:
+      - Thu, 14 Dec 2023 07:29:54 GMT
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      x-envoy-upstream-service-time:
+      - '6'
+    status:
+      code: 200
+      message: OK
 - request:
     body: '<?xml version="1.0" encoding="UTF-8"?>
 
       <soapenv:Envelope xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
-      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
-      <soapenv:Body><RetrievePropertiesEx xmlns="urn:vim25"><_this type="PropertyCollector">propertyCollector</_this><specSet><propSet><type>ContainerView</type><all>false</all><pathSet>view</pathSet></propSet><objectSet><obj
-      type="ContainerView">session[522e381b-f862-604d-fc91-f833d412e504]52af39e2-2cf1-3ba5-e212-6f8658cd2e1e</obj><skip>false</skip></objectSet></specSet><options><maxObjects>1</maxObjects></options></RetrievePropertiesEx></soapenv:Body>
+      <soapenv:Body><Fetch xmlns="urn:vim25"><_this versionId="8.0.2.0" type="Datacenter">datacenter-3</_this><prop
+      versionId="8.0.2.0">datastore</prop></Fetch></soapenv:Body>
 
       </soapenv:Envelope>'
     headers:
-      Accept-Encoding: ['gzip, deflate']
-      Content-Type: [text/xml; charset=UTF-8]
-      Cookie: [vmware_soap_session="403d909855cc71d655e4312dff16aa2e4bb8cd4d"; Path=/;
-          HttpOnly; Secure;]
-      SOAPAction: ['"urn:vim25/6.0"']
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - text/xml; charset=UTF-8
+      Cookie:
+      - vmware_soap_session="e8e523a0068c958f2f9b75264c5fd79dbf715702"; Path=/; HttpOnly;
+        Secure;
+      SOAPAction:
+      - '"urn:vim25/8.0.2.0"'
+      User-Agent:
+      - pyvmomi Python/3.9.8 (Darwin; 22.6.0; arm64)
     method: POST
     uri: https://vcsa/sdk
   response:
-    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
-        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
-        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
-        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
-        >\n<soapenv:Body>\n<RetrievePropertiesExResponse xmlns=\"urn:vim25\"><returnval><objects><obj\
-        \ type=\"ContainerView\">session[522e381b-f862-604d-fc91-f833d412e504]52af39e2-2cf1-3ba5-e212-6f8658cd2e1e</obj><propSet><name>view</name><val\
-        \ xsi:type=\"ArrayOfManagedObjectReference\"></val></propSet></objects></returnval></RetrievePropertiesExResponse>\n\
-        </soapenv:Body>\n</soapenv:Envelope>"}
+    body:
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\n
+        xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"\n
+        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n<soapenv:Body>\n<FetchResponse
+        xmlns=\"urn:vim25\"><returnval xsi:type=\"ArrayOfManagedObjectReference\"><ManagedObjectReference
+        type=\"Datastore\" xsi:type=\"ManagedObjectReference\">datastore-17</ManagedObjectReference></returnval></FetchResponse>\n</soapenv:Body>\n</soapenv:Envelope>"
     headers:
-      cache-control: [no-cache]
-      connection: [Keep-Alive]
-      content-length: ['649']
-      content-type: [text/xml; charset=utf-8]
-      date: ['Mon, 12 Oct 2015 16:24:13 GMT']
-    status: {code: 200, message: OK}
+      cache-control:
+      - no-cache
+      content-length:
+      - '552'
+      content-type:
+      - text/xml; charset=utf-8
+      date:
+      - Thu, 14 Dec 2023 07:29:54 GMT
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      x-envoy-upstream-service-time:
+      - '3'
+    status:
+      code: 200
+      message: OK
 - request:
     body: '<?xml version="1.0" encoding="UTF-8"?>
 
       <soapenv:Envelope xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
-      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
-      <soapenv:Body><DestroyView xmlns="urn:vim25"><_this type="ContainerView">session[522e381b-f862-604d-fc91-f833d412e504]52af39e2-2cf1-3ba5-e212-6f8658cd2e1e</_this></DestroyView></soapenv:Body>
+      <soapenv:Body><DestroyView xmlns="urn:vim25"><_this versionId="8.0.2.0" type="ContainerView">session[52bb85b0-adbe-7f20-156d-6130b6dc066e]5286fa88-7318-63fc-4917-f258ec859d33</_this></DestroyView></soapenv:Body>
 
       </soapenv:Envelope>'
     headers:
-      Accept-Encoding: ['gzip, deflate']
-      Content-Type: [text/xml; charset=UTF-8]
-      Cookie: [vmware_soap_session="403d909855cc71d655e4312dff16aa2e4bb8cd4d"; Path=/;
-          HttpOnly; Secure;]
-      SOAPAction: ['"urn:vim25/6.0"']
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - text/xml; charset=UTF-8
+      Cookie:
+      - vmware_soap_session="e8e523a0068c958f2f9b75264c5fd79dbf715702"; Path=/; HttpOnly;
+        Secure;
+      SOAPAction:
+      - '"urn:vim25/8.0.2.0"'
+      User-Agent:
+      - pyvmomi Python/3.9.8 (Darwin; 22.6.0; arm64)
     method: POST
     uri: https://vcsa/sdk
   response:
-    body: {string: !!python/unicode "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
-        <soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\
-        \n xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"\
-        http://www.w3.org/2001/XMLSchema\"\n xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
-        >\n<soapenv:Body>\n<DestroyViewResponse xmlns=\"urn:vim25\"></DestroyViewResponse>\n\
-        </soapenv:Body>\n</soapenv:Envelope>"}
+    body:
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"\n
+        xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"\n
+        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n<soapenv:Body>\n<DestroyViewResponse
+        xmlns=\"urn:vim25\"></DestroyViewResponse>\n</soapenv:Body>\n</soapenv:Envelope>"
     headers:
-      cache-control: [no-cache]
-      connection: [Keep-Alive]
-      content-length: ['388']
-      content-type: [text/xml; charset=utf-8]
-      date: ['Mon, 12 Oct 2015 16:24:13 GMT']
-    status: {code: 200, message: OK}
+      cache-control:
+      - no-cache
+      content-length:
+      - '388'
+      content-type:
+      - text/xml; charset=utf-8
+      date:
+      - Thu, 14 Dec 2023 07:29:54 GMT
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      x-envoy-upstream-service-time:
+      - '2'
+    status:
+      code: 200
+      message: OK
 version: 1

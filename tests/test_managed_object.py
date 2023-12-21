@@ -23,7 +23,7 @@ class ManagedObjectTests(tests.VCRTestBase):
 
     @tests.VCRTestBase.my_vcr.use_cassette('root_folder_parent.yaml',
                       cassette_library_dir=tests.fixtures_path,
-                      record_mode='once')
+                      record_mode='once', decode_compressed_response=True)
     def test_root_folder_parent(self):
         # see: http://python3porting.com/noconv.html
         si = connect.SmartConnect(host='vcsa',

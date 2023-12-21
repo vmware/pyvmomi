@@ -24,36 +24,13 @@ class VirtualMachineTests(tests.VCRTestBase):
 
     @tests.VCRTestBase.my_vcr.use_cassette('vm_nic_data.yaml',
                       cassette_library_dir=tests.fixtures_path,
-                      record_mode='never')
+                      record_mode='once', decode_compressed_response=True)
     def test_vm_nic_data(self):
-        data = {'ESXi-5.5-16': [],
-                'ESXi-5.5-17': [],
-                'ESXi-5.5-18': [],
-                'ESXi11': ['00:0c:29:e1:e0:f8'],
-                'ESXi12': ['00:50:56:b4:3c:3c'],
-                'ESXi20': ['00:50:56:b4:fc:9b', '00:50:56:b4:28:e7'],
-                'ESXi21': ['00:50:56:b4:8d:7a', '00:50:56:b4:39:b8'],
-                'ESXi22': ['00:0c:29:36:b5:5a', '00:0c:29:36:b5:64'],
-                'ESXi23': ['00:50:56:b4:91:f9', '00:50:56:b4:90:9f'],
-                'ESXi38-v5.0': ['00:0c:29:ce:6a:d8', '00:0c:29:ce:6a:e2'],
-                'MARVEL-Agents_of_Atlas': [],
-                'MARVEL-Alex_Power': [],
-                'MARVEL-Archangel': [],
-                'MARVEL-Freak': [],
-                'MARVEL-Hepzibah': [],
-                'MARVEL-Mach_IV': [],
-                'MARVEL-Serpent_Society': [],
-                'MARVEL-Spectrum': [],
-                'MARVEL-The_Hand': [],
-                'MARVEL-Vanisher_(Ultimate)': [],
-                'VCVA-5.5u1-11': ['00:0c:29:9d:a3:8c'],
-                'VCVA-5.5u1-14': ['00:0c:29:75:21:2e'],
-                'VCVA33': ['00:0c:29:e3:f9:f7'],
-                'VCVA36': ['00:0c:29:44:8b:76'],
-                'VCVA37-v5.0': ['00:50:56:b4:89:db'],
-                'box': ['00:50:56:82:28:7d'],
-                'box_copy': ['00:50:56:82:34:02'],
-                'esx4.1.0': ['00:0c:29:1f:ec:ba', '00:0c:29:1f:ec:c4']}
+        data = {
+            'vCLS-fc35c4f3-c84c-4232-9446-e64ff2c9388c': [],
+            'vCLS-8f66678f-3d69-4b58-a4c7-bae62203b573': [],
+            'vCLS-32d7e67b-f3b4-485b-9685-b4b43c7f9c75': []
+        }
 
         # see: http://python3porting.com/noconv.html
         si = connect.SmartConnect(host='vcsa',
