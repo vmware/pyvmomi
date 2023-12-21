@@ -22,13 +22,12 @@ class ContainerViewTests(tests.VCRTestBase):
 
     @tests.VCRTestBase.my_vcr.use_cassette('basic_container_view.yaml',
                       cassette_library_dir=tests.fixtures_path,
-                      record_mode='once')
+                      record_mode='once', decode_compressed_response=True)
     def test_basic_container_view(self):
         # see: http://python3porting.com/noconv.html
         si = connect.SmartConnect(host='vcsa',
                                   user='my_user',
                                   pwd='my_password')
-
         content = si.RetrieveContent()
 
         datacenter_object_view = content.viewManager.CreateContainerView(
