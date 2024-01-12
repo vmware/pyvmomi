@@ -74,8 +74,7 @@ setup(
     extras_require={
         'sso': [
             'pyOpenSSL',
-            'lxml',
-            'pywin32; sys_platform == "win32"'
+            'lxml'
         ]
     },
     zip_safe=True
