@@ -1,9 +1,19 @@
 # **********************************************************
-# Copyright (c) 2005-2023 VMware, Inc.
+# Copyright (c) 2005-2024 VMware, Inc.
 # **********************************************************
 
 import sys
 import importlib
+
+version_info = (
+    8,
+    0,
+    2,
+    0,
+    1,
+)
+
+version_info_str = ".".join(str(v) for v in version_info)
 
 if sys.version_info < (2, 7, 9):
     sys.stderr.write("pyVmomi requires Python 2.7.9 or newer")

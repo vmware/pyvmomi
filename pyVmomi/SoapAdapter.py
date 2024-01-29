@@ -1,5 +1,5 @@
 # **********************************************************
-# Copyright (c) 2005-2023 VMware, Inc.
+# Copyright (c) 2005-2024 VMware, Inc.  All rights reserved.
 # **********************************************************
 
 import base64
@@ -35,6 +35,7 @@ from .VmomiSupport import (
     IsChildVersion, ManagedMethod, UnknownManagedMethod, ManagedObject,
     Object, PropertyPath, Type, binary, versionIdMap, versionMap)
 from .Security import VerifyCertThumbprint
+from . import version_info_str
 from . import _legacyThumbprintException
 if _legacyThumbprintException:
     from .Security import ThumbprintMismatchException  # noqa: F401
@@ -1518,8 +1519,12 @@ class SoapStubAdapter(SoapStubAdapterBase):
             'Content-Type':
             'text/xml; charset={0}'.format(XML_ENCODING),
             'User-Agent':
-            'pyvmomi Python/{0} ({1}; {2}; {3})'.format(
-                PYTHON_VERSION, OS_NAME, OS_VERSION, OS_ARCH)
+            'pyvmomi {0} Python/{1} ({2}; {3}; {4})'.format(
+                version_info_str,
+                PYTHON_VERSION,
+                OS_NAME,
+                OS_VERSION,
+                OS_ARCH)
         }
         if self._customHeaders:
             headers.update(self._customHeaders)

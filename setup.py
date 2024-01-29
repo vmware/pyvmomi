@@ -16,6 +16,7 @@
 import os
 
 from setuptools import setup
+from pyVmomi import version_info_str
 
 
 def read(fname):
@@ -30,7 +31,7 @@ with open('test-requirements.txt') as f:
 
 setup(
     name='pyvmomi',
-    version='8.0.2.0.1',
+    version=version_info_str,
     description='VMware vSphere Python SDK',
     # NOTE: pypi prefers the use of RST to render docs
     long_description=read('README.rst'),
