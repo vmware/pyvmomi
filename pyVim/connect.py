@@ -1,5 +1,5 @@
 #############################################################
-# Copyright (c) 2005-2023 VMware, Inc.
+# Copyright (c) 2005-2024 VMware, Inc.  All rights reserved.
 #############################################################
 
 # @file connect.py
@@ -216,6 +216,7 @@ def Connect(host='localhost',
             tokenType=None,
             disableSslCertValidation=False,
             customHeaders=None,
+            sessionId=None,
             # Deprecated
             b64token=None,
             # Deprecated
@@ -276,6 +277,9 @@ def Connect(host='localhost',
     @param disableSslCertValidation: Creates an unverified SSL context when True.
     @type  customHeaders: dict
     @param customHeaders: Dictionary with custom HTTP headers.
+    @type  sessionId: string
+    @param sessionId: Allows usage of an existing session.
+                        If supplied Login will not be attempted.
     @param b64token: base64 encoded token
            *** Deprecated: Use token instead ***
     @type  b64token: string
@@ -323,7 +327,8 @@ def Connect(host='localhost',
                        connectionPoolTimeout,
                        token=token,
                        tokenType=tokenType,
-                       customHeaders=customHeaders)
+                       customHeaders=customHeaders,
+                       sessionId=sessionId)
     SetSi(si)
 
     return si
@@ -393,7 +398,8 @@ def __Login(host,
             connectionPoolTimeout,
             token,
             tokenType,
-            customHeaders):
+            customHeaders,
+            sessionId):
     """
     Private method that performs the actual Connect and returns a
     connected service instance object.
@@ -439,6 +445,9 @@ def __Login(host,
     @param tokenType: Select which type of Authentication and Authorization token to use.
     @type  customHeaders: dict
     @param customHeaders: Dictionary with custom HTTP headers.
+    @type  sessionId: string
+    @param sessionId: Allows usage of an existing session.
+                        If supplied Login will not be attempted.
     """
 
     # XXX remove the adapter and service arguments once dependent code is fixed
@@ -472,7 +481,8 @@ def __Login(host,
         httpConnectionTimeout=httpConnectionTimeout,
         connectionPoolTimeout=connectionPoolTimeout,
         samlToken=samlToken,
-        customHeaders=customHeaders)
+        customHeaders=customHeaders,
+        sessionId=sessionId)
 
     # Get Service instance
     si = vim.ServiceInstance("ServiceInstance", stub)
@@ -493,6 +503,9 @@ def __Login(host,
             reraise(vim.fault.HostConnectFault, fault, traceback)
         else:
             raise fault
+
+    if sessionId:
+        return si, stub
 
     # Get a ticket if we're connecting to localhost and password is not specified
     if host == 'localhost' and not pwd and not token:
@@ -807,7 +820,8 @@ def SmartStubAdapter(host='localhost',
                      httpConnectionTimeout=None,
                      connectionPoolTimeout=CONNECTION_POOL_IDLE_TIMEOUT_SEC,
                      disableSslCertValidation=False,
-                     customHeaders=None):
+                     customHeaders=None,
+                     sessionId=None):
     """
     Determine the most preferred API version supported by the specified server,
     then create a soap stub adapter using that version
@@ -825,6 +839,9 @@ def SmartStubAdapter(host='localhost',
     @param disableSslCertValidation: Creates an unverified SSL context when True.
     @type  customHeaders: dict
     @param customHeaders: Dictionary with custom HTTP headers.
+    @type  sessionId: string
+    @param sessionId: Allows usage of an existing session.
+                        If supplied Login will not be attempted.
     """
     if preferredApiVersions is None:
         preferredApiVersions = GetServiceVersions('vim25')
@@ -860,7 +877,8 @@ def SmartStubAdapter(host='localhost',
                            sslContext=sslContext,
                            httpConnectionTimeout=httpConnectionTimeout,
                            connectionPoolTimeout=connectionPoolTimeout,
-                           customHeaders=customHeaders)
+                           customHeaders=customHeaders,
+                           sessionId=sessionId)
 
 
 def SmartConnect(protocol='https',
@@ -883,6 +901,7 @@ def SmartConnect(protocol='https',
                  tokenType=None,
                  disableSslCertValidation=False,
                  customHeaders=None,
+                 sessionId=None,
                  # Deprecated
                  b64token=None,
                  # Deprecated
@@ -944,6 +963,9 @@ def SmartConnect(protocol='https',
     @param disableSslCertValidation: Creates an unverified SSL context when True.
     @type  customHeaders: dict
     @param customHeaders: Dictionary with custom HTTP headers.
+    @type  sessionId: string
+    @param sessionId: Allows usage of an existing session.
+                        If supplied Login will not be attempted.
     @param b64token: base64 encoded token
            *** Deprecated: Use token instead ***
     @type  b64token: string
@@ -988,6 +1010,7 @@ def SmartConnect(protocol='https',
                    tokenType=tokenType,
                    disableSslCertValidation=disableSslCertValidation,
                    customHeaders=customHeaders,
+                   sessionId=sessionId,
                    b64token=b64token,
                    mechanism=mechanism)
 

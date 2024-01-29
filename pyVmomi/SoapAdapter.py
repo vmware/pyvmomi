@@ -24,6 +24,7 @@ import six
 from six import PY3
 from six.moves import StringIO, zip
 from six.moves.urllib.parse import urlparse
+from six.moves.http_cookies import SimpleCookie
 
 from . import Iso8601
 from .StubAdapterAccessorImpl import StubAdapterAccessorMixin
@@ -94,6 +95,8 @@ WSSE_NS_URL = ("http://docs.oasis-open.org/wss/"
 WSSE_NS = 'xmlns:{0}="{1}"'.format(WSSE_PREFIX, WSSE_NS_URL)
 WSSE_HEADER_START = "<{0} {1}>".format(WSSE_HEADER_TAG, WSSE_NS)
 WSSE_HEADER_END = "</{0}>".format(WSSE_HEADER_TAG)
+
+COOKIE_NAME = "vmware_soap_session"
 
 # MethodFault type
 MethodFault = GetVmodlType("vmodl.MethodFault")
@@ -987,8 +990,10 @@ class SoapResponseDeserializer(ExpatDeserializerNSHandlers):
 # Method that must be provided by the implementation class:
 # -- InvokeMethod(ManagedObject mo, Object methodInfo, Object[] args)
 class StubAdapterBase(StubAdapterAccessorMixin):
-    def __init__(self, version):
+    def __init__(self, version, sessionId=None):
         StubAdapterAccessorMixin.__init__(self)
+        self.sessionId = None
+        self.SetSessionId(sessionId)
         self.ComputeVersionInfo(version)
 
     # Compute the version information for the specified namespace
@@ -1007,6 +1012,12 @@ class StubAdapterBase(StubAdapterAccessorMixin):
         else:
             self.versionId = ''
         self.version = version
+
+    def GetSessionId(self):
+        return self.sessionId
+
+    def SetSessionId(self, sessionId):
+        self.sessionId = sessionId
 
 
 # Base class that implements common functionality for SOAP-based stub adapters.
@@ -1384,6 +1395,7 @@ class SoapStubAdapter(SoapStubAdapterBase):
     #            sslContext = ssl.create_default_context(cafile=ca_cert_file)
     #            sslContext.load_cert_chain(key_file, cert_file)
     # @param httpConnectionTimeout Timeout in secs for http requests.
+    # @param sessionId: Allows usage of an existing session
     def __init__(self,
                  host='localhost',
                  port=443,
@@ -1406,15 +1418,16 @@ class SoapStubAdapter(SoapStubAdapterBase):
                  sslContext=None,
                  requestContext=None,
                  httpConnectionTimeout=None,
-                 customHeaders=None):
+                 customHeaders=None,
+                 sessionId=None):
         self._customHeaders = customHeaders
+        self.cookie = ""
         if ns:
             assert (version is None)
             version = versionMap[ns]
         elif not version:
             version = 'vim.version.version9'
-        SoapStubAdapterBase.__init__(self, version=version)
-        self.cookie = ""
+        SoapStubAdapterBase.__init__(self, version=version, sessionId=sessionId)
         if sock:
             self.scheme = UnixSocketConnection
             # Store sock in the host member variable because that's where
@@ -1549,6 +1562,8 @@ class SoapStubAdapter(SoapStubAdapterBase):
 
         if cookie:
             self.cookie = cookie
+            sessionId = SimpleCookie(cookie)[COOKIE_NAME].value
+            super(SoapStubAdapter, self).SetSessionId(sessionId)
         if status == 200 or status == 500:
             try:
                 fd = resp
@@ -1645,6 +1660,10 @@ class SoapStubAdapter(SoapStubAdapterBase):
         else:
             self.lock.release()
             conn.close()
+
+    def SetSessionId(self, sessionId):
+        super(SoapStubAdapter, self).SetSessionId(sessionId)
+        self.cookie = '{0}="{1}"'.format(COOKIE_NAME, sessionId) if sessionId else ""
 
     # Need to override the depcopy method. Since, the stub is not deep copyable
     # due to the thread lock and connection pool, deep copy of a managed object
