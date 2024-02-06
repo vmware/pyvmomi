@@ -29,6 +29,18 @@ with open('requirements.txt') as f:
 with open('test-requirements.txt') as f:
     required_for_tests = f.read().splitlines()
 
+
+def getTypeAnnotationsPackageData():
+    allFiles = []
+    for root, dirs, files in os.walk(os.path.join(os.path.dirname(__file__), 'pyVmomi')):
+        for file in files:
+            if file.endswith('.pyi'):
+                fileRelPath = os.path.relpath(str(os.path.join(root, file)))
+                allFiles.append(fileRelPath.split(os.path.sep, 1)[1])
+    allFiles.append('py.typed')
+    return allFiles
+
+
 setup(
     name='pyvmomi',
     version=version_info_str,
@@ -39,7 +51,7 @@ setup(
     author='VMware, Inc.',
     author_email='jhu@vmware.com',
     packages=['pyVmomi', 'pyVim'],
-    package_data={"pyVmomi": ["py.typed", "*.pyi", "**/*.pyi"]},
+    package_data={"pyVmomi": getTypeAnnotationsPackageData()},
     install_requires=required,
     license='License :: OSI Approved :: Apache Software License',
     classifiers=[
