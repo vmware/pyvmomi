@@ -1,4 +1,6 @@
-# Copyright (c) 2005-2023 VMware, Inc.
+# Copyright (c) 2005-2024 Broadcom. All Rights Reserved.
+# The term "Broadcom" refers to Broadcom Inc.
+# and/or its subsidiaries.
 """VMOMI support code
 
 This module contains support for VMOMI abstractions such as VMODL types,
@@ -1610,11 +1612,12 @@ _VersionInit()
 
 newestVersions = _MaturitySet()
 ltsVersions = _MaturitySet()
-dottedVersions = _MaturitySet()
 oldestVersions = _MaturitySet()
 
+# Deprecated
 # Alias for backward compatibility. Required until VMC M11 is phased out.
 publicVersions = ltsVersions
+dottedVersions = ltsVersions
 
 # AddVersion is not used in this module however it is imported from it in the
 # generated bindings so removing it will break the world.
