@@ -1,5 +1,7 @@
 # **********************************************************
-# Copyright (c) 2005-2024 VMware, Inc.  All rights reserved.
+# Copyright (c) 2005-2024 Broadcom. All Rights Reserved.
+# The term "Broadcom" refers to Broadcom Inc.
+# and/or its subsidiaries.
 # **********************************************************
 
 import base64
@@ -36,6 +38,7 @@ from .VmomiSupport import (
     IsChildVersion, ManagedMethod, UnknownManagedMethod, ManagedObject,
     Object, PropertyPath, Type, binary, versionIdMap, versionMap)
 from .Security import VerifyCertThumbprint
+from .Version import kind
 from . import version_info_str
 from . import _legacyThumbprintException
 if _legacyThumbprintException:
@@ -1532,8 +1535,9 @@ class SoapStubAdapter(SoapStubAdapterBase):
             'Content-Type':
             'text/xml; charset={0}'.format(XML_ENCODING),
             'User-Agent':
-            'pyvmomi {0} Python/{1} ({2}; {3}; {4})'.format(
+            'pyvmomi {0} {1} Python/{2} ({3}; {4}; {5})'.format(
                 version_info_str,
+                kind,
                 PYTHON_VERSION,
                 OS_NAME,
                 OS_VERSION,
