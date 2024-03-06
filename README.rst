@@ -4,8 +4,9 @@ pyvmomi
     :target: https://pypi.python.org/pypi/pyvmomi/
     :alt: Downloads
 
-pyVmomi is the Python SDK for the VMware vSphere API that allows you to manage 
-ESX, ESXi, and vCenter.
+pyVmomi is the Python SDK for the VMware vSphere Management API that allows you to rapidly build solutions integrated with VMware ESXi and vCenter Server.
+For accessing features from the `vSphere Automation APIs <https://developer.vmware.com/apis/vsphere-automation/latest/>`_
+(REST), please refer to the `VMware vSphere Automation SDK for Python <https://github.com/vmware/vsphere-automation-sdk-python/>`_.
 
 .. contents:: Table of Contents
    :depth: 1
