@@ -726,26 +726,27 @@ def SetFreezeDefinitions(enabled):
     global _freezeDefintions
     _freezeDefintions = enabled
 
-# The set of frozen types, specified as (namespace, wsdl name) pairs. This set
-# is accessible only to the _TryFreezeType and _IsTypeFrozen functions.
-_frozenTypeNames = set()
+# The set of frozen names, specified as (namespace, name) pairs. This set is
+# accessible only to the _TryFreezeName and _IsNameFrozen
+# functions.
+_frozenNames = set()
 
 # If the _freezeDefinitions flag is True, adds the type to the set of frozen
 # type definitions. Otherwise has no effect.
-def _TryFreezeType(typeNs, wsdlName, frozenTypeNames):
+def _TryFreezeName(typeNs, name, frozenNames):
     if _freezeDefintions:
-        frozenTypeNames.add((typeNs, intern(wsdlName)))
+        frozenNames.add((typeNs, intern(name)))
 
-_TryFreezeType = partial(_TryFreezeType, frozenTypeNames = _frozenTypeNames)
+_TryFreezeName = partial(_TryFreezeName, frozenNames = _frozenNames)
 
 # Checks whether the specified type has been frozen
-def _IsTypeFrozen(typeNs, wsdlName, frozenTypeNames):
-    return (typeNs, intern(wsdlName)) in frozenTypeNames
+def _IsNameFrozen(typeNs, name, frozenNames):
+    return (typeNs, intern(name)) in frozenNames
 
-_IsTypeFrozen = partial(_IsTypeFrozen, frozenTypeNames = _frozenTypeNames)
+_IsNameFrozen = partial(_IsNameFrozen, frozenNames = _frozenNames)
 
 # Make the frozen types set inaccessible outside the two functions which use it
-del _frozenTypeNames
+del _frozenNames
 
 
 # Create and Load a data object type at once
@@ -771,7 +772,7 @@ def CreateAndLoadDataType(vmodlName, wsdlName, parent, version, props):
 def CreateDataType(vmodlName, wsdlName, parent, version, props):
     with _lazyLock:
         typeNs = GetInternedWsdlNamespace(version)
-        if _IsTypeFrozen(typeNs, wsdlName):
+        if _IsNameFrozen(typeNs, wsdlName):
             return
 
         dic = [vmodlName, wsdlName, parent, version, props]
@@ -784,7 +785,7 @@ def CreateDataType(vmodlName, wsdlName, parent, version, props):
         _wsdlDefMap[(typeNs, wsdlName)] = dic
         _wsdlTypeMapNSs.add(typeNs)
 
-        _TryFreezeType(typeNs, wsdlName)
+        _TryFreezeName(typeNs, wsdlName)
 
 
 # Load a data object type
@@ -897,7 +898,7 @@ def CreateAndLoadManagedType(vmodlName, wsdlName, parent, version, props,
 def CreateManagedType(vmodlName, wsdlName, parent, version, props, methods):
     with _lazyLock:
         typeNs = GetInternedWsdlNamespace(version)
-        if _IsTypeFrozen(typeNs, wsdlName):
+        if _IsNameFrozen(typeNs, wsdlName):
             return
 
         dic = [vmodlName, wsdlName, parent, version, props, methods]
@@ -920,7 +921,7 @@ def CreateManagedType(vmodlName, wsdlName, parent, version, props, methods):
         _wsdlDefMap[(typeNs, wsdlName)] = dic
         _wsdlTypeMapNSs.add(typeNs)
 
-        _TryFreezeType(typeNs, wsdlName)
+        _TryFreezeName(typeNs, wsdlName)
 
 
 # Load a managed object type
@@ -1025,7 +1026,7 @@ def CreateAndLoadEnumType(vmodlName, wsdlName, version, values):
 def CreateEnumType(vmodlName, wsdlName, version, values):
     with _lazyLock:
         typeNs = GetInternedWsdlNamespace(version)
-        if _IsTypeFrozen(typeNs, wsdlName):
+        if _IsNameFrozen(typeNs, wsdlName):
             return
 
         dic = [vmodlName, wsdlName, version, values]
@@ -1039,7 +1040,7 @@ def CreateEnumType(vmodlName, wsdlName, version, values):
         _wsdlDefMap[(typeNs, wsdlName)] = dic
         _wsdlTypeMapNSs.add(typeNs)
 
-        _TryFreezeType(typeNs, wsdlName)
+        _TryFreezeName(typeNs, wsdlName)
 
 
 # Load an enum type
@@ -1600,16 +1601,18 @@ class _MaturitySet:
         """
         vmodlNs = GetVmodlNs(version)
 
-        # TODO fix the VSAN-related part of vcenter-all to enable the assert
-        # assert not (vmodlNs in self._verNameMap),
-        #  'Re-definition: {}'.format(vmodlNs)
-
         wireId = GetVersionNamespace(version)
         wireNs = wireId.split('/')[0]
-        self._verNameMap[vmodlNs] = version
-        self._verNameMapW[wireNs] = version
-        self._wireIdMap[vmodlNs] = wireId
-        self._wireIdMapW[wireNs] = wireId
+
+        # We use the string representation of the instance as unique name
+        if not _IsNameFrozen(wireNs, str(self)):
+            self._verNameMap[vmodlNs] = version
+            self._verNameMapW[wireNs] = version
+            self._wireIdMap[vmodlNs] = wireId
+            self._wireIdMapW[wireNs] = wireId
+            _TryFreezeName(wireNs, str(self))
+
+
         return wireId, wireNs
 
     def GetName(self, vmodlNs):
