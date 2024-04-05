@@ -400,19 +400,28 @@ class ManagedObject(object):
 
     _InvokeAccessor = staticmethod(_InvokeAccessor)
 
+    # In contrast with the Python convention for "private" methods,
+    # the ManagedObject and DataObject method names beginning with
+    # an underscore denote public, officially supported system methods.
+    # The execution of these methods does not involve a remote call.
+
     # Get the ID of a managed object
+    # Public non-remote method. Officially supported.
     def _GetMoId(self):
         return self._moId
 
     # Get the serverGuid of a managed object
+    # Public non-remote method. Officially supported.
     def _GetServerGuid(self):
         return self._serverGuid
 
     # Get the stub of a managed object
+    # Public non-remote method. Officially supported.
     def _GetStub(self):
         return self._stub
 
     # Get a list of all properties of this type and base types
+    # Public non-remote method. Officially supported.
     #
     # @param cls The managed object type
     @classmethod
@@ -432,6 +441,7 @@ class ManagedObject(object):
         return result
 
     # Get a list of all methods of this type and base types
+    # Public non-remote method. Officially supported.
     #
     # @param cls The managed object type
     @classmethod
@@ -449,6 +459,7 @@ class ManagedObject(object):
         return result
 
     # Lookup a method for a given managed object type
+    # Public non-remote method. Officially supported.
     #
     # @param type the type
     # @param name the name of the property
@@ -536,7 +547,13 @@ class DataObject(object):
         for (k, v) in list(kwargs.items()):
             setattr(self, k, v)
 
+    # In contrast with the Python convention for "private" methods,
+    # the ManagedObject and DataObject method names beginning with
+    # an underscore denote public, officially supported system methods.
+    # The execution of these methods does not involve a remote call.
+
     # Get a list of all properties of this type and base types
+    # Public non-remote method. Officially supported.
     #
     # @param cls the data object type
     @classmethod
