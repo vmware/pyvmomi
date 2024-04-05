@@ -1790,6 +1790,36 @@ def GetVmodlType(name):
         raise KeyError(name)
 
 
+# Get the VMODL names of the specified definitions
+#
+# @param defs Specifies the definitions from which to extract the names
+# @return a new list of the VMODL names in the specified dictionary
+def _GetVmodlNames(defs):
+    with _lazyLock:
+        return list(defs.keys())
+
+
+# Get the VMODL names of all data types
+#
+# @return a new list of the VMODL names of all data types
+def GetDataTypeVmodlNames():
+    return _GetVmodlNames(_dataDefMap)
+
+
+# Get the VMODL names of all managed types
+#
+# @return a new list of the VMODL names of all managed types
+def GetManagedTypeVmodlNames():
+    return _GetVmodlNames(_managedDefMap)
+
+
+# Get the VMODL names of all enum types
+#
+# @return a new list of the VMODL names of all enum types
+def GetEnumTypeVmodlNames():
+    return _GetVmodlNames(_enumDefMap)
+
+
 # Get VMODL type name from type
 #
 # @param typ vmodl type
