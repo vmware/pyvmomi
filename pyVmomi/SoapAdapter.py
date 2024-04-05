@@ -1478,6 +1478,8 @@ class SoapStubAdapter(SoapStubAdapterBase):
         self.pool = []
         self.connectionPoolTimeout = connectionPoolTimeout
         self.lock = threading.Lock()
+        self.certFile = certFile
+        self.certKeyFile = certKeyFile
         self.schemeArgs = {}
         if sslContext:
             self.schemeArgs['context'] = sslContext

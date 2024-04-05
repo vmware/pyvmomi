@@ -1,5 +1,7 @@
 #############################################################
-# Copyright (c) 2005-2024 VMware, Inc.  All rights reserved.
+# Copyright (c) 2005-2024 Broadcom. All Rights Reserved.
+# The term "Broadcom" refers to Broadcom Inc.
+# and/or its subsidiaries.
 #############################################################
 
 # @file connect.py
@@ -132,8 +134,8 @@ class VimSessionOrientedStub(SessionOrientedStub):
 
         def _doLogin(soapStub):
             from . import sso
-            cert = soapStub.schemeArgs['cert_file']
-            key = soapStub.schemeArgs['key_file']
+            cert = soapStub.certFile
+            key = soapStub.certKeyFile
             authenticator = sso.SsoAuthenticator(sts_url=stsUrl,
                                                  sts_cert=stsCert)
 
@@ -177,8 +179,8 @@ class VimSessionOrientedStub(SessionOrientedStub):
 
         def _doLogin(soapStub):
             from . import sso
-            cert = soapStub.schemeArgs['cert_file']
-            key = soapStub.schemeArgs['key_file']
+            cert = soapStub.certFile
+            key = soapStub.certKeyFile
             authenticator = sso.SsoAuthenticator(sts_url=stsUrl,
                                                  sts_cert=stsCert)
             samlAssertion = authenticator.get_bearer_saml_assertion(
