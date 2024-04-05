@@ -1,6 +1,6 @@
-# **********************************************************
-# Copyright (c) 2005-2023 VMware, Inc.
-# **********************************************************
+# Copyright (c) 2005-2024 Broadcom. All Rights Reserved.
+# The term "Broadcom" refers to Broadcom Inc.
+# and/or its subsidiaries.
 
 import sys
 
@@ -40,6 +40,14 @@ def load_typeinfos():
         from . import _typeinfo_vslm
     except ImportError:
         pass
+
+    try:
+        VmomiSupport.SetFreezeDefinitions(True)
+        from . import _typeinfo_vsanhealth
+    except ImportError:
+        pass
+    finally:
+        VmomiSupport.SetFreezeDefinitions(False)
 
 
 # VmomiJSONEncoder was originally part of VmomiSupport and not a separate module.

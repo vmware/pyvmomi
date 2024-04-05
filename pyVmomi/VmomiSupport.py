@@ -10,6 +10,7 @@ Versions, etc.
 import base64
 import threading
 from datetime import datetime
+from functools import partial
 from sys import version_info
 
 import six
@@ -714,6 +715,39 @@ def _CheckNestedClasses(typ, parent):
         return typ
 
 
+# A flag to control whether new type definitions will be frozen
+_freezeDefintions = False
+
+# Control whether new type definitions will be frozen. When True is passed,
+# subsequent calls to CreateDataType, CreateManagedType and CreateEnumType will
+# mark the new type definition as frozen. When False is passed, the usual
+# mode will be restored.
+def SetFreezeDefinitions(enabled):
+    global _freezeDefintions
+    _freezeDefintions = enabled
+
+# The set of frozen types, specified as (namespace, wsdl name) pairs. This set
+# is accessible only to the _TryFreezeType and _IsTypeFrozen functions.
+_frozenTypeNames = set()
+
+# If the _freezeDefinitions flag is True, adds the type to the set of frozen
+# type definitions. Otherwise has no effect.
+def _TryFreezeType(typeNs, wsdlName, frozenTypeNames):
+    if _freezeDefintions:
+        frozenTypeNames.add((typeNs, intern(wsdlName)))
+
+_TryFreezeType = partial(_TryFreezeType, frozenTypeNames = _frozenTypeNames)
+
+# Checks whether the specified type has been frozen
+def _IsTypeFrozen(typeNs, wsdlName, frozenTypeNames):
+    return (typeNs, intern(wsdlName)) in frozenTypeNames
+
+_IsTypeFrozen = partial(_IsTypeFrozen, frozenTypeNames = _frozenTypeNames)
+
+# Make the frozen types set inaccessible outside the two functions which use it
+del _frozenTypeNames
+
+
 # Create and Load a data object type at once
 #
 # @param vmodlName the VMODL name of the type
@@ -736,16 +770,21 @@ def CreateAndLoadDataType(vmodlName, wsdlName, parent, version, props):
 # @param props properties of the type
 def CreateDataType(vmodlName, wsdlName, parent, version, props):
     with _lazyLock:
+        typeNs = GetInternedWsdlNamespace(version)
+        if _IsTypeFrozen(typeNs, wsdlName):
+            return
+
         dic = [vmodlName, wsdlName, parent, version, props]
         names = vmodlName.split(".")
         if _allowCapitalizedNames:
             vmodlName = ".".join(name[0].lower() + name[1:] for name in names)
         _AddToDependencyMap(names)
-        typeNs = GetInternedWsdlNamespace(version)
 
         _dataDefMap[vmodlName] = dic
         _wsdlDefMap[(typeNs, wsdlName)] = dic
         _wsdlTypeMapNSs.add(typeNs)
+
+        _TryFreezeType(typeNs, wsdlName)
 
 
 # Load a data object type
@@ -857,13 +896,16 @@ def CreateAndLoadManagedType(vmodlName, wsdlName, parent, version, props,
 # @param methods methods of the type
 def CreateManagedType(vmodlName, wsdlName, parent, version, props, methods):
     with _lazyLock:
+        typeNs = GetInternedWsdlNamespace(version)
+        if _IsTypeFrozen(typeNs, wsdlName):
+            return
+
         dic = [vmodlName, wsdlName, parent, version, props, methods]
         names = vmodlName.split(".")
         if _allowCapitalizedNames:
             vmodlName = ".".join(name[0].lower() + name[1:] for name in names)
 
         _AddToDependencyMap(names)
-        typeNs = GetInternedWsdlNamespace(version)
 
         if methods:
             for meth in methods:
@@ -877,6 +919,8 @@ def CreateManagedType(vmodlName, wsdlName, parent, version, props, methods):
         _managedDefMap[vmodlName] = dic
         _wsdlDefMap[(typeNs, wsdlName)] = dic
         _wsdlTypeMapNSs.add(typeNs)
+
+        _TryFreezeType(typeNs, wsdlName)
 
 
 # Load a managed object type
@@ -980,17 +1024,22 @@ def CreateAndLoadEnumType(vmodlName, wsdlName, version, values):
 # @param values enum values
 def CreateEnumType(vmodlName, wsdlName, version, values):
     with _lazyLock:
+        typeNs = GetInternedWsdlNamespace(version)
+        if _IsTypeFrozen(typeNs, wsdlName):
+            return
+
         dic = [vmodlName, wsdlName, version, values]
         names = vmodlName.split(".")
         if _allowCapitalizedNames:
             vmodlName = ".".join(name[0].lower() + name[1:] for name in names)
 
         _AddToDependencyMap(names)
-        typeNs = GetInternedWsdlNamespace(version)
 
         _enumDefMap[vmodlName] = dic
         _wsdlDefMap[(typeNs, wsdlName)] = dic
         _wsdlTypeMapNSs.add(typeNs)
+
+        _TryFreezeType(typeNs, wsdlName)
 
 
 # Load an enum type
