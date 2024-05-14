@@ -1099,13 +1099,14 @@ class HTTPProxyConnection(object):
         self.customHeaders = customHeaders if customHeaders else {}
 
     # Connects to an HTTP proxy server and initiates a tunnel to the destination
-    # specified by self.proxyPath. If successful, a new HTTPSConnection is returned.
+    # specified by self.proxyPath.
     #
     # @param addr Address in the form of host:port
     # @param port If no port number is passed,
     #             the port is extracted from the addr string
     # @param timeout Connection timeout in seconds
-    # @param context SSL Context describing the various SSL options
+    # @param context SSL Context with the desired SSL options
+    # @return HTTPSConnection to the destination
     def __call__(self, addr, port, timeout, context):
         conn = HTTPSConnection(host=addr, port=port,
                                timeout=timeout, context=context)
@@ -1117,7 +1118,7 @@ class HTTPProxyConnection(object):
 # issue a CONNECT command to start an SSL tunnel.
 class SSLTunnelConnection(HTTPProxyConnection):
     # Connects to a proxy server and initiates a tunnel to the destination
-    # specified by self.proxyPath. If successful, a new HTTPSConnection is returned.
+    # specified by self.proxyPath.
     # For Python Version < 2.7.9. cert_reqs=CERT_OPTIONAL to verify
     # server certificate
     #
@@ -1125,7 +1126,8 @@ class SSLTunnelConnection(HTTPProxyConnection):
     # @param port If no port number is passed,
     #             the port is extracted from the addr string
     # @param timeout Connection timeout in seconds
-    # @param context SSL Context describing the various SSL options
+    # @param context SSL Context with the desired SSL options
+    # @return HTTPSConnection to the destination
     def __call__(self, addr, port=None, timeout=None, context=None):
         tunnelConn = HTTPConnection(host=addr, port=port, timeout=timeout)
         tunnelConn.request('CONNECT', self.proxyPath)
