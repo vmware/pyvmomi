@@ -1,5 +1,7 @@
 # VMware vSphere Python SDK
-# Copyright (c) 2009-2021 VMware, Inc. All Rights Reserved.
+#
+# Copyright (c) 2009-2024 Broadcom. All Rights Reserved.
+# The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -48,8 +50,8 @@ setup(
     # NOTE: pypi prefers the use of RST to render docs
     long_description=read('README.rst'),
     url='https://github.com/vmware/pyvmomi',
-    author='VMware, Inc.',
-    author_email='jhu@vmware.com',
+    author='Broadcom, VCF Division.',
+    author_email='daniel.draganov@broadcom.com, stefan.hristov@broadcom.com',
     packages=['pyVmomi', 'pyVim'],
     package_data={"pyVmomi": getTypeAnnotationsPackageData()},
     install_requires=required,
