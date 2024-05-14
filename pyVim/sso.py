@@ -1,11 +1,13 @@
 #############################################################
-# Copyright (c) 2012-2024 VMware, Inc.
+# Copyright (c) 2012-2024 Broadcom. All Rights Reserved.
+# The term "Broadcom" refers to Broadcom Inc.
+# and/or its subsidiaries.
 # A python helper module to do SSO related operations.
 #############################################################
 __author__ = 'VMware, Inc.'
 
 #Standard library imports.
-import six.moves.http_client
+from six.moves.http_client import HTTPConnection, HTTPSConnection
 import re
 from six import PY3
 if PY3:
@@ -101,30 +103,11 @@ class SoapException(Exception):
                 "faultxml: %(_soap_msg)s" % self.__dict__)
 
 
-class SSOHTTPConnection(six.moves.http_client.HTTPConnection):
-    """
-    A class that establishes HTTP Connection.
-    Only intened to be used for calls routing through
-    a local sidecar proxy (localhost:1080).
-    """
-    def __init__(self, *args, **kwargs):
-        """
-        Initializer.  See httplib.HTTPConnection for other arguments
-        """
-        tmpKwargs = {}
-        httpConn = six.moves.http_client.HTTPConnection
-        for key in httpConn.__init__.__code__.co_varnames:
-            if key in kwargs and key != 'self':
-                tmpKwargs[key] = kwargs[key]
-        self.host = kwargs.pop('host')
-        six.moves.http_client.HTTPConnection.__init__(self, *args, **tmpKwargs)
-
-
-class SSOHTTPSConnection(six.moves.http_client.HTTPSConnection):
+class _SSOHTTPSConnection(HTTPSConnection):
     """
     An HTTPS class that verifies server's certificate on connect.
     """
-    def __init__(self, *args, **kwargs):
+    def __init__(self, host, context, thumbprint=None, server_cert=None):
         """
         Initializer.  See httplib.HTTPSConnection for other arguments
         than thumbprint and server_cert.
@@ -140,18 +123,18 @@ class SSOHTTPSConnection(six.moves.http_client.HTTPSConnection):
         @param         server_cert: File with expected server certificate.
                                     May be None.
         """
-        self.server_thumbprint = kwargs.pop('thumbprint')
+        self.server_thumbprint = thumbprint
         if self.server_thumbprint is not None:
             self.server_thumbprint = re.sub(':', '',
                                             self.server_thumbprint.lower())
-        server_cert_path = kwargs.pop('server_cert')
+        server_cert_path = server_cert
         if server_cert_path is not None:
             with open(server_cert_path, 'rb') as f:
                 server_cert = f.read().decode(UTF_8)
             self.server_cert = _extract_certificate(server_cert)
         else:
             self.server_cert = None
-        six.moves.http_client.HTTPSConnection.__init__(self, *args, **kwargs)
+        HTTPSConnection.__init__(self, host=host, context=context)
 
     def _check_cert(self, peerCert):
         """
@@ -182,7 +165,7 @@ class SSOHTTPSConnection(six.moves.http_client.HTTPSConnection):
         Throws an exception when something is wrong.  See
         httplib.HTTPSConnection.connect() for details.
         """
-        six.moves.http_client.HTTPSConnection.connect(self)
+        HTTPSConnection.connect(self)
 
         self._check_cert(self.sock.getpeercert(True))
 
@@ -240,7 +223,6 @@ class SsoAuthenticator(object):
                                  user registered with SSO, in PEM format.
         @type       ssl_context: C{ssl.SSLContext}
         @param      ssl_context: SSL context describing the various SSL options.
-                                 It is only supported in Python 2.7.9 or higher.
         @rtype: C{str}
         @return: Response received from the STS after the HoK request.
         """
@@ -249,29 +231,25 @@ class SsoAuthenticator(object):
         scheme = parsed.scheme
         encoded_message = soap_message.encode(UTF_8)
 
+        if ssl_context is not None:
+            sslContext = ssl_context
+        else:
+            sslContext = ssl._create_default_https_context()
+        if public_key and private_key:
+            sslContext.load_cert_chain(public_key, private_key)
+
         """
         Allow creation of HTTPConnection, only for calls routing
         through local sidecar (localhost:1080)
         """
         if is_sidecar_request(scheme, host):
-            webservice = SSOHTTPConnection(host=host)
-        elif hasattr(ssl, '_create_unverified_context'):
-            # Python 2.7.9 has stronger SSL certificate validation, so we need
-            # to pass in a context when dealing with self-signed certificates.
-            webservice = SSOHTTPSConnection(host=host,
-                                            key_file=private_key,
-                                            cert_file=public_key,
+            webservice = HTTPConnection(host=host)
+        else:
+            webservice = _SSOHTTPSConnection(host=host,
                                             server_cert=self._sts_cert,
                                             thumbprint=self._sts_thumbprint,
                                             context=ssl_context)
-        else:
-            # Versions of Python before 2.7.9 don't support
-            # the context parameter, so don't pass it on.
-            webservice = SSOHTTPSConnection(host=host,
-                                            key_file=private_key,
-                                            cert_file=public_key,
-                                            server_cert=self._sts_cert,
-                                            thumbprint=self._sts_thumbprint)
+
 
         webservice.putrequest("POST", parsed.path, skip_host=True)  # pylint: disable=E1101
         webservice.putheader("Host", host)
@@ -342,7 +320,6 @@ class SsoAuthenticator(object):
                                  The default value is False
         @type       ssl_context: C{ssl.SSLContext}
         @param      ssl_context: SSL context describing the various SSL options.
-                                 It is only supported in Python 2.7.9 or higher.
         @rtype: C{str}
         @return: The SAML assertion in Unicode.
         """
@@ -398,7 +375,6 @@ class SsoAuthenticator(object):
                                  The default value is False
         @type       ssl_context: C{ssl.SSLContext}
         @param      ssl_context: SSL context describing the various SSL options.
-                                 It is only supported in Python 2.7.9 or higher.
         @rtype: C{str}
         @return: The SAML assertion in Unicode.
         """
@@ -449,7 +425,6 @@ class SsoAuthenticator(object):
                                  The default value is False
         @type       ssl_context: C{ssl.SSLContext}
         @param      ssl_context: SSL context describing the various SSL options.
-                                 It is only supported in Python 2.7.9 or higher.
         @rtype: C{str}
         @return: The Hok SAML assertion in Unicode.
         """

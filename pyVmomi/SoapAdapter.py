@@ -9,10 +9,8 @@ import contextlib
 import copy
 import os
 import platform
-import re
 import ssl
 import socket
-import subprocess
 import sys
 import threading
 import time
@@ -27,6 +25,8 @@ from six import PY3
 from six.moves import StringIO, zip
 from six.moves.urllib.parse import urlparse
 from six.moves.http_cookies import SimpleCookie
+from six.moves.http_client import (HTTPConnection, HTTPSConnection,
+                                   HTTPException)
 
 from . import Iso8601
 from .StubAdapterAccessorImpl import StubAdapterAccessorMixin
@@ -44,10 +44,6 @@ from . import _legacyThumbprintException
 if _legacyThumbprintException:
     from .Security import ThumbprintMismatchException  # noqa: F401
 
-if PY3:
-    from urllib.parse import splitport
-else:
-    from urllib import splitport
 
 # Timeout value used for idle connections in client connection pool.
 # Default value is 900 seconds (15 minutes).
@@ -122,10 +118,6 @@ except AttributeError:
     OS_VERSION = PLATFORM_INFO[2]
     OS_ARCH = PLATFORM_INFO[4]
 
-SOAP_ADAPTER_ARGS = [
-    "server_side", "cert_reqs", "ssl_version", "ca_certs", "do_handshake_on_connect",
-    "suppress_ragged_eofs", "ciphers"]
-
 
 # Escape <, >, &
 def XmlEscape(xmlStr):
@@ -143,36 +135,12 @@ def XmlEscape(xmlStr):
 # @param context SSL Context describing the various SSL options. It is only
 #                supported in Python 2.7.9 or higher.
 def _CloneSSLContext(context, certFile=None, certKeyFile=None):
-    sslContext = ssl.create_default_context()
+    sslContext = ssl._create_default_https_context()
     sslContext.check_hostname = context.check_hostname
     sslContext.verify_mode = context.verify_mode
     if certFile and certKeyFile:
         sslContext.load_cert_chain(certFile, certKeyFile)
     return sslContext
-
-
-# Validate IPv4 IP Pattern
-# @param ip string ipv4 ip value to validate with IP pattern
-# @return True if ip is IPv4 address, else False
-def _CheckIPv4(ip):
-    ipv4_pattern = re.compile(r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$')
-    return True if ipv4_pattern.match(ip) else False
-
-
-# Validate IPv6 IP pattern
-# @param ip string ipv6 ip value to validate with IP pattern
-# @return True if ip is IPv6 address, else False
-def _CheckIPv6(ip):
-    ipv6_pattern = re.compile(r'[:a-fA-F0-9]*:[:a-fA-F0-9]*:[:a-fA-F0-9.]*?$')
-    return True if ipv6_pattern.match(ip) else False
-
-
-# Validate Hostname Pattern
-# @param hostname string hostname value to validate with IP pattern
-# @return True if hostname is hostname address, else False
-def _CheckHostname(hostname):
-    hostname_pattern = re.compile(r'[a-z0-9A-Z-]+[\.a-z0-9A-Z-]+$')
-    return True if hostname_pattern.match(hostname) else False
 
 
 # Get the start tag, end tag, and text handlers of a class
@@ -1089,7 +1057,7 @@ class SoapStubAdapterBase(StubAdapterBase):
 # Subclass of HTTPConnection that connects over a Unix domain socket
 # instead of a TCP port.  The path of the socket is passed in place of
 # the hostname.  Fairly gross but does the job.
-class UnixSocketConnection(six.moves.http_client.HTTPConnection):
+class UnixSocketConnection(HTTPConnection):
     # The HTTPConnection ctor expects a single argument, which it interprets
     # as the host to connect to; for UnixSocketConnection, we instead interpret
     # the parameter as the filesystem path of the Unix domain socket.
@@ -1097,7 +1065,7 @@ class UnixSocketConnection(six.moves.http_client.HTTPConnection):
         # Pass '' as the host to HTTPConnection; it doesn't really matter
         # what we pass (since we've overridden the connect method) as long
         # as it's a valid string.
-        six.moves.http_client.HTTPConnection.__init__(self, '')
+        HTTPConnection.__init__(self, '')
         self.path = path
 
     def connect(self):
@@ -1114,151 +1082,11 @@ def _VerifyThumbprint(thumbprint, connection):
     SSL certificate matches the given thumbprint.  An exception is thrown
     if there is a mismatch.
     """
-    if thumbprint and isinstance(connection,
-                                 six.moves.http_client.HTTPSConnection):
+    if thumbprint and isinstance(connection, HTTPSConnection):
         if not connection.sock:
             connection.connect()
         derCert = connection.sock.getpeercert(True)
         VerifyCertThumbprint(derCert, thumbprint)
-
-
-# Internal version of http connection
-class _HTTPConnection(six.moves.http_client.HTTPConnection):
-    def __init__(self, *args, **kwargs):
-        # Only pass in the named arguments that HTTPConnection constructor
-        # understands
-        tmpKwargs = {}
-        httpConn = six.moves.http_client.HTTPConnection
-        for key in httpConn.__init__.__code__.co_varnames:
-            if key in kwargs and key != 'self':
-                tmpKwargs[key] = kwargs[key]
-        six.moves.http_client.HTTPConnection.__init__(self, *args, **tmpKwargs)
-
-
-# Internal version of https connection
-#
-# Support ssl.wrap_socket params which are missing from httplib
-# HTTPSConnection (e.g. ca_certs)
-# Note: Only works iff the ssl params are passing in as kwargs
-class _HTTPSConnection(six.moves.http_client.HTTPSConnection):
-    def __init__(self, *args, **kwargs):
-        # Extract ssl.wrap_socket param unknown to httplib.HTTPSConnection,
-        # and push back the params in connect()
-        self._sslArgs = {}
-        tmpKwargs = kwargs.copy()
-        for key in SOAP_ADAPTER_ARGS:
-            if key in tmpKwargs:
-                self._sslArgs[key] = tmpKwargs.pop(key)
-        six.moves.http_client.HTTPSConnection.__init__(self, *args,
-                                                       **tmpKwargs)
-
-    # Override connect to allow us to pass in additional ssl paramters to
-    #  ssl.wrap_socket (e.g. cert_reqs, ca_certs for ca cert verification)
-    def connect(self):
-        if len(self._sslArgs) == 0:
-            # No override
-            six.moves.http_client.HTTPSConnection.connect(self)
-            return
-
-        sock = socket.create_connection((self.host, self.port), self.timeout,
-                                        self.source_address)
-        if self._tunnel_host:
-            self.sock = sock
-            self._tunnel()
-        self.sock = ssl.wrap_socket(sock, self.key_file, self.cert_file,
-                                    **self._sslArgs)
-
-        # TODO: Additional verification of peer cert if needed
-        # cert_reqs = self._sslArgs.get("cert_reqs", ssl.CERT_NONE)
-        # ca_certs = self._sslArgs.get("ca_certs", None)
-        # if cert_reqs != ssl.CERT_NONE and ca_certs:
-        #   if hasattr(self.sock, "getpeercert"):
-        #      # TODO: verify peer cert
-        #      dercert = self.sock.getpeercert(False)
-        #      # pemcert = ssl.DER_cert_to_PEM_cert(dercert)
-
-
-# Stand-in for the HTTPSConnection class that will connect to a proxy and
-# issue a CONNECT command to start an SSL tunnel.
-class SSLTunnelConnection(object):
-    # @param proxyPath The path to pass to the CONNECT command.
-    # @param customHeaders Dictionary with custom HTTP headers.
-    def __init__(self, proxyPath, customHeaders=None):
-        self.proxyPath = proxyPath
-        self.customHeaders = customHeaders if customHeaders else {}
-
-    # Connects to a proxy server and initiates a tunnel to the destination
-    # specified by proxyPath. If successful, a new HTTPSConnection is returned.
-    # For Python Version < 2.7.9. cert_reqs=CERT_OPTIONAL to verify
-    # server certificate
-    #
-    # @param path The destination URL path.
-    # @param key_file **** Deprecated. Please pass context instread ****
-    #                     sslContext.load_cert_chain(cert_file, key_file)
-    #                     The SSL key file to use when wrapping the socket.
-    # @param cert_file **** Deprecated. Please pass context instread ****
-    #                     sslContext.load_cert_chain(cert_file, key_file)
-    #                     The SSL certificate file to use when wrapping
-    #                     the socket.
-    # @param context SSL Context describing the various SSL options. It is
-    #                   only supported in Python 2.7.9 or higher.
-    #            if context is used, load cert & key to the context with API
-    #            context = ssl.create_default_context(cafile=ca_cert_file)
-    #            context.load_cert_chain(key_file, cert_file)
-    # @param kwargs In case caller passed in extra parameters not handled by
-    #        SSLTunnelConnection
-    def __call__(self,
-                 path,
-                 key_file=None,
-                 cert_file=None,
-                 context=None,
-                 **kwargs):
-        _sslArgs = {}
-        tmpKwargs = kwargs.copy()
-        for key in SOAP_ADAPTER_ARGS:
-            if key in tmpKwargs:
-                _sslArgs[key] = tmpKwargs.pop(key)
-        if context:
-            tmpKwargs['context'] = _CloneSSLContext(context, cert_file, key_file) \
-                if cert_file and key_file else context
-        else:
-            if key_file:
-                tmpKwargs['key_file'] = key_file
-            if cert_file:
-                tmpKwargs['cert_file'] = cert_file
-        tunnel = _HTTPConnection(path, **kwargs)
-        tunnel.request('CONNECT', self.proxyPath)
-        resp = tunnel.getresponse()
-        if resp.status != 200:
-            raise six.moves.http_client.HTTPException(
-                "{0} {1}".format(resp.status, resp.reason))
-        host, port = splitport(path)
-        if 'port' not in tmpKwargs:
-            tmpKwargs['port'] = port
-        retval = six.moves.http_client.HTTPSConnection(host=host, **tmpKwargs)
-        if hasattr(retval, '_context'):
-            if host in ['localhost', '127.0.0.1', '::1']:
-                retval._context.check_hostname = False
-            if 'ca_certs' in kwargs and kwargs['ca_certs']:
-                retval._context.load_verify_locations(kwargs['ca_certs'])
-            # Call set_tunnel when proxyPath is a stand alone proxy host.
-            proxyHost = splitport(self.proxyPath)[0]
-            if (_CheckIPv4(proxyHost) or _CheckIPv6(proxyHost)
-                    or _CheckHostname(proxyHost)):
-                retval.set_tunnel(self.proxyPath, headers=self.customHeaders)
-            # Call wrap_socket if ProxyPath is VC inbuilt proxyPath
-            # ex: /sdkTunnel
-            else:
-                retval.sock = retval._context.wrap_socket(sock=tunnel.sock,
-                                                          server_hostname=host)
-        else:
-            if host in ['localhost', '127.0.0.1', '::1']:
-                _sslArgs['cert_reqs'] = ssl.CERT_NONE
-            retval.sock = ssl.wrap_socket(tunnel.sock,
-                                          keyfile=key_file,
-                                          certfile=cert_file,
-                                          **_sslArgs)
-        return retval
 
 
 # Stand-in for the HTTPSConnection class that will connect to a regular HTTP
@@ -1271,15 +1099,51 @@ class HTTPProxyConnection(object):
         self.customHeaders = customHeaders if customHeaders else {}
 
     # Connects to an HTTP proxy server and initiates a tunnel to the destination
-    # specified by proxyPath. If successful, a new HTTPSConnection is returned.
+    # specified by self.proxyPath. If successful, a new HTTPSConnection is returned.
     #
-    # @param path The destination URL path.
-    # @param args Arguments are ignored
-    # @param kwargs Arguments for HTTPSConnection
-    def __call__(self, path, **kwargs):
-        httpsConnArgs = {k: kwargs[k] for k in kwargs if k not in SOAP_ADAPTER_ARGS}
-        conn = six.moves.http_client.HTTPSConnection(path, **httpsConnArgs)
+    # @param addr Address in the form of host:port
+    # @param port If no port number is passed,
+    #             the port is extracted from the addr string
+    # @param timeout Connection timeout in seconds
+    # @param context SSL Context describing the various SSL options
+    def __call__(self, addr, port, timeout, context):
+        conn = HTTPSConnection(host=addr, port=port,
+                               timeout=timeout, context=context)
         conn.set_tunnel(self.proxyPath, headers=self.customHeaders)
+        return conn
+
+
+# Stand-in for the HTTPSConnection class that will connect to a proxy and
+# issue a CONNECT command to start an SSL tunnel.
+class SSLTunnelConnection(HTTPProxyConnection):
+    # Connects to a proxy server and initiates a tunnel to the destination
+    # specified by self.proxyPath. If successful, a new HTTPSConnection is returned.
+    # For Python Version < 2.7.9. cert_reqs=CERT_OPTIONAL to verify
+    # server certificate
+    #
+    # @param addr Address in the form of host:port
+    # @param port If no port number is passed,
+    #             the port is extracted from the addr string
+    # @param timeout Connection timeout in seconds
+    # @param context SSL Context describing the various SSL options
+    def __call__(self, addr, port=None, timeout=None, context=None):
+        tunnelConn = HTTPConnection(host=addr, port=port, timeout=timeout)
+        tunnelConn.request('CONNECT', self.proxyPath)
+        resp = tunnelConn.getresponse()
+        if resp.status != 200:
+            raise HTTPException(
+                "{0} {1}".format(resp.status, resp.reason))
+
+        conn = HTTPSConnection(host=tunnelConn.host,
+                               port=tunnelConn.port,
+                               context=context,
+                               timeout=timeout)
+        if conn.host in ('localhost', '127.0.0.1', '::1'):
+            conn._context.check_hostname = False
+            conn._context.verify_mode = ssl.CERT_NONE
+
+        conn.sock = conn._context.wrap_socket(sock=tunnelConn.sock,
+                                              server_hostname=tunnelConn.host)
         return conn
 
 
@@ -1437,16 +1301,18 @@ class SoapStubAdapter(SoapStubAdapterBase):
             # the UnixSocketConnection ctor expects to find it -- see above
             self.host = sock
         elif url:
-            scheme, self.host, urlpath = urlparse(url)[:3]
+            url_scheme_specifier, self.host, urlpath = urlparse(url)[:3]
             # Only use the URL path if it's sensible, otherwise use the path
             # keyword argument as passed in.
             if urlpath not in ('', '/'):
                 path = urlpath
-            self.scheme = (scheme == "http" and _HTTPConnection
-                           or scheme == "https" and _HTTPSConnection)
+            self.scheme = (url_scheme_specifier == "http" and HTTPConnection
+                           or url_scheme_specifier == "https" and HTTPSConnection)
+            if not self.scheme:
+                raise Exception("Invalid URL scheme: " + url_scheme_specifier)
         else:
-            port, self.scheme = (port < 0 and (-port, _HTTPConnection)
-                                 or (port, _HTTPSConnection))
+            port, self.scheme = (port < 0 and (-port, HTTPConnection)
+                                 or (port, HTTPSConnection))
             if host.find(':') != -1 and host[0] != '[':  # is IPv6?
                 host = '[' + host + ']'
             self.host = '{0}:{1}'.format(host, port)
@@ -1481,21 +1347,19 @@ class SoapStubAdapter(SoapStubAdapterBase):
         self.certFile = certFile
         self.certKeyFile = certKeyFile
         self.schemeArgs = {}
-        if sslContext:
-            self.schemeArgs['context'] = sslContext
-            if certFile and certKeyFile:
-                self.schemeArgs['context'] = _CloneSSLContext(
-                    sslContext, certFile, certKeyFile)
-        else:
-            if certKeyFile:
-                self.schemeArgs['key_file'] = certKeyFile
-            if certFile:
-                self.schemeArgs['cert_file'] = certFile
-        if cacertsFile:
-            self.schemeArgs['ca_certs'] = cacertsFile
-            self.schemeArgs['cert_reqs'] = ssl.CERT_REQUIRED
         if httpConnectionTimeout:
             self.schemeArgs['timeout'] = httpConnectionTimeout
+        if self.scheme is not HTTPConnection:
+            if certFile and certKeyFile:
+                sslContext = _CloneSSLContext(
+                    sslContext, certFile, certKeyFile) if sslContext \
+                    else ssl._create_default_https_context()
+                sslContext.load_cert_chain(certFile, certKeyFile)
+            if sslContext:
+                if cacertsFile:
+                    sslContext.load_verify_locations(cacertsFile)
+                    sslContext.verify_mode = ssl.CERT_REQUIRED
+                self.schemeArgs['context'] = sslContext
         self.samlToken = samlToken
         self.requestContext = requestContext
         self.requestModifierList = []
@@ -1556,7 +1420,7 @@ class SoapStubAdapter(SoapStubAdapterBase):
         try:
             conn.request('POST', self.path, req, headers)
             resp = conn.getresponse()
-        except (socket.error, six.moves.http_client.HTTPException):
+        except (socket.error, HTTPException):
             # The server is probably sick, drop all the cached connections.
             self.DropConnections()
             raise
@@ -1609,7 +1473,7 @@ class SoapStubAdapter(SoapStubAdapterBase):
                     del obj
         else:
             conn.close()
-            raise six.moves.http_client.HTTPException(
+            raise HTTPException(
                 "{0} {1}".format(resp.status, resp.reason))
 
     # Clean up connection pool to throw away idle timed-out connections
@@ -1767,8 +1631,7 @@ class SessionOrientedStub(StubAdapterBase):
                     self._CallLoginMethod()
                 # Invoke the method
                 status, obj = self.soapStub.InvokeMethod(mo, info, args, self)
-            except (socket.error, six.moves.http_client.HTTPException,
-                    ExpatError) as ex:
+            except (socket.error, HTTPException, ExpatError) as ex:
                 if self.retryDelay and retriesLeft:
                     time.sleep(self.retryDelay)
                 retriesLeft -= 1
@@ -1817,7 +1680,7 @@ class SessionOrientedStub(StubAdapterBase):
                     self._SetStateUnauthenticated()
                 elif isinstance(e, ExpatError) or \
                         isinstance(e, socket.error) or \
-                        isinstance(e, six.moves.http_client.HTTPException):
+                        isinstance(e, HTTPException):
                     if self.retryDelay and retriesLeft > 0:
                         time.sleep(self.retryDelay)
                 else:
