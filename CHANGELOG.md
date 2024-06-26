@@ -2,33 +2,43 @@
 
 ## [Unreleased] - Release name - yyyy-mm-dd
 
+## [8.0.3.0] - vSphere 8.0U3 Release - 2024-06-25
+
 ### Bindings
-TBD
+- Added support for vSAN Health APIs
+- Updated bindings with support for the new vSphere 8.0U3 APIs. For details, refer to the [API reference guide](https://developer.broadcom.com/xapis/vsphere-web-services-api/latest/)
+- New features of vSphere 8.0U3 based on REST APIs are available via the [vSphere Automation SDK for Python](https://github.com/vmware/vsphere-automation-sdk-python)
 
 ### Type Hints
-TBD
+- Added type stubs for vSAN APIs
+- All type stubs are refactored
 
 ### Added
+- Python 3.12 compatibility ([`44d7b9f`](https://github.com/vmware/pyvmomi/commit/44d7b9f))
 - Stub adapters allow the usage of an existing session ([`35f2743`](https://github.com/vmware/pyvmomi/commit/35f2743))
-- Added project wide variables to hold the current pyVmomi version - version_info and version_info_str ([`5ad215f`](https://github.com/vmware/pyvmomi/commit/5ad215f))
 - Added pyVmomi version in the user-agent request header ([`5ad215f`](https://github.com/vmware/pyvmomi/commit/5ad215f))
-- Added certFile and certKeyFile to SoapStubAdapter ([`2bbfb62`](https://github.com/vmware/pyvmomi/commit/2bbfb62))
+- Added certFile and certKeyFile attributes to SoapStubAdapter ([`2bbfb62`](https://github.com/vmware/pyvmomi/commit/2bbfb62))
+- Added project wide variables to hold the current pyVmomi version - version_info and version_info_str ([`5ad215f`](https://github.com/vmware/pyvmomi/commit/5ad215f))
 - Added functions to VmomiSupport to list all types - ListManagedTypes(), ListDataTypes(), ListEnumTypes() ([`e43a287`](https://github.com/vmware/pyvmomi/commit/e43a287)) ([`9e303c1`](https://github.com/vmware/pyvmomi/commit/9e303c1))
-- Added CHANGELOG file
+- Added CHANGELOG file ([`c248b32`](https://github.com/vmware/pyvmomi/commit/c248b32))
 
 ### Changes
 - Dependency on "pywin32" is removed ([`4bc1f52`](https://github.com/vmware/pyvmomi/commit/4bc1f52))
+- Doc: Non-remote ManagedObject and DataObject methods are documented ([`472bdfc`](https://github.com/vmware/pyvmomi/commit/472bdfc))
 - The support statement now reflects the Broadcom support policy ([`c68913e`](https://github.com/vmware/pyvmomi/commit/c68913e))
-- Non-remote ManagedObject and DataObject methods are marked ([`472bdfc`](https://github.com/vmware/pyvmomi/commit/472bdfc))
+- Copyright switch from VMware to Broadcom ([`10c3732`](https://github.com/vmware/pyvmomi/commit/10c3732))
 
 ### Breaking changes
 - sso.SsoAuthenticator.get_bearer_saml_assertion_gss_api() is removed ([`11dc306`](https://github.com/vmware/pyvmomi/commit/11dc306))
-
-### Tests
-- All unit tests are fixed ([`3ec58e2`](https://github.com/vmware/pyvmomi/commit/3ec58e2))
+- SSLTunnelConnection is trimmed down to handle only tunnel connections. The code that handles remote proxy doubles the HTTPProxyConnection logic and therefore is removed. ([`44d7b9f`](https://github.com/vmware/pyvmomi/commit/44d7b9f))
 
 ### Deprecated
-- publicVersions and dottedVersions aliases are deprecated ([`14b5ed2`](https://github.com/vmware/pyvmomi/commit/14b5ed2))
+- 'publicVersions' and 'dottedVersions' aliases are deprecated ([`14b5ed2`](https://github.com/vmware/pyvmomi/commit/14b5ed2))
+- pyVmomiSettings.py and related settings are deprecated - allowGetSet, allowCapitalizedNames, binaryIsBytearray, legacyThumbprintException
+- Features.py and all pyVmomi feature states logic is deprecated
+- pyVmomi.VmomiSupport.VmomiJSONEncoder is deprecated. Use pyVmomi.VmomiJSONEncoder.VmomiJSONEncoder
+- pyVmomi.VmomiSupport.templateOf() is deprecated. Use pyVmomi.VmomiJSONEncoder.templateOf()
+- pyVmomi.SoapAdapter.ThumbprintMismatchException is deprecated. Use pyVmomi.Security.ThumbprintMismatchException
 
 ## [8.0.2.0.1] - Maintenance Patch 1 for 8.0U2 - 2023-11-17
 
