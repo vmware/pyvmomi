@@ -1,8 +1,9 @@
-"""
-Copyright (c) 2021-2022 VMware, Inc.
+# Copyright (c) 2021-2024 Broadcom. All Rights Reserved.
+# The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 
-This module handles pyVmomi features states
-"""
+# Deprecated
+# Support for pyVmomi features states
+
 from collections import namedtuple
 from . import _assert_not_initialized
 
