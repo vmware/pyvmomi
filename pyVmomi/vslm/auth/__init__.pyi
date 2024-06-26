@@ -1,6 +1,0 @@
-from pyVmomi.VmomiSupport import ManagedObject, NoneType
-
-
-class SessionManager(ManagedObject):
-    def LoginByToken(self, delegatedTokenXml: str) -> NoneType: ...
-    def Logout(self) -> NoneType: ...
