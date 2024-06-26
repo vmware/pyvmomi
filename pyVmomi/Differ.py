@@ -1,6 +1,6 @@
-# **********************************************************
-# Copyright (c) 2008-2022 VMware, Inc.
-# **********************************************************
+# Copyright (c) 2008-2024 Broadcom. All Rights Reserved.
+# The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
+
 # Diff any two objects
 
 import logging

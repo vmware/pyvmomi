@@ -1,10 +1,9 @@
 #!/usr/bin/env python
-"""
-Copyright (c) 2009-2022 VMware, Inc.
 
-This module is for ISO 8601 parsing
-"""
-__author__ = 'VMware, Inc'
+# Copyright (c) 2009-2024 Broadcom. All Rights Reserved.
+# The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
+
+# Tools for ISO 8601 parsing
 
 import re
 import time

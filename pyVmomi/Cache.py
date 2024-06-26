@@ -1,10 +1,7 @@
-"""
-Copyright (c) 2008-2022 VMware, Inc.
+# Copyright (c) 2008-2024 Broadcom. All Rights Reserved.
+# The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 
-This module implements the cache decorator
-"""
-__author__ = "VMware, Inc"
-
+# Cache decorator implementation
 
 def Cache(fn):
     """ Function cache decorator """
