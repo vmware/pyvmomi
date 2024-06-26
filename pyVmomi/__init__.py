@@ -7,9 +7,9 @@ import importlib
 version_info = (
     8,
     0,
-    2,
+    3,
     0,
-    1,
+    0,
 )
 
 version_info_str = ".".join(str(v) for v in version_info)
