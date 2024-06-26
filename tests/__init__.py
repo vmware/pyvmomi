@@ -1,5 +1,7 @@
-# VMware vSphere Python SDK
-# Copyright (c) 2008-2015 VMware, Inc. All Rights Reserved.
+# VMware vSphere Python SDK tests
+#
+# Copyright (c) 2008-2024 Broadcom. All Rights Reserved.
+# The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,6 +14,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+
 import logging
 import os
 import socket
@@ -39,7 +42,7 @@ def monkey_patch_vcrpy():
 
 class VCRTestBase(unittest.TestCase):
     my_vcr = config.VCR(
-        custom_patches=((SoapAdapter, '_HTTPSConnection', VCRHTTPSConnection),))
+        custom_patches=((SoapAdapter, 'HTTPSConnection', VCRHTTPSConnection),))
 
     def setUp(self):
         monkey_patch_vcrpy()

@@ -1,5 +1,7 @@
-# VMware vSphere Python SDK
-# Copyright (c) 2016 VMware, Inc. All Rights Reserved.
+# VMware vSphere Python SDK tests
+#
+# Copyright (c) 2016-2024 Broadcom. All Rights Reserved.
+# The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -27,6 +29,5 @@ class DeserializerTests(unittest.TestCase):
         deserializer = SoapResponseDeserializer(stub)
         result = vim.TaskHistoryCollector._GetMethodInfo("ReadNext").result
         obj = deserializer.Deserialize(data, result)
-        with self.assertRaisesRegexp(Exception, "Managed method LeaseMapDiskRegion is not available"):
+        with self.assertRaisesRegex(Exception, "Managed method LeaseMapDiskRegion is not available"):
             obj[-1].name()
-

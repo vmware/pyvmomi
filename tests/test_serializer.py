@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 
-# VMware vSphere Python SDK
-# Copyright (c) 2008-2015 VMware, Inc. All Rights Reserved.
+# VMware vSphere Python SDK tests
+#
+# Copyright (c) 2008-2024 Broadcom. All Rights Reserved.
+# The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -53,7 +55,7 @@ class SerializerTests(tests.VCRTestBase):
     def _base_serialize_test(self, soap_creator, request_matcher):
         my_vcr = config.VCR(
             custom_patches=(
-                (SoapAdapter, '_HTTPSConnection', VCRHTTPSConnection),))
+                (SoapAdapter, 'HTTPSConnection', VCRHTTPSConnection),))
         my_vcr.register_matcher('request_matcher', request_matcher)
 
         with my_vcr.use_cassette(

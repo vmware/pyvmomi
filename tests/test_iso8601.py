@@ -1,5 +1,7 @@
-# VMware vSphere Python SDK
-# Copyright (c) 2008-2015 VMware, Inc. All Rights Reserved.
+# VMware vSphere Python SDK tests
+#
+# Copyright (c) 2008-2024 Broadcom. All Rights Reserved.
+# The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -81,7 +83,7 @@ class Iso8601Tests(tests.VCRTestBase):
 
         my_vcr = config.VCR(
             custom_patches=(
-                (SoapAdapter, '_HTTPSConnection', VCRHTTPSConnection),))
+                (SoapAdapter, 'HTTPSConnection', VCRHTTPSConnection),))
         my_vcr.register_matcher('document', check_date_time_value)
 
         # NOTE (hartsock): the `match_on` option is altered to use the
