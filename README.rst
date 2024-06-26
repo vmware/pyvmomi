@@ -53,7 +53,8 @@ Documentation
 =============
 For general language neutral documentation of vSphere Management API see:
 
-* `vSphere Web Services API Doc <https://code.vmware.com/apis/1720/vsphere>`_
+* `Release Notes <https://docs.vmware.com/en/VMware-vSphere/8.0/rn/pyvmomi-sdk-80-release-notes.html>`_
+* `vSphere Web Services API Doc <https://developer.broadcom.com/xapis/vsphere-web-services-api/latest/>`_
 
 Python Support
 ==============
