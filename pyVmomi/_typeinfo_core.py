@@ -1,22 +1,15 @@
-# VMware vSphere Python SDK
-# Copyright (c) 2008-2020 VMware, Inc. All Rights Reserved.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# Copyright (c) 2006-2024 Broadcom. All Rights Reserved.
+# Broadcom Confidential. The term "Broadcom" refers to Broadcom Inc.
+# and/or its subsidiaries.
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
-from __future__ import absolute_import
-from pyVmomi.VmomiSupport import CreateDataType, CreateManagedType, CreateEnumType, AddVersion, AddVersionParent, F_LINK, F_LINKABLE, F_OPTIONAL, F_SECRET
-from pyVmomi.VmomiSupport import newestVersions, ltsVersions, oldestVersions
+
+from .VmomiSupport import CreateDataType, CreateManagedType
+from .VmomiSupport import CreateEnumType
+from .VmomiSupport import AddVersion, AddVersionParent
+from .VmomiSupport import AddBreakingChangesInfo
+from .VmomiSupport import F_LINK, F_LINKABLE
+from .VmomiSupport import F_OPTIONAL, F_SECRET
 
 AddVersion("vmodl.version.version0", "", "", 0, "vim25")
 AddVersion("vmodl.version.version1", "", "", 0, "vim25")
@@ -28,8 +21,13 @@ AddVersionParent("vmodl.version.version2", "vmodl.version.version0")
 AddVersionParent("vmodl.version.version2", "vmodl.version.version1")
 AddVersionParent("vmodl.version.version2", "vmodl.version.version2")
 
+from .VmomiSupport import newestVersions
 newestVersions.Add("vmodl.version.version2")
+
+from .VmomiSupport import ltsVersions
 ltsVersions.Add("vmodl.version.version2")
+
+from .VmomiSupport import oldestVersions
 oldestVersions.Add("vmodl.version.version0")
 
 CreateDataType("vmodl.DynamicArray", "DynamicArray", "vmodl.DataObject", "vmodl.version.version0", [("dynamicType", "string", "vmodl.version.version0", F_OPTIONAL), ("val", "anyType[]", "vmodl.version.version0", 0)])
