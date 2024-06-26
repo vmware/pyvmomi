@@ -1,8 +1,5 @@
-# **********************************************************
 # Copyright (c) 2005-2024 Broadcom. All Rights Reserved.
-# The term "Broadcom" refers to Broadcom Inc.
-# and/or its subsidiaries.
-# **********************************************************
+# The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 
 import base64
 import contextlib
@@ -40,6 +37,8 @@ from .VmomiSupport import (
 from .Security import VerifyCertThumbprint
 from .Version import kind
 from . import version_info_str
+
+# Deprecated
 from . import _legacyThumbprintException
 if _legacyThumbprintException:
     from .Security import ThumbprintMismatchException  # noqa: F401

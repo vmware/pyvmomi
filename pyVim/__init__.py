@@ -1,12 +1,2 @@
-## @file pyVim/__init__.py
-## @brief A client-side Python API that wraps pyVmomi.
-##
-##
-
-##
-## @mainpage
-##
-## A client-side Python API that wraps pyVmomi.
-##
-##
-
+# Copyright (c) 2024 Broadcom. All Rights Reserved.
+# The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.

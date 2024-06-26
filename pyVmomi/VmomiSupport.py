@@ -1,11 +1,7 @@
 # Copyright (c) 2005-2024 Broadcom. All Rights Reserved.
-# The term "Broadcom" refers to Broadcom Inc.
-# and/or its subsidiaries.
-"""VMOMI support code
+# The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 
-This module contains support for VMOMI abstractions such as VMODL types,
-Versions, etc.
-"""
+# Support for VMOMI abstractions such as VMODL types, versions, etc.
 
 import base64
 import threading
