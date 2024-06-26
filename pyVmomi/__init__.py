@@ -9,7 +9,7 @@ version_info = (
     0,
     3,
     0,
-    0,
+    1,
 )
 
 version_info_str = ".".join(str(v) for v in version_info)

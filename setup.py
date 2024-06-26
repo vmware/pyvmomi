@@ -18,8 +18,8 @@
 import os
 
 from setuptools import setup
-from pyVmomi import version_info_str
 
+version_info_str = '8.0.3.0.1'
 
 def read(fname):
     with open(os.path.join(os.path.dirname(__file__), fname)) as fn:
