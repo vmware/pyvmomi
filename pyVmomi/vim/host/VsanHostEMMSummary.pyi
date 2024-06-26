@@ -1,0 +1,14 @@
+# Copyright (c) 2006-2024 Broadcom. All Rights Reserved.
+# Broadcom Confidential. The term "Broadcom" refers to Broadcom Inc.
+# and/or its subsidiaries.
+
+# ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
+
+from typing import Optional
+
+from pyVmomi.vmodl import DynamicData
+
+class VsanHostEMMSummary(DynamicData):
+   hostname: Optional[str] = None
+   inMaintenanceMode: Optional[bool] = None
+   inDecomState: Optional[bool] = None

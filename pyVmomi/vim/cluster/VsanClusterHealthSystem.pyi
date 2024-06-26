@@ -1,0 +1,36 @@
+# Copyright (c) 2006-2024 Broadcom. All Rights Reserved.
+# Broadcom Confidential. The term "Broadcom" refers to Broadcom Inc.
+# and/or its subsidiaries.
+
+# ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
+
+from typing import Optional
+
+from pyVmomi.VmomiSupport import ManagedObject
+
+from pyVmomi.vim.cluster import VsanClusterAdvCfgSyncResult
+from pyVmomi.vim.cluster import VsanClusterClomdLivenessResult
+from pyVmomi.vim.cluster import VsanClusterCreateVmHealthTestResult
+from pyVmomi.vim.cluster import VsanClusterHclInfo
+from pyVmomi.vim.cluster import VsanClusterHealthSystemObjectsRepairResult
+from pyVmomi.vim.cluster import VsanClusterHealthSystemVersionResult
+from pyVmomi.vim.cluster import VsanClusterHostVmknicMapping
+from pyVmomi.vim.cluster import VsanClusterLimitHealthResult
+from pyVmomi.vim.cluster import VsanClusterNetworkHealthResult
+from pyVmomi.vim.cluster import VsanClusterNetworkLoadTestResult
+from pyVmomi.vim.cluster import VsanVsanClusterPcapResult
+
+from pyVmomi.vim.host import VsanPhysicalDiskHealthSummary
+
+class VsanClusterHealthSystem(ManagedObject):
+   def QueryVerifyClusterNetworkSettings(self, hosts: list[str], esxRootPassword: str) -> VsanClusterNetworkHealthResult: ...
+   def QueryCheckLimits(self, hosts: list[str], esxRootPassword: str) -> VsanClusterLimitHealthResult: ...
+   def QueryPhysicalDiskHealthSummary(self, hosts: list[str], esxRootPassword: str) -> list[VsanPhysicalDiskHealthSummary]: ...
+   def QueryAdvCfgSync(self, hosts: list[str], esxRootPassword: str, options: list[str]) -> list[VsanClusterAdvCfgSyncResult]: ...
+   def QueryClusterCreateVmHealthTest(self, hosts: list[str], esxRootPassword: str, timeout: int) -> VsanClusterCreateVmHealthTestResult: ...
+   def QueryClusterNetworkPerfTest(self, hosts: list[str], esxRootPassword: str, multicast: bool, durationSec: Optional[int]) -> VsanClusterNetworkLoadTestResult: ...
+   def QueryCaptureVsanPcap(self, hosts: list[str], esxRootPassword: str, duration: int, vmknic: list[VsanClusterHostVmknicMapping], includeRawPcap: Optional[bool], includeIgmp: Optional[bool], cmmdsMsgTypeFilter: list[str], cmmdsPorts: list[int], clusterUuid: Optional[str]) -> VsanVsanClusterPcapResult: ...
+   def QueryClusterHealthSystemVersions(self, hosts: list[str], esxRootPassword: str) -> VsanClusterHealthSystemVersionResult: ...
+   def CheckClusterClomdLiveness(self, hosts: list[str], esxRootPassword: str) -> VsanClusterClomdLivenessResult: ...
+   def RepairClusterImmediateObjects(self, hosts: list[str], esxRootPassword: str, uuids: list[str]) -> VsanClusterHealthSystemObjectsRepairResult: ...
+   def GetClusterHclInfo(self, hosts: list[str], esxRootPassword: str) -> VsanClusterHclInfo: ...
