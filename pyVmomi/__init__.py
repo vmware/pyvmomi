@@ -1,6 +1,5 @@
-# **********************************************************
-# Copyright (c) 2005-2024 VMware, Inc.
-# **********************************************************
+# Copyright (c) 2005-2024 Broadcom. All Rights Reserved.
+# The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 
 import sys
 import importlib
@@ -22,6 +21,7 @@ if sys.version_info < (2, 7, 9):
 _initialized = False
 
 
+# Deprecated
 # Definition precedes pyVmomi modules imports to escape circular
 # dependency error if modules import _assert_not_initialized()
 def _assert_not_initialized():
@@ -29,11 +29,13 @@ def _assert_not_initialized():
         raise RuntimeError("pyVmomi is already initialized!")
 
 
+# Deprecated
 try:
     settings = importlib.import_module('.pyVmomiSettings', 'pyVmomi')
 except ImportError:
     settings = None
 
+# Deprecated
 # set default settings
 _allowGetSet = getattr(settings, 'allowGetSet', True)
 _allowCapitalizedNames = \
@@ -87,7 +89,7 @@ for name in VmomiSupport._topLevelNames:
             setattr(VmomiSupport.types, upperCaseName, obj)
 del _globals
 
-
+# Deprecated
 def init():
     _assert_not_initialized()
     Feature._init()
