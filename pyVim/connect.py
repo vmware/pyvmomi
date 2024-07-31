@@ -211,6 +211,7 @@ def Connect(host='localhost',
             httpProxyHost=None,
             httpProxyPort=80,
             thumbprint=None,
+            serverPemCert=None,
             sslContext=None,
             httpConnectionTimeout=None,
             connectionPoolTimeout=CONNECTION_POOL_IDLE_TIMEOUT_SEC,
@@ -260,8 +261,17 @@ def Connect(host='localhost',
     @type  httpProxyHost: string
     @param httpProxyPort The proxy server port.
     @type  httpProxyPort: int
-    @param thumbprint: host cert thumbprint
+    @param thumbprint: **** Deprecated. Use serverPemCert instead.
+                        If both fields are set, thumbprint should match
+                        serverPemCert.
+                        The SHA1/SHA256/SHA512 thumbprint of the server's
+                        SSL certificate.
+                        Some use a thumbprint of the form xx:xx:xx..:xx.
+                        We ignore the ":" characters.
     @type  thumbprint: string
+    @param serverPemCert: PEM-encoded SSL certificate of the
+                            host to which we are connecting.
+    @type  serverPemCert: string
     @param sslContext: SSL Context describing the various SSL options. It is only
                         supported in Python 2.7.9 or higher.
     @type  sslContext: SSL.Context
@@ -324,6 +334,7 @@ def Connect(host='localhost',
                        httpProxyHost,
                        httpProxyPort,
                        thumbprint,
+                       serverPemCert,
                        sslContext,
                        httpConnectionTimeout,
                        connectionPoolTimeout,
@@ -395,6 +406,7 @@ def __Login(host,
             httpProxyHost,
             httpProxyPort,
             thumbprint,
+            serverPemCert,
             sslContext,
             httpConnectionTimeout,
             connectionPoolTimeout,
@@ -430,8 +442,17 @@ def __Login(host,
     @type  httpProxyHost: string
     @param httpProxyPort The proxy server port.
     @type  httpProxyPort: int
-    @param thumbprint: host cert thumbprint
+    @param thumbprint: **** Deprecated. Use serverPemCert instead.
+                        If both fields are set, thumbprint should match
+                        serverPemCert.
+                        The SHA1/SHA256/SHA512 thumbprint of the server's
+                        SSL certificate.
+                        Some use a thumbprint of the form xx:xx:xx..:xx.
+                        We ignore the ":" characters.
     @type  thumbprint: string
+    @param serverPemCert: PEM-encoded SSL certificate of the
+                            host to which we are connecting.
+    @type  serverPemCert: string
     @param sslContext: SSL Context describing the various SSL options. It is only
                         supported in Python 2.7.9 or higher.
     @type  sslContext: SSL.Context
@@ -479,6 +500,7 @@ def __Login(host,
         httpProxyHost=httpProxyHost,
         httpProxyPort=httpProxyPort,
         thumbprint=thumbprint,
+        serverPemCert=serverPemCert,
         sslContext=sslContext,
         httpConnectionTimeout=httpConnectionTimeout,
         connectionPoolTimeout=connectionPoolTimeout,
@@ -814,6 +836,7 @@ def SmartStubAdapter(host='localhost',
                      httpProxyPort=80,
                      sslProxyPath=None,
                      thumbprint=None,
+                     serverPemCert=None,
                      cacertsFile=None,
                      preferredApiVersions=None,
                      acceptCompressedResponses=True,
@@ -872,6 +895,7 @@ def SmartStubAdapter(host='localhost',
                            httpProxyPort=httpProxyPort,
                            sslProxyPath=sslProxyPath,
                            thumbprint=thumbprint,
+                           serverPemCert=serverPemCert,
                            cacertsFile=cacertsFile,
                            version=supportedVersion,
                            acceptCompressedResponses=acceptCompressedResponses,
@@ -896,6 +920,7 @@ def SmartConnect(protocol='https',
                  httpProxyHost=None,
                  httpProxyPort=80,
                  thumbprint=None,
+                 serverPemCert=None,
                  sslContext=None,
                  httpConnectionTimeout=None,
                  connectionPoolTimeout=CONNECTION_POOL_IDLE_TIMEOUT_SEC,
@@ -948,8 +973,17 @@ def SmartConnect(protocol='https',
     @type  httpProxyHost: string
     @param httpProxyPort The proxy server port.
     @type  httpProxyPort: int
-    @param thumbprint: host cert thumbprint
+    @param thumbprint: **** Deprecated. Use serverPemCert instead.
+                        If both fields are set, thumbprint should match
+                        serverPemCert.
+                        The SHA1/SHA256/SHA512 thumbprint of the server's
+                        SSL certificate.
+                        Some use a thumbprint of the form xx:xx:xx..:xx.
+                        We ignore the ":" characters.
     @type  thumbprint: string
+    @param serverPemCert: PEM-encoded SSL certificate of the
+                            host to which we are connecting.
+    @type  serverPemCert: string
     @param sslContext: SSL Context describing the various SSL options. It is only
                         supported in Python 2.7.9 or higher.
     @type  sslContext: SSL.Context
@@ -1005,6 +1039,7 @@ def SmartConnect(protocol='https',
                    httpProxyHost=httpProxyHost,
                    httpProxyPort=httpProxyPort,
                    thumbprint=thumbprint,
+                   serverPemCert=serverPemCert,
                    sslContext=sslContext,
                    httpConnectionTimeout=httpConnectionTimeout,
                    connectionPoolTimeout=connectionPoolTimeout,
