@@ -12,14 +12,12 @@ import sys
 import threading
 import time
 from datetime import datetime
+from io import StringIO
 from xml.parsers.expat import ExpatError, ParserCreate
 # For Visor, space is very limited. Import xml.sax pull in too much junk.
 # Define our own xml escape instead
 # from xml.sax.saxutils import escape
 
-import six
-from six import PY3
-from six.moves import StringIO, zip
 from six.moves.urllib.parse import urlparse
 from six.moves.http_cookies import SimpleCookie
 from six.moves.http_client import (HTTPConnection, HTTPSConnection,
@@ -74,7 +72,7 @@ SOAP_BODY_TAG = "{0}:Body".format(SOAP_NSMAP[XMLNS_SOAPENV])
 
 NSMAP_DEF = ' '.join([
     'xmlns:{}="{}"'.format(prefix, urn)
-    for urn, prefix in six.iteritems(SOAP_NSMAP)
+    for urn, prefix in SOAP_NSMAP.items()
 ])
 
 SOAP_ENVELOPE_START = '<{} {}>\n'.format(SOAP_ENVELOPE_TAG, NSMAP_DEF)
@@ -286,7 +284,7 @@ class SoapSerializer:
         self.writer = writer
         self.version = version
         self.nsMap = nsMap and nsMap or {}
-        for ns, prefix in six.iteritems(self.nsMap):
+        for ns, prefix in self.nsMap.items():
             if prefix == '':
                 self.defaultNS = ns
                 break
@@ -485,7 +483,7 @@ class SoapSerializer:
                 attr += '{0} {1}type="{2}"'.format(
                     nsattr, self.xsiPrefix, qName)
             result = base64.b64encode(val)
-            if PY3:
+            if True:
                 # In python3 the bytes result after the base64 encoding has a
                 # leading 'b' which causes error when we use it to construct
                 # the soap message. Workaround the issue by converting the
@@ -503,12 +501,12 @@ class SoapSerializer:
             result = val and "true" or "false"
             self.writer.write('<{0}{1}>{2}</{0}>'.format(
                 info.name, attr, result))
-        elif isinstance(val, six.integer_types) or isinstance(val, float):
+        elif isinstance(val, int) or isinstance(val, float):
             if info.type is object:
                 nsattr, qName = self._QName(Type(val), currDefNS)
                 attr += '{0} {1}type="{2}"'.format(
                     nsattr, self.xsiPrefix, qName)
-            result = six.text_type(val)
+            result = str(val)
             self.writer.write('<{0}{1}>{2}</{0}>'.format(
                 info.name, attr, result))
         elif isinstance(val, Enum):
@@ -528,7 +526,7 @@ class SoapSerializer:
                     attr += '{0} {1}type="{2}"'.format(
                         nsattr, self.xsiPrefix, qName)
 
-            if isinstance(val, six.binary_type):
+            if isinstance(val, bytes):
                 # Use UTF-8 rather than self.encoding.  self.encoding is for
                 # output of serializer, while 'val' is our input.
                 # And regardless of what our output is, our input should be
@@ -589,7 +587,7 @@ def Deserialize(data, resultType=object, stub=None):
     # But in python3 the input become unicode and the handling will fall into
     # ParseFile case.
     # Adding unicode input support to make it more test friendly.
-    if isinstance(data, six.binary_type) or isinstance(data, six.text_type):
+    if isinstance(data, bytes) or isinstance(data, str):
         parser.Parse(data)
     else:
         parser.ParseFile(data)
@@ -917,8 +915,7 @@ class SoapResponseDeserializer(ExpatDeserializerNSHandlers):
         # purpose. But in python3 the input become unicode and the handling
         # will fall into ParseFile case.
         # Adding unicode input support to make it more test friendly.
-        if isinstance(response, six.binary_type) or isinstance(
-                response, six.text_type):
+        if isinstance(response, (bytes, str)):
             self.parser.Parse(response)
         else:
             self.parser.ParseFile(response)
@@ -1019,9 +1016,9 @@ class SoapStubAdapterBase(StubAdapterBase):
 
         if reqContexts or samlToken:
             result.append(SOAP_HEADER_START)
-            for key, val in six.iteritems(reqContexts):
+            for key, val in reqContexts.items():
                 # Note: Support req context of string type only
-                if not isinstance(val, six.string_types):
+                if not isinstance(val, str):
                     raise TypeError(
                         "Request context key ({0}) has non-string value"
                         " ({1}) of {2}".format(key, val, type(val)))
