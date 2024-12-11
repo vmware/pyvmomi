@@ -1552,7 +1552,7 @@ class SoapStubAdapter(SoapStubAdapterBase):
                     conn.setVcTunnel(self.sslProxyPath)
                 elif hasattr(self, 'httpProxyHost'):
                     customHeaders = self._customHeaders if self._customHeaders else {}
-                    conn.set_tunnel(host, port, customHeaders)
+                    conn.set_tunnel(self.host.rsplit(":", 1)[0], self.port, customHeaders)
             _Connect(connection=conn, serverPemCert=self.serverPemCert, thumbprint=self.thumbprint)
 
         return conn
