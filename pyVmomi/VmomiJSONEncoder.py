@@ -9,7 +9,8 @@ from six import PY3
 
 from . import Iso8601
 from .VmomiSupport import ManagedObject, DataObject, ManagedMethod, \
-    UnknownManagedMethod, GetWsdlType, XMLNS_VMODL_BASE, binary
+    UnknownManagedMethod, GetWsdlType, XMLNS_VMODL_BASE, binary, \
+    GetVmodlType
 
 
 class VmomiJSONEncoder(json.JSONEncoder):
@@ -82,7 +83,10 @@ class VmomiJSONEncoder(json.JSONEncoder):
                                                    obj._moId)
                 result['_vimtype'] = obj.__class__.__name__
                 for prop in obj._GetPropertyList():
-                    result[prop.name] = getattr(obj, prop.name)
+                    try:
+                        result[prop.name] = getattr(obj, prop.name)
+                    except GetVmodlType("vmodl.fault.MethodNotFound"):
+                        pass
                 return self._remove_empty_dynamic_if(result)
             return str(obj).strip("'")  # see VmomiSupport.FormatObject
         if isinstance(obj, DataObject):
