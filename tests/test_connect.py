@@ -18,14 +18,10 @@
 import tests
 import unittest
 import sys
+from unittest.mock import patch, MagicMock
 
 from pyVim import connect
 from pyVmomi import vim
-
-if sys.version_info >= (3, 3):
-    from unittest.mock import patch, MagicMock
-else:
-    from mock import patch, MagicMock
 
 
 class ConnectionTests(tests.VCRTestBase):

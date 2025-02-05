@@ -9,17 +9,14 @@ from datetime import datetime
 from functools import partial
 from sys import version_info
 
-import six
-from six import PY3, binary_type, string_types
-from six.moves import map, range
+from six import PY3, binary_type
 
 from . import Iso8601
 from . import _allowGetSet
 from . import _allowCapitalizedNames
 from . import _binaryIsBytearray
 
-if version_info[0] >= 3:
-    from functools import cmp_to_key
+from functools import cmp_to_key
 NoneType = type(None)
 
 try:
@@ -171,13 +168,13 @@ class LazyObject(Object):
                 raise AttributeError(attr)
 
 
-class Link(six.text_type):
+class Link(str):
     def __new__(cls, obj):
-        if isinstance(obj, string_types):
-            return six.text_type.__new__(cls, obj)
+        if isinstance(obj, str):
+            return str.__new__(cls, obj)
         elif isinstance(obj, DataObject):
             if obj.key:
-                return six.text_type.__new__(cls, obj.key)
+                return str.__new__(cls, obj.key)
             raise AttributeError("DataObject does not have a key to link")
         else:
             raise ValueError
@@ -1099,8 +1096,8 @@ def _areBasicTypes(info, valType):
             or issubclass(info, long) and (issubclass(valType, int)
                                            or issubclass(valType, long))
             or issubclass(info, float) and issubclass(valType, float)
-            or issubclass(info, string_types) and issubclass(valType, string_types)
-            or issubclass(info, binary_type) and issubclass(valType, binary_type))
+            or issubclass(info, str) and issubclass(valType, str)
+            or issubclass(info, bytes) and issubclass(valType, bytes))
 
 
 # Check that a value matches a given type, and annotate if neccesary
@@ -1142,7 +1139,7 @@ def CheckField(info, val):
                     if issubclass(valType, GetVmodlType(info.expectedType)):
                         return
                 elif issubclass(info.type.Item, Enum) and issubclass(
-                        valType.Item, string_types):
+                        valType.Item, str):
                     # Allow String array object to be assigned to enum array
                     return
             elif val:
@@ -1286,7 +1283,7 @@ def GetWsdlTypes():
     with _lazyLock:
         for ns, name in _wsdlDefMap:
             GetWsdlType(ns, name)
-        return six.itervalues(_wsdlTypeMap)
+        return _wsdlTypeMap.values()
 
 
 # Get the qualified XML schema name (ns, name) of a type
@@ -1438,14 +1435,9 @@ def GetServiceVersions(namespace):
             return 1
         return (a > b) - (a < b)
 
-    if version_info[0] >= 3:
-        return sorted(
-            [v for (v, n) in six.iteritems(serviceNsMap) if n == namespace],
+    return sorted(
+            [v for (v, n) in serviceNsMap.items() if n == namespace],
             key=cmp_to_key(compare))
-    else:
-        return sorted(
-            [v for (v, n) in six.iteritems(serviceNsMap) if n == namespace],
-            compare)
 
 
 # Set a WSDL method with wsdl namespace and wsdl name
@@ -1549,7 +1541,7 @@ def GetCompatibleType(type, version):
 
 # Invert an injective mapping
 def InverseMap(map):
-    return dict([(v, k) for (k, v) in six.iteritems(map)])
+    return dict([(v, k) for (k, v) in map.items()])
 
 
 def GetVmodlNs(version):
@@ -1702,7 +1694,7 @@ if not PY3 and _binaryIsBytearray:
     binary = type("binary", (bytearray,), {})
 else:
     binary = type("binary", (binary_type,), {})
-PropertyPath = type("PropertyPath", (six.text_type, ), {})
+PropertyPath = type("PropertyPath", (str, ), {})
 
 # _wsdlTypeMapNSs store namespaces added to _wsdlTypeMap in _SetWsdlType
 _wsdlTypeMapNSs = set()
@@ -1759,8 +1751,8 @@ del name, typ
 
 # unicode is mapped to wsdl name 'string' (Cannot put in wsdlTypeMap or name
 # collision with non-unicode string)
-_wsdlNameMap[six.text_type] = (XMLNS_XSD, 'string')
-_wsdlNameMap[CreateArrayType(six.text_type)] = (XMLNS_VMODL_BASE,
+_wsdlNameMap[str] = (XMLNS_XSD, 'string')
+_wsdlNameMap[CreateArrayType(str)] = (XMLNS_VMODL_BASE,
                                                 'ArrayOfString')
 
 # _wsdlMethodNSs store namespaces added to _wsdlMethodMap in _SetWsdlMethod
@@ -1806,7 +1798,7 @@ vmodlNames = {}
 
 
 # Add array type into special names
-for name, typ in six.iteritems(vmodlTypes.copy()):
+for name, typ in vmodlTypes.copy().items():
     if typ is not NoneType:
         try:
             arrayType = typ.Array
@@ -1976,7 +1968,7 @@ class StringDict(dict):
 
     # Same as dict setdefault, except this will call through our __setitem__
     def update(self, *args, **kwargs):
-        for k, v in six.iteritems(dict(*args, **kwargs)):
+        for k, v in dict(*args, **kwargs).items():
             self[k] = v
 
     # Same as dict setdefault, except this will call through our __setitem__
@@ -1989,7 +1981,7 @@ class StringDict(dict):
 
     def __setitem__(self, key, val):
         """x.__setitem__(i, y) <==> x[i]=y, where y must be a string"""
-        if not isinstance(val, string_types):
+        if not isinstance(val, str):
             raise TypeError("key %s has non-string value %s of %s" %
                             (key, val, type(val)))
         return dict.__setitem__(self, key, val)

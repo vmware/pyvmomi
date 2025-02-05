@@ -5,7 +5,6 @@ import base64
 import json
 
 from datetime import datetime
-from six import PY3
 
 from . import Iso8601
 from .VmomiSupport import ManagedObject, DataObject, ManagedMethod, \
@@ -91,8 +90,8 @@ class VmomiJSONEncoder(json.JSONEncoder):
             return self._remove_empty_dynamic_if(result)
         if isinstance(obj, binary):
             result = base64.b64encode(obj)
-            if PY3:  # see VmomiSupport.FormatObject
-                result = str(result, 'utf-8')
+            # see VmomiSupport.FormatObject
+            result = str(result, 'utf-8')
             return result
         if isinstance(obj, datetime):
             return Iso8601.ISO8601Format(obj)
