@@ -96,6 +96,13 @@ WSSE_HEADER_END = "</{0}>".format(WSSE_HEADER_TAG)
 
 COOKIE_NAME = "vmware_soap_session"
 
+# Address gh-100985, fixed in Python 3.11.9 and 3.12.4
+def _gh100985(addr):
+    if addr and addr[0] == '[' and addr[-1] == ']':
+        return addr[1:-1]
+    else:
+        return addr
+
 # MethodFault type
 MethodFault = GetVmodlType("vmodl.MethodFault")
 # Localized MethodFault type
@@ -1538,20 +1545,19 @@ class SoapStubAdapter(SoapStubAdapterBase):
 
             # Python fails if both host:port pair
             # and port are used for HTTPConnection
-            host = getattr(self, 'httpProxyHost', self.host.rsplit(":", 1)[0])
-            port = getattr(self, 'httpProxyPort', self.port)
+            host = self.host.rsplit(":", 1)[0]
+            port = self.port
+            conn_host = getattr(self, 'httpProxyHost', host)
+            conn_port = getattr(self, 'httpProxyPort', port)
+            conn_host = _gh100985(conn_host)
 
-            # Fix for gh-100985 which is fixed
-            # in Python 3.11.9 and Python 3.12.4
-            if host and host[0] == '[' and host[-1] == ']':
-               host = host[1:-1]
-
-            conn = self.scheme(host=host, port=port, **self.schemeArgs)
+            conn = self.scheme(host=conn_host, port=conn_port, **self.schemeArgs)
             if self.is_tunnel:
                 if hasattr(self, 'sslProxyPath'):
                     conn.setVcTunnel(self.sslProxyPath)
                 elif hasattr(self, 'httpProxyHost'):
                     customHeaders = self._customHeaders if self._customHeaders else {}
+                    host = _gh100985(host)
                     conn.set_tunnel(host, port, customHeaders)
             _Connect(connection=conn, serverPemCert=self.serverPemCert, thumbprint=self.thumbprint)
 
