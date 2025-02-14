@@ -9,8 +9,6 @@ import re
 import time
 from datetime import datetime, timedelta, tzinfo
 
-import six
-
 # Regular expression to parse a subset of ISO 8601 format
 _dtExpr = re.compile(
     # XMLSchema datetime. Mandatory to have - and :
@@ -112,7 +110,7 @@ def ParseISO8601(datetimeStr):
     if match:
         try:
             dt = {}
-            for key, defaultVal in six.iteritems(_dtExprKeyDefValMap):
+            for key, defaultVal in _dtExprKeyDefValMap.items():
                 val = match.group(key)
                 if val:
                     if key == 'microsecond':

@@ -9,11 +9,7 @@ __author__ = 'VMware, Inc.'
 #Standard library imports.
 from six.moves.http_client import HTTPConnection, HTTPSConnection
 import re
-from six import PY3
-if PY3:
-    from html import escape
-else:
-    from cgi import escape
+from html import escape
 import datetime
 import base64
 import hashlib
@@ -25,7 +21,7 @@ if _legacyThumbprintException:
 
 from uuid import uuid4
 from io import BytesIO
-from six.moves.urllib.parse import urlparse
+from urllib.parse import urlparse
 #Third-party imports.
 from lxml import etree
 from OpenSSL import crypto
