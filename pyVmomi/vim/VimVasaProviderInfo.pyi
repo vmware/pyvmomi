@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import VimVasaProvider
+from pyVmomi.vim.VimVasaProvider import VimVasaProvider
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class VimVasaProviderInfo(DynamicData):
    provider: VimVasaProvider

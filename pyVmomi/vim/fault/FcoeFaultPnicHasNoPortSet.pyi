@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import FcoeFault
+from pyVmomi.vim.fault.FcoeFault import FcoeFault
 
 class FcoeFaultPnicHasNoPortSet(FcoeFault):
    nicDevice: str

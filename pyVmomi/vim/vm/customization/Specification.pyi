@@ -8,12 +8,15 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import byte
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vm.customization import AdapterMapping
-from pyVmomi.vim.vm.customization import GlobalIPSettings
-from pyVmomi.vim.vm.customization import IdentitySettings
-from pyVmomi.vim.vm.customization import Options
+from pyVmomi.vim.vm.customization.AdapterMapping import AdapterMapping
+
+from pyVmomi.vim.vm.customization.GlobalIPSettings import GlobalIPSettings
+
+from pyVmomi.vim.vm.customization.IdentitySettings import IdentitySettings
+
+from pyVmomi.vim.vm.customization.Options import Options
 
 class Specification(DynamicData):
    options: Optional[Options] = None

@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import TaskInfo
+from pyVmomi.vim.TaskInfo import TaskInfo
 
-from pyVmomi.vim.event import Event
+from pyVmomi.vim.event.Event import Event
 
 class TaskEvent(Event):
    info: TaskInfo

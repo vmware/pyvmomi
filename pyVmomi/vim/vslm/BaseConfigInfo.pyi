@@ -12,15 +12,17 @@ from typing import Optional
 from pyVmomi.VmomiSupport import Enum
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim import Datastore
-from pyVmomi.vim import KeyValue
+from pyVmomi.vim.Datastore import Datastore
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.KeyValue import KeyValue
 
-from pyVmomi.vim.encryption import CryptoKeyId
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vslm import ID
-from pyVmomi.vim.vslm import VClockInfo
+from pyVmomi.vim.encryption.CryptoKeyId import CryptoKeyId
+
+from pyVmomi.vim.vslm.ID import ID
+
+from pyVmomi.vim.vslm.VClockInfo import VClockInfo
 
 class BaseConfigInfo(DynamicData):
    class BackingInfo(DynamicData):

@@ -8,10 +8,11 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import ClusterComputeResource
-from pyVmomi.vim import Task
+from pyVmomi.vim.ClusterComputeResource import ClusterComputeResource
 
-from pyVmomi.vim.vsan import VsanCloudHealthStatus
+from pyVmomi.vim.Task import Task
+
+from pyVmomi.vim.vsan.VsanCloudHealthStatus import VsanCloudHealthStatus
 
 class VsanPhoneHomeSystem(ManagedObject):
    def VsanPerformOnlineHealthCheck(self, cluster: ClusterComputeResource) -> Task: ...

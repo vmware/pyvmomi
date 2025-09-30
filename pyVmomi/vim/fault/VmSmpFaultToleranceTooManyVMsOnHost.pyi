@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.fault import InsufficientResourcesFault
+from pyVmomi.vim.fault.InsufficientResourcesFault import InsufficientResourcesFault
 
 class VmSmpFaultToleranceTooManyVMsOnHost(InsufficientResourcesFault):
    hostName: Optional[str] = None

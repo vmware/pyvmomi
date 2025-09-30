@@ -4,15 +4,15 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import NoReturn
 from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import ManagedEntity
-from pyVmomi.vim import PrivilegePolicyDef
+from pyVmomi.vim.ManagedEntity import ManagedEntity
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.PrivilegePolicyDef import PrivilegePolicyDef
+
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class CustomFieldsManager(ManagedObject):
    class FieldDef(DynamicData):
@@ -33,6 +33,6 @@ class CustomFieldsManager(ManagedObject):
    def field(self) -> list[FieldDef]: ...
 
    def AddFieldDefinition(self, name: str, moType: Optional[type], fieldDefPolicy: Optional[PrivilegePolicyDef], fieldPolicy: Optional[PrivilegePolicyDef]) -> FieldDef: ...
-   def RemoveFieldDefinition(self, key: int) -> NoReturn: ...
-   def RenameFieldDefinition(self, key: int, name: str) -> NoReturn: ...
-   def SetField(self, entity: ManagedEntity, key: int, value: str) -> NoReturn: ...
+   def RemoveFieldDefinition(self, key: int) -> None: ...
+   def RenameFieldDefinition(self, key: int, name: str) -> None: ...
+   def SetField(self, entity: ManagedEntity, key: int, value: str) -> None: ...

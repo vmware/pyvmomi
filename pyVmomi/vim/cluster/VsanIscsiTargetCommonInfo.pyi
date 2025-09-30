@@ -6,8 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.cluster import VsanIscsiTargetAuthSpec
-from pyVmomi.vim.cluster import VsanIscsiTargetBasicInfo
+from pyVmomi.vim.cluster.VsanIscsiTargetAuthSpec import VsanIscsiTargetAuthSpec
+
+from pyVmomi.vim.cluster.VsanIscsiTargetBasicInfo import VsanIscsiTargetBasicInfo
 
 class VsanIscsiTargetCommonInfo(VsanIscsiTargetBasicInfo):
    authSpec: Optional[VsanIscsiTargetAuthSpec] = None

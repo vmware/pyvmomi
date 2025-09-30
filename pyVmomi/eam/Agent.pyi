@@ -5,22 +5,25 @@
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
 from typing import ClassVar
-from typing import NoReturn
 from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.eam import Agency
-from pyVmomi.eam import EamObject
+from pyVmomi.eam.Agency import Agency
 
-from pyVmomi.vim import Folder
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import ResourcePool
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.eam.EamObject import EamObject
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.Folder import Folder
 
-from pyVmomi.eam.vib import VibInfo
+from pyVmomi.vim.HostSystem import HostSystem
+
+from pyVmomi.vim.ResourcePool import ResourcePool
+
+from pyVmomi.vim.VirtualMachine import VirtualMachine
+
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.eam.vib.VibInfo import VibInfo
 
 class Agent(EamObject):
    class RuntimeInfo(EamObject.RuntimeInfo):
@@ -105,5 +108,5 @@ class Agent(EamObject):
    def config(self) -> ConfigInfo: ...
 
    def QueryRuntime(self) -> RuntimeInfo: ...
-   def MarkAsAvailable(self) -> NoReturn: ...
+   def MarkAsAvailable(self) -> None: ...
    def QueryConfig(self) -> ConfigInfo: ...

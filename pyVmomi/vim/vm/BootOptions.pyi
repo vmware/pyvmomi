@@ -10,7 +10,7 @@ from typing import Optional
 from pyVmomi.VmomiSupport import Enum
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class BootOptions(DynamicData):
    class NetworkBootProtocolType(Enum):

@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import OvfConsumerCallbackFault
+from pyVmomi.vim.fault.OvfConsumerCallbackFault import OvfConsumerCallbackFault
 
 class OvfConsumerUndeclaredSection(OvfConsumerCallbackFault):
    qualifiedSectionType: str

@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.host import TargetTransport
+from pyVmomi.vim.host.TargetTransport import TargetTransport
 
 class RdmaTargetTransport(TargetTransport):
    pass

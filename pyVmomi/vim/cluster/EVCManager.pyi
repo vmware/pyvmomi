@@ -6,21 +6,29 @@
 
 from typing import Optional
 
-from pyVmomi.vim import ClusterComputeResource
-from pyVmomi.vim import EVCMode
-from pyVmomi.vim import ExtensibleManagedObject
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import Task
+from pyVmomi.vim.ClusterComputeResource import ClusterComputeResource
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vim.EVCMode import EVCMode
 
-from pyVmomi.vim.host import ConnectSpec
-from pyVmomi.vim.host import CpuIdInfo
-from pyVmomi.vim.host import FeatureCapability
-from pyVmomi.vim.host import FeatureMask
+from pyVmomi.vim.ExtensibleManagedObject import ExtensibleManagedObject
 
-from pyVmomi.vim.vm import FeatureRequirement
+from pyVmomi.vim.HostSystem import HostSystem
+
+from pyVmomi.vim.Task import Task
+
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.vmodl.MethodFault import MethodFault
+
+from pyVmomi.vim.host.ConnectSpec import ConnectSpec
+
+from pyVmomi.vim.host.CpuIdInfo import CpuIdInfo
+
+from pyVmomi.vim.host.FeatureCapability import FeatureCapability
+
+from pyVmomi.vim.host.FeatureMask import FeatureMask
+
+from pyVmomi.vim.vm.FeatureRequirement import FeatureRequirement
 
 class EVCManager(ExtensibleManagedObject):
    class EVCState(DynamicData):

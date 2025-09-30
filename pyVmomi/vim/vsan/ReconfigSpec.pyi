@@ -6,32 +6,51 @@
 
 from typing import Optional
 
-from pyVmomi.vim import SDDCBase
+from pyVmomi.vim.SDDCBase import SDDCBase
 
-from pyVmomi.vim.cluster import VsanDiskMappingsConfigSpec
-from pyVmomi.vim.cluster import VsanFaultDomainsConfigSpec
-from pyVmomi.vim.cluster import VsanIscsiTargetServiceSpec
-from pyVmomi.vim.cluster import VsanPerfsvcConfig
+from pyVmomi.vim.cluster.VsanDiskMappingsConfigSpec import VsanDiskMappingsConfigSpec
 
-from pyVmomi.vim.vsan import DataEfficiencyConfig
-from pyVmomi.vim.vsan import DataEncryptionConfig
-from pyVmomi.vim.vsan import DataInTransitEncryptionConfig
-from pyVmomi.vim.vsan import DatastoreConfig
-from pyVmomi.vim.vsan import FileServiceConfig
-from pyVmomi.vim.vsan import MetricsConfig
-from pyVmomi.vim.vsan import RdmaConfig
-from pyVmomi.vim.vsan import ResyncIopsInfo
-from pyVmomi.vim.vsan import SnapServiceConfig
-from pyVmomi.vim.vsan import VcRemoteVsanServerClusterConfig
-from pyVmomi.vim.vsan import VsanDeconvergedNetConfig
-from pyVmomi.vim.vsan import VsanEsaConfig
-from pyVmomi.vim.vsan import VsanExtendedConfig
-from pyVmomi.vim.vsan import VsanHealthConfigSpec
-from pyVmomi.vim.vsan import VsanUnmapConfig
-from pyVmomi.vim.vsan import VsanVumConfig
-from pyVmomi.vim.vsan import XVCDatastoreConfig
+from pyVmomi.vim.cluster.VsanFaultDomainsConfigSpec import VsanFaultDomainsConfigSpec
 
-from pyVmomi.vim.vsan.cluster import ConfigInfo
+from pyVmomi.vim.cluster.VsanIscsiTargetServiceSpec import VsanIscsiTargetServiceSpec
+
+from pyVmomi.vim.cluster.VsanPerfsvcConfig import VsanPerfsvcConfig
+
+from pyVmomi.vim.vsan.DataEfficiencyConfig import DataEfficiencyConfig
+
+from pyVmomi.vim.vsan.DataEncryptionConfig import DataEncryptionConfig
+
+from pyVmomi.vim.vsan.DataInTransitEncryptionConfig import DataInTransitEncryptionConfig
+
+from pyVmomi.vim.vsan.DatastoreConfig import DatastoreConfig
+
+from pyVmomi.vim.vsan.FileServiceConfig import FileServiceConfig
+
+from pyVmomi.vim.vsan.MetricsConfig import MetricsConfig
+
+from pyVmomi.vim.vsan.RdmaConfig import RdmaConfig
+
+from pyVmomi.vim.vsan.ResyncIopsInfo import ResyncIopsInfo
+
+from pyVmomi.vim.vsan.SnapServiceConfig import SnapServiceConfig
+
+from pyVmomi.vim.vsan.VcRemoteVsanServerClusterConfig import VcRemoteVsanServerClusterConfig
+
+from pyVmomi.vim.vsan.VsanDeconvergedNetConfig import VsanDeconvergedNetConfig
+
+from pyVmomi.vim.vsan.VsanEsaConfig import VsanEsaConfig
+
+from pyVmomi.vim.vsan.VsanExtendedConfig import VsanExtendedConfig
+
+from pyVmomi.vim.vsan.VsanHealthConfigSpec import VsanHealthConfigSpec
+
+from pyVmomi.vim.vsan.VsanUnmapConfig import VsanUnmapConfig
+
+from pyVmomi.vim.vsan.VsanVumConfig import VsanVumConfig
+
+from pyVmomi.vim.vsan.XVCDatastoreConfig import XVCDatastoreConfig
+
+from pyVmomi.vim.vsan.cluster.ConfigInfo import ConfigInfo
 
 class ReconfigSpec(SDDCBase):
    vsanClusterConfig: Optional[ConfigInfo] = None

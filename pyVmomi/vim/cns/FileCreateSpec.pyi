@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.cns import BaseCreateSpec
+from pyVmomi.vim.cns.BaseCreateSpec import BaseCreateSpec
 
 class FileCreateSpec(BaseCreateSpec):
    pass

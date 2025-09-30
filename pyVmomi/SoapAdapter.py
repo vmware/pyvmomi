@@ -1469,6 +1469,7 @@ class SoapStubAdapter(SoapStubAdapterBase):
             resp = conn.getresponse()
         except (socket.error, HTTPException):
             # The server is probably sick, drop all the cached connections.
+            conn.close()
             self.DropConnections()
             raise
         cookie = resp.getheader('Set-Cookie')
@@ -1479,8 +1480,10 @@ class SoapStubAdapter(SoapStubAdapterBase):
 
         if cookie:
             self.cookie = cookie
-            sessionId = SimpleCookie(cookie)[COOKIE_NAME].value
-            super(SoapStubAdapter, self).SetSessionId(sessionId)
+            sCookie = SimpleCookie(cookie)
+            soap_session_cookie = sCookie.get(COOKIE_NAME)
+            if soap_session_cookie:
+               super(SoapStubAdapter, self).SetSessionId(soap_session_cookie.value)
         if status == 200 or status == 500:
             try:
                 fd = resp
@@ -1606,20 +1609,6 @@ class SoapStubAdapter(SoapStubAdapterBase):
     # same soap stub. Hence, returning self here is fine.
     def __deepcopy__(self, memo):
         return self
-
-
-HEADER_SECTION_END = '\r\n\r\n'
-
-
-# Parse an HTTP response into its headers and body
-def ParseHttpResponse(httpResponse):
-    headerEnd = httpResponse.find(HEADER_SECTION_END)
-    if headerEnd == -1:
-        return ('', '')
-    headerEnd += len(HEADER_SECTION_END)
-    headerText = httpResponse[:headerEnd]
-    bodyText = httpResponse[headerEnd:]
-    return (headerText, bodyText)
 
 
 class SessionOrientedStub(StubAdapterBase):

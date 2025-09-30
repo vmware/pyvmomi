@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.event import VmStartingEvent
+from pyVmomi.vim.event.VmStartingEvent import VmStartingEvent
 
 class VmUnsupportedStartingEvent(VmStartingEvent):
    guestId: str

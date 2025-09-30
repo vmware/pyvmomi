@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.cns import AccessControlSpec
+from pyVmomi.vim.cns.AccessControlSpec import AccessControlSpec
 
-from pyVmomi.vim.vsan import FileShareNetPermission
+from pyVmomi.vim.vsan.FileShareNetPermission import FileShareNetPermission
 
 class NFSAccessControlSpec(AccessControlSpec):
    netPermission: FileShareNetPermission

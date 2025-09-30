@@ -6,10 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.cns import Cursor
-from pyVmomi.vim.cns import Volume
+from pyVmomi.vim.cns.Cursor import Cursor
+
+from pyVmomi.vim.cns.Volume import Volume
 
 class QueryResult(DynamicData):
    volumes: list[Volume] = []

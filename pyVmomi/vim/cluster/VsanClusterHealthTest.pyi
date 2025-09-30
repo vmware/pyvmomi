@@ -8,12 +8,15 @@ from datetime import datetime
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.cluster import VsanClusterHealthAction
-from pyVmomi.vim.cluster import VsanClusterHealthResultBase
-from pyVmomi.vim.cluster import VsanHealthCorrelation
-from pyVmomi.vim.cluster import VsanHistoricalHealthTest
+from pyVmomi.vim.cluster.VsanClusterHealthAction import VsanClusterHealthAction
+
+from pyVmomi.vim.cluster.VsanClusterHealthResultBase import VsanClusterHealthResultBase
+
+from pyVmomi.vim.cluster.VsanHealthCorrelation import VsanHealthCorrelation
+
+from pyVmomi.vim.cluster.VsanHistoricalHealthTest import VsanHistoricalHealthTest
 
 class VsanClusterHealthTest(DynamicData):
    testId: Optional[str] = None

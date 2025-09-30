@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.host import TpmBootSecurityOptionEventDetails
+from pyVmomi.vim.host.TpmBootSecurityOptionEventDetails import TpmBootSecurityOptionEventDetails
 
 class TpmNvTagEventDetails(TpmBootSecurityOptionEventDetails):
    pass

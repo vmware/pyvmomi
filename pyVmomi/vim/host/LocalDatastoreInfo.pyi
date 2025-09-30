@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim import Datastore
+from pyVmomi.vim.Datastore import Datastore
 
 class LocalDatastoreInfo(Datastore.Info):
    path: Optional[str] = None

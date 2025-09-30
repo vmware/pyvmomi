@@ -6,8 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.event import ChangesInfoEventArgument
-from pyVmomi.vim.event import DvsEvent
+from pyVmomi.vim.event.ChangesInfoEventArgument import ChangesInfoEventArgument
+
+from pyVmomi.vim.event.DvsEvent import DvsEvent
 
 class DvsPortReconfiguredEvent(DvsEvent):
    portKey: list[str] = []

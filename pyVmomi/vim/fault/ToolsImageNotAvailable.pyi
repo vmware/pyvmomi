@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import VmToolsUpgradeFault
+from pyVmomi.vim.fault.VmToolsUpgradeFault import VmToolsUpgradeFault
 
 class ToolsImageNotAvailable(VmToolsUpgradeFault):
    pass

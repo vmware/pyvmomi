@@ -8,10 +8,11 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import VsanMassCollectorPropertyParams
-from pyVmomi.vim import VsanResourceConstraint
+from pyVmomi.vim.VsanMassCollectorPropertyParams import VsanMassCollectorPropertyParams
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.VsanResourceConstraint import VsanResourceConstraint
+
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class VsanMassCollectorSpec(DynamicData):
    objects: list[ManagedObject] = []

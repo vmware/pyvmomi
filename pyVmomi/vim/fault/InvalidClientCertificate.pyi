@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import InvalidLogin
+from pyVmomi.vim.fault.InvalidLogin import InvalidLogin
 
 class InvalidClientCertificate(InvalidLogin):
    pass

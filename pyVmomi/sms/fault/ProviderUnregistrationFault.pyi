@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vmodl.MethodFault import MethodFault
 
 class ProviderUnregistrationFault(MethodFault):
    pass

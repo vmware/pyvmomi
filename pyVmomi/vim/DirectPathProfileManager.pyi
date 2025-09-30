@@ -4,18 +4,19 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import NoReturn
 from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import ClusterComputeResource
-from pyVmomi.vim import HostSystem
+from pyVmomi.vim.ClusterComputeResource import ClusterComputeResource
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vim.vm.device import VirtualPCIPassthrough
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.vmodl.MethodFault import MethodFault
+
+from pyVmomi.vim.vm.device.VirtualPCIPassthrough import VirtualPCIPassthrough
 
 class DirectPathProfileManager(ManagedObject):
    class DirectPathConfig(DynamicData):
@@ -90,7 +91,7 @@ class DirectPathProfileManager(ManagedObject):
       faultList: list[MethodFault] = []
 
    def CreateDirectPathProfile(self, spec: CreateSpec) -> str: ...
-   def UpdateDirectPathProfile(self, id: str, spec: UpdateSpec) -> NoReturn: ...
-   def DeleteDirectPathProfile(self, id: str) -> NoReturn: ...
+   def UpdateDirectPathProfile(self, id: str, spec: UpdateSpec) -> None: ...
+   def DeleteDirectPathProfile(self, id: str) -> None: ...
    def ListDirectPathProfiles(self, filterSpec: FilterSpec) -> list[DirectPathProfileInfo]: ...
    def QueryDirectPathProfileCapacity(self, target: TargetEntity, querySpec: list[CapacityQuerySpec]) -> list[CapacityResult]: ...

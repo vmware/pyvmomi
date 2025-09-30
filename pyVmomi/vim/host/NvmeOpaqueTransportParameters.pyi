@@ -6,7 +6,7 @@
 
 from pyVmomi.VmomiSupport import binary
 
-from pyVmomi.vim.host import NvmeTransportParameters
+from pyVmomi.vim.host.NvmeTransportParameters import NvmeTransportParameters
 
 class NvmeOpaqueTransportParameters(NvmeTransportParameters):
    trtype: str

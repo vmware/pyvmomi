@@ -6,10 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import ScsiDisk
+from pyVmomi.vmodl.MethodFault import MethodFault
+
+from pyVmomi.vim.host.ScsiDisk import ScsiDisk
 
 class StoragePoolDiskInfo(DynamicData):
    disk: ScsiDisk

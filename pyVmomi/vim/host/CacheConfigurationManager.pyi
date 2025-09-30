@@ -9,10 +9,11 @@ from typing import Optional
 from pyVmomi.VmomiSupport import ManagedObject
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim import Datastore
-from pyVmomi.vim import Task
+from pyVmomi.vim.Datastore import Datastore
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.Task import Task
+
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class CacheConfigurationManager(ManagedObject):
    class CacheConfigurationSpec(DynamicData):

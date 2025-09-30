@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.vsan import EntityResourceCheckDetails
+from pyVmomi.vim.vsan.EntityResourceCheckDetails import EntityResourceCheckDetails
 
 class DiskResourceCheckResult(EntityResourceCheckDetails):
    pass

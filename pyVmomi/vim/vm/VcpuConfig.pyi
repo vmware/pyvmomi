@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import LatencySensitivity
+from pyVmomi.vim.LatencySensitivity import LatencySensitivity
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class VcpuConfig(DynamicData):
    latencySensitivity: Optional[LatencySensitivity] = None

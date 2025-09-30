@@ -9,13 +9,15 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vm import ConfigSpec
-from pyVmomi.vim.vm import RelocateSpec
-from pyVmomi.vim.vm import Snapshot
+from pyVmomi.vim.vm.ConfigSpec import ConfigSpec
 
-from pyVmomi.vim.vm.customization import Specification
+from pyVmomi.vim.vm.RelocateSpec import RelocateSpec
+
+from pyVmomi.vim.vm.Snapshot import Snapshot
+
+from pyVmomi.vim.vm.customization.Specification import Specification
 
 class CloneSpec(DynamicData):
    class TpmProvisionPolicy(Enum):

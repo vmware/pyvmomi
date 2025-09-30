@@ -6,18 +6,18 @@
 
 from datetime import datetime
 
-from typing import NoReturn
 from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim import Datastore
-from pyVmomi.vim import Task
+from pyVmomi.vim.Datastore import Datastore
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.Task import Task
 
-from pyVmomi.vim.encryption import CryptoKeyId
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.vim.encryption.CryptoKeyId import CryptoKeyId
 
 class DatastoreBrowser(ManagedObject):
    class FileInfo(DynamicData):
@@ -150,4 +150,4 @@ class DatastoreBrowser(ManagedObject):
 
    def Search(self, datastorePath: str, searchSpec: Optional[SearchSpec]) -> Task: ...
    def SearchSubFolders(self, datastorePath: str, searchSpec: Optional[SearchSpec]) -> Task: ...
-   def DeleteFile(self, datastorePath: str) -> NoReturn: ...
+   def DeleteFile(self, datastorePath: str) -> None: ...

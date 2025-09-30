@@ -6,12 +6,13 @@
 
 from typing import Optional
 
-from pyVmomi.vim import ClusterComputeResource
+from pyVmomi.vim.ClusterComputeResource import ClusterComputeResource
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import VsanClusterMembershipInfo
-from pyVmomi.vim.host import VsanNetworkPeerHealthResult
+from pyVmomi.vim.host.VsanClusterMembershipInfo import VsanClusterMembershipInfo
+
+from pyVmomi.vim.host.VsanNetworkPeerHealthResult import VsanNetworkPeerHealthResult
 
 class VsanServerClusterInfo(DynamicData):
    cluster: Optional[ClusterComputeResource] = None

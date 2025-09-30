@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vsan import XvcQueryFilter
+from pyVmomi.vim.vsan.XvcQueryFilter import XvcQueryFilter
 
 class XvcQuerySpec(DynamicData):
    objectModel: Optional[str] = None

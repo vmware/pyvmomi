@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import HostSystem
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vim.vsan import VsanNetworkConfigBaseIssue
+from pyVmomi.vim.vsan.VsanNetworkConfigBaseIssue import VsanNetworkConfigBaseIssue
 
 class VsanNetworkVMotionVmknicNotFountIssue(VsanNetworkConfigBaseIssue):
    hostWithoutVmotionVmknic: HostSystem

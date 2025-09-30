@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import HostSystem
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vim.vsan import VsanConfigBaseIssue
+from pyVmomi.vim.vsan.VsanConfigBaseIssue import VsanConfigBaseIssue
 
 class VsanConfigNotAllDisksClaimedIssue(VsanConfigBaseIssue):
    host: HostSystem

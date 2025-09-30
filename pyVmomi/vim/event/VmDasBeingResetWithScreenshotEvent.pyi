@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.event import VmDasBeingResetEvent
+from pyVmomi.vim.event.VmDasBeingResetEvent import VmDasBeingResetEvent
 
 class VmDasBeingResetWithScreenshotEvent(VmDasBeingResetEvent):
    screenshotFilePath: str

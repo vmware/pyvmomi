@@ -4,11 +4,11 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import SharesInfo
+from pyVmomi.vim.SharesInfo import SharesInfo
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.option import IntOption
+from pyVmomi.vim.option.IntOption import IntOption
 
 class SharesOption(DynamicData):
    sharesOption: IntOption

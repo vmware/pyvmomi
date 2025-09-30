@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim import VsanUpgradeSystem
+from pyVmomi.vim.VsanUpgradeSystem import VsanUpgradeSystem
 
 class VsanDiskFormatConversionCheckResult(VsanUpgradeSystem.PreflightCheckResult):
    isSupported: bool

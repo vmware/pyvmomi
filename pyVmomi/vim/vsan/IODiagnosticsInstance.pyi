@@ -8,10 +8,11 @@ from datetime import datetime
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vsan import IODiagnosticsInstanceEvent
-from pyVmomi.vim.vsan import IODiagnosticsTarget
+from pyVmomi.vim.vsan.IODiagnosticsInstanceEvent import IODiagnosticsInstanceEvent
+
+from pyVmomi.vim.vsan.IODiagnosticsTarget import IODiagnosticsTarget
 
 class IODiagnosticsInstance(DynamicData):
    name: str

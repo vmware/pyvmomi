@@ -9,7 +9,7 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim.fault import VmFaultToleranceIssue
+from pyVmomi.vim.fault.VmFaultToleranceIssue import VmFaultToleranceIssue
 
 class HostIncompatibleForFaultTolerance(VmFaultToleranceIssue):
    class Reason(Enum):

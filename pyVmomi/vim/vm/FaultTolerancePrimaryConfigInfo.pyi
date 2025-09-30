@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.VirtualMachine import VirtualMachine
 
-from pyVmomi.vim.vm import FaultToleranceConfigInfo
+from pyVmomi.vim.vm.FaultToleranceConfigInfo import FaultToleranceConfigInfo
 
 class FaultTolerancePrimaryConfigInfo(FaultToleranceConfigInfo):
    secondaries: list[VirtualMachine] = []

@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.pbm import ServerObjectRef
+from pyVmomi.pbm.ServerObjectRef import ServerObjectRef
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class FetchEntityHealthStatusSpec(DynamicData):
    objectRef: ServerObjectRef

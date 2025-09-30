@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import OvfInvalidPackage
+from pyVmomi.vim.fault.OvfInvalidPackage import OvfInvalidPackage
 
 class OvfProperty(OvfInvalidPackage):
    type: str

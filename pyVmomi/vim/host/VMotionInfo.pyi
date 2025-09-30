@@ -6,10 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import IpConfig
-from pyVmomi.vim.host import VMotionSystem
+from pyVmomi.vim.host.IpConfig import IpConfig
+
+from pyVmomi.vim.host.VMotionSystem import VMotionSystem
 
 class VMotionInfo(DynamicData):
    netConfig: Optional[VMotionSystem.NetConfig] = None

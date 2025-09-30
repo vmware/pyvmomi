@@ -9,11 +9,11 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vm import TargetInfo
+from pyVmomi.vim.vm.TargetInfo import TargetInfo
 
-from pyVmomi.vim.vm.device import VirtualDevice
+from pyVmomi.vim.vm.device.VirtualDevice import VirtualDevice
 
 class VendorDeviceGroupInfo(TargetInfo):
    class ComponentDeviceInfo(DynamicData):

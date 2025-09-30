@@ -6,12 +6,13 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.sms.storage.replication import DeviceId
-from pyVmomi.sms.storage.replication import ReplicaId
+from pyVmomi.sms.storage.replication.DeviceId import DeviceId
 
-from pyVmomi.vim.vm.replication import FaultDomainId
+from pyVmomi.sms.storage.replication.ReplicaId import ReplicaId
+
+from pyVmomi.vim.vm.replication.FaultDomainId import FaultDomainId
 
 class SourceGroupMemberInfo(DynamicData):
    class TargetDeviceId(DynamicData):

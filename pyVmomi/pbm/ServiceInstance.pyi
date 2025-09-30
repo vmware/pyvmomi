@@ -6,7 +6,7 @@
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.pbm import ServiceInstanceContent
+from pyVmomi.pbm.ServiceInstanceContent import ServiceInstanceContent
 
 class ServiceInstance(ManagedObject):
    @property

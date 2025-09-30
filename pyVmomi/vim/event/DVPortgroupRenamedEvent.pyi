@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.event import DVPortgroupEvent
+from pyVmomi.vim.event.DVPortgroupEvent import DVPortgroupEvent
 
 class DVPortgroupRenamedEvent(DVPortgroupEvent):
    oldName: str

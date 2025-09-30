@@ -6,12 +6,13 @@
 
 from typing import Optional
 
-from pyVmomi.vim import DistributedVirtualSwitch
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.DistributedVirtualSwitch import DistributedVirtualSwitch
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.VirtualMachine import VirtualMachine
 
-from pyVmomi.vim.vsan import VsanVdsPgMigrationSpec
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.vim.vsan.VsanVdsPgMigrationSpec import VsanVdsPgMigrationSpec
 
 class VsanVdsMigrationPlan(DynamicData):
    vdsSpec: DistributedVirtualSwitch.CreateSpec

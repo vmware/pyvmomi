@@ -9,12 +9,13 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import HostBusAdapter
+from pyVmomi.vim.host.HostBusAdapter import HostBusAdapter
 
-from pyVmomi.vim.option import OptionDef
-from pyVmomi.vim.option import OptionValue
+from pyVmomi.vim.option.OptionDef import OptionDef
+
+from pyVmomi.vim.option.OptionValue import OptionValue
 
 class InternetScsiHba(HostBusAdapter):
    class ParamValue(OptionValue):

@@ -9,11 +9,11 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim import ExtendedElementDescription
+from pyVmomi.vim.ExtendedElementDescription import ExtendedElementDescription
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.profile import ProfilePropertyPath
+from pyVmomi.vim.profile.ProfilePropertyPath import ProfilePropertyPath
 
 class ParameterMetadata(DynamicData):
    class RelationType(Enum):

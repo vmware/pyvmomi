@@ -11,9 +11,9 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.net import DhcpConfigInfo
+from pyVmomi.vim.net.DhcpConfigInfo import DhcpConfigInfo
 
 class IpConfigInfo(DynamicData):
    class IpAddressOrigin(Enum):

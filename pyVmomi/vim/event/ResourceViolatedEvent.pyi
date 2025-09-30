@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.event import ResourcePoolEvent
+from pyVmomi.vim.event.ResourcePoolEvent import ResourcePoolEvent
 
 class ResourceViolatedEvent(ResourcePoolEvent):
    pass

@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vmodl.MethodFault import MethodFault
 
-from pyVmomi.vim.fault import CannotAccessVmComponent
+from pyVmomi.vim.fault.CannotAccessVmComponent import CannotAccessVmComponent
 
 class CannotAccessVmConfig(CannotAccessVmComponent):
    reason: MethodFault

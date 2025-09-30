@@ -6,12 +6,13 @@
 
 from typing import Optional
 
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import Task
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.Task import Task
 
-from pyVmomi.vim.host import MaintenanceSpec
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.vim.host.MaintenanceSpec import MaintenanceSpec
 
 class ResourceCheckTaskDetails(DynamicData):
    task: Task

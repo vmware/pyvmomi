@@ -6,9 +6,9 @@
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.cns import VolumeId
+from pyVmomi.vim.cns.VolumeId import VolumeId
 
 class VolumeExtendSpec(DynamicData):
    volumeId: VolumeId

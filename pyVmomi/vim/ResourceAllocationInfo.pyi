@@ -8,9 +8,9 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim import SharesInfo
+from pyVmomi.vim.SharesInfo import SharesInfo
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class ResourceAllocationInfo(DynamicData):
    reservation: Optional[long] = None

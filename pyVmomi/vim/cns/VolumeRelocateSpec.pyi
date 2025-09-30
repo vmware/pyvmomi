@@ -6,13 +6,13 @@
 
 from typing import Optional
 
-from pyVmomi.vim import Datastore
+from pyVmomi.vim.Datastore import Datastore
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.cns import VolumeId
+from pyVmomi.vim.cns.VolumeId import VolumeId
 
-from pyVmomi.vim.vm import ProfileSpec
+from pyVmomi.vim.vm.ProfileSpec import ProfileSpec
 
 class VolumeRelocateSpec(DynamicData):
    volumeId: VolumeId

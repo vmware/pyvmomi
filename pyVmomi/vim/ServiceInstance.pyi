@@ -12,15 +12,19 @@ from typing import Optional
 from pyVmomi.VmomiSupport import Enum
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import Capability
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import ResourcePool
-from pyVmomi.vim import ServiceInstanceContent
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.Capability import Capability
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vim.event import Event
+from pyVmomi.vim.ResourcePool import ResourcePool
+
+from pyVmomi.vim.ServiceInstanceContent import ServiceInstanceContent
+
+from pyVmomi.vim.VirtualMachine import VirtualMachine
+
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.vim.event.Event import Event
 
 class ServiceInstance(ManagedObject):
    class ValidateMigrationTestType(Enum):

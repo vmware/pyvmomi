@@ -6,10 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vim import FaultsByHost
-from pyVmomi.vim import FaultsByVM
+from pyVmomi.vim.FaultsByHost import FaultsByHost
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.FaultsByVM import FaultsByVM
+
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class EnterMaintenanceResult(DynamicData):
    vmFaults: list[FaultsByVM] = []

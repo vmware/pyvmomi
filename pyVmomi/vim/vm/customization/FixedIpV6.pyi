@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.vm.customization import IpV6Generator
+from pyVmomi.vim.vm.customization.IpV6Generator import IpV6Generator
 
 class FixedIpV6(IpV6Generator):
    ipAddress: str

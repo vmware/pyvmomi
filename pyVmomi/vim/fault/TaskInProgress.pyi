@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import Task
+from pyVmomi.vim.Task import Task
 
-from pyVmomi.vim.fault import VimFault
+from pyVmomi.vim.fault.VimFault import VimFault
 
 class TaskInProgress(VimFault):
    task: Task

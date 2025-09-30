@@ -4,11 +4,11 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.eam import Agent
+from pyVmomi.eam.Agent import Agent
 
-from pyVmomi.vim import HostSystem
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.eam.issue import AgencyIssue
+from pyVmomi.eam.issue.AgencyIssue import AgencyIssue
 
 class AgentIssue(AgencyIssue):
    agent: Agent

@@ -10,12 +10,13 @@ from typing import Optional
 from pyVmomi.VmomiSupport import Enum
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import CpuIdInfo
+from pyVmomi.vim.host.CpuIdInfo import CpuIdInfo
 
-from pyVmomi.vim.option import BoolOption
-from pyVmomi.vim.option import IntOption
+from pyVmomi.vim.option.BoolOption import BoolOption
+
+from pyVmomi.vim.option.IntOption import IntOption
 
 class GuestOsDescriptor(DynamicData):
    class GuestOsFamily(Enum):
@@ -195,6 +196,7 @@ class GuestOsDescriptor(DynamicData):
       fusionos_64Guest: ClassVar['GuestOsIdentifier'] = 'fusionos_64Guest'
       prolinux_64Guest: ClassVar['GuestOsIdentifier'] = 'prolinux_64Guest'
       kylinlinux_64Guest: ClassVar['GuestOsIdentifier'] = 'kylinlinux_64Guest'
+      flatcar_64Guest: ClassVar['GuestOsIdentifier'] = 'flatcar_64Guest'
       os2Guest: ClassVar['GuestOsIdentifier'] = 'os2Guest'
       eComStationGuest: ClassVar['GuestOsIdentifier'] = 'eComStationGuest'
       eComStation2Guest: ClassVar['GuestOsIdentifier'] = 'eComStation2Guest'

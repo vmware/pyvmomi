@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.event import EnteringStandbyModeEvent
+from pyVmomi.vim.event.EnteringStandbyModeEvent import EnteringStandbyModeEvent
 
 class DrsEnteringStandbyModeEvent(EnteringStandbyModeEvent):
    pass

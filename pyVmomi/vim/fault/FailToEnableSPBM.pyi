@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import ComputeResource
+from pyVmomi.vim.ComputeResource import ComputeResource
 
-from pyVmomi.vmodl.fault import NotEnoughLicenses
+from pyVmomi.vmodl.fault.NotEnoughLicenses import NotEnoughLicenses
 
 class FailToEnableSPBM(NotEnoughLicenses):
    cs: ComputeResource

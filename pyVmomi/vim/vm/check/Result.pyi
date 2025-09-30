@@ -6,11 +6,13 @@
 
 from typing import Optional
 
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vim.VirtualMachine import VirtualMachine
+
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.vmodl.MethodFault import MethodFault
 
 class Result(DynamicData):
    vm: Optional[VirtualMachine] = None

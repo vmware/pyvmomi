@@ -6,11 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.pbm.capability import CapabilityInstance
+from pyVmomi.pbm.capability.CapabilityInstance import CapabilityInstance
 
-from pyVmomi.pbm.profile import CapabilityConstraints
+from pyVmomi.pbm.profile.CapabilityConstraints import CapabilityConstraints
 
 class SubProfileCapabilityConstraints(CapabilityConstraints):
    class SubProfile(DynamicData):

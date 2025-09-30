@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.vslm import MigrateSpec
+from pyVmomi.vim.vslm.MigrateSpec import MigrateSpec
 
 class RelocateSpec(MigrateSpec):
    pass

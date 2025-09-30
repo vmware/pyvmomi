@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.eam.issue import VmIssue
+from pyVmomi.eam.issue.VmIssue import VmIssue
 
 class VmSuspended(VmIssue):
    pass

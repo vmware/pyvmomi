@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.option import ChoiceOption
+from pyVmomi.vim.option.ChoiceOption import ChoiceOption
 
-from pyVmomi.vim.vm.device import VirtualDeviceOption
+from pyVmomi.vim.vm.device.VirtualDeviceOption import VirtualDeviceOption
 
 class VirtualPrecisionClockOption(VirtualDeviceOption):
    class SystemClockBackingOption(VirtualDeviceOption.BackingOption):

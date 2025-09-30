@@ -8,7 +8,7 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class HostDiskMappingOption(DynamicData):
    class PartitionOption(DynamicData):

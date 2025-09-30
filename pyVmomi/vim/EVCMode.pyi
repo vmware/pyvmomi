@@ -6,13 +6,15 @@
 
 from typing import Optional
 
-from pyVmomi.vim import ElementDescription
+from pyVmomi.vim.ElementDescription import ElementDescription
 
-from pyVmomi.vim.host import CpuIdInfo
-from pyVmomi.vim.host import FeatureCapability
-from pyVmomi.vim.host import FeatureMask
+from pyVmomi.vim.host.CpuIdInfo import CpuIdInfo
 
-from pyVmomi.vim.vm import FeatureRequirement
+from pyVmomi.vim.host.FeatureCapability import FeatureCapability
+
+from pyVmomi.vim.host.FeatureMask import FeatureMask
+
+from pyVmomi.vim.vm.FeatureRequirement import FeatureRequirement
 
 class EVCMode(ElementDescription):
    guaranteedCPUFeatures: list[CpuIdInfo] = []

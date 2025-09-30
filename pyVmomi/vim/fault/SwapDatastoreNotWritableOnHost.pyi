@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import DatastoreNotWritableOnHost
+from pyVmomi.vim.fault.DatastoreNotWritableOnHost import DatastoreNotWritableOnHost
 
 class SwapDatastoreNotWritableOnHost(DatastoreNotWritableOnHost):
    pass

@@ -6,10 +6,13 @@
 
 from typing import Optional
 
-from pyVmomi.vim.host import DiskPartitionInfo
-from pyVmomi.vim.host import ScsiDisk
-from pyVmomi.vim.host import VmfsDatastoreSpec
-from pyVmomi.vim.host import VmfsVolume
+from pyVmomi.vim.host.DiskPartitionInfo import DiskPartitionInfo
+
+from pyVmomi.vim.host.ScsiDisk import ScsiDisk
+
+from pyVmomi.vim.host.VmfsDatastoreSpec import VmfsDatastoreSpec
+
+from pyVmomi.vim.host.VmfsVolume import VmfsVolume
 
 class VmfsDatastoreCreateSpec(VmfsDatastoreSpec):
    partition: DiskPartitionInfo.Specification

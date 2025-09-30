@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import Datastore
+from pyVmomi.vim.Datastore import Datastore
 
-from pyVmomi.vim.vsan import DatastoreConfig
+from pyVmomi.vim.vsan.DatastoreConfig import DatastoreConfig
 
 class AdvancedDatastoreConfig(DatastoreConfig):
    remoteDatastores: list[Datastore] = []

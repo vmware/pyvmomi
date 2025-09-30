@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import LicenseManager
+from pyVmomi.vim.LicenseManager import LicenseManager
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class LicenseSpec(DynamicData):
    source: Optional[LicenseManager.LicenseSource] = None

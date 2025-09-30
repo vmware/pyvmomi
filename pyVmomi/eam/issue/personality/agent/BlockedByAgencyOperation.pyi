@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.eam.issue.personality.agent import PMIssue
+from pyVmomi.eam.issue.personality.agent.PMIssue import PMIssue
 
 class BlockedByAgencyOperation(PMIssue):
    pass

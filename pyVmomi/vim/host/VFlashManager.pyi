@@ -4,22 +4,22 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import NoReturn
 from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim import Task
+from pyVmomi.vim.Task import Task
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import VffsVolume
+from pyVmomi.vim.host.VffsVolume import VffsVolume
 
-from pyVmomi.vim.option import ChoiceOption
-from pyVmomi.vim.option import LongOption
+from pyVmomi.vim.option.ChoiceOption import ChoiceOption
 
-from pyVmomi.vim.vm.device import VirtualDisk
+from pyVmomi.vim.option.LongOption import LongOption
+
+from pyVmomi.vim.vm.device.VirtualDisk import VirtualDisk
 
 class VFlashManager(ManagedObject):
    class VFlashResourceConfigSpec(DynamicData):
@@ -63,7 +63,7 @@ class VFlashManager(ManagedObject):
    def vFlashConfigInfo(self) -> Optional[VFlashConfigInfo]: ...
 
    def ConfigureVFlashResourceEx(self, devicePath: list[str]) -> Task: ...
-   def ConfigureVFlashResource(self, spec: VFlashResourceConfigSpec) -> NoReturn: ...
-   def RemoveVFlashResource(self) -> NoReturn: ...
-   def ConfigureHostVFlashCache(self, spec: VFlashCacheConfigSpec) -> NoReturn: ...
+   def ConfigureVFlashResource(self, spec: VFlashResourceConfigSpec) -> None: ...
+   def RemoveVFlashResource(self) -> None: ...
+   def ConfigureHostVFlashCache(self, spec: VFlashCacheConfigSpec) -> None: ...
    def GetVFlashModuleDefaultConfig(self, vFlashModule: str) -> VirtualDisk.VFlashCacheConfigInfo: ...

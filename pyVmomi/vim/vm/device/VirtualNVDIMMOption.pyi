@@ -6,9 +6,9 @@
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim.option import LongOption
+from pyVmomi.vim.option.LongOption import LongOption
 
-from pyVmomi.vim.vm.device import VirtualDeviceOption
+from pyVmomi.vim.vm.device.VirtualDeviceOption import VirtualDeviceOption
 
 class VirtualNVDIMMOption(VirtualDeviceOption):
    capacityInMB: LongOption

@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import Network
+from pyVmomi.vim.Network import Network
 
-from pyVmomi.eam.issue import NoAgentVmNetwork
+from pyVmomi.eam.issue.NoAgentVmNetwork import NoAgentVmNetwork
 
 class NoCustomAgentVmNetwork(NoAgentVmNetwork):
    customAgentVmNetwork: list[Network] = []

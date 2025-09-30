@@ -6,11 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.cluster import VsanIscsiTargetServiceDefaultConfigSpec
+from pyVmomi.vim.cluster.VsanIscsiTargetServiceDefaultConfigSpec import VsanIscsiTargetServiceDefaultConfigSpec
 
-from pyVmomi.vim.vsan import VipConfigSpec
+from pyVmomi.vim.vsan.VipConfigSpec import VipConfigSpec
 
 class VsanIscsiTargetServiceConfig(DynamicData):
    defaultConfig: Optional[VsanIscsiTargetServiceDefaultConfigSpec] = None

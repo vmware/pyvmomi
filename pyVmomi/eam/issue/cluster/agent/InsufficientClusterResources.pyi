@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.eam.issue.cluster.agent import VmPoweredOff
+from pyVmomi.eam.issue.cluster.agent.VmPoweredOff import VmPoweredOff
 
 class InsufficientClusterResources(VmPoweredOff):
    pass

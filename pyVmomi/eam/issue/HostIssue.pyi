@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import HostSystem
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.eam.issue import Issue
+from pyVmomi.eam.issue.Issue import Issue
 
 class HostIssue(Issue):
    host: HostSystem

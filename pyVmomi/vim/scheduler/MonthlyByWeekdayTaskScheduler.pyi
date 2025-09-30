@@ -8,7 +8,7 @@ from typing import ClassVar
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim.scheduler import MonthlyTaskScheduler
+from pyVmomi.vim.scheduler.MonthlyTaskScheduler import MonthlyTaskScheduler
 
 class MonthlyByWeekdayTaskScheduler(MonthlyTaskScheduler):
    class DayOfWeek(Enum):

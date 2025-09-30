@@ -4,45 +4,62 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import NoReturn
 from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim import Datacenter
-from pyVmomi.vim import Datastore
-from pyVmomi.vim import KeyValue
-from pyVmomi.vim import Task
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.Datacenter import Datacenter
 
-from pyVmomi.vim.encryption import CryptoSpec
+from pyVmomi.vim.Datastore import Datastore
 
-from pyVmomi.vim.vm import ProfileSpec
+from pyVmomi.vim.KeyValue import KeyValue
 
-from pyVmomi.vim.vslm import CloneSpec
-from pyVmomi.vim.vslm import CreateSpec
-from pyVmomi.vim.vslm import DiskCryptoSpec
-from pyVmomi.vim.vslm import ID
-from pyVmomi.vim.vslm import InfrastructureObjectPolicy
-from pyVmomi.vim.vslm import InfrastructureObjectPolicySpec
-from pyVmomi.vim.vslm import ReconcileSpec
-from pyVmomi.vim.vslm import RelocateSpec
-from pyVmomi.vim.vslm import StateInfo
-from pyVmomi.vim.vslm import TagEntry
-from pyVmomi.vim.vslm import VStorageObject
-from pyVmomi.vim.vslm import VStorageObjectManagerBase
-from pyVmomi.vim.vslm import VStorageObjectSnapshotDetails
-from pyVmomi.vim.vslm import VStorageObjectSnapshotInfo
+from pyVmomi.vim.Task import Task
 
-from pyVmomi.vim.vslm.vcenter import RetrieveVStorageObjSpec
-from pyVmomi.vim.vslm.vcenter import VStorageObjectAssociations
+from pyVmomi.vim.VirtualMachine import VirtualMachine
+
+from pyVmomi.vim.encryption.CryptoSpec import CryptoSpec
+
+from pyVmomi.vim.vm.ProfileSpec import ProfileSpec
+
+from pyVmomi.vim.vslm.CloneSpec import CloneSpec
+
+from pyVmomi.vim.vslm.CreateSpec import CreateSpec
+
+from pyVmomi.vim.vslm.DiskCryptoSpec import DiskCryptoSpec
+
+from pyVmomi.vim.vslm.ID import ID
+
+from pyVmomi.vim.vslm.InfrastructureObjectPolicy import InfrastructureObjectPolicy
+
+from pyVmomi.vim.vslm.InfrastructureObjectPolicySpec import InfrastructureObjectPolicySpec
+
+from pyVmomi.vim.vslm.ReconcileSpec import ReconcileSpec
+
+from pyVmomi.vim.vslm.RelocateSpec import RelocateSpec
+
+from pyVmomi.vim.vslm.StateInfo import StateInfo
+
+from pyVmomi.vim.vslm.TagEntry import TagEntry
+
+from pyVmomi.vim.vslm.VStorageObject import VStorageObject
+
+from pyVmomi.vim.vslm.VStorageObjectManagerBase import VStorageObjectManagerBase
+
+from pyVmomi.vim.vslm.VStorageObjectSnapshotDetails import VStorageObjectSnapshotDetails
+
+from pyVmomi.vim.vslm.VStorageObjectSnapshotInfo import VStorageObjectSnapshotInfo
+
+from pyVmomi.vim.vslm.vcenter.RetrieveVStorageObjSpec import RetrieveVStorageObjSpec
+
+from pyVmomi.vim.vslm.vcenter.VStorageObjectAssociations import VStorageObjectAssociations
 
 class VStorageObjectManager(VStorageObjectManagerBase):
    def CreateDisk(self, spec: CreateSpec) -> Task: ...
    def RegisterDisk(self, path: str, name: Optional[str]) -> VStorageObject: ...
    def ExtendDisk(self, id: ID, datastore: Datastore, newCapacityInMB: long) -> Task: ...
    def InflateDisk(self, id: ID, datastore: Datastore) -> Task: ...
-   def RenameVStorageObject(self, id: ID, datastore: Datastore, name: str) -> NoReturn: ...
+   def RenameVStorageObject(self, id: ID, datastore: Datastore, name: str) -> None: ...
    def UpdateVStorageObjectPolicy(self, id: ID, datastore: Datastore, profile: list[ProfileSpec]) -> Task: ...
    def UpdateVStorageObjectCrypto(self, id: ID, datastore: Datastore, profile: list[ProfileSpec], disksCrypto: Optional[DiskCryptoSpec]) -> Task: ...
    def UpdateVStorageInfrastructureObjectPolicy(self, spec: InfrastructureObjectPolicySpec) -> Task: ...
@@ -54,14 +71,14 @@ class VStorageObjectManager(VStorageObjectManagerBase):
    def ListVStorageObject(self, datastore: Datastore) -> list[ID]: ...
    def CloneVStorageObject(self, id: ID, datastore: Datastore, spec: CloneSpec) -> Task: ...
    def RelocateVStorageObject(self, id: ID, datastore: Datastore, spec: RelocateSpec) -> Task: ...
-   def SetVStorageObjectControlFlags(self, id: ID, datastore: Datastore, controlFlags: list[str]) -> NoReturn: ...
-   def ClearVStorageObjectControlFlags(self, id: ID, datastore: Datastore, controlFlags: list[str]) -> NoReturn: ...
-   def AttachTagToVStorageObject(self, id: ID, category: str, tag: str) -> NoReturn: ...
-   def DetachTagFromVStorageObject(self, id: ID, category: str, tag: str) -> NoReturn: ...
+   def SetVStorageObjectControlFlags(self, id: ID, datastore: Datastore, controlFlags: list[str]) -> None: ...
+   def ClearVStorageObjectControlFlags(self, id: ID, datastore: Datastore, controlFlags: list[str]) -> None: ...
+   def AttachTagToVStorageObject(self, id: ID, category: str, tag: str) -> None: ...
+   def DetachTagFromVStorageObject(self, id: ID, category: str, tag: str) -> None: ...
    def ListVStorageObjectsAttachedToTag(self, category: str, tag: str) -> list[ID]: ...
    def ListTagsAttachedToVStorageObject(self, id: ID) -> list[TagEntry]: ...
    def ReconcileDatastoreInventory(self, datastore: Datastore, deepCleansing: Optional[bool]) -> Task: ...
-   def ScheduleReconcileDatastoreInventory(self, datastore: Datastore, deepCleansing: Optional[bool]) -> NoReturn: ...
+   def ScheduleReconcileDatastoreInventory(self, datastore: Datastore, deepCleansing: Optional[bool]) -> None: ...
    def CreateSnapshot(self, id: ID, datastore: Datastore, description: str) -> Task: ...
    def DeleteSnapshot(self, id: ID, datastore: Datastore, snapshotId: ID) -> Task: ...
    def RetrieveSnapshotInfo(self, id: ID, datastore: Datastore) -> VStorageObjectSnapshotInfo: ...

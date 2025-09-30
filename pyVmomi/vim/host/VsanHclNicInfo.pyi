@@ -6,8 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.host import VsanHclCommonDeviceInfo
-from pyVmomi.vim.host import VsanNicRdmaInfo
+from pyVmomi.vim.host.VsanHclCommonDeviceInfo import VsanHclCommonDeviceInfo
+
+from pyVmomi.vim.host.VsanNicRdmaInfo import VsanNicRdmaInfo
 
 class VsanHclNicInfo(VsanHclCommonDeviceInfo):
    vmknic: Optional[str] = None

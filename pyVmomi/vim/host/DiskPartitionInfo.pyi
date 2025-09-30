@@ -11,9 +11,9 @@ from pyVmomi.VmomiSupport import Enum
 from pyVmomi.VmomiSupport import byte
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import DiskDimensions
+from pyVmomi.vim.host.DiskDimensions import DiskDimensions
 
 class DiskPartitionInfo(DynamicData):
    class PartitionFormat(Enum):

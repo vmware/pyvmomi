@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import OvfMissingElement
+from pyVmomi.vim.fault.OvfMissingElement import OvfMissingElement
 
 class OvfMissingElementNormalBoundary(OvfMissingElement):
    boundary: str

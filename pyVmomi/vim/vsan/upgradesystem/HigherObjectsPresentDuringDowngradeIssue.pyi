@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import VsanUpgradeSystem
+from pyVmomi.vim.VsanUpgradeSystem import VsanUpgradeSystem
 
 class HigherObjectsPresentDuringDowngradeIssue(VsanUpgradeSystem.PreflightCheckIssue):
    uuids: list[str] = []

@@ -6,11 +6,13 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.cns import BackingObjectDetails
-from pyVmomi.vim.cns import VolumeId
-from pyVmomi.vim.cns import VolumeMetadata
+from pyVmomi.vim.cns.BackingObjectDetails import BackingObjectDetails
+
+from pyVmomi.vim.cns.VolumeId import VolumeId
+
+from pyVmomi.vim.cns.VolumeMetadata import VolumeMetadata
 
 class Volume(DynamicData):
    volumeId: VolumeId

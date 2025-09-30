@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.eam.issue.personality.agency import PMIssue
+from pyVmomi.eam.issue.personality.agency.PMIssue import PMIssue
 
 class DepotIssue(PMIssue):
    remoteDepotUrl: str

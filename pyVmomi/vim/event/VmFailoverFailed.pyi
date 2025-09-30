@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vmodl.MethodFault import MethodFault
 
-from pyVmomi.vim.event import VmEvent
+from pyVmomi.vim.event.VmEvent import VmEvent
 
 class VmFailoverFailed(VmEvent):
    reason: Optional[MethodFault] = None

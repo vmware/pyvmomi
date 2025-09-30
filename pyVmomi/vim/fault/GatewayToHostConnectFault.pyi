@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.fault import GatewayConnectFault
+from pyVmomi.vim.fault.GatewayConnectFault import GatewayConnectFault
 
 class GatewayToHostConnectFault(GatewayConnectFault):
    hostname: str

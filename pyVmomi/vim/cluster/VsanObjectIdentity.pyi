@@ -6,10 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vim import KeyValue
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.KeyValue import KeyValue
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.VirtualMachine import VirtualMachine
+
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class VsanObjectIdentity(DynamicData):
    uuid: str

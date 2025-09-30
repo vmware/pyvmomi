@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.event import MigrationEvent
+from pyVmomi.vim.event.MigrationEvent import MigrationEvent
 
 class MigrationErrorEvent(MigrationEvent):
    pass

@@ -8,9 +8,9 @@ from typing import ClassVar
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim import HostSystem
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class DasAamNodeState(DynamicData):
    class DasState(Enum):

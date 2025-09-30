@@ -6,8 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.event import ChangesInfoEventArgument
-from pyVmomi.vim.event import ScheduledTaskEvent
+from pyVmomi.vim.event.ChangesInfoEventArgument import ChangesInfoEventArgument
+
+from pyVmomi.vim.event.ScheduledTaskEvent import ScheduledTaskEvent
 
 class ScheduledTaskReconfiguredEvent(ScheduledTaskEvent):
    configChanges: Optional[ChangesInfoEventArgument] = None

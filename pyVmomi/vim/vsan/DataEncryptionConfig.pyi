@@ -8,9 +8,9 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.encryption import KeyProviderId
+from pyVmomi.vim.encryption.KeyProviderId import KeyProviderId
 
 class DataEncryptionConfig(DynamicData):
    encryptionEnabled: bool

@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.vm.device import VirtualEthernetCard
+from pyVmomi.vim.vm.device.VirtualEthernetCard import VirtualEthernetCard
 
 class VirtualE1000(VirtualEthernetCard):
    pass

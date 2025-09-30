@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.host import NvmeSpec
+from pyVmomi.vim.host.NvmeSpec import NvmeSpec
 
 class NvmeConnectSpec(NvmeSpec):
    subnqn: str

@@ -8,18 +8,27 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import ClusterComputeResource
-from pyVmomi.vim import Datastore
-from pyVmomi.vim import Task
+from pyVmomi.vim.ClusterComputeResource import ClusterComputeResource
 
-from pyVmomi.vim.vsan import DatastoreSourcePrecheckResult
-from pyVmomi.vim.vsan import HciMeshDatastoreSource
-from pyVmomi.vim.vsan import MountPrecheckResult
-from pyVmomi.vim.vsan import RemoteVcInfo
-from pyVmomi.vim.vsan import VcRemoteVsanServerClusterInfo
-from pyVmomi.vim.vsan import XVCDatastoreInfo
-from pyVmomi.vim.vsan import XvcQueryResultSet
-from pyVmomi.vim.vsan import XvcQuerySpec
+from pyVmomi.vim.Datastore import Datastore
+
+from pyVmomi.vim.Task import Task
+
+from pyVmomi.vim.vsan.DatastoreSourcePrecheckResult import DatastoreSourcePrecheckResult
+
+from pyVmomi.vim.vsan.HciMeshDatastoreSource import HciMeshDatastoreSource
+
+from pyVmomi.vim.vsan.MountPrecheckResult import MountPrecheckResult
+
+from pyVmomi.vim.vsan.RemoteVcInfo import RemoteVcInfo
+
+from pyVmomi.vim.vsan.VcRemoteVsanServerClusterInfo import VcRemoteVsanServerClusterInfo
+
+from pyVmomi.vim.vsan.XVCDatastoreInfo import XVCDatastoreInfo
+
+from pyVmomi.vim.vsan.XvcQueryResultSet import XvcQueryResultSet
+
+from pyVmomi.vim.vsan.XvcQuerySpec import XvcQuerySpec
 
 class VsanRemoteDatastoreSystem(ManagedObject):
    def MountPrecheck(self, cluster: ClusterComputeResource, datastore: Datastore, serverClusterInfo: Optional[VcRemoteVsanServerClusterInfo]) -> MountPrecheckResult: ...

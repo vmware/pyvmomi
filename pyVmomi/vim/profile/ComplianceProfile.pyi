@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.profile import Expression
+from pyVmomi.vim.profile.Expression import Expression
 
 class ComplianceProfile(DynamicData):
    expression: list[Expression] = []

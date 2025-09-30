@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vmodl.MethodFault import MethodFault
 
 class VslmFault(MethodFault):
    msg: Optional[str] = None

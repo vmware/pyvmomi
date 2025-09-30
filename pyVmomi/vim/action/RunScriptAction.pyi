@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.action import Action
+from pyVmomi.vim.action.Action import Action
 
 class RunScriptAction(Action):
    script: str

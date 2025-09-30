@@ -4,15 +4,15 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import NoReturn
 from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import LicenseManager
+from pyVmomi.vim.LicenseManager import LicenseManager
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import KeyAnyValue
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.vmodl.KeyAnyValue import KeyAnyValue
 
 class LicenseAssignmentManager(ManagedObject):
    class LicenseAssignment(DynamicData):
@@ -23,5 +23,5 @@ class LicenseAssignmentManager(ManagedObject):
       properties: list[KeyAnyValue] = []
 
    def UpdateAssignedLicense(self, entity: str, licenseKey: str, entityDisplayName: Optional[str]) -> LicenseManager.LicenseInfo: ...
-   def RemoveAssignedLicense(self, entityId: str) -> NoReturn: ...
+   def RemoveAssignedLicense(self, entityId: str) -> None: ...
    def QueryAssignedLicenses(self, entityId: Optional[str]) -> list[LicenseAssignment]: ...

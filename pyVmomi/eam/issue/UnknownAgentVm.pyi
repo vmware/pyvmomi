@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.VirtualMachine import VirtualMachine
 
-from pyVmomi.eam.issue import HostIssue
+from pyVmomi.eam.issue.HostIssue import HostIssue
 
 class UnknownAgentVm(HostIssue):
    vm: VirtualMachine

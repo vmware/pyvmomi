@@ -9,7 +9,7 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim.fault import VmFaultToleranceIssue
+from pyVmomi.vim.fault.VmFaultToleranceIssue import VmFaultToleranceIssue
 
 class VmFaultToleranceInvalidFileBacking(VmFaultToleranceIssue):
    class DeviceType(Enum):

@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.VirtualMachine import VirtualMachine
 
-from pyVmomi.vim.cluster import RuleInfo
+from pyVmomi.vim.cluster.RuleInfo import RuleInfo
 
 class AffinityRuleSpec(RuleInfo):
    vm: list[VirtualMachine] = []

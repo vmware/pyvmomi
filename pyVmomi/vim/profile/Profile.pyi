@@ -6,17 +6,19 @@
 
 from datetime import datetime
 
-from typing import NoReturn
 from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import ExtendedElementDescription
-from pyVmomi.vim import ManagedEntity
-from pyVmomi.vim import Task
+from pyVmomi.vim.ExtendedElementDescription import ExtendedElementDescription
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import LocalizableMessage
+from pyVmomi.vim.ManagedEntity import ManagedEntity
+
+from pyVmomi.vim.Task import Task
+
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.vmodl.LocalizableMessage import LocalizableMessage
 
 class Profile(ManagedObject):
    class CreateSpec(DynamicData):
@@ -55,8 +57,8 @@ class Profile(ManagedObject):
    def complianceStatus(self) -> str: ...
 
    def RetrieveDescription(self) -> Optional[Description]: ...
-   def Destroy(self) -> NoReturn: ...
-   def AssociateEntities(self, entity: list[ManagedEntity]) -> NoReturn: ...
-   def DissociateEntities(self, entity: list[ManagedEntity]) -> NoReturn: ...
+   def Destroy(self) -> None: ...
+   def AssociateEntities(self, entity: list[ManagedEntity]) -> None: ...
+   def DissociateEntities(self, entity: list[ManagedEntity]) -> None: ...
    def CheckCompliance(self, entity: list[ManagedEntity]) -> Task: ...
    def ExportProfile(self) -> str: ...

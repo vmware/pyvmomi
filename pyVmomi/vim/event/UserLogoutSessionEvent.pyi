@@ -10,7 +10,7 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim.event import SessionEvent
+from pyVmomi.vim.event.SessionEvent import SessionEvent
 
 class UserLogoutSessionEvent(SessionEvent):
    ipAddress: Optional[str] = None

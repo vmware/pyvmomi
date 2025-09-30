@@ -1,4 +1,4 @@
-# Copyright (c) 2006-2024 Broadcom. All Rights Reserved.
+# Copyright (c) 2006-2025 Broadcom. All Rights Reserved.
 # Broadcom Confidential. The term "Broadcom" refers to Broadcom Inc.
 # and/or its subsidiaries.
 
@@ -6,8 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import MethodFault
-from pyVmomi.vmodl import RuntimeFault
+from pyVmomi.vmodl.MethodFault import MethodFault
+
+from pyVmomi.vmodl.RuntimeFault import RuntimeFault
 
 class UnexpectedFault(RuntimeFault):
    faultName: type

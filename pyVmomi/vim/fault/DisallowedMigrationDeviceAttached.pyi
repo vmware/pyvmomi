@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vmodl.MethodFault import MethodFault
 
-from pyVmomi.vim.fault import MigrationFault
+from pyVmomi.vim.fault.MigrationFault import MigrationFault
 
 class DisallowedMigrationDeviceAttached(MigrationFault):
    fault: MethodFault

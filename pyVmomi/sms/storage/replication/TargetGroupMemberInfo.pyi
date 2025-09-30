@@ -4,12 +4,13 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import Datastore
+from pyVmomi.vim.Datastore import Datastore
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.sms.storage.replication import DeviceId
-from pyVmomi.sms.storage.replication import ReplicaId
+from pyVmomi.sms.storage.replication.DeviceId import DeviceId
+
+from pyVmomi.sms.storage.replication.ReplicaId import ReplicaId
 
 class TargetGroupMemberInfo(DynamicData):
    replicaId: ReplicaId

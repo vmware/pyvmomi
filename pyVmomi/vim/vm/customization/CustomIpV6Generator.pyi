@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.vm.customization import IpV6Generator
+from pyVmomi.vim.vm.customization.IpV6Generator import IpV6Generator
 
 class CustomIpV6Generator(IpV6Generator):
    argument: Optional[str] = None

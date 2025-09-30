@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.event import ClusterOvercommittedEvent
+from pyVmomi.vim.event.ClusterOvercommittedEvent import ClusterOvercommittedEvent
 
 class HostOvercommittedEvent(ClusterOvercommittedEvent):
    pass

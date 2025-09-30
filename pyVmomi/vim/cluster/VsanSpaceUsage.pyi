@@ -8,15 +8,19 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.cluster import VsanObjectSpaceSummary
-from pyVmomi.vim.cluster import VsanSpaceUsageDetailResult
-from pyVmomi.vim.cluster import VsanWhatifCapacity
+from pyVmomi.vim.cluster.VsanObjectSpaceSummary import VsanObjectSpaceSummary
 
-from pyVmomi.vim.vsan import DataEfficiencyCapacityState
-from pyVmomi.vim.vsan import VsanHealthThreshold
-from pyVmomi.vim.vsan import VsanSpaceEfficiencyRatio
+from pyVmomi.vim.cluster.VsanSpaceUsageDetailResult import VsanSpaceUsageDetailResult
+
+from pyVmomi.vim.cluster.VsanWhatifCapacity import VsanWhatifCapacity
+
+from pyVmomi.vim.vsan.DataEfficiencyCapacityState import DataEfficiencyCapacityState
+
+from pyVmomi.vim.vsan.VsanHealthThreshold import VsanHealthThreshold
+
+from pyVmomi.vim.vsan.VsanSpaceEfficiencyRatio import VsanSpaceEfficiencyRatio
 
 class VsanSpaceUsage(DynamicData):
    totalCapacityB: long

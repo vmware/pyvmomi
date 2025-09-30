@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.vsan import DataEfficiencyConfig
+from pyVmomi.vim.vsan.DataEfficiencyConfig import DataEfficiencyConfig
 
 class DataEfficiencyConfigEx(DataEfficiencyConfig):
    dedupStoreUuid: Optional[str] = None

@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.vm.customization import NameGenerator
+from pyVmomi.vim.vm.customization.NameGenerator import NameGenerator
 
 class CustomNameGenerator(NameGenerator):
    argument: Optional[str] = None

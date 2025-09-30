@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.profile import PolicyOption
+from pyVmomi.vim.profile.PolicyOption import PolicyOption
 
 class Policy(DynamicData):
    id: str

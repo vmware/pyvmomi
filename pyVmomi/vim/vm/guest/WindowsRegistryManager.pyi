@@ -7,7 +7,6 @@
 from datetime import datetime
 
 from typing import ClassVar
-from typing import NoReturn
 from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
@@ -15,12 +14,13 @@ from pyVmomi.VmomiSupport import ManagedObject
 from pyVmomi.VmomiSupport import binary
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.VirtualMachine import VirtualMachine
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vm.guest import GuestAuthentication
+from pyVmomi.vmodl.MethodFault import MethodFault
+
+from pyVmomi.vim.vm.guest.GuestAuthentication import GuestAuthentication
 
 class WindowsRegistryManager(ManagedObject):
    class RegistryKeyName(DynamicData):
@@ -70,9 +70,9 @@ class WindowsRegistryManager(ManagedObject):
       name: RegistryValueName
       data: RegistryValueData
 
-   def CreateRegistryKey(self, vm: VirtualMachine, auth: GuestAuthentication, keyName: RegistryKeyName, isVolatile: bool, classType: Optional[str]) -> NoReturn: ...
+   def CreateRegistryKey(self, vm: VirtualMachine, auth: GuestAuthentication, keyName: RegistryKeyName, isVolatile: bool, classType: Optional[str]) -> None: ...
    def ListRegistryKeys(self, vm: VirtualMachine, auth: GuestAuthentication, keyName: RegistryKeyName, recursive: bool, matchPattern: Optional[str]) -> list[RegistryKeyRecord]: ...
-   def DeleteRegistryKey(self, vm: VirtualMachine, auth: GuestAuthentication, keyName: RegistryKeyName, recursive: bool) -> NoReturn: ...
-   def SetRegistryValue(self, vm: VirtualMachine, auth: GuestAuthentication, value: RegistryValue) -> NoReturn: ...
+   def DeleteRegistryKey(self, vm: VirtualMachine, auth: GuestAuthentication, keyName: RegistryKeyName, recursive: bool) -> None: ...
+   def SetRegistryValue(self, vm: VirtualMachine, auth: GuestAuthentication, value: RegistryValue) -> None: ...
    def ListRegistryValues(self, vm: VirtualMachine, auth: GuestAuthentication, keyName: RegistryKeyName, expandStrings: bool, matchPattern: Optional[str]) -> list[RegistryValue]: ...
-   def DeleteRegistryValue(self, vm: VirtualMachine, auth: GuestAuthentication, valueName: RegistryValueName) -> NoReturn: ...
+   def DeleteRegistryValue(self, vm: VirtualMachine, auth: GuestAuthentication, valueName: RegistryValueName) -> None: ...

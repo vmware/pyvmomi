@@ -6,8 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.event import ChangesInfoEventArgument
-from pyVmomi.vim.event import ClusterEvent
+from pyVmomi.vim.event.ChangesInfoEventArgument import ChangesInfoEventArgument
+
+from pyVmomi.vim.event.ClusterEvent import ClusterEvent
 
 class ClusterReconfiguredEvent(ClusterEvent):
    configChanges: Optional[ChangesInfoEventArgument] = None

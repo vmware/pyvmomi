@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import CannotAccessVmComponent
+from pyVmomi.vim.fault.CannotAccessVmComponent import CannotAccessVmComponent
 
 class CannotAccessVmDevice(CannotAccessVmComponent):
    device: str

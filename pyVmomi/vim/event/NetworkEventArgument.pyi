@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import Network
+from pyVmomi.vim.Network import Network
 
-from pyVmomi.vim.event import EntityEventArgument
+from pyVmomi.vim.event.EntityEventArgument import EntityEventArgument
 
 class NetworkEventArgument(EntityEventArgument):
    network: Network

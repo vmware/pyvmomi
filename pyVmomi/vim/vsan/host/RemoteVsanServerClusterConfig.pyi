@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vsan.host import SiteAffinityInfo
+from pyVmomi.vim.vsan.host.SiteAffinityInfo import SiteAffinityInfo
 
 class RemoteVsanServerClusterConfig(DynamicData):
    clusterUuid: str

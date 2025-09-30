@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.profile import PolicyOptionMetadata
+from pyVmomi.vim.profile.PolicyOptionMetadata import PolicyOptionMetadata
 
 class CompositePolicyOptionMetadata(PolicyOptionMetadata):
    option: list[str] = []

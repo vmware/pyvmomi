@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.pbm.profile import CapabilityBasedProfile
+from pyVmomi.pbm.profile.CapabilityBasedProfile import CapabilityBasedProfile
 
 class DefaultCapabilityBasedProfile(CapabilityBasedProfile):
    vvolType: list[str] = []

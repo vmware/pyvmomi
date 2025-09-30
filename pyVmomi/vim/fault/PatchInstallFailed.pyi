@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import PlatformConfigFault
+from pyVmomi.vim.fault.PlatformConfigFault import PlatformConfigFault
 
 class PatchInstallFailed(PlatformConfigFault):
    rolledBack: bool

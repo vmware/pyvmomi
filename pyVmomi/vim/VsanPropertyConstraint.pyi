@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import VsanResourceConstraint
+from pyVmomi.vim.VsanResourceConstraint import VsanResourceConstraint
 
-from pyVmomi.vmodl import KeyAnyValue
+from pyVmomi.vmodl.KeyAnyValue import KeyAnyValue
 
 class VsanPropertyConstraint(VsanResourceConstraint):
    propertyName: Optional[str] = None

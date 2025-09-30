@@ -6,8 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.cluster import DasAamNodeState
-from pyVmomi.vim.cluster import DasHostInfo
+from pyVmomi.vim.cluster.DasAamNodeState import DasAamNodeState
+
+from pyVmomi.vim.cluster.DasHostInfo import DasHostInfo
 
 class DasAamHostInfo(DasHostInfo):
    hostDasState: list[DasAamNodeState] = []

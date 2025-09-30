@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.fault import OvfFault
+from pyVmomi.vim.fault.OvfFault import OvfFault
 
 class OvfUnsupportedPackage(OvfFault):
    lineNumber: Optional[int] = None

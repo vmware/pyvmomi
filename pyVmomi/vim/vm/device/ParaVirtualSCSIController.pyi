@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.vm.device import VirtualSCSIController
+from pyVmomi.vim.vm.device.VirtualSCSIController import VirtualSCSIController
 
 class ParaVirtualSCSIController(VirtualSCSIController):
    pass

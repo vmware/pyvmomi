@@ -6,10 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import LocalizableMessage
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vsan.host import DataInTransitEncryptionInfo
+from pyVmomi.vmodl.LocalizableMessage import LocalizableMessage
+
+from pyVmomi.vim.vsan.host.DataInTransitEncryptionInfo import DataInTransitEncryptionInfo
 
 class VsanDitEncryptionHealthSummary(DynamicData):
    hostname: Optional[str] = None

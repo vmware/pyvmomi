@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.VirtualMachine import VirtualMachine
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class PreemptibleVmPairInfo(DynamicData):
    id: Optional[int] = None

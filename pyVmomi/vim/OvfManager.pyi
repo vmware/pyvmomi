@@ -11,24 +11,35 @@ from pyVmomi.VmomiSupport import Enum
 from pyVmomi.VmomiSupport import ManagedObject
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim import Datastore
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import ImportSpec
-from pyVmomi.vim import KeyValue
-from pyVmomi.vim import ManagedEntity
-from pyVmomi.vim import Network
-from pyVmomi.vim import OvfConsumer
-from pyVmomi.vim import ResourceConfigSpec
-from pyVmomi.vim import ResourcePool
+from pyVmomi.vim.Datastore import Datastore
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import LocalizableMessage
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vim.vApp import ProductInfo
-from pyVmomi.vim.vApp import PropertyInfo
+from pyVmomi.vim.ImportSpec import ImportSpec
 
-from pyVmomi.vim.vm import Snapshot
+from pyVmomi.vim.KeyValue import KeyValue
+
+from pyVmomi.vim.ManagedEntity import ManagedEntity
+
+from pyVmomi.vim.Network import Network
+
+from pyVmomi.vim.OvfConsumer import OvfConsumer
+
+from pyVmomi.vim.ResourceConfigSpec import ResourceConfigSpec
+
+from pyVmomi.vim.ResourcePool import ResourcePool
+
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.vmodl.LocalizableMessage import LocalizableMessage
+
+from pyVmomi.vmodl.MethodFault import MethodFault
+
+from pyVmomi.vim.vApp.ProductInfo import ProductInfo
+
+from pyVmomi.vim.vApp.PropertyInfo import PropertyInfo
+
+from pyVmomi.vim.vm.Snapshot import Snapshot
 
 class OvfManager(ManagedObject):
    class OvfOptionInfo(DynamicData):

@@ -104,21 +104,6 @@ class VimSessionOrientedStub(SessionOrientedStub):
         return _doLogin
 
     @staticmethod
-    def makeExtensionLoginMethod(extensionKey):
-        """Return a function that will call the vim.SessionManager.Login() method
-        with the given parameters.  The result of this function can be passed as
-        the "loginMethod" to a SessionOrientedStub constructor.
-        """
-        def _doLogin(soapStub):
-            si = vim.ServiceInstance("ServiceInstance", soapStub)
-            sm = si.content.sessionManager
-            if not sm.currentSession:
-                si.content.sessionManager.LoginExtensionByCertificate(
-                    extensionKey)
-
-        return _doLogin
-
-    @staticmethod
     def makeCertHokTokenLoginMethod(stsUrl, stsCert=None, ssl_context=None):
         """Return a function that will call the vim.SessionManager.LoginByToken()
         after obtaining a HoK SAML token from the STS. The result of this function

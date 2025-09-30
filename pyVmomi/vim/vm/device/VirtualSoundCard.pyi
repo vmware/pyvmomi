@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.vm.device import VirtualDevice
+from pyVmomi.vim.vm.device.VirtualDevice import VirtualDevice
 
 class VirtualSoundCard(VirtualDevice):
    class DeviceBackingInfo(VirtualDevice.DeviceBackingInfo):

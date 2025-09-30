@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.encryption import CryptoSpec
+from pyVmomi.vim.encryption.CryptoSpec import CryptoSpec
 
 class DiskCryptoSpec(DynamicData):
    parent: Optional[DiskCryptoSpec] = None

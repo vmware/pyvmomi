@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.eam.issue import AgencyIssue
+from pyVmomi.eam.issue.AgencyIssue import AgencyIssue
 
 class VUMIssue(AgencyIssue):
    pass

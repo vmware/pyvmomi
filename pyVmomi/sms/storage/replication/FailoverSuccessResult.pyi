@@ -8,15 +8,19 @@ from datetime import datetime
 
 from typing import Optional
 
-from pyVmomi.vim import Datastore
+from pyVmomi.vim.Datastore import Datastore
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.sms.storage.replication import DeviceId
-from pyVmomi.sms.storage.replication import GroupOperationResult
-from pyVmomi.sms.storage.replication import PointInTimeReplicaId
-from pyVmomi.sms.storage.replication import ReplicaId
+from pyVmomi.vmodl.MethodFault import MethodFault
+
+from pyVmomi.sms.storage.replication.DeviceId import DeviceId
+
+from pyVmomi.sms.storage.replication.GroupOperationResult import GroupOperationResult
+
+from pyVmomi.sms.storage.replication.PointInTimeReplicaId import PointInTimeReplicaId
+
+from pyVmomi.sms.storage.replication.ReplicaId import ReplicaId
 
 class FailoverSuccessResult(GroupOperationResult):
    class RecoveredDiskInfo(DynamicData):

@@ -8,9 +8,11 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import Datacenter
-from pyVmomi.vim import ManagedEntity
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.Datacenter import Datacenter
+
+from pyVmomi.vim.ManagedEntity import ManagedEntity
+
+from pyVmomi.vim.VirtualMachine import VirtualMachine
 
 class SearchIndex(ManagedObject):
    def FindByUuid(self, datacenter: Optional[Datacenter], uuid: str, vmSearch: bool, instanceUuid: Optional[bool]) -> Optional[ManagedEntity]: ...

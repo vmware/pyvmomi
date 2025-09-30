@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vsan import VsanBurnInTest
+from pyVmomi.vim.vsan.VsanBurnInTest import VsanBurnInTest
 
 class VsanBurnInTestCheckResult(DynamicData):
    passedTests: list[VsanBurnInTest] = []

@@ -11,13 +11,13 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim import ManagedEntity
+from pyVmomi.vim.ManagedEntity import ManagedEntity
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.alarm import Alarm
+from pyVmomi.vim.alarm.Alarm import Alarm
 
-from pyVmomi.vim.scheduler import ScheduledTask
+from pyVmomi.vim.scheduler.ScheduledTask import ScheduledTask
 
 class EventFilterSpec(DynamicData):
    class RecursionOption(Enum):

@@ -9,11 +9,11 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim import HostSystem
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vmodl.MethodFault import MethodFault
 
-from pyVmomi.vim.fault import VmFaultToleranceIssue
+from pyVmomi.vim.fault.VmFaultToleranceIssue import VmFaultToleranceIssue
 
 class FtIssuesOnHost(VmFaultToleranceIssue):
    class HostSelectionType(Enum):

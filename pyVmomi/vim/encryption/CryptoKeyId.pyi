@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.encryption import KeyProviderId
+from pyVmomi.vim.encryption.KeyProviderId import KeyProviderId
 
 class CryptoKeyId(DynamicData):
    keyId: str

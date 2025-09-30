@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.vm.device import VirtualDevice
+from pyVmomi.vim.vm.device.VirtualDevice import VirtualDevice
 
 class VirtualController(VirtualDevice):
    busNumber: int

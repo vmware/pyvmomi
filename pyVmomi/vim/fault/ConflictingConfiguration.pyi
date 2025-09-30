@@ -6,11 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vim import ManagedEntity
+from pyVmomi.vim.ManagedEntity import ManagedEntity
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.fault import DvsFault
+from pyVmomi.vim.fault.DvsFault import DvsFault
 
 class ConflictingConfiguration(DvsFault):
    class Config(DynamicData):

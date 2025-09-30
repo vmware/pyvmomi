@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.cluster import PreemptibleVmPairInfo
+from pyVmomi.vim.cluster.PreemptibleVmPairInfo import PreemptibleVmPairInfo
 
-from pyVmomi.vim.option import ArrayUpdateSpec
+from pyVmomi.vim.option.ArrayUpdateSpec import ArrayUpdateSpec
 
 class PreemptibleVmPairSpec(ArrayUpdateSpec):
    info: Optional[PreemptibleVmPairInfo] = None

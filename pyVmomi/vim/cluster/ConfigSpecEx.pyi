@@ -6,27 +6,41 @@
 
 from typing import Optional
 
-from pyVmomi.vim import ComputeResource
+from pyVmomi.vim.ComputeResource import ComputeResource
 
-from pyVmomi.vim.cluster import CryptoConfigInfo
-from pyVmomi.vim.cluster import DasConfigInfo
-from pyVmomi.vim.cluster import DasVmConfigSpec
-from pyVmomi.vim.cluster import DpmConfigInfo
-from pyVmomi.vim.cluster import DpmHostConfigSpec
-from pyVmomi.vim.cluster import DrsConfigInfo
-from pyVmomi.vim.cluster import DrsVmConfigSpec
-from pyVmomi.vim.cluster import GroupSpec
-from pyVmomi.vim.cluster import InfraUpdateHaConfigInfo
-from pyVmomi.vim.cluster import OrchestrationInfo
-from pyVmomi.vim.cluster import ProactiveDrsConfigInfo
-from pyVmomi.vim.cluster import RuleSpec
-from pyVmomi.vim.cluster import SystemVMsConfigSpec
-from pyVmomi.vim.cluster import VmOrchestrationSpec
+from pyVmomi.vim.cluster.CryptoConfigInfo import CryptoConfigInfo
 
-from pyVmomi.vim.vsan.cluster import ConfigInfo
-from pyVmomi.vim.vsan.cluster import CoreConfigSpec
+from pyVmomi.vim.cluster.DasConfigInfo import DasConfigInfo
 
-from pyVmomi.vim.vsan.host import ConfigInfo
+from pyVmomi.vim.cluster.DasVmConfigSpec import DasVmConfigSpec
+
+from pyVmomi.vim.cluster.DpmConfigInfo import DpmConfigInfo
+
+from pyVmomi.vim.cluster.DpmHostConfigSpec import DpmHostConfigSpec
+
+from pyVmomi.vim.cluster.DrsConfigInfo import DrsConfigInfo
+
+from pyVmomi.vim.cluster.DrsVmConfigSpec import DrsVmConfigSpec
+
+from pyVmomi.vim.cluster.GroupSpec import GroupSpec
+
+from pyVmomi.vim.cluster.InfraUpdateHaConfigInfo import InfraUpdateHaConfigInfo
+
+from pyVmomi.vim.cluster.OrchestrationInfo import OrchestrationInfo
+
+from pyVmomi.vim.cluster.ProactiveDrsConfigInfo import ProactiveDrsConfigInfo
+
+from pyVmomi.vim.cluster.RuleSpec import RuleSpec
+
+from pyVmomi.vim.cluster.SystemVMsConfigSpec import SystemVMsConfigSpec
+
+from pyVmomi.vim.cluster.VmOrchestrationSpec import VmOrchestrationSpec
+
+from pyVmomi.vim.vsan.cluster.ConfigInfo import ConfigInfo
+
+from pyVmomi.vim.vsan.cluster.CoreConfigSpec import CoreConfigSpec
+
+from pyVmomi.vim.vsan.host.ConfigInfo import ConfigInfo
 
 class ConfigSpecEx(ComputeResource.ConfigSpec):
    systemVMsConfig: Optional[SystemVMsConfigSpec] = None

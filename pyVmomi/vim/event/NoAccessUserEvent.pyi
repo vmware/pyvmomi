@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.event import SessionEvent
+from pyVmomi.vim.event.SessionEvent import SessionEvent
 
 class NoAccessUserEvent(SessionEvent):
    ipAddress: str

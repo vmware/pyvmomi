@@ -8,11 +8,11 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import short
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.option import OptionValue
+from pyVmomi.vim.option.OptionValue import OptionValue
 
-from pyVmomi.vim.vm.device import VirtualDevice
+from pyVmomi.vim.vm.device.VirtualDevice import VirtualDevice
 
 class VirtualPCIPassthrough(VirtualDevice):
    class DeviceBackingInfo(VirtualDevice.DeviceBackingInfo):

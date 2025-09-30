@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.eam.fault import EamFault
+from pyVmomi.eam.fault.EamFault import EamFault
 
 class InvalidUrl(EamFault):
    url: str

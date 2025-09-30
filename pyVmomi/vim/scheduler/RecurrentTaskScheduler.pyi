@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.scheduler import TaskScheduler
+from pyVmomi.vim.scheduler.TaskScheduler import TaskScheduler
 
 class RecurrentTaskScheduler(TaskScheduler):
    interval: int

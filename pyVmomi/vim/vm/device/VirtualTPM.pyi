@@ -8,7 +8,7 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import binary
 
-from pyVmomi.vim.vm.device import VirtualDevice
+from pyVmomi.vim.vm.device.VirtualDevice import VirtualDevice
 
 class VirtualTPM(VirtualDevice):
    endorsementKeyCertificateSigningRequest: list[binary] = []

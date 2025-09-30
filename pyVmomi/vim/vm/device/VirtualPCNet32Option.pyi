@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.vm.device import VirtualEthernetCardOption
+from pyVmomi.vim.vm.device.VirtualEthernetCardOption import VirtualEthernetCardOption
 
 class VirtualPCNet32Option(VirtualEthernetCardOption):
    supportsMorphing: bool

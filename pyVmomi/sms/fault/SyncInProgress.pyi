@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.sms.fault import ProviderSyncFailed
+from pyVmomi.sms.fault.ProviderSyncFailed import ProviderSyncFailed
 
 class SyncInProgress(ProviderSyncFailed):
    pass

@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.vm.customization import IpGenerator
+from pyVmomi.vim.vm.customization.IpGenerator import IpGenerator
 
 class UnknownIpGenerator(IpGenerator):
    pass

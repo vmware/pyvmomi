@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.cluster import RuleInfo
+from pyVmomi.vim.cluster.RuleInfo import RuleInfo
 
-from pyVmomi.vim.option import ArrayUpdateSpec
+from pyVmomi.vim.option.ArrayUpdateSpec import ArrayUpdateSpec
 
 class RuleSpec(ArrayUpdateSpec):
    info: Optional[RuleInfo] = None

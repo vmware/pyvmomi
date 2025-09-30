@@ -6,8 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.vsan import DiskResourceCheckResult
-from pyVmomi.vim.vsan import EntityResourceCheckDetails
+from pyVmomi.vim.vsan.DiskResourceCheckResult import DiskResourceCheckResult
+
+from pyVmomi.vim.vsan.EntityResourceCheckDetails import EntityResourceCheckDetails
 
 class DiskGroupResourceCheckResult(EntityResourceCheckDetails):
    cacheTierDisk: Optional[DiskResourceCheckResult] = None

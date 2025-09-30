@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.vm import BaseIndependentFilterSpec
+from pyVmomi.vim.vm.BaseIndependentFilterSpec import BaseIndependentFilterSpec
 
 class EmptyIndependentFilterSpec(BaseIndependentFilterSpec):
    pass

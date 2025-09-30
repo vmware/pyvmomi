@@ -6,8 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.cns import QueryResult
-from pyVmomi.vim.cns import VolumeOperationResult
+from pyVmomi.vim.cns.QueryResult import QueryResult
+
+from pyVmomi.vim.cns.VolumeOperationResult import VolumeOperationResult
 
 class AsyncQueryResult(VolumeOperationResult):
    queryResult: Optional[QueryResult] = None

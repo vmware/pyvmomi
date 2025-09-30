@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vsan import XVCDatastoreInfo
+from pyVmomi.vim.vsan.XVCDatastoreInfo import XVCDatastoreInfo
 
 class XVCDatastoreConfig(DynamicData):
    xvcDatastores: list[XVCDatastoreInfo] = []

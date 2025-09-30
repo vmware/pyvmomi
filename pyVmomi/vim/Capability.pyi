@@ -6,10 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vim import EVCMode
-from pyVmomi.vim import FeatureEVCMode
+from pyVmomi.vim.EVCMode import EVCMode
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.FeatureEVCMode import FeatureEVCMode
+
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class Capability(DynamicData):
    provisioningSupported: bool

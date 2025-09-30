@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.host import AuthenticationStoreInfo
+from pyVmomi.vim.host.AuthenticationStoreInfo import AuthenticationStoreInfo
 
 class DirectoryStoreInfo(AuthenticationStoreInfo):
    pass

@@ -10,19 +10,23 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim import CustomFieldsManager
-from pyVmomi.vim import ManagedEntity
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.CustomFieldsManager import CustomFieldsManager
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.ManagedEntity import ManagedEntity
 
-from pyVmomi.vim.ext import ManagedByInfo
+from pyVmomi.vim.VirtualMachine import VirtualMachine
 
-from pyVmomi.vim.vApp import ProductInfo
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vm import FaultToleranceConfigInfo
-from pyVmomi.vim.vm import GuestInfo
-from pyVmomi.vim.vm import RuntimeInfo
+from pyVmomi.vim.ext.ManagedByInfo import ManagedByInfo
+
+from pyVmomi.vim.vApp.ProductInfo import ProductInfo
+
+from pyVmomi.vim.vm.FaultToleranceConfigInfo import FaultToleranceConfigInfo
+
+from pyVmomi.vim.vm.GuestInfo import GuestInfo
+
+from pyVmomi.vim.vm.RuntimeInfo import RuntimeInfo
 
 class Summary(DynamicData):
    class ConfigSummary(DynamicData):

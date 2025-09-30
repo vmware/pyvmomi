@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.fault import PatchNotApplicable
+from pyVmomi.vim.fault.PatchNotApplicable import PatchNotApplicable
 
 class PatchMissingDependencies(PatchNotApplicable):
    prerequisitePatch: list[str] = []

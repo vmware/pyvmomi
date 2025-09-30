@@ -8,7 +8,7 @@ from typing import ClassVar
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim.fault import VmConfigFault
+from pyVmomi.vim.fault.VmConfigFault import VmConfigFault
 
 class VFlashModuleNotSupported(VmConfigFault):
    class Reason(Enum):

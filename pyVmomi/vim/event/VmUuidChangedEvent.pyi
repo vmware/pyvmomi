@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.event import VmEvent
+from pyVmomi.vim.event.VmEvent import VmEvent
 
 class VmUuidChangedEvent(VmEvent):
    oldUuid: str

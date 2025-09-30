@@ -6,12 +6,13 @@
 
 from typing import Optional
 
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import ManagedEntity
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.ManagedEntity import ManagedEntity
 
-from pyVmomi.vim.cluster import DasAdmissionControlInfo
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.vim.cluster.DasAdmissionControlInfo import DasAdmissionControlInfo
 
 class FailoverHostAdmissionControlInfo(DasAdmissionControlInfo):
    class HostStatus(DynamicData):

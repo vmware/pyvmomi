@@ -6,11 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vim import HostSystem
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vsan.host import RuntimeStats
+from pyVmomi.vim.vsan.host.RuntimeStats import RuntimeStats
 
 class RuntimeStatsHostMap(DynamicData):
    host: HostSystem

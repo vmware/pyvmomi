@@ -11,18 +11,25 @@ from pyVmomi.VmomiSupport import Enum
 from pyVmomi.VmomiSupport import long
 from pyVmomi.VmomiSupport import short
 
-from pyVmomi.vim import Datastore
-from pyVmomi.vim import DesiredSoftwareSpec
-from pyVmomi.vim import EnvironmentBrowser
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import ManagedEntity
-from pyVmomi.vim import Network
-from pyVmomi.vim import ResourcePool
-from pyVmomi.vim import Task
+from pyVmomi.vim.Datastore import Datastore
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.DesiredSoftwareSpec import DesiredSoftwareSpec
 
-from pyVmomi.vim.host import ConnectSpec
+from pyVmomi.vim.EnvironmentBrowser import EnvironmentBrowser
+
+from pyVmomi.vim.HostSystem import HostSystem
+
+from pyVmomi.vim.ManagedEntity import ManagedEntity
+
+from pyVmomi.vim.Network import Network
+
+from pyVmomi.vim.ResourcePool import ResourcePool
+
+from pyVmomi.vim.Task import Task
+
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.vim.host.ConnectSpec import ConnectSpec
 
 class ComputeResource(ManagedEntity):
    class Summary(DynamicData):

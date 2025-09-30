@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vmodl.MethodFault import MethodFault
 
-from pyVmomi.vim.event import TemplateUpgradeEvent
+from pyVmomi.vim.event.TemplateUpgradeEvent import TemplateUpgradeEvent
 
 class TemplateUpgradeFailedEvent(TemplateUpgradeEvent):
    reason: MethodFault

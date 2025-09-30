@@ -8,9 +8,9 @@ from datetime import datetime
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vsan import ObjectIOStats
+from pyVmomi.vim.vsan.ObjectIOStats import ObjectIOStats
 
 class IODiagnosticsStats(DynamicData):
    objectsIOStats: list[ObjectIOStats] = []

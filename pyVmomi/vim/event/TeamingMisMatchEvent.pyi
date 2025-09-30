@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.event import DvsHealthStatusChangeEvent
+from pyVmomi.vim.event.DvsHealthStatusChangeEvent import DvsHealthStatusChangeEvent
 
 class TeamingMisMatchEvent(DvsHealthStatusChangeEvent):
    pass

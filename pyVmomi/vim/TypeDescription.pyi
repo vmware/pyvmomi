@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import Description
+from pyVmomi.vim.Description import Description
 
 class TypeDescription(Description):
    key: type

@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.pbm.capability import TypeInfo
+from pyVmomi.pbm.capability.TypeInfo import TypeInfo
 
 class GenericTypeInfo(TypeInfo):
    genericTypeName: str

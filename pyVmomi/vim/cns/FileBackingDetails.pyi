@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.cns import BackingObjectDetails
+from pyVmomi.vim.cns.BackingObjectDetails import BackingObjectDetails
 
 class FileBackingDetails(BackingObjectDetails):
    backingFileId: Optional[str] = None

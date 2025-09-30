@@ -6,16 +6,19 @@
 
 from typing import Optional
 
-from pyVmomi.vim import Datastore
+from pyVmomi.vim.Datastore import Datastore
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.cns import BackingObjectDetails
-from pyVmomi.vim.cns import BaseCreateSpec
-from pyVmomi.vim.cns import VolumeMetadata
-from pyVmomi.vim.cns import VolumeSource
+from pyVmomi.vim.cns.BackingObjectDetails import BackingObjectDetails
 
-from pyVmomi.vim.vm import ProfileSpec
+from pyVmomi.vim.cns.BaseCreateSpec import BaseCreateSpec
+
+from pyVmomi.vim.cns.VolumeMetadata import VolumeMetadata
+
+from pyVmomi.vim.cns.VolumeSource import VolumeSource
+
+from pyVmomi.vim.vm.ProfileSpec import ProfileSpec
 
 class VolumeCreateSpec(DynamicData):
    name: str

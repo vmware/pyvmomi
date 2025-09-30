@@ -6,12 +6,13 @@
 
 from typing import Optional
 
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.VirtualMachine import VirtualMachine
 
-from pyVmomi.vim.cluster import DasAdvancedRuntimeInfo
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.vim.cluster.DasAdvancedRuntimeInfo import DasAdvancedRuntimeInfo
 
 class DasFailoverLevelAdvancedRuntimeInfo(DasAdvancedRuntimeInfo):
    class SlotInfo(DynamicData):

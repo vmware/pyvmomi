@@ -6,7 +6,7 @@
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim.fault import VimFault
+from pyVmomi.vim.fault.VimFault import VimFault
 
 class InsufficientStorageIops(VimFault):
    unreservedIops: long

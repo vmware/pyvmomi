@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.event import DatastoreEvent
+from pyVmomi.vim.event.DatastoreEvent import DatastoreEvent
 
 class DatastoreFileEvent(DatastoreEvent):
    targetFile: str

@@ -9,7 +9,7 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim.host import DirectoryStoreInfo
+from pyVmomi.vim.host.DirectoryStoreInfo import DirectoryStoreInfo
 
 class ActiveDirectoryInfo(DirectoryStoreInfo):
    class DomainMembershipStatus(Enum):

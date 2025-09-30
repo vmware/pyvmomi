@@ -8,15 +8,17 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import PropertyPath
 
-from pyVmomi.vim import ResourceConfigOption
+from pyVmomi.vim.ResourceConfigOption import ResourceConfigOption
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.option import BoolOption
-from pyVmomi.vim.option import IntOption
-from pyVmomi.vim.option import LongOption
+from pyVmomi.vim.option.BoolOption import BoolOption
 
-from pyVmomi.vim.vm.device import VirtualDeviceOption
+from pyVmomi.vim.option.IntOption import IntOption
+
+from pyVmomi.vim.option.LongOption import LongOption
+
+from pyVmomi.vim.vm.device.VirtualDeviceOption import VirtualDeviceOption
 
 class VirtualHardwareOption(DynamicData):
    hwVersion: int

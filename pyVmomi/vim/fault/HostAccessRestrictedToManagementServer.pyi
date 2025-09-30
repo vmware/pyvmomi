@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vmodl.fault import NotSupported
+from pyVmomi.vmodl.fault.NotSupported import NotSupported
 
 class HostAccessRestrictedToManagementServer(NotSupported):
    managementServer: str

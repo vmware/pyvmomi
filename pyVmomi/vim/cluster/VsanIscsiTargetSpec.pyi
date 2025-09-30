@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.cluster import VsanIscsiTargetCommonInfo
+from pyVmomi.vim.cluster.VsanIscsiTargetCommonInfo import VsanIscsiTargetCommonInfo
 
-from pyVmomi.vim.vm import ProfileSpec
+from pyVmomi.vim.vm.ProfileSpec import ProfileSpec
 
 class VsanIscsiTargetSpec(VsanIscsiTargetCommonInfo):
    storagePolicy: Optional[ProfileSpec] = None

@@ -8,9 +8,9 @@ from typing import ClassVar
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.VirtualMachine import VirtualMachine
 
-from pyVmomi.vim.fault import InvalidState
+from pyVmomi.vim.fault.InvalidState import InvalidState
 
 class CannotPowerOffVmInCluster(InvalidState):
    class Operation(Enum):

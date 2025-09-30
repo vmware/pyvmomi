@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vmodl.MethodFault import MethodFault
 
-from pyVmomi.vim.fault import VimFault
+from pyVmomi.vim.fault.VimFault import VimFault
 
 class EVCConfigFault(VimFault):
    faults: list[MethodFault] = []

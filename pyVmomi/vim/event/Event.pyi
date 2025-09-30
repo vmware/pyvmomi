@@ -11,15 +11,21 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.event import ComputeResourceEventArgument
-from pyVmomi.vim.event import DatacenterEventArgument
-from pyVmomi.vim.event import DatastoreEventArgument
-from pyVmomi.vim.event import DvsEventArgument
-from pyVmomi.vim.event import HostEventArgument
-from pyVmomi.vim.event import NetworkEventArgument
-from pyVmomi.vim.event import VmEventArgument
+from pyVmomi.vim.event.ComputeResourceEventArgument import ComputeResourceEventArgument
+
+from pyVmomi.vim.event.DatacenterEventArgument import DatacenterEventArgument
+
+from pyVmomi.vim.event.DatastoreEventArgument import DatastoreEventArgument
+
+from pyVmomi.vim.event.DvsEventArgument import DvsEventArgument
+
+from pyVmomi.vim.event.HostEventArgument import HostEventArgument
+
+from pyVmomi.vim.event.NetworkEventArgument import NetworkEventArgument
+
+from pyVmomi.vim.event.VmEventArgument import VmEventArgument
 
 class Event(DynamicData):
    class EventSeverity(Enum):

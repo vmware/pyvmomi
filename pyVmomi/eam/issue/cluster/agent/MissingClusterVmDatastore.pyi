@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import Datastore
+from pyVmomi.vim.Datastore import Datastore
 
-from pyVmomi.eam.issue.cluster.agent import VmNotDeployed
+from pyVmomi.eam.issue.cluster.agent.VmNotDeployed import VmNotDeployed
 
 class MissingClusterVmDatastore(VmNotDeployed):
    missingDatastores: list[Datastore] = []

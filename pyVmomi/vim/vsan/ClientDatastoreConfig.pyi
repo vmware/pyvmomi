@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import ClusterComputeResource
+from pyVmomi.vim.ClusterComputeResource import ClusterComputeResource
 
-from pyVmomi.vim.vsan import DatastoreSpec
+from pyVmomi.vim.vsan.DatastoreSpec import DatastoreSpec
 
 class ClientDatastoreConfig(DatastoreSpec):
    clusters: list[ClusterComputeResource] = []

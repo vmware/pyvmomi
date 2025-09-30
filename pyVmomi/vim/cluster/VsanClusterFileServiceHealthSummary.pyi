@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import VsanFileServiceHealthSummary
+from pyVmomi.vim.host.VsanFileServiceHealthSummary import VsanFileServiceHealthSummary
 
 class VsanClusterFileServiceHealthSummary(DynamicData):
    overallHealth: Optional[str] = None

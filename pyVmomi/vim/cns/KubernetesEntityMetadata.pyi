@@ -6,8 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.cns import EntityMetadata
-from pyVmomi.vim.cns import KubernetesEntityReference
+from pyVmomi.vim.cns.EntityMetadata import EntityMetadata
+
+from pyVmomi.vim.cns.KubernetesEntityReference import KubernetesEntityReference
 
 class KubernetesEntityMetadata(EntityMetadata):
    entityType: str

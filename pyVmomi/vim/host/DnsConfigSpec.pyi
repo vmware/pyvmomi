@@ -6,8 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.host import DnsConfig
-from pyVmomi.vim.host import VirtualNicConnection
+from pyVmomi.vim.host.DnsConfig import DnsConfig
+
+from pyVmomi.vim.host.VirtualNicConnection import VirtualNicConnection
 
 class DnsConfigSpec(DnsConfig):
    virtualNicConnection: Optional[VirtualNicConnection] = None

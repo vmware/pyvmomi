@@ -6,11 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vim import HostSystem
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vmodl.MethodFault import MethodFault
 
-from pyVmomi.vim.fault import VimFault
+from pyVmomi.vim.fault.VimFault import VimFault
 
 class NoCompatibleHost(VimFault):
    host: list[HostSystem] = []

@@ -6,8 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.vm.device import VirtualController
-from pyVmomi.vim.vm.device import VirtualDevice
+from pyVmomi.vim.vm.device.VirtualController import VirtualController
+
+from pyVmomi.vim.vm.device.VirtualDevice import VirtualDevice
 
 class VirtualUSBController(VirtualController):
    class PciBusSlotInfo(VirtualDevice.PciBusSlotInfo):

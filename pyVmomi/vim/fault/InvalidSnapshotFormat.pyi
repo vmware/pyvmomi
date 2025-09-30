@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import InvalidFormat
+from pyVmomi.vim.fault.InvalidFormat import InvalidFormat
 
 class InvalidSnapshotFormat(InvalidFormat):
    pass

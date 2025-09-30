@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.vm.device import VirtualVmxnet3
+from pyVmomi.vim.vm.device.VirtualVmxnet3 import VirtualVmxnet3
 
 class VirtualVmxnet3Vrdma(VirtualVmxnet3):
    deviceProtocol: Optional[str] = None

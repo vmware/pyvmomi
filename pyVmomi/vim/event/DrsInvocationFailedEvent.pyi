@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.event import ClusterEvent
+from pyVmomi.vim.event.ClusterEvent import ClusterEvent
 
 class DrsInvocationFailedEvent(ClusterEvent):
    pass

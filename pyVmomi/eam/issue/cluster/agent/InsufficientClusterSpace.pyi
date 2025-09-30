@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.eam.issue.cluster.agent import VmNotDeployed
+from pyVmomi.eam.issue.cluster.agent.VmNotDeployed import VmNotDeployed
 
 class InsufficientClusterSpace(VmNotDeployed):
    pass

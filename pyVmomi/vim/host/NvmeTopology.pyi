@@ -6,10 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import HostBusAdapter
-from pyVmomi.vim.host import NvmeController
+from pyVmomi.vim.host.HostBusAdapter import HostBusAdapter
+
+from pyVmomi.vim.host.NvmeController import NvmeController
 
 class NvmeTopology(DynamicData):
    class Interface(DynamicData):

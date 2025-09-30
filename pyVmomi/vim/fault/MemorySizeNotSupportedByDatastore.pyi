@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import Datastore
+from pyVmomi.vim.Datastore import Datastore
 
-from pyVmomi.vim.fault import VirtualHardwareCompatibilityIssue
+from pyVmomi.vim.fault.VirtualHardwareCompatibilityIssue import VirtualHardwareCompatibilityIssue
 
 class MemorySizeNotSupportedByDatastore(VirtualHardwareCompatibilityIssue):
    datastore: Datastore

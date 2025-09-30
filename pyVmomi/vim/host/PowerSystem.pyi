@@ -4,11 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import NoReturn
-
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class PowerSystem(ManagedObject):
    class PowerPolicy(DynamicData):
@@ -28,4 +26,4 @@ class PowerSystem(ManagedObject):
    @property
    def info(self) -> Info: ...
 
-   def ConfigurePolicy(self, key: int) -> NoReturn: ...
+   def ConfigurePolicy(self, key: int) -> None: ...

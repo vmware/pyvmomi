@@ -6,25 +6,39 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import KeyAnyValue
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import ActiveDirectorySpec
-from pyVmomi.vim.host import AssignableHardwareConfig
-from pyVmomi.vim.host import DateTimeConfig
-from pyVmomi.vim.host import FirewallConfig
-from pyVmomi.vim.host import GraphicsConfig
-from pyVmomi.vim.host import LicenseSpec
-from pyVmomi.vim.host import LocalAccountManager
-from pyVmomi.vim.host import MemorySpec
-from pyVmomi.vim.host import NasVolume
-from pyVmomi.vim.host import NetworkConfig
-from pyVmomi.vim.host import SecuritySpec
-from pyVmomi.vim.host import ServiceConfig
-from pyVmomi.vim.host import StorageDeviceInfo
-from pyVmomi.vim.host import VirtualNicManager
+from pyVmomi.vmodl.KeyAnyValue import KeyAnyValue
 
-from pyVmomi.vim.option import OptionValue
+from pyVmomi.vim.host.ActiveDirectorySpec import ActiveDirectorySpec
+
+from pyVmomi.vim.host.AssignableHardwareConfig import AssignableHardwareConfig
+
+from pyVmomi.vim.host.DateTimeConfig import DateTimeConfig
+
+from pyVmomi.vim.host.FirewallConfig import FirewallConfig
+
+from pyVmomi.vim.host.GraphicsConfig import GraphicsConfig
+
+from pyVmomi.vim.host.LicenseSpec import LicenseSpec
+
+from pyVmomi.vim.host.LocalAccountManager import LocalAccountManager
+
+from pyVmomi.vim.host.MemorySpec import MemorySpec
+
+from pyVmomi.vim.host.NasVolume import NasVolume
+
+from pyVmomi.vim.host.NetworkConfig import NetworkConfig
+
+from pyVmomi.vim.host.SecuritySpec import SecuritySpec
+
+from pyVmomi.vim.host.ServiceConfig import ServiceConfig
+
+from pyVmomi.vim.host.StorageDeviceInfo import StorageDeviceInfo
+
+from pyVmomi.vim.host.VirtualNicManager import VirtualNicManager
+
+from pyVmomi.vim.option.OptionValue import OptionValue
 
 class ConfigSpec(DynamicData):
    nasDatastore: list[NasVolume.Config] = []

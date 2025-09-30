@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.dvs import DistributedVirtualPort
+from pyVmomi.vim.dvs.DistributedVirtualPort import DistributedVirtualPort
 
-from pyVmomi.vim.event import DvsEvent
+from pyVmomi.vim.event.DvsEvent import DvsEvent
 
 class DvsPortLinkUpEvent(DvsEvent):
    portKey: str

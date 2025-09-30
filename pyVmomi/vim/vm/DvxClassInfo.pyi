@@ -6,11 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vim import ElementDescription
+from pyVmomi.vim.ElementDescription import ElementDescription
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.option import OptionDef
+from pyVmomi.vim.option.OptionDef import OptionDef
 
 class DvxClassInfo(DynamicData):
    deviceClass: ElementDescription

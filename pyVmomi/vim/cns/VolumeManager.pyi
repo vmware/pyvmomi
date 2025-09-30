@@ -8,21 +8,33 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import Task
+from pyVmomi.vim.Task import Task
 
-from pyVmomi.vim.cns import QueryFilter
-from pyVmomi.vim.cns import QueryResult
-from pyVmomi.vim.cns import QuerySelection
-from pyVmomi.vim.cns import SnapshotCreateSpec
-from pyVmomi.vim.cns import SnapshotDeleteSpec
-from pyVmomi.vim.cns import VolumeACLConfigureSpec
-from pyVmomi.vim.cns import VolumeAttachDetachSpec
-from pyVmomi.vim.cns import VolumeCreateSpec
-from pyVmomi.vim.cns import VolumeExtendSpec
-from pyVmomi.vim.cns import VolumeId
-from pyVmomi.vim.cns import VolumeMetadataUpdateSpec
-from pyVmomi.vim.cns import VolumePolicyReconfigSpec
-from pyVmomi.vim.cns import VolumeRelocateSpec
+from pyVmomi.vim.cns.QueryFilter import QueryFilter
+
+from pyVmomi.vim.cns.QueryResult import QueryResult
+
+from pyVmomi.vim.cns.QuerySelection import QuerySelection
+
+from pyVmomi.vim.cns.SnapshotCreateSpec import SnapshotCreateSpec
+
+from pyVmomi.vim.cns.SnapshotDeleteSpec import SnapshotDeleteSpec
+
+from pyVmomi.vim.cns.VolumeACLConfigureSpec import VolumeACLConfigureSpec
+
+from pyVmomi.vim.cns.VolumeAttachDetachSpec import VolumeAttachDetachSpec
+
+from pyVmomi.vim.cns.VolumeCreateSpec import VolumeCreateSpec
+
+from pyVmomi.vim.cns.VolumeExtendSpec import VolumeExtendSpec
+
+from pyVmomi.vim.cns.VolumeId import VolumeId
+
+from pyVmomi.vim.cns.VolumeMetadataUpdateSpec import VolumeMetadataUpdateSpec
+
+from pyVmomi.vim.cns.VolumePolicyReconfigSpec import VolumePolicyReconfigSpec
+
+from pyVmomi.vim.cns.VolumeRelocateSpec import VolumeRelocateSpec
 
 class VolumeManager(ManagedObject):
    def Create(self, createSpecs: list[VolumeCreateSpec]) -> Task: ...

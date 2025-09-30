@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import ResourceConfigSpec
+from pyVmomi.vim.ResourceConfigSpec import ResourceConfigSpec
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class SystemResourceInfo(DynamicData):
    key: str

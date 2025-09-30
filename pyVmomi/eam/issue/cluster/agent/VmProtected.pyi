@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.eam.issue.cluster.agent import VmIssue
+from pyVmomi.eam.issue.cluster.agent.VmIssue import VmIssue
 
 class VmProtected(VmIssue):
    pass

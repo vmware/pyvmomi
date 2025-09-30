@@ -8,7 +8,7 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim.cns import BackingObjectDetails
+from pyVmomi.vim.cns.BackingObjectDetails import BackingObjectDetails
 
 class BlockBackingDetails(BackingObjectDetails):
    backingDiskId: Optional[str] = None

@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.sms.storage.replication import VirtualMachineId
+from pyVmomi.sms.storage.replication.VirtualMachineId import VirtualMachineId
 
 class VirtualMachineFilePath(VirtualMachineId):
    vcUuid: Optional[str] = None

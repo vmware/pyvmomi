@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.event import HostEvent
+from pyVmomi.vim.event.HostEvent import HostEvent
 
 class VcAgentUpgradeFailedEvent(HostEvent):
    reason: Optional[str] = None

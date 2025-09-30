@@ -6,8 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.vm import PciPassthroughInfo
-from pyVmomi.vim.vm import SriovDevicePoolInfo
+from pyVmomi.vim.vm.PciPassthroughInfo import PciPassthroughInfo
+
+from pyVmomi.vim.vm.SriovDevicePoolInfo import SriovDevicePoolInfo
 
 class SriovInfo(PciPassthroughInfo):
    virtualFunction: bool

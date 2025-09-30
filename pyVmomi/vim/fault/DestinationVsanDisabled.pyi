@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import CannotMoveVsanEnabledHost
+from pyVmomi.vim.fault.CannotMoveVsanEnabledHost import CannotMoveVsanEnabledHost
 
 class DestinationVsanDisabled(CannotMoveVsanEnabledHost):
    destinationCluster: str

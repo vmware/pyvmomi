@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.vm.device import VirtualController
+from pyVmomi.vim.vm.device.VirtualController import VirtualController
 
 class VirtualPCIController(VirtualController):
    pass

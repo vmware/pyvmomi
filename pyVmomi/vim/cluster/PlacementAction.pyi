@@ -6,12 +6,13 @@
 
 from typing import Optional
 
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vim.cluster import Action
+from pyVmomi.vim.VirtualMachine import VirtualMachine
 
-from pyVmomi.vim.vm import RelocateSpec
+from pyVmomi.vim.cluster.Action import Action
+
+from pyVmomi.vim.vm.RelocateSpec import RelocateSpec
 
 class PlacementAction(Action):
    vm: Optional[VirtualMachine] = None

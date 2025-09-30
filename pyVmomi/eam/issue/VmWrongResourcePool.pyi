@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import ResourcePool
+from pyVmomi.vim.ResourcePool import ResourcePool
 
-from pyVmomi.eam.issue import VmIssue
+from pyVmomi.eam.issue.VmIssue import VmIssue
 
 class VmWrongResourcePool(VmIssue):
    currentResourcePool: ResourcePool

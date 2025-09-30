@@ -6,11 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vim import Datastore
+from pyVmomi.vim.Datastore import Datastore
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vm import ProfileSpec
+from pyVmomi.vim.vm.ProfileSpec import ProfileSpec
 
 class InfrastructureObjectPolicySpec(DynamicData):
    datastore: Datastore

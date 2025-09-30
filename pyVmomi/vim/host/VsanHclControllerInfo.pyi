@@ -8,16 +8,19 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim import KeyValue
+from pyVmomi.vim.KeyValue import KeyValue
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import VsanHclDiskInfo
-from pyVmomi.vim.host import VsanHostCimProviderInfo
-from pyVmomi.vim.host import VsanVcgDeviceInfo
+from pyVmomi.vmodl.MethodFault import MethodFault
 
-from pyVmomi.vim.vsan import VsanHclDriverInfo
+from pyVmomi.vim.host.VsanHclDiskInfo import VsanHclDiskInfo
+
+from pyVmomi.vim.host.VsanHostCimProviderInfo import VsanHostCimProviderInfo
+
+from pyVmomi.vim.host.VsanVcgDeviceInfo import VsanVcgDeviceInfo
+
+from pyVmomi.vim.vsan.VsanHclDriverInfo import VsanHclDriverInfo
 
 class VsanHclControllerInfo(DynamicData):
    deviceName: str

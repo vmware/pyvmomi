@@ -9,10 +9,11 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.sms.storage import BackingConfig
-from pyVmomi.sms.storage import FileSystemInfo
+from pyVmomi.sms.storage.BackingConfig import BackingConfig
+
+from pyVmomi.sms.storage.FileSystemInfo import FileSystemInfo
 
 class StorageFileSystem(DynamicData):
    class FileSystemInterfaceVersion(Enum):

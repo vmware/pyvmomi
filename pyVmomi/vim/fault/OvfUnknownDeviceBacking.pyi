@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import OvfHardwareExport
+from pyVmomi.vim.fault.OvfHardwareExport import OvfHardwareExport
 
-from pyVmomi.vim.vm.device import VirtualDevice
+from pyVmomi.vim.vm.device.VirtualDevice import VirtualDevice
 
 class OvfUnknownDeviceBacking(OvfHardwareExport):
    backing: VirtualDevice.BackingInfo

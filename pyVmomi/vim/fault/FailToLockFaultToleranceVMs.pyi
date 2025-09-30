@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.VirtualMachine import VirtualMachine
 
-from pyVmomi.vmodl import RuntimeFault
+from pyVmomi.vmodl.RuntimeFault import RuntimeFault
 
 class FailToLockFaultToleranceVMs(RuntimeFault):
    vmName: str

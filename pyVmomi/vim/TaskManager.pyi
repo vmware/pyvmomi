@@ -8,14 +8,19 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import Task
-from pyVmomi.vim import TaskDescription
-from pyVmomi.vim import TaskFilterSpec
-from pyVmomi.vim import TaskHistoryCollector
-from pyVmomi.vim import TaskInfo
-from pyVmomi.vim import TaskInfoFilterSpec
+from pyVmomi.vim.Task import Task
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.TaskDescription import TaskDescription
+
+from pyVmomi.vim.TaskFilterSpec import TaskFilterSpec
+
+from pyVmomi.vim.TaskHistoryCollector import TaskHistoryCollector
+
+from pyVmomi.vim.TaskInfo import TaskInfo
+
+from pyVmomi.vim.TaskInfoFilterSpec import TaskInfoFilterSpec
+
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class TaskManager(ManagedObject):
    class TaskViewSpec(DynamicData):

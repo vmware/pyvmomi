@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.event import CustomFieldDefEvent
+from pyVmomi.vim.event.CustomFieldDefEvent import CustomFieldDefEvent
 
 class CustomFieldDefRemovedEvent(CustomFieldDefEvent):
    pass

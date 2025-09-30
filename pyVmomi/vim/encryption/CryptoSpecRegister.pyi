@@ -4,8 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.encryption import CryptoKeyId
-from pyVmomi.vim.encryption import CryptoSpecNoOp
+from pyVmomi.vim.encryption.CryptoKeyId import CryptoKeyId
+
+from pyVmomi.vim.encryption.CryptoSpecNoOp import CryptoSpecNoOp
 
 class CryptoSpecRegister(CryptoSpecNoOp):
    cryptoKeyId: CryptoKeyId

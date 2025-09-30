@@ -6,10 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vim.event import ChangesInfoEventArgument
-from pyVmomi.vim.event import VmEvent
+from pyVmomi.vim.event.ChangesInfoEventArgument import ChangesInfoEventArgument
 
-from pyVmomi.vim.vm import ConfigSpec
+from pyVmomi.vim.event.VmEvent import VmEvent
+
+from pyVmomi.vim.vm.ConfigSpec import ConfigSpec
 
 class VmReconfiguredEvent(VmEvent):
    configSpec: ConfigSpec

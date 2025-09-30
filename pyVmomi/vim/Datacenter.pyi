@@ -6,23 +6,31 @@
 
 from typing import Optional
 
-from pyVmomi.vim import AboutInfo
-from pyVmomi.vim import Datastore
-from pyVmomi.vim import Folder
-from pyVmomi.vim import ManagedEntity
-from pyVmomi.vim import Network
-from pyVmomi.vim import Task
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.AboutInfo import AboutInfo
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vim.Datastore import Datastore
 
-from pyVmomi.vim.host import ConnectInfo
-from pyVmomi.vim.host import ConnectSpec
+from pyVmomi.vim.Folder import Folder
 
-from pyVmomi.vim.option import OptionValue
+from pyVmomi.vim.ManagedEntity import ManagedEntity
 
-from pyVmomi.vim.vm import ConfigOptionDescriptor
+from pyVmomi.vim.Network import Network
+
+from pyVmomi.vim.Task import Task
+
+from pyVmomi.vim.VirtualMachine import VirtualMachine
+
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.vmodl.MethodFault import MethodFault
+
+from pyVmomi.vim.host.ConnectInfo import ConnectInfo
+
+from pyVmomi.vim.host.ConnectSpec import ConnectSpec
+
+from pyVmomi.vim.option.OptionValue import OptionValue
+
+from pyVmomi.vim.vm.ConfigOptionDescriptor import ConfigOptionDescriptor
 
 class Datacenter(ManagedEntity):
    class BasicConnectInfo(DynamicData):

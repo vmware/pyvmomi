@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import EVCConfigFault
+from pyVmomi.vim.fault.EVCConfigFault import EVCConfigFault
 
 class DisconnectedHostsBlockingEVC(EVCConfigFault):
    pass

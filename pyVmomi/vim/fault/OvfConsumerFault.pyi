@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import KeyValue
+from pyVmomi.vim.KeyValue import KeyValue
 
-from pyVmomi.vim.fault import OvfConsumerCallbackFault
+from pyVmomi.vim.fault.OvfConsumerCallbackFault import OvfConsumerCallbackFault
 
 class OvfConsumerFault(OvfConsumerCallbackFault):
    errorKey: str

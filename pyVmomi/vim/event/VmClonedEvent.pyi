@@ -4,8 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.event import VmCloneEvent
-from pyVmomi.vim.event import VmEventArgument
+from pyVmomi.vim.event.VmCloneEvent import VmCloneEvent
+
+from pyVmomi.vim.event.VmEventArgument import VmEventArgument
 
 class VmClonedEvent(VmCloneEvent):
    sourceVm: VmEventArgument

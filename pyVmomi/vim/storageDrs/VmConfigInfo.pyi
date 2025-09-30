@@ -6,12 +6,13 @@
 
 from typing import Optional
 
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.VirtualMachine import VirtualMachine
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.storageDrs import VirtualDiskAntiAffinityRuleSpec
-from pyVmomi.vim.storageDrs import VirtualDiskRuleSpec
+from pyVmomi.vim.storageDrs.VirtualDiskAntiAffinityRuleSpec import VirtualDiskAntiAffinityRuleSpec
+
+from pyVmomi.vim.storageDrs.VirtualDiskRuleSpec import VirtualDiskRuleSpec
 
 class VmConfigInfo(DynamicData):
    vm: Optional[VirtualMachine] = None

@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.event import RoleEvent
+from pyVmomi.vim.event.RoleEvent import RoleEvent
 
 class RoleAddedEvent(RoleEvent):
    privilegeList: list[str] = []

@@ -9,10 +9,11 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim import Datastore
+from pyVmomi.vim.Datastore import Datastore
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.vmodl.MethodFault import MethodFault
 
 class BatchResult(DynamicData):
    class Result(Enum):

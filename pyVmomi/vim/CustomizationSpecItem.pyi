@@ -4,11 +4,11 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import CustomizationSpecInfo
+from pyVmomi.vim.CustomizationSpecInfo import CustomizationSpecInfo
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vm.customization import Specification
+from pyVmomi.vim.vm.customization.Specification import Specification
 
 class CustomizationSpecItem(DynamicData):
    info: CustomizationSpecInfo

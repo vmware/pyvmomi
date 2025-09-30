@@ -8,9 +8,11 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim.event import HostEvent
-from pyVmomi.vim.event import HostEventArgument
-from pyVmomi.vim.event import VmEventArgument
+from pyVmomi.vim.event.HostEvent import HostEvent
+
+from pyVmomi.vim.event.HostEventArgument import HostEventArgument
+
+from pyVmomi.vim.event.VmEventArgument import VmEventArgument
 
 class HostWwnConflictEvent(HostEvent):
    conflictedVms: list[VmEventArgument] = []

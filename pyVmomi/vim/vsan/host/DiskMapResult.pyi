@@ -6,11 +6,13 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vsan.host import DiskMapping
-from pyVmomi.vim.vsan.host import DiskResult
+from pyVmomi.vmodl.MethodFault import MethodFault
+
+from pyVmomi.vim.vsan.host.DiskMapping import DiskMapping
+
+from pyVmomi.vim.vsan.host.DiskResult import DiskResult
 
 class DiskMapResult(DynamicData):
    mapping: DiskMapping

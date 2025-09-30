@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.option import ArrayUpdateSpec
+from pyVmomi.vim.option.ArrayUpdateSpec import ArrayUpdateSpec
 
-from pyVmomi.vim.vApp import ProductInfo
+from pyVmomi.vim.vApp.ProductInfo import ProductInfo
 
 class ProductSpec(ArrayUpdateSpec):
    info: Optional[ProductInfo] = None

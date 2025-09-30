@@ -9,7 +9,7 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim.vsan.host import ConfigInfo
+from pyVmomi.vim.vsan.host.ConfigInfo import ConfigInfo
 
 class PortConfigEx(ConfigInfo.NetworkInfo.PortConfig):
    class TrafficType(Enum):

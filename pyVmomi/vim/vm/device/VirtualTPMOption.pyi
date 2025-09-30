@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.vm.device import VirtualDeviceOption
+from pyVmomi.vim.vm.device.VirtualDeviceOption import VirtualDeviceOption
 
 class VirtualTPMOption(VirtualDeviceOption):
    supportedFirmware: list[str] = []

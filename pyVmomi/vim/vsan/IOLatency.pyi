@@ -6,10 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import KeyAnyValue
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vsan import IOLatencyMetrics
+from pyVmomi.vmodl.KeyAnyValue import KeyAnyValue
+
+from pyVmomi.vim.vsan.IOLatencyMetrics import IOLatencyMetrics
 
 class IOLatency(DynamicData):
    latencyType: str

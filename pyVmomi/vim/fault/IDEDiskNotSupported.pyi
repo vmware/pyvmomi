@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import DiskNotSupported
+from pyVmomi.vim.fault.DiskNotSupported import DiskNotSupported
 
 class IDEDiskNotSupported(DiskNotSupported):
    pass

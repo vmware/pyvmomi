@@ -6,10 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import DiskPartitionInfo
-from pyVmomi.vim.host import VmfsDatastoreSpec
+from pyVmomi.vim.host.DiskPartitionInfo import DiskPartitionInfo
+
+from pyVmomi.vim.host.VmfsDatastoreSpec import VmfsDatastoreSpec
 
 class VmfsDatastoreOption(DynamicData):
    class Info(DynamicData):

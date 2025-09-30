@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.host import FileSystemVolume
+from pyVmomi.vim.host.FileSystemVolume import FileSystemVolume
 
 class VfatVolume(FileSystemVolume):
    pass

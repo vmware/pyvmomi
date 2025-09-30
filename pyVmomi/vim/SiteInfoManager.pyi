@@ -6,7 +6,7 @@
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import SiteInfo
+from pyVmomi.vim.SiteInfo import SiteInfo
 
 class SiteInfoManager(ManagedObject):
    def GetSiteInfo(self) -> SiteInfo: ...

@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import Datastore
+from pyVmomi.vim.Datastore import Datastore
 
-from pyVmomi.vim.fault import VirtualHardwareCompatibilityIssue
+from pyVmomi.vim.fault.VirtualHardwareCompatibilityIssue import VirtualHardwareCompatibilityIssue
 
 class StorageVmotionIncompatible(VirtualHardwareCompatibilityIssue):
    datastore: Optional[Datastore] = None

@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import Description
+from pyVmomi.vim.Description import Description
 
-from pyVmomi.vmodl import KeyAnyValue
+from pyVmomi.vmodl.KeyAnyValue import KeyAnyValue
 
 class ExtendedDescription(Description):
    messageCatalogKeyPrefix: str

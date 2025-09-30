@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import Datastore
+from pyVmomi.vim.Datastore import Datastore
 
-from pyVmomi.vim.host import VvolVolume
+from pyVmomi.vim.host.VvolVolume import VvolVolume
 
 class VvolDatastoreInfo(Datastore.Info):
    vvolDS: Optional[VvolVolume] = None

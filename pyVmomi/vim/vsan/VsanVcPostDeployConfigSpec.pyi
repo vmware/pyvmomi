@@ -6,15 +6,17 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import ConnectSpec
+from pyVmomi.vim.host.ConnectSpec import ConnectSpec
 
-from pyVmomi.vim.vsan import DataEfficiencyConfig
-from pyVmomi.vim.vsan import VsanDeconvergedNetConfig
+from pyVmomi.vim.vsan.DataEfficiencyConfig import DataEfficiencyConfig
 
-from pyVmomi.vim.vsan.host import CreateNativeKeyProviderSpec
-from pyVmomi.vim.vsan.host import EncryptionInfo
+from pyVmomi.vim.vsan.VsanDeconvergedNetConfig import VsanDeconvergedNetConfig
+
+from pyVmomi.vim.vsan.host.CreateNativeKeyProviderSpec import CreateNativeKeyProviderSpec
+
+from pyVmomi.vim.vsan.host.EncryptionInfo import EncryptionInfo
 
 class VsanVcPostDeployConfigSpec(DynamicData):
    dcName: Optional[str] = None

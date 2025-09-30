@@ -4,16 +4,15 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import NoReturn
+from pyVmomi.vim.ExtensibleManagedObject import ExtensibleManagedObject
 
-from pyVmomi.vim import ExtensibleManagedObject
+from pyVmomi.vim.alarm.AlarmInfo import AlarmInfo
 
-from pyVmomi.vim.alarm import AlarmInfo
-from pyVmomi.vim.alarm import AlarmSpec
+from pyVmomi.vim.alarm.AlarmSpec import AlarmSpec
 
 class Alarm(ExtensibleManagedObject):
    @property
    def info(self) -> AlarmInfo: ...
 
-   def Remove(self) -> NoReturn: ...
-   def Reconfigure(self, spec: AlarmSpec) -> NoReturn: ...
+   def Remove(self) -> None: ...
+   def Reconfigure(self, spec: AlarmSpec) -> None: ...

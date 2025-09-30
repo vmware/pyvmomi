@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vmodl.MethodFault import MethodFault
 
-from pyVmomi.vim.event import HostEvent
+from pyVmomi.vim.event.HostEvent import HostEvent
 
 class DrsResourceConfigureFailedEvent(HostEvent):
    reason: MethodFault

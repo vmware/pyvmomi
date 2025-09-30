@@ -6,8 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.option import ArrayUpdateSpec
-from pyVmomi.vim.option import OptionValue
+from pyVmomi.vim.option.ArrayUpdateSpec import ArrayUpdateSpec
+
+from pyVmomi.vim.option.OptionValue import OptionValue
 
 class OptionSpec(ArrayUpdateSpec):
    option: Optional[OptionValue] = None

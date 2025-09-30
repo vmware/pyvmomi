@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.vm.device import VirtualVmxnetOption
+from pyVmomi.vim.vm.device.VirtualVmxnetOption import VirtualVmxnetOption
 
 class VirtualVmxnet2Option(VirtualVmxnetOption):
    pass

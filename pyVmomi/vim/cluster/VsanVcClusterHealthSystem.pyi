@@ -5,42 +5,64 @@
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
 from typing import ClassVar
-from typing import NoReturn
 from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import ClusterComputeResource
-from pyVmomi.vim import Datastore
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import Task
+from pyVmomi.vim.ClusterComputeResource import ClusterComputeResource
 
-from pyVmomi.vim.cluster import VsanAttachToSrOperation
-from pyVmomi.vim.cluster import VsanClusterCreateVmHealthTestResult
-from pyVmomi.vim.cluster import VsanClusterFileServiceHealthSummary
-from pyVmomi.vim.cluster import VsanClusterHclInfo
-from pyVmomi.vim.cluster import VsanClusterHealthCheckInfo
-from pyVmomi.vim.cluster import VsanClusterHealthConfigs
-from pyVmomi.vim.cluster import VsanClusterHealthQuerySpec
-from pyVmomi.vim.cluster import VsanClusterHealthSummary
-from pyVmomi.vim.cluster import VsanClusterHealthSystemVersionResult
-from pyVmomi.vim.cluster import VsanClusterNetworkLoadTestResult
-from pyVmomi.vim.cluster import VsanClusterNetworkPerfTaskSpec
-from pyVmomi.vim.cluster import VsanClusterTelemetryProxyConfig
-from pyVmomi.vim.cluster import VsanClusterVmdkLoadTestResult
-from pyVmomi.vim.cluster import VsanHistoricalHealthQuerySpec
-from pyVmomi.vim.cluster import VsanObjectExtAttrs
-from pyVmomi.vim.cluster import VsanStorageWorkloadType
+from pyVmomi.vim.Datastore import Datastore
 
-from pyVmomi.vim.host import VsanSmartStatsHostSummary
-from pyVmomi.vim.host import VsanVmdkLoadTestSpec
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vim.vsan import VsanDiskModelInfo
-from pyVmomi.vim.vsan import VsanHclDiskConstraint
-from pyVmomi.vim.vsan import VsanHclQuerySpec
-from pyVmomi.vim.vsan import VsanHclReleaseConstraint
-from pyVmomi.vim.vsan import VsanHwToVcgInfoMappingSpec
+from pyVmomi.vim.Task import Task
+
+from pyVmomi.vim.cluster.VsanAttachToSrOperation import VsanAttachToSrOperation
+
+from pyVmomi.vim.cluster.VsanClusterCreateVmHealthTestResult import VsanClusterCreateVmHealthTestResult
+
+from pyVmomi.vim.cluster.VsanClusterFileServiceHealthSummary import VsanClusterFileServiceHealthSummary
+
+from pyVmomi.vim.cluster.VsanClusterHclInfo import VsanClusterHclInfo
+
+from pyVmomi.vim.cluster.VsanClusterHealthCheckInfo import VsanClusterHealthCheckInfo
+
+from pyVmomi.vim.cluster.VsanClusterHealthConfigs import VsanClusterHealthConfigs
+
+from pyVmomi.vim.cluster.VsanClusterHealthQuerySpec import VsanClusterHealthQuerySpec
+
+from pyVmomi.vim.cluster.VsanClusterHealthSummary import VsanClusterHealthSummary
+
+from pyVmomi.vim.cluster.VsanClusterHealthSystemVersionResult import VsanClusterHealthSystemVersionResult
+
+from pyVmomi.vim.cluster.VsanClusterNetworkLoadTestResult import VsanClusterNetworkLoadTestResult
+
+from pyVmomi.vim.cluster.VsanClusterNetworkPerfTaskSpec import VsanClusterNetworkPerfTaskSpec
+
+from pyVmomi.vim.cluster.VsanClusterTelemetryProxyConfig import VsanClusterTelemetryProxyConfig
+
+from pyVmomi.vim.cluster.VsanClusterVmdkLoadTestResult import VsanClusterVmdkLoadTestResult
+
+from pyVmomi.vim.cluster.VsanHistoricalHealthQuerySpec import VsanHistoricalHealthQuerySpec
+
+from pyVmomi.vim.cluster.VsanObjectExtAttrs import VsanObjectExtAttrs
+
+from pyVmomi.vim.cluster.VsanStorageWorkloadType import VsanStorageWorkloadType
+
+from pyVmomi.vim.host.VsanSmartStatsHostSummary import VsanSmartStatsHostSummary
+
+from pyVmomi.vim.host.VsanVmdkLoadTestSpec import VsanVmdkLoadTestSpec
+
+from pyVmomi.vim.vsan.VsanDiskModelInfo import VsanDiskModelInfo
+
+from pyVmomi.vim.vsan.VsanHclDiskConstraint import VsanHclDiskConstraint
+
+from pyVmomi.vim.vsan.VsanHclQuerySpec import VsanHclQuerySpec
+
+from pyVmomi.vim.vsan.VsanHclReleaseConstraint import VsanHclReleaseConstraint
+
+from pyVmomi.vim.vsan.VsanHwToVcgInfoMappingSpec import VsanHwToVcgInfoMappingSpec
 
 class VsanVcClusterHealthSystem(ManagedObject):
    class VsanHealthLogLevelEnum(Enum):
@@ -63,12 +85,12 @@ class VsanVcClusterHealthSystem(ManagedObject):
    def RunVmdkLoadTest(self, cluster: ClusterComputeResource, runname: str, durationSec: Optional[int], specs: list[VsanVmdkLoadTestSpec], action: Optional[str]) -> Task: ...
    def QueryVsanClusterHealthConfig(self, cluster: ClusterComputeResource) -> VsanClusterHealthConfigs: ...
    def QueryVsanClusterHealthCheckInterval(self, cluster: ClusterComputeResource) -> int: ...
-   def SetVsanClusterHealthCheckInterval(self, cluster: ClusterComputeResource, vsanClusterHealthCheckInterval: int) -> NoReturn: ...
+   def SetVsanClusterHealthCheckInterval(self, cluster: ClusterComputeResource, vsanClusterHealthCheckInterval: int) -> None: ...
    def GetVsanClusterSilentChecks(self, cluster: ClusterComputeResource) -> list[str]: ...
    def SetVsanClusterSilentChecks(self, cluster: ClusterComputeResource, addSilentChecks: list[str], removeSilentChecks: list[str]) -> bool: ...
-   def SetVsanClusterTelemetryConfig(self, cluster: ClusterComputeResource, vsanClusterHealthConfig: VsanClusterHealthConfigs) -> NoReturn: ...
+   def SetVsanClusterTelemetryConfig(self, cluster: ClusterComputeResource, vsanClusterHealthConfig: VsanClusterHealthConfigs) -> None: ...
    def TestVsanClusterTelemetryProxy(self, proxyConfig: VsanClusterTelemetryProxyConfig) -> bool: ...
-   def SendVsanTelemetry(self, cluster: ClusterComputeResource) -> NoReturn: ...
+   def SendVsanTelemetry(self, cluster: ClusterComputeResource) -> None: ...
    def RepairClusterObjectsImmediate(self, cluster: ClusterComputeResource, uuids: list[str]) -> Task: ...
    def UpdateDefaultDSPolicyRecommendation(self, cluster: ClusterComputeResource) -> Task: ...
    def QueryClusterCreateVmHealthHistoryTest(self, cluster: ClusterComputeResource, count: Optional[int], datastore: Optional[Datastore]) -> list[VsanClusterCreateVmHealthTestResult]: ...
@@ -83,14 +105,14 @@ class VsanVcClusterHealthSystem(ManagedObject):
    def GetClusterHclConstraints(self, cluster: ClusterComputeResource, release: str) -> VsanHclReleaseConstraint: ...
    def GetDiskHclConstraints(self, release: Optional[str], diskModels: list[VsanDiskModelInfo]) -> list[VsanHclDiskConstraint]: ...
    def GetClusterReleaseRecommendation(self, cluster: ClusterComputeResource, minor: list[str], major: list[str]) -> list[VsanHclReleaseConstraint]: ...
-   def PurgeHclFiles(self, sha1sums: list[str]) -> NoReturn: ...
+   def PurgeHclFiles(self, sha1sums: list[str]) -> None: ...
    def DownloadAndInstallVendorTool(self, cluster: ClusterComputeResource) -> Task: ...
    def UploadHclDb(self, db: str) -> bool: ...
    def UpdateHclDbFromWeb(self, url: Optional[str]) -> bool: ...
    def RebalanceCluster(self, cluster: ClusterComputeResource, targetHosts: list[HostSystem]) -> Task: ...
    def StopRebalanceCluster(self, cluster: ClusterComputeResource, targetHosts: list[HostSystem]) -> Task: ...
    def IsRebalanceRunning(self, cluster: ClusterComputeResource, targetHosts: list[HostSystem]) -> bool: ...
-   def SetLogLevel(self, level: Optional[str]) -> NoReturn: ...
+   def SetLogLevel(self, level: Optional[str]) -> None: ...
    def QuerySmartStatsSummary(self, cluster: ClusterComputeResource) -> list[VsanSmartStatsHostSummary]: ...
    def QueryVsanProxyConfig(self) -> VsanClusterTelemetryProxyConfig: ...
    def QueryClusterHistoricalHealth(self, spec: VsanHistoricalHealthQuerySpec) -> list[VsanClusterHealthSummary]: ...

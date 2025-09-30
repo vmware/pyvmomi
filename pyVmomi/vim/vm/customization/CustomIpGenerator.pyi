@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.vm.customization import IpGenerator
+from pyVmomi.vim.vm.customization.IpGenerator import IpGenerator
 
 class CustomIpGenerator(IpGenerator):
    argument: Optional[str] = None

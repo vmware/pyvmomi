@@ -6,10 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.cns import ContainerCluster
-from pyVmomi.vim.cns import EntityMetadata
+from pyVmomi.vim.cns.ContainerCluster import ContainerCluster
+
+from pyVmomi.vim.cns.EntityMetadata import EntityMetadata
 
 class VolumeMetadata(DynamicData):
    containerCluster: ContainerCluster

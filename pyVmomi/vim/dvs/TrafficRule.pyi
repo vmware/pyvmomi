@@ -9,14 +9,19 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim import IntExpression
-from pyVmomi.vim import IpAddress
-from pyVmomi.vim import MacAddress
-from pyVmomi.vim import NegatableExpression
-from pyVmomi.vim import SingleIp
-from pyVmomi.vim import StringExpression
+from pyVmomi.vim.IntExpression import IntExpression
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.IpAddress import IpAddress
+
+from pyVmomi.vim.MacAddress import MacAddress
+
+from pyVmomi.vim.NegatableExpression import NegatableExpression
+
+from pyVmomi.vim.SingleIp import SingleIp
+
+from pyVmomi.vim.StringExpression import StringExpression
+
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class TrafficRule(DynamicData):
    class Qualifier(DynamicData):

@@ -8,7 +8,7 @@ from typing import ClassVar
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class FeatureVersionInfo(DynamicData):
    class FeatureVersionKey(Enum):

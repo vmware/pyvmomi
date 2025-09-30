@@ -8,12 +8,13 @@ from datetime import datetime
 
 from typing import Optional
 
-from pyVmomi.vim import HostSystem
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import LocalizableMessage
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.profile import ProfilePropertyPath
+from pyVmomi.vmodl.LocalizableMessage import LocalizableMessage
+
+from pyVmomi.vim.profile.ProfilePropertyPath import ProfilePropertyPath
 
 class AnswerFileStatusResult(DynamicData):
    class AnswerFileStatusError(DynamicData):

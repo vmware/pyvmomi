@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import SharesOption
+from pyVmomi.vim.SharesOption import SharesOption
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class ResourceAllocationOption(DynamicData):
    sharesOption: SharesOption

@@ -8,14 +8,15 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim import Network
-from pyVmomi.vim import SharesInfo
+from pyVmomi.vim.Network import Network
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.SharesInfo import SharesInfo
 
-from pyVmomi.vim.dvs import PortConnection
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vm.device import VirtualDevice
+from pyVmomi.vim.dvs.PortConnection import PortConnection
+
+from pyVmomi.vim.vm.device.VirtualDevice import VirtualDevice
 
 class VirtualEthernetCard(VirtualDevice):
    class NetworkBackingInfo(VirtualDevice.DeviceBackingInfo):

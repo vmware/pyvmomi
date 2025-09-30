@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import KeyValue
+from pyVmomi.vim.KeyValue import KeyValue
 
-from pyVmomi.vim.fault import GatewayToHostConnectFault
+from pyVmomi.vim.fault.GatewayToHostConnectFault import GatewayToHostConnectFault
 
 class GatewayToHostTrustVerifyFault(GatewayToHostConnectFault):
    verificationToken: str

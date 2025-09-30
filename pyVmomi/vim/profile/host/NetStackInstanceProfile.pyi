@@ -4,10 +4,11 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.profile import ApplyProfile
+from pyVmomi.vim.profile.ApplyProfile import ApplyProfile
 
-from pyVmomi.vim.profile.host import IpRouteProfile
-from pyVmomi.vim.profile.host import NetworkProfile
+from pyVmomi.vim.profile.host.IpRouteProfile import IpRouteProfile
+
+from pyVmomi.vim.profile.host.NetworkProfile import NetworkProfile
 
 class NetStackInstanceProfile(ApplyProfile):
    key: str

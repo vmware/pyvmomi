@@ -6,23 +6,37 @@
 
 from typing import Optional
 
-from pyVmomi.vim.vsan import DataEfficiencyConfig
-from pyVmomi.vim.vsan import DatastoreConfig
-from pyVmomi.vim.vsan import MetricsConfig
-from pyVmomi.vim.vsan import RdmaConfig
-from pyVmomi.vim.vsan import ResyncIopsInfo
-from pyVmomi.vim.vsan import SnapServiceConfig
-from pyVmomi.vim.vsan import VsanDeconvergedNetConfig
-from pyVmomi.vim.vsan import VsanExtendedConfig
-from pyVmomi.vim.vsan import VsanInternalExtendedConfig
-from pyVmomi.vim.vsan import VsanUnmapConfig
-from pyVmomi.vim.vsan import WitnessHostConfig
+from pyVmomi.vim.vsan.DataEfficiencyConfig import DataEfficiencyConfig
 
-from pyVmomi.vim.vsan.host import ConfigInfo
-from pyVmomi.vim.vsan.host import DataInTransitEncryptionInfo
-from pyVmomi.vim.vsan.host import EncryptionInfo
-from pyVmomi.vim.vsan.host import RemoteVsanServerClusterConfig
-from pyVmomi.vim.vsan.host import ServerClusterUnicastConfig
+from pyVmomi.vim.vsan.DatastoreConfig import DatastoreConfig
+
+from pyVmomi.vim.vsan.MetricsConfig import MetricsConfig
+
+from pyVmomi.vim.vsan.RdmaConfig import RdmaConfig
+
+from pyVmomi.vim.vsan.ResyncIopsInfo import ResyncIopsInfo
+
+from pyVmomi.vim.vsan.SnapServiceConfig import SnapServiceConfig
+
+from pyVmomi.vim.vsan.VsanDeconvergedNetConfig import VsanDeconvergedNetConfig
+
+from pyVmomi.vim.vsan.VsanExtendedConfig import VsanExtendedConfig
+
+from pyVmomi.vim.vsan.VsanInternalExtendedConfig import VsanInternalExtendedConfig
+
+from pyVmomi.vim.vsan.VsanUnmapConfig import VsanUnmapConfig
+
+from pyVmomi.vim.vsan.WitnessHostConfig import WitnessHostConfig
+
+from pyVmomi.vim.vsan.host.ConfigInfo import ConfigInfo
+
+from pyVmomi.vim.vsan.host.DataInTransitEncryptionInfo import DataInTransitEncryptionInfo
+
+from pyVmomi.vim.vsan.host.EncryptionInfo import EncryptionInfo
+
+from pyVmomi.vim.vsan.host.RemoteVsanServerClusterConfig import RemoteVsanServerClusterConfig
+
+from pyVmomi.vim.vsan.host.ServerClusterUnicastConfig import ServerClusterUnicastConfig
 
 class ConfigInfoEx(ConfigInfo):
    encryptionInfo: Optional[EncryptionInfo] = None

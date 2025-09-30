@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim import Datastore
+from pyVmomi.vim.Datastore import Datastore
 
 class VsanDatastoreInfo(Datastore.Info):
    membershipUuid: Optional[str] = None

@@ -10,8 +10,9 @@ from typing import Optional
 from pyVmomi.VmomiSupport import Enum
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim.vm import TargetInfo
-from pyVmomi.vim.vm import VMotionStunTimeInfo
+from pyVmomi.vim.vm.TargetInfo import TargetInfo
+
+from pyVmomi.vim.vm.VMotionStunTimeInfo import VMotionStunTimeInfo
 
 class VgpuProfileInfo(TargetInfo):
    class ProfileSharing(Enum):

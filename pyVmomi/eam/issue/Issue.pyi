@@ -6,7 +6,7 @@
 
 from datetime import datetime
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class Issue(DynamicData):
    key: int

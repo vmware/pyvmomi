@@ -6,10 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import FirewallInfo
-from pyVmomi.vim.host import Ruleset
+from pyVmomi.vim.host.FirewallInfo import FirewallInfo
+
+from pyVmomi.vim.host.Ruleset import Ruleset
 
 class FirewallConfig(DynamicData):
    class RuleSetConfig(DynamicData):

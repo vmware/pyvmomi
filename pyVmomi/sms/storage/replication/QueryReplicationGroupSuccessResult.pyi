@@ -4,8 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.sms.storage.replication import GroupInfo
-from pyVmomi.sms.storage.replication import GroupOperationResult
+from pyVmomi.sms.storage.replication.GroupInfo import GroupInfo
+
+from pyVmomi.sms.storage.replication.GroupOperationResult import GroupOperationResult
 
 class QueryReplicationGroupSuccessResult(GroupOperationResult):
    rgInfo: GroupInfo

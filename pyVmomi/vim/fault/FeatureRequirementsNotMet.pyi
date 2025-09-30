@@ -6,12 +6,13 @@
 
 from typing import Optional
 
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vim.fault import VirtualHardwareCompatibilityIssue
+from pyVmomi.vim.VirtualMachine import VirtualMachine
 
-from pyVmomi.vim.vm import FeatureRequirement
+from pyVmomi.vim.fault.VirtualHardwareCompatibilityIssue import VirtualHardwareCompatibilityIssue
+
+from pyVmomi.vim.vm.FeatureRequirement import FeatureRequirement
 
 class FeatureRequirementsNotMet(VirtualHardwareCompatibilityIssue):
    featureRequirement: list[FeatureRequirement] = []

@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.vm.device import VirtualSoundCardOption
+from pyVmomi.vim.vm.device.VirtualSoundCardOption import VirtualSoundCardOption
 
 class VirtualSoundBlaster16Option(VirtualSoundCardOption):
    pass

@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.dvs import HostMember
+from pyVmomi.vim.dvs.HostMember import HostMember
 
-from pyVmomi.vim.event import HostEvent
+from pyVmomi.vim.event.HostEvent import HostEvent
 
 class DvsHealthStatusChangeEvent(HostEvent):
    switchUuid: str

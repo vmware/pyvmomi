@@ -6,11 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vim import Datastore
+from pyVmomi.vim.Datastore import Datastore
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.sms.storage import BackingStoragePool
+from pyVmomi.sms.storage.BackingStoragePool import BackingStoragePool
 
 class DatastoreBackingPoolMapping(DynamicData):
    datastore: list[Datastore] = []

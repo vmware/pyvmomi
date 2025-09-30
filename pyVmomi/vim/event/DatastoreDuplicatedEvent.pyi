@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.event import DatastoreEvent
+from pyVmomi.vim.event.DatastoreEvent import DatastoreEvent
 
 class DatastoreDuplicatedEvent(DatastoreEvent):
    pass

@@ -10,9 +10,11 @@ from typing import Optional
 from pyVmomi.VmomiSupport import Enum
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.pbm.profile import CapabilityConstraints
-from pyVmomi.pbm.profile import Profile
-from pyVmomi.pbm.profile import ResourceType
+from pyVmomi.pbm.profile.CapabilityConstraints import CapabilityConstraints
+
+from pyVmomi.pbm.profile.Profile import Profile
+
+from pyVmomi.pbm.profile.ResourceType import ResourceType
 
 class CapabilityBasedProfile(Profile):
    class ProfileCategoryEnum(Enum):
@@ -26,6 +28,7 @@ class CapabilityBasedProfile(Profile):
       PmemDefaultProfile: ClassVar['SystemCreatedProfileType'] = 'PmemDefaultProfile'
       VmcManagementProfile: ClassVar['SystemCreatedProfileType'] = 'VmcManagementProfile'
       VsanMaxDefaultProfile: ClassVar['SystemCreatedProfileType'] = 'VsanMaxDefaultProfile'
+      VsanEsaAutoManagedRaidProfile: ClassVar['SystemCreatedProfileType'] = 'VsanEsaAutoManagedRaidProfile'
 
    profileCategory: str
    resourceType: ResourceType

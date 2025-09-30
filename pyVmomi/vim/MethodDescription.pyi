@@ -6,7 +6,7 @@
 
 from pyVmomi.VmomiSupport import ManagedMethod
 
-from pyVmomi.vim import Description
+from pyVmomi.vim.Description import Description
 
 class MethodDescription(Description):
    key: ManagedMethod

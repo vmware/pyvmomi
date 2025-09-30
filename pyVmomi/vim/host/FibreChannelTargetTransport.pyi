@@ -6,7 +6,7 @@
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim.host import TargetTransport
+from pyVmomi.vim.host.TargetTransport import TargetTransport
 
 class FibreChannelTargetTransport(TargetTransport):
    portWorldWideName: long

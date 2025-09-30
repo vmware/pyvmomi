@@ -4,9 +4,11 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.event import HostEventArgument
-from pyVmomi.vim.event import MigrationEvent
-from pyVmomi.vim.event import ResourcePoolEventArgument
+from pyVmomi.vim.event.HostEventArgument import HostEventArgument
+
+from pyVmomi.vim.event.MigrationEvent import MigrationEvent
+
+from pyVmomi.vim.event.ResourcePoolEventArgument import ResourcePoolEventArgument
 
 class MigrationResourceErrorEvent(MigrationEvent):
    dstPool: ResourcePoolEventArgument

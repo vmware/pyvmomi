@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.host import FibreChannelTargetTransport
+from pyVmomi.vim.host.FibreChannelTargetTransport import FibreChannelTargetTransport
 
 class FibreChannelOverEthernetTargetTransport(FibreChannelTargetTransport):
    vnportMac: str

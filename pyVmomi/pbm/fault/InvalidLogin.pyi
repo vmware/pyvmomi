@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.pbm.fault import PBMFault
+from pyVmomi.pbm.fault.PBMFault import PBMFault
 
 class InvalidLogin(PBMFault):
    pass

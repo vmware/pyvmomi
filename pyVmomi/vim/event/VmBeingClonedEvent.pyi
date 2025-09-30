@@ -4,9 +4,11 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.event import FolderEventArgument
-from pyVmomi.vim.event import HostEventArgument
-from pyVmomi.vim.event import VmCloneEvent
+from pyVmomi.vim.event.FolderEventArgument import FolderEventArgument
+
+from pyVmomi.vim.event.HostEventArgument import HostEventArgument
+
+from pyVmomi.vim.event.VmCloneEvent import VmCloneEvent
 
 class VmBeingClonedEvent(VmCloneEvent):
    destFolder: FolderEventArgument

@@ -4,17 +4,16 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import NoReturn
 from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.VirtualMachine import VirtualMachine
 
-from pyVmomi.vim.vm.guest import GuestAuthentication
+from pyVmomi.vim.vm.guest.GuestAuthentication import GuestAuthentication
 
 class AuthManager(ManagedObject):
-   def ValidateCredentials(self, vm: VirtualMachine, auth: GuestAuthentication) -> NoReturn: ...
+   def ValidateCredentials(self, vm: VirtualMachine, auth: GuestAuthentication) -> None: ...
    def AcquireCredentials(self, vm: VirtualMachine, requestedAuth: GuestAuthentication, sessionID: Optional[long]) -> GuestAuthentication: ...
-   def ReleaseCredentials(self, vm: VirtualMachine, auth: GuestAuthentication) -> NoReturn: ...
+   def ReleaseCredentials(self, vm: VirtualMachine, auth: GuestAuthentication) -> None: ...

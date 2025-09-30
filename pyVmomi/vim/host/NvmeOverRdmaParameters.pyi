@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.host import NvmeTransportParameters
+from pyVmomi.vim.host.NvmeTransportParameters import NvmeTransportParameters
 
 class NvmeOverRdmaParameters(NvmeTransportParameters):
    address: str

@@ -8,9 +8,9 @@ from datetime import datetime
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import VsanHostIoInsightInfo
+from pyVmomi.vim.host.VsanHostIoInsightInfo import VsanHostIoInsightInfo
 
 class VsanIoInsightInstance(DynamicData):
    runName: str

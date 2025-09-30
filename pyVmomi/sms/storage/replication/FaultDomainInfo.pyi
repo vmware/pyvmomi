@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.sms.provider import Provider
+from pyVmomi.sms.provider.Provider import Provider
 
-from pyVmomi.vim.vm.replication import FaultDomainId
+from pyVmomi.vim.vm.replication.FaultDomainId import FaultDomainId
 
 class FaultDomainInfo(FaultDomainId):
    name: Optional[str] = None

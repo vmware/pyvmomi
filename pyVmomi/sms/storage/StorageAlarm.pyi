@@ -10,9 +10,9 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.sms.storage import NameValuePair
+from pyVmomi.sms.storage.NameValuePair import NameValuePair
 
 class StorageAlarm(DynamicData):
    alarmId: long

@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.profile import ApplyProfile
+from pyVmomi.vim.profile.ApplyProfile import ApplyProfile
 
-from pyVmomi.vim.profile.host import NetworkPolicyProfile
+from pyVmomi.vim.profile.host.NetworkPolicyProfile import NetworkPolicyProfile
 
 class PortGroupProfile(ApplyProfile):
    class VlanProfile(ApplyProfile):

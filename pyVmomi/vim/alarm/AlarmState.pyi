@@ -8,11 +8,11 @@ from datetime import datetime
 
 from typing import Optional
 
-from pyVmomi.vim import ManagedEntity
+from pyVmomi.vim.ManagedEntity import ManagedEntity
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.alarm import Alarm
+from pyVmomi.vim.alarm.Alarm import Alarm
 
 class AlarmState(DynamicData):
    key: str

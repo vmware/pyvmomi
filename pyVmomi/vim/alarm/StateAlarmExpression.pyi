@@ -10,7 +10,7 @@ from typing import Optional
 from pyVmomi.VmomiSupport import Enum
 from pyVmomi.VmomiSupport import PropertyPath
 
-from pyVmomi.vim.alarm import AlarmExpression
+from pyVmomi.vim.alarm.AlarmExpression import AlarmExpression
 
 class StateAlarmExpression(AlarmExpression):
    class StateOperator(Enum):

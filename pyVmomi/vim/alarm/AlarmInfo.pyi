@@ -6,10 +6,11 @@
 
 from datetime import datetime
 
-from pyVmomi.vim import ManagedEntity
+from pyVmomi.vim.ManagedEntity import ManagedEntity
 
-from pyVmomi.vim.alarm import Alarm
-from pyVmomi.vim.alarm import AlarmSpec
+from pyVmomi.vim.alarm.Alarm import Alarm
+
+from pyVmomi.vim.alarm.AlarmSpec import AlarmSpec
 
 class AlarmInfo(AlarmSpec):
    key: str

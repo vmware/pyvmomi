@@ -6,7 +6,7 @@
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim.option import OptionType
+from pyVmomi.vim.option.OptionType import OptionType
 
 class LongOption(OptionType):
    min: long

@@ -8,7 +8,7 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vmodl.MethodFault import MethodFault
 
 class ProviderOutOfProvisioningResource(MethodFault):
    provisioningResourceId: str

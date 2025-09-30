@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import Datastore
+from pyVmomi.vim.Datastore import Datastore
 
-from pyVmomi.eam.issue import NoAgentVmDatastore
+from pyVmomi.eam.issue.NoAgentVmDatastore import NoAgentVmDatastore
 
 class NoCustomAgentVmDatastore(NoAgentVmDatastore):
    customAgentVmDatastore: list[Datastore] = []

@@ -8,12 +8,13 @@ from datetime import datetime
 
 from typing import Optional
 
-from pyVmomi.pbm import ServerObjectRef
+from pyVmomi.pbm.ServerObjectRef import ServerObjectRef
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.pbm.compliance import ComplianceResult
+from pyVmomi.vmodl.MethodFault import MethodFault
+
+from pyVmomi.pbm.compliance.ComplianceResult import ComplianceResult
 
 class RollupComplianceResult(DynamicData):
    oldestCheckTime: datetime

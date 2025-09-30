@@ -4,16 +4,15 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import NoReturn
 from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.VirtualMachine import VirtualMachine
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vm.guest import GuestAuthentication
+from pyVmomi.vim.vm.guest.GuestAuthentication import GuestAuthentication
 
 class AliasManager(ManagedObject):
    class GuestAuthSubject(DynamicData):
@@ -38,8 +37,8 @@ class AliasManager(ManagedObject):
       username: str
       subjects: list[GuestAuthSubject] = []
 
-   def AddAlias(self, vm: VirtualMachine, auth: GuestAuthentication, username: str, mapCert: bool, base64Cert: str, aliasInfo: GuestAuthAliasInfo) -> NoReturn: ...
-   def RemoveAlias(self, vm: VirtualMachine, auth: GuestAuthentication, username: str, base64Cert: str, subject: GuestAuthSubject) -> NoReturn: ...
-   def RemoveAliasByCert(self, vm: VirtualMachine, auth: GuestAuthentication, username: str, base64Cert: str) -> NoReturn: ...
+   def AddAlias(self, vm: VirtualMachine, auth: GuestAuthentication, username: str, mapCert: bool, base64Cert: str, aliasInfo: GuestAuthAliasInfo) -> None: ...
+   def RemoveAlias(self, vm: VirtualMachine, auth: GuestAuthentication, username: str, base64Cert: str, subject: GuestAuthSubject) -> None: ...
+   def RemoveAliasByCert(self, vm: VirtualMachine, auth: GuestAuthentication, username: str, base64Cert: str) -> None: ...
    def ListAliases(self, vm: VirtualMachine, auth: GuestAuthentication, username: str) -> list[GuestAliases]: ...
    def ListMappedAliases(self, vm: VirtualMachine, auth: GuestAuthentication) -> list[GuestMappedAliases]: ...

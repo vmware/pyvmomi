@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.vm import TargetInfo
+from pyVmomi.vim.vm.TargetInfo import TargetInfo
 
 class CdromInfo(TargetInfo):
    description: Optional[str] = None

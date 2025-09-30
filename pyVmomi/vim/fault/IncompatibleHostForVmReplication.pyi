@@ -8,7 +8,7 @@ from typing import ClassVar
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim.fault import ReplicationFault
+from pyVmomi.vim.fault.ReplicationFault import ReplicationFault
 
 class IncompatibleHostForVmReplication(ReplicationFault):
    class IncompatibleReason(Enum):

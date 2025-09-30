@@ -4,14 +4,15 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import NoReturn
 from typing import Optional
 
-from pyVmomi.vim import ExtensibleManagedObject
+from pyVmomi.vim.ExtensibleManagedObject import ExtensibleManagedObject
 
-from pyVmomi.vim.host import PciPassthruConfig
-from pyVmomi.vim.host import PciPassthruInfo
-from pyVmomi.vim.host import SriovDevicePoolInfo
+from pyVmomi.vim.host.PciPassthruConfig import PciPassthruConfig
+
+from pyVmomi.vim.host.PciPassthruInfo import PciPassthruInfo
+
+from pyVmomi.vim.host.SriovDevicePoolInfo import SriovDevicePoolInfo
 
 class PciPassthruSystem(ExtensibleManagedObject):
    @property
@@ -19,5 +20,5 @@ class PciPassthruSystem(ExtensibleManagedObject):
    @property
    def sriovDevicePoolInfo(self) -> list[SriovDevicePoolInfo]: ...
 
-   def Refresh(self) -> NoReturn: ...
-   def UpdatePassthruConfig(self, config: list[PciPassthruConfig]) -> NoReturn: ...
+   def Refresh(self) -> None: ...
+   def UpdatePassthruConfig(self, config: list[PciPassthruConfig]) -> None: ...

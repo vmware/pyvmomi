@@ -6,12 +6,13 @@
 
 from typing import Optional
 
-from pyVmomi.vim import HostSystem
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import VsanNetworkPeerHealthResult
-from pyVmomi.vim.host import VsanServerClusterInfo
+from pyVmomi.vim.host.VsanNetworkPeerHealthResult import VsanNetworkPeerHealthResult
+
+from pyVmomi.vim.host.VsanServerClusterInfo import VsanServerClusterInfo
 
 class VsanNetworkHealthResult(DynamicData):
    host: Optional[HostSystem] = None

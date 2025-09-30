@@ -6,10 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.storageDrs import PodConfigSpec
-from pyVmomi.vim.storageDrs import VmConfigSpec
+from pyVmomi.vim.storageDrs.PodConfigSpec import PodConfigSpec
+
+from pyVmomi.vim.storageDrs.VmConfigSpec import VmConfigSpec
 
 class ConfigSpec(DynamicData):
    podConfigSpec: Optional[PodConfigSpec] = None

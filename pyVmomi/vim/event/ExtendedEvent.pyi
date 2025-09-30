@@ -8,9 +8,9 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.event import GeneralEvent
+from pyVmomi.vim.event.GeneralEvent import GeneralEvent
 
 class ExtendedEvent(GeneralEvent):
    class Pair(DynamicData):

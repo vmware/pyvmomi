@@ -8,12 +8,15 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import ResourcePool
-from pyVmomi.vim import Task
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vim.vm import ConfigSpec
+from pyVmomi.vim.ResourcePool import ResourcePool
+
+from pyVmomi.vim.Task import Task
+
+from pyVmomi.vim.VirtualMachine import VirtualMachine
+
+from pyVmomi.vim.vm.ConfigSpec import ConfigSpec
 
 class CompatibilityChecker(ManagedObject):
    def CheckCompatibility(self, vm: VirtualMachine, host: Optional[HostSystem], pool: Optional[ResourcePool], testType: list[str]) -> Task: ...

@@ -10,8 +10,9 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import LocalizableMessage
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.vmodl.LocalizableMessage import LocalizableMessage
 
 class WipeDiskStatus(DynamicData):
    disk: str

@@ -6,11 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.pbm.profile import ProfileId
+from pyVmomi.pbm.profile.ProfileId import ProfileId
 
-from pyVmomi.vmodl.fault import SecurityError
+from pyVmomi.vmodl.fault.SecurityError import SecurityError
 
 class NoPermission(SecurityError):
    class EntityPrivileges(DynamicData):

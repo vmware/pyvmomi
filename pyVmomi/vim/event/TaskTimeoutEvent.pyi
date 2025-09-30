@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.event import TaskEvent
+from pyVmomi.vim.event.TaskEvent import TaskEvent
 
 class TaskTimeoutEvent(TaskEvent):
    pass

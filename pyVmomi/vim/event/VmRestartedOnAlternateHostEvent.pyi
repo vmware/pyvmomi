@@ -4,8 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.event import HostEventArgument
-from pyVmomi.vim.event import VmPoweredOnEvent
+from pyVmomi.vim.event.HostEventArgument import HostEventArgument
+
+from pyVmomi.vim.event.VmPoweredOnEvent import VmPoweredOnEvent
 
 class VmRestartedOnAlternateHostEvent(VmPoweredOnEvent):
    sourceHost: HostEventArgument

@@ -4,8 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.profile.host import IpAddressProfile
-from pyVmomi.vim.profile.host import PortGroupProfile
+from pyVmomi.vim.profile.host.IpAddressProfile import IpAddressProfile
+
+from pyVmomi.vim.profile.host.PortGroupProfile import PortGroupProfile
 
 class HostPortGroupProfile(PortGroupProfile):
    ipConfig: IpAddressProfile

@@ -4,10 +4,11 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vm.replication import DeviceGroupId
-from pyVmomi.vim.vm.replication import FaultDomainId
+from pyVmomi.vim.vm.replication.DeviceGroupId import DeviceGroupId
+
+from pyVmomi.vim.vm.replication.FaultDomainId import FaultDomainId
 
 class ReplicationGroupId(DynamicData):
    faultDomainId: FaultDomainId

@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim import InheritablePolicy
+from pyVmomi.vim.InheritablePolicy import InheritablePolicy
 
 class IntPolicy(InheritablePolicy):
    value: Optional[int] = None

@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.sms import Task
+from pyVmomi.sms.Task import Task
 
-from pyVmomi.sms.fault.replication import ReplicationFault
+from pyVmomi.sms.fault.replication.ReplicationFault import ReplicationFault
 
 class SyncOngoing(ReplicationFault):
    task: Task

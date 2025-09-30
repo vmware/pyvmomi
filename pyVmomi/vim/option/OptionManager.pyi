@@ -4,13 +4,13 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import NoReturn
 from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim.option import OptionDef
-from pyVmomi.vim.option import OptionValue
+from pyVmomi.vim.option.OptionDef import OptionDef
+
+from pyVmomi.vim.option.OptionValue import OptionValue
 
 class OptionManager(ManagedObject):
    @property
@@ -19,4 +19,4 @@ class OptionManager(ManagedObject):
    def setting(self) -> list[OptionValue]: ...
 
    def QueryView(self, name: Optional[str]) -> list[OptionValue]: ...
-   def UpdateValues(self, changedValue: list[OptionValue]) -> NoReturn: ...
+   def UpdateValues(self, changedValue: list[OptionValue]) -> None: ...

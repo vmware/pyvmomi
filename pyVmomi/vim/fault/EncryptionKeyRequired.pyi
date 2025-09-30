@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.encryption import CryptoKeyId
+from pyVmomi.vim.encryption.CryptoKeyId import CryptoKeyId
 
-from pyVmomi.vim.fault import InvalidState
+from pyVmomi.vim.fault.InvalidState import InvalidState
 
 class EncryptionKeyRequired(InvalidState):
    requiredKey: list[CryptoKeyId] = []

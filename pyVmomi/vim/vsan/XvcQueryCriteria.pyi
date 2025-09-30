@@ -6,8 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicArray
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicArray import DynamicArray
+
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class XvcQueryCriteria(DynamicData):
    property: str

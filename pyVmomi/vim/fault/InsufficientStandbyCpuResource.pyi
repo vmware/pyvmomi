@@ -6,7 +6,7 @@
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim.fault import InsufficientStandbyResource
+from pyVmomi.vim.fault.InsufficientStandbyResource import InsufficientStandbyResource
 
 class InsufficientStandbyCpuResource(InsufficientStandbyResource):
    available: long

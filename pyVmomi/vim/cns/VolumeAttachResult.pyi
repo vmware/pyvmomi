@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.cns import VolumeOperationResult
+from pyVmomi.vim.cns.VolumeOperationResult import VolumeOperationResult
 
 class VolumeAttachResult(VolumeOperationResult):
    diskUUID: Optional[str] = None

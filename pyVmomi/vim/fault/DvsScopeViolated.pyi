@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import ManagedEntity
+from pyVmomi.vim.ManagedEntity import ManagedEntity
 
-from pyVmomi.vim.fault import DvsFault
+from pyVmomi.vim.fault.DvsFault import DvsFault
 
 class DvsScopeViolated(DvsFault):
    scope: list[ManagedEntity] = []

@@ -6,14 +6,17 @@
 
 from typing import Optional
 
-from pyVmomi.vim import HostSystem
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import VsanHclComputeResource
-from pyVmomi.vim.host import VsanHclControllerInfo
-from pyVmomi.vim.host import VsanHclNicInfo
+from pyVmomi.vmodl.MethodFault import MethodFault
+
+from pyVmomi.vim.host.VsanHclComputeResource import VsanHclComputeResource
+
+from pyVmomi.vim.host.VsanHclControllerInfo import VsanHclControllerInfo
+
+from pyVmomi.vim.host.VsanHclNicInfo import VsanHclNicInfo
 
 class VsanHostHclInfo(DynamicData):
    hostname: str

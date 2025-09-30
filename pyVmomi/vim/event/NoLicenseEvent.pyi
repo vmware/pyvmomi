@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import LicenseManager
+from pyVmomi.vim.LicenseManager import LicenseManager
 
-from pyVmomi.vim.event import LicenseEvent
+from pyVmomi.vim.event.LicenseEvent import LicenseEvent
 
 class NoLicenseEvent(LicenseEvent):
    feature: LicenseManager.FeatureInfo

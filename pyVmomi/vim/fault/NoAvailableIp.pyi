@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import Network
+from pyVmomi.vim.Network import Network
 
-from pyVmomi.vim.fault import VAppPropertyFault
+from pyVmomi.vim.fault.VAppPropertyFault import VAppPropertyFault
 
 class NoAvailableIp(VAppPropertyFault):
    network: Network

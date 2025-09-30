@@ -9,10 +9,11 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim import ElementDescription
-from pyVmomi.vim import EnumDescription
+from pyVmomi.vim.ElementDescription import ElementDescription
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.EnumDescription import EnumDescription
+
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class EventDescription(DynamicData):
    class EventCategory(Enum):

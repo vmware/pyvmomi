@@ -10,7 +10,7 @@ from pyVmomi.VmomiSupport import byte
 from pyVmomi.VmomiSupport import long
 from pyVmomi.VmomiSupport import short
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class NumaNode(DynamicData):
    typeId: byte

@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.fault import OvfSystemFault
+from pyVmomi.vim.fault.OvfSystemFault import OvfSystemFault
 
-from pyVmomi.vim.vm.device import VirtualDevice
+from pyVmomi.vim.vm.device.VirtualDevice import VirtualDevice
 
 class OvfUnknownDevice(OvfSystemFault):
    device: Optional[VirtualDevice] = None

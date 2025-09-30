@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vslm import TaskReason
+from pyVmomi.vslm.TaskReason import TaskReason
 
-from pyVmomi.vim.scheduler import ScheduledTask
+from pyVmomi.vim.scheduler.ScheduledTask import ScheduledTask
 
 class TaskReasonSchedule(TaskReason):
    name: str

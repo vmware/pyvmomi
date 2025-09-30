@@ -6,11 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.option import OptionValue
+from pyVmomi.vim.option.OptionValue import OptionValue
 
-from pyVmomi.vim.vm import RelocateSpec
+from pyVmomi.vim.vm.RelocateSpec import RelocateSpec
 
 class InstantCloneSpec(DynamicData):
    name: str

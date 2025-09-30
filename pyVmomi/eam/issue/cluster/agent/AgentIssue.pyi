@@ -6,11 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.eam import Agent
+from pyVmomi.eam.Agent import Agent
 
-from pyVmomi.vim import ComputeResource
+from pyVmomi.vim.ComputeResource import ComputeResource
 
-from pyVmomi.eam.issue import AgencyIssue
+from pyVmomi.eam.issue.AgencyIssue import AgencyIssue
 
 class AgentIssue(AgencyIssue):
    agent: Agent

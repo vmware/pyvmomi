@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import KeyValue
+from pyVmomi.vim.KeyValue import KeyValue
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class EntityMetadata(DynamicData):
    entityName: str

@@ -6,8 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.cluster import Action
-from pyVmomi.vim.cluster import DrsMigration
+from pyVmomi.vim.cluster.Action import Action
+
+from pyVmomi.vim.cluster.DrsMigration import DrsMigration
 
 class MigrationAction(Action):
    drsMigration: Optional[DrsMigration] = None

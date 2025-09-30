@@ -5,17 +5,18 @@
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
 from typing import ClassVar
-from typing import NoReturn
 from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import PhysicalNic
-from pyVmomi.vim.host import VirtualNic
+from pyVmomi.vmodl.MethodFault import MethodFault
+
+from pyVmomi.vim.host.PhysicalNic import PhysicalNic
+
+from pyVmomi.vim.host.VirtualNic import VirtualNic
 
 class IscsiManager(ManagedObject):
    class IscsiStatus(DynamicData):
@@ -58,6 +59,6 @@ class IscsiManager(ManagedObject):
    def QueryPnicStatus(self, pnicDevice: str) -> IscsiStatus: ...
    def QueryBoundVnics(self, iScsiHbaName: str) -> list[IscsiPortInfo]: ...
    def QueryCandidateNics(self, iScsiHbaName: str) -> list[IscsiPortInfo]: ...
-   def BindVnic(self, iScsiHbaName: str, vnicDevice: str) -> NoReturn: ...
-   def UnbindVnic(self, iScsiHbaName: str, vnicDevice: str, force: bool) -> NoReturn: ...
+   def BindVnic(self, iScsiHbaName: str, vnicDevice: str) -> None: ...
+   def UnbindVnic(self, iScsiHbaName: str, vnicDevice: str, force: bool) -> None: ...
    def QueryMigrationDependencies(self, pnicDevice: list[str]) -> IscsiMigrationDependency: ...

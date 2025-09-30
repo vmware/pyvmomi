@@ -4,25 +4,31 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import NoReturn
 from typing import Optional
 
-from pyVmomi.eam import Agent
-from pyVmomi.eam import EamObject
+from pyVmomi.eam.Agent import Agent
 
-from pyVmomi.vim import ComputeResource
-from pyVmomi.vim import Datacenter
-from pyVmomi.vim import Datastore
-from pyVmomi.vim import Folder
-from pyVmomi.vim import Network
-from pyVmomi.vim import ResourcePool
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.eam.EamObject import EamObject
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.ComputeResource import ComputeResource
 
-from pyVmomi.eam.issue import Issue
+from pyVmomi.vim.Datacenter import Datacenter
 
-from pyVmomi.vim.vApp import IpPool
+from pyVmomi.vim.Datastore import Datastore
+
+from pyVmomi.vim.Folder import Folder
+
+from pyVmomi.vim.Network import Network
+
+from pyVmomi.vim.ResourcePool import ResourcePool
+
+from pyVmomi.vim.VirtualMachine import VirtualMachine
+
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.eam.issue.Issue import Issue
+
+from pyVmomi.vim.vApp.IpPool import IpPool
 
 class Agency(EamObject):
    class VMResourcePool(DynamicData):
@@ -71,13 +77,13 @@ class Agency(EamObject):
 
    def QuerySolutionId(self) -> str: ...
    def QueryConfig(self) -> ConfigInfo: ...
-   def Update(self, config: ConfigInfo) -> NoReturn: ...
+   def Update(self, config: ConfigInfo) -> None: ...
    def QueryRuntime(self) -> EamObject.RuntimeInfo: ...
    def QueryAgent(self) -> list[Agent]: ...
    def RegisterAgentVm(self, agentVm: VirtualMachine) -> Agent: ...
-   def UnregisterAgentVm(self, agentVm: VirtualMachine) -> NoReturn: ...
-   def Enable(self) -> NoReturn: ...
-   def Disable(self) -> NoReturn: ...
-   def Uninstall(self) -> NoReturn: ...
-   def DestroyAgency(self) -> NoReturn: ...
+   def UnregisterAgentVm(self, agentVm: VirtualMachine) -> None: ...
+   def Enable(self) -> None: ...
+   def Disable(self) -> None: ...
+   def Uninstall(self) -> None: ...
+   def DestroyAgency(self) -> None: ...
    def AddIssue(self, issue: Issue) -> Issue: ...

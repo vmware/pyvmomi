@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.event import RoleEvent
+from pyVmomi.vim.event.RoleEvent import RoleEvent
 
 class RoleRemovedEvent(RoleEvent):
    pass

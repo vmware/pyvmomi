@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.host import TpmEventDetails
+from pyVmomi.vim.host.TpmEventDetails import TpmEventDetails
 
 class TpmBootCompleteEventDetails(TpmEventDetails):
    pass

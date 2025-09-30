@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.fault import VimFault
+from pyVmomi.vim.fault.VimFault import VimFault
 
 class VsanNodeNotMaster(VimFault):
    vsanMasterUuid: Optional[str] = None

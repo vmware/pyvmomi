@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.profile import ApplyProfile
+from pyVmomi.vim.profile.ApplyProfile import ApplyProfile
 
 class StaticRouteProfile(ApplyProfile):
    key: Optional[str] = None

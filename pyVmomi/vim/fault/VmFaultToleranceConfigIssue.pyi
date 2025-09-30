@@ -9,9 +9,9 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim import ManagedEntity
+from pyVmomi.vim.ManagedEntity import ManagedEntity
 
-from pyVmomi.vim.fault import VmFaultToleranceIssue
+from pyVmomi.vim.fault.VmFaultToleranceIssue import VmFaultToleranceIssue
 
 class VmFaultToleranceConfigIssue(VmFaultToleranceIssue):
    class ReasonForIssue(Enum):

@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import ComputeResource
+from pyVmomi.vim.ComputeResource import ComputeResource
 
-from pyVmomi.eam.fault import EamFault
+from pyVmomi.eam.fault.EamFault import EamFault
 
 class InvalidAgencyScope(EamFault):
    unknownComputeResource: list[ComputeResource] = []

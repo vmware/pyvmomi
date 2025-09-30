@@ -8,16 +8,19 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import HostSystem
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import Capability
-from pyVmomi.vim.host import DatastoreBrowser
+from pyVmomi.vim.host.Capability import Capability
 
-from pyVmomi.vim.vm import ConfigOption
-from pyVmomi.vim.vm import ConfigOptionDescriptor
-from pyVmomi.vim.vm import ConfigTarget
+from pyVmomi.vim.host.DatastoreBrowser import DatastoreBrowser
+
+from pyVmomi.vim.vm.ConfigOption import ConfigOption
+
+from pyVmomi.vim.vm.ConfigOptionDescriptor import ConfigOptionDescriptor
+
+from pyVmomi.vim.vm.ConfigTarget import ConfigTarget
 
 class EnvironmentBrowser(ManagedObject):
    class ConfigOptionQuerySpec(DynamicData):

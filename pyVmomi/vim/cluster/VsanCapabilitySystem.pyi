@@ -8,7 +8,7 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim.cluster import VsanCapability
+from pyVmomi.vim.cluster.VsanCapability import VsanCapability
 
 class VsanCapabilitySystem(ManagedObject):
    def GetCapabilities(self, targets: list[ManagedObject]) -> list[VsanCapability]: ...

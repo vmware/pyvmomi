@@ -8,9 +8,9 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.pbm import ServerObjectRef
+from pyVmomi.pbm.ServerObjectRef import ServerObjectRef
 
-from pyVmomi.pbm.replication import QueryReplicationGroupResult
+from pyVmomi.pbm.replication.QueryReplicationGroupResult import QueryReplicationGroupResult
 
 class ReplicationManager(ManagedObject):
    def QueryReplicationGroups(self, entities: list[ServerObjectRef]) -> list[QueryReplicationGroupResult]: ...

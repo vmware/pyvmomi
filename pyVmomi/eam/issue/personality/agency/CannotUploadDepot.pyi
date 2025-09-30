@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.eam.issue.personality.agency import DepotIssue
+from pyVmomi.eam.issue.personality.agency.DepotIssue import DepotIssue
 
 class CannotUploadDepot(DepotIssue):
    localDepotUrl: str

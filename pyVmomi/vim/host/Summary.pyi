@@ -9,20 +9,29 @@ from typing import Optional
 from pyVmomi.VmomiSupport import long
 from pyVmomi.VmomiSupport import short
 
-from pyVmomi.vim import AboutInfo
-from pyVmomi.vim import CustomFieldsManager
-from pyVmomi.vim import Datastore
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import ManagedEntity
-from pyVmomi.vim import Network
+from pyVmomi.vim.AboutInfo import AboutInfo
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.CustomFieldsManager import CustomFieldsManager
 
-from pyVmomi.vim.host import FeatureVersionInfo
-from pyVmomi.vim.host import RuntimeInfo
-from pyVmomi.vim.host import SystemIdentificationInfo
-from pyVmomi.vim.host import TpmAttestationInfo
-from pyVmomi.vim.host import TrustAuthorityAttestationInfo
+from pyVmomi.vim.Datastore import Datastore
+
+from pyVmomi.vim.HostSystem import HostSystem
+
+from pyVmomi.vim.ManagedEntity import ManagedEntity
+
+from pyVmomi.vim.Network import Network
+
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.vim.host.FeatureVersionInfo import FeatureVersionInfo
+
+from pyVmomi.vim.host.RuntimeInfo import RuntimeInfo
+
+from pyVmomi.vim.host.SystemIdentificationInfo import SystemIdentificationInfo
+
+from pyVmomi.vim.host.TpmAttestationInfo import TpmAttestationInfo
+
+from pyVmomi.vim.host.TrustAuthorityAttestationInfo import TrustAuthorityAttestationInfo
 
 class Summary(DynamicData):
    class HardwareSummary(DynamicData):

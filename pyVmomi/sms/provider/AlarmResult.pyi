@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.sms.storage import StorageAlarm
+from pyVmomi.sms.storage.StorageAlarm import StorageAlarm
 
 class AlarmResult(DynamicData):
    storageAlarm: list[StorageAlarm] = []

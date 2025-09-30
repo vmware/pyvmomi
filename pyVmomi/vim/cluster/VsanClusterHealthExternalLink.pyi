@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.cluster import VsanClusterHealthLinkBase
+from pyVmomi.vim.cluster.VsanClusterHealthLinkBase import VsanClusterHealthLinkBase
 
 class VsanClusterHealthExternalLink(VsanClusterHealthLinkBase):
    url: str

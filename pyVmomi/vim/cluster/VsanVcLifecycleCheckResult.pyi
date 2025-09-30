@@ -6,10 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vsan import LifecycleConfigDetails
-from pyVmomi.vim.vsan import LifecyclePreCheckResult
+from pyVmomi.vim.vsan.LifecycleConfigDetails import LifecycleConfigDetails
+
+from pyVmomi.vim.vsan.LifecyclePreCheckResult import LifecyclePreCheckResult
 
 class VsanVcLifecycleCheckResult(DynamicData):
    status: str

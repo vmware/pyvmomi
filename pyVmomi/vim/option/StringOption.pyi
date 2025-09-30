@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.option import OptionType
+from pyVmomi.vim.option.OptionType import OptionType
 
 class StringOption(OptionType):
    defaultValue: str

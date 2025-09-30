@@ -10,15 +10,19 @@ from typing import Optional
 from pyVmomi.VmomiSupport import Enum
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import ClusterComputeResource
-from pyVmomi.vim import ComputeResource
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import Task
+from pyVmomi.vim.ClusterComputeResource import ClusterComputeResource
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vim.ComputeResource import ComputeResource
 
-from pyVmomi.vim.vm.device import VirtualDiskId
+from pyVmomi.vim.HostSystem import HostSystem
+
+from pyVmomi.vim.Task import Task
+
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.vmodl.MethodFault import MethodFault
+
+from pyVmomi.vim.vm.device.VirtualDiskId import VirtualDiskId
 
 class IoFilterManager(ManagedObject):
    class IoFilterInfo(DynamicData):

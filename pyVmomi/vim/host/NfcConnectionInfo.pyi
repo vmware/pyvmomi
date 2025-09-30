@@ -8,7 +8,7 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim.host import DataTransportConnectionInfo
+from pyVmomi.vim.host.DataTransportConnectionInfo import DataTransportConnectionInfo
 
 class NfcConnectionInfo(DataTransportConnectionInfo):
    streamingMemoryConsumed: Optional[long] = None

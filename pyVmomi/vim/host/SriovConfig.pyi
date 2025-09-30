@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.host import PciPassthruConfig
+from pyVmomi.vim.host.PciPassthruConfig import PciPassthruConfig
 
 class SriovConfig(PciPassthruConfig):
    sriovEnabled: bool

@@ -8,7 +8,7 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import UserSearchResult
+from pyVmomi.vim.UserSearchResult import UserSearchResult
 
 class UserDirectory(ManagedObject):
    @property

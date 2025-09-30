@@ -6,14 +6,15 @@
 
 from typing import Optional
 
-from pyVmomi.vim import ClusterComputeResource
+from pyVmomi.vim.ClusterComputeResource import ClusterComputeResource
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.cluster import PlacementSpec
+from pyVmomi.vim.cluster.PlacementSpec import PlacementSpec
 
-from pyVmomi.vim.storageDrs import PlacementAffinityRule
-from pyVmomi.vim.storageDrs import PlacementRankVmSpec
+from pyVmomi.vim.storageDrs.PlacementAffinityRule import PlacementAffinityRule
+
+from pyVmomi.vim.storageDrs.PlacementRankVmSpec import PlacementRankVmSpec
 
 class PlacementRankSpec(DynamicData):
    specs: list[PlacementSpec] = []

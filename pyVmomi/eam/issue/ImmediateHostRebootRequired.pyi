@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.eam.issue import VibIssue
+from pyVmomi.eam.issue.VibIssue import VibIssue
 
 class ImmediateHostRebootRequired(VibIssue):
    pass

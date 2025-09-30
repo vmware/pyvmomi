@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.cns import VolumeOperationResult
+from pyVmomi.vim.cns.VolumeOperationResult import VolumeOperationResult
 
 class VolumeOperationBatchResult(DynamicData):
    volumeResults: list[VolumeOperationResult] = []

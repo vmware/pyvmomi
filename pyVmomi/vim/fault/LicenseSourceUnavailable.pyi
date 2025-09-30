@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import LicenseManager
+from pyVmomi.vim.LicenseManager import LicenseManager
 
-from pyVmomi.vmodl.fault import NotEnoughLicenses
+from pyVmomi.vmodl.fault.NotEnoughLicenses import NotEnoughLicenses
 
 class LicenseSourceUnavailable(NotEnoughLicenses):
    licenseSource: LicenseManager.LicenseSource

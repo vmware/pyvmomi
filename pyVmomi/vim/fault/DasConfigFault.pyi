@@ -9,9 +9,9 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim.event import Event
+from pyVmomi.vim.event.Event import Event
 
-from pyVmomi.vim.fault import VimFault
+from pyVmomi.vim.fault.VimFault import VimFault
 
 class DasConfigFault(VimFault):
    class DasConfigFaultReason(Enum):

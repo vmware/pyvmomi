@@ -4,11 +4,11 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import ManagedEntity
+from pyVmomi.vim.ManagedEntity import ManagedEntity
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.encryption import KeyProviderId
+from pyVmomi.vim.encryption.KeyProviderId import KeyProviderId
 
 class KmipServerStatus(DynamicData):
    clusterId: KeyProviderId

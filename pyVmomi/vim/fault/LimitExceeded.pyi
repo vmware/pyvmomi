@@ -8,7 +8,7 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import PropertyPath
 
-from pyVmomi.vim.fault import VimFault
+from pyVmomi.vim.fault.VimFault import VimFault
 
 class LimitExceeded(VimFault):
    property: Optional[PropertyPath] = None

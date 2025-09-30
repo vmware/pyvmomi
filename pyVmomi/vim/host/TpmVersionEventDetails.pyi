@@ -6,7 +6,7 @@
 
 from pyVmomi.VmomiSupport import binary
 
-from pyVmomi.vim.host import TpmEventDetails
+from pyVmomi.vim.host.TpmEventDetails import TpmEventDetails
 
 class TpmVersionEventDetails(TpmEventDetails):
    version: binary

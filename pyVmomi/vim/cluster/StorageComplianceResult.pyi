@@ -11,10 +11,11 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.cluster import StorageOperationalStatus
-from pyVmomi.vim.cluster import StoragePolicyStatus
+from pyVmomi.vim.cluster.StorageOperationalStatus import StorageOperationalStatus
+
+from pyVmomi.vim.cluster.StoragePolicyStatus import StoragePolicyStatus
 
 class StorageComplianceResult(DynamicData):
    class StorageComplianceStatus(Enum):

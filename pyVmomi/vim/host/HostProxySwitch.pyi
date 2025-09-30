@@ -8,13 +8,13 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim import KeyValue
+from pyVmomi.vim.KeyValue import KeyValue
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.dvs import HostMember
+from pyVmomi.vim.dvs.HostMember import HostMember
 
-from pyVmomi.vim.host import PhysicalNic
+from pyVmomi.vim.host.PhysicalNic import PhysicalNic
 
 class HostProxySwitch(DynamicData):
    class Specification(DynamicData):

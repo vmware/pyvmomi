@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.vm.device import VirtualDeviceOption
+from pyVmomi.vim.vm.device.VirtualDeviceOption import VirtualDeviceOption
 
 class VirtualParallelPortOption(VirtualDeviceOption):
    class FileBackingOption(VirtualDeviceOption.FileBackingOption):

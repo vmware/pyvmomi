@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import Folder
+from pyVmomi.vim.Folder import Folder
 
-from pyVmomi.eam.issue import VmIssue
+from pyVmomi.eam.issue.VmIssue import VmIssue
 
 class VmWrongFolder(VmIssue):
    currentFolder: Folder

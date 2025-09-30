@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.vsan.host import IpConfig
+from pyVmomi.vim.vsan.host.IpConfig import IpConfig
 
 class IpConfigEx(IpConfig):
    upstreamIpV6Address: Optional[str] = None

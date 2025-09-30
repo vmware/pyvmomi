@@ -6,77 +6,109 @@
 
 from typing import Optional
 
-from pyVmomi.vim import AboutInfo
-from pyVmomi.vim import AuthorizationManager
-from pyVmomi.vim import CertificateManager
-from pyVmomi.vim import CustomFieldsManager
-from pyVmomi.vim import CustomizationSpecManager
-from pyVmomi.vim import DatastoreNamespaceManager
-from pyVmomi.vim import DiagnosticManager
-from pyVmomi.vim import DirectPathProfileManager
-from pyVmomi.vim import ExtensionManager
-from pyVmomi.vim import FileManager
-from pyVmomi.vim import Folder
-from pyVmomi.vim import HealthUpdateManager
-from pyVmomi.vim import IoFilterManager
-from pyVmomi.vim import IpPoolManager
-from pyVmomi.vim import LicenseManager
-from pyVmomi.vim import LocalizationManager
-from pyVmomi.vim import OverheadMemoryManager
-from pyVmomi.vim import OvfManager
-from pyVmomi.vim import PerformanceManager
-from pyVmomi.vim import SearchIndex
-from pyVmomi.vim import ServiceManager
-from pyVmomi.vim import SessionManager
-from pyVmomi.vim import SiteInfoManager
-from pyVmomi.vim import StorageQueryManager
-from pyVmomi.vim import StorageResourceManager
-from pyVmomi.vim import TaskManager
-from pyVmomi.vim import UserDirectory
-from pyVmomi.vim import VirtualDiskManager
-from pyVmomi.vim import VirtualizationManager
+from pyVmomi.vim.AboutInfo import AboutInfo
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.AuthorizationManager import AuthorizationManager
 
-from pyVmomi.vim.alarm import AlarmManager
+from pyVmomi.vim.CertificateManager import CertificateManager
 
-from pyVmomi.vim.dvs import DistributedVirtualSwitchManager
+from pyVmomi.vim.CustomFieldsManager import CustomFieldsManager
 
-from pyVmomi.vim.encryption import CryptoManager
+from pyVmomi.vim.CustomizationSpecManager import CustomizationSpecManager
 
-from pyVmomi.vim.event import EventManager
+from pyVmomi.vim.DatastoreNamespaceManager import DatastoreNamespaceManager
 
-from pyVmomi.vim.host import LocalAccountManager
-from pyVmomi.vim.host import SnmpSystem
+from pyVmomi.vim.DiagnosticManager import DiagnosticManager
 
-from pyVmomi.vim.option import OptionManager
+from pyVmomi.vim.DirectPathProfileManager import DirectPathProfileManager
 
-from pyVmomi.vim.profile import ComplianceManager
+from pyVmomi.vim.ExtensionManager import ExtensionManager
 
-from pyVmomi.vim.scheduler import ScheduledTaskManager
+from pyVmomi.vim.FileManager import FileManager
 
-from pyVmomi.vim.tenant import TenantManager
+from pyVmomi.vim.Folder import Folder
 
-from pyVmomi.vim.vcha import FailoverClusterConfigurator
-from pyVmomi.vim.vcha import FailoverClusterManager
+from pyVmomi.vim.HealthUpdateManager import HealthUpdateManager
 
-from pyVmomi.vim.view import ViewManager
+from pyVmomi.vim.IoFilterManager import IoFilterManager
 
-from pyVmomi.vim.vm import GuestCustomizationManager
+from pyVmomi.vim.IpPoolManager import IpPoolManager
 
-from pyVmomi.vim.vslm import VStorageObjectManagerBase
+from pyVmomi.vim.LicenseManager import LicenseManager
 
-from pyVmomi.vmodl.query import PropertyCollector
+from pyVmomi.vim.LocalizationManager import LocalizationManager
 
-from pyVmomi.vim.profile.cluster import ProfileManager
+from pyVmomi.vim.OverheadMemoryManager import OverheadMemoryManager
 
-from pyVmomi.vim.profile.host import HostSpecificationManager
-from pyVmomi.vim.profile.host import ProfileManager
+from pyVmomi.vim.OvfManager import OvfManager
 
-from pyVmomi.vim.vm.check import CompatibilityChecker
-from pyVmomi.vim.vm.check import ProvisioningChecker
+from pyVmomi.vim.PerformanceManager import PerformanceManager
 
-from pyVmomi.vim.vm.guest import GuestOperationsManager
+from pyVmomi.vim.SearchIndex import SearchIndex
+
+from pyVmomi.vim.ServiceManager import ServiceManager
+
+from pyVmomi.vim.SessionManager import SessionManager
+
+from pyVmomi.vim.SiteInfoManager import SiteInfoManager
+
+from pyVmomi.vim.StorageQueryManager import StorageQueryManager
+
+from pyVmomi.vim.StorageResourceManager import StorageResourceManager
+
+from pyVmomi.vim.TaskManager import TaskManager
+
+from pyVmomi.vim.UserDirectory import UserDirectory
+
+from pyVmomi.vim.VirtualDiskManager import VirtualDiskManager
+
+from pyVmomi.vim.VirtualizationManager import VirtualizationManager
+
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.vim.alarm.AlarmManager import AlarmManager
+
+from pyVmomi.vim.dvs.DistributedVirtualSwitchManager import DistributedVirtualSwitchManager
+
+from pyVmomi.vim.encryption.CryptoManager import CryptoManager
+
+from pyVmomi.vim.event.EventManager import EventManager
+
+from pyVmomi.vim.host.LocalAccountManager import LocalAccountManager
+
+from pyVmomi.vim.host.SnmpSystem import SnmpSystem
+
+from pyVmomi.vim.option.OptionManager import OptionManager
+
+from pyVmomi.vim.profile.ComplianceManager import ComplianceManager
+
+from pyVmomi.vim.scheduler.ScheduledTaskManager import ScheduledTaskManager
+
+from pyVmomi.vim.tenant.TenantManager import TenantManager
+
+from pyVmomi.vim.vcha.FailoverClusterConfigurator import FailoverClusterConfigurator
+
+from pyVmomi.vim.vcha.FailoverClusterManager import FailoverClusterManager
+
+from pyVmomi.vim.view.ViewManager import ViewManager
+
+from pyVmomi.vim.vm.GuestCustomizationManager import GuestCustomizationManager
+
+from pyVmomi.vim.vslm.VStorageObjectManagerBase import VStorageObjectManagerBase
+
+from pyVmomi.vmodl.query.PropertyCollector import PropertyCollector
+
+from pyVmomi.vim.profile.cluster.ProfileManager import ProfileManager
+
+from pyVmomi.vim.profile.host.HostSpecificationManager import HostSpecificationManager
+
+from pyVmomi.vim.profile.host.ProfileManager import ProfileManager
+
+from pyVmomi.vim.vm.check.CompatibilityChecker import CompatibilityChecker
+
+from pyVmomi.vim.vm.check.ProvisioningChecker import ProvisioningChecker
+
+from pyVmomi.vim.vm.guest.GuestOperationsManager import GuestOperationsManager
 
 class ServiceInstanceContent(DynamicData):
    rootFolder: Folder

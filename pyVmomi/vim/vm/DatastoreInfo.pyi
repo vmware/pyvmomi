@@ -8,9 +8,9 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim import Datastore
+from pyVmomi.vim.Datastore import Datastore
 
-from pyVmomi.vim.vm import TargetInfo
+from pyVmomi.vim.vm.TargetInfo import TargetInfo
 
 class DatastoreInfo(TargetInfo):
    datastore: Datastore.Summary

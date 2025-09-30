@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.host import AuthenticationStore
+from pyVmomi.vim.host.AuthenticationStore import AuthenticationStore
 
 class LocalAuthentication(AuthenticationStore):
    pass

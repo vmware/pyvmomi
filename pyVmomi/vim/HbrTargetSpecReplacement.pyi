@@ -6,8 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import HbrReplicationTargetSpec
-from pyVmomi.vim import HbrTargetSpec
+from pyVmomi.vim.HbrReplicationTargetSpec import HbrReplicationTargetSpec
+
+from pyVmomi.vim.HbrTargetSpec import HbrTargetSpec
 
 class HbrTargetSpecReplacement(HbrReplicationTargetSpec):
    spec: list[HbrTargetSpec] = []

@@ -9,7 +9,7 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim.event import HostEvent
+from pyVmomi.vim.event.HostEvent import HostEvent
 
 class HostDasErrorEvent(HostEvent):
    class HostDasErrorReason(Enum):

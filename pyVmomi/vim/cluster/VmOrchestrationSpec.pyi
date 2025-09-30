@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.cluster import VmOrchestrationInfo
+from pyVmomi.vim.cluster.VmOrchestrationInfo import VmOrchestrationInfo
 
-from pyVmomi.vim.option import ArrayUpdateSpec
+from pyVmomi.vim.option.ArrayUpdateSpec import ArrayUpdateSpec
 
 class VmOrchestrationSpec(ArrayUpdateSpec):
    info: Optional[VmOrchestrationInfo] = None

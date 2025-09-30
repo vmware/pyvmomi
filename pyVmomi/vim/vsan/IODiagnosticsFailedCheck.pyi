@@ -4,8 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import LocalizableMessage
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.vmodl.LocalizableMessage import LocalizableMessage
 
 class IODiagnosticsFailedCheck(DynamicData):
    unsupportedType: str

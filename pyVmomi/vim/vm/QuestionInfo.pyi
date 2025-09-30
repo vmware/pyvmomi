@@ -6,11 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.option import ChoiceOption
+from pyVmomi.vim.option.ChoiceOption import ChoiceOption
 
-from pyVmomi.vim.vm import Message
+from pyVmomi.vim.vm.Message import Message
 
 class QuestionInfo(DynamicData):
    id: str

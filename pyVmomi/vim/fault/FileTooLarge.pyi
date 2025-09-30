@@ -8,7 +8,7 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim.fault import FileFault
+from pyVmomi.vim.fault.FileFault import FileFault
 
 class FileTooLarge(FileFault):
    datastore: str

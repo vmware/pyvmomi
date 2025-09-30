@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.event import HostDasEvent
+from pyVmomi.vim.event.HostDasEvent import HostDasEvent
 
 class HostShortNameInconsistentEvent(HostDasEvent):
    shortName: str

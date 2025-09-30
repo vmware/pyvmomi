@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.profile import ApplyProfile
+from pyVmomi.vim.profile.ApplyProfile import ApplyProfile
 
-from pyVmomi.vim.profile.host import PermissionProfile
+from pyVmomi.vim.profile.host.PermissionProfile import PermissionProfile
 
 class SecurityProfile(ApplyProfile):
    permission: list[PermissionProfile] = []

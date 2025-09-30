@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.vsan import MountPrecheckResult
+from pyVmomi.vim.vsan.MountPrecheckResult import MountPrecheckResult
 
 class DatastoreSourcePrecheckResult(MountPrecheckResult):
    pass

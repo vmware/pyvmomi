@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import KeyValue
+from pyVmomi.vim.KeyValue import KeyValue
 
-from pyVmomi.vim.fault import VimFault
+from pyVmomi.vim.fault.VimFault import VimFault
 
 class ExtendedFault(VimFault):
    faultTypeId: str

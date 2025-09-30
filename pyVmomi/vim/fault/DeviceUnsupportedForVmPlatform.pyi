@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import InvalidDeviceSpec
+from pyVmomi.vim.fault.InvalidDeviceSpec import InvalidDeviceSpec
 
 class DeviceUnsupportedForVmPlatform(InvalidDeviceSpec):
    pass

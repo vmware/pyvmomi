@@ -6,8 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.event import CustomFieldEvent
-from pyVmomi.vim.event import ManagedEntityEventArgument
+from pyVmomi.vim.event.CustomFieldEvent import CustomFieldEvent
+
+from pyVmomi.vim.event.ManagedEntityEventArgument import ManagedEntityEventArgument
 
 class CustomFieldValueChangedEvent(CustomFieldEvent):
    entity: ManagedEntityEventArgument

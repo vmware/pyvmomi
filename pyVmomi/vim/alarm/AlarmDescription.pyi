@@ -4,10 +4,11 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import ElementDescription
-from pyVmomi.vim import TypeDescription
+from pyVmomi.vim.ElementDescription import ElementDescription
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.TypeDescription import TypeDescription
+
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class AlarmDescription(DynamicData):
    expr: list[TypeDescription] = []

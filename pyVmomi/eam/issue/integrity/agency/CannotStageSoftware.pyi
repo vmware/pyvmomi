@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.eam.issue.integrity.agency import VUMIssue
+from pyVmomi.eam.issue.integrity.agency.VUMIssue import VUMIssue
 
 class CannotStageSoftware(VUMIssue):
    pass

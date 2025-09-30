@@ -8,23 +8,31 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import ClusterComputeResource
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import Task
+from pyVmomi.vim.ClusterComputeResource import ClusterComputeResource
 
-from pyVmomi.vim.cluster import VSANPreferredFaultDomainInfo
-from pyVmomi.vim.cluster import VSANStretchedClusterCapability
-from pyVmomi.vim.cluster import VSANStretchedClusterFaultDomainConfig
-from pyVmomi.vim.cluster import VSANWitnessHostInfo
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vim.host import VsanHostVirtualApplianceInfo
+from pyVmomi.vim.Task import Task
 
-from pyVmomi.vim.vsan import ClusterRuntimeInfo
-from pyVmomi.vim.vsan import SharedWitnessCompatibilityResult
-from pyVmomi.vim.vsan import VsanVcStretchedClusterConfigSpec
+from pyVmomi.vim.cluster.VSANPreferredFaultDomainInfo import VSANPreferredFaultDomainInfo
 
-from pyVmomi.vim.vsan.host import AddStoragePoolDiskSpec
-from pyVmomi.vim.vsan.host import DiskMapping
+from pyVmomi.vim.cluster.VSANStretchedClusterCapability import VSANStretchedClusterCapability
+
+from pyVmomi.vim.cluster.VSANStretchedClusterFaultDomainConfig import VSANStretchedClusterFaultDomainConfig
+
+from pyVmomi.vim.cluster.VSANWitnessHostInfo import VSANWitnessHostInfo
+
+from pyVmomi.vim.host.VsanHostVirtualApplianceInfo import VsanHostVirtualApplianceInfo
+
+from pyVmomi.vim.vsan.ClusterRuntimeInfo import ClusterRuntimeInfo
+
+from pyVmomi.vim.vsan.SharedWitnessCompatibilityResult import SharedWitnessCompatibilityResult
+
+from pyVmomi.vim.vsan.VsanVcStretchedClusterConfigSpec import VsanVcStretchedClusterConfigSpec
+
+from pyVmomi.vim.vsan.host.AddStoragePoolDiskSpec import AddStoragePoolDiskSpec
+
+from pyVmomi.vim.vsan.host.DiskMapping import DiskMapping
 
 class VsanVcStretchedClusterSystem(ManagedObject):
    def AddWitnessHost(self, cluster: ClusterComputeResource, witnessHost: HostSystem, preferredFd: str, diskMapping: Optional[DiskMapping], metadataMode: Optional[bool], storagePoolSpec: Optional[AddStoragePoolDiskSpec]) -> Task: ...

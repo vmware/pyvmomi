@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.profile import PolicyOption
+from pyVmomi.vim.profile.PolicyOption import PolicyOption
 
 class CompositePolicyOption(PolicyOption):
    option: list[PolicyOption] = []

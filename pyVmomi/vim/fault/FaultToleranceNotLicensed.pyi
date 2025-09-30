@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.fault import VmFaultToleranceIssue
+from pyVmomi.vim.fault.VmFaultToleranceIssue import VmFaultToleranceIssue
 
 class FaultToleranceNotLicensed(VmFaultToleranceIssue):
    hostName: Optional[str] = None

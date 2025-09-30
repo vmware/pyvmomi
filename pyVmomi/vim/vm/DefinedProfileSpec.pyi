@@ -6,12 +6,13 @@
 
 from typing import Optional
 
-from pyVmomi.vim import KeyValue
+from pyVmomi.vim.KeyValue import KeyValue
 
-from pyVmomi.vim.vm import ProfileRawData
-from pyVmomi.vim.vm import ProfileSpec
+from pyVmomi.vim.vm.ProfileRawData import ProfileRawData
 
-from pyVmomi.vim.vm.replication import ReplicationSpec
+from pyVmomi.vim.vm.ProfileSpec import ProfileSpec
+
+from pyVmomi.vim.vm.replication.ReplicationSpec import ReplicationSpec
 
 class DefinedProfileSpec(ProfileSpec):
    profileId: str

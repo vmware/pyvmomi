@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.vslm import ID
+from pyVmomi.vim.vslm.ID import ID
 
-from pyVmomi.vslm.fault import VslmFault
+from pyVmomi.vslm.fault.VslmFault import VslmFault
 
 class SyncFault(VslmFault):
    id: Optional[ID] = None

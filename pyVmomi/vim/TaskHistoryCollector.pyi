@@ -6,8 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import HistoryCollector
-from pyVmomi.vim import TaskInfo
+from pyVmomi.vim.HistoryCollector import HistoryCollector
+
+from pyVmomi.vim.TaskInfo import TaskInfo
 
 class TaskHistoryCollector(HistoryCollector):
    @property

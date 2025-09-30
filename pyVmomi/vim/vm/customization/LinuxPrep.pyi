@@ -6,8 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.vm.customization import IdentitySettings
-from pyVmomi.vim.vm.customization import NameGenerator
+from pyVmomi.vim.vm.customization.IdentitySettings import IdentitySettings
+
+from pyVmomi.vim.vm.customization.NameGenerator import NameGenerator
 
 class LinuxPrep(IdentitySettings):
    hostName: NameGenerator

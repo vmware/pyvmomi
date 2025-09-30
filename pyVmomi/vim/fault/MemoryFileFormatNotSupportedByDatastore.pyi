@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import UnsupportedDatastore
+from pyVmomi.vim.fault.UnsupportedDatastore import UnsupportedDatastore
 
 class MemoryFileFormatNotSupportedByDatastore(UnsupportedDatastore):
    datastoreName: str

@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import ClusterComputeResource
+from pyVmomi.vim.ClusterComputeResource import ClusterComputeResource
 
-from pyVmomi.vmodl import LocalizableMessage
+from pyVmomi.vmodl.LocalizableMessage import LocalizableMessage
 
 class ClusterConfigPrecheckItem(ClusterComputeResource.ValidationResultBase):
    status: str

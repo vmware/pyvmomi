@@ -6,10 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import ManagedEntity
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.ManagedEntity import ManagedEntity
+
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class PortCriteria(DynamicData):
    connected: Optional[bool] = None

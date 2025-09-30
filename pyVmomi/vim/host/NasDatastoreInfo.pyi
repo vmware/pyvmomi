@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import Datastore
+from pyVmomi.vim.Datastore import Datastore
 
-from pyVmomi.vim.host import NasVolume
+from pyVmomi.vim.host.NasVolume import NasVolume
 
 class NasDatastoreInfo(Datastore.Info):
    nas: Optional[NasVolume] = None

@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.cluster import DasAdmissionControlInfo
+from pyVmomi.vim.cluster.DasAdmissionControlInfo import DasAdmissionControlInfo
 
 class FailoverLevelAdmissionControlInfo(DasAdmissionControlInfo):
    currentFailoverLevel: int

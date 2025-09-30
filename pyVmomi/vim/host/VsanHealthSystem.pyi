@@ -8,32 +8,51 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import Task
+from pyVmomi.vim.Task import Task
 
-from pyVmomi.vim.cluster import VsanHostCreateVmHealthTestResult
+from pyVmomi.vim.cluster.VsanHostCreateVmHealthTestResult import VsanHostCreateVmHealthTestResult
 
-from pyVmomi.vim.host import VsanEncryptionHealthSummary
-from pyVmomi.vim.host import VsanFileServiceHealthSummary
-from pyVmomi.vim.host import VsanHclFirmwareUpdateSpec
-from pyVmomi.vim.host import VsanHealthQuerySpec
-from pyVmomi.vim.host import VsanHostEMMSummary
-from pyVmomi.vim.host import VsanHostHclInfo
-from pyVmomi.vim.host import VsanHostQueryCheckLimitsSpec
-from pyVmomi.vim.host import VsanIperfClientSpec
-from pyVmomi.vim.host import VsanLimitHealthResult
-from pyVmomi.vim.host import VsanNetworkDiagnosticsHealthInfo
-from pyVmomi.vim.host import VsanNetworkHealthResult
-from pyVmomi.vim.host import VsanNetworkLoadTestResult
-from pyVmomi.vim.host import VsanObjectOverallHealth
-from pyVmomi.vim.host import VsanPhysicalDiskHealthSummary
-from pyVmomi.vim.host import VsanProactiveRebalanceInfoEx
-from pyVmomi.vim.host import VsanQueryResultHostInfo
-from pyVmomi.vim.host import VsanRepairObjectsResult
-from pyVmomi.vim.host import VsanSmartStatsHostSummary
-from pyVmomi.vim.host import VsanVmdkLoadTestResult
-from pyVmomi.vim.host import VsanVmdkLoadTestSpec
+from pyVmomi.vim.host.VsanEncryptionHealthSummary import VsanEncryptionHealthSummary
 
-from pyVmomi.vim.option import OptionValue
+from pyVmomi.vim.host.VsanFileServiceHealthSummary import VsanFileServiceHealthSummary
+
+from pyVmomi.vim.host.VsanHclFirmwareUpdateSpec import VsanHclFirmwareUpdateSpec
+
+from pyVmomi.vim.host.VsanHealthQuerySpec import VsanHealthQuerySpec
+
+from pyVmomi.vim.host.VsanHostEMMSummary import VsanHostEMMSummary
+
+from pyVmomi.vim.host.VsanHostHclInfo import VsanHostHclInfo
+
+from pyVmomi.vim.host.VsanHostQueryCheckLimitsSpec import VsanHostQueryCheckLimitsSpec
+
+from pyVmomi.vim.host.VsanIperfClientSpec import VsanIperfClientSpec
+
+from pyVmomi.vim.host.VsanLimitHealthResult import VsanLimitHealthResult
+
+from pyVmomi.vim.host.VsanNetworkDiagnosticsHealthInfo import VsanNetworkDiagnosticsHealthInfo
+
+from pyVmomi.vim.host.VsanNetworkHealthResult import VsanNetworkHealthResult
+
+from pyVmomi.vim.host.VsanNetworkLoadTestResult import VsanNetworkLoadTestResult
+
+from pyVmomi.vim.host.VsanObjectOverallHealth import VsanObjectOverallHealth
+
+from pyVmomi.vim.host.VsanPhysicalDiskHealthSummary import VsanPhysicalDiskHealthSummary
+
+from pyVmomi.vim.host.VsanProactiveRebalanceInfoEx import VsanProactiveRebalanceInfoEx
+
+from pyVmomi.vim.host.VsanQueryResultHostInfo import VsanQueryResultHostInfo
+
+from pyVmomi.vim.host.VsanRepairObjectsResult import VsanRepairObjectsResult
+
+from pyVmomi.vim.host.VsanSmartStatsHostSummary import VsanSmartStatsHostSummary
+
+from pyVmomi.vim.host.VsanVmdkLoadTestResult import VsanVmdkLoadTestResult
+
+from pyVmomi.vim.host.VsanVmdkLoadTestSpec import VsanVmdkLoadTestSpec
+
+from pyVmomi.vim.option.OptionValue import OptionValue
 
 class VsanHealthSystem(ManagedObject):
    def QueryVerifyNetworkSettings(self, peers: list[str], ROBOStretchedClusterWitnesses: list[str], vMotionPeers: list[str], spec: Optional[VsanHealthQuerySpec]) -> VsanNetworkHealthResult: ...

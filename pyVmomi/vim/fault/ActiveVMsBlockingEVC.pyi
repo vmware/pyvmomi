@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import HostSystem
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vim.fault import EVCConfigFault
+from pyVmomi.vim.fault.EVCConfigFault import EVCConfigFault
 
 class ActiveVMsBlockingEVC(EVCConfigFault):
    evcMode: Optional[str] = None

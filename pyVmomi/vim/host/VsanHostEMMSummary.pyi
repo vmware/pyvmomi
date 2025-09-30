@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class VsanHostEMMSummary(DynamicData):
    hostname: Optional[str] = None

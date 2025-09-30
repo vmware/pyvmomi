@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import AuthorizationManager
+from pyVmomi.vim.AuthorizationManager import AuthorizationManager
 
-from pyVmomi.vim.event import HostEvent
+from pyVmomi.vim.event.HostEvent import HostEvent
 
 class HostEnableAdminFailedEvent(HostEvent):
    permissions: list[AuthorizationManager.Permission] = []

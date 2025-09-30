@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.encryption import CryptoSpec
+from pyVmomi.vim.encryption.CryptoSpec import CryptoSpec
 
 class CryptoSpecDecrypt(CryptoSpec):
    pass

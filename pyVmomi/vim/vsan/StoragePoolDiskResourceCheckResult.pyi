@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.vsan import DiskResourceCheckResult
+from pyVmomi.vim.vsan.DiskResourceCheckResult import DiskResourceCheckResult
 
 class StoragePoolDiskResourceCheckResult(DiskResourceCheckResult):
    diskType: Optional[str] = None

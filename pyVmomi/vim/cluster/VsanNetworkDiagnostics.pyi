@@ -8,10 +8,11 @@ from datetime import datetime
 
 from typing import Optional
 
-from pyVmomi.vim import HostSystem
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import KeyAnyValue
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.vmodl.KeyAnyValue import KeyAnyValue
 
 class VsanNetworkDiagnostics(DynamicData):
    host: HostSystem

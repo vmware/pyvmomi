@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.cluster import VsanSpaceUsage
+from pyVmomi.vim.cluster.VsanSpaceUsage import VsanSpaceUsage
 
 class VsanSpaceUsageWithDatastoreType(DynamicData):
    spaceUsage: Optional[VsanSpaceUsage] = None

@@ -6,11 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vim import KeyValue
+from pyVmomi.vim.KeyValue import KeyValue
 
-from pyVmomi.vim.cns import FileBackingDetails
+from pyVmomi.vim.cns.FileBackingDetails import FileBackingDetails
 
-from pyVmomi.vim.vsan import FileShareNetPermission
+from pyVmomi.vim.vsan.FileShareNetPermission import FileShareNetPermission
 
 class VsanFileShareBackingDetails(FileBackingDetails):
    name: Optional[str] = None

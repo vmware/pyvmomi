@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.vm.customization import IdentitySettings
+from pyVmomi.vim.vm.customization.IdentitySettings import IdentitySettings
 
 class CloudinitPrep(IdentitySettings):
    metadata: str

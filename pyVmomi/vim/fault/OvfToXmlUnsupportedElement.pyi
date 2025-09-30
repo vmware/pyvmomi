@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.fault import OvfSystemFault
+from pyVmomi.vim.fault.OvfSystemFault import OvfSystemFault
 
 class OvfToXmlUnsupportedElement(OvfSystemFault):
    name: Optional[str] = None

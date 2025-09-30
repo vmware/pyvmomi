@@ -6,19 +6,29 @@
 
 from typing import Optional
 
-from pyVmomi.vim.profile import ApplyProfile
+from pyVmomi.vim.profile.ApplyProfile import ApplyProfile
 
-from pyVmomi.vim.profile.host import AuthenticationProfile
-from pyVmomi.vim.profile.host import DateTimeProfile
-from pyVmomi.vim.profile.host import FirewallProfile
-from pyVmomi.vim.profile.host import HostMemoryProfile
-from pyVmomi.vim.profile.host import NetworkProfile
-from pyVmomi.vim.profile.host import OptionProfile
-from pyVmomi.vim.profile.host import SecurityProfile
-from pyVmomi.vim.profile.host import ServiceProfile
-from pyVmomi.vim.profile.host import StorageProfile
-from pyVmomi.vim.profile.host import UserGroupProfile
-from pyVmomi.vim.profile.host import UserProfile
+from pyVmomi.vim.profile.host.AuthenticationProfile import AuthenticationProfile
+
+from pyVmomi.vim.profile.host.DateTimeProfile import DateTimeProfile
+
+from pyVmomi.vim.profile.host.FirewallProfile import FirewallProfile
+
+from pyVmomi.vim.profile.host.HostMemoryProfile import HostMemoryProfile
+
+from pyVmomi.vim.profile.host.NetworkProfile import NetworkProfile
+
+from pyVmomi.vim.profile.host.OptionProfile import OptionProfile
+
+from pyVmomi.vim.profile.host.SecurityProfile import SecurityProfile
+
+from pyVmomi.vim.profile.host.ServiceProfile import ServiceProfile
+
+from pyVmomi.vim.profile.host.StorageProfile import StorageProfile
+
+from pyVmomi.vim.profile.host.UserGroupProfile import UserGroupProfile
+
+from pyVmomi.vim.profile.host.UserProfile import UserProfile
 
 class HostApplyProfile(ApplyProfile):
    memory: Optional[HostMemoryProfile] = None

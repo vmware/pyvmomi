@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import VmfsMountFault
+from pyVmomi.vim.fault.VmfsMountFault import VmfsMountFault
 
 class VmfsAlreadyMounted(VmfsMountFault):
    pass

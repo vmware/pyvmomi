@@ -6,8 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.vsan import EntityResourceCheckDetails
-from pyVmomi.vim.vsan import StoragePoolDiskResourceCheckResult
+from pyVmomi.vim.vsan.EntityResourceCheckDetails import EntityResourceCheckDetails
+
+from pyVmomi.vim.vsan.StoragePoolDiskResourceCheckResult import StoragePoolDiskResourceCheckResult
 
 class StoragePoolResourceCheckResult(EntityResourceCheckDetails):
    disks: list[StoragePoolDiskResourceCheckResult] = []

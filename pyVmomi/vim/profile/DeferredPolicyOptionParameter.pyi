@@ -6,10 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import KeyAnyValue
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.profile import ProfilePropertyPath
+from pyVmomi.vmodl.KeyAnyValue import KeyAnyValue
+
+from pyVmomi.vim.profile.ProfilePropertyPath import ProfilePropertyPath
 
 class DeferredPolicyOptionParameter(DynamicData):
    inputPath: ProfilePropertyPath

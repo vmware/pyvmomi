@@ -8,15 +8,19 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import Task
+from pyVmomi.vim.Task import Task
 
-from pyVmomi.vim.host import MaintenanceSpec
-from pyVmomi.vim.host import ScsiDisk
+from pyVmomi.vim.host.MaintenanceSpec import MaintenanceSpec
 
-from pyVmomi.vim.vsan.host import ClusterStatus
-from pyVmomi.vim.vsan.host import ConfigInfo
-from pyVmomi.vim.vsan.host import DiskMapping
-from pyVmomi.vim.vsan.host import DiskResult
+from pyVmomi.vim.host.ScsiDisk import ScsiDisk
+
+from pyVmomi.vim.vsan.host.ClusterStatus import ClusterStatus
+
+from pyVmomi.vim.vsan.host.ConfigInfo import ConfigInfo
+
+from pyVmomi.vim.vsan.host.DiskMapping import DiskMapping
+
+from pyVmomi.vim.vsan.host.DiskResult import DiskResult
 
 class VsanSystem(ManagedObject):
    @property

@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.option import IntOption
+from pyVmomi.vim.option.IntOption import IntOption
 
-from pyVmomi.vim.vm.device import VirtualControllerOption
+from pyVmomi.vim.vm.device.VirtualControllerOption import VirtualControllerOption
 
 class VirtualSATAControllerOption(VirtualControllerOption):
    numSATADisks: IntOption

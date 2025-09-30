@@ -4,17 +4,18 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import NoReturn
 from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 from pyVmomi.VmomiSupport import binary
 
-from pyVmomi.vim.host import AssignableHardwareBinding
-from pyVmomi.vim.host import AssignableHardwareConfig
+from pyVmomi.vim.host.AssignableHardwareBinding import AssignableHardwareBinding
 
-from pyVmomi.vim.vm import DynamicPassthroughInfo
-from pyVmomi.vim.vm import VendorDeviceGroupInfo
+from pyVmomi.vim.host.AssignableHardwareConfig import AssignableHardwareConfig
+
+from pyVmomi.vim.vm.DynamicPassthroughInfo import DynamicPassthroughInfo
+
+from pyVmomi.vim.vm.VendorDeviceGroupInfo import VendorDeviceGroupInfo
 
 class AssignableHardwareManager(ManagedObject):
    @property
@@ -25,4 +26,4 @@ class AssignableHardwareManager(ManagedObject):
    def DownloadDescriptionTree(self) -> binary: ...
    def RetrieveDynamicPassthroughInfo(self) -> list[DynamicPassthroughInfo]: ...
    def RetrieveVendorDeviceGroupInfo(self) -> list[VendorDeviceGroupInfo]: ...
-   def UpdateConfig(self, config: AssignableHardwareConfig) -> NoReturn: ...
+   def UpdateConfig(self, config: AssignableHardwareConfig) -> None: ...

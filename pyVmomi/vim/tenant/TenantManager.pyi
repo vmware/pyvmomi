@@ -4,14 +4,13 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import NoReturn
 from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import ManagedEntity
+from pyVmomi.vim.ManagedEntity import ManagedEntity
 
 class TenantManager(ManagedObject):
-   def MarkServiceProviderEntities(self, entity: list[ManagedEntity]) -> NoReturn: ...
-   def UnmarkServiceProviderEntities(self, entity: list[ManagedEntity]) -> NoReturn: ...
+   def MarkServiceProviderEntities(self, entity: list[ManagedEntity]) -> None: ...
+   def UnmarkServiceProviderEntities(self, entity: list[ManagedEntity]) -> None: ...
    def RetrieveServiceProviderEntities(self) -> list[ManagedEntity]: ...

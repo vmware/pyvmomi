@@ -5,15 +5,14 @@
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
 from typing import ClassVar
-from typing import NoReturn
 from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.VirtualMachine import VirtualMachine
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class AutoStartManager(ManagedObject):
    class Action(Enum):
@@ -52,6 +51,6 @@ class AutoStartManager(ManagedObject):
    @property
    def config(self) -> Config: ...
 
-   def Reconfigure(self, spec: Config) -> NoReturn: ...
-   def AutoPowerOn(self) -> NoReturn: ...
-   def AutoPowerOff(self) -> NoReturn: ...
+   def Reconfigure(self, spec: Config) -> None: ...
+   def AutoPowerOn(self) -> None: ...
+   def AutoPowerOff(self) -> None: ...

@@ -6,12 +6,15 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vsan.host import DiskMapInfoEx
-from pyVmomi.vim.vsan.host import StoragePoolInfo
-from pyVmomi.vim.vsan.host import VsanDirectStorage
-from pyVmomi.vim.vsan.host import VsanManagedPMemInfo
+from pyVmomi.vim.vsan.host.DiskMapInfoEx import DiskMapInfoEx
+
+from pyVmomi.vim.vsan.host.StoragePoolInfo import StoragePoolInfo
+
+from pyVmomi.vim.vsan.host.VsanDirectStorage import VsanDirectStorage
+
+from pyVmomi.vim.vsan.host.VsanManagedPMemInfo import VsanManagedPMemInfo
 
 class VsanManagedDisksInfo(DynamicData):
    vSANDirectDisks: list[VsanDirectStorage] = []

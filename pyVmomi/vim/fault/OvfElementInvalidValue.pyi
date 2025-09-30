@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import OvfElement
+from pyVmomi.vim.fault.OvfElement import OvfElement
 
 class OvfElementInvalidValue(OvfElement):
    value: str

@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.event import CustomFieldEvent
+from pyVmomi.vim.event.CustomFieldEvent import CustomFieldEvent
 
 class CustomFieldDefEvent(CustomFieldEvent):
    fieldKey: int

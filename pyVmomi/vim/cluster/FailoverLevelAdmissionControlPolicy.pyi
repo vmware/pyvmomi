@@ -6,8 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.cluster import DasAdmissionControlPolicy
-from pyVmomi.vim.cluster import SlotPolicy
+from pyVmomi.vim.cluster.DasAdmissionControlPolicy import DasAdmissionControlPolicy
+
+from pyVmomi.vim.cluster.SlotPolicy import SlotPolicy
 
 class FailoverLevelAdmissionControlPolicy(DasAdmissionControlPolicy):
    failoverLevel: int

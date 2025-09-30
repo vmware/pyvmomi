@@ -11,9 +11,9 @@ from pyVmomi.VmomiSupport import Enum
 from pyVmomi.VmomiSupport import long
 from pyVmomi.VmomiSupport import short
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import CpuIdInfo
+from pyVmomi.vim.host.CpuIdInfo import CpuIdInfo
 
 class CpuPackage(DynamicData):
    class Vendor(Enum):

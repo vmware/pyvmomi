@@ -6,9 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vim.event import AlarmEvent
-from pyVmomi.vim.event import ChangesInfoEventArgument
-from pyVmomi.vim.event import ManagedEntityEventArgument
+from pyVmomi.vim.event.AlarmEvent import AlarmEvent
+
+from pyVmomi.vim.event.ChangesInfoEventArgument import ChangesInfoEventArgument
+
+from pyVmomi.vim.event.ManagedEntityEventArgument import ManagedEntityEventArgument
 
 class AlarmReconfiguredEvent(AlarmEvent):
    entity: ManagedEntityEventArgument

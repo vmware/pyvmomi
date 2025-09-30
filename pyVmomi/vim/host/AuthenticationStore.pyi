@@ -6,7 +6,7 @@
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim.host import AuthenticationStoreInfo
+from pyVmomi.vim.host.AuthenticationStoreInfo import AuthenticationStoreInfo
 
 class AuthenticationStore(ManagedObject):
    @property

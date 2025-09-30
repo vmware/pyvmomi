@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import DistributedVirtualSwitch
+from pyVmomi.vim.DistributedVirtualSwitch import DistributedVirtualSwitch
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class DistributedVirtualSwitchInfo(DynamicData):
    switchName: str

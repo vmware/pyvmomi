@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import HostSystem
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vim.fault import MigrationFault
+from pyVmomi.vim.fault.MigrationFault import MigrationFault
 
 class MigrationFeatureNotSupported(MigrationFault):
    atSourceHost: bool

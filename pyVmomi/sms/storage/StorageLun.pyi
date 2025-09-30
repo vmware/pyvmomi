@@ -8,9 +8,9 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.sms.storage import BackingConfig
+from pyVmomi.sms.storage.BackingConfig import BackingConfig
 
 class StorageLun(DynamicData):
    uuid: str

@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.host import ScsiDisk
+from pyVmomi.vim.host.ScsiDisk import ScsiDisk
 
-from pyVmomi.vim.vm import DiskDeviceInfo
+from pyVmomi.vim.vm.DiskDeviceInfo import DiskDeviceInfo
 
 class ScsiDiskDeviceInfo(DiskDeviceInfo):
    disk: Optional[ScsiDisk] = None

@@ -5,21 +5,24 @@
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
 from typing import ClassVar
-from typing import NoReturn
 from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 from pyVmomi.VmomiSupport import ManagedMethod
 
-from pyVmomi.vim import AuthorizationManager
-from pyVmomi.vim import CustomFieldsManager
-from pyVmomi.vim import ExtensibleManagedObject
-from pyVmomi.vim import Tag
-from pyVmomi.vim import Task
+from pyVmomi.vim.AuthorizationManager import AuthorizationManager
 
-from pyVmomi.vim.alarm import AlarmState
+from pyVmomi.vim.CustomFieldsManager import CustomFieldsManager
 
-from pyVmomi.vim.event import Event
+from pyVmomi.vim.ExtensibleManagedObject import ExtensibleManagedObject
+
+from pyVmomi.vim.Tag import Tag
+
+from pyVmomi.vim.Task import Task
+
+from pyVmomi.vim.alarm.AlarmState import AlarmState
+
+from pyVmomi.vim.event.Event import Event
 
 class ManagedEntity(ExtensibleManagedObject):
    class Status(Enum):
@@ -57,6 +60,6 @@ class ManagedEntity(ExtensibleManagedObject):
    @property
    def tag(self) -> list[Tag]: ...
 
-   def Reload(self) -> NoReturn: ...
+   def Reload(self) -> None: ...
    def Rename(self, newName: str) -> Task: ...
    def Destroy(self) -> Task: ...

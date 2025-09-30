@@ -8,18 +8,23 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import ComputeResource
-from pyVmomi.vim import Task
+from pyVmomi.vim.ComputeResource import ComputeResource
 
-from pyVmomi.vim.cluster import VsanObjIdentityQuerySpec
-from pyVmomi.vim.cluster import VsanObjectIdentityAndHealth
-from pyVmomi.vim.cluster import VsanObjectInformation
-from pyVmomi.vim.cluster import VsanObjectQuerySpec
-from pyVmomi.vim.cluster import VsanSyncingObjectFilter
+from pyVmomi.vim.Task import Task
 
-from pyVmomi.vim.vm import ProfileSpec
+from pyVmomi.vim.cluster.VsanObjIdentityQuerySpec import VsanObjIdentityQuerySpec
 
-from pyVmomi.vim.vsan.host import VsanSyncingObjectQueryResult
+from pyVmomi.vim.cluster.VsanObjectIdentityAndHealth import VsanObjectIdentityAndHealth
+
+from pyVmomi.vim.cluster.VsanObjectInformation import VsanObjectInformation
+
+from pyVmomi.vim.cluster.VsanObjectQuerySpec import VsanObjectQuerySpec
+
+from pyVmomi.vim.cluster.VsanSyncingObjectFilter import VsanSyncingObjectFilter
+
+from pyVmomi.vim.vm.ProfileSpec import ProfileSpec
+
+from pyVmomi.vim.vsan.host.VsanSyncingObjectQueryResult import VsanSyncingObjectQueryResult
 
 class VsanObjectSystem(ManagedObject):
    def SetVsanObjectPolicy(self, cluster: Optional[ComputeResource], vsanObjectUuid: str, profile: Optional[ProfileSpec]) -> bool: ...

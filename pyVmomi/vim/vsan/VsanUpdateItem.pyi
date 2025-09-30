@@ -6,14 +6,15 @@
 
 from typing import Optional
 
-from pyVmomi.vim import HostSystem
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import VsanHclFirmwareUpdateSpec
+from pyVmomi.vim.host.VsanHclFirmwareUpdateSpec import VsanHclFirmwareUpdateSpec
 
-from pyVmomi.vim.vsan import VsanDownloadItem
-from pyVmomi.vim.vsan import VsanVibSpec
+from pyVmomi.vim.vsan.VsanDownloadItem import VsanDownloadItem
+
+from pyVmomi.vim.vsan.VsanVibSpec import VsanVibSpec
 
 class VsanUpdateItem(DynamicData):
    host: HostSystem

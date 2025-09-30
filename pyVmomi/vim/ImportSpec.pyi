@@ -6,11 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vim import OvfConsumer
+from pyVmomi.vim.OvfConsumer import OvfConsumer
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vApp import EntityConfigInfo
+from pyVmomi.vim.vApp.EntityConfigInfo import EntityConfigInfo
 
 class ImportSpec(DynamicData):
    entityConfig: Optional[EntityConfigInfo] = None

@@ -6,9 +6,9 @@
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim.fault import GuestOperationsFault
+from pyVmomi.vim.fault.GuestOperationsFault import GuestOperationsFault
 
-from pyVmomi.vim.vm.guest import GuestAuthentication
+from pyVmomi.vim.vm.guest.GuestAuthentication import GuestAuthentication
 
 class GuestAuthenticationChallenge(GuestOperationsFault):
    serverChallenge: GuestAuthentication

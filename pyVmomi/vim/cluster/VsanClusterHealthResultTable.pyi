@@ -6,9 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vim.cluster import VsanClusterHealthResultBase
-from pyVmomi.vim.cluster import VsanClusterHealthResultColumnInfo
-from pyVmomi.vim.cluster import VsanClusterHealthResultRow
+from pyVmomi.vim.cluster.VsanClusterHealthResultBase import VsanClusterHealthResultBase
+
+from pyVmomi.vim.cluster.VsanClusterHealthResultColumnInfo import VsanClusterHealthResultColumnInfo
+
+from pyVmomi.vim.cluster.VsanClusterHealthResultRow import VsanClusterHealthResultRow
 
 class VsanClusterHealthResultTable(VsanClusterHealthResultBase):
    columns: list[VsanClusterHealthResultColumnInfo] = []

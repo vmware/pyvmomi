@@ -8,9 +8,9 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import VsanMassCollectorSpec
+from pyVmomi.vim.VsanMassCollectorSpec import VsanMassCollectorSpec
 
-from pyVmomi.vmodl.query import PropertyCollector
+from pyVmomi.vmodl.query.PropertyCollector import PropertyCollector
 
 class VsanMassCollector(ManagedObject):
    def VsanRetrieveProperties(self, massCollectorSpecs: list[VsanMassCollectorSpec]) -> list[PropertyCollector.ObjectContent]: ...

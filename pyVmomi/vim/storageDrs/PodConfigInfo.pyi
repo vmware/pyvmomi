@@ -9,15 +9,17 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.cluster import RuleInfo
+from pyVmomi.vim.cluster.RuleInfo import RuleInfo
 
-from pyVmomi.vim.option import OptionValue
+from pyVmomi.vim.option.OptionValue import OptionValue
 
-from pyVmomi.vim.storageDrs import AutomationConfig
-from pyVmomi.vim.storageDrs import IoLoadBalanceConfig
-from pyVmomi.vim.storageDrs import SpaceLoadBalanceConfig
+from pyVmomi.vim.storageDrs.AutomationConfig import AutomationConfig
+
+from pyVmomi.vim.storageDrs.IoLoadBalanceConfig import IoLoadBalanceConfig
+
+from pyVmomi.vim.storageDrs.SpaceLoadBalanceConfig import SpaceLoadBalanceConfig
 
 class PodConfigInfo(DynamicData):
    class Behavior(Enum):

@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.vsan import DirectoryServerConfig
+from pyVmomi.vim.vsan.DirectoryServerConfig import DirectoryServerConfig
 
 class ActiveDirectoryServerConfig(DirectoryServerConfig):
    activeDirectoryDomainName: Optional[str] = None

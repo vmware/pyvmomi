@@ -6,8 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.host import IpRouteConfig
-from pyVmomi.vim.host import VirtualNicConnection
+from pyVmomi.vim.host.IpRouteConfig import IpRouteConfig
+
+from pyVmomi.vim.host.VirtualNicConnection import VirtualNicConnection
 
 class IpRouteConfigSpec(IpRouteConfig):
    gatewayDeviceConnection: Optional[VirtualNicConnection] = None

@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import CpuIncompatible
+from pyVmomi.vim.fault.CpuIncompatible import CpuIncompatible
 
 class CpuIncompatible81EDX(CpuIncompatible):
    nx: bool

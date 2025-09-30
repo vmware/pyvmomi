@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vmodl.fault import SecurityError
+from pyVmomi.vmodl.fault.SecurityError import SecurityError
 
 class RestrictedVersion(SecurityError):
    pass

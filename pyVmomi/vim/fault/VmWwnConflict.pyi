@@ -8,10 +8,11 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vim.fault import InvalidVmConfig
+from pyVmomi.vim.VirtualMachine import VirtualMachine
+
+from pyVmomi.vim.fault.InvalidVmConfig import InvalidVmConfig
 
 class VmWwnConflict(InvalidVmConfig):
    vm: Optional[VirtualMachine] = None

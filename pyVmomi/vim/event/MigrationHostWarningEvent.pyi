@@ -4,8 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.event import HostEventArgument
-from pyVmomi.vim.event import MigrationEvent
+from pyVmomi.vim.event.HostEventArgument import HostEventArgument
+
+from pyVmomi.vim.event.MigrationEvent import MigrationEvent
 
 class MigrationHostWarningEvent(MigrationEvent):
    dstHost: HostEventArgument

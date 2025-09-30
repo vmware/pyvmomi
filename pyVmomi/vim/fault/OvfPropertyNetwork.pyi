@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import OvfProperty
+from pyVmomi.vim.fault.OvfProperty import OvfProperty
 
 class OvfPropertyNetwork(OvfProperty):
    pass

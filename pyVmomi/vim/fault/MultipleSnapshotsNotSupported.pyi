@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import SnapshotFault
+from pyVmomi.vim.fault.SnapshotFault import SnapshotFault
 
 class MultipleSnapshotsNotSupported(SnapshotFault):
    pass

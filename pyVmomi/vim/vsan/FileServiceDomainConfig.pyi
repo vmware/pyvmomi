@@ -6,10 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vsan import DirectoryServerConfig
-from pyVmomi.vim.vsan import FileServiceIpConfig
+from pyVmomi.vim.vsan.DirectoryServerConfig import DirectoryServerConfig
+
+from pyVmomi.vim.vsan.FileServiceIpConfig import FileServiceIpConfig
 
 class FileServiceDomainConfig(DynamicData):
    name: Optional[str] = None

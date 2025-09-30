@@ -6,10 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.cluster import VsanFaultDomainSpec
-from pyVmomi.vim.cluster import VsanWitnessSpec
+from pyVmomi.vim.cluster.VsanFaultDomainSpec import VsanFaultDomainSpec
+
+from pyVmomi.vim.cluster.VsanWitnessSpec import VsanWitnessSpec
 
 class VsanFaultDomainsConfigSpec(DynamicData):
    faultDomains: list[VsanFaultDomainSpec] = []

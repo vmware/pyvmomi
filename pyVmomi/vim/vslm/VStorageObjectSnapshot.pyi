@@ -8,10 +8,11 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vslm import ID
-from pyVmomi.vim.vslm import VClockInfo
+from pyVmomi.vim.vslm.ID import ID
+
+from pyVmomi.vim.vslm.VClockInfo import VClockInfo
 
 class VStorageObjectSnapshot(DynamicData):
    id: ID

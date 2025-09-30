@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.option import StringOption
+from pyVmomi.vim.option.StringOption import StringOption
 
-from pyVmomi.vim.vm.device import VirtualDeviceOption
+from pyVmomi.vim.vm.device.VirtualDeviceOption import VirtualDeviceOption
 
 class VirtualPCIPassthroughOption(VirtualDeviceOption):
    class DeviceBackingOption(VirtualDeviceOption.DeviceBackingOption):

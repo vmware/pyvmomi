@@ -6,8 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.event import DatastoreEventArgument
-from pyVmomi.vim.event import Event
+from pyVmomi.vim.event.DatastoreEventArgument import DatastoreEventArgument
+
+from pyVmomi.vim.event.Event import Event
 
 class LockerReconfiguredEvent(Event):
    oldDatastore: Optional[DatastoreEventArgument] = None

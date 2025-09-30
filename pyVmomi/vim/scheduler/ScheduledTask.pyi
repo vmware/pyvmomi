@@ -4,17 +4,16 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import NoReturn
+from pyVmomi.vim.ExtensibleManagedObject import ExtensibleManagedObject
 
-from pyVmomi.vim import ExtensibleManagedObject
+from pyVmomi.vim.scheduler.ScheduledTaskInfo import ScheduledTaskInfo
 
-from pyVmomi.vim.scheduler import ScheduledTaskInfo
-from pyVmomi.vim.scheduler import ScheduledTaskSpec
+from pyVmomi.vim.scheduler.ScheduledTaskSpec import ScheduledTaskSpec
 
 class ScheduledTask(ExtensibleManagedObject):
    @property
    def info(self) -> ScheduledTaskInfo: ...
 
-   def Remove(self) -> NoReturn: ...
-   def Reconfigure(self, spec: ScheduledTaskSpec) -> NoReturn: ...
-   def Run(self) -> NoReturn: ...
+   def Remove(self) -> None: ...
+   def Reconfigure(self, spec: ScheduledTaskSpec) -> None: ...
+   def Run(self) -> None: ...

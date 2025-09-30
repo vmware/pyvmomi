@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vsan.host import StoragePoolDiskInfo
+from pyVmomi.vim.vsan.host.StoragePoolDiskInfo import StoragePoolDiskInfo
 
 class StoragePoolInfo(DynamicData):
    storagePoolDisks: list[StoragePoolDiskInfo] = []

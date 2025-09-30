@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import PatchMetadataInvalid
+from pyVmomi.vim.fault.PatchMetadataInvalid import PatchMetadataInvalid
 
 class PatchMetadataCorrupted(PatchMetadataInvalid):
    pass

@@ -6,9 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vim.cns import SnapshotId
-from pyVmomi.vim.cns import VolumeId
-from pyVmomi.vim.cns import VolumeSource
+from pyVmomi.vim.cns.SnapshotId import SnapshotId
+
+from pyVmomi.vim.cns.VolumeId import VolumeId
+
+from pyVmomi.vim.cns.VolumeSource import VolumeSource
 
 class SnapshotVolumeSource(VolumeSource):
    volumeId: Optional[VolumeId] = None

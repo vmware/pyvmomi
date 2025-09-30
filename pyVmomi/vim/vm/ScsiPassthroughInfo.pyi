@@ -8,7 +8,7 @@ from typing import ClassVar
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim.vm import TargetInfo
+from pyVmomi.vim.vm.TargetInfo import TargetInfo
 
 class ScsiPassthroughInfo(TargetInfo):
    class ScsiClass(Enum):

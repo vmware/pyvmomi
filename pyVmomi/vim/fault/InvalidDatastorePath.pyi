@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import InvalidDatastore
+from pyVmomi.vim.fault.InvalidDatastore import InvalidDatastore
 
 class InvalidDatastorePath(InvalidDatastore):
    datastorePath: str

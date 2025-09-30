@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import VsanComparator
+from pyVmomi.vim.VsanComparator import VsanComparator
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class VsanJsonFilterRule(DynamicData):
    filterComparator: Optional[VsanComparator] = None

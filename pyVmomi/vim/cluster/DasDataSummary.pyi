@@ -6,7 +6,7 @@
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim.cluster import DasData
+from pyVmomi.vim.cluster.DasData import DasData
 
 class DasDataSummary(DasData):
    hostListVersion: long

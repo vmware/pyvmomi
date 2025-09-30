@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.host import HostBusAdapter
+from pyVmomi.vim.host.HostBusAdapter import HostBusAdapter
 
 class TcpHba(HostBusAdapter):
    associatedPnic: Optional[str] = None

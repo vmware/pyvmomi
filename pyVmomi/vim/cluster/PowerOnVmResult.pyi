@@ -6,11 +6,13 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.cluster import AttemptedVmInfo
-from pyVmomi.vim.cluster import NotAttemptedVmInfo
-from pyVmomi.vim.cluster import Recommendation
+from pyVmomi.vim.cluster.AttemptedVmInfo import AttemptedVmInfo
+
+from pyVmomi.vim.cluster.NotAttemptedVmInfo import NotAttemptedVmInfo
+
+from pyVmomi.vim.cluster.Recommendation import Recommendation
 
 class PowerOnVmResult(DynamicData):
    attempted: list[AttemptedVmInfo] = []

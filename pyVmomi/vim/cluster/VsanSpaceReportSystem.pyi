@@ -8,15 +8,19 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import ComputeResource
+from pyVmomi.vim.ComputeResource import ComputeResource
 
-from pyVmomi.vim.cluster import QueryVsanManagedStorageSpaceUsageSpec
-from pyVmomi.vim.cluster import VsanEntitySpaceUsage
-from pyVmomi.vim.cluster import VsanSpaceQuerySpec
-from pyVmomi.vim.cluster import VsanSpaceUsage
-from pyVmomi.vim.cluster import VsanSpaceUsageWithDatastoreType
+from pyVmomi.vim.cluster.QueryVsanManagedStorageSpaceUsageSpec import QueryVsanManagedStorageSpaceUsageSpec
 
-from pyVmomi.vim.vm import ProfileSpec
+from pyVmomi.vim.cluster.VsanEntitySpaceUsage import VsanEntitySpaceUsage
+
+from pyVmomi.vim.cluster.VsanSpaceQuerySpec import VsanSpaceQuerySpec
+
+from pyVmomi.vim.cluster.VsanSpaceUsage import VsanSpaceUsage
+
+from pyVmomi.vim.cluster.VsanSpaceUsageWithDatastoreType import VsanSpaceUsageWithDatastoreType
+
+from pyVmomi.vim.vm.ProfileSpec import ProfileSpec
 
 class VsanSpaceReportSystem(ManagedObject):
    def QuerySpaceUsage(self, cluster: ComputeResource, storagePolicies: list[ProfileSpec], whatifCapacityOnly: Optional[bool]) -> VsanSpaceUsage: ...

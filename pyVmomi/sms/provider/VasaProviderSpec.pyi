@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.sms.provider import ProviderSpec
+from pyVmomi.sms.provider.ProviderSpec import ProviderSpec
 
 class VasaProviderSpec(ProviderSpec):
    username: str

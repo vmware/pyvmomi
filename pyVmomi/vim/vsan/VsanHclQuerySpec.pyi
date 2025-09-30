@@ -6,10 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vim import ComputeResource
-from pyVmomi.vim import HostSystem
+from pyVmomi.vim.ComputeResource import ComputeResource
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.HostSystem import HostSystem
+
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class VsanHclQuerySpec(DynamicData):
    includeOnlyVsanControllers: Optional[bool] = None

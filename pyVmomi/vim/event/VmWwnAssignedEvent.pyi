@@ -6,7 +6,7 @@
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim.event import VmEvent
+from pyVmomi.vim.event.VmEvent import VmEvent
 
 class VmWwnAssignedEvent(VmEvent):
    nodeWwns: list[long] = []

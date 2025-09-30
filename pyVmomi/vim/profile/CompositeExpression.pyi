@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.profile import Expression
+from pyVmomi.vim.profile.Expression import Expression
 
 class CompositeExpression(Expression):
    operator: str

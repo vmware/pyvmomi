@@ -6,12 +6,13 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.cluster import VsanConfigGeneration
+from pyVmomi.vim.cluster.VsanConfigGeneration import VsanConfigGeneration
 
-from pyVmomi.vim.vsan import RepairTimerInfo
-from pyVmomi.vim.vsan import ResyncIopsInfo
+from pyVmomi.vim.vsan.RepairTimerInfo import RepairTimerInfo
+
+from pyVmomi.vim.vsan.ResyncIopsInfo import ResyncIopsInfo
 
 class RuntimeStats(DynamicData):
    resyncIopsInfo: Optional[ResyncIopsInfo] = None

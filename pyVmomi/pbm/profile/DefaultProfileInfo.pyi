@@ -6,12 +6,13 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.pbm.placement import PlacementHub
+from pyVmomi.vmodl.MethodFault import MethodFault
 
-from pyVmomi.pbm.profile import Profile
+from pyVmomi.pbm.placement.PlacementHub import PlacementHub
+
+from pyVmomi.pbm.profile.Profile import Profile
 
 class DefaultProfileInfo(DynamicData):
    datastores: list[PlacementHub] = []

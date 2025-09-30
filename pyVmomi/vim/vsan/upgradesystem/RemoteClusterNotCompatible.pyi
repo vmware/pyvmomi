@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import VsanUpgradeSystem
+from pyVmomi.vim.VsanUpgradeSystem import VsanUpgradeSystem
 
-from pyVmomi.vmodl import KeyAnyValue
+from pyVmomi.vmodl.KeyAnyValue import KeyAnyValue
 
 class RemoteClusterNotCompatible(VsanUpgradeSystem.PreflightCheckIssue):
    compatibilityInfo: list[KeyAnyValue] = []

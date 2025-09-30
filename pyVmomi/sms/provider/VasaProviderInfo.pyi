@@ -10,10 +10,11 @@ from typing import Optional
 from pyVmomi.VmomiSupport import Enum
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.sms.provider import ProviderInfo
+from pyVmomi.vmodl.MethodFault import MethodFault
+
+from pyVmomi.sms.provider.ProviderInfo import ProviderInfo
 
 class VasaProviderInfo(ProviderInfo):
    class CertificateStatus(Enum):

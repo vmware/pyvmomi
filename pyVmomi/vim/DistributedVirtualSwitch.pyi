@@ -7,30 +7,42 @@
 from datetime import datetime
 
 from typing import ClassVar
-from typing import NoReturn
 from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import ManagedEntity
-from pyVmomi.vim import SharesInfo
-from pyVmomi.vim import Task
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.ManagedEntity import ManagedEntity
 
-from pyVmomi.vim.dvs import DistributedVirtualPort
-from pyVmomi.vim.dvs import DistributedVirtualPortgroup
-from pyVmomi.vim.dvs import EntityBackup
-from pyVmomi.vim.dvs import HostMember
-from pyVmomi.vim.dvs import HostProductSpec
-from pyVmomi.vim.dvs import KeyedOpaqueBlob
-from pyVmomi.vim.dvs import NetworkResourcePool
-from pyVmomi.vim.dvs import PortCriteria
-from pyVmomi.vim.dvs import ProductSpec
-from pyVmomi.vim.dvs import VmVnicNetworkResourcePool
+from pyVmomi.vim.SharesInfo import SharesInfo
+
+from pyVmomi.vim.Task import Task
+
+from pyVmomi.vim.VirtualMachine import VirtualMachine
+
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.vim.dvs.DistributedVirtualPort import DistributedVirtualPort
+
+from pyVmomi.vim.dvs.DistributedVirtualPortgroup import DistributedVirtualPortgroup
+
+from pyVmomi.vim.dvs.EntityBackup import EntityBackup
+
+from pyVmomi.vim.dvs.HostMember import HostMember
+
+from pyVmomi.vim.dvs.HostProductSpec import HostProductSpec
+
+from pyVmomi.vim.dvs.KeyedOpaqueBlob import KeyedOpaqueBlob
+
+from pyVmomi.vim.dvs.NetworkResourcePool import NetworkResourcePool
+
+from pyVmomi.vim.dvs.PortCriteria import PortCriteria
+
+from pyVmomi.vim.dvs.ProductSpec import ProductSpec
+
+from pyVmomi.vim.dvs.VmVnicNetworkResourcePool import VmVnicNetworkResourcePool
 
 class DistributedVirtualSwitch(ManagedEntity):
    class ProductSpecOperationType(Enum):
@@ -182,6 +194,7 @@ class DistributedVirtualSwitch(ManagedEntity):
       backupNfc: ClassVar['HostInfrastructureTrafficClass'] = 'backupNfc'
       nvmetcp: ClassVar['HostInfrastructureTrafficClass'] = 'nvmetcp'
       provisioning: ClassVar['HostInfrastructureTrafficClass'] = 'provisioning'
+      vSANiSCSI: ClassVar['HostInfrastructureTrafficClass'] = 'vSANiSCSI'
 
    class HostInfrastructureTrafficResource(DynamicData):
       class ResourceAllocation(DynamicData):
@@ -231,15 +244,15 @@ class DistributedVirtualSwitch(ManagedEntity):
    def Merge(self, dvs: DistributedVirtualSwitch) -> Task: ...
    def AddPortgroups(self, spec: list[DistributedVirtualPortgroup.ConfigSpec]) -> Task: ...
    def MovePort(self, portKey: list[str], destinationPortgroupKey: Optional[str]) -> Task: ...
-   def UpdateCapability(self, capability: Capability) -> NoReturn: ...
+   def UpdateCapability(self, capability: Capability) -> None: ...
    def ReconfigurePort(self, port: list[DistributedVirtualPort.ConfigSpec]) -> Task: ...
-   def RefreshPortState(self, portKeys: list[str]) -> NoReturn: ...
+   def RefreshPortState(self, portKeys: list[str]) -> None: ...
    def RectifyHost(self, hosts: list[HostSystem]) -> Task: ...
-   def UpdateNetworkResourcePool(self, configSpec: list[NetworkResourcePool.ConfigSpec]) -> NoReturn: ...
-   def AddNetworkResourcePool(self, configSpec: list[NetworkResourcePool.ConfigSpec]) -> NoReturn: ...
-   def RemoveNetworkResourcePool(self, key: list[str]) -> NoReturn: ...
+   def UpdateNetworkResourcePool(self, configSpec: list[NetworkResourcePool.ConfigSpec]) -> None: ...
+   def AddNetworkResourcePool(self, configSpec: list[NetworkResourcePool.ConfigSpec]) -> None: ...
+   def RemoveNetworkResourcePool(self, key: list[str]) -> None: ...
    def ReconfigureVmVnicNetworkResourcePool(self, configSpec: list[VmVnicNetworkResourcePool.ConfigSpec]) -> Task: ...
-   def EnableNetworkResourceManagement(self, enable: bool) -> NoReturn: ...
+   def EnableNetworkResourceManagement(self, enable: bool) -> None: ...
    def Rollback(self, entityBackup: Optional[EntityBackup.Config]) -> Task: ...
    def AddPortgroup(self, spec: DistributedVirtualPortgroup.ConfigSpec) -> Task: ...
    def UpdateHealthCheckConfig(self, healthCheckConfig: list[HealthCheckConfig]) -> Task: ...

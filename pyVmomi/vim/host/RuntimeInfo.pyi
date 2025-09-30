@@ -12,21 +12,25 @@ from typing import Optional
 from pyVmomi.VmomiSupport import Enum
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.VirtualMachine import VirtualMachine
 
-from pyVmomi.vim.cluster import DasFdmHostState
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.encryption import CryptoKeyId
+from pyVmomi.vim.cluster.DasFdmHostState import DasFdmHostState
 
-from pyVmomi.vim.host import HealthStatusSystem
-from pyVmomi.vim.host import PartialMaintenanceModeRuntimeInfo
-from pyVmomi.vim.host import TpmDigestInfo
-from pyVmomi.vim.host import VFlashManager
+from pyVmomi.vim.encryption.CryptoKeyId import CryptoKeyId
 
-from pyVmomi.vim.vsan.host import VsanRuntimeInfo
+from pyVmomi.vim.host.HealthStatusSystem import HealthStatusSystem
+
+from pyVmomi.vim.host.PartialMaintenanceModeRuntimeInfo import PartialMaintenanceModeRuntimeInfo
+
+from pyVmomi.vim.host.TpmDigestInfo import TpmDigestInfo
+
+from pyVmomi.vim.host.VFlashManager import VFlashManager
+
+from pyVmomi.vim.vsan.host.VsanRuntimeInfo import VsanRuntimeInfo
 
 class RuntimeInfo(DynamicData):
    class NetStackInstanceRuntimeInfo(DynamicData):

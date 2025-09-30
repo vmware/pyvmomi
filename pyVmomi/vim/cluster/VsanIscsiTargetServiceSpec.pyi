@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.cluster import VsanIscsiTargetServiceConfig
+from pyVmomi.vim.cluster.VsanIscsiTargetServiceConfig import VsanIscsiTargetServiceConfig
 
-from pyVmomi.vim.vm import ProfileSpec
+from pyVmomi.vim.vm.ProfileSpec import ProfileSpec
 
 class VsanIscsiTargetServiceSpec(VsanIscsiTargetServiceConfig):
    homeObjectStoragePolicy: Optional[ProfileSpec] = None

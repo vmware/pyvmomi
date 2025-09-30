@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.encryption import CryptoManagerHost
+from pyVmomi.vim.encryption.CryptoManagerHost import CryptoManagerHost
 
 class CryptoManagerHostKMS(CryptoManagerHost):
    pass

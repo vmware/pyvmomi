@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vm.customization import Password
+from pyVmomi.vim.vm.customization.Password import Password
 
 class GuiUnattended(DynamicData):
    password: Optional[Password] = None

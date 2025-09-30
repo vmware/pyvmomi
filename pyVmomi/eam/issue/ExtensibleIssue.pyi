@@ -6,14 +6,15 @@
 
 from typing import Optional
 
-from pyVmomi.eam import Agency
-from pyVmomi.eam import Agent
+from pyVmomi.eam.Agency import Agency
 
-from pyVmomi.vim import ManagedEntity
+from pyVmomi.eam.Agent import Agent
 
-from pyVmomi.vmodl import KeyAnyValue
+from pyVmomi.vim.ManagedEntity import ManagedEntity
 
-from pyVmomi.eam.issue import Issue
+from pyVmomi.vmodl.KeyAnyValue import KeyAnyValue
+
+from pyVmomi.eam.issue.Issue import Issue
 
 class ExtensibleIssue(Issue):
    typeId: str

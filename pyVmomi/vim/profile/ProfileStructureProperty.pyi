@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.profile import ProfileStructure
+from pyVmomi.vim.profile.ProfileStructure import ProfileStructure
 
 class ProfileStructureProperty(DynamicData):
    propertyName: str

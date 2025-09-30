@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.profile import ApplyProfile
+from pyVmomi.vim.profile.ApplyProfile import ApplyProfile
 
-from pyVmomi.vim.profile.host import PnicUplinkProfile
+from pyVmomi.vim.profile.host.PnicUplinkProfile import PnicUplinkProfile
 
 class DvsProfile(ApplyProfile):
    key: str

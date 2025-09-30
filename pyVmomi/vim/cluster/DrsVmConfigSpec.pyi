@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.cluster import DrsVmConfigInfo
+from pyVmomi.vim.cluster.DrsVmConfigInfo import DrsVmConfigInfo
 
-from pyVmomi.vim.option import ArrayUpdateSpec
+from pyVmomi.vim.option.ArrayUpdateSpec import ArrayUpdateSpec
 
 class DrsVmConfigSpec(ArrayUpdateSpec):
    info: Optional[DrsVmConfigInfo] = None

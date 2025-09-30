@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.host import DigestInfo
+from pyVmomi.vim.host.DigestInfo import DigestInfo
 
 class TpmDigestInfo(DigestInfo):
    pcrNumber: int

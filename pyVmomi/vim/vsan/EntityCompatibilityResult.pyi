@@ -6,11 +6,13 @@
 
 from typing import Optional
 
-from pyVmomi.vim import ManagedEntity
+from pyVmomi.vim.ManagedEntity import ManagedEntity
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import KeyAnyValue
-from pyVmomi.vmodl import LocalizableMessage
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.vmodl.KeyAnyValue import KeyAnyValue
+
+from pyVmomi.vmodl.LocalizableMessage import LocalizableMessage
 
 class EntityCompatibilityResult(DynamicData):
    entity: ManagedEntity

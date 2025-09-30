@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import Description
+from pyVmomi.vim.Description import Description
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class VirtualDeviceGroups(DynamicData):
    class DeviceGroup(DynamicData):

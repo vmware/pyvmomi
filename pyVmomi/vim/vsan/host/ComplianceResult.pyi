@@ -8,9 +8,9 @@ from datetime import datetime
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vsan.host import ComplianceDetail
+from pyVmomi.vim.vsan.host.ComplianceDetail import ComplianceDetail
 
 class ComplianceResult(DynamicData):
    checkTime: datetime

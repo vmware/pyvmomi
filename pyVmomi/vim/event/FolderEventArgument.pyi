@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import Folder
+from pyVmomi.vim.Folder import Folder
 
-from pyVmomi.vim.event import EntityEventArgument
+from pyVmomi.vim.event.EntityEventArgument import EntityEventArgument
 
 class FolderEventArgument(EntityEventArgument):
    folder: Folder

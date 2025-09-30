@@ -6,7 +6,7 @@
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim.vm import TargetInfo
+from pyVmomi.vim.vm.TargetInfo import TargetInfo
 
 class VgpuDeviceInfo(TargetInfo):
    deviceName: str

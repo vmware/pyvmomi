@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import ComputeResource
+from pyVmomi.vim.ComputeResource import ComputeResource
 
-from pyVmomi.eam.issue.personality.agency import PMIssue
+from pyVmomi.eam.issue.personality.agency.PMIssue import PMIssue
 
 class CannotConfigureSolutions(PMIssue):
    cr: ComputeResource

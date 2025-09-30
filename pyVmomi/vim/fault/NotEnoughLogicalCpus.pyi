@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import HostSystem
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vim.fault import NotEnoughCpus
+from pyVmomi.vim.fault.NotEnoughCpus import NotEnoughCpus
 
 class NotEnoughLogicalCpus(NotEnoughCpus):
    host: Optional[HostSystem] = None

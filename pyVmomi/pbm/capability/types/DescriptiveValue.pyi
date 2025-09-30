@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.pbm import ExtendedElementDescription
+from pyVmomi.pbm.ExtendedElementDescription import ExtendedElementDescription
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class DescriptiveValue(DynamicData):
    description: ExtendedElementDescription

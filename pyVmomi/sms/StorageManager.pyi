@@ -8,32 +8,47 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.sms import FaultDomainFilter
-from pyVmomi.sms import ReplicationGroupFilter
+from pyVmomi.sms.FaultDomainFilter import FaultDomainFilter
 
-from pyVmomi.vim import Datastore
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import Task
+from pyVmomi.sms.ReplicationGroupFilter import ReplicationGroupFilter
 
-from pyVmomi.sms.provider import Provider
-from pyVmomi.sms.provider import ProviderSpec
-from pyVmomi.sms.provider import VASAProviderUpgradeSpec
+from pyVmomi.vim.Datastore import Datastore
 
-from pyVmomi.sms.storage import BackingStoragePool
-from pyVmomi.sms.storage import DatastoreBackingPoolMapping
-from pyVmomi.sms.storage import DrsMigrationCapabilityResult
-from pyVmomi.sms.storage import StorageArray
-from pyVmomi.sms.storage import StorageCapability
-from pyVmomi.sms.storage import StorageContainerResult
-from pyVmomi.sms.storage import StorageContainerSpec
-from pyVmomi.sms.storage import StorageFileSystem
-from pyVmomi.sms.storage import StorageLun
-from pyVmomi.sms.storage import StoragePort
-from pyVmomi.sms.storage import StorageProcessor
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.sms.storage.replication import GroupOperationResult
+from pyVmomi.vim.Task import Task
 
-from pyVmomi.vim.vm.replication import FaultDomainId
+from pyVmomi.sms.provider.Provider import Provider
+
+from pyVmomi.sms.provider.ProviderSpec import ProviderSpec
+
+from pyVmomi.sms.provider.VASAProviderUpgradeSpec import VASAProviderUpgradeSpec
+
+from pyVmomi.sms.storage.BackingStoragePool import BackingStoragePool
+
+from pyVmomi.sms.storage.DatastoreBackingPoolMapping import DatastoreBackingPoolMapping
+
+from pyVmomi.sms.storage.DrsMigrationCapabilityResult import DrsMigrationCapabilityResult
+
+from pyVmomi.sms.storage.StorageArray import StorageArray
+
+from pyVmomi.sms.storage.StorageCapability import StorageCapability
+
+from pyVmomi.sms.storage.StorageContainerResult import StorageContainerResult
+
+from pyVmomi.sms.storage.StorageContainerSpec import StorageContainerSpec
+
+from pyVmomi.sms.storage.StorageFileSystem import StorageFileSystem
+
+from pyVmomi.sms.storage.StorageLun import StorageLun
+
+from pyVmomi.sms.storage.StoragePort import StoragePort
+
+from pyVmomi.sms.storage.StorageProcessor import StorageProcessor
+
+from pyVmomi.sms.storage.replication.GroupOperationResult import GroupOperationResult
+
+from pyVmomi.vim.vm.replication.FaultDomainId import FaultDomainId
 
 class StorageManager(ManagedObject):
    def RegisterProvider(self, providerSpec: ProviderSpec) -> Task: ...

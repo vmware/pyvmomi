@@ -11,20 +11,29 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim import BoolPolicy
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import InheritablePolicy
-from pyVmomi.vim import LongPolicy
-from pyVmomi.vim import ManagedEntity
-from pyVmomi.vim import NumericRange
-from pyVmomi.vim import StringPolicy
+from pyVmomi.vim.BoolPolicy import BoolPolicy
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vim.dvs import KeyedOpaqueBlob
-from pyVmomi.vim.dvs import PortConnectee
-from pyVmomi.vim.dvs import PortStatistics
-from pyVmomi.vim.dvs import TrafficRuleset
+from pyVmomi.vim.InheritablePolicy import InheritablePolicy
+
+from pyVmomi.vim.LongPolicy import LongPolicy
+
+from pyVmomi.vim.ManagedEntity import ManagedEntity
+
+from pyVmomi.vim.NumericRange import NumericRange
+
+from pyVmomi.vim.StringPolicy import StringPolicy
+
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.vim.dvs.KeyedOpaqueBlob import KeyedOpaqueBlob
+
+from pyVmomi.vim.dvs.PortConnectee import PortConnectee
+
+from pyVmomi.vim.dvs.PortStatistics import PortStatistics
+
+from pyVmomi.vim.dvs.TrafficRuleset import TrafficRuleset
 
 class DistributedVirtualPort(DynamicData):
    class ConfigSpec(DynamicData):

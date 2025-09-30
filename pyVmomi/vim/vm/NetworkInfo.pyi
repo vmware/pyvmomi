@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import Network
+from pyVmomi.vim.Network import Network
 
-from pyVmomi.vim.vm import TargetInfo
+from pyVmomi.vim.vm.TargetInfo import TargetInfo
 
 class NetworkInfo(TargetInfo):
    network: Network.Summary

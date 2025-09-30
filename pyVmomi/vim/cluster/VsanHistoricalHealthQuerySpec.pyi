@@ -8,9 +8,9 @@ from datetime import datetime
 
 from typing import Optional
 
-from pyVmomi.vim import ClusterComputeResource
+from pyVmomi.vim.ClusterComputeResource import ClusterComputeResource
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class VsanHistoricalHealthQuerySpec(DynamicData):
    clusters: list[ClusterComputeResource] = []

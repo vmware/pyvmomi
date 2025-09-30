@@ -6,10 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.encryption import KeyProviderId
-from pyVmomi.vim.encryption import KmipServerInfo
+from pyVmomi.vim.encryption.KeyProviderId import KeyProviderId
+
+from pyVmomi.vim.encryption.KmipServerInfo import KmipServerInfo
 
 class KmipServerSpec(DynamicData):
    class KeySpec(DynamicData):

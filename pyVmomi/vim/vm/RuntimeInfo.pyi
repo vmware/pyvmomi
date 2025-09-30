@@ -10,16 +10,19 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.VirtualMachine import VirtualMachine
 
-from pyVmomi.vim.host import FeatureMask
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vm import DeviceRuntimeInfo
-from pyVmomi.vim.vm import FeatureRequirement
-from pyVmomi.vim.vm import QuestionInfo
+from pyVmomi.vim.host.FeatureMask import FeatureMask
+
+from pyVmomi.vim.vm.DeviceRuntimeInfo import DeviceRuntimeInfo
+
+from pyVmomi.vim.vm.FeatureRequirement import FeatureRequirement
+
+from pyVmomi.vim.vm.QuestionInfo import QuestionInfo
 
 class RuntimeInfo(DynamicData):
    class DasProtectionState(DynamicData):

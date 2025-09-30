@@ -9,9 +9,9 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim import PerformanceManager
+from pyVmomi.vim.PerformanceManager import PerformanceManager
 
-from pyVmomi.vim.alarm import AlarmExpression
+from pyVmomi.vim.alarm.AlarmExpression import AlarmExpression
 
 class MetricAlarmExpression(AlarmExpression):
    class MetricOperator(Enum):

@@ -8,7 +8,7 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import HostSystem
+from pyVmomi.vim.HostSystem import HostSystem
 
 class StorageQueryManager(ManagedObject):
    def QueryHostsWithAttachedLun(self, lunUuid: str) -> list[HostSystem]: ...

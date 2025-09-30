@@ -9,10 +9,11 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.encryption import CryptoKeyId
+from pyVmomi.vmodl.MethodFault import MethodFault
+
+from pyVmomi.vim.encryption.CryptoKeyId import CryptoKeyId
 
 class ToolsConfigInfo(DynamicData):
    class UpgradePolicy(Enum):

@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.eam.fault import EamRuntimeFault
+from pyVmomi.eam.fault.EamRuntimeFault import EamRuntimeFault
 
 class InvalidVibPackage(EamRuntimeFault):
    pass

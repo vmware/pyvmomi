@@ -6,7 +6,7 @@
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim.event import DatastoreEvent
+from pyVmomi.vim.event.DatastoreEvent import DatastoreEvent
 
 class DatastoreCapacityIncreasedEvent(DatastoreEvent):
    oldCapacity: long

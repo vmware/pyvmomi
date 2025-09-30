@@ -8,9 +8,9 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim import Datastore
+from pyVmomi.vim.Datastore import Datastore
 
-from pyVmomi.vim.cluster import Action
+from pyVmomi.vim.cluster.Action import Action
 
 class HbrDiskMigrationAction(Action):
    collectionId: str

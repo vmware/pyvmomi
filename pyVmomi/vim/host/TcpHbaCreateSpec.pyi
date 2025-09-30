@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.host import HbaCreateSpec
+from pyVmomi.vim.host.HbaCreateSpec import HbaCreateSpec
 
 class TcpHbaCreateSpec(HbaCreateSpec):
    pnic: str

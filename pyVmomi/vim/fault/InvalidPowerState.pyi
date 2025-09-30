@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.VirtualMachine import VirtualMachine
 
-from pyVmomi.vim.fault import InvalidState
+from pyVmomi.vim.fault.InvalidState import InvalidState
 
 class InvalidPowerState(InvalidState):
    requestedState: Optional[VirtualMachine.PowerState] = None

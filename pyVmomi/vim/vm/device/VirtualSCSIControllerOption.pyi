@@ -4,11 +4,13 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.option import BoolOption
-from pyVmomi.vim.option import IntOption
+from pyVmomi.vim.option.BoolOption import BoolOption
 
-from pyVmomi.vim.vm.device import VirtualControllerOption
-from pyVmomi.vim.vm.device import VirtualSCSIController
+from pyVmomi.vim.option.IntOption import IntOption
+
+from pyVmomi.vim.vm.device.VirtualControllerOption import VirtualControllerOption
+
+from pyVmomi.vim.vm.device.VirtualSCSIController import VirtualSCSIController
 
 class VirtualSCSIControllerOption(VirtualControllerOption):
    numSCSIDisks: IntOption

@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import OvfUnsupportedPackage
+from pyVmomi.vim.fault.OvfUnsupportedPackage import OvfUnsupportedPackage
 
 class OvfUnsupportedType(OvfUnsupportedPackage):
    name: str

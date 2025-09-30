@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import NegatableExpression
+from pyVmomi.vim.NegatableExpression import NegatableExpression
 
 class IpAddress(NegatableExpression):
    pass

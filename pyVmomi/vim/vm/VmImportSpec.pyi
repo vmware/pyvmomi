@@ -6,10 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vim import ImportSpec
-from pyVmomi.vim import ResourcePool
+from pyVmomi.vim.ImportSpec import ImportSpec
 
-from pyVmomi.vim.vm import ConfigSpec
+from pyVmomi.vim.ResourcePool import ResourcePool
+
+from pyVmomi.vim.vm.ConfigSpec import ConfigSpec
 
 class VmImportSpec(ImportSpec):
    configSpec: ConfigSpec

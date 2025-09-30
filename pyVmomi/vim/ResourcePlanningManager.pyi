@@ -9,9 +9,9 @@ from typing import Optional
 from pyVmomi.VmomiSupport import ManagedObject
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim import HistoricalInterval
+from pyVmomi.vim.HistoricalInterval import HistoricalInterval
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class ResourcePlanningManager(ManagedObject):
    class DatabaseSizeParam(DynamicData):

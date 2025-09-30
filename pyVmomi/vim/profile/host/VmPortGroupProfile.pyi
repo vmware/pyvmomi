@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.profile.host import PortGroupProfile
+from pyVmomi.vim.profile.host.PortGroupProfile import PortGroupProfile
 
 class VmPortGroupProfile(PortGroupProfile):
    pass

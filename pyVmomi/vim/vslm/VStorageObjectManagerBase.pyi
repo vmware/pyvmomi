@@ -7,11 +7,13 @@
 from pyVmomi.VmomiSupport import ManagedObject
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim import Datastore
-from pyVmomi.vim import Task
+from pyVmomi.vim.Datastore import Datastore
 
-from pyVmomi.vim.vslm import ID
-from pyVmomi.vim.vslm import VClockInfo
+from pyVmomi.vim.Task import Task
+
+from pyVmomi.vim.vslm.ID import ID
+
+from pyVmomi.vim.vslm.VClockInfo import VClockInfo
 
 class VStorageObjectManagerBase(ManagedObject):
    def ExtendDiskEx(self, id: ID, datastore: Datastore, newCapacityInMB: long) -> Task: ...

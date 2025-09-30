@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import ComputeResource
+from pyVmomi.vim.ComputeResource import ComputeResource
 
-from pyVmomi.vim.event import EntityEventArgument
+from pyVmomi.vim.event.EntityEventArgument import EntityEventArgument
 
 class ComputeResourceEventArgument(EntityEventArgument):
    computeResource: ComputeResource

@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import LocalizableMessage
+from pyVmomi.vmodl.LocalizableMessage import LocalizableMessage
 
-from pyVmomi.vim.fault import HostConnectFault
+from pyVmomi.vim.fault.HostConnectFault import HostConnectFault
 
 class GatewayConnectFault(HostConnectFault):
    gatewayType: str

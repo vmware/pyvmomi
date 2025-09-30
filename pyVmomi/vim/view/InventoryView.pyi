@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import ManagedEntity
+from pyVmomi.vim.ManagedEntity import ManagedEntity
 
-from pyVmomi.vim.view import ManagedObjectView
+from pyVmomi.vim.view.ManagedObjectView import ManagedObjectView
 
 class InventoryView(ManagedObjectView):
    def OpenFolder(self, entity: list[ManagedEntity]) -> list[ManagedEntity]: ...

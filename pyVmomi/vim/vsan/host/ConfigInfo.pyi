@@ -6,13 +6,15 @@
 
 from typing import Optional
 
-from pyVmomi.vim import HostSystem
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vsan.host import DiskMapInfo
-from pyVmomi.vim.vsan.host import DiskMapping
-from pyVmomi.vim.vsan.host import IpConfig
+from pyVmomi.vim.vsan.host.DiskMapInfo import DiskMapInfo
+
+from pyVmomi.vim.vsan.host.DiskMapping import DiskMapping
+
+from pyVmomi.vim.vsan.host.IpConfig import IpConfig
 
 class ConfigInfo(DynamicData):
    class StorageInfo(DynamicData):

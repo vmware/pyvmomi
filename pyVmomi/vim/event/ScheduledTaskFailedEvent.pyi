@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vmodl.MethodFault import MethodFault
 
-from pyVmomi.vim.event import ScheduledTaskEvent
+from pyVmomi.vim.event.ScheduledTaskEvent import ScheduledTaskEvent
 
 class ScheduledTaskFailedEvent(ScheduledTaskEvent):
    reason: MethodFault

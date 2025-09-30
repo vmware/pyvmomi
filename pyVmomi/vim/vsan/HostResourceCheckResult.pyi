@@ -6,11 +6,13 @@
 
 from typing import Optional
 
-from pyVmomi.vim import HostSystem
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vim.vsan import DiskGroupResourceCheckResult
-from pyVmomi.vim.vsan import EntityResourceCheckDetails
-from pyVmomi.vim.vsan import StoragePoolResourceCheckResult
+from pyVmomi.vim.vsan.DiskGroupResourceCheckResult import DiskGroupResourceCheckResult
+
+from pyVmomi.vim.vsan.EntityResourceCheckDetails import EntityResourceCheckDetails
+
+from pyVmomi.vim.vsan.StoragePoolResourceCheckResult import StoragePoolResourceCheckResult
 
 class HostResourceCheckResult(EntityResourceCheckDetails):
    host: Optional[HostSystem] = None

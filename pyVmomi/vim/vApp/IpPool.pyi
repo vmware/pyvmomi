@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import Network
+from pyVmomi.vim.Network import Network
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class IpPool(DynamicData):
    class IpPoolConfigInfo(DynamicData):

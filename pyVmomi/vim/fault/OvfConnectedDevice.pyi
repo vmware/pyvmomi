@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import OvfHardwareExport
+from pyVmomi.vim.fault.OvfHardwareExport import OvfHardwareExport
 
 class OvfConnectedDevice(OvfHardwareExport):
    pass

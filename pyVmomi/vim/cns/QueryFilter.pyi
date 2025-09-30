@@ -6,13 +6,15 @@
 
 from typing import Optional
 
-from pyVmomi.vim import Datastore
-from pyVmomi.vim import KeyValue
+from pyVmomi.vim.Datastore import Datastore
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.KeyValue import KeyValue
 
-from pyVmomi.vim.cns import Cursor
-from pyVmomi.vim.cns import VolumeId
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.vim.cns.Cursor import Cursor
+
+from pyVmomi.vim.cns.VolumeId import VolumeId
 
 class QueryFilter(DynamicData):
    volumeIds: list[VolumeId] = []

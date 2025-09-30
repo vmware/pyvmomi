@@ -8,9 +8,9 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vsan import VsanSpaceEfficiencyMetadataSize
+from pyVmomi.vim.vsan.VsanSpaceEfficiencyMetadataSize import VsanSpaceEfficiencyMetadataSize
 
 class DataEfficiencyCapacityState(DynamicData):
    logicalCapacity: Optional[long] = None

@@ -8,8 +8,9 @@ from datetime import datetime
 
 from typing import Optional
 
-from pyVmomi.sms.storage.replication import GroupOperationResult
-from pyVmomi.sms.storage.replication import PointInTimeReplicaId
+from pyVmomi.sms.storage.replication.GroupOperationResult import GroupOperationResult
+
+from pyVmomi.sms.storage.replication.PointInTimeReplicaId import PointInTimeReplicaId
 
 class SyncReplicationGroupSuccessResult(GroupOperationResult):
    timeStamp: datetime

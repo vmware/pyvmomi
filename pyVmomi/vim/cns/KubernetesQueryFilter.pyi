@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.cns import QueryFilter
+from pyVmomi.vim.cns.QueryFilter import QueryFilter
 
 class KubernetesQueryFilter(QueryFilter):
    namespaces: list[str] = []

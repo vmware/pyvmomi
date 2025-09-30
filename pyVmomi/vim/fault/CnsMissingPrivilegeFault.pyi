@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.fault import CnsPlacementFault
+from pyVmomi.vim.fault.CnsPlacementFault import CnsPlacementFault
 
 class CnsMissingPrivilegeFault(CnsPlacementFault):
    privileges: list[str] = []

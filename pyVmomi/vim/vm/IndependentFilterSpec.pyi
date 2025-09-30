@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import KeyValue
+from pyVmomi.vim.KeyValue import KeyValue
 
-from pyVmomi.vim.vm import BaseIndependentFilterSpec
+from pyVmomi.vim.vm.BaseIndependentFilterSpec import BaseIndependentFilterSpec
 
 class IndependentFilterSpec(BaseIndependentFilterSpec):
    filterName: str

@@ -4,11 +4,11 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import Datastore
+from pyVmomi.vim.Datastore import Datastore
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vslm import ID
+from pyVmomi.vim.vslm.ID import ID
 
 class RetrieveVStorageObjSpec(DynamicData):
    id: ID

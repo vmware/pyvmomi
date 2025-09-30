@@ -6,7 +6,7 @@
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim.fault import InsufficientResourcesFault
+from pyVmomi.vim.fault.InsufficientResourcesFault import InsufficientResourcesFault
 
 class InsufficientNetworkResourcePoolCapacity(InsufficientResourcesFault):
    dvsName: str

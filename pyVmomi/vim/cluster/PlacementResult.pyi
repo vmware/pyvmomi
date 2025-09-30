@@ -6,10 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.cluster import DrsFaults
-from pyVmomi.vim.cluster import Recommendation
+from pyVmomi.vim.cluster.DrsFaults import DrsFaults
+
+from pyVmomi.vim.cluster.Recommendation import Recommendation
 
 class PlacementResult(DynamicData):
    recommendations: list[Recommendation] = []

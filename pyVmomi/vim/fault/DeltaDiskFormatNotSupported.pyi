@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import Datastore
+from pyVmomi.vim.Datastore import Datastore
 
-from pyVmomi.vim.fault import VmConfigFault
+from pyVmomi.vim.fault.VmConfigFault import VmConfigFault
 
 class DeltaDiskFormatNotSupported(VmConfigFault):
    datastore: list[Datastore] = []

@@ -6,10 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vm import FaultToleranceMetaSpec
-from pyVmomi.vim.vm import FaultToleranceVMConfigSpec
+from pyVmomi.vim.vm.FaultToleranceMetaSpec import FaultToleranceMetaSpec
+
+from pyVmomi.vim.vm.FaultToleranceVMConfigSpec import FaultToleranceVMConfigSpec
 
 class FaultToleranceConfigSpec(DynamicData):
    metaDataPath: Optional[FaultToleranceMetaSpec] = None

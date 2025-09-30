@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.event import HostDasEvent
+from pyVmomi.vim.event.HostDasEvent import HostDasEvent
 
 class HostExtraNetworksEvent(HostDasEvent):
    ips: Optional[str] = None

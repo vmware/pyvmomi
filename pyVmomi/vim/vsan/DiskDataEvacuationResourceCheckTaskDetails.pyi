@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.vsan import ResourceCheckTaskDetails
+from pyVmomi.vim.vsan.ResourceCheckTaskDetails import ResourceCheckTaskDetails
 
 class DiskDataEvacuationResourceCheckTaskDetails(ResourceCheckTaskDetails):
    diskUuid: Optional[str] = None

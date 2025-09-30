@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.net import NetBIOSConfigInfo
+from pyVmomi.vim.net.NetBIOSConfigInfo import NetBIOSConfigInfo
 
 class WinNetBIOSConfigInfo(NetBIOSConfigInfo):
    primaryWINS: str

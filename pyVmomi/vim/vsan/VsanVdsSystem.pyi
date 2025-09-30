@@ -8,14 +8,17 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import ComputeResource
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import Task
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.ComputeResource import ComputeResource
 
-from pyVmomi.vim.dvs import VmwareDistributedVirtualSwitch
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vim.vsan import VsanVdsMigrationPlan
+from pyVmomi.vim.Task import Task
+
+from pyVmomi.vim.VirtualMachine import VirtualMachine
+
+from pyVmomi.vim.dvs.VmwareDistributedVirtualSwitch import VmwareDistributedVirtualSwitch
+
+from pyVmomi.vim.vsan.VsanVdsMigrationPlan import VsanVdsMigrationPlan
 
 class VsanVdsSystem(ManagedObject):
    def VsanVdsGetMigrationPlan(self, cluster: ComputeResource, vswitchName: Optional[str], vdsName: Optional[str], vmnicDevices: list[str], infraVm: list[VirtualMachine], vds: Optional[VmwareDistributedVirtualSwitch], hosts: list[HostSystem]) -> VsanVdsMigrationPlan: ...

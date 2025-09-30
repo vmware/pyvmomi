@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.VirtualMachine import VirtualMachine
 
-from pyVmomi.vim.cluster import GroupInfo
+from pyVmomi.vim.cluster.GroupInfo import GroupInfo
 
 class VmGroup(GroupInfo):
    vm: list[VirtualMachine] = []

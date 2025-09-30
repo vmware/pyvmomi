@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.net import DhcpConfigSpec
+from pyVmomi.vim.net.DhcpConfigSpec import DhcpConfigSpec
 
 class IpConfigSpec(DynamicData):
    class IpAddressSpec(DynamicData):

@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.sms.storage.replication import DeviceId
+from pyVmomi.sms.storage.replication.DeviceId import DeviceId
 
 class ResourceInUse(ResourceInUse):
    deviceIds: list[DeviceId] = []

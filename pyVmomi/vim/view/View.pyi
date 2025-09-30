@@ -4,9 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import NoReturn
-
 from pyVmomi.VmomiSupport import ManagedObject
 
 class View(ManagedObject):
-   def Destroy(self) -> NoReturn: ...
+   def Destroy(self) -> None: ...

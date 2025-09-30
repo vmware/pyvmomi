@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import InvalidPropertyValue
+from pyVmomi.vim.fault.InvalidPropertyValue import InvalidPropertyValue
 
 class UnconfiguredPropertyValue(InvalidPropertyValue):
    pass

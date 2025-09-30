@@ -8,11 +8,11 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim import KeyValue
+from pyVmomi.vim.KeyValue import KeyValue
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vsan import VsanHclDriverInfo
+from pyVmomi.vim.vsan.VsanHclDriverInfo import VsanHclDriverInfo
 
 class VsanHclCommonDeviceInfo(DynamicData):
    deviceName: str

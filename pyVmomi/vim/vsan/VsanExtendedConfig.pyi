@@ -8,10 +8,11 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vsan import CapacityReservationInfo
-from pyVmomi.vim.vsan import ProactiveRebalanceInfo
+from pyVmomi.vim.vsan.CapacityReservationInfo import CapacityReservationInfo
+
+from pyVmomi.vim.vsan.ProactiveRebalanceInfo import ProactiveRebalanceInfo
 
 class VsanExtendedConfig(DynamicData):
    objectRepairTimer: Optional[long] = None

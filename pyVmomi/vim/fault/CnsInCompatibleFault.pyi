@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vmodl.MethodFault import MethodFault
 
-from pyVmomi.vim.fault import CnsPlacementFault
+from pyVmomi.vim.fault.CnsPlacementFault import CnsPlacementFault
 
 class CnsInCompatibleFault(CnsPlacementFault):
    errors: list[MethodFault] = []

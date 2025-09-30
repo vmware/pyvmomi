@@ -8,11 +8,13 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import ManagedEntity
+from pyVmomi.vim.ManagedEntity import ManagedEntity
 
-from pyVmomi.vim.scheduler import ScheduledTask
-from pyVmomi.vim.scheduler import ScheduledTaskDescription
-from pyVmomi.vim.scheduler import ScheduledTaskSpec
+from pyVmomi.vim.scheduler.ScheduledTask import ScheduledTask
+
+from pyVmomi.vim.scheduler.ScheduledTaskDescription import ScheduledTaskDescription
+
+from pyVmomi.vim.scheduler.ScheduledTaskSpec import ScheduledTaskSpec
 
 class ScheduledTaskManager(ManagedObject):
    @property

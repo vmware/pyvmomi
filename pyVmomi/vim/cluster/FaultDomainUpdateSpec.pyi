@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.cluster import VsanFaultDomainSpec
+from pyVmomi.vim.cluster.VsanFaultDomainSpec import VsanFaultDomainSpec
 
 class FaultDomainUpdateSpec(VsanFaultDomainSpec):
    operation: str

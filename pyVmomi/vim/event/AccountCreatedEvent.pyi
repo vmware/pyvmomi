@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.event import HostEvent
+from pyVmomi.vim.event.HostEvent import HostEvent
 
-from pyVmomi.vim.host import LocalAccountManager
+from pyVmomi.vim.host.LocalAccountManager import LocalAccountManager
 
 class AccountCreatedEvent(HostEvent):
    spec: LocalAccountManager.AccountSpecification

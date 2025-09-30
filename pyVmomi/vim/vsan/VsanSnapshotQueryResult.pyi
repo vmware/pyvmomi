@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vsan import VsanObjectDetail
+from pyVmomi.vim.vsan.VsanObjectDetail import VsanObjectDetail
 
 class VsanSnapshotQueryResult(DynamicData):
    objects: list[VsanObjectDetail] = []

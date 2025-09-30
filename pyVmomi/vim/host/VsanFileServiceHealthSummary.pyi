@@ -6,13 +6,17 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import VsanFileServerHealthSummary
-from pyVmomi.vim.host import VsanFileServiceBalanceHealth
-from pyVmomi.vim.host import VsanFileServiceRootFsHealth
-from pyVmomi.vim.host import VsanFileServiceShareHealthSummary
-from pyVmomi.vim.host import VsanResourceHealth
+from pyVmomi.vim.host.VsanFileServerHealthSummary import VsanFileServerHealthSummary
+
+from pyVmomi.vim.host.VsanFileServiceBalanceHealth import VsanFileServiceBalanceHealth
+
+from pyVmomi.vim.host.VsanFileServiceRootFsHealth import VsanFileServiceRootFsHealth
+
+from pyVmomi.vim.host.VsanFileServiceShareHealthSummary import VsanFileServiceShareHealthSummary
+
+from pyVmomi.vim.host.VsanResourceHealth import VsanResourceHealth
 
 class VsanFileServiceHealthSummary(DynamicData):
    hostname: Optional[str] = None

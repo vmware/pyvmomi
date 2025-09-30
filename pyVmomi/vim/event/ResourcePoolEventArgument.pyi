@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import ResourcePool
+from pyVmomi.vim.ResourcePool import ResourcePool
 
-from pyVmomi.vim.event import EntityEventArgument
+from pyVmomi.vim.event.EntityEventArgument import EntityEventArgument
 
 class ResourcePoolEventArgument(EntityEventArgument):
    resourcePool: ResourcePool

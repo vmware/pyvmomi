@@ -9,7 +9,7 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim.cluster import RuleInfo
+from pyVmomi.vim.cluster.RuleInfo import RuleInfo
 
 class VirtualDiskRuleSpec(RuleInfo):
    class RuleType(Enum):

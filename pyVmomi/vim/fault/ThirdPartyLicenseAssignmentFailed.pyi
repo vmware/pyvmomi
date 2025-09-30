@@ -9,9 +9,9 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim import HostSystem
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vmodl import RuntimeFault
+from pyVmomi.vmodl.RuntimeFault import RuntimeFault
 
 class ThirdPartyLicenseAssignmentFailed(RuntimeFault):
    class Reason(Enum):

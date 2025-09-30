@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.profile import ApplyProfile
+from pyVmomi.vim.profile.ApplyProfile import ApplyProfile
 
-from pyVmomi.vim.profile.host import NasStorageProfile
+from pyVmomi.vim.profile.host.NasStorageProfile import NasStorageProfile
 
 class StorageProfile(ApplyProfile):
    nasStorage: list[NasStorageProfile] = []

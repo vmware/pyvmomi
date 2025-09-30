@@ -6,12 +6,13 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vsan import DataEfficiencyConfig
-from pyVmomi.vim.vsan import DataEncryptionConfig
+from pyVmomi.vim.vsan.DataEfficiencyConfig import DataEfficiencyConfig
 
-from pyVmomi.vim.vsan.host import DiskMapping
+from pyVmomi.vim.vsan.DataEncryptionConfig import DataEncryptionConfig
+
+from pyVmomi.vim.vsan.host.DiskMapping import DiskMapping
 
 class DiskMapInfoEx(DynamicData):
    mapping: DiskMapping

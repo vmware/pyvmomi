@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.cluster import SlotPolicy
+from pyVmomi.vim.cluster.SlotPolicy import SlotPolicy
 
 class FixedSizeSlotPolicy(SlotPolicy):
    cpu: int

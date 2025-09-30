@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import OpaqueNetwork
+from pyVmomi.vim.OpaqueNetwork import OpaqueNetwork
 
-from pyVmomi.vim.vm import TargetInfo
+from pyVmomi.vim.vm.TargetInfo import TargetInfo
 
 class OpaqueNetworkInfo(TargetInfo):
    network: OpaqueNetwork.Summary

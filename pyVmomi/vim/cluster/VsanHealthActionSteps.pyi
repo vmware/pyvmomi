@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.cluster import VsanHealthActionBase
+from pyVmomi.vim.cluster.VsanHealthActionBase import VsanHealthActionBase
 
 class VsanHealthActionSteps(VsanHealthActionBase):
    steps: list[VsanHealthActionBase] = []

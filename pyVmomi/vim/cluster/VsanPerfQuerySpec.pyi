@@ -8,7 +8,7 @@ from datetime import datetime
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class VsanPerfQuerySpec(DynamicData):
    entityRefId: str

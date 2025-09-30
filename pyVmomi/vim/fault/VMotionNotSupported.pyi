@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import VMotionInterfaceIssue
+from pyVmomi.vim.fault.VMotionInterfaceIssue import VMotionInterfaceIssue
 
 class VMotionNotSupported(VMotionInterfaceIssue):
    pass

@@ -9,16 +9,23 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim import Datastore
-from pyVmomi.vim import Folder
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import KeyValue
-from pyVmomi.vim import ManagedEntity
-from pyVmomi.vim import Network
-from pyVmomi.vim import ResourceConfigSpec
-from pyVmomi.vim import ResourcePool
+from pyVmomi.vim.Datastore import Datastore
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.Folder import Folder
+
+from pyVmomi.vim.HostSystem import HostSystem
+
+from pyVmomi.vim.KeyValue import KeyValue
+
+from pyVmomi.vim.ManagedEntity import ManagedEntity
+
+from pyVmomi.vim.Network import Network
+
+from pyVmomi.vim.ResourceConfigSpec import ResourceConfigSpec
+
+from pyVmomi.vim.ResourcePool import ResourcePool
+
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class CloneSpec(DynamicData):
    class NetworkMappingPair(DynamicData):

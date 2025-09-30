@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vsan.host import PolicyStatus
+from pyVmomi.vim.vsan.host.PolicyStatus import PolicyStatus
 
 class ComplianceDetail(DynamicData):
    objectUUID: str

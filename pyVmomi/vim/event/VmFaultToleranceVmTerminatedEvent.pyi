@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.event import VmEvent
+from pyVmomi.vim.event.VmEvent import VmEvent
 
 class VmFaultToleranceVmTerminatedEvent(VmEvent):
    reason: Optional[str] = None

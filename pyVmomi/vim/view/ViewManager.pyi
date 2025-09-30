@@ -8,12 +8,15 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import ManagedEntity
+from pyVmomi.vim.ManagedEntity import ManagedEntity
 
-from pyVmomi.vim.view import ContainerView
-from pyVmomi.vim.view import InventoryView
-from pyVmomi.vim.view import ListView
-from pyVmomi.vim.view import View
+from pyVmomi.vim.view.ContainerView import ContainerView
+
+from pyVmomi.vim.view.InventoryView import InventoryView
+
+from pyVmomi.vim.view.ListView import ListView
+
+from pyVmomi.vim.view.View import View
 
 class ViewManager(ManagedObject):
    @property

@@ -6,8 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.vsan import EntityResourceCheckDetails
-from pyVmomi.vim.vsan import HostResourceCheckResult
+from pyVmomi.vim.vsan.EntityResourceCheckDetails import EntityResourceCheckDetails
+
+from pyVmomi.vim.vsan.HostResourceCheckResult import HostResourceCheckResult
 
 class FaultDomainResourceCheckResult(EntityResourceCheckDetails):
    hosts: list[HostResourceCheckResult] = []

@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import ElementDescription
+from pyVmomi.vim.ElementDescription import ElementDescription
 
-from pyVmomi.vim.option import OptionType
+from pyVmomi.vim.option.OptionType import OptionType
 
 class OptionDef(ElementDescription):
    optionType: OptionType

@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import TpmEventDetails
+from pyVmomi.vim.host.TpmEventDetails import TpmEventDetails
 
 class TpmEventLogEntry(DynamicData):
    pcrIndex: int

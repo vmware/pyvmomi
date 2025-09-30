@@ -9,7 +9,7 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim.cluster import Action
+from pyVmomi.vim.cluster.Action import Action
 
 class HostPowerAction(Action):
    class OperationType(Enum):

@@ -6,21 +6,29 @@
 
 from typing import Optional
 
-from pyVmomi.vim import Task
+from pyVmomi.vim.Task import Task
 
-from pyVmomi.sms.provider import AlarmFilter
-from pyVmomi.sms.provider import AlarmResult
-from pyVmomi.sms.provider import Provider
+from pyVmomi.sms.provider.AlarmFilter import AlarmFilter
 
-from pyVmomi.sms.storage.replication import FailoverParam
-from pyVmomi.sms.storage.replication import GroupOperationResult
-from pyVmomi.sms.storage.replication import PromoteParam
-from pyVmomi.sms.storage.replication import QueryPointInTimeReplicaParam
-from pyVmomi.sms.storage.replication import QueryReplicationPeerResult
-from pyVmomi.sms.storage.replication import TestFailoverParam
+from pyVmomi.sms.provider.AlarmResult import AlarmResult
 
-from pyVmomi.vim.vm.replication import FaultDomainId
-from pyVmomi.vim.vm.replication import ReplicationGroupId
+from pyVmomi.sms.provider.Provider import Provider
+
+from pyVmomi.sms.storage.replication.FailoverParam import FailoverParam
+
+from pyVmomi.sms.storage.replication.GroupOperationResult import GroupOperationResult
+
+from pyVmomi.sms.storage.replication.PromoteParam import PromoteParam
+
+from pyVmomi.sms.storage.replication.QueryPointInTimeReplicaParam import QueryPointInTimeReplicaParam
+
+from pyVmomi.sms.storage.replication.QueryReplicationPeerResult import QueryReplicationPeerResult
+
+from pyVmomi.sms.storage.replication.TestFailoverParam import TestFailoverParam
+
+from pyVmomi.vim.vm.replication.FaultDomainId import FaultDomainId
+
+from pyVmomi.vim.vm.replication.ReplicationGroupId import ReplicationGroupId
 
 class VasaProvider(Provider):
    def Sync(self, arrayId: Optional[str]) -> Task: ...

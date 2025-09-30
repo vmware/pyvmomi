@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.eam.fault import EamAppFault
+from pyVmomi.eam.fault.EamAppFault import EamAppFault
 
 class CertificateNotTrustedFault(EamAppFault):
    url: Optional[str] = None

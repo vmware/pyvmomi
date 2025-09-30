@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import HostSystem
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vim.vsan import VipConfigSpec
+from pyVmomi.vim.vsan.VipConfigSpec import VipConfigSpec
 
 class VipConfig(VipConfigSpec):
    vmknicName: Optional[str] = None

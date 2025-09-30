@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.event import DatacenterEvent
+from pyVmomi.vim.event.DatacenterEvent import DatacenterEvent
 
 class DatacenterRenamedEvent(DatacenterEvent):
    oldName: str

@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.vm.device import VirtualSoundCard
+from pyVmomi.vim.vm.device.VirtualSoundCard import VirtualSoundCard
 
 class VirtualEnsoniq1371(VirtualSoundCard):
    pass

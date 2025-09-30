@@ -6,10 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vsan import VsanDatastoreDefaultPolicySelectionConfig
-from pyVmomi.vim.vsan import VsanEsaDiskConfiguration
+from pyVmomi.vim.vsan.VsanDatastoreDefaultPolicySelectionConfig import VsanDatastoreDefaultPolicySelectionConfig
+
+from pyVmomi.vim.vsan.VsanEsaDiskConfiguration import VsanEsaDiskConfiguration
 
 class VsanEsaConfigInfo(DynamicData):
    hclDiskClaimEnabled: Optional[bool] = None

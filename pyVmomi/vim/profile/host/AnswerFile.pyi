@@ -8,9 +8,9 @@ from datetime import datetime
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.profile import DeferredPolicyOptionParameter
+from pyVmomi.vim.profile.DeferredPolicyOptionParameter import DeferredPolicyOptionParameter
 
 class AnswerFile(DynamicData):
    userInput: list[DeferredPolicyOptionParameter] = []

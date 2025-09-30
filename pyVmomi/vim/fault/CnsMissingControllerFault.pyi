@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import CnsFault
+from pyVmomi.vim.fault.CnsFault import CnsFault
 
 class CnsMissingControllerFault(CnsFault):
    pass

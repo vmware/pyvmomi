@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.eam.issue import HostIssue
+from pyVmomi.eam.issue.HostIssue import HostIssue
 
 class OrphanedDvFilterSwitch(HostIssue):
    pass

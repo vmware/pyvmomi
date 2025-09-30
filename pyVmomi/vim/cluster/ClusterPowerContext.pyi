@@ -8,10 +8,11 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import Task
+from pyVmomi.vim.Task import Task
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import LocalizableMessage
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.vmodl.LocalizableMessage import LocalizableMessage
 
 class ClusterPowerContext(DynamicData):
    currentClusterPowerStatus: str

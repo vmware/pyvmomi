@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.eam.issue import VibNotInstalled
+from pyVmomi.eam.issue.VibNotInstalled import VibNotInstalled
 
 class VibRequirementsNotMetByHost(VibNotInstalled):
    pass

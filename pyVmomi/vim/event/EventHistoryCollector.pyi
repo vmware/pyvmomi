@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import HistoryCollector
+from pyVmomi.vim.HistoryCollector import HistoryCollector
 
-from pyVmomi.vim.event import Event
+from pyVmomi.vim.event.Event import Event
 
 class EventHistoryCollector(HistoryCollector):
    @property

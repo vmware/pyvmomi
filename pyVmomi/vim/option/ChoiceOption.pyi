@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import ElementDescription
+from pyVmomi.vim.ElementDescription import ElementDescription
 
-from pyVmomi.vim.option import OptionType
+from pyVmomi.vim.option.OptionType import OptionType
 
 class ChoiceOption(OptionType):
    choiceInfo: list[ElementDescription] = []

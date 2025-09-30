@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.host import TargetTransport
+from pyVmomi.vim.host.TargetTransport import TargetTransport
 
 class InternetScsiTargetTransport(TargetTransport):
    iScsiName: str

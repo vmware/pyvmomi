@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.eam.issue import VmDeployed
+from pyVmomi.eam.issue.VmDeployed import VmDeployed
 
 class HostPoweredOff(VmDeployed):
    pass

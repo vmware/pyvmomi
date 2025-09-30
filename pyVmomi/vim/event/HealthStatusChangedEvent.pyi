@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.event import Event
+from pyVmomi.vim.event.Event import Event
 
 class HealthStatusChangedEvent(Event):
    componentId: str

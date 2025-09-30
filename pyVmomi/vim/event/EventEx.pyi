@@ -6,10 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import KeyAnyValue
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vmodl.KeyAnyValue import KeyAnyValue
 
-from pyVmomi.vim.event import Event
+from pyVmomi.vmodl.MethodFault import MethodFault
+
+from pyVmomi.vim.event.Event import Event
 
 class EventEx(Event):
    eventTypeId: str

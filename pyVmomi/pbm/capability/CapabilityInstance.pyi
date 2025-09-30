@@ -4,10 +4,11 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.pbm.capability import CapabilityMetadata
-from pyVmomi.pbm.capability import ConstraintInstance
+from pyVmomi.pbm.capability.CapabilityMetadata import CapabilityMetadata
+
+from pyVmomi.pbm.capability.ConstraintInstance import ConstraintInstance
 
 class CapabilityInstance(DynamicData):
    id: CapabilityMetadata.UniqueId

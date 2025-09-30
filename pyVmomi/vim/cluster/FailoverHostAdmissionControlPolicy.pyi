@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import HostSystem
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vim.cluster import DasAdmissionControlPolicy
+from pyVmomi.vim.cluster.DasAdmissionControlPolicy import DasAdmissionControlPolicy
 
 class FailoverHostAdmissionControlPolicy(DasAdmissionControlPolicy):
    failoverHosts: list[HostSystem] = []

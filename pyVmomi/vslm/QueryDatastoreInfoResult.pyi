@@ -4,10 +4,11 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import Datacenter
-from pyVmomi.vim import Datastore
+from pyVmomi.vim.Datacenter import Datacenter
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.Datastore import Datastore
+
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class QueryDatastoreInfoResult(DynamicData):
    datacenter: Datacenter

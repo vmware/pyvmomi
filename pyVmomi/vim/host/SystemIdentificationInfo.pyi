@@ -8,9 +8,9 @@ from typing import ClassVar
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim import ElementDescription
+from pyVmomi.vim.ElementDescription import ElementDescription
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class SystemIdentificationInfo(DynamicData):
    class Identifier(Enum):

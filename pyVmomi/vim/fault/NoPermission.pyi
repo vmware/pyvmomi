@@ -8,9 +8,9 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vmodl.fault import SecurityError
+from pyVmomi.vmodl.fault.SecurityError import SecurityError
 
 class NoPermission(SecurityError):
    class EntityPrivileges(DynamicData):

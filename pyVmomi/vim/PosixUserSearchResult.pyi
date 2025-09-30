@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim import UserSearchResult
+from pyVmomi.vim.UserSearchResult import UserSearchResult
 
 class PosixUserSearchResult(UserSearchResult):
    id: int

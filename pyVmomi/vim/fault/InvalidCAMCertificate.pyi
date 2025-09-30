@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import InvalidCAMServer
+from pyVmomi.vim.fault.InvalidCAMServer import InvalidCAMServer
 
 class InvalidCAMCertificate(InvalidCAMServer):
    pass

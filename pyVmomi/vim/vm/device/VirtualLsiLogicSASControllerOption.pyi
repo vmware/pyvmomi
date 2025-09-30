@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.vm.device import VirtualSCSIControllerOption
+from pyVmomi.vim.vm.device.VirtualSCSIControllerOption import VirtualSCSIControllerOption
 
 class VirtualLsiLogicSASControllerOption(VirtualSCSIControllerOption):
    pass

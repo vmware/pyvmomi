@@ -6,10 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vim import Task
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.Task import Task
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.VirtualMachine import VirtualMachine
+
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class AttemptedVmInfo(DynamicData):
    vm: VirtualMachine

@@ -6,8 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.event import PermissionEvent
-from pyVmomi.vim.event import RoleEventArgument
+from pyVmomi.vim.event.PermissionEvent import PermissionEvent
+
+from pyVmomi.vim.event.RoleEventArgument import RoleEventArgument
 
 class PermissionUpdatedEvent(PermissionEvent):
    role: RoleEventArgument

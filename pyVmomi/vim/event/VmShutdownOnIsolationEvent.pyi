@@ -9,8 +9,9 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim.event import HostEventArgument
-from pyVmomi.vim.event import VmPoweredOffEvent
+from pyVmomi.vim.event.HostEventArgument import HostEventArgument
+
+from pyVmomi.vim.event.VmPoweredOffEvent import VmPoweredOffEvent
 
 class VmShutdownOnIsolationEvent(VmPoweredOffEvent):
    class Operation(Enum):

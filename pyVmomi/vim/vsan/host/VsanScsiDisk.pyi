@@ -8,10 +8,11 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import DiskDimensions
-from pyVmomi.vim.host import MountInfo
+from pyVmomi.vim.host.DiskDimensions import DiskDimensions
+
+from pyVmomi.vim.host.MountInfo import MountInfo
 
 class VsanScsiDisk(DynamicData):
    capacity: DiskDimensions.Lba

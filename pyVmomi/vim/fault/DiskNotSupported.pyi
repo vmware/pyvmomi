@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import VirtualHardwareCompatibilityIssue
+from pyVmomi.vim.fault.VirtualHardwareCompatibilityIssue import VirtualHardwareCompatibilityIssue
 
 class DiskNotSupported(VirtualHardwareCompatibilityIssue):
    disk: int

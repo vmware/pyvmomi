@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import SnapshotCopyNotSupported
+from pyVmomi.vim.fault.SnapshotCopyNotSupported import SnapshotCopyNotSupported
 
 class SnapshotMoveToNonHomeNotSupported(SnapshotCopyNotSupported):
    pass

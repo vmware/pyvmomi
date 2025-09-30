@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.eam.fault import EamAppFault
+from pyVmomi.eam.fault.EamAppFault import EamAppFault
 
 class InvalidState(EamAppFault):
    pass

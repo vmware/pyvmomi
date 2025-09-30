@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.host import IpConfig
+from pyVmomi.vim.host.IpConfig import IpConfig
 
 class FileServiceIpConfig(IpConfig):
    fqdn: Optional[str] = None

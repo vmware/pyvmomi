@@ -6,8 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.event import GeneralEvent
-from pyVmomi.vim.event import ManagedEntityEventArgument
+from pyVmomi.vim.event.GeneralEvent import GeneralEvent
+
+from pyVmomi.vim.event.ManagedEntityEventArgument import ManagedEntityEventArgument
 
 class GeneralUserEvent(GeneralEvent):
    entity: Optional[ManagedEntityEventArgument] = None

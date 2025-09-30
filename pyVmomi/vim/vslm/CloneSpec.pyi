@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import KeyValue
+from pyVmomi.vim.KeyValue import KeyValue
 
-from pyVmomi.vim.vslm import MigrateSpec
+from pyVmomi.vim.vslm.MigrateSpec import MigrateSpec
 
 class CloneSpec(MigrateSpec):
    name: str

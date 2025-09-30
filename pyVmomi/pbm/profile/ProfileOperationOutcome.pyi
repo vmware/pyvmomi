@@ -6,10 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.pbm.profile import ProfileId
+from pyVmomi.vmodl.MethodFault import MethodFault
+
+from pyVmomi.pbm.profile.ProfileId import ProfileId
 
 class ProfileOperationOutcome(DynamicData):
    profileId: ProfileId

@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vmodl.MethodFault import MethodFault
 
-from pyVmomi.sms.storage.replication import GroupOperationResult
+from pyVmomi.sms.storage.replication.GroupOperationResult import GroupOperationResult
 
 class GroupErrorResult(GroupOperationResult):
    error: list[MethodFault] = []

@@ -6,12 +6,13 @@
 
 from typing import Optional
 
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.VirtualMachine import VirtualMachine
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vm.device import VirtualDiskId
+from pyVmomi.vmodl.MethodFault import MethodFault
+
+from pyVmomi.vim.vm.device.VirtualDiskId import VirtualDiskId
 
 class DrsFaults(DynamicData):
    class FaultsByVm(DynamicData):

@@ -8,11 +8,13 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim import DistributedVirtualSwitch
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import Network
+from pyVmomi.vim.DistributedVirtualSwitch import DistributedVirtualSwitch
 
-from pyVmomi.vim.vsan import VsanNetworkConfigBaseIssue
+from pyVmomi.vim.HostSystem import HostSystem
+
+from pyVmomi.vim.Network import Network
+
+from pyVmomi.vim.vsan.VsanNetworkConfigBaseIssue import VsanNetworkConfigBaseIssue
 
 class VsanNetworkConfigPortgroupWithNoRedundancyIssue(VsanNetworkConfigBaseIssue):
    host: HostSystem

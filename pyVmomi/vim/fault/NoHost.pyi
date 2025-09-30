@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.fault import HostConnectFault
+from pyVmomi.vim.fault.HostConnectFault import HostConnectFault
 
 class NoHost(HostConnectFault):
    name: Optional[str] = None

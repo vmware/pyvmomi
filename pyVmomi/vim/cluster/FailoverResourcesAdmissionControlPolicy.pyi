@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.cluster import DasAdmissionControlPolicy
+from pyVmomi.vim.cluster.DasAdmissionControlPolicy import DasAdmissionControlPolicy
 
 class FailoverResourcesAdmissionControlPolicy(DasAdmissionControlPolicy):
    cpuFailoverResourcesPercent: int

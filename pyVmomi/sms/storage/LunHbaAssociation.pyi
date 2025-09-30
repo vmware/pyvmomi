@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import HostBusAdapter
+from pyVmomi.vim.host.HostBusAdapter import HostBusAdapter
 
 class LunHbaAssociation(DynamicData):
    canonicalName: str

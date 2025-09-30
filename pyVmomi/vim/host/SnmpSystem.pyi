@@ -5,15 +5,14 @@
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
 from typing import ClassVar
-from typing import NoReturn
 from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import KeyValue
+from pyVmomi.vim.KeyValue import KeyValue
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class SnmpSystem(ManagedObject):
    class SnmpConfigSpec(DynamicData):
@@ -45,5 +44,5 @@ class SnmpSystem(ManagedObject):
    @property
    def limits(self) -> AgentLimits: ...
 
-   def ReconfigureSnmpAgent(self, spec: SnmpConfigSpec) -> NoReturn: ...
-   def SendTestNotification(self) -> NoReturn: ...
+   def ReconfigureSnmpAgent(self, spec: SnmpConfigSpec) -> None: ...
+   def SendTestNotification(self) -> None: ...

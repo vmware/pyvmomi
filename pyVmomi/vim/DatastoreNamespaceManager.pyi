@@ -4,16 +4,16 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import NoReturn
 from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim import Datacenter
-from pyVmomi.vim import Datastore
+from pyVmomi.vim.Datacenter import Datacenter
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.Datastore import Datastore
+
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class DatastoreNamespaceManager(ManagedObject):
    class DirectoryInfo(DynamicData):
@@ -21,7 +21,7 @@ class DatastoreNamespaceManager(ManagedObject):
       used: long
 
    def CreateDirectory(self, datastore: Datastore, displayName: Optional[str], policy: Optional[str], size: Optional[long]) -> str: ...
-   def DeleteDirectory(self, datacenter: Optional[Datacenter], datastorePath: str) -> NoReturn: ...
+   def DeleteDirectory(self, datacenter: Optional[Datacenter], datastorePath: str) -> None: ...
    def ConvertNamespacePathToUuidPath(self, datacenter: Optional[Datacenter], namespaceUrl: str) -> str: ...
-   def IncreaseDirectorySize(self, datacenter: Optional[Datacenter], stableName: str, size: long) -> NoReturn: ...
+   def IncreaseDirectorySize(self, datacenter: Optional[Datacenter], stableName: str, size: long) -> None: ...
    def QueryDirectoryInfo(self, datacenter: Optional[Datacenter], stableName: str) -> DirectoryInfo: ...

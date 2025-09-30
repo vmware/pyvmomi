@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import GuestRegistryFault
+from pyVmomi.vim.fault.GuestRegistryFault import GuestRegistryFault
 
 class GuestRegistryKeyFault(GuestRegistryFault):
    keyName: str

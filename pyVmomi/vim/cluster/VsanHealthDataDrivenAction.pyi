@@ -6,9 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vim.cluster import VsanDataDrivenAPIAction
-from pyVmomi.vim.cluster import VsanHealthActionBase
-from pyVmomi.vim.cluster import VsanHealthConfirmationDialog
+from pyVmomi.vim.cluster.VsanDataDrivenAPIAction import VsanDataDrivenAPIAction
+
+from pyVmomi.vim.cluster.VsanHealthActionBase import VsanHealthActionBase
+
+from pyVmomi.vim.cluster.VsanHealthConfirmationDialog import VsanHealthConfirmationDialog
 
 class VsanHealthDataDrivenAction(VsanHealthActionBase):
    apiAction: VsanDataDrivenAPIAction

@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.sms.fault.replication import ReplicationFault
+from pyVmomi.sms.fault.replication.ReplicationFault import ReplicationFault
 
 class InvalidReplicationState(ReplicationFault):
    desiredState: list[str] = []

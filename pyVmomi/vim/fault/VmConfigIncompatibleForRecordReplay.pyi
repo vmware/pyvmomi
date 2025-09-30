@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vmodl.MethodFault import MethodFault
 
-from pyVmomi.vim.fault import VmConfigFault
+from pyVmomi.vim.fault.VmConfigFault import VmConfigFault
 
 class VmConfigIncompatibleForRecordReplay(VmConfigFault):
    fault: Optional[MethodFault] = None

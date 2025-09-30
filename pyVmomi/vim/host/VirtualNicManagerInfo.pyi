@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import VirtualNicManager
+from pyVmomi.vim.host.VirtualNicManager import VirtualNicManager
 
 class VirtualNicManagerInfo(DynamicData):
    netConfig: list[VirtualNicManager.NetConfig] = []

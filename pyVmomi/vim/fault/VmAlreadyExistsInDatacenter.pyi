@@ -4,10 +4,11 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vim.fault import InvalidFolder
+from pyVmomi.vim.VirtualMachine import VirtualMachine
+
+from pyVmomi.vim.fault.InvalidFolder import InvalidFolder
 
 class VmAlreadyExistsInDatacenter(InvalidFolder):
    host: HostSystem

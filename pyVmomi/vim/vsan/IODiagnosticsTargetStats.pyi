@@ -6,10 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vsan import IODiagnosticsStats
-from pyVmomi.vim.vsan import IODiagnosticsTarget
+from pyVmomi.vim.vsan.IODiagnosticsStats import IODiagnosticsStats
+
+from pyVmomi.vim.vsan.IODiagnosticsTarget import IODiagnosticsTarget
 
 class IODiagnosticsTargetStats(DynamicData):
    target: IODiagnosticsTarget

@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.eam.issue import VmNotDeployed
+from pyVmomi.eam.issue.VmNotDeployed import VmNotDeployed
 
 class NoAgentVmDatastore(VmNotDeployed):
    pass

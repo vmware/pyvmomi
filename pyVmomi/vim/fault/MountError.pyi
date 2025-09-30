@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.VirtualMachine import VirtualMachine
 
-from pyVmomi.vim.fault import CustomizationFault
+from pyVmomi.vim.fault.CustomizationFault import CustomizationFault
 
 class MountError(CustomizationFault):
    vm: VirtualMachine

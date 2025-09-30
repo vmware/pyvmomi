@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import ManagedEntity
+from pyVmomi.vim.ManagedEntity import ManagedEntity
 
-from pyVmomi.vim.fault import VimFault
+from pyVmomi.vim.fault.VimFault import VimFault
 
 class InvalidName(VimFault):
    name: str

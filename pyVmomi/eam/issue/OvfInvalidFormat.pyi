@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vmodl.MethodFault import MethodFault
 
-from pyVmomi.eam.issue import VmNotDeployed
+from pyVmomi.eam.issue.VmNotDeployed import VmNotDeployed
 
 class OvfInvalidFormat(VmNotDeployed):
    error: list[MethodFault] = []

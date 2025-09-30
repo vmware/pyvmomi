@@ -4,14 +4,15 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vslm import AboutInfo
-from pyVmomi.vslm import StorageLifecycleManager
+from pyVmomi.vslm.AboutInfo import AboutInfo
 
-from pyVmomi.vslm.auth import SessionManager
+from pyVmomi.vslm.StorageLifecycleManager import StorageLifecycleManager
 
-from pyVmomi.vslm.vso import VStorageObjectManager
+from pyVmomi.vslm.auth.SessionManager import SessionManager
+
+from pyVmomi.vslm.vso.VStorageObjectManager import VStorageObjectManager
 
 class ServiceInstanceContent(DynamicData):
    aboutInfo: AboutInfo

@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.cluster import VsanPerfGraph
+from pyVmomi.vim.cluster.VsanPerfGraph import VsanPerfGraph
 
 class VsanPerfEntityType(DynamicData):
    name: str

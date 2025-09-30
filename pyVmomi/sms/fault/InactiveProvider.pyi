@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vmodl.MethodFault import MethodFault
 
-from pyVmomi.sms.storage import FaultDomainProviderMapping
+from pyVmomi.sms.storage.FaultDomainProviderMapping import FaultDomainProviderMapping
 
 class InactiveProvider(MethodFault):
    mapping: list[FaultDomainProviderMapping] = []

@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim import VsanResourceConstraint
+from pyVmomi.vim.VsanResourceConstraint import VsanResourceConstraint
 
 class VsanCompositeConstraint(VsanResourceConstraint):
    nestedConstraints: list[VsanResourceConstraint] = []

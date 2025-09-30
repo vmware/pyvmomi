@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import NotSupportedHost
+from pyVmomi.vim.fault.NotSupportedHost import NotSupportedHost
 
 class NotSupportedHostForVmcp(NotSupportedHost):
    hostName: str

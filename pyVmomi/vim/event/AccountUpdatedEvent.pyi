@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.event import HostEvent
+from pyVmomi.vim.event.HostEvent import HostEvent
 
-from pyVmomi.vim.host import LocalAccountManager
+from pyVmomi.vim.host.LocalAccountManager import LocalAccountManager
 
 class AccountUpdatedEvent(HostEvent):
    spec: LocalAccountManager.AccountSpecification

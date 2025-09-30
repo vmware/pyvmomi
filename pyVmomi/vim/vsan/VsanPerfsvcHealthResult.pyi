@@ -6,10 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.cluster import VsanObjectInformation
-from pyVmomi.vim.cluster import VsanPerfNodeInformation
+from pyVmomi.vim.cluster.VsanObjectInformation import VsanObjectInformation
+
+from pyVmomi.vim.cluster.VsanPerfNodeInformation import VsanPerfNodeInformation
 
 class VsanPerfsvcHealthResult(DynamicData):
    statsObjectInfo: Optional[VsanObjectInformation] = None

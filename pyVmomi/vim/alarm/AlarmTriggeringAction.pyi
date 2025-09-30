@@ -6,13 +6,13 @@
 
 from typing import Optional
 
-from pyVmomi.vim import ManagedEntity
+from pyVmomi.vim.ManagedEntity import ManagedEntity
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.action import Action
+from pyVmomi.vim.action.Action import Action
 
-from pyVmomi.vim.alarm import AlarmAction
+from pyVmomi.vim.alarm.AlarmAction import AlarmAction
 
 class AlarmTriggeringAction(AlarmAction):
    class TransitionSpec(DynamicData):

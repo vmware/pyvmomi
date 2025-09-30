@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.event import ClusterEvent
+from pyVmomi.vim.event.ClusterEvent import ClusterEvent
 
 class HostMonitoringStateChangedEvent(ClusterEvent):
    state: str

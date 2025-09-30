@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.VirtualMachine import VirtualMachine
 
-from pyVmomi.vmodl.fault import InvalidArgument
+from pyVmomi.vmodl.fault.InvalidArgument import InvalidArgument
 
 class InvalidDrsBehaviorForFtVm(InvalidArgument):
    vm: VirtualMachine

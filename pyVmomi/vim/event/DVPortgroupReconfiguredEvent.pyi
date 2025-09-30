@@ -6,10 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vim.dvs import DistributedVirtualPortgroup
+from pyVmomi.vim.dvs.DistributedVirtualPortgroup import DistributedVirtualPortgroup
 
-from pyVmomi.vim.event import ChangesInfoEventArgument
-from pyVmomi.vim.event import DVPortgroupEvent
+from pyVmomi.vim.event.ChangesInfoEventArgument import ChangesInfoEventArgument
+
+from pyVmomi.vim.event.DVPortgroupEvent import DVPortgroupEvent
 
 class DVPortgroupReconfiguredEvent(DVPortgroupEvent):
    configSpec: DistributedVirtualPortgroup.ConfigSpec

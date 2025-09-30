@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.pbm.fault import PBMFault
+from pyVmomi.pbm.fault.PBMFault import PBMFault
 
 class AlreadyExists(PBMFault):
    name: Optional[str] = None

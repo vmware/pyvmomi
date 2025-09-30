@@ -4,8 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.vsan import MountPrecheckItem
-from pyVmomi.vim.vsan import MountPrecheckNetworkLatencyDetail
+from pyVmomi.vim.vsan.MountPrecheckItem import MountPrecheckItem
+
+from pyVmomi.vim.vsan.MountPrecheckNetworkLatencyDetail import MountPrecheckNetworkLatencyDetail
 
 class MountPrecheckNetworkLatencyResult(MountPrecheckItem):
    details: list[MountPrecheckNetworkLatencyDetail] = []

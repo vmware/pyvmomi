@@ -6,10 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.profile import ApplyProfileProperty
-from pyVmomi.vim.profile import Policy
+from pyVmomi.vim.profile.ApplyProfileProperty import ApplyProfileProperty
+
+from pyVmomi.vim.profile.Policy import Policy
 
 class ApplyProfile(DynamicData):
    enabled: bool

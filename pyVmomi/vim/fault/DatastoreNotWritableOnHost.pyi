@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import HostSystem
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vim.fault import InvalidDatastore
+from pyVmomi.vim.fault.InvalidDatastore import InvalidDatastore
 
 class DatastoreNotWritableOnHost(InvalidDatastore):
    host: HostSystem

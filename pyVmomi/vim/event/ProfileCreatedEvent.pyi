@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.event import ProfileEvent
+from pyVmomi.vim.event.ProfileEvent import ProfileEvent
 
 class ProfileCreatedEvent(ProfileEvent):
    pass

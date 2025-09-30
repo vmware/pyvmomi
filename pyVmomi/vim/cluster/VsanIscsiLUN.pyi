@@ -8,8 +8,9 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim.cluster import VsanIscsiLUNCommonInfo
-from pyVmomi.vim.cluster import VsanObjectInformation
+from pyVmomi.vim.cluster.VsanIscsiLUNCommonInfo import VsanIscsiLUNCommonInfo
+
+from pyVmomi.vim.cluster.VsanObjectInformation import VsanObjectInformation
 
 class VsanIscsiLUN(VsanIscsiLUNCommonInfo):
    targetAlias: str

@@ -12,14 +12,17 @@ from typing import Optional
 from pyVmomi.VmomiSupport import Enum
 from pyVmomi.VmomiSupport import ManagedMethod
 
-from pyVmomi.vim import ManagedEntity
+from pyVmomi.vim.ManagedEntity import ManagedEntity
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import LocalizableMessage
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vslm import Task
-from pyVmomi.vslm import TaskReason
+from pyVmomi.vmodl.LocalizableMessage import LocalizableMessage
+
+from pyVmomi.vmodl.MethodFault import MethodFault
+
+from pyVmomi.vslm.Task import Task
+
+from pyVmomi.vslm.TaskReason import TaskReason
 
 class TaskInfo(DynamicData):
    class State(Enum):

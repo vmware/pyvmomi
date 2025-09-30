@@ -6,11 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.cluster import VsanIscsiTargetServiceDefaultConfigSpec
+from pyVmomi.vim.cluster.VsanIscsiTargetServiceDefaultConfigSpec import VsanIscsiTargetServiceDefaultConfigSpec
 
-from pyVmomi.vim.vm import ProfileSpec
+from pyVmomi.vim.vm.ProfileSpec import ProfileSpec
 
 class VsanIscsiHomeObjectSpec(DynamicData):
    storagePolicy: Optional[ProfileSpec] = None

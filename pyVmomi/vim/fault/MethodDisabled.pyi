@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import RuntimeFault
+from pyVmomi.vmodl.RuntimeFault import RuntimeFault
 
 class MethodDisabled(RuntimeFault):
    source: Optional[str] = None

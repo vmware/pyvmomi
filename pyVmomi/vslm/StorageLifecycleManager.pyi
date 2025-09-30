@@ -4,15 +4,14 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import NoReturn
 from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vslm import QueryDatastoreInfoResult
+from pyVmomi.vslm.QueryDatastoreInfoResult import QueryDatastoreInfoResult
 
-from pyVmomi.vim.vslm import ID
+from pyVmomi.vim.vslm.ID import ID
 
 class StorageLifecycleManager(ManagedObject):
-   def SyncDatastore(self, datastoreUrl: str, fullSync: bool, fcdId: Optional[ID]) -> NoReturn: ...
+   def SyncDatastore(self, datastoreUrl: str, fullSync: bool, fcdId: Optional[ID]) -> None: ...
    def QueryDatastoreInfo(self, datastoreUrl: str) -> list[QueryDatastoreInfoResult]: ...

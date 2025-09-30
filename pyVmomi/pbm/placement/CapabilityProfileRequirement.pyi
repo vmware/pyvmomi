@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.pbm.placement import Requirement
+from pyVmomi.pbm.placement.Requirement import Requirement
 
-from pyVmomi.pbm.profile import ProfileId
+from pyVmomi.pbm.profile.ProfileId import ProfileId
 
 class CapabilityProfileRequirement(Requirement):
    profileId: ProfileId

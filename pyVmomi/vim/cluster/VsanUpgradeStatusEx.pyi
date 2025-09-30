@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import VsanUpgradeSystem
+from pyVmomi.vim.VsanUpgradeSystem import VsanUpgradeSystem
 
-from pyVmomi.vim.cluster import VsanDiskFormatConversionCheckResult
+from pyVmomi.vim.cluster.VsanDiskFormatConversionCheckResult import VsanDiskFormatConversionCheckResult
 
 class VsanUpgradeStatusEx(VsanUpgradeSystem.UpgradeStatus):
    isPrecheck: Optional[bool] = None

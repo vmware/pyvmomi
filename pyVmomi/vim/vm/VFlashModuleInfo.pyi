@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.host import VFlashManager
+from pyVmomi.vim.host.VFlashManager import VFlashManager
 
-from pyVmomi.vim.vm import TargetInfo
+from pyVmomi.vim.vm.TargetInfo import TargetInfo
 
 class VFlashModuleInfo(TargetInfo):
    vFlashModule: VFlashManager.VFlashCacheConfigInfo.VFlashModuleConfigOption

@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.vm.device import VirtualController
+from pyVmomi.vim.vm.device.VirtualController import VirtualController
 
 class VirtualUSBXHCIController(VirtualController):
    autoConnectDevices: Optional[bool] = None

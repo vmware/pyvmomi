@@ -6,14 +6,17 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vsan import DataEfficiencyConfig
+from pyVmomi.vim.vsan.DataEfficiencyConfig import DataEfficiencyConfig
 
-from pyVmomi.vim.vsan.host import AddStoragePoolDiskSpec
-from pyVmomi.vim.vsan.host import CreateNativeKeyProviderSpec
-from pyVmomi.vim.vsan.host import DiskMappingCreationSpec
-from pyVmomi.vim.vsan.host import EncryptionInfo
+from pyVmomi.vim.vsan.host.AddStoragePoolDiskSpec import AddStoragePoolDiskSpec
+
+from pyVmomi.vim.vsan.host.CreateNativeKeyProviderSpec import CreateNativeKeyProviderSpec
+
+from pyVmomi.vim.vsan.host.DiskMappingCreationSpec import DiskMappingCreationSpec
+
+from pyVmomi.vim.vsan.host.EncryptionInfo import EncryptionInfo
 
 class VsanPrepareVsanForVcsaSpec(DynamicData):
    vsanDiskMappingCreationSpec: Optional[DiskMappingCreationSpec] = None

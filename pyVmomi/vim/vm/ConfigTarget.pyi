@@ -8,38 +8,63 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim import ResourcePool
+from pyVmomi.vim.ResourcePool import ResourcePool
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.dvs import DistributedVirtualPortgroupInfo
-from pyVmomi.vim.dvs import DistributedVirtualSwitchInfo
+from pyVmomi.vim.dvs.DistributedVirtualPortgroupInfo import DistributedVirtualPortgroupInfo
 
-from pyVmomi.vim.vm import CdromInfo
-from pyVmomi.vim.vm import DatastoreInfo
-from pyVmomi.vim.vm import DvxClassInfo
-from pyVmomi.vim.vm import DynamicPassthroughInfo
-from pyVmomi.vim.vm import FloppyInfo
-from pyVmomi.vim.vm import IdeDiskDeviceInfo
-from pyVmomi.vim.vm import LegacyNetworkSwitchInfo
-from pyVmomi.vim.vm import NetworkInfo
-from pyVmomi.vim.vm import OpaqueNetworkInfo
-from pyVmomi.vim.vm import ParallelInfo
-from pyVmomi.vim.vm import PciPassthroughInfo
-from pyVmomi.vim.vm import PciSharedGpuPassthroughInfo
-from pyVmomi.vim.vm import PrecisionClockInfo
-from pyVmomi.vim.vm import ScsiDiskDeviceInfo
-from pyVmomi.vim.vm import ScsiPassthroughInfo
-from pyVmomi.vim.vm import SerialInfo
-from pyVmomi.vim.vm import SgxTargetInfo
-from pyVmomi.vim.vm import SoundInfo
-from pyVmomi.vim.vm import SriovInfo
-from pyVmomi.vim.vm import SubnetInfo
-from pyVmomi.vim.vm import UsbInfo
-from pyVmomi.vim.vm import VFlashModuleInfo
-from pyVmomi.vim.vm import VendorDeviceGroupInfo
-from pyVmomi.vim.vm import VgpuDeviceInfo
-from pyVmomi.vim.vm import VgpuProfileInfo
+from pyVmomi.vim.dvs.DistributedVirtualSwitchInfo import DistributedVirtualSwitchInfo
+
+from pyVmomi.vim.vm.CdromInfo import CdromInfo
+
+from pyVmomi.vim.vm.DatastoreInfo import DatastoreInfo
+
+from pyVmomi.vim.vm.DvxClassInfo import DvxClassInfo
+
+from pyVmomi.vim.vm.DynamicPassthroughInfo import DynamicPassthroughInfo
+
+from pyVmomi.vim.vm.FloppyInfo import FloppyInfo
+
+from pyVmomi.vim.vm.IdeDiskDeviceInfo import IdeDiskDeviceInfo
+
+from pyVmomi.vim.vm.LegacyNetworkSwitchInfo import LegacyNetworkSwitchInfo
+
+from pyVmomi.vim.vm.NetworkInfo import NetworkInfo
+
+from pyVmomi.vim.vm.OpaqueNetworkInfo import OpaqueNetworkInfo
+
+from pyVmomi.vim.vm.ParallelInfo import ParallelInfo
+
+from pyVmomi.vim.vm.PciPassthroughInfo import PciPassthroughInfo
+
+from pyVmomi.vim.vm.PciSharedGpuPassthroughInfo import PciSharedGpuPassthroughInfo
+
+from pyVmomi.vim.vm.PrecisionClockInfo import PrecisionClockInfo
+
+from pyVmomi.vim.vm.ScsiDiskDeviceInfo import ScsiDiskDeviceInfo
+
+from pyVmomi.vim.vm.ScsiPassthroughInfo import ScsiPassthroughInfo
+
+from pyVmomi.vim.vm.SerialInfo import SerialInfo
+
+from pyVmomi.vim.vm.SgxTargetInfo import SgxTargetInfo
+
+from pyVmomi.vim.vm.SoundInfo import SoundInfo
+
+from pyVmomi.vim.vm.SriovInfo import SriovInfo
+
+from pyVmomi.vim.vm.SubnetInfo import SubnetInfo
+
+from pyVmomi.vim.vm.UsbInfo import UsbInfo
+
+from pyVmomi.vim.vm.VFlashModuleInfo import VFlashModuleInfo
+
+from pyVmomi.vim.vm.VendorDeviceGroupInfo import VendorDeviceGroupInfo
+
+from pyVmomi.vim.vm.VgpuDeviceInfo import VgpuDeviceInfo
+
+from pyVmomi.vim.vm.VgpuProfileInfo import VgpuProfileInfo
 
 class ConfigTarget(DynamicData):
    numCpus: int

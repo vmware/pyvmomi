@@ -8,7 +8,7 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim.vsan import ResourceCheckComponentResult
+from pyVmomi.vim.vsan.ResourceCheckComponentResult import ResourceCheckComponentResult
 
 class ResourceCheckDataPersistenceResult(ResourceCheckComponentResult):
    dataToRebuild: Optional[long] = None

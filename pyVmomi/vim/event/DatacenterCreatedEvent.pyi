@@ -4,8 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.event import DatacenterEvent
-from pyVmomi.vim.event import FolderEventArgument
+from pyVmomi.vim.event.DatacenterEvent import DatacenterEvent
+
+from pyVmomi.vim.event.FolderEventArgument import FolderEventArgument
 
 class DatacenterCreatedEvent(DatacenterEvent):
    parent: FolderEventArgument

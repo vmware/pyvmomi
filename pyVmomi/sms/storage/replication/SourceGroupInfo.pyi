@@ -6,12 +6,13 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.sms.storage.replication import GroupInfo
-from pyVmomi.sms.storage.replication import SourceGroupMemberInfo
+from pyVmomi.sms.storage.replication.GroupInfo import GroupInfo
 
-from pyVmomi.vim.vm.replication import ReplicationGroupId
+from pyVmomi.sms.storage.replication.SourceGroupMemberInfo import SourceGroupMemberInfo
+
+from pyVmomi.vim.vm.replication.ReplicationGroupId import ReplicationGroupId
 
 class SourceGroupInfo(GroupInfo):
    class ReplicationTargetInfo(DynamicData):

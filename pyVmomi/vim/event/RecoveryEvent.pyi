@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.event import DvsEvent
+from pyVmomi.vim.event.DvsEvent import DvsEvent
 
 class RecoveryEvent(DvsEvent):
    hostName: str

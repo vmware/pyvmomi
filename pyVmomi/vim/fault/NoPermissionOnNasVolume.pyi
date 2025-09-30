@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.fault import NasConfigFault
+from pyVmomi.vim.fault.NasConfigFault import NasConfigFault
 
 class NoPermissionOnNasVolume(NasConfigFault):
    userName: Optional[str] = None

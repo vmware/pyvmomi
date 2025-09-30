@@ -6,7 +6,7 @@
 
 from datetime import datetime
 
-from pyVmomi.vmodl.fault import NotEnoughLicenses
+from pyVmomi.vmodl.fault.NotEnoughLicenses import NotEnoughLicenses
 
 class ExpiredFeatureLicense(NotEnoughLicenses):
    feature: str

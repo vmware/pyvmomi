@@ -9,8 +9,9 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim.vm import Summary
-from pyVmomi.vim.vm import TargetInfo
+from pyVmomi.vim.vm.Summary import Summary
+
+from pyVmomi.vim.vm.TargetInfo import TargetInfo
 
 class UsbInfo(TargetInfo):
    class Speed(Enum):

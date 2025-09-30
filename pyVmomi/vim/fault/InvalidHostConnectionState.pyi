@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import InvalidHostState
+from pyVmomi.vim.fault.InvalidHostState import InvalidHostState
 
 class InvalidHostConnectionState(InvalidHostState):
    pass

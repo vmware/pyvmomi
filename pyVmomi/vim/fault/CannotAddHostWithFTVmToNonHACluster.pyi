@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import HostConnectFault
+from pyVmomi.vim.fault.HostConnectFault import HostConnectFault
 
 class CannotAddHostWithFTVmToNonHACluster(HostConnectFault):
    pass

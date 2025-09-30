@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import HostSystem
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vim.event import ProfileEvent
+from pyVmomi.vim.event.ProfileEvent import ProfileEvent
 
 class ProfileReferenceHostChangedEvent(ProfileEvent):
    referenceHost: Optional[HostSystem] = None

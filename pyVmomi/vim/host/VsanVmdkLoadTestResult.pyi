@@ -8,9 +8,9 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import VsanVmdkLoadTestSpec
+from pyVmomi.vim.host.VsanVmdkLoadTestSpec import VsanVmdkLoadTestSpec
 
 class VsanVmdkLoadTestResult(DynamicData):
    success: bool

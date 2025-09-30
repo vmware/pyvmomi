@@ -8,9 +8,9 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.cluster import VsanClusterBalancePerDiskInfo
+from pyVmomi.vim.cluster.VsanClusterBalancePerDiskInfo import VsanClusterBalancePerDiskInfo
 
 class VsanClusterBalanceSummary(DynamicData):
    varianceThreshold: long

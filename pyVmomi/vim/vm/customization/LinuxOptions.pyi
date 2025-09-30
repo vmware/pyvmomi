@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.vm.customization import Options
+from pyVmomi.vim.vm.customization.Options import Options
 
 class LinuxOptions(Options):
    pass

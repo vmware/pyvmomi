@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import PatchNotApplicable
+from pyVmomi.vim.fault.PatchNotApplicable import PatchNotApplicable
 
 class PatchAlreadyInstalled(PatchNotApplicable):
    pass

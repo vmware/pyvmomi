@@ -9,13 +9,15 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import FeatureCapability
-from pyVmomi.vim.host import PhysicalNic
-from pyVmomi.vim.host import VirtualNic
+from pyVmomi.vim.host.FeatureCapability import FeatureCapability
 
-from pyVmomi.vim.option import OptionValue
+from pyVmomi.vim.host.PhysicalNic import PhysicalNic
+
+from pyVmomi.vim.host.VirtualNic import VirtualNic
+
+from pyVmomi.vim.option.OptionValue import OptionValue
 
 class OpaqueSwitch(DynamicData):
    class OpaqueSwitchState(Enum):

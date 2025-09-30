@@ -4,8 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.event import DatastoreEventArgument
-from pyVmomi.vim.event import HostEvent
+from pyVmomi.vim.event.DatastoreEventArgument import DatastoreEventArgument
+
+from pyVmomi.vim.event.HostEvent import HostEvent
 
 class VMFSDatastoreExpandedEvent(HostEvent):
    datastore: DatastoreEventArgument

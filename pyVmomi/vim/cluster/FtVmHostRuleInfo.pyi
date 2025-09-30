@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.cluster import RuleInfo
+from pyVmomi.vim.cluster.RuleInfo import RuleInfo
 
 class FtVmHostRuleInfo(RuleInfo):
    vmGroupName: str

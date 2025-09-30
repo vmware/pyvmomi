@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import ComputeResource
+from pyVmomi.vim.ComputeResource import ComputeResource
 
-from pyVmomi.vim.fault import InvalidState
+from pyVmomi.vim.fault.InvalidState import InvalidState
 
 class NoActiveHostInCluster(InvalidState):
    computeResource: ComputeResource

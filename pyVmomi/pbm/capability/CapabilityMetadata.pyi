@@ -6,11 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.pbm import ExtendedElementDescription
+from pyVmomi.pbm.ExtendedElementDescription import ExtendedElementDescription
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.pbm.capability import PropertyMetadata
+from pyVmomi.pbm.capability.PropertyMetadata import PropertyMetadata
 
 class CapabilityMetadata(DynamicData):
    class UniqueId(DynamicData):

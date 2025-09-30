@@ -7,8 +7,9 @@
 from pyVmomi.VmomiSupport import ManagedObject
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.HostSystem import HostSystem
+
+from pyVmomi.vim.VirtualMachine import VirtualMachine
 
 class OverheadMemoryManager(ManagedObject):
    def LookupVmOverheadMemory(self, vm: VirtualMachine, host: HostSystem) -> long: ...

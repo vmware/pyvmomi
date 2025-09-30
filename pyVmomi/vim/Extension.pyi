@@ -8,14 +8,17 @@ from datetime import datetime
 
 from typing import Optional
 
-from pyVmomi.vim import Description
-from pyVmomi.vim import KeyValue
+from pyVmomi.vim.Description import Description
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.KeyValue import KeyValue
 
-from pyVmomi.vim.ext import ExtendedProductInfo
-from pyVmomi.vim.ext import ManagedEntityInfo
-from pyVmomi.vim.ext import SolutionManagerInfo
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.vim.ext.ExtendedProductInfo import ExtendedProductInfo
+
+from pyVmomi.vim.ext.ManagedEntityInfo import ManagedEntityInfo
+
+from pyVmomi.vim.ext.SolutionManagerInfo import SolutionManagerInfo
 
 class Extension(DynamicData):
    class ServerInfo(DynamicData):

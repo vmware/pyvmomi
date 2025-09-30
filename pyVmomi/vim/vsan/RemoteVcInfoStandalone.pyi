@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.vsan import RemoteVcInfo
+from pyVmomi.vim.vsan.RemoteVcInfo import RemoteVcInfo
 
 class RemoteVcInfoStandalone(RemoteVcInfo):
    user: Optional[str] = None

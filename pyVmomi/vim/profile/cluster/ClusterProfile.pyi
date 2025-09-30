@@ -5,13 +5,13 @@
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
 from typing import ClassVar
-from typing import NoReturn
 from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim.profile import ComplianceProfile
-from pyVmomi.vim.profile import Profile
+from pyVmomi.vim.profile.ComplianceProfile import ComplianceProfile
+
+from pyVmomi.vim.profile.Profile import Profile
 
 class ClusterProfile(Profile):
    class ConfigInfo(Profile.ConfigInfo):
@@ -35,4 +35,4 @@ class ClusterProfile(Profile):
    class ConfigServiceCreateSpec(ConfigSpec):
       serviceType: list[str] = []
 
-   def Update(self, config: ConfigSpec) -> NoReturn: ...
+   def Update(self, config: ConfigSpec) -> None: ...

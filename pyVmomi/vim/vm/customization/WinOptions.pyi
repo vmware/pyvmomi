@@ -9,7 +9,7 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim.vm.customization import Options
+from pyVmomi.vim.vm.customization.Options import Options
 
 class WinOptions(Options):
    class SysprepRebootOption(Enum):

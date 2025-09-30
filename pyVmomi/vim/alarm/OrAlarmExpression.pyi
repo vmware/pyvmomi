@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.alarm import AlarmExpression
+from pyVmomi.vim.alarm.AlarmExpression import AlarmExpression
 
 class OrAlarmExpression(AlarmExpression):
    expression: list[AlarmExpression] = []

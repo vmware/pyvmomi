@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import NoPermission
+from pyVmomi.vim.fault.NoPermission import NoPermission
 
 class AuthConnectionFailed(NoPermission):
    pass

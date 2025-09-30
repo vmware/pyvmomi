@@ -9,9 +9,9 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vm import FeatureRequirement
+from pyVmomi.vim.vm.FeatureRequirement import FeatureRequirement
 
 class DeviceRuntimeInfo(DynamicData):
    class DeviceRuntimeState(DynamicData):

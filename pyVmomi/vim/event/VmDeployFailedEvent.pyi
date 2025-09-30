@@ -4,10 +4,11 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vmodl.MethodFault import MethodFault
 
-from pyVmomi.vim.event import EntityEventArgument
-from pyVmomi.vim.event import VmEvent
+from pyVmomi.vim.event.EntityEventArgument import EntityEventArgument
+
+from pyVmomi.vim.event.VmEvent import VmEvent
 
 class VmDeployFailedEvent(VmEvent):
    destDatastore: EntityEventArgument

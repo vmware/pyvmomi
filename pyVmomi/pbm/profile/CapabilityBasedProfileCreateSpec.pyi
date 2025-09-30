@@ -6,10 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.pbm.profile import CapabilityConstraints
-from pyVmomi.pbm.profile import ResourceType
+from pyVmomi.pbm.profile.CapabilityConstraints import CapabilityConstraints
+
+from pyVmomi.pbm.profile.ResourceType import ResourceType
 
 class CapabilityBasedProfileCreateSpec(DynamicData):
    name: str

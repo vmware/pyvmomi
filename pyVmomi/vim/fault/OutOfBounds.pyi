@@ -6,7 +6,7 @@
 
 from pyVmomi.VmomiSupport import PropertyPath
 
-from pyVmomi.vim.fault import VimFault
+from pyVmomi.vim.fault.VimFault import VimFault
 
 class OutOfBounds(VimFault):
    argumentName: PropertyPath

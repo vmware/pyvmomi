@@ -8,11 +8,13 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import ClusterComputeResource
-from pyVmomi.vim import Task
+from pyVmomi.vim.ClusterComputeResource import ClusterComputeResource
 
-from pyVmomi.vim.vsan import ResourceCheckSpec
-from pyVmomi.vim.vsan import ResourceCheckStatus
+from pyVmomi.vim.Task import Task
+
+from pyVmomi.vim.vsan.ResourceCheckSpec import ResourceCheckSpec
+
+from pyVmomi.vim.vsan.ResourceCheckStatus import ResourceCheckStatus
 
 class VsanResourceCheckSystem(ManagedObject):
    def PerformResourceCheck(self, resourceCheckSpec: ResourceCheckSpec, cluster: Optional[ClusterComputeResource]) -> Task: ...

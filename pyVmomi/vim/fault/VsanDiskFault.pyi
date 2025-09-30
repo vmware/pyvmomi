@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.fault import VsanFault
+from pyVmomi.vim.fault.VsanFault import VsanFault
 
 class VsanDiskFault(VsanFault):
    device: Optional[str] = None

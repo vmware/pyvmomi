@@ -8,7 +8,7 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim import InheritablePolicy
+from pyVmomi.vim.InheritablePolicy import InheritablePolicy
 
 class LongPolicy(InheritablePolicy):
    value: Optional[long] = None

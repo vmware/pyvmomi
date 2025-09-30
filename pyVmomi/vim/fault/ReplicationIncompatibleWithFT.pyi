@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import ReplicationFault
+from pyVmomi.vim.fault.ReplicationFault import ReplicationFault
 
 class ReplicationIncompatibleWithFT(ReplicationFault):
    pass

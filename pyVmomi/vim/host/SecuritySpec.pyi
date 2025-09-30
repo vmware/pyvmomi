@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import AuthorizationManager
+from pyVmomi.vim.AuthorizationManager import AuthorizationManager
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class SecuritySpec(DynamicData):
    adminPassword: Optional[str] = None

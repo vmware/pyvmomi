@@ -6,10 +6,11 @@
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.sms import AboutInfo
-from pyVmomi.sms import StorageManager
+from pyVmomi.sms.AboutInfo import AboutInfo
 
-from pyVmomi.sms.auth import SessionManager
+from pyVmomi.sms.StorageManager import StorageManager
+
+from pyVmomi.sms.auth.SessionManager import SessionManager
 
 class ServiceInstance(ManagedObject):
    def QueryStorageManager(self) -> StorageManager: ...

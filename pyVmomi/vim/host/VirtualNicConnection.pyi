@@ -6,11 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.dvs import PortConnection
+from pyVmomi.vim.dvs.PortConnection import PortConnection
 
-from pyVmomi.vim.host import VirtualNic
+from pyVmomi.vim.host.VirtualNic import VirtualNic
 
 class VirtualNicConnection(DynamicData):
    portgroup: Optional[str] = None

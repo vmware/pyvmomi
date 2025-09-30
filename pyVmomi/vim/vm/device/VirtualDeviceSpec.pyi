@@ -9,14 +9,15 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.encryption import CryptoSpec
+from pyVmomi.vim.encryption.CryptoSpec import CryptoSpec
 
-from pyVmomi.vim.vm import BaseIndependentFilterSpec
-from pyVmomi.vim.vm import ProfileSpec
+from pyVmomi.vim.vm.BaseIndependentFilterSpec import BaseIndependentFilterSpec
 
-from pyVmomi.vim.vm.device import VirtualDevice
+from pyVmomi.vim.vm.ProfileSpec import ProfileSpec
+
+from pyVmomi.vim.vm.device.VirtualDevice import VirtualDevice
 
 class VirtualDeviceSpec(DynamicData):
    class Operation(Enum):

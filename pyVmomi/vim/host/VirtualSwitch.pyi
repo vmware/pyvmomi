@@ -6,12 +6,15 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import LinkDiscoveryProtocolConfig
-from pyVmomi.vim.host import NetworkPolicy
-from pyVmomi.vim.host import PhysicalNic
-from pyVmomi.vim.host import PortGroup
+from pyVmomi.vim.host.LinkDiscoveryProtocolConfig import LinkDiscoveryProtocolConfig
+
+from pyVmomi.vim.host.NetworkPolicy import NetworkPolicy
+
+from pyVmomi.vim.host.PhysicalNic import PhysicalNic
+
+from pyVmomi.vim.host.PortGroup import PortGroup
 
 class VirtualSwitch(DynamicData):
    class Bridge(DynamicData):

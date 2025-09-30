@@ -12,13 +12,15 @@ from typing import Optional
 from pyVmomi.VmomiSupport import Enum
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vmodl import LocalizableMessage
+from pyVmomi.vmodl.LocalizableMessage import LocalizableMessage
 
-from pyVmomi.vim.cluster import VsanClusterHealthSummary
+from pyVmomi.vim.cluster.VsanClusterHealthSummary import VsanClusterHealthSummary
 
-from pyVmomi.vim.vsan import EntityResourceCheckDetails
-from pyVmomi.vim.vsan import FaultDomainResourceCheckResult
-from pyVmomi.vim.vsan import VsanHealthThreshold
+from pyVmomi.vim.vsan.EntityResourceCheckDetails import EntityResourceCheckDetails
+
+from pyVmomi.vim.vsan.FaultDomainResourceCheckResult import FaultDomainResourceCheckResult
+
+from pyVmomi.vim.vsan.VsanHealthThreshold import VsanHealthThreshold
 
 class ResourceCheckResult(EntityResourceCheckDetails):
    class ResourceCheckDedupStoreHealthState(Enum):

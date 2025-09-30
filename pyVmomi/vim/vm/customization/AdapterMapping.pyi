@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vm.customization import IPSettings
+from pyVmomi.vim.vm.customization.IPSettings import IPSettings
 
 class AdapterMapping(DynamicData):
    macAddress: Optional[str] = None

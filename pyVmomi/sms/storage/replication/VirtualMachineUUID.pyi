@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.sms.storage.replication import VirtualMachineId
+from pyVmomi.sms.storage.replication.VirtualMachineId import VirtualMachineId
 
 class VirtualMachineUUID(VirtualMachineId):
    vmInstanceUUID: str

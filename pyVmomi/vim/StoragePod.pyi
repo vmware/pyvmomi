@@ -8,10 +8,11 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim import Folder
-from pyVmomi.vim import StorageResourceManager
+from pyVmomi.vim.Folder import Folder
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.StorageResourceManager import StorageResourceManager
+
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class StoragePod(Folder):
    class Summary(DynamicData):

@@ -6,8 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.event import ChangesInfoEventArgument
-from pyVmomi.vim.event import ResourcePoolEvent
+from pyVmomi.vim.event.ChangesInfoEventArgument import ChangesInfoEventArgument
+
+from pyVmomi.vim.event.ResourcePoolEvent import ResourcePoolEvent
 
 class ResourcePoolReconfiguredEvent(ResourcePoolEvent):
    configChanges: Optional[ChangesInfoEventArgument] = None

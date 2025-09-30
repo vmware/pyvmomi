@@ -8,7 +8,7 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import PropertyPath
 
-from pyVmomi.vim.fault import DvsFault
+from pyVmomi.vim.fault.DvsFault import DvsFault
 
 class InvalidIpfixConfig(DvsFault):
    property: Optional[PropertyPath] = None

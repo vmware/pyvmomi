@@ -11,7 +11,7 @@ from typing import Optional
 from pyVmomi.VmomiSupport import binary
 from pyVmomi.VmomiSupport import byte
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class HostSubSpecification(DynamicData):
    name: str

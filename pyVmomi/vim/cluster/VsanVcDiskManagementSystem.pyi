@@ -8,23 +8,33 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import ClusterComputeResource
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import Task
+from pyVmomi.vim.ClusterComputeResource import ClusterComputeResource
 
-from pyVmomi.vim.host import MaintenanceSpec
-from pyVmomi.vim.host import ScsiDisk
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vim.vsan import DataEfficiencyCapacityState
+from pyVmomi.vim.Task import Task
 
-from pyVmomi.vim.vsan.host import AddStoragePoolDiskSpec
-from pyVmomi.vim.vsan.host import DeleteStoragePoolDiskSpec
-from pyVmomi.vim.vsan.host import DiskMapInfoEx
-from pyVmomi.vim.vsan.host import DiskMapping
-from pyVmomi.vim.vsan.host import DiskMappingCreationSpec
-from pyVmomi.vim.vsan.host import QueryVsanDisksSpec
-from pyVmomi.vim.vsan.host import VsanHostCapability
-from pyVmomi.vim.vsan.host import VsanManagedDisksInfo
+from pyVmomi.vim.host.MaintenanceSpec import MaintenanceSpec
+
+from pyVmomi.vim.host.ScsiDisk import ScsiDisk
+
+from pyVmomi.vim.vsan.DataEfficiencyCapacityState import DataEfficiencyCapacityState
+
+from pyVmomi.vim.vsan.host.AddStoragePoolDiskSpec import AddStoragePoolDiskSpec
+
+from pyVmomi.vim.vsan.host.DeleteStoragePoolDiskSpec import DeleteStoragePoolDiskSpec
+
+from pyVmomi.vim.vsan.host.DiskMapInfoEx import DiskMapInfoEx
+
+from pyVmomi.vim.vsan.host.DiskMapping import DiskMapping
+
+from pyVmomi.vim.vsan.host.DiskMappingCreationSpec import DiskMappingCreationSpec
+
+from pyVmomi.vim.vsan.host.QueryVsanDisksSpec import QueryVsanDisksSpec
+
+from pyVmomi.vim.vsan.host.VsanHostCapability import VsanHostCapability
+
+from pyVmomi.vim.vsan.host.VsanManagedDisksInfo import VsanManagedDisksInfo
 
 class VsanVcDiskManagementSystem(ManagedObject):
    def RetrieveAllFlashCapabilities(self, cluster: ClusterComputeResource) -> list[VsanHostCapability]: ...

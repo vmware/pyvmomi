@@ -10,14 +10,17 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import ManagedEntity
-from pyVmomi.vim import Task
-from pyVmomi.vim import TaskInfo
+from pyVmomi.vim.ManagedEntity import ManagedEntity
 
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vim.Task import Task
 
-from pyVmomi.vim.scheduler import ScheduledTask
-from pyVmomi.vim.scheduler import ScheduledTaskSpec
+from pyVmomi.vim.TaskInfo import TaskInfo
+
+from pyVmomi.vmodl.MethodFault import MethodFault
+
+from pyVmomi.vim.scheduler.ScheduledTask import ScheduledTask
+
+from pyVmomi.vim.scheduler.ScheduledTaskSpec import ScheduledTaskSpec
 
 class ScheduledTaskInfo(ScheduledTaskSpec):
    scheduledTask: ScheduledTask

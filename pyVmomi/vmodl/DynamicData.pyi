@@ -1,4 +1,4 @@
-# Copyright (c) 2006-2024 Broadcom. All Rights Reserved.
+# Copyright (c) 2006-2025 Broadcom. All Rights Reserved.
 # Broadcom Confidential. The term "Broadcom" refers to Broadcom Inc.
 # and/or its subsidiaries.
 
@@ -8,7 +8,7 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import DataObject
 
-from pyVmomi.vmodl import DynamicProperty
+from pyVmomi.vmodl.DynamicProperty import DynamicProperty
 
 class DynamicData(DataObject):
    dynamicType: Optional[str] = None

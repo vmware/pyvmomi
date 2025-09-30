@@ -8,7 +8,7 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim.event import VmEvent
+from pyVmomi.vim.event.VmEvent import VmEvent
 
 class VmTimedoutStartingSecondaryEvent(VmEvent):
    timeout: Optional[long] = None

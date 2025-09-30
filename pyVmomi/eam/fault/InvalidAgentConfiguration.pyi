@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.eam import Agent
+from pyVmomi.eam.Agent import Agent
 
-from pyVmomi.eam.fault import EamFault
+from pyVmomi.eam.fault.EamFault import EamFault
 
 class InvalidAgentConfiguration(EamFault):
    invalidAgentConfiguration: Optional[Agent.ConfigInfo] = None

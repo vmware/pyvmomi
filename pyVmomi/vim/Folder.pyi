@@ -9,26 +9,37 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim import ClusterComputeResource
-from pyVmomi.vim import ComputeResource
-from pyVmomi.vim import Datacenter
-from pyVmomi.vim import DistributedVirtualSwitch
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import ManagedEntity
-from pyVmomi.vim import ResourcePool
-from pyVmomi.vim import StoragePod
-from pyVmomi.vim import Task
+from pyVmomi.vim.ClusterComputeResource import ClusterComputeResource
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import LocalizableMessage
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vim.ComputeResource import ComputeResource
 
-from pyVmomi.vim.cluster import ConfigSpec
-from pyVmomi.vim.cluster import ConfigSpecEx
+from pyVmomi.vim.Datacenter import Datacenter
 
-from pyVmomi.vim.host import ConnectSpec
+from pyVmomi.vim.DistributedVirtualSwitch import DistributedVirtualSwitch
 
-from pyVmomi.vim.vm import ConfigSpec
+from pyVmomi.vim.HostSystem import HostSystem
+
+from pyVmomi.vim.ManagedEntity import ManagedEntity
+
+from pyVmomi.vim.ResourcePool import ResourcePool
+
+from pyVmomi.vim.StoragePod import StoragePod
+
+from pyVmomi.vim.Task import Task
+
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.vmodl.LocalizableMessage import LocalizableMessage
+
+from pyVmomi.vmodl.MethodFault import MethodFault
+
+from pyVmomi.vim.cluster.ConfigSpec import ConfigSpec
+
+from pyVmomi.vim.cluster.ConfigSpecEx import ConfigSpecEx
+
+from pyVmomi.vim.host.ConnectSpec import ConnectSpec
+
+from pyVmomi.vim.vm.ConfigSpec import ConfigSpec
 
 class Folder(ManagedEntity):
    class DesiredHostState(Enum):

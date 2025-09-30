@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vmodl.MethodFault import MethodFault
 
-from pyVmomi.vim.vsan.host import DiskResult
+from pyVmomi.vim.vsan.host.DiskResult import DiskResult
 
 class DiskResultEx(DiskResult):
    vsanDirectTagged: bool

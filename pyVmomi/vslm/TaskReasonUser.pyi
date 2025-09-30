@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vslm import TaskReason
+from pyVmomi.vslm.TaskReason import TaskReason
 
 class TaskReasonUser(TaskReason):
    userName: str

@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.eam.issue import AgentIssue
+from pyVmomi.eam.issue.AgentIssue import AgentIssue
 
 class VmNotDeployed(AgentIssue):
    pass

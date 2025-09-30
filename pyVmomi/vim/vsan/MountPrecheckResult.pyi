@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vsan import MountPrecheckItem
+from pyVmomi.vim.vsan.MountPrecheckItem import MountPrecheckItem
 
 class MountPrecheckResult(DynamicData):
    result: list[MountPrecheckItem] = []

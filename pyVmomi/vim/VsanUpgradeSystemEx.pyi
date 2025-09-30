@@ -8,13 +8,17 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import ClusterComputeResource
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import Task
+from pyVmomi.vim.ClusterComputeResource import ClusterComputeResource
 
-from pyVmomi.vim.cluster import VsanDiskFormatConversionCheckResult
-from pyVmomi.vim.cluster import VsanDiskFormatConversionSpec
-from pyVmomi.vim.cluster import VsanUpgradeStatusEx
+from pyVmomi.vim.HostSystem import HostSystem
+
+from pyVmomi.vim.Task import Task
+
+from pyVmomi.vim.cluster.VsanDiskFormatConversionCheckResult import VsanDiskFormatConversionCheckResult
+
+from pyVmomi.vim.cluster.VsanDiskFormatConversionSpec import VsanDiskFormatConversionSpec
+
+from pyVmomi.vim.cluster.VsanUpgradeStatusEx import VsanUpgradeStatusEx
 
 class VsanUpgradeSystemEx(ManagedObject):
    def PerformUpgrade(self, cluster: ClusterComputeResource, performObjectUpgrade: Optional[bool], downgradeFormat: Optional[bool], allowReducedRedundancy: Optional[bool], excludeHosts: list[HostSystem], spec: Optional[VsanDiskFormatConversionSpec]) -> Task: ...

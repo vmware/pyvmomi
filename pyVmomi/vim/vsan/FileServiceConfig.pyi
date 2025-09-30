@@ -8,11 +8,11 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim import Network
+from pyVmomi.vim.Network import Network
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vsan import FileServiceDomainConfig
+from pyVmomi.vim.vsan.FileServiceDomainConfig import FileServiceDomainConfig
 
 class FileServiceConfig(DynamicData):
    enabled: bool

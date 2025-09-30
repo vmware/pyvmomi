@@ -8,23 +8,37 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import BIOSInfo
-from pyVmomi.vim.host import CpuIdInfo
-from pyVmomi.vim.host import CpuInfo
-from pyVmomi.vim.host import CpuPackage
-from pyVmomi.vim.host import CpuPowerManagementInfo
-from pyVmomi.vim.host import DvxClass
-from pyVmomi.vim.host import MemoryTierInfo
-from pyVmomi.vim.host import NumaInfo
-from pyVmomi.vim.host import PciDevice
-from pyVmomi.vim.host import PersistentMemoryInfo
-from pyVmomi.vim.host import ReliableMemoryInfo
-from pyVmomi.vim.host import SevInfo
-from pyVmomi.vim.host import SgxInfo
-from pyVmomi.vim.host import SystemInfo
-from pyVmomi.vim.host import TdxInfo
+from pyVmomi.vim.host.BIOSInfo import BIOSInfo
+
+from pyVmomi.vim.host.CpuIdInfo import CpuIdInfo
+
+from pyVmomi.vim.host.CpuInfo import CpuInfo
+
+from pyVmomi.vim.host.CpuPackage import CpuPackage
+
+from pyVmomi.vim.host.CpuPowerManagementInfo import CpuPowerManagementInfo
+
+from pyVmomi.vim.host.DvxClass import DvxClass
+
+from pyVmomi.vim.host.MemoryTierInfo import MemoryTierInfo
+
+from pyVmomi.vim.host.NumaInfo import NumaInfo
+
+from pyVmomi.vim.host.PciDevice import PciDevice
+
+from pyVmomi.vim.host.PersistentMemoryInfo import PersistentMemoryInfo
+
+from pyVmomi.vim.host.ReliableMemoryInfo import ReliableMemoryInfo
+
+from pyVmomi.vim.host.SevInfo import SevInfo
+
+from pyVmomi.vim.host.SgxInfo import SgxInfo
+
+from pyVmomi.vim.host.SystemInfo import SystemInfo
+
+from pyVmomi.vim.host.TdxInfo import TdxInfo
 
 class HardwareInfo(DynamicData):
    systemInfo: SystemInfo

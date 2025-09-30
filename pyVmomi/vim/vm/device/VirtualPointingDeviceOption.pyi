@@ -8,9 +8,9 @@ from typing import ClassVar
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim.option import ChoiceOption
+from pyVmomi.vim.option.ChoiceOption import ChoiceOption
 
-from pyVmomi.vim.vm.device import VirtualDeviceOption
+from pyVmomi.vim.vm.device.VirtualDeviceOption import VirtualDeviceOption
 
 class VirtualPointingDeviceOption(VirtualDeviceOption):
    class DeviceBackingOption(VirtualDeviceOption.DeviceBackingOption):

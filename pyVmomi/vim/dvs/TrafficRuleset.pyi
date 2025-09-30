@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.dvs import TrafficRule
+from pyVmomi.vim.dvs.TrafficRule import TrafficRule
 
 class TrafficRuleset(DynamicData):
    key: Optional[str] = None

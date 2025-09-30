@@ -6,11 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vim import Task
+from pyVmomi.vim.Task import Task
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import MaintenanceSpec
+from pyVmomi.vim.host.MaintenanceSpec import MaintenanceSpec
 
 class ResourceCheckSpec(DynamicData):
    operation: str

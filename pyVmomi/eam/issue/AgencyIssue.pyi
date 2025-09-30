@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.eam import Agency
+from pyVmomi.eam.Agency import Agency
 
-from pyVmomi.eam.issue import Issue
+from pyVmomi.eam.issue.Issue import Issue
 
 class AgencyIssue(Issue):
    agency: Agency

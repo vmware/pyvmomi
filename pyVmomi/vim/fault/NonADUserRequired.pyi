@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import ActiveDirectoryFault
+from pyVmomi.vim.fault.ActiveDirectoryFault import ActiveDirectoryFault
 
 class NonADUserRequired(ActiveDirectoryFault):
    pass

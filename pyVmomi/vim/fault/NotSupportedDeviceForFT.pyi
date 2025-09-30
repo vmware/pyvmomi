@@ -9,10 +9,11 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vim.fault import VmFaultToleranceIssue
+from pyVmomi.vim.VirtualMachine import VirtualMachine
+
+from pyVmomi.vim.fault.VmFaultToleranceIssue import VmFaultToleranceIssue
 
 class NotSupportedDeviceForFT(VmFaultToleranceIssue):
    class DeviceType(Enum):

@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import InsufficientHostCapacityFault
+from pyVmomi.vim.fault.InsufficientHostCapacityFault import InsufficientHostCapacityFault
 
 class InsufficientPerCpuCapacity(InsufficientHostCapacityFault):
    pass

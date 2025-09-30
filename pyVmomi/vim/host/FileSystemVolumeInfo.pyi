@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import FileSystemMountInfo
+from pyVmomi.vim.host.FileSystemMountInfo import FileSystemMountInfo
 
 class FileSystemVolumeInfo(DynamicData):
    volumeTypeList: list[str] = []

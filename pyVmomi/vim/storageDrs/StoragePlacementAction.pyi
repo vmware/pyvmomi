@@ -6,12 +6,13 @@
 
 from typing import Optional
 
-from pyVmomi.vim import Datastore
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.Datastore import Datastore
 
-from pyVmomi.vim.cluster import Action
+from pyVmomi.vim.VirtualMachine import VirtualMachine
 
-from pyVmomi.vim.vm import RelocateSpec
+from pyVmomi.vim.cluster.Action import Action
+
+from pyVmomi.vim.vm.RelocateSpec import RelocateSpec
 
 class StoragePlacementAction(Action):
    vm: Optional[VirtualMachine] = None

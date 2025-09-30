@@ -6,10 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vslm import ID
+from pyVmomi.vmodl.MethodFault import MethodFault
+
+from pyVmomi.vim.vslm.ID import ID
 
 class VStorageObjectAssociations(DynamicData):
    class VmDiskAssociation(DynamicData):

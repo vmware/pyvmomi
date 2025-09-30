@@ -8,10 +8,11 @@ from datetime import datetime
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.sms.storage.replication import GroupOperationResult
-from pyVmomi.sms.storage.replication import PointInTimeReplicaId
+from pyVmomi.sms.storage.replication.GroupOperationResult import GroupOperationResult
+
+from pyVmomi.sms.storage.replication.PointInTimeReplicaId import PointInTimeReplicaId
 
 class QueryPointInTimeReplicaSuccessResult(GroupOperationResult):
    class PointInTimeReplicaInfo(DynamicData):

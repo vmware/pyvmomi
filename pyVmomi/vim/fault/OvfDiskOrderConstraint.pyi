@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import OvfConstraint
+from pyVmomi.vim.fault.OvfConstraint import OvfConstraint
 
 class OvfDiskOrderConstraint(OvfConstraint):
    pass

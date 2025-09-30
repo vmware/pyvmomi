@@ -8,12 +8,13 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.pbm import ServerObjectRef
+from pyVmomi.pbm.ServerObjectRef import ServerObjectRef
 
-from pyVmomi.pbm.compliance import ComplianceResult
-from pyVmomi.pbm.compliance import RollupComplianceResult
+from pyVmomi.pbm.compliance.ComplianceResult import ComplianceResult
 
-from pyVmomi.pbm.profile import ProfileId
+from pyVmomi.pbm.compliance.RollupComplianceResult import RollupComplianceResult
+
+from pyVmomi.pbm.profile.ProfileId import ProfileId
 
 class ComplianceManager(ManagedObject):
    def CheckCompliance(self, entities: list[ServerObjectRef], profile: Optional[ProfileId]) -> list[ComplianceResult]: ...

@@ -8,21 +8,33 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import ClusterComputeResource
-from pyVmomi.vim import Network
-from pyVmomi.vim import Task
+from pyVmomi.vim.ClusterComputeResource import ClusterComputeResource
 
-from pyVmomi.vim.vsan import FileServiceDomain
-from pyVmomi.vim.vsan import FileServiceDomainConfig
-from pyVmomi.vim.vsan import FileServiceDomainQuerySpec
-from pyVmomi.vim.vsan import FileShareConfig
-from pyVmomi.vim.vsan import FileShareQueryResult
-from pyVmomi.vim.vsan import FileShareQuerySpec
-from pyVmomi.vim.vsan import FileShareSnapshotConfig
-from pyVmomi.vim.vsan import FileShareSnapshotQueryResult
-from pyVmomi.vim.vsan import FileShareSnapshotQuerySpec
-from pyVmomi.vim.vsan import VsanFileServiceOvfSpec
-from pyVmomi.vim.vsan import VsanFileServicePreflightCheckResult
+from pyVmomi.vim.Network import Network
+
+from pyVmomi.vim.Task import Task
+
+from pyVmomi.vim.vsan.FileServiceDomain import FileServiceDomain
+
+from pyVmomi.vim.vsan.FileServiceDomainConfig import FileServiceDomainConfig
+
+from pyVmomi.vim.vsan.FileServiceDomainQuerySpec import FileServiceDomainQuerySpec
+
+from pyVmomi.vim.vsan.FileShareConfig import FileShareConfig
+
+from pyVmomi.vim.vsan.FileShareQueryResult import FileShareQueryResult
+
+from pyVmomi.vim.vsan.FileShareQuerySpec import FileShareQuerySpec
+
+from pyVmomi.vim.vsan.FileShareSnapshotConfig import FileShareSnapshotConfig
+
+from pyVmomi.vim.vsan.FileShareSnapshotQueryResult import FileShareSnapshotQueryResult
+
+from pyVmomi.vim.vsan.FileShareSnapshotQuerySpec import FileShareSnapshotQuerySpec
+
+from pyVmomi.vim.vsan.VsanFileServiceOvfSpec import VsanFileServiceOvfSpec
+
+from pyVmomi.vim.vsan.VsanFileServicePreflightCheckResult import VsanFileServicePreflightCheckResult
 
 class VsanFileServiceSystem(ManagedObject):
    def DownloadFileServiceOvf(self, downloadUrl: str) -> Task: ...

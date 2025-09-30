@@ -8,9 +8,9 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import DevicePciId
+from pyVmomi.vim.host.DevicePciId import DevicePciId
 
 class VsanHostHwDeviceId(DynamicData):
    pciId: DevicePciId

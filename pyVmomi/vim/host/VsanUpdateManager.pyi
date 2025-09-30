@@ -8,15 +8,19 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import ComputeResource
-from pyVmomi.vim import Task
+from pyVmomi.vim.ComputeResource import ComputeResource
 
-from pyVmomi.vim.host import MaintenanceSpec
-from pyVmomi.vim.host import VsanHclFirmwareUpdateSpec
+from pyVmomi.vim.Task import Task
 
-from pyVmomi.vim.vsan import VsanVibInstallPreflightStatus
-from pyVmomi.vim.vsan import VsanVibScanResult
-from pyVmomi.vim.vsan import VsanVibSpec
+from pyVmomi.vim.host.MaintenanceSpec import MaintenanceSpec
+
+from pyVmomi.vim.host.VsanHclFirmwareUpdateSpec import VsanHclFirmwareUpdateSpec
+
+from pyVmomi.vim.vsan.VsanVibInstallPreflightStatus import VsanVibInstallPreflightStatus
+
+from pyVmomi.vim.vsan.VsanVibScanResult import VsanVibScanResult
+
+from pyVmomi.vim.vsan.VsanVibSpec import VsanVibSpec
 
 class VsanUpdateManager(ManagedObject):
    def VsanVibScan(self, cluster: Optional[ComputeResource], vibSpecs: list[VsanVibSpec]) -> list[VsanVibScanResult]: ...

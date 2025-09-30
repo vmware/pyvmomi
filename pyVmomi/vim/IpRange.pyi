@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim import IpAddress
+from pyVmomi.vim.IpAddress import IpAddress
 
 class IpRange(IpAddress):
    addressPrefix: str

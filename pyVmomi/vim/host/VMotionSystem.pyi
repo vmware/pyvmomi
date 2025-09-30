@@ -4,15 +4,15 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import NoReturn
 from typing import Optional
 
-from pyVmomi.vim import ExtensibleManagedObject
+from pyVmomi.vim.ExtensibleManagedObject import ExtensibleManagedObject
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import IpConfig
-from pyVmomi.vim.host import VirtualNic
+from pyVmomi.vim.host.IpConfig import IpConfig
+
+from pyVmomi.vim.host.VirtualNic import VirtualNic
 
 class VMotionSystem(ExtensibleManagedObject):
    class NetConfig(DynamicData):
@@ -24,6 +24,6 @@ class VMotionSystem(ExtensibleManagedObject):
    @property
    def ipConfig(self) -> Optional[IpConfig]: ...
 
-   def UpdateIpConfig(self, ipConfig: IpConfig) -> NoReturn: ...
-   def SelectVnic(self, device: str) -> NoReturn: ...
-   def DeselectVnic(self) -> NoReturn: ...
+   def UpdateIpConfig(self, ipConfig: IpConfig) -> None: ...
+   def SelectVnic(self, device: str) -> None: ...
+   def DeselectVnic(self) -> None: ...

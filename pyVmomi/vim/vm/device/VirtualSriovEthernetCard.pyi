@@ -6,9 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vim.vm.device import VirtualDevice
-from pyVmomi.vim.vm.device import VirtualEthernetCard
-from pyVmomi.vim.vm.device import VirtualPCIPassthrough
+from pyVmomi.vim.vm.device.VirtualDevice import VirtualDevice
+
+from pyVmomi.vim.vm.device.VirtualEthernetCard import VirtualEthernetCard
+
+from pyVmomi.vim.vm.device.VirtualPCIPassthrough import VirtualPCIPassthrough
 
 class VirtualSriovEthernetCard(VirtualEthernetCard):
    class SriovBackingInfo(VirtualDevice.BackingInfo):

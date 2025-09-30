@@ -8,26 +8,37 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import DistributedVirtualSwitch
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import ManagedEntity
-from pyVmomi.vim import SelectionSet
-from pyVmomi.vim import Task
+from pyVmomi.vim.DistributedVirtualSwitch import DistributedVirtualSwitch
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vim.dvs import DistributedVirtualPortgroup
-from pyVmomi.vim.dvs import DistributedVirtualPortgroupInfo
-from pyVmomi.vim.dvs import DistributedVirtualSwitchInfo
-from pyVmomi.vim.dvs import EntityBackup
-from pyVmomi.vim.dvs import HostProductSpec
-from pyVmomi.vim.dvs import NetworkOffloadSpec
-from pyVmomi.vim.dvs import ProductSpec
+from pyVmomi.vim.ManagedEntity import ManagedEntity
 
-from pyVmomi.vim.fault import ImportOperationBulkFault
+from pyVmomi.vim.SelectionSet import SelectionSet
 
-from pyVmomi.vim.host import PhysicalNic
+from pyVmomi.vim.Task import Task
+
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.vmodl.MethodFault import MethodFault
+
+from pyVmomi.vim.dvs.DistributedVirtualPortgroup import DistributedVirtualPortgroup
+
+from pyVmomi.vim.dvs.DistributedVirtualPortgroupInfo import DistributedVirtualPortgroupInfo
+
+from pyVmomi.vim.dvs.DistributedVirtualSwitchInfo import DistributedVirtualSwitchInfo
+
+from pyVmomi.vim.dvs.EntityBackup import EntityBackup
+
+from pyVmomi.vim.dvs.HostProductSpec import HostProductSpec
+
+from pyVmomi.vim.dvs.NetworkOffloadSpec import NetworkOffloadSpec
+
+from pyVmomi.vim.dvs.ProductSpec import ProductSpec
+
+from pyVmomi.vim.fault.ImportOperationBulkFault import ImportOperationBulkFault
+
+from pyVmomi.vim.host.PhysicalNic import PhysicalNic
 
 class DistributedVirtualSwitchManager(ManagedObject):
    class PhysicalNicsList(DynamicData):

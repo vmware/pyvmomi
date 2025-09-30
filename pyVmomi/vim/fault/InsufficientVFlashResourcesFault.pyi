@@ -8,7 +8,7 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim.fault import InsufficientResourcesFault
+from pyVmomi.vim.fault.InsufficientResourcesFault import InsufficientResourcesFault
 
 class InsufficientVFlashResourcesFault(InsufficientResourcesFault):
    freeSpaceInMB: Optional[long] = None

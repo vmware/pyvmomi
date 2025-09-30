@@ -9,9 +9,9 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.VirtualMachine import VirtualMachine
 
-from pyVmomi.vim.fault import ReplicationFault
+from pyVmomi.vim.fault.ReplicationFault import ReplicationFault
 
 class ReplicationVmFault(ReplicationFault):
    class ReasonForFault(Enum):

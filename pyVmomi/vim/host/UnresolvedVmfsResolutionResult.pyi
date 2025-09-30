@@ -6,11 +6,13 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import UnresolvedVmfsResolutionSpec
-from pyVmomi.vim.host import VmfsVolume
+from pyVmomi.vmodl.MethodFault import MethodFault
+
+from pyVmomi.vim.host.UnresolvedVmfsResolutionSpec import UnresolvedVmfsResolutionSpec
+
+from pyVmomi.vim.host.VmfsVolume import VmfsVolume
 
 class UnresolvedVmfsResolutionResult(DynamicData):
    spec: UnresolvedVmfsResolutionSpec

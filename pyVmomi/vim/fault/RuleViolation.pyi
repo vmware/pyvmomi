@@ -6,11 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vim import HostSystem
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vim.cluster import RuleInfo
+from pyVmomi.vim.cluster.RuleInfo import RuleInfo
 
-from pyVmomi.vim.fault import VmConfigFault
+from pyVmomi.vim.fault.VmConfigFault import VmConfigFault
 
 class RuleViolation(VmConfigFault):
    host: Optional[HostSystem] = None

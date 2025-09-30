@@ -8,7 +8,7 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import byte
 
-from pyVmomi.vim.host import TpmEventDetails
+from pyVmomi.vim.host.TpmEventDetails import TpmEventDetails
 
 class TpmOptionEventDetails(TpmEventDetails):
    optionsFileName: str

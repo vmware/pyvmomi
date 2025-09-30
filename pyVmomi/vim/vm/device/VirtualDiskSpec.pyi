@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.vm.device import VirtualDeviceSpec
+from pyVmomi.vim.vm.device.VirtualDeviceSpec import VirtualDeviceSpec
 
 class VirtualDiskSpec(VirtualDeviceSpec):
    diskMoveType: Optional[str] = None

@@ -9,17 +9,23 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim import DistributedVirtualSwitch
-from pyVmomi.vim import ManagedEntity
-from pyVmomi.vim import Network
-from pyVmomi.vim import Task
+from pyVmomi.vim.DistributedVirtualSwitch import DistributedVirtualSwitch
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vim.ManagedEntity import ManagedEntity
 
-from pyVmomi.vim.dvs import DistributedVirtualPort
-from pyVmomi.vim.dvs import EntityBackup
-from pyVmomi.vim.dvs import KeyedOpaqueBlob
+from pyVmomi.vim.Network import Network
+
+from pyVmomi.vim.Task import Task
+
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.vmodl.MethodFault import MethodFault
+
+from pyVmomi.vim.dvs.DistributedVirtualPort import DistributedVirtualPort
+
+from pyVmomi.vim.dvs.EntityBackup import EntityBackup
+
+from pyVmomi.vim.dvs.KeyedOpaqueBlob import KeyedOpaqueBlob
 
 class DistributedVirtualPortgroup(Network):
    class PortgroupType(Enum):

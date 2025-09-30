@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import VsanFailedRepairObjectResult
+from pyVmomi.vim.host.VsanFailedRepairObjectResult import VsanFailedRepairObjectResult
 
 class VsanRepairObjectsResult(DynamicData):
    inQueueObjects: list[str] = []

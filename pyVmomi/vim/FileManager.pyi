@@ -6,17 +6,19 @@
 
 from datetime import datetime
 
-from typing import NoReturn
 from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import Datacenter
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import Task
+from pyVmomi.vim.Datacenter import Datacenter
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vim.HostSystem import HostSystem
+
+from pyVmomi.vim.Task import Task
+
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.vmodl.MethodFault import MethodFault
 
 class FileManager(ManagedObject):
    class FileLockInfo(DynamicData):
@@ -38,6 +40,6 @@ class FileManager(ManagedObject):
    def MoveFile(self, sourceName: str, sourceDatacenter: Optional[Datacenter], destinationName: str, destinationDatacenter: Optional[Datacenter], force: Optional[bool]) -> Task: ...
    def CopyFile(self, sourceName: str, sourceDatacenter: Optional[Datacenter], destinationName: str, destinationDatacenter: Optional[Datacenter], force: Optional[bool]) -> Task: ...
    def DeleteFile(self, name: str, datacenter: Optional[Datacenter]) -> Task: ...
-   def MakeDirectory(self, name: str, datacenter: Optional[Datacenter], createParentDirectories: Optional[bool]) -> NoReturn: ...
-   def ChangeOwner(self, name: str, datacenter: Optional[Datacenter], owner: str) -> NoReturn: ...
+   def MakeDirectory(self, name: str, datacenter: Optional[Datacenter], createParentDirectories: Optional[bool]) -> None: ...
+   def ChangeOwner(self, name: str, datacenter: Optional[Datacenter], owner: str) -> None: ...
    def QueryFileLockInfo(self, path: str, host: Optional[HostSystem]) -> FileLockInfoResult: ...

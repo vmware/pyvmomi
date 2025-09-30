@@ -6,13 +6,15 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.dvs import PortConnection
+from pyVmomi.vim.dvs.PortConnection import PortConnection
 
-from pyVmomi.vim.host import IpConfig
-from pyVmomi.vim.host import IpRouteConfig
-from pyVmomi.vim.host import PortGroup
+from pyVmomi.vim.host.IpConfig import IpConfig
+
+from pyVmomi.vim.host.IpRouteConfig import IpRouteConfig
+
+from pyVmomi.vim.host.PortGroup import PortGroup
 
 class VirtualNic(DynamicData):
    class Specification(DynamicData):

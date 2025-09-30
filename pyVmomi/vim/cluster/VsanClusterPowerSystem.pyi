@@ -6,11 +6,13 @@
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import ComputeResource
-from pyVmomi.vim import Task
+from pyVmomi.vim.ComputeResource import ComputeResource
 
-from pyVmomi.vim.cluster import ClusterPowerContext
-from pyVmomi.vim.cluster import PerformClusterPowerActionSpec
+from pyVmomi.vim.Task import Task
+
+from pyVmomi.vim.cluster.ClusterPowerContext import ClusterPowerContext
+
+from pyVmomi.vim.cluster.PerformClusterPowerActionSpec import PerformClusterPowerActionSpec
 
 class VsanClusterPowerSystem(ManagedObject):
    def PerformClusterPowerAction(self, cluster: ComputeResource, spec: PerformClusterPowerActionSpec) -> Task: ...

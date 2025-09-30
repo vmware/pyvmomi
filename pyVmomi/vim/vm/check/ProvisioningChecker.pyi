@@ -8,15 +8,21 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import Folder
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import ResourcePool
-from pyVmomi.vim import Task
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.Folder import Folder
 
-from pyVmomi.vim.vm import CloneSpec
-from pyVmomi.vim.vm import InstantCloneSpec
-from pyVmomi.vim.vm import RelocateSpec
+from pyVmomi.vim.HostSystem import HostSystem
+
+from pyVmomi.vim.ResourcePool import ResourcePool
+
+from pyVmomi.vim.Task import Task
+
+from pyVmomi.vim.VirtualMachine import VirtualMachine
+
+from pyVmomi.vim.vm.CloneSpec import CloneSpec
+
+from pyVmomi.vim.vm.InstantCloneSpec import InstantCloneSpec
+
+from pyVmomi.vim.vm.RelocateSpec import RelocateSpec
 
 class ProvisioningChecker(ManagedObject):
    def QueryVMotionCompatibilityEx(self, vm: list[VirtualMachine], host: list[HostSystem]) -> Task: ...

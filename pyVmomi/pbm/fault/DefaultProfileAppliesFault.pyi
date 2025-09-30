@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.pbm.fault import CompatibilityCheckFault
+from pyVmomi.pbm.fault.CompatibilityCheckFault import CompatibilityCheckFault
 
 class DefaultProfileAppliesFault(CompatibilityCheckFault):
    pass

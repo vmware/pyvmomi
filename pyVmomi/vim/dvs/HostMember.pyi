@@ -9,12 +9,13 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim import HostSystem
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.dvs import KeyedOpaqueBlob
-from pyVmomi.vim.dvs import ProductSpec
+from pyVmomi.vim.dvs.KeyedOpaqueBlob import KeyedOpaqueBlob
+
+from pyVmomi.vim.dvs.ProductSpec import ProductSpec
 
 class HostMember(DynamicData):
    class HostComponentState(Enum):

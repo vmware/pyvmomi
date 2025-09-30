@@ -4,8 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.event import AuthorizationEvent
-from pyVmomi.vim.event import ManagedEntityEventArgument
+from pyVmomi.vim.event.AuthorizationEvent import AuthorizationEvent
+
+from pyVmomi.vim.event.ManagedEntityEventArgument import ManagedEntityEventArgument
 
 class PermissionEvent(AuthorizationEvent):
    entity: ManagedEntityEventArgument

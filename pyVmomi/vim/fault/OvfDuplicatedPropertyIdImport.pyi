@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import OvfExport
+from pyVmomi.vim.fault.OvfExport import OvfExport
 
 class OvfDuplicatedPropertyIdImport(OvfExport):
    pass

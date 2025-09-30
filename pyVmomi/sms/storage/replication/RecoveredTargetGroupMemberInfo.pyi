@@ -6,8 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.sms.storage.replication import DeviceId
-from pyVmomi.sms.storage.replication import TargetGroupMemberInfo
+from pyVmomi.sms.storage.replication.DeviceId import DeviceId
+
+from pyVmomi.sms.storage.replication.TargetGroupMemberInfo import TargetGroupMemberInfo
 
 class RecoveredTargetGroupMemberInfo(TargetGroupMemberInfo):
    recoveredDeviceId: Optional[DeviceId] = None

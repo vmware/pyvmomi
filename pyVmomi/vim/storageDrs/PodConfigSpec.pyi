@@ -6,14 +6,17 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.cluster import RuleSpec
+from pyVmomi.vim.cluster.RuleSpec import RuleSpec
 
-from pyVmomi.vim.storageDrs import AutomationConfig
-from pyVmomi.vim.storageDrs import IoLoadBalanceConfig
-from pyVmomi.vim.storageDrs import OptionSpec
-from pyVmomi.vim.storageDrs import SpaceLoadBalanceConfig
+from pyVmomi.vim.storageDrs.AutomationConfig import AutomationConfig
+
+from pyVmomi.vim.storageDrs.IoLoadBalanceConfig import IoLoadBalanceConfig
+
+from pyVmomi.vim.storageDrs.OptionSpec import OptionSpec
+
+from pyVmomi.vim.storageDrs.SpaceLoadBalanceConfig import SpaceLoadBalanceConfig
 
 class PodConfigSpec(DynamicData):
    enabled: Optional[bool] = None

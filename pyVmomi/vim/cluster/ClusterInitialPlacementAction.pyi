@@ -6,12 +6,13 @@
 
 from typing import Optional
 
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import ResourcePool
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vim.cluster import Action
+from pyVmomi.vim.ResourcePool import ResourcePool
 
-from pyVmomi.vim.vm import ConfigSpec
+from pyVmomi.vim.cluster.Action import Action
+
+from pyVmomi.vim.vm.ConfigSpec import ConfigSpec
 
 class ClusterInitialPlacementAction(Action):
    targetHost: Optional[HostSystem] = None

@@ -4,10 +4,11 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import Datastore
-from pyVmomi.vim import HostSystem
+from pyVmomi.vim.Datastore import Datastore
 
-from pyVmomi.vim.fault import ResourceInUse
+from pyVmomi.vim.HostSystem import HostSystem
+
+from pyVmomi.vim.fault.ResourceInUse import ResourceInUse
 
 class QuiesceDatastoreIOForHAFailed(ResourceInUse):
    host: HostSystem

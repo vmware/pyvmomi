@@ -6,14 +6,19 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import HostBusAdapter
-from pyVmomi.vim.host import MultipathInfo
-from pyVmomi.vim.host import NvmeTopology
-from pyVmomi.vim.host import PlugStoreTopology
-from pyVmomi.vim.host import ScsiLun
-from pyVmomi.vim.host import ScsiTopology
+from pyVmomi.vim.host.HostBusAdapter import HostBusAdapter
+
+from pyVmomi.vim.host.MultipathInfo import MultipathInfo
+
+from pyVmomi.vim.host.NvmeTopology import NvmeTopology
+
+from pyVmomi.vim.host.PlugStoreTopology import PlugStoreTopology
+
+from pyVmomi.vim.host.ScsiLun import ScsiLun
+
+from pyVmomi.vim.host.ScsiTopology import ScsiTopology
 
 class StorageDeviceInfo(DynamicData):
    hostBusAdapter: list[HostBusAdapter] = []

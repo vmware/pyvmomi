@@ -9,7 +9,7 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vmodl.fault import InvalidArgument
+from pyVmomi.vmodl.fault.InvalidArgument import InvalidArgument
 
 class InvalidDasConfigArgument(InvalidArgument):
    class EntryForInvalidArgument(Enum):

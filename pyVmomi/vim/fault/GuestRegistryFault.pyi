@@ -6,7 +6,7 @@
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim.fault import GuestOperationsFault
+from pyVmomi.vim.fault.GuestOperationsFault import GuestOperationsFault
 
 class GuestRegistryFault(GuestOperationsFault):
    windowsSystemErrorCode: long

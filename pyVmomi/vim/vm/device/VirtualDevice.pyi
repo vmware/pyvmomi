@@ -9,10 +9,11 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim import Datastore
-from pyVmomi.vim import Description
+from pyVmomi.vim.Datastore import Datastore
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.Description import Description
+
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class VirtualDevice(DynamicData):
    class BackingInfo(DynamicData):

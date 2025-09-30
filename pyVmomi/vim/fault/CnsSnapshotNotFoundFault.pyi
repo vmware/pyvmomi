@@ -6,10 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vim.cns import SnapshotId
-from pyVmomi.vim.cns import VolumeId
+from pyVmomi.vim.cns.SnapshotId import SnapshotId
 
-from pyVmomi.vim.fault import CnsFault
+from pyVmomi.vim.cns.VolumeId import VolumeId
+
+from pyVmomi.vim.fault.CnsFault import CnsFault
 
 class CnsSnapshotNotFoundFault(CnsFault):
    volumeId: Optional[VolumeId] = None

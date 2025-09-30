@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.event import SessionEvent
+from pyVmomi.vim.event.SessionEvent import SessionEvent
 
 class GlobalMessageChangedEvent(SessionEvent):
    message: str

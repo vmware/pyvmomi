@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.sms.fault.replication import ReplicationFault
+from pyVmomi.sms.fault.replication.ReplicationFault import ReplicationFault
 
 class InvalidFunctionTarget(ReplicationFault):
    pass

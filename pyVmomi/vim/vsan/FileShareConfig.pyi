@@ -6,14 +6,15 @@
 
 from typing import Optional
 
-from pyVmomi.vim import KeyValue
+from pyVmomi.vim.KeyValue import KeyValue
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vm import ProfileSpec
+from pyVmomi.vim.vm.ProfileSpec import ProfileSpec
 
-from pyVmomi.vim.vsan import FileShareNetPermission
-from pyVmomi.vim.vsan import FileShareSmbOptions
+from pyVmomi.vim.vsan.FileShareNetPermission import FileShareNetPermission
+
+from pyVmomi.vim.vsan.FileShareSmbOptions import FileShareSmbOptions
 
 class FileShareConfig(DynamicData):
    name: Optional[str] = None

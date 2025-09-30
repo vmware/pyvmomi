@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.profile import ApplyProfile
+from pyVmomi.vim.profile.ApplyProfile import ApplyProfile
 
-from pyVmomi.vim.profile.host import StaticRouteProfile
+from pyVmomi.vim.profile.host.StaticRouteProfile import StaticRouteProfile
 
 class IpRouteProfile(ApplyProfile):
    staticRoute: list[StaticRouteProfile] = []

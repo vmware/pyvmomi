@@ -6,11 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.dvs import VmwareDistributedVirtualSwitch
+from pyVmomi.vim.dvs.VmwareDistributedVirtualSwitch import VmwareDistributedVirtualSwitch
 
-from pyVmomi.vim.vsan import VsanVdsPgMigrationHostInfo
+from pyVmomi.vim.vsan.VsanVdsPgMigrationHostInfo import VsanVdsPgMigrationHostInfo
 
 class VsanVdsPgMigrationSpec(DynamicData):
    vssPgName: str

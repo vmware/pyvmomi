@@ -8,12 +8,15 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.pbm.placement import MatchingResources
-from pyVmomi.pbm.placement import PlacementHub
-from pyVmomi.pbm.placement import ResourceUtilization
+from pyVmomi.vmodl.MethodFault import MethodFault
+
+from pyVmomi.pbm.placement.MatchingResources import MatchingResources
+
+from pyVmomi.pbm.placement.PlacementHub import PlacementHub
+
+from pyVmomi.pbm.placement.ResourceUtilization import ResourceUtilization
 
 class CompatibilityResult(DynamicData):
    hub: PlacementHub

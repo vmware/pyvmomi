@@ -6,7 +6,7 @@
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim.host import NvmeTransportParameters
+from pyVmomi.vim.host.NvmeTransportParameters import NvmeTransportParameters
 
 class NvmeOverFibreChannelParameters(NvmeTransportParameters):
    nodeWorldWideName: long

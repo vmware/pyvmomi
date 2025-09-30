@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vmodl.MethodFault import MethodFault
 
-from pyVmomi.vim.fault import HostConfigFault
+from pyVmomi.vim.fault.HostConfigFault import HostConfigFault
 
 class HostConfigFailed(HostConfigFault):
    failure: list[MethodFault] = []

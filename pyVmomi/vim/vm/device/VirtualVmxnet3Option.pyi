@@ -6,13 +6,15 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.option import BoolOption
-from pyVmomi.vim.option import ChoiceOption
-from pyVmomi.vim.option import IntOption
+from pyVmomi.vim.option.BoolOption import BoolOption
 
-from pyVmomi.vim.vm.device import VirtualVmxnetOption
+from pyVmomi.vim.option.ChoiceOption import ChoiceOption
+
+from pyVmomi.vim.option.IntOption import IntOption
+
+from pyVmomi.vim.vm.device.VirtualVmxnetOption import VirtualVmxnetOption
 
 class VirtualVmxnet3Option(VirtualVmxnetOption):
    class StrictLatencyConfigOption(DynamicData):

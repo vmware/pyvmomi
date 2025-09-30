@@ -6,10 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vim import ExtendedDescription
+from pyVmomi.vim.ExtendedDescription import ExtendedDescription
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import LocalizableMessage
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.vmodl.LocalizableMessage import LocalizableMessage
 
 class ProfileMetadata(DynamicData):
    class ProfileSortSpec(DynamicData):

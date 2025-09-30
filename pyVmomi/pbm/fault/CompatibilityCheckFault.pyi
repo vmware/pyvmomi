@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.pbm.fault import PBMFault
+from pyVmomi.pbm.fault.PBMFault import PBMFault
 
-from pyVmomi.pbm.placement import PlacementHub
+from pyVmomi.pbm.placement.PlacementHub import PlacementHub
 
 class CompatibilityCheckFault(PBMFault):
    hub: PlacementHub

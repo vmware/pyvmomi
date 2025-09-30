@@ -11,16 +11,19 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.pbm import ExtendedElementDescription
-from pyVmomi.pbm import ServerObjectRef
+from pyVmomi.pbm.ExtendedElementDescription import ExtendedElementDescription
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.pbm.ServerObjectRef import ServerObjectRef
 
-from pyVmomi.pbm.compliance import OperationalStatus
-from pyVmomi.pbm.compliance import PolicyStatus
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.pbm.profile import ProfileId
+from pyVmomi.vmodl.MethodFault import MethodFault
+
+from pyVmomi.pbm.compliance.OperationalStatus import OperationalStatus
+
+from pyVmomi.pbm.compliance.PolicyStatus import PolicyStatus
+
+from pyVmomi.pbm.profile.ProfileId import ProfileId
 
 class ComplianceResult(DynamicData):
    class ComplianceStatus(Enum):

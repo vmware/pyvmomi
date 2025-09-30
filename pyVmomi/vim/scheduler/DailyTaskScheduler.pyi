@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.scheduler import HourlyTaskScheduler
+from pyVmomi.vim.scheduler.HourlyTaskScheduler import HourlyTaskScheduler
 
 class DailyTaskScheduler(HourlyTaskScheduler):
    hour: int

@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import Datacenter
+from pyVmomi.vim.Datacenter import Datacenter
 
-from pyVmomi.vim.event import EntityEventArgument
+from pyVmomi.vim.event.EntityEventArgument import EntityEventArgument
 
 class DatacenterEventArgument(EntityEventArgument):
    datacenter: Datacenter

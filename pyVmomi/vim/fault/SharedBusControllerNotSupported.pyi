@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import DeviceNotSupported
+from pyVmomi.vim.fault.DeviceNotSupported import DeviceNotSupported
 
 class SharedBusControllerNotSupported(DeviceNotSupported):
    pass

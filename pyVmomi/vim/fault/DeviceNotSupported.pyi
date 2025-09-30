@@ -9,7 +9,7 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim.fault import VirtualHardwareCompatibilityIssue
+from pyVmomi.vim.fault.VirtualHardwareCompatibilityIssue import VirtualHardwareCompatibilityIssue
 
 class DeviceNotSupported(VirtualHardwareCompatibilityIssue):
    class Reason(Enum):

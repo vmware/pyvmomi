@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import IscsiFault
+from pyVmomi.vim.fault.IscsiFault import IscsiFault
 
 class IscsiFaultVnicHasActivePaths(IscsiFault):
    vnicDevice: str

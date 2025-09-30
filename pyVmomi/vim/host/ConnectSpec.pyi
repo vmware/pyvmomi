@@ -6,12 +6,13 @@
 
 from typing import Optional
 
-from pyVmomi.vim import Folder
+from pyVmomi.vim.Folder import Folder
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import GatewaySpec
-from pyVmomi.vim.host import HostAccessManager
+from pyVmomi.vim.host.GatewaySpec import GatewaySpec
+
+from pyVmomi.vim.host.HostAccessManager import HostAccessManager
 
 class ConnectSpec(DynamicData):
    hostName: Optional[str] = None

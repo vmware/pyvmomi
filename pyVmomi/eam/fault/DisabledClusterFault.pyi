@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import ComputeResource
+from pyVmomi.vim.ComputeResource import ComputeResource
 
-from pyVmomi.eam.fault import EamAppFault
+from pyVmomi.eam.fault.EamAppFault import EamAppFault
 
 class DisabledClusterFault(EamAppFault):
    disabledComputeResource: list[ComputeResource] = []

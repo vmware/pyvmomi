@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.fault import InvalidDatastore
+from pyVmomi.vim.fault.InvalidDatastore import InvalidDatastore
 
 class InaccessibleDatastore(InvalidDatastore):
    detail: Optional[str] = None

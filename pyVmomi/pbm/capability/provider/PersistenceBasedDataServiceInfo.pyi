@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.pbm.capability.provider import LineOfServiceInfo
+from pyVmomi.pbm.capability.provider.LineOfServiceInfo import LineOfServiceInfo
 
 class PersistenceBasedDataServiceInfo(LineOfServiceInfo):
    compatiblePersistenceSchemaNamespace: list[str] = []

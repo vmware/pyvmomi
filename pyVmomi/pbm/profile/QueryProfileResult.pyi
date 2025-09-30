@@ -6,12 +6,13 @@
 
 from typing import Optional
 
-from pyVmomi.pbm import ServerObjectRef
+from pyVmomi.pbm.ServerObjectRef import ServerObjectRef
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.pbm.profile import ProfileId
+from pyVmomi.vmodl.MethodFault import MethodFault
+
+from pyVmomi.pbm.profile.ProfileId import ProfileId
 
 class QueryProfileResult(DynamicData):
    object: ServerObjectRef

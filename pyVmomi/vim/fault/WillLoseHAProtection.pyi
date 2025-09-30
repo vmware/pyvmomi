@@ -8,7 +8,7 @@ from typing import ClassVar
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim.fault import MigrationFault
+from pyVmomi.vim.fault.MigrationFault import MigrationFault
 
 class WillLoseHAProtection(MigrationFault):
    class Resolution(Enum):

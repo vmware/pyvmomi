@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import HostSystem
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vim.fault import InvalidState
+from pyVmomi.vim.fault.InvalidState import InvalidState
 
 class InvalidHostState(InvalidState):
    host: Optional[HostSystem] = None

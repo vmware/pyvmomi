@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.VirtualMachine import VirtualMachine
 
-from pyVmomi.eam.issue import AgentIssue
+from pyVmomi.eam.issue.AgentIssue import AgentIssue
 
 class HostInPartialMaintenanceMode(AgentIssue):
    vm: Optional[VirtualMachine] = None

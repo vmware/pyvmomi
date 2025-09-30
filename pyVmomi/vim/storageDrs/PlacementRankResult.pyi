@@ -9,10 +9,11 @@ from typing import Optional
 from pyVmomi.VmomiSupport import double
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim import ClusterComputeResource
+from pyVmomi.vim.ClusterComputeResource import ClusterComputeResource
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.vmodl.MethodFault import MethodFault
 
 class PlacementRankResult(DynamicData):
    key: str

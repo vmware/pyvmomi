@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vmodl import KeyAnyValue
+from pyVmomi.vmodl.KeyAnyValue import KeyAnyValue
 
-from pyVmomi.vmodl.fault import NotEnoughLicenses
+from pyVmomi.vmodl.fault.NotEnoughLicenses import NotEnoughLicenses
 
 class LicenseDowngradeDisallowed(NotEnoughLicenses):
    edition: str

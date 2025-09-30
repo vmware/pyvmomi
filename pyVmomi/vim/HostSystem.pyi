@@ -7,47 +7,68 @@
 from datetime import datetime
 
 from typing import ClassVar
-from typing import NoReturn
 from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim import Datastore
-from pyVmomi.vim import HostServiceTicket
-from pyVmomi.vim import LicenseManager
-from pyVmomi.vim import ManagedEntity
-from pyVmomi.vim import Network
-from pyVmomi.vim import Task
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.Datastore import Datastore
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.HostServiceTicket import HostServiceTicket
 
-from pyVmomi.vim.encryption import CryptoKeyId
-from pyVmomi.vim.encryption import CryptoKeyPlain
+from pyVmomi.vim.LicenseManager import LicenseManager
 
-from pyVmomi.vim.host import Capability
-from pyVmomi.vim.host import ConfigInfo
-from pyVmomi.vim.host import ConfigManager
-from pyVmomi.vim.host import ConnectInfo
-from pyVmomi.vim.host import ConnectSpec
-from pyVmomi.vim.host import DatastoreBrowser
-from pyVmomi.vim.host import FlagInfo
-from pyVmomi.vim.host import HardwareInfo
-from pyVmomi.vim.host import IpmiInfo
-from pyVmomi.vim.host import MaintenanceSpec
-from pyVmomi.vim.host import RuntimeInfo
-from pyVmomi.vim.host import Summary
-from pyVmomi.vim.host import SystemResourceInfo
-from pyVmomi.vim.host import SystemSwapConfiguration
-from pyVmomi.vim.host import TpmAttestationReport
+from pyVmomi.vim.ManagedEntity import ManagedEntity
 
-from pyVmomi.vim.profile import ComplianceResult
+from pyVmomi.vim.Network import Network
 
-from pyVmomi.vim.vm import ConfigInfo
+from pyVmomi.vim.Task import Task
 
-from pyVmomi.vim.profile.host import AnswerFileStatusResult
-from pyVmomi.vim.profile.host import ProfileManager
+from pyVmomi.vim.VirtualMachine import VirtualMachine
+
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.vim.encryption.CryptoKeyId import CryptoKeyId
+
+from pyVmomi.vim.encryption.CryptoKeyPlain import CryptoKeyPlain
+
+from pyVmomi.vim.host.Capability import Capability
+
+from pyVmomi.vim.host.ConfigInfo import ConfigInfo
+
+from pyVmomi.vim.host.ConfigManager import ConfigManager
+
+from pyVmomi.vim.host.ConnectInfo import ConnectInfo
+
+from pyVmomi.vim.host.ConnectSpec import ConnectSpec
+
+from pyVmomi.vim.host.DatastoreBrowser import DatastoreBrowser
+
+from pyVmomi.vim.host.FlagInfo import FlagInfo
+
+from pyVmomi.vim.host.HardwareInfo import HardwareInfo
+
+from pyVmomi.vim.host.IpmiInfo import IpmiInfo
+
+from pyVmomi.vim.host.MaintenanceSpec import MaintenanceSpec
+
+from pyVmomi.vim.host.RuntimeInfo import RuntimeInfo
+
+from pyVmomi.vim.host.Summary import Summary
+
+from pyVmomi.vim.host.SystemResourceInfo import SystemResourceInfo
+
+from pyVmomi.vim.host.SystemSwapConfiguration import SystemSwapConfiguration
+
+from pyVmomi.vim.host.TpmAttestationReport import TpmAttestationReport
+
+from pyVmomi.vim.profile.ComplianceResult import ComplianceResult
+
+from pyVmomi.vim.vm.ConfigInfo import ConfigInfo
+
+from pyVmomi.vim.profile.host.AnswerFileStatusResult import AnswerFileStatusResult
+
+from pyVmomi.vim.profile.host.ProfileManager import ProfileManager
 
 class HostSystem(ManagedEntity):
    class ConnectionState(Enum):
@@ -134,8 +155,8 @@ class HostSystem(ManagedEntity):
 
    def QueryTpmAttestationReport(self) -> Optional[TpmAttestationReport]: ...
    def QueryConnectionInfo(self) -> ConnectInfo: ...
-   def UpdateSystemResources(self, resourceInfo: SystemResourceInfo) -> NoReturn: ...
-   def UpdateSystemSwapConfiguration(self, sysSwapConfig: SystemSwapConfiguration) -> NoReturn: ...
+   def UpdateSystemResources(self, resourceInfo: SystemResourceInfo) -> None: ...
+   def UpdateSystemSwapConfiguration(self, sysSwapConfig: SystemSwapConfiguration) -> None: ...
    def Reconnect(self, cnxSpec: Optional[ConnectSpec], reconnectSpec: Optional[ReconnectSpec]) -> Task: ...
    def Disconnect(self) -> Task: ...
    def EnterMaintenanceMode(self, timeout: int, evacuatePoweredOffVms: Optional[bool], maintenanceSpec: Optional[MaintenanceSpec]) -> Task: ...
@@ -147,15 +168,15 @@ class HostSystem(ManagedEntity):
    def QueryOverhead(self, memorySize: long, videoRamSize: Optional[int], numVcpus: int) -> long: ...
    def QueryOverheadEx(self, vmConfigInfo: ConfigInfo) -> long: ...
    def ReconfigureDAS(self) -> Task: ...
-   def UpdateFlags(self, flagInfo: FlagInfo) -> NoReturn: ...
-   def EnterLockdownMode(self) -> NoReturn: ...
-   def ExitLockdownMode(self) -> NoReturn: ...
+   def UpdateFlags(self, flagInfo: FlagInfo) -> None: ...
+   def EnterLockdownMode(self) -> None: ...
+   def ExitLockdownMode(self) -> None: ...
    def AcquireCimServicesTicket(self) -> HostServiceTicket: ...
-   def UpdateIpmi(self, ipmiInfo: IpmiInfo) -> NoReturn: ...
+   def UpdateIpmi(self, ipmiInfo: IpmiInfo) -> None: ...
    def RetrieveHardwareUptime(self) -> long: ...
-   def PrepareCrypto(self) -> NoReturn: ...
-   def EnableCrypto(self, keyPlain: CryptoKeyPlain) -> NoReturn: ...
-   def ConfigureCryptoKey(self, keyId: Optional[CryptoKeyId]) -> NoReturn: ...
+   def PrepareCrypto(self) -> None: ...
+   def EnableCrypto(self, keyPlain: CryptoKeyPlain) -> None: ...
+   def ConfigureCryptoKey(self, keyId: Optional[CryptoKeyId]) -> None: ...
    def QueryProductLockerLocation(self) -> str: ...
    def UpdateProductLockerLocation(self, path: str) -> Task: ...
    def RetrieveFreeEpcMemory(self) -> long: ...

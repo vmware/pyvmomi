@@ -8,7 +8,7 @@ from typing import ClassVar
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim.cluster import Action
+from pyVmomi.vim.cluster.Action import Action
 
 class HostInfraUpdateHaModeAction(Action):
    class OperationType(Enum):

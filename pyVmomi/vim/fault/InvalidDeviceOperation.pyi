@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.fault import InvalidDeviceSpec
+from pyVmomi.vim.fault.InvalidDeviceSpec import InvalidDeviceSpec
 
-from pyVmomi.vim.vm.device import VirtualDeviceSpec
+from pyVmomi.vim.vm.device.VirtualDeviceSpec import VirtualDeviceSpec
 
 class InvalidDeviceOperation(InvalidDeviceSpec):
    badOp: Optional[VirtualDeviceSpec.Operation] = None

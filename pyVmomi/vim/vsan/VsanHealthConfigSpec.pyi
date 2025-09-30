@@ -6,10 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vsan import VsanHealthThreshold
-from pyVmomi.vim.vsan import VsanHistoricalHealthConfig
+from pyVmomi.vim.vsan.VsanHealthThreshold import VsanHealthThreshold
+
+from pyVmomi.vim.vsan.VsanHistoricalHealthConfig import VsanHistoricalHealthConfig
 
 class VsanHealthConfigSpec(DynamicData):
    healthCheckThresholdSpec: list[VsanHealthThreshold] = []

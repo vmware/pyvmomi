@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import EVCAdmissionFailed
+from pyVmomi.vim.fault.EVCAdmissionFailed import EVCAdmissionFailed
 
 class EVCAdmissionFailedCPUVendorUnknown(EVCAdmissionFailed):
    pass

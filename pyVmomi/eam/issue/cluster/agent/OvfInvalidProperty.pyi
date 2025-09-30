@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vmodl.MethodFault import MethodFault
 
-from pyVmomi.eam.issue.cluster.agent import AgentIssue
+from pyVmomi.eam.issue.cluster.agent.AgentIssue import AgentIssue
 
 class OvfInvalidProperty(AgentIssue):
    error: list[MethodFault] = []

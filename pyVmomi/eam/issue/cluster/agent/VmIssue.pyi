@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.VirtualMachine import VirtualMachine
 
-from pyVmomi.eam.issue.cluster.agent import AgentIssue
+from pyVmomi.eam.issue.cluster.agent.AgentIssue import AgentIssue
 
 class VmIssue(AgentIssue):
    vm: VirtualMachine

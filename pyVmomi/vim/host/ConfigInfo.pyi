@@ -9,53 +9,93 @@ from typing import Optional
 from pyVmomi.VmomiSupport import binary
 from pyVmomi.VmomiSupport import byte
 
-from pyVmomi.vim import AboutInfo
-from pyVmomi.vim import Datastore
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import IoFilterManager
+from pyVmomi.vim.AboutInfo import AboutInfo
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.Datastore import Datastore
 
-from pyVmomi.vim.host import AssignableHardwareBinding
-from pyVmomi.vim.host import AssignableHardwareConfig
-from pyVmomi.vim.host import AuthenticationInfo
-from pyVmomi.vim.host import AuthenticationManagerInfo
-from pyVmomi.vim.host import AutoStartManager
-from pyVmomi.vim.host import CacheConfigurationManager
-from pyVmomi.vim.host import CpuSchedulerSystem
-from pyVmomi.vim.host import DatastoreSystem
-from pyVmomi.vim.host import DateTimeInfo
-from pyVmomi.vim.host import DeploymentInfo
-from pyVmomi.vim.host import DiagnosticPartition
-from pyVmomi.vim.host import FeatureCapability
-from pyVmomi.vim.host import FeatureVersionInfo
-from pyVmomi.vim.host import FileSystemVolumeInfo
-from pyVmomi.vim.host import FirewallInfo
-from pyVmomi.vim.host import FlagInfo
-from pyVmomi.vim.host import GraphicsConfig
-from pyVmomi.vim.host import GraphicsInfo
-from pyVmomi.vim.host import HostAccessManager
-from pyVmomi.vim.host import IpmiInfo
-from pyVmomi.vim.host import MemoryManagerSystem
-from pyVmomi.vim.host import MultipathStateInfo
-from pyVmomi.vim.host import NetCapabilities
-from pyVmomi.vim.host import NetOffloadCapabilities
-from pyVmomi.vim.host import NetworkInfo
-from pyVmomi.vim.host import PciPassthruInfo
-from pyVmomi.vim.host import PowerSystem
-from pyVmomi.vim.host import ServiceInfo
-from pyVmomi.vim.host import SharedGpuCapabilities
-from pyVmomi.vim.host import SriovDevicePoolInfo
-from pyVmomi.vim.host import SslThumbprintInfo
-from pyVmomi.vim.host import StorageDeviceInfo
-from pyVmomi.vim.host import SystemResourceInfo
-from pyVmomi.vim.host import SystemSwapConfiguration
-from pyVmomi.vim.host import VFlashManager
-from pyVmomi.vim.host import VMotionInfo
-from pyVmomi.vim.host import VirtualNicManagerInfo
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vim.option import OptionDef
-from pyVmomi.vim.option import OptionValue
+from pyVmomi.vim.IoFilterManager import IoFilterManager
+
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.vim.host.AssignableHardwareBinding import AssignableHardwareBinding
+
+from pyVmomi.vim.host.AssignableHardwareConfig import AssignableHardwareConfig
+
+from pyVmomi.vim.host.AuthenticationInfo import AuthenticationInfo
+
+from pyVmomi.vim.host.AuthenticationManagerInfo import AuthenticationManagerInfo
+
+from pyVmomi.vim.host.AutoStartManager import AutoStartManager
+
+from pyVmomi.vim.host.CacheConfigurationManager import CacheConfigurationManager
+
+from pyVmomi.vim.host.CpuSchedulerSystem import CpuSchedulerSystem
+
+from pyVmomi.vim.host.DatastoreSystem import DatastoreSystem
+
+from pyVmomi.vim.host.DateTimeInfo import DateTimeInfo
+
+from pyVmomi.vim.host.DeploymentInfo import DeploymentInfo
+
+from pyVmomi.vim.host.DiagnosticPartition import DiagnosticPartition
+
+from pyVmomi.vim.host.FeatureCapability import FeatureCapability
+
+from pyVmomi.vim.host.FeatureVersionInfo import FeatureVersionInfo
+
+from pyVmomi.vim.host.FileSystemVolumeInfo import FileSystemVolumeInfo
+
+from pyVmomi.vim.host.FirewallInfo import FirewallInfo
+
+from pyVmomi.vim.host.FlagInfo import FlagInfo
+
+from pyVmomi.vim.host.GraphicsConfig import GraphicsConfig
+
+from pyVmomi.vim.host.GraphicsInfo import GraphicsInfo
+
+from pyVmomi.vim.host.HostAccessManager import HostAccessManager
+
+from pyVmomi.vim.host.IpmiInfo import IpmiInfo
+
+from pyVmomi.vim.host.MemoryManagerSystem import MemoryManagerSystem
+
+from pyVmomi.vim.host.MultipathStateInfo import MultipathStateInfo
+
+from pyVmomi.vim.host.NetCapabilities import NetCapabilities
+
+from pyVmomi.vim.host.NetOffloadCapabilities import NetOffloadCapabilities
+
+from pyVmomi.vim.host.NetworkInfo import NetworkInfo
+
+from pyVmomi.vim.host.PciPassthruInfo import PciPassthruInfo
+
+from pyVmomi.vim.host.PowerSystem import PowerSystem
+
+from pyVmomi.vim.host.ServiceInfo import ServiceInfo
+
+from pyVmomi.vim.host.SharedGpuCapabilities import SharedGpuCapabilities
+
+from pyVmomi.vim.host.SriovDevicePoolInfo import SriovDevicePoolInfo
+
+from pyVmomi.vim.host.SslThumbprintInfo import SslThumbprintInfo
+
+from pyVmomi.vim.host.StorageDeviceInfo import StorageDeviceInfo
+
+from pyVmomi.vim.host.SystemResourceInfo import SystemResourceInfo
+
+from pyVmomi.vim.host.SystemSwapConfiguration import SystemSwapConfiguration
+
+from pyVmomi.vim.host.VFlashManager import VFlashManager
+
+from pyVmomi.vim.host.VMotionInfo import VMotionInfo
+
+from pyVmomi.vim.host.VirtualNicManagerInfo import VirtualNicManagerInfo
+
+from pyVmomi.vim.option.OptionDef import OptionDef
+
+from pyVmomi.vim.option.OptionValue import OptionValue
 
 class ConfigInfo(DynamicData):
    host: HostSystem

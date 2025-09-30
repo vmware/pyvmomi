@@ -4,12 +4,11 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import NoReturn
 from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import CustomFieldsManager
+from pyVmomi.vim.CustomFieldsManager import CustomFieldsManager
 
 class ExtensibleManagedObject(ManagedObject):
    @property
@@ -17,4 +16,4 @@ class ExtensibleManagedObject(ManagedObject):
    @property
    def availableField(self) -> list[CustomFieldsManager.FieldDef]: ...
 
-   def SetCustomValue(self, key: str, value: str) -> NoReturn: ...
+   def SetCustomValue(self, key: str, value: str) -> None: ...

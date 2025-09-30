@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import BootDeviceSystem
+from pyVmomi.vim.host.BootDeviceSystem import BootDeviceSystem
 
 class BootDeviceInfo(DynamicData):
    bootDevices: list[BootDeviceSystem.BootDevice] = []

@@ -6,8 +6,9 @@
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import Task
+from pyVmomi.vim.HostSystem import HostSystem
+
+from pyVmomi.vim.Task import Task
 
 class CertificateManager(ManagedObject):
    def RefreshCACertificatesAndCRLs(self, host: list[HostSystem]) -> Task: ...

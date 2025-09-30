@@ -6,11 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.sms.provider import Provider
+from pyVmomi.sms.provider.Provider import Provider
 
-from pyVmomi.vim.vm.replication import FaultDomainId
+from pyVmomi.vim.vm.replication.FaultDomainId import FaultDomainId
 
 class FaultDomainProviderMapping(DynamicData):
    activeProvider: Provider

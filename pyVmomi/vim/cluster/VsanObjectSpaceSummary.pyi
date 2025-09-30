@@ -10,7 +10,7 @@ from typing import Optional
 from pyVmomi.VmomiSupport import Enum
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class VsanObjectSpaceSummary(DynamicData):
    class VsanObjectTypeEnum(Enum):
@@ -47,6 +47,10 @@ class VsanObjectSpaceSummary(DynamicData):
       hbrPersist: ClassVar['VsanObjectTypeEnum'] = 'hbrPersist'
       traceobject: ClassVar['VsanObjectTypeEnum'] = 'traceobject'
       esaObjectOverhead: ClassVar['VsanObjectTypeEnum'] = 'esaObjectOverhead'
+      pgNamespace: ClassVar['VsanObjectTypeEnum'] = 'pgNamespace'
+      clusterDBNamespace: ClassVar['VsanObjectTypeEnum'] = 'clusterDBNamespace'
+      aggregatedSystemObjects: ClassVar['VsanObjectTypeEnum'] = 'aggregatedSystemObjects'
+      nativeObjectStore: ClassVar['VsanObjectTypeEnum'] = 'nativeObjectStore'
       VsanObjectTypeEnum_Unknown: ClassVar['VsanObjectTypeEnum'] = 'VsanObjectTypeEnum_Unknown'
 
    class VsanObjectTypeEnum90(Enum):

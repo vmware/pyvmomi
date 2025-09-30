@@ -6,11 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.sms.provider import ProviderInfo
+from pyVmomi.sms.provider.ProviderInfo import ProviderInfo
 
-from pyVmomi.sms.storage import StorageContainer
+from pyVmomi.sms.storage.StorageContainer import StorageContainer
 
 class StorageContainerResult(DynamicData):
    storageContainer: list[StorageContainer] = []

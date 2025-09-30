@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.option import ArrayUpdateSpec
+from pyVmomi.vim.option.ArrayUpdateSpec import ArrayUpdateSpec
 
 class TagCategoryUpdateSpec(ArrayUpdateSpec):
    category: Optional[str] = None

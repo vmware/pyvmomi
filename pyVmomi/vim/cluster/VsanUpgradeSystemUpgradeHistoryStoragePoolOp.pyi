@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import VsanUpgradeSystem
+from pyVmomi.vim.VsanUpgradeSystem import VsanUpgradeSystem
 
-from pyVmomi.vim.vsan.host import StoragePoolDiskInfo
+from pyVmomi.vim.vsan.host.StoragePoolDiskInfo import StoragePoolDiskInfo
 
 class VsanUpgradeSystemUpgradeHistoryStoragePoolOp(VsanUpgradeSystem.UpgradeHistoryItem):
    operation: str

@@ -6,7 +6,7 @@
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim.fault import VimFault
+from pyVmomi.vim.fault.VimFault import VimFault
 
 class DuplicateName(VimFault):
    name: str

@@ -4,17 +4,16 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import NoReturn
-
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import Task
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vim.cluster import VsanVumSystemConfig
+from pyVmomi.vim.Task import Task
+
+from pyVmomi.vim.cluster.VsanVumSystemConfig import VsanVumSystemConfig
 
 class VsanVumSystem(ManagedObject):
    def GetVsanVumConfig(self) -> VsanVumSystemConfig: ...
-   def FetchIsoDepotCookie(self, username: str, password: str) -> NoReturn: ...
+   def FetchIsoDepotCookie(self, username: str, password: str) -> None: ...
    def UpdateHostFirmware(self, host: HostSystem) -> Task: ...
-   def UploadReleaseDb(self, db: str) -> NoReturn: ...
+   def UploadReleaseDb(self, db: str) -> None: ...

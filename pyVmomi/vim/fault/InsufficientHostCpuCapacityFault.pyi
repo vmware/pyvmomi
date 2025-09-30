@@ -6,7 +6,7 @@
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim.fault import InsufficientHostCapacityFault
+from pyVmomi.vim.fault.InsufficientHostCapacityFault import InsufficientHostCapacityFault
 
 class InsufficientHostCpuCapacityFault(InsufficientHostCapacityFault):
    unreserved: long

@@ -8,11 +8,11 @@ from datetime import datetime
 
 from typing import Optional
 
-from pyVmomi.vim import HostSystem
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.profile.host import HostSubSpecification
+from pyVmomi.vim.profile.host.HostSubSpecification import HostSubSpecification
 
 class HostSpecification(DynamicData):
    createdTime: datetime

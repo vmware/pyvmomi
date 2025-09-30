@@ -5,23 +5,23 @@
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
 from typing import ClassVar
-from typing import NoReturn
 from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 from pyVmomi.VmomiSupport import ManagedObject
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim import Datacenter
-from pyVmomi.vim import Task
+from pyVmomi.vim.Datacenter import Datacenter
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.Task import Task
 
-from pyVmomi.vim.encryption import CryptoSpec
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import DiskDimensions
+from pyVmomi.vim.encryption.CryptoSpec import CryptoSpec
 
-from pyVmomi.vim.vm import ProfileSpec
+from pyVmomi.vim.host.DiskDimensions import DiskDimensions
+
+from pyVmomi.vim.vm.ProfileSpec import ProfileSpec
 
 class VirtualDiskManager(ManagedObject):
    class VirtualDiskType(Enum):
@@ -71,8 +71,8 @@ class VirtualDiskManager(ManagedObject):
    def InflateVirtualDisk(self, name: str, datacenter: Optional[Datacenter]) -> Task: ...
    def EagerZeroVirtualDisk(self, name: str, datacenter: Optional[Datacenter]) -> Task: ...
    def ZeroFillVirtualDisk(self, name: str, datacenter: Optional[Datacenter]) -> Task: ...
-   def SetVirtualDiskUuid(self, name: str, datacenter: Optional[Datacenter], uuid: str) -> NoReturn: ...
+   def SetVirtualDiskUuid(self, name: str, datacenter: Optional[Datacenter], uuid: str) -> None: ...
    def QueryVirtualDiskUuid(self, name: str, datacenter: Optional[Datacenter]) -> str: ...
    def QueryVirtualDiskGeometry(self, name: str, datacenter: Optional[Datacenter]) -> DiskDimensions.Chs: ...
-   def ImportUnmanagedSnapshot(self, vdisk: str, datacenter: Optional[Datacenter], vvolId: str) -> NoReturn: ...
-   def ReleaseManagedSnapshot(self, vdisk: str, datacenter: Optional[Datacenter]) -> NoReturn: ...
+   def ImportUnmanagedSnapshot(self, vdisk: str, datacenter: Optional[Datacenter], vvolId: str) -> None: ...
+   def ReleaseManagedSnapshot(self, vdisk: str, datacenter: Optional[Datacenter]) -> None: ...

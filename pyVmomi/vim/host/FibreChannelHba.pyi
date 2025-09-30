@@ -9,7 +9,7 @@ from typing import ClassVar
 from pyVmomi.VmomiSupport import Enum
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim.host import HostBusAdapter
+from pyVmomi.vim.host.HostBusAdapter import HostBusAdapter
 
 class FibreChannelHba(HostBusAdapter):
    class PortType(Enum):

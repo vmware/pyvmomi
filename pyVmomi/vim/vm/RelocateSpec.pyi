@@ -9,21 +9,27 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim import Datastore
-from pyVmomi.vim import Folder
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import ResourcePool
-from pyVmomi.vim import ServiceLocator
+from pyVmomi.vim.Datastore import Datastore
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.Folder import Folder
 
-from pyVmomi.vim.encryption import CryptoSpec
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vim.vm import BaseIndependentFilterSpec
-from pyVmomi.vim.vm import ProfileSpec
+from pyVmomi.vim.ResourcePool import ResourcePool
 
-from pyVmomi.vim.vm.device import VirtualDevice
-from pyVmomi.vim.vm.device import VirtualDeviceSpec
+from pyVmomi.vim.ServiceLocator import ServiceLocator
+
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.vim.encryption.CryptoSpec import CryptoSpec
+
+from pyVmomi.vim.vm.BaseIndependentFilterSpec import BaseIndependentFilterSpec
+
+from pyVmomi.vim.vm.ProfileSpec import ProfileSpec
+
+from pyVmomi.vim.vm.device.VirtualDevice import VirtualDevice
+
+from pyVmomi.vim.vm.device.VirtualDeviceSpec import VirtualDeviceSpec
 
 class RelocateSpec(DynamicData):
    class Transformation(Enum):

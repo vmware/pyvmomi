@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import DeviceBackingNotSupported
+from pyVmomi.vim.fault.DeviceBackingNotSupported import DeviceBackingNotSupported
 
 class VirtualDiskBlocksNotFullyProvisioned(DeviceBackingNotSupported):
    pass

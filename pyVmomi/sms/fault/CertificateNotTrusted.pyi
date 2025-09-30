@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.sms.fault import ProviderRegistrationFault
+from pyVmomi.sms.fault.ProviderRegistrationFault import ProviderRegistrationFault
 
 class CertificateNotTrusted(ProviderRegistrationFault):
    certificate: str

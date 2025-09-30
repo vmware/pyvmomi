@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vsan.cluster import ConfigInfo
+from pyVmomi.vim.vsan.cluster.ConfigInfo import ConfigInfo
 
 class VsanClusterConfig(DynamicData):
    config: ConfigInfo

@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.vm.customization import IdentitySettings
+from pyVmomi.vim.vm.customization.IdentitySettings import IdentitySettings
 
 class SysprepText(IdentitySettings):
    value: str

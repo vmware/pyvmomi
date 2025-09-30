@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import ManagedEntity
+from pyVmomi.vim.ManagedEntity import ManagedEntity
 
-from pyVmomi.vim.fault import ReplicationFault
+from pyVmomi.vim.fault.ReplicationFault import ReplicationFault
 
 class ReplicationInvalidOptions(ReplicationFault):
    options: str

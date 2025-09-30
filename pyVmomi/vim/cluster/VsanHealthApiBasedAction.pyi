@@ -4,8 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.cluster import VsanClusterHealthAction
-from pyVmomi.vim.cluster import VsanHealthActionBase
+from pyVmomi.vim.cluster.VsanClusterHealthAction import VsanClusterHealthAction
+
+from pyVmomi.vim.cluster.VsanHealthActionBase import VsanHealthActionBase
 
 class VsanHealthApiBasedAction(VsanHealthActionBase):
    apiAction: VsanClusterHealthAction

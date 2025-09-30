@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.cns import VolumeRelocateSpec
+from pyVmomi.vim.cns.VolumeRelocateSpec import VolumeRelocateSpec
 
 class BlockVolumeRelocateSpec(VolumeRelocateSpec):
    pass

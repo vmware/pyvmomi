@@ -4,15 +4,15 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import NoReturn
 from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import Datastore
-from pyVmomi.vim import Network
+from pyVmomi.vim.Datastore import Datastore
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.Network import Network
+
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class EsxAgentHostManager(ManagedObject):
    class ConfigInfo(DynamicData):
@@ -22,4 +22,4 @@ class EsxAgentHostManager(ManagedObject):
    @property
    def configInfo(self) -> ConfigInfo: ...
 
-   def UpdateConfig(self, configInfo: ConfigInfo) -> NoReturn: ...
+   def UpdateConfig(self, configInfo: ConfigInfo) -> None: ...

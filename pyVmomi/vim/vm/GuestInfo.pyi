@@ -12,15 +12,19 @@ from typing import Optional
 from pyVmomi.VmomiSupport import Enum
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim import KeyValue
+from pyVmomi.vim.KeyValue import KeyValue
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.net import DhcpConfigInfo
-from pyVmomi.vim.net import DnsConfigInfo
-from pyVmomi.vim.net import IpConfigInfo
-from pyVmomi.vim.net import IpRouteConfigInfo
-from pyVmomi.vim.net import NetBIOSConfigInfo
+from pyVmomi.vim.net.DhcpConfigInfo import DhcpConfigInfo
+
+from pyVmomi.vim.net.DnsConfigInfo import DnsConfigInfo
+
+from pyVmomi.vim.net.IpConfigInfo import IpConfigInfo
+
+from pyVmomi.vim.net.IpRouteConfigInfo import IpRouteConfigInfo
+
+from pyVmomi.vim.net.NetBIOSConfigInfo import NetBIOSConfigInfo
 
 class GuestInfo(DynamicData):
    class ToolsStatus(Enum):

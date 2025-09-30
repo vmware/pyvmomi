@@ -8,10 +8,11 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vsan.host import VsanObjectSyncState
-from pyVmomi.vim.vsan.host import VsanSyncingObjectRecoveryDetails
+from pyVmomi.vim.vsan.host.VsanObjectSyncState import VsanObjectSyncState
+
+from pyVmomi.vim.vsan.host.VsanSyncingObjectRecoveryDetails import VsanSyncingObjectRecoveryDetails
 
 class VsanSyncingObjectQueryResult(DynamicData):
    totalObjectsToSync: Optional[long] = None

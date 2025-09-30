@@ -4,14 +4,15 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import NoReturn
 from typing import Optional
 
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import ManagedEntity
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.ManagedEntity import ManagedEntity
+
+from pyVmomi.vim.VirtualMachine import VirtualMachine
+
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class Network(ManagedEntity):
    class Summary(DynamicData):
@@ -28,4 +29,4 @@ class Network(ManagedEntity):
    @property
    def vm(self) -> list[VirtualMachine]: ...
 
-   def DestroyNetwork(self) -> NoReturn: ...
+   def DestroyNetwork(self) -> None: ...

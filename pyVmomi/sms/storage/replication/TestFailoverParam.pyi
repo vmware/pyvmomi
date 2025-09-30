@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.sms.storage.replication import FailoverParam
+from pyVmomi.sms.storage.replication.FailoverParam import FailoverParam
 
 class TestFailoverParam(FailoverParam):
    pass

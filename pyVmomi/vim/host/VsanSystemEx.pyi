@@ -8,19 +8,27 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import Task
+from pyVmomi.vim.Task import Task
 
-from pyVmomi.vim.host import MaintenanceSpec
+from pyVmomi.vim.host.MaintenanceSpec import MaintenanceSpec
 
-from pyVmomi.vim.vsan.host import AbortWipeDiskStatus
-from pyVmomi.vim.vsan.host import AboutInfoEx
-from pyVmomi.vim.vsan.host import ClusterStatus
-from pyVmomi.vim.vsan.host import DiskMapping
-from pyVmomi.vim.vsan.host import DrsStats
-from pyVmomi.vim.vsan.host import RuntimeStats
-from pyVmomi.vim.vsan.host import VsanSyncingObjectQueryResult
-from pyVmomi.vim.vsan.host import VsanWhatIfEvacResult
-from pyVmomi.vim.vsan.host import WipeDiskStatus
+from pyVmomi.vim.vsan.host.AbortWipeDiskStatus import AbortWipeDiskStatus
+
+from pyVmomi.vim.vsan.host.AboutInfoEx import AboutInfoEx
+
+from pyVmomi.vim.vsan.host.ClusterStatus import ClusterStatus
+
+from pyVmomi.vim.vsan.host.DiskMapping import DiskMapping
+
+from pyVmomi.vim.vsan.host.DrsStats import DrsStats
+
+from pyVmomi.vim.vsan.host.RuntimeStats import RuntimeStats
+
+from pyVmomi.vim.vsan.host.VsanSyncingObjectQueryResult import VsanSyncingObjectQueryResult
+
+from pyVmomi.vim.vsan.host.VsanWhatIfEvacResult import VsanWhatIfEvacResult
+
+from pyVmomi.vim.vsan.host.WipeDiskStatus import WipeDiskStatus
 
 class VsanSystemEx(ManagedObject):
    def QueryWhatIfEvacuationResult(self, evacEntityUuid: str) -> VsanWhatIfEvacResult: ...

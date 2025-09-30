@@ -6,11 +6,13 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import VsanPhysicalDiskHealth
-from pyVmomi.vim.host import VsanResourceHealth
+from pyVmomi.vmodl.MethodFault import MethodFault
+
+from pyVmomi.vim.host.VsanPhysicalDiskHealth import VsanPhysicalDiskHealth
+
+from pyVmomi.vim.host.VsanResourceHealth import VsanResourceHealth
 
 class VsanPhysicalDiskHealthSummary(DynamicData):
    overallHealth: str

@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.dvs import ProductSpec
+from pyVmomi.vim.dvs.ProductSpec import ProductSpec
 
-from pyVmomi.vim.fault import NotSupportedHost
+from pyVmomi.vim.fault.NotSupportedHost import NotSupportedHost
 
 class NotSupportedHostInDvs(NotSupportedHost):
    switchProductSpec: ProductSpec

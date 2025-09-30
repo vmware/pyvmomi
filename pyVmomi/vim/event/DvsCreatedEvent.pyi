@@ -4,8 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.event import DvsEvent
-from pyVmomi.vim.event import FolderEventArgument
+from pyVmomi.vim.event.DvsEvent import DvsEvent
+
+from pyVmomi.vim.event.FolderEventArgument import FolderEventArgument
 
 class DvsCreatedEvent(DvsEvent):
    parent: FolderEventArgument

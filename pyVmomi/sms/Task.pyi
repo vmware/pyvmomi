@@ -8,7 +8,7 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.sms import TaskInfo
+from pyVmomi.sms.TaskInfo import TaskInfo
 
 class Task(ManagedObject):
    def QueryResult(self) -> Optional[object]: ...

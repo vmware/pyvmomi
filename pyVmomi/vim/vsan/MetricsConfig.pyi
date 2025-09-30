@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vsan import MetricProfile
+from pyVmomi.vim.vsan.MetricProfile import MetricProfile
 
 class MetricsConfig(DynamicData):
    profiles: list[MetricProfile] = []

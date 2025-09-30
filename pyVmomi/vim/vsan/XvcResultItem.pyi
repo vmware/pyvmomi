@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vsan import XvcQueryPropertyValue
+from pyVmomi.vim.vsan.XvcQueryPropertyValue import XvcQueryPropertyValue
 
 class XvcResultItem(DynamicData):
    propertyValues: list[XvcQueryPropertyValue] = []

@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.event import HostEvent
+from pyVmomi.vim.event.HostEvent import HostEvent
 
-from pyVmomi.vim.profile.host import HostSpecification
+from pyVmomi.vim.profile.host.HostSpecification import HostSpecification
 
 class HostSpecificationUpdateEvent(HostEvent):
    hostSpec: HostSpecification

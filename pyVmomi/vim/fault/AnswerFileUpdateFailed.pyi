@@ -4,12 +4,13 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import LocalizableMessage
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.fault import VimFault
+from pyVmomi.vmodl.LocalizableMessage import LocalizableMessage
 
-from pyVmomi.vim.profile import ProfilePropertyPath
+from pyVmomi.vim.fault.VimFault import VimFault
+
+from pyVmomi.vim.profile.ProfilePropertyPath import ProfilePropertyPath
 
 class AnswerFileUpdateFailed(VimFault):
    class UpdateFailure(DynamicData):

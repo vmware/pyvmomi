@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.cns import VolumeId
+from pyVmomi.vim.cns.VolumeId import VolumeId
 
-from pyVmomi.vim.fault import CnsFault
+from pyVmomi.vim.fault.CnsFault import CnsFault
 
 class CnsNotRegisteredFault(CnsFault):
    volumeId: VolumeId

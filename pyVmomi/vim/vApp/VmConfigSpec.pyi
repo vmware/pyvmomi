@@ -6,12 +6,15 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vApp import IPAssignmentInfo
-from pyVmomi.vim.vApp import OvfSectionSpec
-from pyVmomi.vim.vApp import ProductSpec
-from pyVmomi.vim.vApp import PropertySpec
+from pyVmomi.vim.vApp.IPAssignmentInfo import IPAssignmentInfo
+
+from pyVmomi.vim.vApp.OvfSectionSpec import OvfSectionSpec
+
+from pyVmomi.vim.vApp.ProductSpec import ProductSpec
+
+from pyVmomi.vim.vApp.PropertySpec import PropertySpec
 
 class VmConfigSpec(DynamicData):
    product: list[ProductSpec] = []

@@ -6,14 +6,15 @@
 
 from typing import Optional
 
-from pyVmomi.vim import Datastore
+from pyVmomi.vim.Datastore import Datastore
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.sms.storage.replication import DeviceId
-from pyVmomi.sms.storage.replication import PointInTimeReplicaId
+from pyVmomi.sms.storage.replication.DeviceId import DeviceId
 
-from pyVmomi.vim.vm.replication import ReplicationGroupId
+from pyVmomi.sms.storage.replication.PointInTimeReplicaId import PointInTimeReplicaId
+
+from pyVmomi.vim.vm.replication.ReplicationGroupId import ReplicationGroupId
 
 class FailoverParam(DynamicData):
    class ReplicationGroupData(DynamicData):

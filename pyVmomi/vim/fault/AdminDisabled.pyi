@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import HostConfigFault
+from pyVmomi.vim.fault.HostConfigFault import HostConfigFault
 
 class AdminDisabled(HostConfigFault):
    pass

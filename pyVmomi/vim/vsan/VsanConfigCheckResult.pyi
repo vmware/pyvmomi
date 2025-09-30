@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vsan import VsanConfigBaseIssue
+from pyVmomi.vim.vsan.VsanConfigBaseIssue import VsanConfigBaseIssue
 
 class VsanConfigCheckResult(DynamicData):
    vsanEnabled: bool

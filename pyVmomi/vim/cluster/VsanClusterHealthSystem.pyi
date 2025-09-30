@@ -8,19 +8,29 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim.cluster import VsanClusterAdvCfgSyncResult
-from pyVmomi.vim.cluster import VsanClusterClomdLivenessResult
-from pyVmomi.vim.cluster import VsanClusterCreateVmHealthTestResult
-from pyVmomi.vim.cluster import VsanClusterHclInfo
-from pyVmomi.vim.cluster import VsanClusterHealthSystemObjectsRepairResult
-from pyVmomi.vim.cluster import VsanClusterHealthSystemVersionResult
-from pyVmomi.vim.cluster import VsanClusterHostVmknicMapping
-from pyVmomi.vim.cluster import VsanClusterLimitHealthResult
-from pyVmomi.vim.cluster import VsanClusterNetworkHealthResult
-from pyVmomi.vim.cluster import VsanClusterNetworkLoadTestResult
-from pyVmomi.vim.cluster import VsanVsanClusterPcapResult
+from pyVmomi.vim.cluster.VsanClusterAdvCfgSyncResult import VsanClusterAdvCfgSyncResult
 
-from pyVmomi.vim.host import VsanPhysicalDiskHealthSummary
+from pyVmomi.vim.cluster.VsanClusterClomdLivenessResult import VsanClusterClomdLivenessResult
+
+from pyVmomi.vim.cluster.VsanClusterCreateVmHealthTestResult import VsanClusterCreateVmHealthTestResult
+
+from pyVmomi.vim.cluster.VsanClusterHclInfo import VsanClusterHclInfo
+
+from pyVmomi.vim.cluster.VsanClusterHealthSystemObjectsRepairResult import VsanClusterHealthSystemObjectsRepairResult
+
+from pyVmomi.vim.cluster.VsanClusterHealthSystemVersionResult import VsanClusterHealthSystemVersionResult
+
+from pyVmomi.vim.cluster.VsanClusterHostVmknicMapping import VsanClusterHostVmknicMapping
+
+from pyVmomi.vim.cluster.VsanClusterLimitHealthResult import VsanClusterLimitHealthResult
+
+from pyVmomi.vim.cluster.VsanClusterNetworkHealthResult import VsanClusterNetworkHealthResult
+
+from pyVmomi.vim.cluster.VsanClusterNetworkLoadTestResult import VsanClusterNetworkLoadTestResult
+
+from pyVmomi.vim.cluster.VsanVsanClusterPcapResult import VsanVsanClusterPcapResult
+
+from pyVmomi.vim.host.VsanPhysicalDiskHealthSummary import VsanPhysicalDiskHealthSummary
 
 class VsanClusterHealthSystem(ManagedObject):
    def QueryVerifyClusterNetworkSettings(self, hosts: list[str], esxRootPassword: str) -> VsanClusterNetworkHealthResult: ...

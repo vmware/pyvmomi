@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import Network
+from pyVmomi.vim.Network import Network
 
-from pyVmomi.eam.issue.cluster.agent import VmNotDeployed
+from pyVmomi.eam.issue.cluster.agent.VmNotDeployed import VmNotDeployed
 
 class MissingClusterVmNetwork(VmNotDeployed):
    missingNetworks: list[Network] = []

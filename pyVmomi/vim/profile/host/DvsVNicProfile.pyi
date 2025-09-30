@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.profile import ApplyProfile
+from pyVmomi.vim.profile.ApplyProfile import ApplyProfile
 
-from pyVmomi.vim.profile.host import IpAddressProfile
+from pyVmomi.vim.profile.host.IpAddressProfile import IpAddressProfile
 
 class DvsVNicProfile(ApplyProfile):
    key: str

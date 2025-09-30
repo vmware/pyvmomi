@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.vm.guest import GuestAuthentication
+from pyVmomi.vim.vm.guest.GuestAuthentication import GuestAuthentication
 
 class TicketedSessionAuthentication(GuestAuthentication):
    ticket: str

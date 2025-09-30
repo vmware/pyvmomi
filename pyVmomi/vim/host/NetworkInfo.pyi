@@ -6,22 +6,35 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import DhcpService
-from pyVmomi.vim.host import DnsConfig
-from pyVmomi.vim.host import HostProxySwitch
-from pyVmomi.vim.host import IpRouteConfig
-from pyVmomi.vim.host import IpRouteTableInfo
-from pyVmomi.vim.host import NatService
-from pyVmomi.vim.host import NetStackInstance
-from pyVmomi.vim.host import OpaqueNetworkInfo
-from pyVmomi.vim.host import OpaqueSwitch
-from pyVmomi.vim.host import PhysicalNic
-from pyVmomi.vim.host import PortGroup
-from pyVmomi.vim.host import RdmaDevice
-from pyVmomi.vim.host import VirtualNic
-from pyVmomi.vim.host import VirtualSwitch
+from pyVmomi.vim.host.DhcpService import DhcpService
+
+from pyVmomi.vim.host.DnsConfig import DnsConfig
+
+from pyVmomi.vim.host.HostProxySwitch import HostProxySwitch
+
+from pyVmomi.vim.host.IpRouteConfig import IpRouteConfig
+
+from pyVmomi.vim.host.IpRouteTableInfo import IpRouteTableInfo
+
+from pyVmomi.vim.host.NatService import NatService
+
+from pyVmomi.vim.host.NetStackInstance import NetStackInstance
+
+from pyVmomi.vim.host.OpaqueNetworkInfo import OpaqueNetworkInfo
+
+from pyVmomi.vim.host.OpaqueSwitch import OpaqueSwitch
+
+from pyVmomi.vim.host.PhysicalNic import PhysicalNic
+
+from pyVmomi.vim.host.PortGroup import PortGroup
+
+from pyVmomi.vim.host.RdmaDevice import RdmaDevice
+
+from pyVmomi.vim.host.VirtualNic import VirtualNic
+
+from pyVmomi.vim.host.VirtualSwitch import VirtualSwitch
 
 class NetworkInfo(DynamicData):
    vswitch: list[VirtualSwitch] = []

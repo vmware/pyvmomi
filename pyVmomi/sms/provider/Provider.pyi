@@ -6,7 +6,7 @@
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.sms.provider import ProviderInfo
+from pyVmomi.sms.provider.ProviderInfo import ProviderInfo
 
 class Provider(ManagedObject):
    def QueryProviderInfo(self) -> ProviderInfo: ...

@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import FileFault
+from pyVmomi.vim.fault.FileFault import FileFault
 
 class NoDiskSpace(FileFault):
    datastore: str

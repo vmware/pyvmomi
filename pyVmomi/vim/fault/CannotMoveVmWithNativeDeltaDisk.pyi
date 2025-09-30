@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import MigrationFault
+from pyVmomi.vim.fault.MigrationFault import MigrationFault
 
 class CannotMoveVmWithNativeDeltaDisk(MigrationFault):
    pass

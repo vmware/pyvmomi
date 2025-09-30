@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.option import ArrayUpdateSpec
+from pyVmomi.vim.option.ArrayUpdateSpec import ArrayUpdateSpec
 
-from pyVmomi.vim.vApp import OvfSectionInfo
+from pyVmomi.vim.vApp.OvfSectionInfo import OvfSectionInfo
 
 class OvfSectionSpec(ArrayUpdateSpec):
    info: Optional[OvfSectionInfo] = None

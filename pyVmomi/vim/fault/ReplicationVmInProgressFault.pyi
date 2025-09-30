@@ -8,7 +8,7 @@ from typing import ClassVar
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim.fault import ReplicationVmFault
+from pyVmomi.vim.fault.ReplicationVmFault import ReplicationVmFault
 
 class ReplicationVmInProgressFault(ReplicationVmFault):
    class Activity(Enum):

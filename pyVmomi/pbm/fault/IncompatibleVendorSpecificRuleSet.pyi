@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.pbm.fault import CapabilityProfilePropertyMismatchFault
+from pyVmomi.pbm.fault.CapabilityProfilePropertyMismatchFault import CapabilityProfilePropertyMismatchFault
 
 class IncompatibleVendorSpecificRuleSet(CapabilityProfilePropertyMismatchFault):
    pass

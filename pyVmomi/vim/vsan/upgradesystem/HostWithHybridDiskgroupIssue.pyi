@@ -4,8 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import VsanUpgradeSystem
+from pyVmomi.vim.HostSystem import HostSystem
+
+from pyVmomi.vim.VsanUpgradeSystem import VsanUpgradeSystem
 
 class HostWithHybridDiskgroupIssue(VsanUpgradeSystem.PreflightCheckIssue):
    hosts: list[HostSystem] = []

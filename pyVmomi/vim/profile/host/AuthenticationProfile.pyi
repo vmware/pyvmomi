@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.profile import ApplyProfile
+from pyVmomi.vim.profile.ApplyProfile import ApplyProfile
 
-from pyVmomi.vim.profile.host import ActiveDirectoryProfile
+from pyVmomi.vim.profile.host.ActiveDirectoryProfile import ActiveDirectoryProfile
 
 class AuthenticationProfile(ApplyProfile):
    activeDirectory: Optional[ActiveDirectoryProfile] = None

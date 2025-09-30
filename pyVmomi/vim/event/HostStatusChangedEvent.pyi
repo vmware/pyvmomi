@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.event import ClusterStatusChangedEvent
+from pyVmomi.vim.event.ClusterStatusChangedEvent import ClusterStatusChangedEvent
 
 class HostStatusChangedEvent(ClusterStatusChangedEvent):
    pass

@@ -9,9 +9,9 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import FileSystemVolume
+from pyVmomi.vim.host.FileSystemVolume import FileSystemVolume
 
 class NasVolume(FileSystemVolume):
    class UserInfo(DynamicData):

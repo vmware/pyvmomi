@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vmodl.MethodFault import MethodFault
 
-from pyVmomi.vim.fault import NotSupportedHostInCluster
+from pyVmomi.vim.fault.NotSupportedHostInCluster import NotSupportedHostInCluster
 
 class EVCAdmissionFailed(NotSupportedHostInCluster):
    faults: list[MethodFault] = []

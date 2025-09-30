@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import VsanComparator
+from pyVmomi.vim.VsanComparator import VsanComparator
 
-from pyVmomi.vmodl import KeyAnyValue
+from pyVmomi.vmodl.KeyAnyValue import KeyAnyValue
 
 class VsanJsonComparator(VsanComparator):
    comparator: Optional[str] = None

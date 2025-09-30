@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import OvfSystemFault
+from pyVmomi.vim.fault.OvfSystemFault import OvfSystemFault
 
 class OvfUnknownEntity(OvfSystemFault):
    lineNumber: int

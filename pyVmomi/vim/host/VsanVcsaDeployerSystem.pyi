@@ -8,9 +8,11 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim.vsan import VsanPrepareVsanForVcsaSpec
-from pyVmomi.vim.vsan import VsanVcPostDeployConfigSpec
-from pyVmomi.vim.vsan import VsanVcsaDeploymentProgress
+from pyVmomi.vim.vsan.VsanPrepareVsanForVcsaSpec import VsanPrepareVsanForVcsaSpec
+
+from pyVmomi.vim.vsan.VsanVcPostDeployConfigSpec import VsanVcPostDeployConfigSpec
+
+from pyVmomi.vim.vsan.VsanVcsaDeploymentProgress import VsanVcsaDeploymentProgress
 
 class VsanVcsaDeployerSystem(ManagedObject):
    def PrepareVsanForVcsa(self, spec: VsanPrepareVsanForVcsaSpec) -> Optional[str]: ...

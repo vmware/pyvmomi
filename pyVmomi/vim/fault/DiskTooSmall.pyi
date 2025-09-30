@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import VsanDiskFault
+from pyVmomi.vim.fault.VsanDiskFault import VsanDiskFault
 
 class DiskTooSmall(VsanDiskFault):
    pass

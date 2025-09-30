@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import SelectionSet
+from pyVmomi.vim.SelectionSet import SelectionSet
 
 class DistributedVirtualSwitchSelection(SelectionSet):
    dvsUuid: str

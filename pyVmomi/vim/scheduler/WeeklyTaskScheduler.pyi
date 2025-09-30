@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.scheduler import DailyTaskScheduler
+from pyVmomi.vim.scheduler.DailyTaskScheduler import DailyTaskScheduler
 
 class WeeklyTaskScheduler(DailyTaskScheduler):
    sunday: bool

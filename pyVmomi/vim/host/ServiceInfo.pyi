@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import Service
+from pyVmomi.vim.host.Service import Service
 
 class ServiceInfo(DynamicData):
    service: list[Service] = []

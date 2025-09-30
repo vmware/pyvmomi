@@ -4,10 +4,11 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vmodl.MethodFault import MethodFault
 
-from pyVmomi.vim.event import AlarmEvent
-from pyVmomi.vim.event import ManagedEntityEventArgument
+from pyVmomi.vim.event.AlarmEvent import AlarmEvent
+
+from pyVmomi.vim.event.ManagedEntityEventArgument import ManagedEntityEventArgument
 
 class AlarmScriptFailedEvent(AlarmEvent):
    entity: ManagedEntityEventArgument

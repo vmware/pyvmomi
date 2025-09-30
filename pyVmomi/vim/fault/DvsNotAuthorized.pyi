@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.fault import DvsFault
+from pyVmomi.vim.fault.DvsFault import DvsFault
 
 class DvsNotAuthorized(DvsFault):
    sessionExtensionKey: Optional[str] = None

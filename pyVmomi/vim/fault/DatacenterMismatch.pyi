@@ -6,12 +6,13 @@
 
 from typing import Optional
 
-from pyVmomi.vim import Datacenter
-from pyVmomi.vim import ManagedEntity
+from pyVmomi.vim.Datacenter import Datacenter
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.ManagedEntity import ManagedEntity
 
-from pyVmomi.vim.fault import MigrationFault
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.vim.fault.MigrationFault import MigrationFault
 
 class DatacenterMismatch(MigrationFault):
    class Argument(DynamicData):

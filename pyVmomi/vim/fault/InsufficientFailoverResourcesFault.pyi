@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import InsufficientResourcesFault
+from pyVmomi.vim.fault.InsufficientResourcesFault import InsufficientResourcesFault
 
 class InsufficientFailoverResourcesFault(InsufficientResourcesFault):
    pass

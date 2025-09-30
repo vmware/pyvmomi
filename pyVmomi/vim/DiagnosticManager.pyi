@@ -5,17 +5,18 @@
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
 from typing import ClassVar
-from typing import NoReturn
 from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import Description
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import Task
+from pyVmomi.vim.Description import Description
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.HostSystem import HostSystem
+
+from pyVmomi.vim.Task import Task
+
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class DiagnosticManager(ManagedObject):
    class LogDescriptor(DynamicData):
@@ -55,4 +56,4 @@ class DiagnosticManager(ManagedObject):
    def Browse(self, host: Optional[HostSystem], key: str, start: Optional[int], lines: Optional[int]) -> LogHeader: ...
    def GenerateLogBundles(self, includeDefault: bool, host: list[HostSystem]) -> Task: ...
    def FetchAuditRecords(self, token: Optional[str]) -> AuditRecordResult: ...
-   def EmitSyslogMark(self, message: str) -> NoReturn: ...
+   def EmitSyslogMark(self, message: str) -> None: ...

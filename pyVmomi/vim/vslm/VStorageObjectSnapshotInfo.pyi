@@ -8,9 +8,9 @@ from datetime import datetime
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vslm import ID
+from pyVmomi.vim.vslm.ID import ID
 
 class VStorageObjectSnapshotInfo(DynamicData):
    class VStorageObjectSnapshot(DynamicData):

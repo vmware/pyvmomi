@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vmodl.fault import NotEnoughLicenses
+from pyVmomi.vmodl.fault.NotEnoughLicenses import NotEnoughLicenses
 
 class VramLimitLicense(NotEnoughLicenses):
    limit: int

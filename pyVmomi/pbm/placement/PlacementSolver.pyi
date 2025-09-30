@@ -8,14 +8,17 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.pbm import ServerObjectRef
+from pyVmomi.pbm.ServerObjectRef import ServerObjectRef
 
-from pyVmomi.pbm.placement import CompatibilityResult
-from pyVmomi.pbm.placement import PlacementHub
-from pyVmomi.pbm.placement import Requirement
+from pyVmomi.pbm.placement.CompatibilityResult import CompatibilityResult
 
-from pyVmomi.pbm.profile import CapabilityBasedProfileCreateSpec
-from pyVmomi.pbm.profile import ProfileId
+from pyVmomi.pbm.placement.PlacementHub import PlacementHub
+
+from pyVmomi.pbm.placement.Requirement import Requirement
+
+from pyVmomi.pbm.profile.CapabilityBasedProfileCreateSpec import CapabilityBasedProfileCreateSpec
+
+from pyVmomi.pbm.profile.ProfileId import ProfileId
 
 class PlacementSolver(ManagedObject):
    def QueryMatchingHub(self, hubsToSearch: list[PlacementHub], profile: ProfileId) -> list[PlacementHub]: ...

@@ -6,8 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.event import ChangesInfoEventArgument
-from pyVmomi.vim.event import VmEvent
+from pyVmomi.vim.event.ChangesInfoEventArgument import ChangesInfoEventArgument
+
+from pyVmomi.vim.event.VmEvent import VmEvent
 
 class VmResourceReallocatedEvent(VmEvent):
    configChanges: Optional[ChangesInfoEventArgument] = None

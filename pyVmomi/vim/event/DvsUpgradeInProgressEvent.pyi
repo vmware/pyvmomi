@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.dvs import ProductSpec
+from pyVmomi.vim.dvs.ProductSpec import ProductSpec
 
-from pyVmomi.vim.event import DvsEvent
+from pyVmomi.vim.event.DvsEvent import DvsEvent
 
 class DvsUpgradeInProgressEvent(DvsEvent):
    productInfo: ProductSpec

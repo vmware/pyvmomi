@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.eam.issue.cluster.agent import AgentIssue
+from pyVmomi.eam.issue.cluster.agent.AgentIssue import AgentIssue
 
 class TransitionFailed(AgentIssue):
    pass

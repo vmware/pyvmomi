@@ -10,7 +10,7 @@ from typing import Optional
 from pyVmomi.VmomiSupport import Enum
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import ServiceManager
+from pyVmomi.vim.ServiceManager import ServiceManager
 
 class SimpleCommand(ManagedObject):
    class Encoding(Enum):

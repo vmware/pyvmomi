@@ -6,10 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import QualifiedName
-from pyVmomi.vim.host import SystemIdentificationInfo
+from pyVmomi.vim.host.QualifiedName import QualifiedName
+
+from pyVmomi.vim.host.SystemIdentificationInfo import SystemIdentificationInfo
 
 class SystemInfo(DynamicData):
    vendor: str

@@ -9,7 +9,7 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vmodl import RuntimeFault
+from pyVmomi.vmodl.RuntimeFault import RuntimeFault
 
 class LicenseAssignmentFailed(RuntimeFault):
    class Reason(Enum):

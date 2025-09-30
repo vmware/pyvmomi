@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.event import UpgradeEvent
+from pyVmomi.vim.event.UpgradeEvent import UpgradeEvent
 
 class WarningUpgradeEvent(UpgradeEvent):
    pass

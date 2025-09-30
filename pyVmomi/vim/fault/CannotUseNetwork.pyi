@@ -9,9 +9,9 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim import Network
+from pyVmomi.vim.Network import Network
 
-from pyVmomi.vim.fault import VmConfigFault
+from pyVmomi.vim.fault.VmConfigFault import VmConfigFault
 
 class CannotUseNetwork(VmConfigFault):
    class Reason(Enum):

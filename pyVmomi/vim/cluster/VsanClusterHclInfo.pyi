@@ -8,11 +8,11 @@ from datetime import datetime
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import VsanHostHclInfo
+from pyVmomi.vim.host.VsanHostHclInfo import VsanHostHclInfo
 
-from pyVmomi.vim.vsan import VsanUpdateItem
+from pyVmomi.vim.vsan.VsanUpdateItem import VsanUpdateItem
 
 class VsanClusterHclInfo(DynamicData):
    hclDbLastUpdate: Optional[datetime] = None

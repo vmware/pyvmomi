@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.pbm.capability import PropertyInstance
+from pyVmomi.pbm.capability.PropertyInstance import PropertyInstance
 
-from pyVmomi.pbm.fault import PropertyMismatchFault
+from pyVmomi.pbm.fault.PropertyMismatchFault import PropertyMismatchFault
 
 class CapabilityProfilePropertyMismatchFault(PropertyMismatchFault):
    resourcePropertyInstance: PropertyInstance

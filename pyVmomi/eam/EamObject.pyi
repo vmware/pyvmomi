@@ -5,15 +5,14 @@
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
 from typing import ClassVar
-from typing import NoReturn
 from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.eam.issue import Issue
+from pyVmomi.eam.issue.Issue import Issue
 
 class EamObject(ManagedObject):
    class RuntimeInfo(DynamicData):
@@ -33,5 +32,5 @@ class EamObject(ManagedObject):
       entity: EamObject
 
    def Resolve(self, issueKey: list[int]) -> list[int]: ...
-   def ResolveAll(self) -> NoReturn: ...
+   def ResolveAll(self) -> None: ...
    def QueryIssue(self, issueKey: list[int]) -> list[Issue]: ...

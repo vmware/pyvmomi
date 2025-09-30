@@ -4,8 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.event import AlarmEventArgument
-from pyVmomi.vim.event import Event
+from pyVmomi.vim.event.AlarmEventArgument import AlarmEventArgument
+
+from pyVmomi.vim.event.Event import Event
 
 class AlarmEvent(Event):
    alarm: AlarmEventArgument

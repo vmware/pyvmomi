@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vmodl import RuntimeFault
+from pyVmomi.vmodl.RuntimeFault import RuntimeFault
 
 class ConflictingDatastoreFound(RuntimeFault):
    name: str

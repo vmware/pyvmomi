@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.option import OptionType
+from pyVmomi.vim.option.OptionType import OptionType
 
 class FloatOption(OptionType):
    min: float

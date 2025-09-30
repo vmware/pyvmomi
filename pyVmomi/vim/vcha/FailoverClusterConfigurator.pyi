@@ -11,18 +11,25 @@ from pyVmomi.VmomiSupport import Enum
 from pyVmomi.VmomiSupport import ManagedMethod
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import Datastore
-from pyVmomi.vim import Folder
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import Network
-from pyVmomi.vim import ResourcePool
-from pyVmomi.vim import ServiceLocator
-from pyVmomi.vim import Task
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.Datastore import Datastore
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.Folder import Folder
 
-from pyVmomi.vim.vm.customization import IPSettings
+from pyVmomi.vim.HostSystem import HostSystem
+
+from pyVmomi.vim.Network import Network
+
+from pyVmomi.vim.ResourcePool import ResourcePool
+
+from pyVmomi.vim.ServiceLocator import ServiceLocator
+
+from pyVmomi.vim.Task import Task
+
+from pyVmomi.vim.VirtualMachine import VirtualMachine
+
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.vim.vm.customization.IPSettings import IPSettings
 
 class FailoverClusterConfigurator(ManagedObject):
    class ClusterNetworkConfigSpec(DynamicData):

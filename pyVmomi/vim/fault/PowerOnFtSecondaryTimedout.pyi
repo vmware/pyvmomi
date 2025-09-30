@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.VirtualMachine import VirtualMachine
 
-from pyVmomi.vim.fault import Timedout
+from pyVmomi.vim.fault.Timedout import Timedout
 
 class PowerOnFtSecondaryTimedout(Timedout):
    vm: VirtualMachine

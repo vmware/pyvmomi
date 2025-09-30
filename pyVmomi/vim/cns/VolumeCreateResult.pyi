@@ -6,8 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.cns import PlacementResult
-from pyVmomi.vim.cns import VolumeOperationResult
+from pyVmomi.vim.cns.PlacementResult import PlacementResult
+
+from pyVmomi.vim.cns.VolumeOperationResult import VolumeOperationResult
 
 class VolumeCreateResult(VolumeOperationResult):
    name: Optional[str] = None

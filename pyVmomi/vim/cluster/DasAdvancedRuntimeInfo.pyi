@@ -6,12 +6,13 @@
 
 from typing import Optional
 
-from pyVmomi.vim import Datastore
-from pyVmomi.vim import HostSystem
+from pyVmomi.vim.Datastore import Datastore
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vim.cluster import DasHostInfo
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.vim.cluster.DasHostInfo import DasHostInfo
 
 class DasAdvancedRuntimeInfo(DynamicData):
    class VmcpCapabilityInfo(DynamicData):

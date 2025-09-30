@@ -6,12 +6,13 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.cluster import VsanClusterNetworkPartitionInfo
+from pyVmomi.vim.cluster.VsanClusterNetworkPartitionInfo import VsanClusterNetworkPartitionInfo
 
-from pyVmomi.vim.host import VsanNetworkHealthResult
-from pyVmomi.vim.host import VsanQueryResultHostInfo
+from pyVmomi.vim.host.VsanNetworkHealthResult import VsanNetworkHealthResult
+
+from pyVmomi.vim.host.VsanQueryResultHostInfo import VsanQueryResultHostInfo
 
 class VsanClusterNetworkHealthResult(DynamicData):
    hostResults: list[VsanNetworkHealthResult] = []

@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.dvs import DistributedVirtualPort
+from pyVmomi.vim.dvs.DistributedVirtualPort import DistributedVirtualPort
 
-from pyVmomi.vim.event import DvsEvent
+from pyVmomi.vim.event.DvsEvent import DvsEvent
 
 class DvsPortRuntimeChangeEvent(DvsEvent):
    portKey: str

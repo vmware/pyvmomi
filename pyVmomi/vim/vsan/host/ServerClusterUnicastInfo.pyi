@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vsan import ServerHostUnicastInfo
+from pyVmomi.vim.vsan.ServerHostUnicastInfo import ServerHostUnicastInfo
 
 class ServerClusterUnicastInfo(DynamicData):
    clusterUuid: str

@@ -11,12 +11,13 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim import ManagedEntity
+from pyVmomi.vim.ManagedEntity import ManagedEntity
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.encryption import KeyProviderId
-from pyVmomi.vim.encryption import KmipServerInfo
+from pyVmomi.vim.encryption.KeyProviderId import KeyProviderId
+
+from pyVmomi.vim.encryption.KmipServerInfo import KmipServerInfo
 
 class KmipClusterInfo(DynamicData):
    class KmsManagementType(Enum):

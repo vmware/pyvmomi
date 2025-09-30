@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.sms.fault.replication import ReplicationFault
+from pyVmomi.sms.fault.replication.ReplicationFault import ReplicationFault
 
-from pyVmomi.sms.storage.replication import DeviceId
+from pyVmomi.sms.storage.replication.DeviceId import DeviceId
 
 class NoValidReplica(ReplicationFault):
    deviceId: Optional[DeviceId] = None

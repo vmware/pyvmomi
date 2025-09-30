@@ -6,15 +6,19 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vm import Capability
-from pyVmomi.vim.vm import DatastoreOption
-from pyVmomi.vim.vm import GuestOsDescriptor
-from pyVmomi.vim.vm import PropertyRelation
-from pyVmomi.vim.vm import VirtualHardwareOption
+from pyVmomi.vim.vm.Capability import Capability
 
-from pyVmomi.vim.vm.device import VirtualDevice
+from pyVmomi.vim.vm.DatastoreOption import DatastoreOption
+
+from pyVmomi.vim.vm.GuestOsDescriptor import GuestOsDescriptor
+
+from pyVmomi.vim.vm.PropertyRelation import PropertyRelation
+
+from pyVmomi.vim.vm.VirtualHardwareOption import VirtualHardwareOption
+
+from pyVmomi.vim.vm.device.VirtualDevice import VirtualDevice
 
 class ConfigOption(DynamicData):
    version: str

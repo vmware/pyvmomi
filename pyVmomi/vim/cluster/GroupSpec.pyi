@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.cluster import GroupInfo
+from pyVmomi.vim.cluster.GroupInfo import GroupInfo
 
-from pyVmomi.vim.option import ArrayUpdateSpec
+from pyVmomi.vim.option.ArrayUpdateSpec import ArrayUpdateSpec
 
 class GroupSpec(ArrayUpdateSpec):
    info: Optional[GroupInfo] = None

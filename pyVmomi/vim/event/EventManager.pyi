@@ -4,20 +4,23 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import NoReturn
 from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import ManagedEntity
-from pyVmomi.vim import TaskInfo
+from pyVmomi.vim.ManagedEntity import ManagedEntity
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.TaskInfo import TaskInfo
 
-from pyVmomi.vim.event import Event
-from pyVmomi.vim.event import EventDescription
-from pyVmomi.vim.event import EventFilterSpec
-from pyVmomi.vim.event import EventHistoryCollector
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.vim.event.Event import Event
+
+from pyVmomi.vim.event.EventDescription import EventDescription
+
+from pyVmomi.vim.event.EventFilterSpec import EventFilterSpec
+
+from pyVmomi.vim.event.EventHistoryCollector import EventHistoryCollector
 
 class EventManager(ManagedObject):
    class EventViewSpec(DynamicData):
@@ -36,6 +39,6 @@ class EventManager(ManagedObject):
 
    def RetrieveArgumentDescription(self, eventTypeId: str) -> list[EventDescription.EventArgDesc]: ...
    def CreateCollector(self, filter: EventFilterSpec) -> EventHistoryCollector: ...
-   def LogUserEvent(self, entity: ManagedEntity, msg: str) -> NoReturn: ...
+   def LogUserEvent(self, entity: ManagedEntity, msg: str) -> None: ...
    def QueryEvent(self, filter: EventFilterSpec, eventViewSpec: Optional[EventViewSpec]) -> list[Event]: ...
-   def PostEvent(self, eventToPost: Event, taskInfo: Optional[TaskInfo]) -> NoReturn: ...
+   def PostEvent(self, eventToPost: Event, taskInfo: Optional[TaskInfo]) -> None: ...

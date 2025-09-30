@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import Datastore
+from pyVmomi.vim.Datastore import Datastore
 
-from pyVmomi.vim.host import PMemVolume
+from pyVmomi.vim.host.PMemVolume import PMemVolume
 
 class PMemDatastoreInfo(Datastore.Info):
    pmem: PMemVolume

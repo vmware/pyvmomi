@@ -10,7 +10,7 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class LocalizationManager(ManagedObject):
    class MessageCatalog(DynamicData):

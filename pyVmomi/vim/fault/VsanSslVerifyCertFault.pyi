@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import SSLVerifyFault
+from pyVmomi.vim.fault.SSLVerifyFault import SSLVerifyFault
 
 class VsanSslVerifyCertFault(SSLVerifyFault):
    cert: str

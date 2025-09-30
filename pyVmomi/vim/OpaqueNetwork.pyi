@@ -6,11 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vim import Network
+from pyVmomi.vim.Network import Network
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.option import OptionValue
+from pyVmomi.vim.option.OptionValue import OptionValue
 
 class OpaqueNetwork(Network):
    class Summary(Network.Summary):

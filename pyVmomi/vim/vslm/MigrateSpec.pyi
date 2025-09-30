@@ -6,14 +6,15 @@
 
 from typing import Optional
 
-from pyVmomi.vim import ServiceLocator
+from pyVmomi.vim.ServiceLocator import ServiceLocator
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vm import ProfileSpec
+from pyVmomi.vim.vm.ProfileSpec import ProfileSpec
 
-from pyVmomi.vim.vslm import CreateSpec
-from pyVmomi.vim.vslm import DiskCryptoSpec
+from pyVmomi.vim.vslm.CreateSpec import CreateSpec
+
+from pyVmomi.vim.vslm.DiskCryptoSpec import DiskCryptoSpec
 
 class MigrateSpec(DynamicData):
    backingSpec: CreateSpec.BackingSpec

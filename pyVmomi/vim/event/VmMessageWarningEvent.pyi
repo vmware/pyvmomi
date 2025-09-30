@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.event import VmEvent
+from pyVmomi.vim.event.VmEvent import VmEvent
 
-from pyVmomi.vim.vm import Message
+from pyVmomi.vim.vm.Message import Message
 
 class VmMessageWarningEvent(VmEvent):
    message: str

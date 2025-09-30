@@ -8,7 +8,7 @@ from typing import ClassVar
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim.event import Event
+from pyVmomi.vim.event.Event import Event
 
 class DvsEvent(Event):
    class PortBlockState(Enum):

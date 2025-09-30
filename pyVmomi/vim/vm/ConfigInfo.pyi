@@ -14,43 +14,65 @@ from pyVmomi.VmomiSupport import binary
 from pyVmomi.VmomiSupport import long
 from pyVmomi.VmomiSupport import short
 
-from pyVmomi.vim import LatencySensitivity
-from pyVmomi.vim import ResourceAllocationInfo
+from pyVmomi.vim.LatencySensitivity import LatencySensitivity
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.ResourceAllocationInfo import ResourceAllocationInfo
 
-from pyVmomi.vim.encryption import CryptoKeyId
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.ext import ManagedByInfo
+from pyVmomi.vim.encryption.CryptoKeyId import CryptoKeyId
 
-from pyVmomi.vim.host import CpuIdInfo
+from pyVmomi.vim.ext.ManagedByInfo import ManagedByInfo
 
-from pyVmomi.vim.option import OptionValue
+from pyVmomi.vim.host.CpuIdInfo import CpuIdInfo
 
-from pyVmomi.vim.vApp import VmConfigInfo
+from pyVmomi.vim.option.OptionValue import OptionValue
 
-from pyVmomi.vim.vm import AffinityInfo
-from pyVmomi.vim.vm import BootOptions
-from pyVmomi.vim.vm import ConsolePreferences
-from pyVmomi.vim.vm import ContentLibraryItemInfo
-from pyVmomi.vim.vm import DefaultPowerOpInfo
-from pyVmomi.vim.vm import FaultToleranceConfigInfo
-from pyVmomi.vim.vm import FileInfo
-from pyVmomi.vim.vm import FlagInfo
-from pyVmomi.vim.vm import ForkConfigInfo
-from pyVmomi.vim.vm import GuestIntegrityInfo
-from pyVmomi.vim.vm import GuestMonitoringModeInfo
-from pyVmomi.vim.vm import NetworkShaperInfo
-from pyVmomi.vim.vm import ReplicationConfigSpec
-from pyVmomi.vim.vm import ScheduledHardwareUpgradeInfo
-from pyVmomi.vim.vm import SgxInfo
-from pyVmomi.vim.vm import ToolsConfigInfo
-from pyVmomi.vim.vm import VcpuConfig
-from pyVmomi.vim.vm import VirtualDeviceGroups
-from pyVmomi.vim.vm import VirtualDeviceSwap
-from pyVmomi.vim.vm import VirtualHardware
-from pyVmomi.vim.vm import VirtualNumaInfo
-from pyVmomi.vim.vm import VirtualPMem
+from pyVmomi.vim.vApp.VmConfigInfo import VmConfigInfo
+
+from pyVmomi.vim.vm.AffinityInfo import AffinityInfo
+
+from pyVmomi.vim.vm.BootOptions import BootOptions
+
+from pyVmomi.vim.vm.ConsolePreferences import ConsolePreferences
+
+from pyVmomi.vim.vm.ContentLibraryItemInfo import ContentLibraryItemInfo
+
+from pyVmomi.vim.vm.DefaultPowerOpInfo import DefaultPowerOpInfo
+
+from pyVmomi.vim.vm.FaultToleranceConfigInfo import FaultToleranceConfigInfo
+
+from pyVmomi.vim.vm.FileInfo import FileInfo
+
+from pyVmomi.vim.vm.FlagInfo import FlagInfo
+
+from pyVmomi.vim.vm.ForkConfigInfo import ForkConfigInfo
+
+from pyVmomi.vim.vm.GuestIntegrityInfo import GuestIntegrityInfo
+
+from pyVmomi.vim.vm.GuestMonitoringModeInfo import GuestMonitoringModeInfo
+
+from pyVmomi.vim.vm.NetworkShaperInfo import NetworkShaperInfo
+
+from pyVmomi.vim.vm.ReplicationConfigSpec import ReplicationConfigSpec
+
+from pyVmomi.vim.vm.ScheduledHardwareUpgradeInfo import ScheduledHardwareUpgradeInfo
+
+from pyVmomi.vim.vm.SgxInfo import SgxInfo
+
+from pyVmomi.vim.vm.ToolsConfigInfo import ToolsConfigInfo
+
+from pyVmomi.vim.vm.VcpuConfig import VcpuConfig
+
+from pyVmomi.vim.vm.VirtualDeviceGroups import VirtualDeviceGroups
+
+from pyVmomi.vim.vm.VirtualDeviceSwap import VirtualDeviceSwap
+
+from pyVmomi.vim.vm.VirtualHardware import VirtualHardware
+
+from pyVmomi.vim.vm.VirtualNumaInfo import VirtualNumaInfo
+
+from pyVmomi.vim.vm.VirtualPMem import VirtualPMem
 
 class ConfigInfo(DynamicData):
    class NpivWwnType(Enum):

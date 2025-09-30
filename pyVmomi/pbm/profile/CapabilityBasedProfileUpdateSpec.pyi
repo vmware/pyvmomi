@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.pbm.profile import CapabilityConstraints
+from pyVmomi.pbm.profile.CapabilityConstraints import CapabilityConstraints
 
 class CapabilityBasedProfileUpdateSpec(DynamicData):
    name: Optional[str] = None

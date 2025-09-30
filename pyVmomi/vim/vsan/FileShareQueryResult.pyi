@@ -8,9 +8,9 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vsan import FileShare
+from pyVmomi.vim.vsan.FileShare import FileShare
 
 class FileShareQueryResult(DynamicData):
    fileShares: list[FileShare] = []

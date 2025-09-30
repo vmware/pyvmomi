@@ -11,26 +11,37 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import ManagedEntity
-from pyVmomi.vim import Task
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import LocalizableMessage
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vim.ManagedEntity import ManagedEntity
 
-from pyVmomi.vim.host import ConfigSpec
+from pyVmomi.vim.Task import Task
 
-from pyVmomi.vim.profile import ApplyProfile
-from pyVmomi.vim.profile import DeferredPolicyOptionParameter
-from pyVmomi.vim.profile import Profile
-from pyVmomi.vim.profile import ProfileMetadata
-from pyVmomi.vim.profile import ProfileStructure
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.profile.host import AnswerFile
-from pyVmomi.vim.profile.host import AnswerFileStatusResult
-from pyVmomi.vim.profile.host import ExecuteResult
-from pyVmomi.vim.profile.host import HostApplyProfile
+from pyVmomi.vmodl.LocalizableMessage import LocalizableMessage
+
+from pyVmomi.vmodl.MethodFault import MethodFault
+
+from pyVmomi.vim.host.ConfigSpec import ConfigSpec
+
+from pyVmomi.vim.profile.ApplyProfile import ApplyProfile
+
+from pyVmomi.vim.profile.DeferredPolicyOptionParameter import DeferredPolicyOptionParameter
+
+from pyVmomi.vim.profile.Profile import Profile
+
+from pyVmomi.vim.profile.ProfileMetadata import ProfileMetadata
+
+from pyVmomi.vim.profile.ProfileStructure import ProfileStructure
+
+from pyVmomi.vim.profile.host.AnswerFile import AnswerFile
+
+from pyVmomi.vim.profile.host.AnswerFileStatusResult import AnswerFileStatusResult
+
+from pyVmomi.vim.profile.host.ExecuteResult import ExecuteResult
+
+from pyVmomi.vim.profile.host.HostApplyProfile import HostApplyProfile
 
 class ProfileManager(ProfileManager):
    class TaskListRequirement(Enum):

@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.host import HostBusAdapter
+from pyVmomi.vim.host.HostBusAdapter import HostBusAdapter
 
 class BlockHba(HostBusAdapter):
    pass

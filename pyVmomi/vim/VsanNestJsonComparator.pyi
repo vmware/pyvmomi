@@ -6,8 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import VsanComparator
-from pyVmomi.vim import VsanJsonComparator
+from pyVmomi.vim.VsanComparator import VsanComparator
+
+from pyVmomi.vim.VsanJsonComparator import VsanJsonComparator
 
 class VsanNestJsonComparator(VsanComparator):
    nestedComparators: list[VsanJsonComparator] = []

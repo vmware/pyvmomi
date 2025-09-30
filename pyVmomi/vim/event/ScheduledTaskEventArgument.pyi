@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.event import EntityEventArgument
+from pyVmomi.vim.event.EntityEventArgument import EntityEventArgument
 
-from pyVmomi.vim.scheduler import ScheduledTask
+from pyVmomi.vim.scheduler.ScheduledTask import ScheduledTask
 
 class ScheduledTaskEventArgument(EntityEventArgument):
    scheduledTask: ScheduledTask

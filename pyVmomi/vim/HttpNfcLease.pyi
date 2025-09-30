@@ -5,19 +5,21 @@
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
 from typing import ClassVar
-from typing import NoReturn
 from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 from pyVmomi.VmomiSupport import ManagedObject
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim import KeyValue
-from pyVmomi.vim import ManagedEntity
-from pyVmomi.vim import Task
+from pyVmomi.vim.KeyValue import KeyValue
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vim.ManagedEntity import ManagedEntity
+
+from pyVmomi.vim.Task import Task
+
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.vmodl.MethodFault import MethodFault
 
 class HttpNfcLease(ManagedObject):
    class State(Enum):
@@ -104,9 +106,9 @@ class HttpNfcLease(ManagedObject):
    def error(self) -> Optional[MethodFault]: ...
 
    def GetManifest(self) -> list[ManifestEntry]: ...
-   def SetManifestChecksumType(self, deviceUrlsToChecksumTypes: list[KeyValue]) -> NoReturn: ...
-   def Complete(self) -> NoReturn: ...
-   def Abort(self, fault: Optional[MethodFault]) -> NoReturn: ...
-   def Progress(self, percent: int) -> NoReturn: ...
+   def SetManifestChecksumType(self, deviceUrlsToChecksumTypes: list[KeyValue]) -> None: ...
+   def Complete(self) -> None: ...
+   def Abort(self, fault: Optional[MethodFault]) -> None: ...
+   def Progress(self, percent: int) -> None: ...
    def PullFromUrls(self, files: list[SourceFile]) -> Task: ...
    def ProbeUrls(self, files: list[SourceFile], timeout: Optional[int]) -> list[ProbeResult]: ...

@@ -9,18 +9,23 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim import Folder
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import ResourcePool
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.Folder import Folder
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vim.storageDrs import PodSelectionSpec
+from pyVmomi.vim.ResourcePool import ResourcePool
 
-from pyVmomi.vim.vm import CloneSpec
-from pyVmomi.vim.vm import ConfigSpec
-from pyVmomi.vim.vm import RelocateSpec
+from pyVmomi.vim.VirtualMachine import VirtualMachine
+
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.vim.storageDrs.PodSelectionSpec import PodSelectionSpec
+
+from pyVmomi.vim.vm.CloneSpec import CloneSpec
+
+from pyVmomi.vim.vm.ConfigSpec import ConfigSpec
+
+from pyVmomi.vim.vm.RelocateSpec import RelocateSpec
 
 class StoragePlacementSpec(DynamicData):
    class PlacementType(Enum):

@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import MacAddress
+from pyVmomi.vim.MacAddress import MacAddress
 
 class MacRange(MacAddress):
    address: str

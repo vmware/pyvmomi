@@ -8,9 +8,9 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.encryption import KmipServerSpec
+from pyVmomi.vim.encryption.KmipServerSpec import KmipServerSpec
 
 class EncryptionInfo(DynamicData):
    enabled: Optional[bool] = None

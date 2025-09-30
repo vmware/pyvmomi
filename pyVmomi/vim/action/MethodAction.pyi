@@ -8,8 +8,9 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedMethod
 
-from pyVmomi.vim.action import Action
-from pyVmomi.vim.action import MethodActionArgument
+from pyVmomi.vim.action.Action import Action
+
+from pyVmomi.vim.action.MethodActionArgument import MethodActionArgument
 
 class MethodAction(Action):
    name: ManagedMethod

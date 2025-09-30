@@ -6,8 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.vsan import MountPrecheckItem
-from pyVmomi.vim.vsan import MountPrecheckNetworkConnectivityDetail
+from pyVmomi.vim.vsan.MountPrecheckItem import MountPrecheckItem
+
+from pyVmomi.vim.vsan.MountPrecheckNetworkConnectivityDetail import MountPrecheckNetworkConnectivityDetail
 
 class MountPrecheckNetworkConnectivityResult(MountPrecheckItem):
    details: list[MountPrecheckNetworkConnectivityDetail] = []

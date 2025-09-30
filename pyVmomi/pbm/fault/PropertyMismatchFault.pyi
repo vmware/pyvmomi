@@ -4,10 +4,11 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.pbm.capability import CapabilityMetadata
-from pyVmomi.pbm.capability import PropertyInstance
+from pyVmomi.pbm.capability.CapabilityMetadata import CapabilityMetadata
 
-from pyVmomi.pbm.fault import CompatibilityCheckFault
+from pyVmomi.pbm.capability.PropertyInstance import PropertyInstance
+
+from pyVmomi.pbm.fault.CompatibilityCheckFault import CompatibilityCheckFault
 
 class PropertyMismatchFault(CompatibilityCheckFault):
    capabilityInstanceId: CapabilityMetadata.UniqueId

@@ -6,10 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.encryption import CryptoKeyId
+from pyVmomi.vmodl.MethodFault import MethodFault
+
+from pyVmomi.vim.encryption.CryptoKeyId import CryptoKeyId
 
 class CryptoKeyResult(DynamicData):
    keyId: CryptoKeyId

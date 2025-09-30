@@ -4,8 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.event import DvsEvent
-from pyVmomi.vim.event import DvsEventArgument
+from pyVmomi.vim.event.DvsEvent import DvsEvent
+
+from pyVmomi.vim.event.DvsEventArgument import DvsEventArgument
 
 class DvsMergedEvent(DvsEvent):
    sourceDvs: DvsEventArgument

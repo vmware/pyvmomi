@@ -6,16 +6,19 @@
 
 from typing import Optional
 
-from pyVmomi.vim import Datastore
-from pyVmomi.vim import LicenseManager
-from pyVmomi.vim import Network
+from pyVmomi.vim.Datastore import Datastore
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.LicenseManager import LicenseManager
 
-from pyVmomi.vim.host import Capability
-from pyVmomi.vim.host import Summary
+from pyVmomi.vim.Network import Network
 
-from pyVmomi.vim.vm import Summary
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.vim.host.Capability import Capability
+
+from pyVmomi.vim.host.Summary import Summary
+
+from pyVmomi.vim.vm.Summary import Summary
 
 class ConnectInfo(DynamicData):
    class NetworkInfo(DynamicData):

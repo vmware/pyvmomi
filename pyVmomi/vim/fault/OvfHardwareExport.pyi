@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.fault import OvfExport
+from pyVmomi.vim.fault.OvfExport import OvfExport
 
-from pyVmomi.vim.vm.device import VirtualDevice
+from pyVmomi.vim.vm.device.VirtualDevice import VirtualDevice
 
 class OvfHardwareExport(OvfExport):
    device: Optional[VirtualDevice] = None

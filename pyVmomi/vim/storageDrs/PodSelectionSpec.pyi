@@ -6,17 +6,17 @@
 
 from typing import Optional
 
-from pyVmomi.vim import StoragePod
+from pyVmomi.vim.StoragePod import StoragePod
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.cluster import RuleInfo
+from pyVmomi.vim.cluster.RuleInfo import RuleInfo
 
-from pyVmomi.vim.storageDrs import VmConfigInfo
+from pyVmomi.vim.storageDrs.VmConfigInfo import VmConfigInfo
 
-from pyVmomi.vim.vm import ProfileSpec
+from pyVmomi.vim.vm.ProfileSpec import ProfileSpec
 
-from pyVmomi.vim.vm.device import VirtualDevice
+from pyVmomi.vim.vm.device.VirtualDevice import VirtualDevice
 
 class PodSelectionSpec(DynamicData):
    class VmPodConfig(DynamicData):

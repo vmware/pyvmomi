@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.vm.customization import NameGenerator
+from pyVmomi.vim.vm.customization.NameGenerator import NameGenerator
 
 class FixedName(NameGenerator):
    name: str

@@ -8,11 +8,15 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim.vm.guest import AliasManager
-from pyVmomi.vim.vm.guest import AuthManager
-from pyVmomi.vim.vm.guest import FileManager
-from pyVmomi.vim.vm.guest import ProcessManager
-from pyVmomi.vim.vm.guest import WindowsRegistryManager
+from pyVmomi.vim.vm.guest.AliasManager import AliasManager
+
+from pyVmomi.vim.vm.guest.AuthManager import AuthManager
+
+from pyVmomi.vim.vm.guest.FileManager import FileManager
+
+from pyVmomi.vim.vm.guest.ProcessManager import ProcessManager
+
+from pyVmomi.vim.vm.guest.WindowsRegistryManager import WindowsRegistryManager
 
 class GuestOperationsManager(ManagedObject):
    @property

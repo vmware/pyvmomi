@@ -10,9 +10,9 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vsan import FileShareSnapshotConfig
+from pyVmomi.vim.vsan.FileShareSnapshotConfig import FileShareSnapshotConfig
 
 class FileShareSnapshot(DynamicData):
    config: Optional[FileShareSnapshotConfig] = None

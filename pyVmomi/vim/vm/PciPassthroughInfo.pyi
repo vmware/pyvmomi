@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.host import PciDevice
+from pyVmomi.vim.host.PciDevice import PciDevice
 
-from pyVmomi.vim.vm import TargetInfo
+from pyVmomi.vim.vm.TargetInfo import TargetInfo
 
 class PciPassthroughInfo(TargetInfo):
    pciDevice: PciDevice

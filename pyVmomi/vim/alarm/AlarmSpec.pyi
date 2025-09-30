@@ -6,11 +6,13 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.alarm import AlarmAction
-from pyVmomi.vim.alarm import AlarmExpression
-from pyVmomi.vim.alarm import AlarmSetting
+from pyVmomi.vim.alarm.AlarmAction import AlarmAction
+
+from pyVmomi.vim.alarm.AlarmExpression import AlarmExpression
+
+from pyVmomi.vim.alarm.AlarmSetting import AlarmSetting
 
 class AlarmSpec(DynamicData):
    name: str

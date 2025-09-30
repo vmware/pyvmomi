@@ -9,10 +9,11 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vm.customization import IpGenerator
-from pyVmomi.vim.vm.customization import IpV6Generator
+from pyVmomi.vim.vm.customization.IpGenerator import IpGenerator
+
+from pyVmomi.vim.vm.customization.IpV6Generator import IpV6Generator
 
 class IPSettings(DynamicData):
    class IpV6AddressSpec(DynamicData):

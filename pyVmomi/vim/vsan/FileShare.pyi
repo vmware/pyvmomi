@@ -6,10 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vsan import FileShareConfig
-from pyVmomi.vim.vsan import FileShareRuntimeInfo
+from pyVmomi.vim.vsan.FileShareConfig import FileShareConfig
+
+from pyVmomi.vim.vsan.FileShareRuntimeInfo import FileShareRuntimeInfo
 
 class FileShare(DynamicData):
    uuid: str

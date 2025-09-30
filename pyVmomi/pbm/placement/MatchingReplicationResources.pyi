@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.pbm.placement import MatchingResources
+from pyVmomi.pbm.placement.MatchingResources import MatchingResources
 
-from pyVmomi.vim.vm.replication import ReplicationGroupId
+from pyVmomi.vim.vm.replication.ReplicationGroupId import ReplicationGroupId
 
 class MatchingReplicationResources(MatchingResources):
    replicationGroup: list[ReplicationGroupId] = []

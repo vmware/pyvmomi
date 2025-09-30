@@ -4,11 +4,11 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import ExtendedElementDescription
+from pyVmomi.vim.ExtendedElementDescription import ExtendedElementDescription
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.profile import PolicyOptionMetadata
+from pyVmomi.vim.profile.PolicyOptionMetadata import PolicyOptionMetadata
 
 class PolicyMetadata(DynamicData):
    id: ExtendedElementDescription

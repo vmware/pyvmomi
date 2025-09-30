@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import NumaNode
+from pyVmomi.vim.host.NumaNode import NumaNode
 
 class NumaInfo(DynamicData):
    type: str

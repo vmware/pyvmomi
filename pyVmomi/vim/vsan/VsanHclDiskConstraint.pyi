@@ -6,10 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vsan import VsanHclDeviceConstraint
-from pyVmomi.vim.vsan import VsanHclMinFwConstraint
+from pyVmomi.vim.vsan.VsanHclDeviceConstraint import VsanHclDeviceConstraint
+
+from pyVmomi.vim.vsan.VsanHclMinFwConstraint import VsanHclMinFwConstraint
 
 class VsanHclDiskConstraint(DynamicData):
    productId: str

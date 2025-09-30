@@ -6,10 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vsan import IODiagnosticsObjectLayout
-from pyVmomi.vim.vsan import IOLatency
+from pyVmomi.vim.vsan.IODiagnosticsObjectLayout import IODiagnosticsObjectLayout
+
+from pyVmomi.vim.vsan.IOLatency import IOLatency
 
 class ObjectIOStats(DynamicData):
    backingObjectId: str

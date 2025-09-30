@@ -6,13 +6,17 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.cluster import DasConfigInfo
-from pyVmomi.vim.cluster import DasVmConfigInfo
-from pyVmomi.vim.cluster import DrsConfigInfo
-from pyVmomi.vim.cluster import DrsVmConfigInfo
-from pyVmomi.vim.cluster import RuleInfo
+from pyVmomi.vim.cluster.DasConfigInfo import DasConfigInfo
+
+from pyVmomi.vim.cluster.DasVmConfigInfo import DasVmConfigInfo
+
+from pyVmomi.vim.cluster.DrsConfigInfo import DrsConfigInfo
+
+from pyVmomi.vim.cluster.DrsVmConfigInfo import DrsVmConfigInfo
+
+from pyVmomi.vim.cluster.RuleInfo import RuleInfo
 
 class ConfigInfo(DynamicData):
    dasConfig: DasConfigInfo

@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.event import LicenseEvent
+from pyVmomi.vim.event.LicenseEvent import LicenseEvent
 
 class IncorrectHostInformationEvent(LicenseEvent):
    pass

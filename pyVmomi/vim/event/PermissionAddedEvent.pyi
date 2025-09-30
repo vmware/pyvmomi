@@ -4,8 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.event import PermissionEvent
-from pyVmomi.vim.event import RoleEventArgument
+from pyVmomi.vim.event.PermissionEvent import PermissionEvent
+
+from pyVmomi.vim.event.RoleEventArgument import RoleEventArgument
 
 class PermissionAddedEvent(PermissionEvent):
    role: RoleEventArgument

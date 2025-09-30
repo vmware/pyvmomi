@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim import NegatableExpression
+from pyVmomi.vim.NegatableExpression import NegatableExpression
 
 class StringExpression(NegatableExpression):
    value: Optional[str] = None

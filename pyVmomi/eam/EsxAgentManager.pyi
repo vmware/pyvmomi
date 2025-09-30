@@ -5,15 +5,15 @@
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
 from typing import ClassVar
-from typing import NoReturn
 from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.eam import Agency
-from pyVmomi.eam import EamObject
+from pyVmomi.eam.Agency import Agency
 
-from pyVmomi.eam.issue import Issue
+from pyVmomi.eam.EamObject import EamObject
+
+from pyVmomi.eam.issue.Issue import Issue
 
 class EsxAgentManager(EamObject):
    class MaintenanceModePolicy(Enum):
@@ -27,6 +27,6 @@ class EsxAgentManager(EamObject):
 
    def QueryAgency(self) -> list[Agency]: ...
    def CreateAgency(self, agencyConfigInfo: Agency.ConfigInfo, initialGoalState: str) -> Agency: ...
-   def ScanForUnknownAgentVm(self) -> NoReturn: ...
-   def SetMaintenanceModePolicy(self, policy: str) -> NoReturn: ...
+   def ScanForUnknownAgentVm(self) -> None: ...
+   def SetMaintenanceModePolicy(self, policy: str) -> None: ...
    def GetMaintenanceModePolicy(self) -> str: ...

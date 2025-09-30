@@ -6,11 +6,13 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vsan import ResourceCheckComponentResult
-from pyVmomi.vim.vsan import ResourceCheckResult
-from pyVmomi.vim.vsan import ResourceCheckTaskDetails
+from pyVmomi.vim.vsan.ResourceCheckComponentResult import ResourceCheckComponentResult
+
+from pyVmomi.vim.vsan.ResourceCheckResult import ResourceCheckResult
+
+from pyVmomi.vim.vsan.ResourceCheckTaskDetails import ResourceCheckTaskDetails
 
 class ResourceCheckStatus(DynamicData):
    status: str

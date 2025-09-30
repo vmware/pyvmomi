@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import OvfFault
+from pyVmomi.vim.fault.OvfFault import OvfFault
 
 class OvfInvalidPackage(OvfFault):
    lineNumber: int

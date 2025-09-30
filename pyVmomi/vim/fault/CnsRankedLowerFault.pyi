@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import CnsPlacementFault
+from pyVmomi.vim.fault.CnsPlacementFault import CnsPlacementFault
 
 class CnsRankedLowerFault(CnsPlacementFault):
    pass

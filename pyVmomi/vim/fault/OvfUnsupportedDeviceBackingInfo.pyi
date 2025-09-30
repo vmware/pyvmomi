@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.fault import OvfSystemFault
+from pyVmomi.vim.fault.OvfSystemFault import OvfSystemFault
 
 class OvfUnsupportedDeviceBackingInfo(OvfSystemFault):
    elementName: Optional[str] = None

@@ -8,13 +8,15 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import VsanDiskEncryptionHealth
-from pyVmomi.vim.host import VsanKmsHealth
+from pyVmomi.vmodl.MethodFault import MethodFault
 
-from pyVmomi.vim.vsan.host import EncryptionInfo
+from pyVmomi.vim.host.VsanDiskEncryptionHealth import VsanDiskEncryptionHealth
+
+from pyVmomi.vim.host.VsanKmsHealth import VsanKmsHealth
+
+from pyVmomi.vim.vsan.host.EncryptionInfo import EncryptionInfo
 
 class VsanEncryptionHealthSummary(DynamicData):
    hostname: Optional[str] = None

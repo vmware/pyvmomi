@@ -6,10 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vm.replication import ReplicationGroupId
+from pyVmomi.vmodl.MethodFault import MethodFault
+
+from pyVmomi.vim.vm.replication.ReplicationGroupId import ReplicationGroupId
 
 class GroupOperationResult(DynamicData):
    groupId: ReplicationGroupId

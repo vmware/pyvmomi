@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import MaintenanceSpec
+from pyVmomi.vim.host.MaintenanceSpec import MaintenanceSpec
 
 class DeleteStoragePoolDiskSpec(DynamicData):
    diskUuids: list[str] = []

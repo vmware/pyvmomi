@@ -6,21 +6,21 @@
 
 from typing import Optional
 
-from pyVmomi.pbm import AboutInfo
+from pyVmomi.pbm.AboutInfo import AboutInfo
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.pbm.auth import SessionManager
+from pyVmomi.pbm.auth.SessionManager import SessionManager
 
-from pyVmomi.pbm.capability import CapabilityMetadataManager
+from pyVmomi.pbm.capability.CapabilityMetadataManager import CapabilityMetadataManager
 
-from pyVmomi.pbm.compliance import ComplianceManager
+from pyVmomi.pbm.compliance.ComplianceManager import ComplianceManager
 
-from pyVmomi.pbm.placement import PlacementSolver
+from pyVmomi.pbm.placement.PlacementSolver import PlacementSolver
 
-from pyVmomi.pbm.profile import ProfileManager
+from pyVmomi.pbm.profile.ProfileManager import ProfileManager
 
-from pyVmomi.pbm.replication import ReplicationManager
+from pyVmomi.pbm.replication.ReplicationManager import ReplicationManager
 
 class ServiceInstanceContent(DynamicData):
    aboutInfo: AboutInfo

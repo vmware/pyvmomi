@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.event import TemplateUpgradeEvent
+from pyVmomi.vim.event.TemplateUpgradeEvent import TemplateUpgradeEvent
 
 class TemplateUpgradedEvent(TemplateUpgradeEvent):
    pass

@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.fault import ResourceInUse
+from pyVmomi.vim.fault.ResourceInUse import ResourceInUse
 
-from pyVmomi.vim.vm.device import VirtualDiskId
+from pyVmomi.vim.vm.device.VirtualDiskId import VirtualDiskId
 
 class FilterInUse(ResourceInUse):
    disk: list[VirtualDiskId] = []

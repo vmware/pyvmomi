@@ -10,18 +10,19 @@ from typing import Optional
 from pyVmomi.VmomiSupport import Enum
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim import SharesInfo
-from pyVmomi.vim import StorageResourceManager
+from pyVmomi.vim.SharesInfo import SharesInfo
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.StorageResourceManager import StorageResourceManager
 
-from pyVmomi.vim.encryption import CryptoKeyId
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vm import BaseIndependentFilterSpec
+from pyVmomi.vim.encryption.CryptoKeyId import CryptoKeyId
 
-from pyVmomi.vim.vslm import ID
+from pyVmomi.vim.vm.BaseIndependentFilterSpec import BaseIndependentFilterSpec
 
-from pyVmomi.vim.vm.device import VirtualDevice
+from pyVmomi.vim.vslm.ID import ID
+
+from pyVmomi.vim.vm.device.VirtualDevice import VirtualDevice
 
 class VirtualDisk(VirtualDevice):
    class DeltaDiskFormat(Enum):

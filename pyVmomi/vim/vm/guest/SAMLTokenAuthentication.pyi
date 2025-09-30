@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.vm.guest import GuestAuthentication
+from pyVmomi.vim.vm.guest.GuestAuthentication import GuestAuthentication
 
 class SAMLTokenAuthentication(GuestAuthentication):
    token: str

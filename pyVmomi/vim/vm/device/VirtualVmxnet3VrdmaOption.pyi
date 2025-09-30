@@ -9,9 +9,9 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim.option import ChoiceOption
+from pyVmomi.vim.option.ChoiceOption import ChoiceOption
 
-from pyVmomi.vim.vm.device import VirtualVmxnet3Option
+from pyVmomi.vim.vm.device.VirtualVmxnet3Option import VirtualVmxnet3Option
 
 class VirtualVmxnet3VrdmaOption(VirtualVmxnet3Option):
    class DeviceProtocols(Enum):

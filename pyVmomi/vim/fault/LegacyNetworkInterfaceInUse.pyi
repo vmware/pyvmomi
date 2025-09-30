@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import CannotAccessNetwork
+from pyVmomi.vim.fault.CannotAccessNetwork import CannotAccessNetwork
 
 class LegacyNetworkInterfaceInUse(CannotAccessNetwork):
    pass

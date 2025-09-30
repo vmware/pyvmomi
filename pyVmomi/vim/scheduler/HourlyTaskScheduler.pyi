@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.scheduler import RecurrentTaskScheduler
+from pyVmomi.vim.scheduler.RecurrentTaskScheduler import RecurrentTaskScheduler
 
 class HourlyTaskScheduler(RecurrentTaskScheduler):
    minute: int

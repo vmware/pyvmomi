@@ -10,21 +10,29 @@ from typing import Optional
 from pyVmomi.VmomiSupport import Enum
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim import BoolPolicy
-from pyVmomi.vim import DistributedVirtualSwitch
-from pyVmomi.vim import InheritablePolicy
-from pyVmomi.vim import IntPolicy
-from pyVmomi.vim import NumericRange
-from pyVmomi.vim import StringPolicy
-from pyVmomi.vim import Task
+from pyVmomi.vim.BoolPolicy import BoolPolicy
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.DistributedVirtualSwitch import DistributedVirtualSwitch
 
-from pyVmomi.vim.dvs import DistributedVirtualPort
-from pyVmomi.vim.dvs import DistributedVirtualPortgroup
-from pyVmomi.vim.dvs import HostMember
+from pyVmomi.vim.InheritablePolicy import InheritablePolicy
 
-from pyVmomi.vim.host import LinkDiscoveryProtocolConfig
+from pyVmomi.vim.IntPolicy import IntPolicy
+
+from pyVmomi.vim.NumericRange import NumericRange
+
+from pyVmomi.vim.StringPolicy import StringPolicy
+
+from pyVmomi.vim.Task import Task
+
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.vim.dvs.DistributedVirtualPort import DistributedVirtualPort
+
+from pyVmomi.vim.dvs.DistributedVirtualPortgroup import DistributedVirtualPortgroup
+
+from pyVmomi.vim.dvs.HostMember import HostMember
+
+from pyVmomi.vim.host.LinkDiscoveryProtocolConfig import LinkDiscoveryProtocolConfig
 
 class VmwareDistributedVirtualSwitch(DistributedVirtualSwitch):
    class FeatureCapability(DistributedVirtualSwitch.FeatureCapability):

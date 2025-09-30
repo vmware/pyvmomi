@@ -6,11 +6,13 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import LACPInfo
-from pyVmomi.vim.host import PnicTSOInfo
-from pyVmomi.vim.host import VirtualNic
+from pyVmomi.vim.host.LACPInfo import LACPInfo
+
+from pyVmomi.vim.host.PnicTSOInfo import PnicTSOInfo
+
+from pyVmomi.vim.host.VirtualNic import VirtualNic
 
 class VsanNetworkDiagnosticsHealthInfo(DynamicData):
    vnicInfo: list[VirtualNic] = []

@@ -8,7 +8,7 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import byte
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class TpmEventDetails(DynamicData):
    dataHash: list[byte] = []

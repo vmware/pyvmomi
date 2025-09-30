@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import NoCompatibleHost
+from pyVmomi.vim.fault.NoCompatibleHost import NoCompatibleHost
 
 class NoCompatibleHostWithAccessToDevice(NoCompatibleHost):
    pass

@@ -9,7 +9,7 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim.event import CustomizationEvent
+from pyVmomi.vim.event.CustomizationEvent import CustomizationEvent
 
 class CustomizationFailed(CustomizationEvent):
    class ReasonCode(Enum):

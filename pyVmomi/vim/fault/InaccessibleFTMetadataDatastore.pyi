@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import InaccessibleDatastore
+from pyVmomi.vim.fault.InaccessibleDatastore import InaccessibleDatastore
 
 class InaccessibleFTMetadataDatastore(InaccessibleDatastore):
    pass

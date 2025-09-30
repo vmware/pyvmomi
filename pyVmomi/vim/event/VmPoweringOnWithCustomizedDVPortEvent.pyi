@@ -4,8 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.event import VmEvent
-from pyVmomi.vim.event import VnicPortArgument
+from pyVmomi.vim.event.VmEvent import VmEvent
+
+from pyVmomi.vim.event.VnicPortArgument import VnicPortArgument
 
 class VmPoweringOnWithCustomizedDVPortEvent(VmEvent):
    vnic: list[VnicPortArgument] = []

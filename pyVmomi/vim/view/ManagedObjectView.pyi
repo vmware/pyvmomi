@@ -8,7 +8,7 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim.view import View
+from pyVmomi.vim.view.View import View
 
 class ManagedObjectView(View):
    @property

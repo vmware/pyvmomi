@@ -4,28 +4,37 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import NoReturn
 from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim import ComputeResource
-from pyVmomi.vim import Folder
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import HttpNfcLease
-from pyVmomi.vim import ImportSpec
-from pyVmomi.vim import ManagedEntity
-from pyVmomi.vim import ResourceConfigOption
-from pyVmomi.vim import ResourceConfigSpec
-from pyVmomi.vim import Task
-from pyVmomi.vim import VirtualApp
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.ComputeResource import ComputeResource
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.Folder import Folder
 
-from pyVmomi.vim.vApp import VAppConfigSpec
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vim.vm import ConfigSpec
+from pyVmomi.vim.HttpNfcLease import HttpNfcLease
+
+from pyVmomi.vim.ImportSpec import ImportSpec
+
+from pyVmomi.vim.ManagedEntity import ManagedEntity
+
+from pyVmomi.vim.ResourceConfigOption import ResourceConfigOption
+
+from pyVmomi.vim.ResourceConfigSpec import ResourceConfigSpec
+
+from pyVmomi.vim.Task import Task
+
+from pyVmomi.vim.VirtualApp import VirtualApp
+
+from pyVmomi.vim.VirtualMachine import VirtualMachine
+
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.vim.vApp.VAppConfigSpec import VAppConfigSpec
+
+from pyVmomi.vim.vm.ConfigSpec import ConfigSpec
 
 class ResourcePool(ManagedEntity):
    class ResourceUsage(DynamicData):
@@ -83,14 +92,14 @@ class ResourcePool(ManagedEntity):
    @property
    def childConfiguration(self) -> list[ResourceConfigSpec]: ...
 
-   def UpdateConfig(self, name: Optional[str], config: Optional[ResourceConfigSpec]) -> NoReturn: ...
-   def MoveInto(self, list: list[ManagedEntity]) -> NoReturn: ...
-   def UpdateChildResourceConfiguration(self, spec: list[ResourceConfigSpec]) -> NoReturn: ...
+   def UpdateConfig(self, name: Optional[str], config: Optional[ResourceConfigSpec]) -> None: ...
+   def MoveInto(self, list: list[ManagedEntity]) -> None: ...
+   def UpdateChildResourceConfiguration(self, spec: list[ResourceConfigSpec]) -> None: ...
    def CreateResourcePool(self, name: str, spec: ResourceConfigSpec) -> ResourcePool: ...
-   def DestroyChildren(self) -> NoReturn: ...
+   def DestroyChildren(self) -> None: ...
    def CreateVApp(self, name: str, resSpec: ResourceConfigSpec, configSpec: VAppConfigSpec, vmFolder: Optional[Folder]) -> VirtualApp: ...
    def CreateVm(self, config: ConfigSpec, host: Optional[HostSystem]) -> Task: ...
    def RegisterVm(self, path: str, name: Optional[str], host: Optional[HostSystem]) -> Task: ...
    def ImportVApp(self, spec: ImportSpec, folder: Optional[Folder], host: Optional[HostSystem]) -> HttpNfcLease: ...
    def QueryResourceConfigOption(self) -> ResourceConfigOption: ...
-   def RefreshRuntime(self) -> NoReturn: ...
+   def RefreshRuntime(self) -> None: ...

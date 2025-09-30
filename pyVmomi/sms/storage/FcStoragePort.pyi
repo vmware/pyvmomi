@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.sms.storage import StoragePort
+from pyVmomi.sms.storage.StoragePort import StoragePort
 
 class FcStoragePort(StoragePort):
    portWwn: str

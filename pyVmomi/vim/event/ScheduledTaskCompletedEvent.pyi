@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.event import ScheduledTaskEvent
+from pyVmomi.vim.event.ScheduledTaskEvent import ScheduledTaskEvent
 
 class ScheduledTaskCompletedEvent(ScheduledTaskEvent):
    pass

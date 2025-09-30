@@ -6,10 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vim.ext import ManagedByInfo
+from pyVmomi.vim.ext.ManagedByInfo import ManagedByInfo
 
-from pyVmomi.vim.vApp import EntityConfigInfo
-from pyVmomi.vim.vApp import VmConfigSpec
+from pyVmomi.vim.vApp.EntityConfigInfo import EntityConfigInfo
+
+from pyVmomi.vim.vApp.VmConfigSpec import VmConfigSpec
 
 class VAppConfigSpec(VmConfigSpec):
    entityConfig: list[EntityConfigInfo] = []

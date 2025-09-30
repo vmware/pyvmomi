@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.sms.storage.replication import DeviceId
+from pyVmomi.sms.storage.replication.DeviceId import DeviceId
 
 class VirtualMachineId(DeviceId):
    pass

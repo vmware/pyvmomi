@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.sms.storage.replication import GroupOperationResult
+from pyVmomi.sms.storage.replication.GroupOperationResult import GroupOperationResult
 
-from pyVmomi.vim.vm.replication import DeviceGroupId
+from pyVmomi.vim.vm.replication.DeviceGroupId import DeviceGroupId
 
 class ReverseReplicationSuccessResult(GroupOperationResult):
    newGroupId: DeviceGroupId

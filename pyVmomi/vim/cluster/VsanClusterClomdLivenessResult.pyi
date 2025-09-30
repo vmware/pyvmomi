@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.cluster import VsanHostClomdLivenessResult
+from pyVmomi.vim.cluster.VsanHostClomdLivenessResult import VsanHostClomdLivenessResult
 
 class VsanClusterClomdLivenessResult(DynamicData):
    clomdLivenessResult: list[VsanHostClomdLivenessResult] = []

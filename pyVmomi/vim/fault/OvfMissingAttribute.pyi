@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import OvfAttribute
+from pyVmomi.vim.fault.OvfAttribute import OvfAttribute
 
 class OvfMissingAttribute(OvfAttribute):
    pass

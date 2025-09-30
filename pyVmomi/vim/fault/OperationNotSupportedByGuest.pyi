@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import GuestOperationsFault
+from pyVmomi.vim.fault.GuestOperationsFault import GuestOperationsFault
 
 class OperationNotSupportedByGuest(GuestOperationsFault):
    pass

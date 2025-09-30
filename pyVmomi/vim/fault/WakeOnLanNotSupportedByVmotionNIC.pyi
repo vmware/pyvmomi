@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import HostPowerOpFailed
+from pyVmomi.vim.fault.HostPowerOpFailed import HostPowerOpFailed
 
 class WakeOnLanNotSupportedByVmotionNIC(HostPowerOpFailed):
    pass

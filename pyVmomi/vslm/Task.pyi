@@ -4,14 +4,13 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import NoReturn
 from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vslm import TaskInfo
+from pyVmomi.vslm.TaskInfo import TaskInfo
 
 class Task(ManagedObject):
    def QueryResult(self) -> Optional[object]: ...
    def QueryInfo(self) -> TaskInfo: ...
-   def Cancel(self) -> NoReturn: ...
+   def Cancel(self) -> None: ...

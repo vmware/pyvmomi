@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import IpAddress
+from pyVmomi.vim.IpAddress import IpAddress
 
 class SingleIp(IpAddress):
    address: str

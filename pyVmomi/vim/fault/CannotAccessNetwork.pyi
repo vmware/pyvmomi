@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import Network
+from pyVmomi.vim.Network import Network
 
-from pyVmomi.vim.fault import CannotAccessVmDevice
+from pyVmomi.vim.fault.CannotAccessVmDevice import CannotAccessVmDevice
 
 class CannotAccessNetwork(CannotAccessVmDevice):
    network: Optional[Network] = None

@@ -9,7 +9,7 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim.vm import GuestQuiesceSpec
+from pyVmomi.vim.vm.GuestQuiesceSpec import GuestQuiesceSpec
 
 class WindowsQuiesceSpec(GuestQuiesceSpec):
    class VssBackupContext(Enum):

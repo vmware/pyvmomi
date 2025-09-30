@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import IpRouteEntry
+from pyVmomi.vim.host.IpRouteEntry import IpRouteEntry
 
 class IpRouteTableInfo(DynamicData):
    ipRoute: list[IpRouteEntry] = []

@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import ResourceAllocationOption
+from pyVmomi.vim.ResourceAllocationOption import ResourceAllocationOption
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class ResourceConfigOption(DynamicData):
    cpuAllocationOption: ResourceAllocationOption

@@ -6,10 +6,13 @@
 
 from typing import Optional
 
-from pyVmomi.vim.cluster import VsanClusterHealthExternalLink
-from pyVmomi.vim.cluster import VsanClusterHealthResultBase
-from pyVmomi.vim.cluster import VsanClusterHealthResultTable
-from pyVmomi.vim.cluster import VsanHealthTroubleshooting
+from pyVmomi.vim.cluster.VsanClusterHealthExternalLink import VsanClusterHealthExternalLink
+
+from pyVmomi.vim.cluster.VsanClusterHealthResultBase import VsanClusterHealthResultBase
+
+from pyVmomi.vim.cluster.VsanClusterHealthResultTable import VsanClusterHealthResultTable
+
+from pyVmomi.vim.cluster.VsanHealthTroubleshooting import VsanHealthTroubleshooting
 
 class VsanClusterHealthResultWithRemediation(VsanClusterHealthResultBase):
    issueDescription: Optional[str] = None

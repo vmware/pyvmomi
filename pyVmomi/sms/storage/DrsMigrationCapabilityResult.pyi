@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.sms.storage import DatastorePair
+from pyVmomi.sms.storage.DatastorePair import DatastorePair
 
 class DrsMigrationCapabilityResult(DynamicData):
    recommendedDatastorePair: list[DatastorePair] = []

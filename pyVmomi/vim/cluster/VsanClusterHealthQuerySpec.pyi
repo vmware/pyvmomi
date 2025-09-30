@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import Task
+from pyVmomi.vim.Task import Task
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class VsanClusterHealthQuerySpec(DynamicData):
    task: Optional[Task] = None

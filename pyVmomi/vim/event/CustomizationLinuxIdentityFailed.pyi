@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.event import CustomizationFailed
+from pyVmomi.vim.event.CustomizationFailed import CustomizationFailed
 
 class CustomizationLinuxIdentityFailed(CustomizationFailed):
    pass

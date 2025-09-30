@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.fault import MigrationFault
+from pyVmomi.vim.fault.MigrationFault import MigrationFault
 
 class NetworksMayNotBeTheSame(MigrationFault):
    name: Optional[str] = None

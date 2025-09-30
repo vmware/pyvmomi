@@ -6,8 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.event import HostEvent
-from pyVmomi.vim.event import VnicPortArgument
+from pyVmomi.vim.event.HostEvent import HostEvent
+
+from pyVmomi.vim.event.VnicPortArgument import VnicPortArgument
 
 class HostVnicConnectedToCustomizedDVPortEvent(HostEvent):
    vnic: VnicPortArgument

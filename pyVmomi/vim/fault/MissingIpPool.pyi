@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import VAppPropertyFault
+from pyVmomi.vim.fault.VAppPropertyFault import VAppPropertyFault
 
 class MissingIpPool(VAppPropertyFault):
    pass

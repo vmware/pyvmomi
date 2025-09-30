@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import VsanDitEncryptionHealthSummary
+from pyVmomi.vim.host.VsanDitEncryptionHealthSummary import VsanDitEncryptionHealthSummary
 
 class VsanClusterDitEncryptionHealthSummary(DynamicData):
    overallHealth: str

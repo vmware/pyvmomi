@@ -6,13 +6,13 @@
 
 from typing import Optional
 
-from pyVmomi.vim import Task
+from pyVmomi.vim.Task import Task
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.cluster import VsanClusterProactiveTestResult
+from pyVmomi.vim.cluster.VsanClusterProactiveTestResult import VsanClusterProactiveTestResult
 
-from pyVmomi.vim.host import VsanHostVmdkLoadTestResult
+from pyVmomi.vim.host.VsanHostVmdkLoadTestResult import VsanHostVmdkLoadTestResult
 
 class VsanClusterVmdkLoadTestResult(DynamicData):
    task: Optional[Task] = None

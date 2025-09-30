@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.pbm.capability.provider import LineOfServiceInfo
+from pyVmomi.pbm.capability.provider.LineOfServiceInfo import LineOfServiceInfo
 
 class VaioDataServiceInfo(LineOfServiceInfo):
    pass

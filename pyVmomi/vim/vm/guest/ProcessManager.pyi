@@ -6,17 +6,16 @@
 
 from datetime import datetime
 
-from typing import NoReturn
 from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.VirtualMachine import VirtualMachine
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vm.guest import GuestAuthentication
+from pyVmomi.vim.vm.guest.GuestAuthentication import GuestAuthentication
 
 class ProcessManager(ManagedObject):
    class ProgramSpec(DynamicData):
@@ -39,5 +38,5 @@ class ProcessManager(ManagedObject):
 
    def StartProgram(self, vm: VirtualMachine, auth: GuestAuthentication, spec: ProgramSpec) -> long: ...
    def ListProcesses(self, vm: VirtualMachine, auth: GuestAuthentication, pids: list[long]) -> list[ProcessInfo]: ...
-   def TerminateProcess(self, vm: VirtualMachine, auth: GuestAuthentication, pid: long) -> NoReturn: ...
+   def TerminateProcess(self, vm: VirtualMachine, auth: GuestAuthentication, pid: long) -> None: ...
    def ReadEnvironmentVariable(self, vm: VirtualMachine, auth: GuestAuthentication, names: list[str]) -> list[str]: ...

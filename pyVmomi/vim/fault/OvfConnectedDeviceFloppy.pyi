@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import OvfConnectedDevice
+from pyVmomi.vim.fault.OvfConnectedDevice import OvfConnectedDevice
 
 class OvfConnectedDeviceFloppy(OvfConnectedDevice):
    filename: str

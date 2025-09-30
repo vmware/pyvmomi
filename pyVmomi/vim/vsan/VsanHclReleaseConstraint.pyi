@@ -6,12 +6,13 @@
 
 from typing import Optional
 
-from pyVmomi.vim import ClusterComputeResource
+from pyVmomi.vim.ClusterComputeResource import ClusterComputeResource
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vsan import VsanHclDeviceConstraint
-from pyVmomi.vim.vsan import VsanHostDeviceInfo
+from pyVmomi.vim.vsan.VsanHclDeviceConstraint import VsanHclDeviceConstraint
+
+from pyVmomi.vim.vsan.VsanHostDeviceInfo import VsanHostDeviceInfo
 
 class VsanHclReleaseConstraint(DynamicData):
    cluster: ClusterComputeResource

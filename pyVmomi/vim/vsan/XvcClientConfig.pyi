@@ -6,8 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.vsan import DatastoreSpec
-from pyVmomi.vim.vsan import XVCClientInfo
+from pyVmomi.vim.vsan.DatastoreSpec import DatastoreSpec
+
+from pyVmomi.vim.vsan.XVCClientInfo import XVCClientInfo
 
 class XvcClientConfig(DatastoreSpec):
    xvcClusters: list[XVCClientInfo] = []

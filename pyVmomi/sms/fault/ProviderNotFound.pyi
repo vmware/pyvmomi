@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.sms.fault import QueryExecutionFault
+from pyVmomi.sms.fault.QueryExecutionFault import QueryExecutionFault
 
 class ProviderNotFound(QueryExecutionFault):
    pass

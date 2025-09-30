@@ -6,8 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.profile import ParameterMetadata
-from pyVmomi.vim.profile import PolicyOptionMetadata
+from pyVmomi.vim.profile.ParameterMetadata import ParameterMetadata
+
+from pyVmomi.vim.profile.PolicyOptionMetadata import PolicyOptionMetadata
 
 class UserInputRequiredParameterMetadata(PolicyOptionMetadata):
    userInputParameter: list[ParameterMetadata] = []

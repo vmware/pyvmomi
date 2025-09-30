@@ -6,11 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.action import Action
+from pyVmomi.vim.action.Action import Action
 
-from pyVmomi.vim.scheduler import TaskScheduler
+from pyVmomi.vim.scheduler.TaskScheduler import TaskScheduler
 
 class ScheduledTaskSpec(DynamicData):
    name: str

@@ -8,9 +8,9 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim import Datastore
+from pyVmomi.vim.Datastore import Datastore
 
-from pyVmomi.vim.host import VmfsVolume
+from pyVmomi.vim.host.VmfsVolume import VmfsVolume
 
 class VmfsDatastoreInfo(Datastore.Info):
    maxPhysicalRDMFileSize: long

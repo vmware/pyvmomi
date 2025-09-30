@@ -8,10 +8,11 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import ManagedEntity
+from pyVmomi.vim.ManagedEntity import ManagedEntity
 
-from pyVmomi.vim.profile import PolicyMetadata
-from pyVmomi.vim.profile import Profile
+from pyVmomi.vim.profile.PolicyMetadata import PolicyMetadata
+
+from pyVmomi.vim.profile.Profile import Profile
 
 class ProfileManager(ManagedObject):
    @property

@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import OvfImport
+from pyVmomi.vim.fault.OvfImport import OvfImport
 
 class OvfCpuCompatibility(OvfImport):
    registerName: str

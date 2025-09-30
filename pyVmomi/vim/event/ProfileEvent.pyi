@@ -4,8 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.event import Event
-from pyVmomi.vim.event import ProfileEventArgument
+from pyVmomi.vim.event.Event import Event
+
+from pyVmomi.vim.event.ProfileEventArgument import ProfileEventArgument
 
 class ProfileEvent(Event):
    profile: ProfileEventArgument

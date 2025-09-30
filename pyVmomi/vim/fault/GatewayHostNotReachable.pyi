@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import GatewayToHostConnectFault
+from pyVmomi.vim.fault.GatewayToHostConnectFault import GatewayToHostConnectFault
 
 class GatewayHostNotReachable(GatewayToHostConnectFault):
    pass

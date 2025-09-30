@@ -4,32 +4,47 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import NoReturn
 from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import ClusterComputeResource
-from pyVmomi.vim import ComputeResource
-from pyVmomi.vim import Task
+from pyVmomi.vim.ClusterComputeResource import ClusterComputeResource
 
-from pyVmomi.vim.cluster import VsanClusterHealthGroup
-from pyVmomi.vim.cluster import VsanObjectInformation
-from pyVmomi.vim.cluster import VsanPerfDiagnoseQuerySpec
-from pyVmomi.vim.cluster import VsanPerfDiagnosticException
-from pyVmomi.vim.cluster import VsanPerfDiagnosticResult
-from pyVmomi.vim.cluster import VsanPerfEntityMetricCSV
-from pyVmomi.vim.cluster import VsanPerfEntityType
-from pyVmomi.vim.cluster import VsanPerfHotspotEntitiesMetrics
-from pyVmomi.vim.cluster import VsanPerfHotspotQuerySpec
-from pyVmomi.vim.cluster import VsanPerfNodeInformation
-from pyVmomi.vim.cluster import VsanPerfQuerySpec
-from pyVmomi.vim.cluster import VsanPerfTimeRange
-from pyVmomi.vim.cluster import VsanPerfTimeRangeQuerySpec
-from pyVmomi.vim.cluster import VsanPerfTopQuerySpec
-from pyVmomi.vim.cluster import VsanRemoteClusterQuerySpec
+from pyVmomi.vim.ComputeResource import ComputeResource
 
-from pyVmomi.vim.vm import ProfileSpec
+from pyVmomi.vim.Task import Task
+
+from pyVmomi.vim.cluster.VsanClusterHealthGroup import VsanClusterHealthGroup
+
+from pyVmomi.vim.cluster.VsanObjectInformation import VsanObjectInformation
+
+from pyVmomi.vim.cluster.VsanPerfDiagnoseQuerySpec import VsanPerfDiagnoseQuerySpec
+
+from pyVmomi.vim.cluster.VsanPerfDiagnosticException import VsanPerfDiagnosticException
+
+from pyVmomi.vim.cluster.VsanPerfDiagnosticResult import VsanPerfDiagnosticResult
+
+from pyVmomi.vim.cluster.VsanPerfEntityMetricCSV import VsanPerfEntityMetricCSV
+
+from pyVmomi.vim.cluster.VsanPerfEntityType import VsanPerfEntityType
+
+from pyVmomi.vim.cluster.VsanPerfHotspotEntitiesMetrics import VsanPerfHotspotEntitiesMetrics
+
+from pyVmomi.vim.cluster.VsanPerfHotspotQuerySpec import VsanPerfHotspotQuerySpec
+
+from pyVmomi.vim.cluster.VsanPerfNodeInformation import VsanPerfNodeInformation
+
+from pyVmomi.vim.cluster.VsanPerfQuerySpec import VsanPerfQuerySpec
+
+from pyVmomi.vim.cluster.VsanPerfTimeRange import VsanPerfTimeRange
+
+from pyVmomi.vim.cluster.VsanPerfTimeRangeQuerySpec import VsanPerfTimeRangeQuerySpec
+
+from pyVmomi.vim.cluster.VsanPerfTopQuerySpec import VsanPerfTopQuerySpec
+
+from pyVmomi.vim.cluster.VsanRemoteClusterQuerySpec import VsanRemoteClusterQuerySpec
+
+from pyVmomi.vim.vm.ProfileSpec import ProfileSpec
 
 class VsanPerformanceManager(ManagedObject):
    def QueryVsanPerfTopEntities(self, cluster: Optional[ClusterComputeResource], querySpec: VsanPerfTopQuerySpec) -> list[VsanPerfEntityMetricCSV]: ...
@@ -47,9 +62,9 @@ class VsanPerformanceManager(ManagedObject):
    def QueryStatsObjectInformation(self, cluster: Optional[ComputeResource]) -> VsanObjectInformation: ...
    def QueryClusterHealth(self, cluster: ClusterComputeResource) -> list[VsanClusterHealthGroup]: ...
    def QueryTimeRanges(self, cluster: Optional[ClusterComputeResource], querySpec: VsanPerfTimeRangeQuerySpec) -> list[VsanPerfTimeRange]: ...
-   def SaveTimeRanges(self, cluster: Optional[ClusterComputeResource], timeRanges: list[VsanPerfTimeRange]) -> NoReturn: ...
-   def DeleteTimeRange(self, cluster: Optional[ClusterComputeResource], name: str) -> NoReturn: ...
-   def ToggleVerboseMode(self, cluster: Optional[ClusterComputeResource], verboseMode: bool) -> NoReturn: ...
+   def SaveTimeRanges(self, cluster: Optional[ClusterComputeResource], timeRanges: list[VsanPerfTimeRange]) -> None: ...
+   def DeleteTimeRange(self, cluster: Optional[ClusterComputeResource], name: str) -> None: ...
+   def ToggleVerboseMode(self, cluster: Optional[ClusterComputeResource], verboseMode: bool) -> None: ...
    def GetSupportedEntityTypes(self) -> list[VsanPerfEntityType]: ...
    def GetSupportedDiagnosticExceptions(self) -> list[VsanPerfDiagnosticException]: ...
    def GetAggregatedEntityTypes(self) -> list[VsanPerfEntityType]: ...

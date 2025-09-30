@@ -8,14 +8,15 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim import Datastore
-from pyVmomi.vim import KeyValue
+from pyVmomi.vim.Datastore import Datastore
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.KeyValue import KeyValue
 
-from pyVmomi.vim.encryption import CryptoSpec
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vm import ProfileSpec
+from pyVmomi.vim.encryption.CryptoSpec import CryptoSpec
+
+from pyVmomi.vim.vm.ProfileSpec import ProfileSpec
 
 class CreateSpec(DynamicData):
    class BackingSpec(DynamicData):

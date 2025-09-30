@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.event import GeneralEvent
+from pyVmomi.vim.event.GeneralEvent import GeneralEvent
 
 class GeneralVmWarningEvent(GeneralEvent):
    pass

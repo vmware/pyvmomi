@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.vsan import ResourceCheckComponentResult
+from pyVmomi.vim.vsan.ResourceCheckComponentResult import ResourceCheckComponentResult
 
 class ResourceCheckVsanResult(ResourceCheckComponentResult):
    pass

@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim import Network
+from pyVmomi.vim.Network import Network
 
-from pyVmomi.eam.issue import VmPoweredOff
+from pyVmomi.eam.issue.VmPoweredOff import VmPoweredOff
 
 class InsufficientIpAddresses(VmPoweredOff):
    network: Network

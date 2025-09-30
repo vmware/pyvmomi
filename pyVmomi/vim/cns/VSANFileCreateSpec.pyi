@@ -8,9 +8,9 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim.cns import FileCreateSpec
+from pyVmomi.vim.cns.FileCreateSpec import FileCreateSpec
 
-from pyVmomi.vim.vsan import FileShareNetPermission
+from pyVmomi.vim.vsan.FileShareNetPermission import FileShareNetPermission
 
 class VSANFileCreateSpec(FileCreateSpec):
    softQuotaInMb: Optional[long] = None

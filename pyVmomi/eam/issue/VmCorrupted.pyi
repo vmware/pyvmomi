@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.eam.issue import VmIssue
+from pyVmomi.eam.issue.VmIssue import VmIssue
 
 class VmCorrupted(VmIssue):
    missingFile: Optional[str] = None

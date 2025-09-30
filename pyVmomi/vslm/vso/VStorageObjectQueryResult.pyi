@@ -6,11 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vslm import ID
+from pyVmomi.vim.vslm.ID import ID
 
-from pyVmomi.vslm.vso import VStorageObjectResult
+from pyVmomi.vslm.vso.VStorageObjectResult import VStorageObjectResult
 
 class VStorageObjectQueryResult(DynamicData):
    allRecordsReturned: bool

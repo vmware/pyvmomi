@@ -9,12 +9,13 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.pbm import ExtendedElementDescription
+from pyVmomi.pbm.ExtendedElementDescription import ExtendedElementDescription
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.pbm.capability.provider import CapabilityObjectMetadataPerCategory
-from pyVmomi.pbm.capability.provider import LineOfServiceInfo
+from pyVmomi.pbm.capability.provider.CapabilityObjectMetadataPerCategory import CapabilityObjectMetadataPerCategory
+
+from pyVmomi.pbm.capability.provider.LineOfServiceInfo import LineOfServiceInfo
 
 class CapabilityObjectSchema(DynamicData):
    class VendorInfo(DynamicData):

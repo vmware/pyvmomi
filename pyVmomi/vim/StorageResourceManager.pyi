@@ -5,7 +5,6 @@
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
 from typing import ClassVar
-from typing import NoReturn
 from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
@@ -13,28 +12,41 @@ from pyVmomi.VmomiSupport import ManagedObject
 from pyVmomi.VmomiSupport import double
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim import Datastore
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import SharesInfo
-from pyVmomi.vim import SharesOption
-from pyVmomi.vim import StoragePod
-from pyVmomi.vim import Task
+from pyVmomi.vim.Datastore import Datastore
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import MethodFault
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vim.cluster import ActionHistory
-from pyVmomi.vim.cluster import DrsFaults
-from pyVmomi.vim.cluster import Recommendation
+from pyVmomi.vim.SharesInfo import SharesInfo
 
-from pyVmomi.vim.option import BoolOption
-from pyVmomi.vim.option import IntOption
-from pyVmomi.vim.option import LongOption
+from pyVmomi.vim.SharesOption import SharesOption
 
-from pyVmomi.vim.storageDrs import ConfigInfo
-from pyVmomi.vim.storageDrs import ConfigSpec
-from pyVmomi.vim.storageDrs import StoragePlacementResult
-from pyVmomi.vim.storageDrs import StoragePlacementSpec
+from pyVmomi.vim.StoragePod import StoragePod
+
+from pyVmomi.vim.Task import Task
+
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.vmodl.MethodFault import MethodFault
+
+from pyVmomi.vim.cluster.ActionHistory import ActionHistory
+
+from pyVmomi.vim.cluster.DrsFaults import DrsFaults
+
+from pyVmomi.vim.cluster.Recommendation import Recommendation
+
+from pyVmomi.vim.option.BoolOption import BoolOption
+
+from pyVmomi.vim.option.IntOption import IntOption
+
+from pyVmomi.vim.option.LongOption import LongOption
+
+from pyVmomi.vim.storageDrs.ConfigInfo import ConfigInfo
+
+from pyVmomi.vim.storageDrs.ConfigSpec import ConfigSpec
+
+from pyVmomi.vim.storageDrs.StoragePlacementResult import StoragePlacementResult
+
+from pyVmomi.vim.storageDrs.StoragePlacementSpec import StoragePlacementSpec
 
 class StorageResourceManager(ManagedObject):
    class IOAllocationInfo(DynamicData):
@@ -102,8 +114,8 @@ class StorageResourceManager(ManagedObject):
    def QueryDatastorePerformanceSummary(self, datastore: Datastore) -> list[StoragePerformanceSummary]: ...
    def ApplyRecommendationToPod(self, pod: StoragePod, key: str) -> Task: ...
    def ApplyRecommendation(self, key: list[str]) -> Task: ...
-   def CancelRecommendation(self, key: list[str]) -> NoReturn: ...
-   def RefreshRecommendation(self, pod: StoragePod) -> NoReturn: ...
+   def CancelRecommendation(self, key: list[str]) -> None: ...
+   def RefreshRecommendation(self, pod: StoragePod) -> None: ...
    def RefreshRecommendationsForPod(self, pod: StoragePod) -> Task: ...
    def ConfigureStorageDrsForPod(self, pod: StoragePod, spec: ConfigSpec, modify: bool) -> Task: ...
    def ValidateStoragePodConfig(self, pod: StoragePod, spec: ConfigSpec) -> Optional[MethodFault]: ...

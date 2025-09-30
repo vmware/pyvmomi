@@ -6,8 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.cluster import VsanIscsiTargetCommonInfo
-from pyVmomi.vim.cluster import VsanObjectInformation
+from pyVmomi.vim.cluster.VsanIscsiTargetCommonInfo import VsanIscsiTargetCommonInfo
+
+from pyVmomi.vim.cluster.VsanObjectInformation import VsanObjectInformation
 
 class VsanIscsiTarget(VsanIscsiTargetCommonInfo):
    lunCount: Optional[int] = None

@@ -4,13 +4,12 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import NoReturn
 from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
 class KernelModuleSystem(ManagedObject):
    class ModuleInfo(DynamicData):
@@ -33,5 +32,5 @@ class KernelModuleSystem(ManagedObject):
       bssSection: SectionInfo
 
    def QueryModules(self) -> list[ModuleInfo]: ...
-   def UpdateModuleOptionString(self, name: str, options: str) -> NoReturn: ...
+   def UpdateModuleOptionString(self, name: str, options: str) -> None: ...
    def QueryConfiguredModuleOptionString(self, name: str) -> str: ...

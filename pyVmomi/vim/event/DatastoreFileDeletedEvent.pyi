@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.event import DatastoreFileEvent
+from pyVmomi.vim.event.DatastoreFileEvent import DatastoreFileEvent
 
 class DatastoreFileDeletedEvent(DatastoreFileEvent):
    pass

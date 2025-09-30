@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.sms import EntityReference
+from pyVmomi.sms.EntityReference import EntityReference
 
-from pyVmomi.vmodl.fault import InvalidArgument
+from pyVmomi.vmodl.fault.InvalidArgument import InvalidArgument
 
 class QueryNotSupported(InvalidArgument):
    entityType: Optional[EntityReference.EntityType] = None

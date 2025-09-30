@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.alarm import AlarmAction
+from pyVmomi.vim.alarm.AlarmAction import AlarmAction
 
 class GroupAlarmAction(AlarmAction):
    action: list[AlarmAction] = []

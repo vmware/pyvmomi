@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vsan.host import TrimDiskEntry
+from pyVmomi.vim.vsan.host.TrimDiskEntry import TrimDiskEntry
 
 class TrimDiskSpec(DynamicData):
    disks: list[TrimDiskEntry] = []

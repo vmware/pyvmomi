@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import InvalidVmConfig
+from pyVmomi.vim.fault.InvalidVmConfig import InvalidVmConfig
 
 class TooManyDevices(InvalidVmConfig):
    pass

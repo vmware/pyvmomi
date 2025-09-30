@@ -4,9 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.fault import OvfExport
+from pyVmomi.vim.fault.OvfExport import OvfExport
 
-from pyVmomi.vim.vm.device import VirtualCdrom
+from pyVmomi.vim.vm.device.VirtualCdrom import VirtualCdrom
 
 class ConnectedIso(OvfExport):
    cdrom: VirtualCdrom

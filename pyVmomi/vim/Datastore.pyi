@@ -7,25 +7,30 @@
 from datetime import datetime
 
 from typing import ClassVar
-from typing import NoReturn
 from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import KeyValue
-from pyVmomi.vim import ManagedEntity
-from pyVmomi.vim import StorageResourceManager
-from pyVmomi.vim import Task
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vim.KeyValue import KeyValue
 
-from pyVmomi.vim.host import DatastoreBrowser
-from pyVmomi.vim.host import MountInfo
+from pyVmomi.vim.ManagedEntity import ManagedEntity
 
-from pyVmomi.vim.storageDrs import StoragePlacementResult
+from pyVmomi.vim.StorageResourceManager import StorageResourceManager
+
+from pyVmomi.vim.Task import Task
+
+from pyVmomi.vim.VirtualMachine import VirtualMachine
+
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.vim.host.DatastoreBrowser import DatastoreBrowser
+
+from pyVmomi.vim.host.MountInfo import MountInfo
+
+from pyVmomi.vim.storageDrs.StoragePlacementResult import StoragePlacementResult
 
 class Datastore(ManagedEntity):
    class Accessible(Enum):
@@ -113,11 +118,11 @@ class Datastore(ManagedEntity):
    @property
    def iormConfiguration(self) -> Optional[StorageResourceManager.IORMConfigInfo]: ...
 
-   def Refresh(self) -> NoReturn: ...
-   def RefreshStorageInfo(self) -> NoReturn: ...
+   def Refresh(self) -> None: ...
+   def RefreshStorageInfo(self) -> None: ...
    def UpdateVirtualMachineFiles(self, mountPathDatastoreMapping: list[MountPathDatastorePair]) -> Task: ...
-   def RenameDatastore(self, newName: str) -> NoReturn: ...
-   def DestroyDatastore(self) -> NoReturn: ...
+   def RenameDatastore(self, newName: str) -> None: ...
+   def DestroyDatastore(self) -> None: ...
    def EnterMaintenanceMode(self) -> StoragePlacementResult: ...
    def ExitMaintenanceMode(self) -> Task: ...
    def IsClusteredVmdkEnabled(self) -> bool: ...

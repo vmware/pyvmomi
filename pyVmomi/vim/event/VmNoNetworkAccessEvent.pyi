@@ -4,8 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.event import HostEventArgument
-from pyVmomi.vim.event import VmEvent
+from pyVmomi.vim.event.HostEventArgument import HostEventArgument
+
+from pyVmomi.vim.event.VmEvent import VmEvent
 
 class VmNoNetworkAccessEvent(VmEvent):
    destHost: HostEventArgument

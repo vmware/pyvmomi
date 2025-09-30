@@ -6,7 +6,7 @@
 
 from typing import Optional
 
-from pyVmomi.vim.vm import SriovDevicePoolInfo
+from pyVmomi.vim.vm.SriovDevicePoolInfo import SriovDevicePoolInfo
 
 class SriovNetworkDevicePoolInfo(SriovDevicePoolInfo):
    switchKey: Optional[str] = None

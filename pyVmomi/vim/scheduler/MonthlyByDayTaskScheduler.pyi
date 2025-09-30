@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.scheduler import MonthlyTaskScheduler
+from pyVmomi.vim.scheduler.MonthlyTaskScheduler import MonthlyTaskScheduler
 
 class MonthlyByDayTaskScheduler(MonthlyTaskScheduler):
    day: int

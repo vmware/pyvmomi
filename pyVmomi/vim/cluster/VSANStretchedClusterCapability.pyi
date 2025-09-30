@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import VSANStretchedClusterHostCapability
+from pyVmomi.vim.host.VSANStretchedClusterHostCapability import VSANStretchedClusterHostCapability
 
 class VSANStretchedClusterCapability(DynamicData):
    hostMoId: str

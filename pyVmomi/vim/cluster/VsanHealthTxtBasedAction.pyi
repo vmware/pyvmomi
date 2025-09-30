@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.cluster import VsanHealthActionBase
+from pyVmomi.vim.cluster.VsanHealthActionBase import VsanHealthActionBase
 
 class VsanHealthTxtBasedAction(VsanHealthActionBase):
    pass

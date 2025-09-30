@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import KeyAnyValue
+from pyVmomi.vmodl.KeyAnyValue import KeyAnyValue
 
-from pyVmomi.vim.profile import Expression
+from pyVmomi.vim.profile.Expression import Expression
 
 class SimpleExpression(Expression):
    expressionType: str

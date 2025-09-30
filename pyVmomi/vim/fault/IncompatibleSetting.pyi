@@ -6,7 +6,7 @@
 
 from pyVmomi.VmomiSupport import PropertyPath
 
-from pyVmomi.vmodl.fault import InvalidArgument
+from pyVmomi.vmodl.fault.InvalidArgument import InvalidArgument
 
 class IncompatibleSetting(InvalidArgument):
    conflictingProperty: PropertyPath

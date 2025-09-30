@@ -6,9 +6,11 @@
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import ClusterComputeResource
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import Task
+from pyVmomi.vim.ClusterComputeResource import ClusterComputeResource
+
+from pyVmomi.vim.HostSystem import HostSystem
+
+from pyVmomi.vim.Task import Task
 
 class VsanClusterMgmtInternalSystem(ManagedObject):
    def RemediateVsanCluster(self, cluster: ClusterComputeResource) -> Task: ...

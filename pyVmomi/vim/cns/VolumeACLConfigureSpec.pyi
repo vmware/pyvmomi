@@ -4,10 +4,11 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.cns import AccessControlSpec
-from pyVmomi.vim.cns import VolumeId
+from pyVmomi.vim.cns.AccessControlSpec import AccessControlSpec
+
+from pyVmomi.vim.cns.VolumeId import VolumeId
 
 class VolumeACLConfigureSpec(DynamicData):
    volumeId: VolumeId

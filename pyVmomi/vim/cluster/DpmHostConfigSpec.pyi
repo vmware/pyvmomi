@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.cluster import DpmHostConfigInfo
+from pyVmomi.vim.cluster.DpmHostConfigInfo import DpmHostConfigInfo
 
-from pyVmomi.vim.option import ArrayUpdateSpec
+from pyVmomi.vim.option.ArrayUpdateSpec import ArrayUpdateSpec
 
 class DpmHostConfigSpec(ArrayUpdateSpec):
    info: Optional[DpmHostConfigInfo] = None

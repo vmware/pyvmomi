@@ -8,7 +8,7 @@ from datetime import datetime
 
 from typing import Optional
 
-from pyVmomi.vim.scheduler import TaskScheduler
+from pyVmomi.vim.scheduler.TaskScheduler import TaskScheduler
 
 class OnceTaskScheduler(TaskScheduler):
    runAt: Optional[datetime] = None

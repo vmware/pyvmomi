@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.profile.host import DvsVNicProfile
+from pyVmomi.vim.profile.host.DvsVNicProfile import DvsVNicProfile
 
 class DvsServiceConsoleVNicProfile(DvsVNicProfile):
    pass

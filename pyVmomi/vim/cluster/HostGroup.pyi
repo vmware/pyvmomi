@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import HostSystem
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vim.cluster import GroupInfo
+from pyVmomi.vim.cluster.GroupInfo import GroupInfo
 
 class HostGroup(GroupInfo):
    host: list[HostSystem] = []

@@ -6,11 +6,11 @@
 
 from typing import Optional
 
-from pyVmomi.vim import Folder
+from pyVmomi.vim.Folder import Folder
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.vm import TargetInfo
+from pyVmomi.vim.vm.TargetInfo import TargetInfo
 
 class SubnetInfo(TargetInfo):
    class FolderInfo(DynamicData):

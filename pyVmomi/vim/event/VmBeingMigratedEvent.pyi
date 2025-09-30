@@ -6,10 +6,13 @@
 
 from typing import Optional
 
-from pyVmomi.vim.event import DatacenterEventArgument
-from pyVmomi.vim.event import DatastoreEventArgument
-from pyVmomi.vim.event import HostEventArgument
-from pyVmomi.vim.event import VmEvent
+from pyVmomi.vim.event.DatacenterEventArgument import DatacenterEventArgument
+
+from pyVmomi.vim.event.DatastoreEventArgument import DatastoreEventArgument
+
+from pyVmomi.vim.event.HostEventArgument import HostEventArgument
+
+from pyVmomi.vim.event.VmEvent import VmEvent
 
 class VmBeingMigratedEvent(VmEvent):
    destHost: HostEventArgument

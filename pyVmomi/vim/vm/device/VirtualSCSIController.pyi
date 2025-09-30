@@ -9,7 +9,7 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import Enum
 
-from pyVmomi.vim.vm.device import VirtualController
+from pyVmomi.vim.vm.device.VirtualController import VirtualController
 
 class VirtualSCSIController(VirtualController):
    class Sharing(Enum):

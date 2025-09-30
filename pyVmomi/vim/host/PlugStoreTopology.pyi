@@ -6,11 +6,13 @@
 
 from typing import Optional
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.host import HostBusAdapter
-from pyVmomi.vim.host import ScsiLun
-from pyVmomi.vim.host import TargetTransport
+from pyVmomi.vim.host.HostBusAdapter import HostBusAdapter
+
+from pyVmomi.vim.host.ScsiLun import ScsiLun
+
+from pyVmomi.vim.host.TargetTransport import TargetTransport
 
 class PlugStoreTopology(DynamicData):
    class Adapter(DynamicData):

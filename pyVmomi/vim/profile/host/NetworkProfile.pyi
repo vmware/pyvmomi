@@ -6,20 +6,31 @@
 
 from typing import Optional
 
-from pyVmomi.vim.profile import ApplyProfile
+from pyVmomi.vim.profile.ApplyProfile import ApplyProfile
 
-from pyVmomi.vim.profile.host import DvsHostVNicProfile
-from pyVmomi.vim.profile.host import DvsProfile
-from pyVmomi.vim.profile.host import DvsServiceConsoleVNicProfile
-from pyVmomi.vim.profile.host import HostPortGroupProfile
-from pyVmomi.vim.profile.host import IpRouteProfile
-from pyVmomi.vim.profile.host import NetStackInstanceProfile
-from pyVmomi.vim.profile.host import NsxHostVNicProfile
-from pyVmomi.vim.profile.host import OpaqueSwitchProfile
-from pyVmomi.vim.profile.host import PhysicalNicProfile
-from pyVmomi.vim.profile.host import ServiceConsolePortGroupProfile
-from pyVmomi.vim.profile.host import VirtualSwitchProfile
-from pyVmomi.vim.profile.host import VmPortGroupProfile
+from pyVmomi.vim.profile.host.DvsHostVNicProfile import DvsHostVNicProfile
+
+from pyVmomi.vim.profile.host.DvsProfile import DvsProfile
+
+from pyVmomi.vim.profile.host.DvsServiceConsoleVNicProfile import DvsServiceConsoleVNicProfile
+
+from pyVmomi.vim.profile.host.HostPortGroupProfile import HostPortGroupProfile
+
+from pyVmomi.vim.profile.host.IpRouteProfile import IpRouteProfile
+
+from pyVmomi.vim.profile.host.NetStackInstanceProfile import NetStackInstanceProfile
+
+from pyVmomi.vim.profile.host.NsxHostVNicProfile import NsxHostVNicProfile
+
+from pyVmomi.vim.profile.host.OpaqueSwitchProfile import OpaqueSwitchProfile
+
+from pyVmomi.vim.profile.host.PhysicalNicProfile import PhysicalNicProfile
+
+from pyVmomi.vim.profile.host.ServiceConsolePortGroupProfile import ServiceConsolePortGroupProfile
+
+from pyVmomi.vim.profile.host.VirtualSwitchProfile import VirtualSwitchProfile
+
+from pyVmomi.vim.profile.host.VmPortGroupProfile import VmPortGroupProfile
 
 class NetworkProfile(ApplyProfile):
    class DnsConfigProfile(ApplyProfile):

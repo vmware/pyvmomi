@@ -6,8 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.event import DvsEvent
-from pyVmomi.vim.event import HostEventArgument
+from pyVmomi.vim.event.DvsEvent import DvsEvent
+
+from pyVmomi.vim.event.HostEventArgument import HostEventArgument
 
 class DvsHostStatusUpdated(DvsEvent):
    hostMember: HostEventArgument

@@ -8,14 +8,15 @@ from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 
-from pyVmomi.vim import Task
-from pyVmomi.vim import VirtualMachine
+from pyVmomi.vim.Task import Task
 
-from pyVmomi.vim.option import OptionValue
+from pyVmomi.vim.VirtualMachine import VirtualMachine
 
-from pyVmomi.vim.vm.customization import Specification
+from pyVmomi.vim.option.OptionValue import OptionValue
 
-from pyVmomi.vim.vm.guest import GuestAuthentication
+from pyVmomi.vim.vm.customization.Specification import Specification
+
+from pyVmomi.vim.vm.guest.GuestAuthentication import GuestAuthentication
 
 class GuestCustomizationManager(ManagedObject):
    def Customize(self, vm: VirtualMachine, auth: GuestAuthentication, spec: Specification, configParams: list[OptionValue]) -> Task: ...

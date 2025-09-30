@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim import HostSystem
+from pyVmomi.vim.HostSystem import HostSystem
 
-from pyVmomi.vim.fault import InsufficientResourcesFault
+from pyVmomi.vim.fault.InsufficientResourcesFault import InsufficientResourcesFault
 
 class InsufficientHostCapacityFault(InsufficientResourcesFault):
    host: Optional[HostSystem] = None

@@ -4,8 +4,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.vm.device import VirtualDeviceOption
-from pyVmomi.vim.vm.device import VirtualEthernetCardOption
+from pyVmomi.vim.vm.device.VirtualDeviceOption import VirtualDeviceOption
+
+from pyVmomi.vim.vm.device.VirtualEthernetCardOption import VirtualEthernetCardOption
 
 class VirtualSriovEthernetCardOption(VirtualEthernetCardOption):
    class SriovBackingOption(VirtualDeviceOption.BackingOption):

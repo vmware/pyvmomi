@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.event import Event
+from pyVmomi.vim.event.Event import Event
 
-from pyVmomi.vim.fault import MigrationFault
+from pyVmomi.vim.fault.MigrationFault import MigrationFault
 
 class SnapshotRevertIssue(MigrationFault):
    snapshotName: Optional[str] = None

@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.option import IntOption
+from pyVmomi.vim.option.IntOption import IntOption
 
-from pyVmomi.vim.vm.device import VirtualControllerOption
+from pyVmomi.vim.vm.device.VirtualControllerOption import VirtualControllerOption
 
 class VirtualNVMEControllerOption(VirtualControllerOption):
    numNVMEDisks: IntOption

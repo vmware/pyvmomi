@@ -4,7 +4,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vim.vm.device import VirtualSATAController
+from pyVmomi.vim.vm.device.VirtualSATAController import VirtualSATAController
 
 class VirtualAHCIController(VirtualSATAController):
    pass

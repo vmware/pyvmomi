@@ -4,14 +4,14 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import NoReturn
 from typing import Optional
 
 from pyVmomi.VmomiSupport import ManagedObject
 from pyVmomi.VmomiSupport import long
 
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import LocalizableMessage
+from pyVmomi.vmodl.DynamicData import DynamicData
+
+from pyVmomi.vmodl.LocalizableMessage import LocalizableMessage
 
 class VsanInternalSystem(ManagedObject):
    class CmmdsQuery(DynamicData):
@@ -63,7 +63,7 @@ class VsanInternalSystem(ManagedObject):
    def QueryObjectsOnPhysicalVsanDisk(self, disks: list[str]) -> str: ...
    def AbdicateDomOwnership(self, uuids: list[str]) -> list[str]: ...
    def QueryVsanStatistics(self, labels: list[str]) -> str: ...
-   def ReconfigureDomObject(self, uuid: str, policy: str) -> NoReturn: ...
+   def ReconfigureDomObject(self, uuid: str, policy: str) -> None: ...
    def QuerySyncingVsanObjects(self, uuids: list[str]) -> str: ...
    def RunVsanPhysicalDiskDiagnostics(self, disks: list[str]) -> list[VsanPhysicalDiskDiagnosticsResult]: ...
    def GetVsanObjExtAttrs(self, uuids: list[str]) -> str: ...

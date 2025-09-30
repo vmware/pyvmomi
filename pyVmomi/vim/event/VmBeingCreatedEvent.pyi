@@ -6,9 +6,9 @@
 
 from typing import Optional
 
-from pyVmomi.vim.event import VmEvent
+from pyVmomi.vim.event.VmEvent import VmEvent
 
-from pyVmomi.vim.vm import ConfigSpec
+from pyVmomi.vim.vm.ConfigSpec import ConfigSpec
 
 class VmBeingCreatedEvent(VmEvent):
    configSpec: Optional[ConfigSpec] = None

@@ -8,34 +8,53 @@ from datetime import datetime
 
 from typing import Optional
 
-from pyVmomi.vim import ClusterComputeResource
+from pyVmomi.vim.ClusterComputeResource import ClusterComputeResource
 
-from pyVmomi.vmodl import DynamicData
+from pyVmomi.vmodl.DynamicData import DynamicData
 
-from pyVmomi.vim.cluster import VsanClusterAdvCfgSyncResult
-from pyVmomi.vim.cluster import VsanClusterBalanceSummary
-from pyVmomi.vim.cluster import VsanClusterClomdLivenessResult
-from pyVmomi.vim.cluster import VsanClusterDitEncryptionHealthSummary
-from pyVmomi.vim.cluster import VsanClusterEncryptionHealthSummary
-from pyVmomi.vim.cluster import VsanClusterFileServiceHealthSummary
-from pyVmomi.vim.cluster import VsanClusterGlobalDedupHealthSummary
-from pyVmomi.vim.cluster import VsanClusterHclInfo
-from pyVmomi.vim.cluster import VsanClusterHealthGroup
-from pyVmomi.vim.cluster import VsanClusterHealthSystemStatusResult
-from pyVmomi.vim.cluster import VsanClusterHealthSystemVersionResult
-from pyVmomi.vim.cluster import VsanClusterLimitHealthResult
-from pyVmomi.vim.cluster import VsanClusterNetworkHealthResult
-from pyVmomi.vim.cluster import VsanClusterVMsHealthOverallResult
-from pyVmomi.vim.cluster import VsanHostCreateVmHealthTestResult
+from pyVmomi.vim.cluster.VsanClusterAdvCfgSyncResult import VsanClusterAdvCfgSyncResult
 
-from pyVmomi.vim.host import VsanObjectOverallHealth
-from pyVmomi.vim.host import VsanPhysicalDiskHealthSummary
+from pyVmomi.vim.cluster.VsanClusterBalanceSummary import VsanClusterBalanceSummary
 
-from pyVmomi.vim.vsan import VsanBurnInTestCheckResult
-from pyVmomi.vim.vsan import VsanConfigCheckResult
-from pyVmomi.vim.vsan import VsanGenericClusterBestPracticeHealth
-from pyVmomi.vim.vsan import VsanNetworkConfigBestPracticeHealth
-from pyVmomi.vim.vsan import VsanPerfsvcHealthResult
+from pyVmomi.vim.cluster.VsanClusterClomdLivenessResult import VsanClusterClomdLivenessResult
+
+from pyVmomi.vim.cluster.VsanClusterDitEncryptionHealthSummary import VsanClusterDitEncryptionHealthSummary
+
+from pyVmomi.vim.cluster.VsanClusterEncryptionHealthSummary import VsanClusterEncryptionHealthSummary
+
+from pyVmomi.vim.cluster.VsanClusterFileServiceHealthSummary import VsanClusterFileServiceHealthSummary
+
+from pyVmomi.vim.cluster.VsanClusterGlobalDedupHealthSummary import VsanClusterGlobalDedupHealthSummary
+
+from pyVmomi.vim.cluster.VsanClusterHclInfo import VsanClusterHclInfo
+
+from pyVmomi.vim.cluster.VsanClusterHealthGroup import VsanClusterHealthGroup
+
+from pyVmomi.vim.cluster.VsanClusterHealthSystemStatusResult import VsanClusterHealthSystemStatusResult
+
+from pyVmomi.vim.cluster.VsanClusterHealthSystemVersionResult import VsanClusterHealthSystemVersionResult
+
+from pyVmomi.vim.cluster.VsanClusterLimitHealthResult import VsanClusterLimitHealthResult
+
+from pyVmomi.vim.cluster.VsanClusterNetworkHealthResult import VsanClusterNetworkHealthResult
+
+from pyVmomi.vim.cluster.VsanClusterVMsHealthOverallResult import VsanClusterVMsHealthOverallResult
+
+from pyVmomi.vim.cluster.VsanHostCreateVmHealthTestResult import VsanHostCreateVmHealthTestResult
+
+from pyVmomi.vim.host.VsanObjectOverallHealth import VsanObjectOverallHealth
+
+from pyVmomi.vim.host.VsanPhysicalDiskHealthSummary import VsanPhysicalDiskHealthSummary
+
+from pyVmomi.vim.vsan.VsanBurnInTestCheckResult import VsanBurnInTestCheckResult
+
+from pyVmomi.vim.vsan.VsanConfigCheckResult import VsanConfigCheckResult
+
+from pyVmomi.vim.vsan.VsanGenericClusterBestPracticeHealth import VsanGenericClusterBestPracticeHealth
+
+from pyVmomi.vim.vsan.VsanNetworkConfigBestPracticeHealth import VsanNetworkConfigBestPracticeHealth
+
+from pyVmomi.vim.vsan.VsanPerfsvcHealthResult import VsanPerfsvcHealthResult
 
 class VsanClusterHealthSummary(DynamicData):
    clusterStatus: Optional[VsanClusterHealthSystemStatusResult] = None
