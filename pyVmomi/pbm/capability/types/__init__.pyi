@@ -3,9 +3,8 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.pbm import ExtendedElementDescription
-
-from pyVmomi.vmodl import DynamicData
+import pyVmomi.pbm
+import pyVmomi.vmodl
 
 
 class BuiltinGenericTypesEnum:
@@ -15,21 +14,21 @@ class BuiltinTypesEnum:
    pass
 
 
-class DescriptiveValue(DynamicData):
-   description: ExtendedElementDescription
+class DescriptiveValue(pyVmomi.vmodl.DynamicData):
+   description: pyVmomi.pbm.ExtendedElementDescription
    value: object
 
 
-class DiscreteSet(DynamicData):
+class DiscreteSet(pyVmomi.vmodl.DynamicData):
    values: list[object] = []
 
 
-class Range(DynamicData):
+class Range(pyVmomi.vmodl.DynamicData):
    min: object
    max: object
 
 
-class TimeSpan(DynamicData):
+class TimeSpan(pyVmomi.vmodl.DynamicData):
    value: int
    unit: str
 

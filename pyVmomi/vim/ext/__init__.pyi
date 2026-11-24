@@ -3,37 +3,35 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import Optional
-
-from pyVmomi.vim import ManagedEntity
-
-from pyVmomi.vmodl import DynamicData
+import typing as _typing
+import pyVmomi.vim
+import pyVmomi.vmodl
 
 
 
-class ExtendedProductInfo(DynamicData):
-   companyUrl: Optional[str] = None
-   productUrl: Optional[str] = None
-   managementUrl: Optional[str] = None
-   self: Optional[ManagedEntity] = None
+class ExtendedProductInfo(pyVmomi.vmodl.DynamicData):
+   companyUrl: _typing.Optional[str] = None
+   productUrl: _typing.Optional[str] = None
+   managementUrl: _typing.Optional[str] = None
+   self: _typing.Optional[pyVmomi.vim.ManagedEntity] = None
 
 
-class ManagedByInfo(DynamicData):
+class ManagedByInfo(pyVmomi.vmodl.DynamicData):
    extensionKey: str
    type: str
 
 
-class ManagedEntityInfo(DynamicData):
+class ManagedEntityInfo(pyVmomi.vmodl.DynamicData):
    type: str
-   smallIconUrl: Optional[str] = None
-   iconUrl: Optional[str] = None
-   description: Optional[str] = None
+   smallIconUrl: _typing.Optional[str] = None
+   iconUrl: _typing.Optional[str] = None
+   description: _typing.Optional[str] = None
 
 
-class SolutionManagerInfo(DynamicData):
-   class TabInfo(DynamicData):
+class SolutionManagerInfo(pyVmomi.vmodl.DynamicData):
+   class TabInfo(pyVmomi.vmodl.DynamicData):
       label: str
       url: str
 
    tab: list[TabInfo] = []
-   smallIconUrl: Optional[str] = None
+   smallIconUrl: _typing.Optional[str] = None

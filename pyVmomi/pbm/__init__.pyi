@@ -12,97 +12,87 @@ from . import profile as profile
 from . import provider as provider
 from . import replication as replication
 
-from typing import ClassVar
-from typing import Optional
-
-from pyVmomi.VmomiSupport import Enum
-from pyVmomi.VmomiSupport import ManagedObject
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import KeyAnyValue
-
-from pyVmomi.pbm.auth import SessionManager
-
-from pyVmomi.pbm.capability import CapabilityMetadataManager
-
-from pyVmomi.pbm.compliance import ComplianceManager
-
-from pyVmomi.pbm.placement import PlacementSolver
-
-from pyVmomi.pbm.profile import ProfileManager
-
-from pyVmomi.pbm.replication import ReplicationManager
+import typing as _typing
+import pyVmomi.VmomiSupport
+import pyVmomi.vmodl
+import pyVmomi.pbm.auth
+import pyVmomi.pbm.capability
+import pyVmomi.pbm.compliance
+import pyVmomi.pbm.placement
+import pyVmomi.pbm.profile
+import pyVmomi.pbm.replication
 
 
 
-class AboutInfo(DynamicData):
+class AboutInfo(pyVmomi.vmodl.DynamicData):
    name: str
    version: str
    instanceUuid: str
 
 
-class ExtendedElementDescription(DynamicData):
+class ExtendedElementDescription(pyVmomi.vmodl.DynamicData):
    label: str
    summary: str
    key: str
    messageCatalogKeyPrefix: str
-   messageArg: list[KeyAnyValue] = []
+   messageArg: list[pyVmomi.vmodl.KeyAnyValue] = []
 
 
-class LoggingConfiguration(DynamicData):
-   class Component(Enum):
-      pbm: ClassVar['Component'] = 'pbm'
-      vslm: ClassVar['Component'] = 'vslm'
-      sms: ClassVar['Component'] = 'sms'
-      spbm: ClassVar['Component'] = 'spbm'
-      sps: ClassVar['Component'] = 'sps'
-      httpclient_header: ClassVar['Component'] = 'httpclient_header'
-      httpclient_content: ClassVar['Component'] = 'httpclient_content'
-      vmomi: ClassVar['Component'] = 'vmomi'
+class LoggingConfiguration(pyVmomi.vmodl.DynamicData):
+   class Component(pyVmomi.VmomiSupport.Enum):
+      pbm: _typing.ClassVar['Component'] = 'pbm'
+      vslm: _typing.ClassVar['Component'] = 'vslm'
+      sms: _typing.ClassVar['Component'] = 'sms'
+      spbm: _typing.ClassVar['Component'] = 'spbm'
+      sps: _typing.ClassVar['Component'] = 'sps'
+      httpclient_header: _typing.ClassVar['Component'] = 'httpclient_header'
+      httpclient_content: _typing.ClassVar['Component'] = 'httpclient_content'
+      vmomi: _typing.ClassVar['Component'] = 'vmomi'
 
-   class LogLevel(Enum):
-      INFO: ClassVar['LogLevel'] = 'INFO'
-      DEBUG: ClassVar['LogLevel'] = 'DEBUG'
-      TRACE: ClassVar['LogLevel'] = 'TRACE'
+   class LogLevel(pyVmomi.VmomiSupport.Enum):
+      INFO: _typing.ClassVar['LogLevel'] = 'INFO'
+      DEBUG: _typing.ClassVar['LogLevel'] = 'DEBUG'
+      TRACE: _typing.ClassVar['LogLevel'] = 'TRACE'
 
    component: str
    logLevel: str
 
 
-class ServerObjectRef(DynamicData):
-   class VvolType(Enum):
-      Config: ClassVar['VvolType'] = 'Config'
-      Data: ClassVar['VvolType'] = 'Data'
-      Swap: ClassVar['VvolType'] = 'Swap'
+class ServerObjectRef(pyVmomi.vmodl.DynamicData):
+   class VvolType(pyVmomi.VmomiSupport.Enum):
+      Config: _typing.ClassVar['VvolType'] = 'Config'
+      Data: _typing.ClassVar['VvolType'] = 'Data'
+      Swap: _typing.ClassVar['VvolType'] = 'Swap'
 
-   class ObjectType(Enum):
-      virtualMachine: ClassVar['ObjectType'] = 'virtualMachine'
-      virtualMachineAndDisks: ClassVar['ObjectType'] = 'virtualMachineAndDisks'
-      virtualDiskId: ClassVar['ObjectType'] = 'virtualDiskId'
-      virtualDiskUUID: ClassVar['ObjectType'] = 'virtualDiskUUID'
-      datastore: ClassVar['ObjectType'] = 'datastore'
-      vsanObjectId: ClassVar['ObjectType'] = 'vsanObjectId'
-      fileShareId: ClassVar['ObjectType'] = 'fileShareId'
-      host: ClassVar['ObjectType'] = 'host'
-      cluster: ClassVar['ObjectType'] = 'cluster'
-      unknown: ClassVar['ObjectType'] = 'unknown'
+   class ObjectType(pyVmomi.VmomiSupport.Enum):
+      virtualMachine: _typing.ClassVar['ObjectType'] = 'virtualMachine'
+      virtualMachineAndDisks: _typing.ClassVar['ObjectType'] = 'virtualMachineAndDisks'
+      virtualDiskId: _typing.ClassVar['ObjectType'] = 'virtualDiskId'
+      virtualDiskUUID: _typing.ClassVar['ObjectType'] = 'virtualDiskUUID'
+      datastore: _typing.ClassVar['ObjectType'] = 'datastore'
+      vsanObjectId: _typing.ClassVar['ObjectType'] = 'vsanObjectId'
+      fileShareId: _typing.ClassVar['ObjectType'] = 'fileShareId'
+      host: _typing.ClassVar['ObjectType'] = 'host'
+      cluster: _typing.ClassVar['ObjectType'] = 'cluster'
+      unknown: _typing.ClassVar['ObjectType'] = 'unknown'
 
    objectType: str
    key: str
-   serverUuid: Optional[str] = None
+   serverUuid: _typing.Optional[str] = None
 
 
-class ServiceInstance(ManagedObject):
+class ServiceInstance(pyVmomi.VmomiSupport.ManagedObject):
    @property
    def content(self) -> ServiceInstanceContent: ...
 
    def RetrieveContent(self) -> ServiceInstanceContent: ...
 
 
-class ServiceInstanceContent(DynamicData):
+class ServiceInstanceContent(pyVmomi.vmodl.DynamicData):
    aboutInfo: AboutInfo
-   sessionManager: SessionManager
-   capabilityMetadataManager: CapabilityMetadataManager
-   profileManager: ProfileManager
-   complianceManager: ComplianceManager
-   placementSolver: PlacementSolver
-   replicationManager: Optional[ReplicationManager] = None
+   sessionManager: pyVmomi.pbm.auth.SessionManager
+   capabilityMetadataManager: pyVmomi.pbm.capability.CapabilityMetadataManager
+   profileManager: pyVmomi.pbm.profile.ProfileManager
+   complianceManager: pyVmomi.pbm.compliance.ComplianceManager
+   placementSolver: pyVmomi.pbm.placement.PlacementSolver
+   replicationManager: _typing.Optional[pyVmomi.pbm.replication.ReplicationManager] = None

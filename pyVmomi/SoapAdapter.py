@@ -1,4 +1,4 @@
-# Copyright (c) 2005-2025 Broadcom. All Rights Reserved.
+# Copyright (c) 2005-2026 Broadcom. All Rights Reserved.
 # The term "Broadcom" refers to Broadcom Inc.
 # and/or its subsidiaries.
 
@@ -1144,13 +1144,23 @@ def _Connect(connection, serverPemCert=None, thumbprint=None):
     return connection
 
 
-# A subclass of HTTPConnection that uses SSL through an HTTP proxy tunnel
+# A subclass of HTTPSConnection that tunnels through an HTTP(S) CONNECT proxy.
+# The outer connection to the proxy can be plain TCP or TLS (when
+# ``_outerTlsContext`` is set).  The inner connection is always TLS using the
+# ``_context`` inherited from HTTPSConnection (which carries client certs).
+# When the outer connection is TLS, the inner layer is established via
+# urllib3's SSLTransport (TLS-over-TLS).
 class _SSLTunnelConnection(HTTPSConnection):
 
     def connect(self):
-        tunnelConn = HTTPConnection(host=self.host,
-                                    port=self.port,
-                                    timeout=self.timeout)
+        if self._outerTlsContext:
+            tunnelConn = HTTPSConnection(host=self.host, port=self.port,
+                                         timeout=self.timeout,
+                                         context=self._outerTlsContext)
+        else:
+            tunnelConn = HTTPConnection(host=self.host,
+                                        port=self.port,
+                                        timeout=self.timeout)
         tunnelConn.request('CONNECT', self._proxyPath)
         resp = tunnelConn.getresponse()
         if resp.status != 200:
@@ -1161,18 +1171,27 @@ class _SSLTunnelConnection(HTTPSConnection):
             self._context.check_hostname = False
             self._context.verify_mode = ssl.CERT_NONE
 
-        self.sock = self._context.wrap_socket(sock=tunnelConn.sock,
-                                              server_hostname=tunnelConn.host)
+        if self._outerTlsContext:
+            from urllib3.util.ssltransport import SSLTransport
+            self.sock = SSLTransport(tunnelConn.sock, self._context,
+                                     server_hostname=self.host)
+        else:
+            self.sock = self._context.wrap_socket(sock=tunnelConn.sock,
+                                                  server_hostname=tunnelConn.host)
 
-    def setVcTunnel(self, proxyPath):
+    def setVcTunnel(self, proxyPath, outerTlsContext=None):
         """
         Set the path to use when tunneling through VC's reverse proxy
         ex: /sdkTunnel
 
         :param proxyPath: Tunnel path
         :type proxyPath: str
+        :param outerTlsContext: When set, the outer connection to the proxy
+            uses TLS (TLS-over-TLS).
+        :type outerTlsContext: ssl.SSLContext or None
         """
         self._proxyPath = proxyPath
+        self._outerTlsContext = outerTlsContext
 
 
 class GzipReader:
@@ -1301,6 +1320,12 @@ class SoapStubAdapter(SoapStubAdapterBase):
     #            sslContext = ssl.create_default_context(cafile=ca_cert_file)
     #            sslContext.load_cert_chain(key_file, cert_file)
     # @param httpConnectionTimeout Timeout in secs for http requests.
+    # @param tlsOverTlsTunnel When True and the connection uses a tunnel
+    #                  (sslProxyPath or httpProxyHost) over a TLS endpoint,
+    #                  the outer leg to the proxy is wrapped in TLS and the
+    #                  inner leg uses urllib3's SSLTransport for TLS-over-TLS.
+    #                  Requires Python 3 and urllib3 with SSLTransport support;
+    #                  raises ImportError at construction time otherwise.
     # @param sessionId: Allows usage of an existing session
     def __init__(self,
                  host='localhost',
@@ -1326,7 +1351,8 @@ class SoapStubAdapter(SoapStubAdapterBase):
                  requestContext=None,
                  httpConnectionTimeout=None,
                  customHeaders=None,
-                 sessionId=None):
+                 sessionId=None,
+                 tlsOverTlsTunnel=False):
         self._customHeaders = customHeaders
         self.cookie = ""
         if ns:
@@ -1375,6 +1401,10 @@ class SoapStubAdapter(SoapStubAdapterBase):
             self.thumbprint = None
 
         self.is_tunnel = False
+        self._outerTlsContext = None
+        if tlsOverTlsTunnel:
+            from urllib3.util.ssltransport import SSLTransport  # noqa: F401
+            self._outerTlsContext = sslContext or ssl._create_unverified_context()
         if sslProxyPath:
             self.sslProxyPath = sslProxyPath
             self.scheme = _SSLTunnelConnection
@@ -1386,6 +1416,9 @@ class SoapStubAdapter(SoapStubAdapterBase):
             else:
                 self.httpProxyHost = httpProxyHost
             self.httpProxyPort = httpProxyPort
+            if self._outerTlsContext:
+                self.sslProxyPath = self.host
+                self.scheme = _SSLTunnelConnection
             self.is_tunnel = True
         self.poolSize = poolSize
         self.pool = []
@@ -1567,7 +1600,7 @@ class SoapStubAdapter(SoapStubAdapterBase):
             conn = self.scheme(host=conn_host, port=conn_port, **self.schemeArgs)
             if self.is_tunnel:
                 if hasattr(self, 'sslProxyPath'):
-                    conn.setVcTunnel(self.sslProxyPath)
+                    conn.setVcTunnel(self.sslProxyPath, self._outerTlsContext)
                 elif hasattr(self, 'httpProxyHost'):
                     customHeaders = self._customHeaders if self._customHeaders else {}
                     host = _gh100985(host)

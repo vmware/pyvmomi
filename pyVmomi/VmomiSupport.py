@@ -1,4 +1,4 @@
-# Copyright (c) 2005-2025 Broadcom. All Rights Reserved.
+# Copyright (c) 2005-2026 Broadcom. All Rights Reserved.
 # The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 
 # Support for VMOMI abstractions such as VMODL types, versions, etc.
@@ -819,15 +819,21 @@ def LoadDataType(vmodlName, wsdlName, parent, version, props):
             "_version": version
         }
 
+        def _make_getter(attr_name):
+            def getter(self):
+                return getattr(self, attr_name)
+            return getter
+
+        def _make_setter(attr_name):
+            def setter(self, v):
+                setattr(self, attr_name, v)
+            return setter
+
         for property in propList:
             name = property.name
             suffix = name[0].upper() + name[1:]
-            tGlobals = {}
-            exec(
-                'def Get%s(self): return getattr(self, "%s")' %
-                (suffix, name) + '\n' +
-                'def Set%s(self, v): setattr(self, "%s", v)' %
-                (suffix, name), tGlobals, dic)
+            dic['Get' + suffix] = _make_getter(name)
+            dic['Set' + suffix] = _make_setter(name)
 
         vmodlParent = GetVmodlType(parent)
         result = _AddType(LazyType(vmodlName, (vmodlParent, ), dic))

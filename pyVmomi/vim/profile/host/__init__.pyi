@@ -3,77 +3,50 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from datetime import datetime
-from typing import ClassVar
-
-from typing import Optional
-
-from pyVmomi.VmomiSupport import Enum
-
-from pyVmomi.VmomiSupport import ManagedObject
-from pyVmomi.VmomiSupport import PropertyPath
-
-from pyVmomi.VmomiSupport import binary
-from pyVmomi.VmomiSupport import byte
-
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import ManagedEntity
-from pyVmomi.vim import Task
-
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import LocalizableMessage
-from pyVmomi.vmodl import MethodFault
-
-from pyVmomi.vim.fault import ProfileUpdateFailed
-
-from pyVmomi.vim.host import ConfigSpec
-from pyVmomi.vim.profile import ApplyProfile
-
-from pyVmomi.vim.profile import ComplianceLocator
-from pyVmomi.vim.profile import ComplianceProfile
-
-from pyVmomi.vim.profile import DeferredPolicyOptionParameter
-from pyVmomi.vim.profile import Profile
-from pyVmomi.vim.profile import ProfileMetadata
-
-from pyVmomi.vim.profile import ProfilePropertyPath
-from pyVmomi.vim.profile import ProfileStructure
+import datetime as _datetime
+import typing as _typing
+import pyVmomi.VmomiSupport
+import pyVmomi.vim
+import pyVmomi.vmodl
+import pyVmomi.vim.fault
+import pyVmomi.vim.host
+import pyVmomi.vim.profile
 
 
 
-class ActiveDirectoryProfile(ApplyProfile):
+class ActiveDirectoryProfile(pyVmomi.vim.profile.ApplyProfile):
    pass
 
 
-class AnswerFile(DynamicData):
-   userInput: list[DeferredPolicyOptionParameter] = []
-   createdTime: datetime
-   modifiedTime: datetime
+class AnswerFile(pyVmomi.vmodl.DynamicData):
+   userInput: list[pyVmomi.vim.profile.DeferredPolicyOptionParameter] = []
+   createdTime: _datetime.datetime
+   modifiedTime: _datetime.datetime
 
 
-class AnswerFileStatusResult(DynamicData):
-   class AnswerFileStatusError(DynamicData):
-      userInputPath: ProfilePropertyPath
-      errMsg: LocalizableMessage
+class AnswerFileStatusResult(pyVmomi.vmodl.DynamicData):
+   class AnswerFileStatusError(pyVmomi.vmodl.DynamicData):
+      userInputPath: pyVmomi.vim.profile.ProfilePropertyPath
+      errMsg: pyVmomi.vmodl.LocalizableMessage
 
-   checkedTime: datetime
-   host: HostSystem
+   checkedTime: _datetime.datetime
+   host: pyVmomi.vim.HostSystem
    status: str
    error: list[AnswerFileStatusError] = []
 
 
-class AuthenticationProfile(ApplyProfile):
-   activeDirectory: Optional[ActiveDirectoryProfile] = None
+class AuthenticationProfile(pyVmomi.vim.profile.ApplyProfile):
+   activeDirectory: _typing.Optional[ActiveDirectoryProfile] = None
 
 
-class DateTimeProfile(ApplyProfile):
+class DateTimeProfile(pyVmomi.vim.profile.ApplyProfile):
    pass
 
 class DvsHostVNicProfile(DvsVNicProfile):
    pass
 
 
-class DvsProfile(ApplyProfile):
+class DvsProfile(pyVmomi.vim.profile.ApplyProfile):
    key: str
    name: str
    uplink: list[PnicUplinkProfile] = []
@@ -82,218 +55,218 @@ class DvsServiceConsoleVNicProfile(DvsVNicProfile):
    pass
 
 
-class DvsVNicProfile(ApplyProfile):
+class DvsVNicProfile(pyVmomi.vim.profile.ApplyProfile):
    key: str
    ipConfig: IpAddressProfile
 
 
-class ExecuteResult(DynamicData):
-   class Status(Enum):
-      success: ClassVar['Status'] = 'success'
-      needInput: ClassVar['Status'] = 'needInput'
-      error: ClassVar['Status'] = 'error'
+class ExecuteResult(pyVmomi.vmodl.DynamicData):
+   class Status(pyVmomi.VmomiSupport.Enum):
+      success: _typing.ClassVar['Status'] = 'success'
+      needInput: _typing.ClassVar['Status'] = 'needInput'
+      error: _typing.ClassVar['Status'] = 'error'
 
-   class ExecuteError(DynamicData):
-      path: Optional[ProfilePropertyPath] = None
-      message: LocalizableMessage
+   class ExecuteError(pyVmomi.vmodl.DynamicData):
+      path: _typing.Optional[pyVmomi.vim.profile.ProfilePropertyPath] = None
+      message: pyVmomi.vmodl.LocalizableMessage
 
    status: str
-   configSpec: Optional[ConfigSpec] = None
-   inapplicablePath: list[PropertyPath] = []
-   requireInput: list[DeferredPolicyOptionParameter] = []
+   configSpec: _typing.Optional[pyVmomi.vim.host.ConfigSpec] = None
+   inapplicablePath: list[pyVmomi.VmomiSupport.PropertyPath] = []
+   requireInput: list[pyVmomi.vim.profile.DeferredPolicyOptionParameter] = []
    error: list[ExecuteError] = []
 
 
-class FirewallProfile(ApplyProfile):
-   class RulesetProfile(ApplyProfile):
+class FirewallProfile(pyVmomi.vim.profile.ApplyProfile):
+   class RulesetProfile(pyVmomi.vim.profile.ApplyProfile):
       key: str
 
    ruleset: list[RulesetProfile] = []
 
 
-class HostApplyProfile(ApplyProfile):
-   memory: Optional[HostMemoryProfile] = None
-   storage: Optional[StorageProfile] = None
-   network: Optional[NetworkProfile] = None
-   datetime: Optional[DateTimeProfile] = None
-   firewall: Optional[FirewallProfile] = None
-   security: Optional[SecurityProfile] = None
+class HostApplyProfile(pyVmomi.vim.profile.ApplyProfile):
+   memory: _typing.Optional[HostMemoryProfile] = None
+   storage: _typing.Optional[StorageProfile] = None
+   network: _typing.Optional[NetworkProfile] = None
+   datetime: _typing.Optional[DateTimeProfile] = None
+   firewall: _typing.Optional[FirewallProfile] = None
+   security: _typing.Optional[SecurityProfile] = None
    service: list[ServiceProfile] = []
    option: list[OptionProfile] = []
    userAccount: list[UserProfile] = []
    usergroupAccount: list[UserGroupProfile] = []
-   authentication: Optional[AuthenticationProfile] = None
+   authentication: _typing.Optional[AuthenticationProfile] = None
 
 
-class HostMemoryProfile(ApplyProfile):
+class HostMemoryProfile(pyVmomi.vim.profile.ApplyProfile):
    pass
 
 class HostPortGroupProfile(PortGroupProfile):
    ipConfig: IpAddressProfile
 
 
-class HostProfile(Profile):
-   class ConfigInfo(Profile.ConfigInfo):
-      applyProfile: Optional[HostApplyProfile] = None
-      defaultComplyProfile: Optional[ComplianceProfile] = None
-      defaultComplyLocator: list[ComplianceLocator] = []
-      customComplyProfile: Optional[ComplianceProfile] = None
+class HostProfile(pyVmomi.vim.profile.Profile):
+   class ConfigInfo(pyVmomi.vim.profile.Profile.ConfigInfo):
+      applyProfile: _typing.Optional[HostApplyProfile] = None
+      defaultComplyProfile: _typing.Optional[pyVmomi.vim.profile.ComplianceProfile] = None
+      defaultComplyLocator: list[pyVmomi.vim.profile.ComplianceLocator] = []
+      customComplyProfile: _typing.Optional[pyVmomi.vim.profile.ComplianceProfile] = None
       disabledExpressionList: list[str] = []
-      description: Optional[Profile.Description] = None
+      description: _typing.Optional[pyVmomi.vim.profile.Profile.Description] = None
 
-   class ConfigSpec(Profile.CreateSpec):
+   class ConfigSpec(pyVmomi.vim.profile.Profile.CreateSpec):
       pass
 
-   class SerializedHostProfileSpec(Profile.SerializedCreateSpec):
-      validatorHost: Optional[HostSystem] = None
-      validating: Optional[bool] = None
+   class SerializedHostProfileSpec(pyVmomi.vim.profile.Profile.SerializedCreateSpec):
+      validatorHost: _typing.Optional[pyVmomi.vim.HostSystem] = None
+      validating: _typing.Optional[bool] = None
 
    class CompleteConfigSpec(ConfigSpec):
-      applyProfile: Optional[HostApplyProfile] = None
-      customComplyProfile: Optional[ComplianceProfile] = None
+      applyProfile: _typing.Optional[HostApplyProfile] = None
+      customComplyProfile: _typing.Optional[pyVmomi.vim.profile.ComplianceProfile] = None
       disabledExpressionListChanged: bool
       disabledExpressionList: list[str] = []
-      validatorHost: Optional[HostSystem] = None
-      validating: Optional[bool] = None
-      hostConfig: Optional[ConfigInfo] = None
+      validatorHost: _typing.Optional[pyVmomi.vim.HostSystem] = None
+      validating: _typing.Optional[bool] = None
+      hostConfig: _typing.Optional[ConfigInfo] = None
 
    class HostBasedConfigSpec(ConfigSpec):
-      host: HostSystem
-      useHostProfileEngine: Optional[bool] = None
+      host: pyVmomi.vim.HostSystem
+      useHostProfileEngine: _typing.Optional[bool] = None
 
-   class ValidationState(Enum):
-      Ready: ClassVar['ValidationState'] = 'Ready'
-      Running: ClassVar['ValidationState'] = 'Running'
-      Failed: ClassVar['ValidationState'] = 'Failed'
+   class ValidationState(pyVmomi.VmomiSupport.Enum):
+      Ready: _typing.ClassVar['ValidationState'] = 'Ready'
+      Running: _typing.ClassVar['ValidationState'] = 'Running'
+      Failed: _typing.ClassVar['ValidationState'] = 'Failed'
 
-   class ValidationFailureInfo(DynamicData):
-      class UpdateType(Enum):
-         HostBased: ClassVar['UpdateType'] = 'HostBased'
-         Import: ClassVar['UpdateType'] = 'Import'
-         Edit: ClassVar['UpdateType'] = 'Edit'
-         Compose: ClassVar['UpdateType'] = 'Compose'
+   class ValidationFailureInfo(pyVmomi.vmodl.DynamicData):
+      class UpdateType(pyVmomi.VmomiSupport.Enum):
+         HostBased: _typing.ClassVar['UpdateType'] = 'HostBased'
+         Import: _typing.ClassVar['UpdateType'] = 'Import'
+         Edit: _typing.ClassVar['UpdateType'] = 'Edit'
+         Compose: _typing.ClassVar['UpdateType'] = 'Compose'
 
       name: str
       annotation: str
       updateType: str
-      host: Optional[HostSystem] = None
-      applyProfile: Optional[HostApplyProfile] = None
-      failures: list[ProfileUpdateFailed.UpdateFailure] = []
-      faults: list[MethodFault] = []
+      host: _typing.Optional[pyVmomi.vim.HostSystem] = None
+      applyProfile: _typing.Optional[HostApplyProfile] = None
+      failures: list[pyVmomi.vim.fault.ProfileUpdateFailed.UpdateFailure] = []
+      faults: list[pyVmomi.vmodl.MethodFault] = []
 
    @property
-   def validationState(self) -> Optional[str]: ...
+   def validationState(self) -> _typing.Optional[str]: ...
    @property
-   def validationStateUpdateTime(self) -> Optional[datetime]: ...
+   def validationStateUpdateTime(self) -> _typing.Optional[_datetime.datetime]: ...
    @property
-   def validationFailureInfo(self) -> Optional[ValidationFailureInfo]: ...
+   def validationFailureInfo(self) -> _typing.Optional[ValidationFailureInfo]: ...
    @property
-   def complianceCheckTime(self) -> Optional[datetime]: ...
+   def complianceCheckTime(self) -> _typing.Optional[_datetime.datetime]: ...
    @property
-   def referenceHost(self) -> Optional[HostSystem]: ...
+   def referenceHost(self) -> _typing.Optional[pyVmomi.vim.HostSystem]: ...
 
    def ResetValidationState(self) -> None: ...
-   def UpdateReferenceHost(self, host: Optional[HostSystem]) -> None: ...
+   def UpdateReferenceHost(self, host: _typing.Optional[pyVmomi.vim.HostSystem]) -> None: ...
    def Update(self, config: ConfigSpec) -> None: ...
-   def Execute(self, host: HostSystem, deferredParam: list[DeferredPolicyOptionParameter]) -> ExecuteResult: ...
+   def Execute(self, host: pyVmomi.vim.HostSystem, deferredParam: list[pyVmomi.vim.profile.DeferredPolicyOptionParameter]) -> ExecuteResult: ...
 
 
-class HostSpecification(DynamicData):
-   createdTime: datetime
-   lastModified: Optional[datetime] = None
-   host: HostSystem
+class HostSpecification(pyVmomi.vmodl.DynamicData):
+   createdTime: _datetime.datetime
+   lastModified: _typing.Optional[_datetime.datetime] = None
+   host: pyVmomi.vim.HostSystem
    subSpecs: list[HostSubSpecification] = []
-   changeID: Optional[str] = None
+   changeID: _typing.Optional[str] = None
 
 
-class HostSpecificationManager(ManagedObject):
-   def UpdateHostSpecification(self, host: HostSystem, hostSpec: HostSpecification) -> None: ...
-   def UpdateHostSubSpecification(self, host: HostSystem, hostSubSpec: HostSubSpecification) -> None: ...
-   def RetrieveHostSpecification(self, host: HostSystem, fromHost: bool) -> HostSpecification: ...
-   def DeleteHostSubSpecification(self, host: HostSystem, subSpecName: str) -> None: ...
-   def DeleteHostSpecification(self, host: HostSystem) -> None: ...
-   def GetUpdatedHosts(self, startChangeID: Optional[str], endChangeID: Optional[str]) -> list[HostSystem]: ...
+class HostSpecificationManager(pyVmomi.VmomiSupport.ManagedObject):
+   def UpdateHostSpecification(self, host: pyVmomi.vim.HostSystem, hostSpec: HostSpecification) -> None: ...
+   def UpdateHostSubSpecification(self, host: pyVmomi.vim.HostSystem, hostSubSpec: HostSubSpecification) -> None: ...
+   def RetrieveHostSpecification(self, host: pyVmomi.vim.HostSystem, fromHost: bool) -> HostSpecification: ...
+   def DeleteHostSubSpecification(self, host: pyVmomi.vim.HostSystem, subSpecName: str) -> None: ...
+   def DeleteHostSpecification(self, host: pyVmomi.vim.HostSystem) -> None: ...
+   def GetUpdatedHosts(self, startChangeID: _typing.Optional[str], endChangeID: _typing.Optional[str]) -> list[pyVmomi.vim.HostSystem]: ...
 
 
-class HostSubSpecification(DynamicData):
+class HostSubSpecification(pyVmomi.vmodl.DynamicData):
    name: str
-   createdTime: datetime
-   data: list[byte] = []
-   binaryData: Optional[binary] = None
+   createdTime: _datetime.datetime
+   data: list[pyVmomi.VmomiSupport.byte] = []
+   binaryData: _typing.Optional[pyVmomi.VmomiSupport.binary] = None
 
 
-class IpAddressProfile(ApplyProfile):
+class IpAddressProfile(pyVmomi.vim.profile.ApplyProfile):
    pass
 
 
-class IpRouteProfile(ApplyProfile):
+class IpRouteProfile(pyVmomi.vim.profile.ApplyProfile):
    staticRoute: list[StaticRouteProfile] = []
 
 
-class NasStorageProfile(ApplyProfile):
+class NasStorageProfile(pyVmomi.vim.profile.ApplyProfile):
    key: str
 
 
-class NetStackInstanceProfile(ApplyProfile):
+class NetStackInstanceProfile(pyVmomi.vim.profile.ApplyProfile):
    key: str
    dnsConfig: NetworkProfile.DnsConfigProfile
    ipRouteConfig: IpRouteProfile
 
 
-class NetworkPolicyProfile(ApplyProfile):
+class NetworkPolicyProfile(pyVmomi.vim.profile.ApplyProfile):
    pass
 
 
-class NetworkProfile(ApplyProfile):
-   class DnsConfigProfile(ApplyProfile):
+class NetworkProfile(pyVmomi.vim.profile.ApplyProfile):
+   class DnsConfigProfile(pyVmomi.vim.profile.ApplyProfile):
       pass
 
    vswitch: list[VirtualSwitchProfile] = []
    vmPortGroup: list[VmPortGroupProfile] = []
    hostPortGroup: list[HostPortGroupProfile] = []
    serviceConsolePortGroup: list[ServiceConsolePortGroupProfile] = []
-   dnsConfig: Optional[DnsConfigProfile] = None
-   ipRouteConfig: Optional[IpRouteProfile] = None
-   consoleIpRouteConfig: Optional[IpRouteProfile] = None
+   dnsConfig: _typing.Optional[DnsConfigProfile] = None
+   ipRouteConfig: _typing.Optional[IpRouteProfile] = None
+   consoleIpRouteConfig: _typing.Optional[IpRouteProfile] = None
    pnic: list[PhysicalNicProfile] = []
    dvswitch: list[DvsProfile] = []
    dvsServiceConsoleNic: list[DvsServiceConsoleVNicProfile] = []
    dvsHostNic: list[DvsHostVNicProfile] = []
    nsxHostNic: list[NsxHostVNicProfile] = []
    netStackInstance: list[NetStackInstanceProfile] = []
-   opaqueSwitch: Optional[OpaqueSwitchProfile] = None
+   opaqueSwitch: _typing.Optional[OpaqueSwitchProfile] = None
 
 
-class NsxHostVNicProfile(ApplyProfile):
+class NsxHostVNicProfile(pyVmomi.vim.profile.ApplyProfile):
    key: str
    ipConfig: IpAddressProfile
 
 
-class OpaqueSwitchProfile(ApplyProfile):
+class OpaqueSwitchProfile(pyVmomi.vim.profile.ApplyProfile):
    pass
 
 
-class OptionProfile(ApplyProfile):
+class OptionProfile(pyVmomi.vim.profile.ApplyProfile):
    key: str
 
 
-class PermissionProfile(ApplyProfile):
+class PermissionProfile(pyVmomi.vim.profile.ApplyProfile):
    key: str
 
 
-class PhysicalNicProfile(ApplyProfile):
+class PhysicalNicProfile(pyVmomi.vim.profile.ApplyProfile):
    key: str
 
 
-class PnicUplinkProfile(ApplyProfile):
+class PnicUplinkProfile(pyVmomi.vim.profile.ApplyProfile):
    key: str
 
 
-class PortGroupProfile(ApplyProfile):
-   class VlanProfile(ApplyProfile):
+class PortGroupProfile(pyVmomi.vim.profile.ApplyProfile):
+   class VlanProfile(pyVmomi.vim.profile.ApplyProfile):
       pass
 
-   class VirtualSwitchSelectionProfile(ApplyProfile):
+   class VirtualSwitchSelectionProfile(pyVmomi.vim.profile.ApplyProfile):
       pass
 
    key: str
@@ -303,151 +276,151 @@ class PortGroupProfile(ApplyProfile):
    networkPolicy: NetworkPolicyProfile
 
 
-class ProfileManager(ProfileManager):
-   class TaskListRequirement(Enum):
-      maintenanceModeRequired: ClassVar['TaskListRequirement'] = 'maintenanceModeRequired'
-      rebootRequired: ClassVar['TaskListRequirement'] = 'rebootRequired'
+class ProfileManager(pyVmomi.vim.profile.ProfileManager):
+   class TaskListRequirement(pyVmomi.VmomiSupport.Enum):
+      maintenanceModeRequired: _typing.ClassVar['TaskListRequirement'] = 'maintenanceModeRequired'
+      rebootRequired: _typing.ClassVar['TaskListRequirement'] = 'rebootRequired'
 
-   class ConfigTaskList(DynamicData):
-      configSpec: Optional[ConfigSpec] = None
-      taskDescription: list[LocalizableMessage] = []
+   class ConfigTaskList(pyVmomi.vmodl.DynamicData):
+      configSpec: _typing.Optional[pyVmomi.vim.host.ConfigSpec] = None
+      taskDescription: list[pyVmomi.vmodl.LocalizableMessage] = []
       taskListRequirement: list[str] = []
 
-   class AnswerFileCreateSpec(DynamicData):
-      validating: Optional[bool] = None
+   class AnswerFileCreateSpec(pyVmomi.vmodl.DynamicData):
+      validating: _typing.Optional[bool] = None
 
    class AnswerFileOptionsCreateSpec(AnswerFileCreateSpec):
-      userInput: list[DeferredPolicyOptionParameter] = []
+      userInput: list[pyVmomi.vim.profile.DeferredPolicyOptionParameter] = []
 
    class AnswerFileSerializedCreateSpec(AnswerFileCreateSpec):
       answerFileConfigString: str
 
-   class AnswerFileStatus(Enum):
-      valid: ClassVar['AnswerFileStatus'] = 'valid'
-      invalid: ClassVar['AnswerFileStatus'] = 'invalid'
-      unknown: ClassVar['AnswerFileStatus'] = 'unknown'
+   class AnswerFileStatus(pyVmomi.VmomiSupport.Enum):
+      valid: _typing.ClassVar['AnswerFileStatus'] = 'valid'
+      invalid: _typing.ClassVar['AnswerFileStatus'] = 'invalid'
+      unknown: _typing.ClassVar['AnswerFileStatus'] = 'unknown'
 
-   class EntityCustomizations(DynamicData):
+   class EntityCustomizations(pyVmomi.vmodl.DynamicData):
       pass
 
    class StructuredCustomizations(EntityCustomizations):
-      entity: ManagedEntity
-      customizations: Optional[AnswerFile] = None
+      entity: pyVmomi.vim.ManagedEntity
+      customizations: _typing.Optional[AnswerFile] = None
 
-   class HostToConfigSpecMap(DynamicData):
-      host: HostSystem
+   class HostToConfigSpecMap(pyVmomi.vmodl.DynamicData):
+      host: pyVmomi.vim.HostSystem
       configSpec: AnswerFileCreateSpec
 
    class ApplyHostConfigSpec(ExecuteResult):
-      host: HostSystem
+      host: pyVmomi.vim.HostSystem
       taskListRequirement: list[str] = []
-      taskDescription: list[LocalizableMessage] = []
-      rebootStateless: Optional[bool] = None
-      rebootHost: Optional[bool] = None
-      faultData: Optional[MethodFault] = None
+      taskDescription: list[pyVmomi.vmodl.LocalizableMessage] = []
+      rebootStateless: _typing.Optional[bool] = None
+      rebootHost: _typing.Optional[bool] = None
+      faultData: _typing.Optional[pyVmomi.vmodl.MethodFault] = None
 
-   class ApplyHostConfigResult(DynamicData):
-      class Status(Enum):
-         success: ClassVar['Status'] = 'success'
-         failed: ClassVar['Status'] = 'failed'
-         reboot_failed: ClassVar['Status'] = 'reboot_failed'
-         stateless_reboot_failed: ClassVar['Status'] = 'stateless_reboot_failed'
-         check_compliance_failed: ClassVar['Status'] = 'check_compliance_failed'
-         state_not_satisfied: ClassVar['Status'] = 'state_not_satisfied'
-         exit_maintenancemode_failed: ClassVar['Status'] = 'exit_maintenancemode_failed'
-         canceled: ClassVar['Status'] = 'canceled'
+   class ApplyHostConfigResult(pyVmomi.vmodl.DynamicData):
+      class Status(pyVmomi.VmomiSupport.Enum):
+         success: _typing.ClassVar['Status'] = 'success'
+         failed: _typing.ClassVar['Status'] = 'failed'
+         reboot_failed: _typing.ClassVar['Status'] = 'reboot_failed'
+         stateless_reboot_failed: _typing.ClassVar['Status'] = 'stateless_reboot_failed'
+         check_compliance_failed: _typing.ClassVar['Status'] = 'check_compliance_failed'
+         state_not_satisfied: _typing.ClassVar['Status'] = 'state_not_satisfied'
+         exit_maintenancemode_failed: _typing.ClassVar['Status'] = 'exit_maintenancemode_failed'
+         canceled: _typing.ClassVar['Status'] = 'canceled'
 
-      startTime: datetime
-      completeTime: datetime
-      host: HostSystem
+      startTime: _datetime.datetime
+      completeTime: _datetime.datetime
+      host: pyVmomi.vim.HostSystem
       status: str
-      errors: list[MethodFault] = []
+      errors: list[pyVmomi.vmodl.MethodFault] = []
 
-   class CompositionValidationResult(DynamicData):
-      class ResultElement(DynamicData):
-         class Status(Enum):
-            success: ClassVar['Status'] = 'success'
-            error: ClassVar['Status'] = 'error'
+   class CompositionValidationResult(pyVmomi.vmodl.DynamicData):
+      class ResultElement(pyVmomi.vmodl.DynamicData):
+         class Status(pyVmomi.VmomiSupport.Enum):
+            success: _typing.ClassVar['Status'] = 'success'
+            error: _typing.ClassVar['Status'] = 'error'
 
-         target: Profile
+         target: pyVmomi.vim.profile.Profile
          status: str
-         errors: list[LocalizableMessage] = []
-         sourceDiffForToBeMerged: Optional[HostApplyProfile] = None
-         targetDiffForToBeMerged: Optional[HostApplyProfile] = None
-         toBeAdded: Optional[HostApplyProfile] = None
-         toBeDeleted: Optional[HostApplyProfile] = None
-         toBeDisabled: Optional[HostApplyProfile] = None
-         toBeEnabled: Optional[HostApplyProfile] = None
-         toBeReenableCC: Optional[HostApplyProfile] = None
+         errors: list[pyVmomi.vmodl.LocalizableMessage] = []
+         sourceDiffForToBeMerged: _typing.Optional[HostApplyProfile] = None
+         targetDiffForToBeMerged: _typing.Optional[HostApplyProfile] = None
+         toBeAdded: _typing.Optional[HostApplyProfile] = None
+         toBeDeleted: _typing.Optional[HostApplyProfile] = None
+         toBeDisabled: _typing.Optional[HostApplyProfile] = None
+         toBeEnabled: _typing.Optional[HostApplyProfile] = None
+         toBeReenableCC: _typing.Optional[HostApplyProfile] = None
 
       results: list[ResultElement] = []
-      errors: list[LocalizableMessage] = []
+      errors: list[pyVmomi.vmodl.LocalizableMessage] = []
 
-   class CompositionResult(DynamicData):
-      class ResultElement(DynamicData):
-         class Status(Enum):
-            success: ClassVar['Status'] = 'success'
-            error: ClassVar['Status'] = 'error'
+   class CompositionResult(pyVmomi.vmodl.DynamicData):
+      class ResultElement(pyVmomi.vmodl.DynamicData):
+         class Status(pyVmomi.VmomiSupport.Enum):
+            success: _typing.ClassVar['Status'] = 'success'
+            error: _typing.ClassVar['Status'] = 'error'
 
-         target: Profile
+         target: pyVmomi.vim.profile.Profile
          status: str
-         errors: list[LocalizableMessage] = []
+         errors: list[pyVmomi.vmodl.LocalizableMessage] = []
 
-      errors: list[LocalizableMessage] = []
+      errors: list[pyVmomi.vmodl.LocalizableMessage] = []
       results: list[ResultElement] = []
 
-   def ApplyHostConfiguration(self, host: HostSystem, configSpec: ConfigSpec, userInput: list[DeferredPolicyOptionParameter]) -> Task: ...
-   def GenerateConfigTaskList(self, configSpec: ConfigSpec, host: HostSystem) -> ConfigTaskList: ...
-   def GenerateTaskList(self, configSpec: ConfigSpec, host: HostSystem) -> Task: ...
-   def QueryProfileMetadata(self, profileName: list[type], profile: Optional[Profile]) -> list[ProfileMetadata]: ...
-   def QueryProfileStructure(self, profile: Optional[Profile]) -> ProfileStructure: ...
-   def CreateDefaultProfile(self, profileType: type, profileTypeName: Optional[str], profile: Optional[Profile]) -> ApplyProfile: ...
-   def UpdateAnswerFile(self, host: HostSystem, configSpec: AnswerFileCreateSpec) -> Task: ...
-   def RetrieveAnswerFile(self, host: HostSystem) -> Optional[AnswerFile]: ...
-   def RetrieveAnswerFileForProfile(self, host: HostSystem, applyProfile: HostApplyProfile) -> Optional[AnswerFile]: ...
-   def ExportAnswerFile(self, host: HostSystem) -> Task: ...
-   def CheckAnswerFileStatus(self, host: list[HostSystem]) -> Task: ...
-   def QueryAnswerFileStatus(self, host: list[HostSystem]) -> list[AnswerFileStatusResult]: ...
-   def RetrieveHostCustomizations(self, hosts: list[HostSystem]) -> list[StructuredCustomizations]: ...
-   def RetrieveHostCustomizationsForProfile(self, hosts: list[HostSystem], applyProfile: HostApplyProfile) -> list[StructuredCustomizations]: ...
-   def GenerateHostConfigTaskSpec(self, hostsInfo: list[StructuredCustomizations]) -> Task: ...
-   def ApplyEntitiesConfiguration(self, applyConfigSpecs: list[ApplyHostConfigSpec]) -> Task: ...
-   def ValidateComposition(self, source: Profile, targets: list[Profile], toBeMerged: Optional[HostApplyProfile], toReplaceWith: Optional[HostApplyProfile], toBeDeleted: Optional[HostApplyProfile], enableStatusToBeCopied: Optional[HostApplyProfile], errorOnly: Optional[bool]) -> Task: ...
-   def CompositeProfile(self, source: Profile, targets: list[Profile], toBeMerged: Optional[HostApplyProfile], toBeReplacedWith: Optional[HostApplyProfile], toBeDeleted: Optional[HostApplyProfile], enableStatusToBeCopied: Optional[HostApplyProfile]) -> Task: ...
+   def ApplyHostConfiguration(self, host: pyVmomi.vim.HostSystem, configSpec: pyVmomi.vim.host.ConfigSpec, userInput: list[pyVmomi.vim.profile.DeferredPolicyOptionParameter]) -> pyVmomi.vim.Task: ...
+   def GenerateConfigTaskList(self, configSpec: pyVmomi.vim.host.ConfigSpec, host: pyVmomi.vim.HostSystem) -> ConfigTaskList: ...
+   def GenerateTaskList(self, configSpec: pyVmomi.vim.host.ConfigSpec, host: pyVmomi.vim.HostSystem) -> pyVmomi.vim.Task: ...
+   def QueryProfileMetadata(self, profileName: list[type], profile: _typing.Optional[pyVmomi.vim.profile.Profile]) -> list[pyVmomi.vim.profile.ProfileMetadata]: ...
+   def QueryProfileStructure(self, profile: _typing.Optional[pyVmomi.vim.profile.Profile]) -> pyVmomi.vim.profile.ProfileStructure: ...
+   def CreateDefaultProfile(self, profileType: type, profileTypeName: _typing.Optional[str], profile: _typing.Optional[pyVmomi.vim.profile.Profile]) -> pyVmomi.vim.profile.ApplyProfile: ...
+   def UpdateAnswerFile(self, host: pyVmomi.vim.HostSystem, configSpec: AnswerFileCreateSpec) -> pyVmomi.vim.Task: ...
+   def RetrieveAnswerFile(self, host: pyVmomi.vim.HostSystem) -> _typing.Optional[AnswerFile]: ...
+   def RetrieveAnswerFileForProfile(self, host: pyVmomi.vim.HostSystem, applyProfile: HostApplyProfile) -> _typing.Optional[AnswerFile]: ...
+   def ExportAnswerFile(self, host: pyVmomi.vim.HostSystem) -> pyVmomi.vim.Task: ...
+   def CheckAnswerFileStatus(self, host: list[pyVmomi.vim.HostSystem]) -> pyVmomi.vim.Task: ...
+   def QueryAnswerFileStatus(self, host: list[pyVmomi.vim.HostSystem]) -> list[AnswerFileStatusResult]: ...
+   def RetrieveHostCustomizations(self, hosts: list[pyVmomi.vim.HostSystem]) -> list[StructuredCustomizations]: ...
+   def RetrieveHostCustomizationsForProfile(self, hosts: list[pyVmomi.vim.HostSystem], applyProfile: HostApplyProfile) -> list[StructuredCustomizations]: ...
+   def GenerateHostConfigTaskSpec(self, hostsInfo: list[StructuredCustomizations]) -> pyVmomi.vim.Task: ...
+   def ApplyEntitiesConfiguration(self, applyConfigSpecs: list[ApplyHostConfigSpec]) -> pyVmomi.vim.Task: ...
+   def ValidateComposition(self, source: pyVmomi.vim.profile.Profile, targets: list[pyVmomi.vim.profile.Profile], toBeMerged: _typing.Optional[HostApplyProfile], toReplaceWith: _typing.Optional[HostApplyProfile], toBeDeleted: _typing.Optional[HostApplyProfile], enableStatusToBeCopied: _typing.Optional[HostApplyProfile], errorOnly: _typing.Optional[bool]) -> pyVmomi.vim.Task: ...
+   def CompositeProfile(self, source: pyVmomi.vim.profile.Profile, targets: list[pyVmomi.vim.profile.Profile], toBeMerged: _typing.Optional[HostApplyProfile], toBeReplacedWith: _typing.Optional[HostApplyProfile], toBeDeleted: _typing.Optional[HostApplyProfile], enableStatusToBeCopied: _typing.Optional[HostApplyProfile]) -> pyVmomi.vim.Task: ...
 
 
-class SecurityProfile(ApplyProfile):
+class SecurityProfile(pyVmomi.vim.profile.ApplyProfile):
    permission: list[PermissionProfile] = []
 
 class ServiceConsolePortGroupProfile(PortGroupProfile):
    ipConfig: IpAddressProfile
 
 
-class ServiceProfile(ApplyProfile):
+class ServiceProfile(pyVmomi.vim.profile.ApplyProfile):
    key: str
 
 
-class StaticRouteProfile(ApplyProfile):
-   key: Optional[str] = None
+class StaticRouteProfile(pyVmomi.vim.profile.ApplyProfile):
+   key: _typing.Optional[str] = None
 
 
-class StorageProfile(ApplyProfile):
+class StorageProfile(pyVmomi.vim.profile.ApplyProfile):
    nasStorage: list[NasStorageProfile] = []
 
 
-class UserGroupProfile(ApplyProfile):
+class UserGroupProfile(pyVmomi.vim.profile.ApplyProfile):
    key: str
 
 
-class UserProfile(ApplyProfile):
+class UserProfile(pyVmomi.vim.profile.ApplyProfile):
    key: str
 
 
-class VirtualSwitchProfile(ApplyProfile):
-   class LinkProfile(ApplyProfile):
+class VirtualSwitchProfile(pyVmomi.vim.profile.ApplyProfile):
+   class LinkProfile(pyVmomi.vim.profile.ApplyProfile):
       pass
 
-   class NumPortsProfile(ApplyProfile):
+   class NumPortsProfile(pyVmomi.vim.profile.ApplyProfile):
       pass
 
    key: str

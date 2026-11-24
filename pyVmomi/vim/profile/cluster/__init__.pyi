@@ -3,39 +3,36 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import ClassVar
-from typing import Optional
-
-from pyVmomi.VmomiSupport import Enum
-
-from pyVmomi.vim.profile import ComplianceProfile
-from pyVmomi.vim.profile import Profile
+import typing as _typing
+import pyVmomi.VmomiSupport
+import pyVmomi.vim.profile
 
 
 
-class ClusterProfile(Profile):
-   class ConfigInfo(Profile.ConfigInfo):
-      complyProfile: Optional[ComplianceProfile] = None
+class ClusterProfile(pyVmomi.vim.profile.Profile):
+   class ConfigInfo(pyVmomi.vim.profile.Profile.ConfigInfo):
+      complyProfile: _typing.Optional[pyVmomi.vim.profile.ComplianceProfile] = None
 
-   class CreateSpec(Profile.CreateSpec):
+   class CreateSpec(pyVmomi.vim.profile.Profile.CreateSpec):
       pass
 
    class ConfigSpec(CreateSpec):
       pass
 
    class CompleteConfigSpec(ConfigSpec):
-      complyProfile: Optional[ComplianceProfile] = None
+      complyProfile: _typing.Optional[pyVmomi.vim.profile.ComplianceProfile] = None
 
-   class ServiceType(Enum):
-      DRS: ClassVar['ServiceType'] = 'DRS'
-      HA: ClassVar['ServiceType'] = 'HA'
-      DPM: ClassVar['ServiceType'] = 'DPM'
-      FT: ClassVar['ServiceType'] = 'FT'
+   class ServiceType(pyVmomi.VmomiSupport.Enum):
+      DRS: _typing.ClassVar['ServiceType'] = 'DRS'
+      HA: _typing.ClassVar['ServiceType'] = 'HA'
+      DPM: _typing.ClassVar['ServiceType'] = 'DPM'
+      FT: _typing.ClassVar['ServiceType'] = 'FT'
 
    class ConfigServiceCreateSpec(ConfigSpec):
       serviceType: list[str] = []
 
    def Update(self, config: ConfigSpec) -> None: ...
 
-class ProfileManager(ProfileManager):
+
+class ProfileManager(pyVmomi.vim.profile.ProfileManager):
    pass

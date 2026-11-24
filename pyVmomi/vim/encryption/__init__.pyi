@@ -3,45 +3,33 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from datetime import datetime
-from typing import ClassVar
-from typing import Optional
-
-from pyVmomi.VmomiSupport import Enum
-
-from pyVmomi.VmomiSupport import ManagedObject
-
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import KeyValue
-from pyVmomi.vim import ManagedEntity
-
-from pyVmomi.vim import Task
-from pyVmomi.vim import VirtualMachine
-
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import MethodFault
+import datetime as _datetime
+import typing as _typing
+import pyVmomi.VmomiSupport
+import pyVmomi.vim
+import pyVmomi.vmodl
 
 
 
-class CryptoKeyId(DynamicData):
+class CryptoKeyId(pyVmomi.vmodl.DynamicData):
    keyId: str
-   providerId: Optional[KeyProviderId] = None
+   providerId: _typing.Optional[KeyProviderId] = None
 
 
-class CryptoKeyPlain(DynamicData):
+class CryptoKeyPlain(pyVmomi.vmodl.DynamicData):
    keyId: CryptoKeyId
    algorithm: str
    keyData: str
 
 
-class CryptoKeyResult(DynamicData):
+class CryptoKeyResult(pyVmomi.vmodl.DynamicData):
    keyId: CryptoKeyId
    success: bool
-   reason: Optional[str] = None
-   fault: Optional[MethodFault] = None
+   reason: _typing.Optional[str] = None
+   fault: _typing.Optional[pyVmomi.vmodl.MethodFault] = None
 
 
-class CryptoManager(ManagedObject):
+class CryptoManager(pyVmomi.VmomiSupport.ManagedObject):
    @property
    def enabled(self) -> bool: ...
 
@@ -49,24 +37,24 @@ class CryptoManager(ManagedObject):
    def AddKeys(self, keys: list[CryptoKeyPlain]) -> list[CryptoKeyResult]: ...
    def RemoveKey(self, key: CryptoKeyId, force: bool) -> None: ...
    def RemoveKeys(self, keys: list[CryptoKeyId], force: bool) -> list[CryptoKeyResult]: ...
-   def ListKeys(self, limit: Optional[int]) -> list[CryptoKeyId]: ...
+   def ListKeys(self, limit: _typing.Optional[int]) -> list[CryptoKeyId]: ...
 
 
 class CryptoManagerHost(CryptoManager):
-   class KeyManagementType(Enum):
-      unknown: ClassVar['KeyManagementType'] = 'unknown'
-      internal: ClassVar['KeyManagementType'] = 'internal'
-      external: ClassVar['KeyManagementType'] = 'external'
+   class KeyManagementType(pyVmomi.VmomiSupport.Enum):
+      unknown: _typing.ClassVar['KeyManagementType'] = 'unknown'
+      internal: _typing.ClassVar['KeyManagementType'] = 'internal'
+      external: _typing.ClassVar['KeyManagementType'] = 'external'
 
-   class KeyStatus(DynamicData):
+   class KeyStatus(pyVmomi.vmodl.DynamicData):
       keyId: CryptoKeyId
       present: bool
-      managementType: Optional[str] = None
-      accessGranted: Optional[bool] = None
+      managementType: _typing.Optional[str] = None
+      accessGranted: _typing.Optional[bool] = None
 
    def Prepare(self) -> None: ...
    def Enable(self, initialKey: CryptoKeyPlain) -> None: ...
-   def ChangeKey(self, newKey: CryptoKeyPlain) -> Task: ...
+   def ChangeKey(self, newKey: CryptoKeyPlain) -> pyVmomi.vim.Task: ...
    def Disable(self) -> None: ...
    def GetCryptoKeyStatus(self, keys: list[CryptoKeyId]) -> list[KeyStatus]: ...
 
@@ -75,82 +63,82 @@ class CryptoManagerHostKMS(CryptoManagerHost):
 
 
 class CryptoManagerKmip(CryptoManager):
-   class CertificateInfo(DynamicData):
+   class CertificateInfo(pyVmomi.vmodl.DynamicData):
       subject: str
       issuer: str
       serialNumber: str
-      notBefore: datetime
-      notAfter: datetime
+      notBefore: _datetime.datetime
+      notAfter: _datetime.datetime
       fingerprint: str
-      checkTime: datetime
-      secondsSinceValid: Optional[int] = None
-      secondsBeforeExpire: Optional[int] = None
+      checkTime: _datetime.datetime
+      secondsSinceValid: _typing.Optional[int] = None
+      secondsBeforeExpire: _typing.Optional[int] = None
 
-   class ServerStatus(DynamicData):
+   class ServerStatus(pyVmomi.vmodl.DynamicData):
       name: str
-      status: ManagedEntity.Status
+      status: pyVmomi.vim.ManagedEntity.Status
       connectionStatus: str
-      certInfo: Optional[CertificateInfo] = None
-      clientTrustServer: Optional[bool] = None
-      serverTrustClient: Optional[bool] = None
+      certInfo: _typing.Optional[CertificateInfo] = None
+      clientTrustServer: _typing.Optional[bool] = None
+      serverTrustClient: _typing.Optional[bool] = None
 
-   class ClusterStatus(DynamicData):
+   class ClusterStatus(pyVmomi.vmodl.DynamicData):
       clusterId: KeyProviderId
-      overallStatus: Optional[ManagedEntity.Status] = None
-      managementType: Optional[str] = None
+      overallStatus: _typing.Optional[pyVmomi.vim.ManagedEntity.Status] = None
+      managementType: _typing.Optional[str] = None
       servers: list[ServerStatus] = []
-      clientCertInfo: Optional[CertificateInfo] = None
+      clientCertInfo: _typing.Optional[CertificateInfo] = None
 
-   class GenerateKeySpec(DynamicData):
-      keyType: Optional[str] = None
+   class GenerateKeySpec(pyVmomi.vmodl.DynamicData):
+      keyType: _typing.Optional[str] = None
 
-   class ServerCertInfo(DynamicData):
+   class ServerCertInfo(pyVmomi.vmodl.DynamicData):
       certificate: str
-      certInfo: Optional[CertificateInfo] = None
-      clientTrustServer: Optional[bool] = None
+      certInfo: _typing.Optional[CertificateInfo] = None
+      clientTrustServer: _typing.Optional[bool] = None
 
-   class CertSignRequest(DynamicData):
-      commonName: Optional[str] = None
-      organization: Optional[str] = None
-      organizationUnit: Optional[str] = None
-      locality: Optional[str] = None
-      state: Optional[str] = None
-      country: Optional[str] = None
-      email: Optional[str] = None
+   class CertSignRequest(pyVmomi.vmodl.DynamicData):
+      commonName: _typing.Optional[str] = None
+      organization: _typing.Optional[str] = None
+      organizationUnit: _typing.Optional[str] = None
+      locality: _typing.Optional[str] = None
+      state: _typing.Optional[str] = None
+      country: _typing.Optional[str] = None
+      email: _typing.Optional[str] = None
 
-   class CryptoKeyStatus(DynamicData):
-      class KeyUnavailableReason(Enum):
-         KeyStateMissingInCache: ClassVar['KeyUnavailableReason'] = 'KeyStateMissingInCache'
-         KeyStateClusterInvalid: ClassVar['KeyUnavailableReason'] = 'KeyStateClusterInvalid'
-         KeyStateClusterUnreachable: ClassVar['KeyUnavailableReason'] = 'KeyStateClusterUnreachable'
-         KeyStateMissingInKMS: ClassVar['KeyUnavailableReason'] = 'KeyStateMissingInKMS'
-         KeyStateNotActiveOrEnabled: ClassVar['KeyUnavailableReason'] = 'KeyStateNotActiveOrEnabled'
-         KeyStateManagedByTrustAuthority: ClassVar['KeyUnavailableReason'] = 'KeyStateManagedByTrustAuthority'
-         KeyStateManagedByNKP: ClassVar['KeyUnavailableReason'] = 'KeyStateManagedByNKP'
-         NoPermissionToAccessKeyProvider: ClassVar['KeyUnavailableReason'] = 'NoPermissionToAccessKeyProvider'
-         WrappingKeyMissingInKMS: ClassVar['KeyUnavailableReason'] = 'WrappingKeyMissingInKMS'
-         WrappingKeyNotActiveOrEnabled: ClassVar['KeyUnavailableReason'] = 'WrappingKeyNotActiveOrEnabled'
+   class CryptoKeyStatus(pyVmomi.vmodl.DynamicData):
+      class KeyUnavailableReason(pyVmomi.VmomiSupport.Enum):
+         KeyStateMissingInCache: _typing.ClassVar['KeyUnavailableReason'] = 'KeyStateMissingInCache'
+         KeyStateClusterInvalid: _typing.ClassVar['KeyUnavailableReason'] = 'KeyStateClusterInvalid'
+         KeyStateClusterUnreachable: _typing.ClassVar['KeyUnavailableReason'] = 'KeyStateClusterUnreachable'
+         KeyStateMissingInKMS: _typing.ClassVar['KeyUnavailableReason'] = 'KeyStateMissingInKMS'
+         KeyStateNotActiveOrEnabled: _typing.ClassVar['KeyUnavailableReason'] = 'KeyStateNotActiveOrEnabled'
+         KeyStateManagedByTrustAuthority: _typing.ClassVar['KeyUnavailableReason'] = 'KeyStateManagedByTrustAuthority'
+         KeyStateManagedByNKP: _typing.ClassVar['KeyUnavailableReason'] = 'KeyStateManagedByNKP'
+         NoPermissionToAccessKeyProvider: _typing.ClassVar['KeyUnavailableReason'] = 'NoPermissionToAccessKeyProvider'
+         WrappingKeyMissingInKMS: _typing.ClassVar['KeyUnavailableReason'] = 'WrappingKeyMissingInKMS'
+         WrappingKeyNotActiveOrEnabled: _typing.ClassVar['KeyUnavailableReason'] = 'WrappingKeyNotActiveOrEnabled'
 
-      class KeyInfo(DynamicData):
+      class KeyInfo(pyVmomi.vmodl.DynamicData):
          keyId: str
 
       class WrappingKeyIdKeyInfo(CryptoKeyStatus.KeyInfo):
-         configuredTime: Optional[datetime] = None
+         configuredTime: _typing.Optional[_datetime.datetime] = None
 
       class WrappingRotationIntervalKeyInfo(CryptoKeyStatus.KeyInfo):
-         createTime: Optional[datetime] = None
-         rotateTime: Optional[datetime] = None
+         createTime: _typing.Optional[_datetime.datetime] = None
+         rotateTime: _typing.Optional[_datetime.datetime] = None
 
       keyId: CryptoKeyId
-      keyAvailable: Optional[bool] = None
-      reason: Optional[str] = None
-      keyInfo: Optional[KeyInfo] = None
-      encryptedVMs: list[VirtualMachine] = []
-      affectedHosts: list[HostSystem] = []
+      keyAvailable: _typing.Optional[bool] = None
+      reason: _typing.Optional[str] = None
+      keyInfo: _typing.Optional[KeyInfo] = None
+      encryptedVMs: list[pyVmomi.vim.VirtualMachine] = []
+      affectedHosts: list[pyVmomi.vim.HostSystem] = []
       referencedByTags: list[str] = []
 
-   class CustomAttributeSpec(DynamicData):
-      attributes: list[KeyValue] = []
+   class CustomAttributeSpec(pyVmomi.vmodl.DynamicData):
+      attributes: list[pyVmomi.vim.KeyValue] = []
 
    @property
    def kmipServers(self) -> list[KmipClusterInfo]: ...
@@ -159,30 +147,30 @@ class CryptoManagerKmip(CryptoManager):
    def MarkDefault(self, clusterId: KeyProviderId) -> None: ...
    def UpdateKmipServer(self, server: KmipServerSpec) -> None: ...
    def RemoveKmipServer(self, clusterId: KeyProviderId, serverName: str) -> None: ...
-   def ListKmipServers(self, limit: Optional[int]) -> list[KmipClusterInfo]: ...
-   def RetrieveKmipServersStatus(self, clusters: list[KmipClusterInfo]) -> Task: ...
-   def GenerateKey(self, keyProvider: Optional[KeyProviderId], spec: Optional[CustomAttributeSpec], keySpec: Optional[GenerateKeySpec]) -> CryptoKeyResult: ...
+   def ListKmipServers(self, limit: _typing.Optional[int]) -> list[KmipClusterInfo]: ...
+   def RetrieveKmipServersStatus(self, clusters: list[KmipClusterInfo]) -> pyVmomi.vim.Task: ...
+   def GenerateKey(self, keyProvider: _typing.Optional[KeyProviderId], spec: _typing.Optional[CustomAttributeSpec], keySpec: _typing.Optional[GenerateKeySpec]) -> CryptoKeyResult: ...
    def RetrieveKmipServerCert(self, keyProvider: KeyProviderId, server: KmipServerInfo) -> ServerCertInfo: ...
    def UploadKmipServerCert(self, cluster: KeyProviderId, certificate: str) -> None: ...
-   def GenerateSelfSignedClientCert(self, cluster: KeyProviderId, request: Optional[CertSignRequest]) -> str: ...
-   def GenerateClientCsr(self, cluster: KeyProviderId, request: Optional[CertSignRequest]) -> str: ...
+   def GenerateSelfSignedClientCert(self, cluster: KeyProviderId, request: _typing.Optional[CertSignRequest]) -> str: ...
+   def GenerateClientCsr(self, cluster: KeyProviderId, request: _typing.Optional[CertSignRequest]) -> str: ...
    def RetrieveSelfSignedClientCert(self, cluster: KeyProviderId) -> str: ...
    def RetrieveClientCsr(self, cluster: KeyProviderId) -> str: ...
    def RetrieveClientCert(self, cluster: KeyProviderId) -> str: ...
    def UpdateSelfSignedClientCert(self, cluster: KeyProviderId, certificate: str) -> None: ...
    def UpdateKmsSignedCsrClientCert(self, cluster: KeyProviderId, certificate: str) -> None: ...
    def UploadClientCert(self, cluster: KeyProviderId, certificate: str, privateKey: str) -> None: ...
-   def IsKmsClusterActive(self, cluster: Optional[KeyProviderId]) -> bool: ...
-   def SetDefaultKmsCluster(self, entity: Optional[ManagedEntity], clusterId: Optional[KeyProviderId]) -> None: ...
-   def GetDefaultKmsCluster(self, entity: Optional[ManagedEntity], defaultsToParent: Optional[bool]) -> Optional[KeyProviderId]: ...
+   def IsKmsClusterActive(self, cluster: _typing.Optional[KeyProviderId]) -> bool: ...
+   def SetDefaultKmsCluster(self, entity: _typing.Optional[pyVmomi.vim.ManagedEntity], clusterId: _typing.Optional[KeyProviderId]) -> None: ...
+   def GetDefaultKmsCluster(self, entity: _typing.Optional[pyVmomi.vim.ManagedEntity], defaultsToParent: _typing.Optional[bool]) -> _typing.Optional[KeyProviderId]: ...
    def QueryCryptoKeyStatus(self, keyIds: list[CryptoKeyId], checkKeyBitMap: int) -> list[CryptoKeyStatus]: ...
-   def RegisterKmsCluster(self, clusterId: KeyProviderId, managementType: Optional[str]) -> None: ...
+   def RegisterKmsCluster(self, clusterId: KeyProviderId, managementType: _typing.Optional[str]) -> None: ...
    def UnregisterKmsCluster(self, clusterId: KeyProviderId) -> None: ...
-   def ListKmsClusters(self, includeKmsServers: Optional[bool], managementTypeFilter: Optional[int], statusFilter: Optional[int]) -> list[KmipClusterInfo]: ...
+   def ListKmsClusters(self, includeKmsServers: _typing.Optional[bool], managementTypeFilter: _typing.Optional[int], statusFilter: _typing.Optional[int]) -> list[KmipClusterInfo]: ...
    def SetKeyCustomAttributes(self, keyId: CryptoKeyId, spec: CustomAttributeSpec) -> CryptoKeyResult: ...
 
 
-class CryptoSpec(DynamicData):
+class CryptoSpec(pyVmomi.vmodl.DynamicData):
    pass
 
 class CryptoSpecDecrypt(CryptoSpec):
@@ -204,77 +192,77 @@ class CryptoSpecShallowRecrypt(CryptoSpec):
    newKeyId: CryptoKeyId
 
 
-class KeyProviderId(DynamicData):
+class KeyProviderId(pyVmomi.vmodl.DynamicData):
    id: str
 
 
-class KmipClusterInfo(DynamicData):
-   class KmsManagementType(Enum):
-      unknown: ClassVar['KmsManagementType'] = 'unknown'
-      vCenter: ClassVar['KmsManagementType'] = 'vCenter'
-      trustAuthority: ClassVar['KmsManagementType'] = 'trustAuthority'
-      nativeProvider: ClassVar['KmsManagementType'] = 'nativeProvider'
+class KmipClusterInfo(pyVmomi.vmodl.DynamicData):
+   class KmsManagementType(pyVmomi.VmomiSupport.Enum):
+      unknown: _typing.ClassVar['KmsManagementType'] = 'unknown'
+      vCenter: _typing.ClassVar['KmsManagementType'] = 'vCenter'
+      trustAuthority: _typing.ClassVar['KmsManagementType'] = 'trustAuthority'
+      nativeProvider: _typing.ClassVar['KmsManagementType'] = 'nativeProvider'
 
-   class KeyType(Enum):
-      rawKey: ClassVar['KeyType'] = 'rawKey'
-      wrappedKey: ClassVar['KeyType'] = 'wrappedKey'
+   class KeyType(pyVmomi.VmomiSupport.Enum):
+      rawKey: _typing.ClassVar['KeyType'] = 'rawKey'
+      wrappedKey: _typing.ClassVar['KeyType'] = 'wrappedKey'
 
-   class KeyInfo(DynamicData):
+   class KeyInfo(pyVmomi.vmodl.DynamicData):
       pass
 
    class WrappingKeyIdKeyInfo(KeyInfo):
       keyId: str
-      configuredTime: datetime
+      configuredTime: _datetime.datetime
 
    class WrappingRotationIntervalKeyInfo(KeyInfo):
-      keyId: Optional[str] = None
-      rotationInterval: Optional[int] = None
-      lastRotation: Optional[datetime] = None
+      keyId: _typing.Optional[str] = None
+      rotationInterval: _typing.Optional[int] = None
+      lastRotation: _typing.Optional[_datetime.datetime] = None
 
    clusterId: KeyProviderId
    servers: list[KmipServerInfo] = []
    useAsDefault: bool
-   managementType: Optional[str] = None
-   useAsEntityDefault: list[ManagedEntity] = []
-   hasBackup: Optional[bool] = None
-   tpmRequired: Optional[bool] = None
-   keyId: Optional[str] = None
-   defaultKeyType: Optional[str] = None
-   keyInfo: Optional[KeyInfo] = None
+   managementType: _typing.Optional[str] = None
+   useAsEntityDefault: list[pyVmomi.vim.ManagedEntity] = []
+   hasBackup: _typing.Optional[bool] = None
+   tpmRequired: _typing.Optional[bool] = None
+   keyId: _typing.Optional[str] = None
+   defaultKeyType: _typing.Optional[str] = None
+   keyInfo: _typing.Optional[KeyInfo] = None
 
 
-class KmipServerInfo(DynamicData):
+class KmipServerInfo(pyVmomi.vmodl.DynamicData):
    name: str
    address: str
    port: int
-   proxyAddress: Optional[str] = None
-   proxyPort: Optional[int] = None
-   reconnect: Optional[int] = None
-   protocol: Optional[str] = None
-   nbio: Optional[int] = None
-   timeout: Optional[int] = None
-   userName: Optional[str] = None
+   proxyAddress: _typing.Optional[str] = None
+   proxyPort: _typing.Optional[int] = None
+   reconnect: _typing.Optional[int] = None
+   protocol: _typing.Optional[str] = None
+   nbio: _typing.Optional[int] = None
+   timeout: _typing.Optional[int] = None
+   userName: _typing.Optional[str] = None
 
 
-class KmipServerSpec(DynamicData):
-   class KeySpec(DynamicData):
+class KmipServerSpec(pyVmomi.vmodl.DynamicData):
+   class KeySpec(pyVmomi.vmodl.DynamicData):
       pass
 
    class WrappingKeyIdKeySpec(KeySpec):
       keyId: str
 
    class WrappingRotationIntervalKeySpec(KeySpec):
-      rotationInterval: Optional[int] = None
+      rotationInterval: _typing.Optional[int] = None
 
    clusterId: KeyProviderId
    info: KmipServerInfo
-   password: Optional[str] = None
-   defaultKeyType: Optional[str] = None
-   keySpec: Optional[KeySpec] = None
+   password: _typing.Optional[str] = None
+   defaultKeyType: _typing.Optional[str] = None
+   keySpec: _typing.Optional[KeySpec] = None
 
 
-class KmipServerStatus(DynamicData):
+class KmipServerStatus(pyVmomi.vmodl.DynamicData):
    clusterId: KeyProviderId
    name: str
-   status: ManagedEntity.Status
+   status: pyVmomi.vim.ManagedEntity.Status
    description: str

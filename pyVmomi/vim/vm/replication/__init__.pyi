@@ -3,22 +3,22 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.vmodl import DynamicData
+import pyVmomi.vmodl
 
 
 
-class DeviceGroupId(DynamicData):
+class DeviceGroupId(pyVmomi.vmodl.DynamicData):
    id: str
 
 
-class FaultDomainId(DynamicData):
+class FaultDomainId(pyVmomi.vmodl.DynamicData):
    id: str
 
 
-class ReplicationGroupId(DynamicData):
+class ReplicationGroupId(pyVmomi.vmodl.DynamicData):
    faultDomainId: FaultDomainId
    deviceGroupId: DeviceGroupId
 
 
-class ReplicationSpec(DynamicData):
+class ReplicationSpec(pyVmomi.vmodl.DynamicData):
    replicationGroupId: ReplicationGroupId

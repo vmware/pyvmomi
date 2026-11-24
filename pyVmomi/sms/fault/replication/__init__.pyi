@@ -3,11 +3,10 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import Optional
-from pyVmomi.sms import Task
-from pyVmomi.vmodl import MethodFault
-
-from pyVmomi.sms.storage.replication import DeviceId
+import typing as _typing
+import pyVmomi.sms
+import pyVmomi.vmodl
+import pyVmomi.sms.storage.replication
 
 
 class AlreadyDone(ReplicationFault):
@@ -26,15 +25,15 @@ class NoReplicationTarget(ReplicationFault):
 
 
 class NoValidReplica(ReplicationFault):
-   deviceId: Optional[DeviceId] = None
+   deviceId: _typing.Optional[pyVmomi.sms.storage.replication.DeviceId] = None
 
 class PeerNotReachable(ReplicationFault):
    pass
 
 
-class ReplicationFault(MethodFault):
+class ReplicationFault(pyVmomi.vmodl.MethodFault):
    pass
 
 
 class SyncOngoing(ReplicationFault):
-   task: Task
+   task: pyVmomi.sms.Task

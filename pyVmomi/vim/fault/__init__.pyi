@@ -3,78 +3,31 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from datetime import datetime
-from typing import ClassVar
-from typing import Optional
-
-from pyVmomi.VmomiSupport import Enum
-from pyVmomi.VmomiSupport import ManagedObject
-from pyVmomi.VmomiSupport import PropertyPath
-
-from pyVmomi.VmomiSupport import long
-from pyVmomi.vim import ComputeResource
-
-from pyVmomi.vim import Datacenter
-
-from pyVmomi.vim import Datastore
-
-from pyVmomi.vim import HostSystem
-
-from pyVmomi.vim import KeyValue
-from pyVmomi.vim import LicenseManager
-
-from pyVmomi.vim import ManagedEntity
-
-from pyVmomi.vim import Network
-from pyVmomi.vim import Task
-from pyVmomi.vim import VirtualMachine
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import KeyAnyValue
-from pyVmomi.vmodl import LocalizableMessage
-from pyVmomi.vmodl import MethodFault
-from pyVmomi.vmodl import RuntimeFault
-
-from pyVmomi.vim.cluster import RuleInfo
-
-from pyVmomi.vim.cns import SnapshotId
-from pyVmomi.vim.cns import VolumeId
-from pyVmomi.vim.dvs import ProductSpec
-
-from pyVmomi.vim.encryption import CryptoKeyId
-
-from pyVmomi.vim.event import Event
-
-from pyVmomi.vim.profile import Profile
-
-from pyVmomi.vim.profile import ProfilePropertyPath
-
-from pyVmomi.vim.vm import FeatureRequirement
-
-from pyVmomi.vmodl.fault import InvalidArgument
-
-from pyVmomi.vmodl.fault import NotEnoughLicenses
-from pyVmomi.vmodl.fault import NotSupported
-
-from pyVmomi.vmodl.fault import SecurityError
-from pyVmomi.vim.vm.device import VirtualCdrom
-
-from pyVmomi.vim.vm.device import VirtualDevice
-
-from pyVmomi.vim.vm.device import VirtualDeviceSpec
-
-from pyVmomi.vim.vm.device import VirtualDiskId
-
-from pyVmomi.vim.vm.guest import GuestAuthentication
+import datetime as _datetime
+import typing as _typing
+import pyVmomi.VmomiSupport
+import pyVmomi.vim
+import pyVmomi.vmodl
+import pyVmomi.vim.cluster
+import pyVmomi.vim.cns
+import pyVmomi.vim.dvs
+import pyVmomi.vim.encryption
+import pyVmomi.vim.event
+import pyVmomi.vim.profile
+import pyVmomi.vim.vm
+import pyVmomi.vmodl.fault
+import pyVmomi.vim.vm.device
+import pyVmomi.vim.vm.guest
 
 
 
 class ActiveDirectoryFault(VimFault):
-   errorCode: Optional[int] = None
+   errorCode: _typing.Optional[int] = None
 
 
 class ActiveVMsBlockingEVC(EVCConfigFault):
-   evcMode: Optional[str] = None
-   host: list[HostSystem] = []
+   evcMode: _typing.Optional[str] = None
+   host: list[pyVmomi.vim.HostSystem] = []
    hostName: list[str] = []
 
 class AdminDisabled(HostConfigFault):
@@ -85,28 +38,28 @@ class AdminNotDisabled(HostConfigFault):
 
 
 class AffinityConfigured(MigrationFault):
-   class Affinity(Enum):
-      memory: ClassVar['Affinity'] = 'memory'
-      cpu: ClassVar['Affinity'] = 'cpu'
+   class Affinity(pyVmomi.VmomiSupport.Enum):
+      memory: _typing.ClassVar['Affinity'] = 'memory'
+      cpu: _typing.ClassVar['Affinity'] = 'cpu'
 
    configuredAffinity: list[str] = []
 
 
 class AgentInstallFailed(HostConnectFault):
-   class Reason(Enum):
-      NotEnoughSpaceOnDevice: ClassVar['Reason'] = 'NotEnoughSpaceOnDevice'
-      PrepareToUpgradeFailed: ClassVar['Reason'] = 'PrepareToUpgradeFailed'
-      AgentNotRunning: ClassVar['Reason'] = 'AgentNotRunning'
-      AgentNotReachable: ClassVar['Reason'] = 'AgentNotReachable'
-      InstallTimedout: ClassVar['Reason'] = 'InstallTimedout'
-      SignatureVerificationFailed: ClassVar['Reason'] = 'SignatureVerificationFailed'
-      AgentUploadFailed: ClassVar['Reason'] = 'AgentUploadFailed'
-      AgentUploadTimedout: ClassVar['Reason'] = 'AgentUploadTimedout'
-      UnknownInstallerError: ClassVar['Reason'] = 'UnknownInstallerError'
+   class Reason(pyVmomi.VmomiSupport.Enum):
+      NotEnoughSpaceOnDevice: _typing.ClassVar['Reason'] = 'NotEnoughSpaceOnDevice'
+      PrepareToUpgradeFailed: _typing.ClassVar['Reason'] = 'PrepareToUpgradeFailed'
+      AgentNotRunning: _typing.ClassVar['Reason'] = 'AgentNotRunning'
+      AgentNotReachable: _typing.ClassVar['Reason'] = 'AgentNotReachable'
+      InstallTimedout: _typing.ClassVar['Reason'] = 'InstallTimedout'
+      SignatureVerificationFailed: _typing.ClassVar['Reason'] = 'SignatureVerificationFailed'
+      AgentUploadFailed: _typing.ClassVar['Reason'] = 'AgentUploadFailed'
+      AgentUploadTimedout: _typing.ClassVar['Reason'] = 'AgentUploadTimedout'
+      UnknownInstallerError: _typing.ClassVar['Reason'] = 'UnknownInstallerError'
 
-   reason: Optional[str] = None
-   statusCode: Optional[int] = None
-   installerOutput: Optional[str] = None
+   reason: _typing.Optional[str] = None
+   statusCode: _typing.Optional[int] = None
+   installerOutput: _typing.Optional[str] = None
 
 class AlreadyBeingManaged(HostConnectFault):
    ipAddress: str
@@ -116,16 +69,16 @@ class AlreadyConnected(HostConnectFault):
 
 
 class AlreadyExists(VimFault):
-   name: Optional[str] = None
+   name: _typing.Optional[str] = None
 
 class AlreadyUpgraded(VimFault):
    pass
 
 
 class AnswerFileUpdateFailed(VimFault):
-   class UpdateFailure(DynamicData):
-      userInputPath: ProfilePropertyPath
-      errMsg: LocalizableMessage
+   class UpdateFailure(pyVmomi.vmodl.DynamicData):
+      userInputPath: pyVmomi.vim.profile.ProfilePropertyPath
+      errMsg: pyVmomi.vmodl.LocalizableMessage
 
    failure: list[UpdateFailure] = []
 
@@ -139,13 +92,13 @@ class AuthMinimumAdminPermission(VimFault):
 class BackupBlobReadFailure(DvsFault):
    entityName: str
    entityType: str
-   fault: MethodFault
+   fault: pyVmomi.vmodl.MethodFault
 
 
 class BackupBlobWriteFailure(DvsFault):
    entityName: str
    entityType: str
-   fault: MethodFault
+   fault: pyVmomi.vmodl.MethodFault
 
 class BlockedByFirewall(HostConfigFault):
    pass
@@ -161,14 +114,14 @@ class CannotAccessLocalSource(VimFault):
 
 
 class CannotAccessNetwork(CannotAccessVmDevice):
-   network: Optional[Network] = None
+   network: _typing.Optional[pyVmomi.vim.Network] = None
 
 class CannotAccessVmComponent(VmConfigFault):
    pass
 
 
 class CannotAccessVmConfig(CannotAccessVmComponent):
-   reason: MethodFault
+   reason: pyVmomi.vmodl.MethodFault
 
 class CannotAccessVmDevice(CannotAccessVmComponent):
    device: str
@@ -177,7 +130,7 @@ class CannotAccessVmDevice(CannotAccessVmComponent):
 
 
 class CannotAccessVmDisk(CannotAccessVmDevice):
-   fault: MethodFault
+   fault: pyVmomi.vmodl.MethodFault
 
 class CannotAddHostWithFTVmAsStandalone(HostConnectFault):
    pass
@@ -190,12 +143,12 @@ class CannotAddHostWithFTVmToNonHACluster(HostConnectFault):
 
 
 class CannotChangeDrsBehaviorForFtSecondary(VmFaultToleranceIssue):
-   vm: VirtualMachine
+   vm: pyVmomi.vim.VirtualMachine
    vmName: str
 
 
 class CannotChangeHaSettingsForFtSecondary(VmFaultToleranceIssue):
-   vm: VirtualMachine
+   vm: pyVmomi.vim.VirtualMachine
    vmName: str
 
 class CannotChangeVsanClusterUuid(VsanFault):
@@ -206,7 +159,7 @@ class CannotChangeVsanNodeUuid(VsanFault):
 
 
 class CannotComputeFTCompatibleHosts(VmFaultToleranceIssue):
-   vm: VirtualMachine
+   vm: pyVmomi.vim.VirtualMachine
    vmName: str
 
 class CannotCreateFile(FileFault):
@@ -219,7 +172,7 @@ class CannotDeleteFile(FileFault):
    pass
 
 
-class CannotDisableDrsOnClustersWithVApps(RuntimeFault):
+class CannotDisableDrsOnClustersWithVApps(pyVmomi.vmodl.RuntimeFault):
    pass
 
 class CannotDisableSnapshot(VmConfigFault):
@@ -230,21 +183,21 @@ class CannotDisconnectHostWithFaultToleranceVm(VimFault):
 
 
 class CannotEnableVmcpForCluster(VimFault):
-   class Reason(Enum):
-      APDTimeoutDisabled: ClassVar['Reason'] = 'APDTimeoutDisabled'
+   class Reason(pyVmomi.VmomiSupport.Enum):
+      APDTimeoutDisabled: _typing.ClassVar['Reason'] = 'APDTimeoutDisabled'
 
-   host: Optional[HostSystem] = None
-   hostName: Optional[str] = None
-   reason: Optional[str] = None
+   host: _typing.Optional[pyVmomi.vim.HostSystem] = None
+   hostName: _typing.Optional[str] = None
+   reason: _typing.Optional[str] = None
 
 class CannotModifyConfigCpuRequirements(MigrationFault):
    pass
 
 
 class CannotMoveFaultToleranceVm(VimFault):
-   class MoveType(Enum):
-      resourcePool: ClassVar['MoveType'] = 'resourcePool'
-      cluster: ClassVar['MoveType'] = 'cluster'
+   class MoveType(pyVmomi.VmomiSupport.Enum):
+      resourcePool: _typing.ClassVar['MoveType'] = 'resourcePool'
+      cluster: _typing.ClassVar['MoveType'] = 'cluster'
 
    moveType: str
    vmName: str
@@ -266,14 +219,14 @@ class CannotPlaceWithoutPrerequisiteMoves(VimFault):
 
 
 class CannotPowerOffVmInCluster(InvalidState):
-   class Operation(Enum):
-      suspend: ClassVar['Operation'] = 'suspend'
-      powerOff: ClassVar['Operation'] = 'powerOff'
-      guestShutdown: ClassVar['Operation'] = 'guestShutdown'
-      guestSuspend: ClassVar['Operation'] = 'guestSuspend'
+   class Operation(pyVmomi.VmomiSupport.Enum):
+      suspend: _typing.ClassVar['Operation'] = 'suspend'
+      powerOff: _typing.ClassVar['Operation'] = 'powerOff'
+      guestShutdown: _typing.ClassVar['Operation'] = 'guestShutdown'
+      guestSuspend: _typing.ClassVar['Operation'] = 'guestSuspend'
 
    operation: str
-   vm: VirtualMachine
+   vm: pyVmomi.vim.VirtualMachine
    vmName: str
 
 class CannotReconfigureVsanWhenHaEnabled(VsanFault):
@@ -281,21 +234,21 @@ class CannotReconfigureVsanWhenHaEnabled(VsanFault):
 
 
 class CannotUseNetwork(VmConfigFault):
-   class Reason(Enum):
-      NetworkReservationNotSupported: ClassVar['Reason'] = 'NetworkReservationNotSupported'
-      MismatchedNetworkPolicies: ClassVar['Reason'] = 'MismatchedNetworkPolicies'
-      MismatchedDvsVersionOrVendor: ClassVar['Reason'] = 'MismatchedDvsVersionOrVendor'
-      VMotionToUnsupportedNetworkType: ClassVar['Reason'] = 'VMotionToUnsupportedNetworkType'
-      NetworkUnderMaintenance: ClassVar['Reason'] = 'NetworkUnderMaintenance'
-      MismatchedEnsMode: ClassVar['Reason'] = 'MismatchedEnsMode'
-      MismatchedRealTimeDvs: ClassVar['Reason'] = 'MismatchedRealTimeDvs'
-      NsxNetworkAvailabilityDegraded: ClassVar['Reason'] = 'NsxNetworkAvailabilityDegraded'
+   class Reason(pyVmomi.VmomiSupport.Enum):
+      NetworkReservationNotSupported: _typing.ClassVar['Reason'] = 'NetworkReservationNotSupported'
+      MismatchedNetworkPolicies: _typing.ClassVar['Reason'] = 'MismatchedNetworkPolicies'
+      MismatchedDvsVersionOrVendor: _typing.ClassVar['Reason'] = 'MismatchedDvsVersionOrVendor'
+      VMotionToUnsupportedNetworkType: _typing.ClassVar['Reason'] = 'VMotionToUnsupportedNetworkType'
+      NetworkUnderMaintenance: _typing.ClassVar['Reason'] = 'NetworkUnderMaintenance'
+      MismatchedEnsMode: _typing.ClassVar['Reason'] = 'MismatchedEnsMode'
+      MismatchedRealTimeDvs: _typing.ClassVar['Reason'] = 'MismatchedRealTimeDvs'
+      NsxNetworkAvailabilityDegraded: _typing.ClassVar['Reason'] = 'NsxNetworkAvailabilityDegraded'
 
    device: str
    backing: str
    connected: bool
    reason: str
-   network: Optional[Network] = None
+   network: _typing.Optional[pyVmomi.vim.Network] = None
 
 class ClockSkew(HostConfigFault):
    pass
@@ -305,14 +258,14 @@ class CloneFromSnapshotNotSupported(MigrationFault):
 
 
 class CnsAlreadyRegisteredFault(CnsFault):
-   volumeId: VolumeId
+   volumeId: pyVmomi.vim.cns.VolumeId
 
 class CnsFault(VimFault):
    reason: str
 
 
 class CnsInCompatibleFault(CnsPlacementFault):
-   errors: list[MethodFault] = []
+   errors: list[pyVmomi.vmodl.MethodFault] = []
 
 class CnsMissingControllerFault(CnsFault):
    pass
@@ -323,7 +276,7 @@ class CnsMissingPrivilegeFault(CnsPlacementFault):
 
 
 class CnsNotRegisteredFault(CnsFault):
-   volumeId: VolumeId
+   volumeId: pyVmomi.vim.cns.VolumeId
 
 class CnsPlacementFault(CnsFault):
    pass
@@ -333,17 +286,17 @@ class CnsRankedLowerFault(CnsPlacementFault):
 
 
 class CnsSnapshotNotFoundFault(CnsFault):
-   volumeId: Optional[VolumeId] = None
-   SnapshotId: SnapshotId
+   volumeId: _typing.Optional[pyVmomi.vim.cns.VolumeId] = None
+   SnapshotId: pyVmomi.vim.cns.SnapshotId
 
 
 class CnsVolumeAlreadyExistsFault(CnsFault):
-   volumeId: VolumeId
-   datastore: Optional[Datastore] = None
+   volumeId: pyVmomi.vim.cns.VolumeId
+   datastore: _typing.Optional[pyVmomi.vim.Datastore] = None
 
 
 class CnsVolumeNotFoundFault(CnsFault):
-   volumeId: VolumeId
+   volumeId: pyVmomi.vim.cns.VolumeId
 
 class CollectorAddressUnset(DvsFault):
    pass
@@ -353,20 +306,20 @@ class ConcurrentAccess(VimFault):
 
 
 class ConflictingConfiguration(DvsFault):
-   class Config(DynamicData):
-      entity: Optional[ManagedEntity] = None
+   class Config(pyVmomi.vmodl.DynamicData):
+      entity: _typing.Optional[pyVmomi.vim.ManagedEntity] = None
       propertyPath: str
 
    configInConflict: list[Config] = []
 
 
-class ConflictingDatastoreFound(RuntimeFault):
+class ConflictingDatastoreFound(pyVmomi.vmodl.RuntimeFault):
    name: str
    url: str
 
 
 class ConnectedIso(OvfExport):
-   cdrom: VirtualCdrom
+   cdrom: pyVmomi.vim.vm.device.VirtualCdrom
    filename: str
 
 class CpuCompatibilityUnknown(CpuIncompatible):
@@ -379,9 +332,9 @@ class CpuHotPlugNotSupported(VmConfigFault):
 class CpuIncompatible(VirtualHardwareCompatibilityIssue):
    level: int
    registerName: str
-   registerBits: Optional[str] = None
-   desiredBits: Optional[str] = None
-   host: Optional[HostSystem] = None
+   registerBits: _typing.Optional[str] = None
+   desiredBits: _typing.Optional[str] = None
+   host: _typing.Optional[pyVmomi.vim.HostSystem] = None
 
 class CpuIncompatible1ECX(CpuIncompatible):
    sse3: bool
@@ -412,43 +365,43 @@ class DVPortNotSupported(DeviceBackingNotSupported):
 
 
 class DasConfigFault(VimFault):
-   class DasConfigFaultReason(Enum):
-      HostNetworkMisconfiguration: ClassVar['DasConfigFaultReason'] = 'HostNetworkMisconfiguration'
-      HostMisconfiguration: ClassVar['DasConfigFaultReason'] = 'HostMisconfiguration'
-      InsufficientPrivileges: ClassVar['DasConfigFaultReason'] = 'InsufficientPrivileges'
-      NoPrimaryAgentAvailable: ClassVar['DasConfigFaultReason'] = 'NoPrimaryAgentAvailable'
-      Other: ClassVar['DasConfigFaultReason'] = 'Other'
-      NoDatastoresConfigured: ClassVar['DasConfigFaultReason'] = 'NoDatastoresConfigured'
-      CreateConfigVvolFailed: ClassVar['DasConfigFaultReason'] = 'CreateConfigVvolFailed'
-      VSanNotSupportedOnHost: ClassVar['DasConfigFaultReason'] = 'VSanNotSupportedOnHost'
-      DasNetworkMisconfiguration: ClassVar['DasConfigFaultReason'] = 'DasNetworkMisconfiguration'
-      SetDesiredImageSpecFailed: ClassVar['DasConfigFaultReason'] = 'SetDesiredImageSpecFailed'
-      ApplyHAVibsOnClusterFailed: ClassVar['DasConfigFaultReason'] = 'ApplyHAVibsOnClusterFailed'
+   class DasConfigFaultReason(pyVmomi.VmomiSupport.Enum):
+      HostNetworkMisconfiguration: _typing.ClassVar['DasConfigFaultReason'] = 'HostNetworkMisconfiguration'
+      HostMisconfiguration: _typing.ClassVar['DasConfigFaultReason'] = 'HostMisconfiguration'
+      InsufficientPrivileges: _typing.ClassVar['DasConfigFaultReason'] = 'InsufficientPrivileges'
+      NoPrimaryAgentAvailable: _typing.ClassVar['DasConfigFaultReason'] = 'NoPrimaryAgentAvailable'
+      Other: _typing.ClassVar['DasConfigFaultReason'] = 'Other'
+      NoDatastoresConfigured: _typing.ClassVar['DasConfigFaultReason'] = 'NoDatastoresConfigured'
+      CreateConfigVvolFailed: _typing.ClassVar['DasConfigFaultReason'] = 'CreateConfigVvolFailed'
+      VSanNotSupportedOnHost: _typing.ClassVar['DasConfigFaultReason'] = 'VSanNotSupportedOnHost'
+      DasNetworkMisconfiguration: _typing.ClassVar['DasConfigFaultReason'] = 'DasNetworkMisconfiguration'
+      SetDesiredImageSpecFailed: _typing.ClassVar['DasConfigFaultReason'] = 'SetDesiredImageSpecFailed'
+      ApplyHAVibsOnClusterFailed: _typing.ClassVar['DasConfigFaultReason'] = 'ApplyHAVibsOnClusterFailed'
 
-   reason: Optional[str] = None
-   output: Optional[str] = None
-   event: list[Event] = []
+   reason: _typing.Optional[str] = None
+   output: _typing.Optional[str] = None
+   event: list[pyVmomi.vim.event.Event] = []
 
 
-class DatabaseError(RuntimeFault):
+class DatabaseError(pyVmomi.vmodl.RuntimeFault):
    pass
 
 
 class DatacenterMismatch(MigrationFault):
-   class Argument(DynamicData):
-      entity: ManagedEntity
-      inputDatacenter: Optional[Datacenter] = None
+   class Argument(pyVmomi.vmodl.DynamicData):
+      entity: pyVmomi.vim.ManagedEntity
+      inputDatacenter: _typing.Optional[pyVmomi.vim.Datacenter] = None
 
    invalidArgument: list[Argument] = []
-   expectedDatacenter: Datacenter
+   expectedDatacenter: pyVmomi.vim.Datacenter
 
 
 class DatastoreNotWritableOnHost(InvalidDatastore):
-   host: HostSystem
+   host: pyVmomi.vim.HostSystem
 
 
 class DeltaDiskFormatNotSupported(VmConfigFault):
-   datastore: list[Datastore] = []
+   datastore: list[pyVmomi.vim.Datastore] = []
    deltaDiskFormat: str
 
 class DestinationSwitchFull(CannotAccessNetwork):
@@ -471,13 +424,13 @@ class DeviceNotFound(InvalidDeviceSpec):
 
 
 class DeviceNotSupported(VirtualHardwareCompatibilityIssue):
-   class Reason(Enum):
-      host: ClassVar['Reason'] = 'host'
-      guest: ClassVar['Reason'] = 'guest'
-      ft: ClassVar['Reason'] = 'ft'
+   class Reason(pyVmomi.VmomiSupport.Enum):
+      host: _typing.ClassVar['Reason'] = 'host'
+      guest: _typing.ClassVar['Reason'] = 'guest'
+      ft: _typing.ClassVar['Reason'] = 'ft'
 
    device: str
-   reason: Optional[str] = None
+   reason: _typing.Optional[str] = None
 
 class DeviceUnsupportedForVmPlatform(InvalidDeviceSpec):
    pass
@@ -496,23 +449,23 @@ class DisableAdminNotSupported(HostConfigFault):
    pass
 
 
-class DisallowedChangeByService(RuntimeFault):
-   class DisallowedChange(Enum):
-      hotExtendDisk: ClassVar['DisallowedChange'] = 'hotExtendDisk'
+class DisallowedChangeByService(pyVmomi.vmodl.RuntimeFault):
+   class DisallowedChange(pyVmomi.VmomiSupport.Enum):
+      hotExtendDisk: _typing.ClassVar['DisallowedChange'] = 'hotExtendDisk'
 
    serviceName: str
-   disallowedChange: Optional[str] = None
+   disallowedChange: _typing.Optional[str] = None
 
 class DisallowedDiskModeChange(InvalidDeviceSpec):
    pass
 
 
 class DisallowedMigrationDeviceAttached(MigrationFault):
-   fault: MethodFault
+   fault: pyVmomi.vmodl.MethodFault
 
 
-class DisallowedOperationOnFailoverHost(RuntimeFault):
-   host: HostSystem
+class DisallowedOperationOnFailoverHost(pyVmomi.vmodl.RuntimeFault):
+   host: pyVmomi.vim.HostSystem
    hostname: str
 
 class DisconnectedHostsBlockingEVC(EVCConfigFault):
@@ -547,7 +500,7 @@ class DrsDisabledOnVm(VimFault):
 
 
 class DrsVmotionIncompatibleFault(VirtualHardwareCompatibilityIssue):
-   host: HostSystem
+   host: pyVmomi.vim.HostSystem
 
 class DuplicateDisks(VsanDiskFault):
    pass
@@ -555,17 +508,17 @@ class DuplicateDisks(VsanDiskFault):
 
 class DuplicateName(VimFault):
    name: str
-   object: ManagedObject
+   object: pyVmomi.VmomiSupport.ManagedObject
 
 class DuplicateVsanNetworkInterface(VsanFault):
    device: str
 
 
 class DvsApplyOperationFault(DvsFault):
-   class FaultOnObject(DynamicData):
+   class FaultOnObject(pyVmomi.vmodl.DynamicData):
       objectId: str
       type: type
-      fault: MethodFault
+      fault: pyVmomi.vmodl.MethodFault
 
    objectFault: list[FaultOnObject] = []
 
@@ -574,25 +527,25 @@ class DvsFault(VimFault):
 
 
 class DvsNotAuthorized(DvsFault):
-   sessionExtensionKey: Optional[str] = None
-   dvsExtensionKey: Optional[str] = None
+   sessionExtensionKey: _typing.Optional[str] = None
+   dvsExtensionKey: _typing.Optional[str] = None
 
 
 class DvsOperationBulkFault(DvsFault):
-   class FaultOnHost(DynamicData):
-      host: HostSystem
-      fault: MethodFault
+   class FaultOnHost(pyVmomi.vmodl.DynamicData):
+      host: pyVmomi.vim.HostSystem
+      fault: pyVmomi.vmodl.MethodFault
 
    hostFault: list[FaultOnHost] = []
 
 
 class DvsScopeViolated(DvsFault):
-   scope: list[ManagedEntity] = []
-   entity: ManagedEntity
+   scope: list[pyVmomi.vim.ManagedEntity] = []
+   entity: pyVmomi.vim.ManagedEntity
 
 
 class EVCAdmissionFailed(NotSupportedHostInCluster):
-   faults: list[MethodFault] = []
+   faults: list[pyVmomi.vmodl.MethodFault] = []
 
 class EVCAdmissionFailedCPUFeaturesForMode(EVCAdmissionFailed):
    currentEVCModeKey: str
@@ -624,7 +577,7 @@ class EVCAdmissionFailedVmActive(EVCAdmissionFailed):
 
 
 class EVCConfigFault(VimFault):
-   faults: list[MethodFault] = []
+   faults: list[pyVmomi.vmodl.MethodFault] = []
 
 class EVCModeIllegalByVendor(EVCConfigFault):
    clusterCPUVendor: str
@@ -632,18 +585,18 @@ class EVCModeIllegalByVendor(EVCConfigFault):
 
 
 class EVCModeUnsupportedByHosts(EVCConfigFault):
-   evcMode: Optional[str] = None
-   host: list[HostSystem] = []
+   evcMode: _typing.Optional[str] = None
+   host: list[pyVmomi.vim.HostSystem] = []
    hostName: list[str] = []
 
 
 class EVCUnsupportedByHostHardware(EVCConfigFault):
-   host: list[HostSystem] = []
+   host: list[pyVmomi.vim.HostSystem] = []
    hostName: list[str] = []
 
 
 class EVCUnsupportedByHostSoftware(EVCConfigFault):
-   host: list[HostSystem] = []
+   host: list[pyVmomi.vim.HostSystem] = []
    hostName: list[str] = []
 
 class EightHostLimitViolated(VmConfigFault):
@@ -651,7 +604,7 @@ class EightHostLimitViolated(VmConfigFault):
 
 
 class EncryptionKeyRequired(InvalidState):
-   requiredKey: list[CryptoKeyId] = []
+   requiredKey: list[pyVmomi.vim.encryption.CryptoKeyId] = []
 
 class ExpiredAddonLicense(ExpiredFeatureLicense):
    pass
@@ -660,37 +613,37 @@ class ExpiredEditionLicense(ExpiredFeatureLicense):
    pass
 
 
-class ExpiredFeatureLicense(NotEnoughLicenses):
+class ExpiredFeatureLicense(pyVmomi.vmodl.fault.NotEnoughLicenses):
    feature: str
    count: int
-   expirationDate: datetime
+   expirationDate: _datetime.datetime
 
 
 class ExtendedFault(VimFault):
    faultTypeId: str
-   data: list[KeyValue] = []
+   data: list[pyVmomi.vim.KeyValue] = []
 
 
-class FailToEnableSPBM(NotEnoughLicenses):
-   cs: ComputeResource
+class FailToEnableSPBM(pyVmomi.vmodl.fault.NotEnoughLicenses):
+   cs: pyVmomi.vim.ComputeResource
    csName: str
-   hostLicenseStates: list[ComputeResource.HostSPBMLicenseInfo] = []
+   hostLicenseStates: list[pyVmomi.vim.ComputeResource.HostSPBMLicenseInfo] = []
 
 
-class FailToLockFaultToleranceVMs(RuntimeFault):
+class FailToLockFaultToleranceVMs(pyVmomi.vmodl.RuntimeFault):
    vmName: str
-   vm: VirtualMachine
-   alreadyLockedVm: VirtualMachine
+   vm: pyVmomi.vim.VirtualMachine
+   alreadyLockedVm: pyVmomi.vim.VirtualMachine
 
 
 class FaultToleranceAntiAffinityViolated(MigrationFault):
    hostName: str
-   host: HostSystem
+   host: pyVmomi.vim.HostSystem
 
 
 class FaultToleranceCannotEditMem(VmConfigFault):
    vmName: str
-   vm: VirtualMachine
+   vm: pyVmomi.vim.VirtualMachine
 
 class FaultToleranceCpuIncompatible(CpuIncompatible):
    model: bool
@@ -702,19 +655,19 @@ class FaultToleranceNeedsThickDisk(MigrationFault):
 
 
 class FaultToleranceNotLicensed(VmFaultToleranceIssue):
-   hostName: Optional[str] = None
+   hostName: _typing.Optional[str] = None
 
 class FaultToleranceNotSameBuild(MigrationFault):
    build: str
 
 
 class FaultTolerancePrimaryPowerOnNotAttempted(VmFaultToleranceIssue):
-   secondaryVm: VirtualMachine
-   primaryVm: VirtualMachine
+   secondaryVm: pyVmomi.vim.VirtualMachine
+   primaryVm: pyVmomi.vim.VirtualMachine
 
 
 class FaultToleranceVmNotDasProtected(VimFault):
-   vm: VirtualMachine
+   vm: pyVmomi.vim.VirtualMachine
    vmName: str
 
 class FcoeFault(VimFault):
@@ -725,9 +678,9 @@ class FcoeFaultPnicHasNoPortSet(FcoeFault):
 
 
 class FeatureRequirementsNotMet(VirtualHardwareCompatibilityIssue):
-   featureRequirement: list[FeatureRequirement] = []
-   vm: Optional[VirtualMachine] = None
-   host: Optional[HostSystem] = None
+   featureRequirement: list[pyVmomi.vim.vm.FeatureRequirement] = []
+   vm: _typing.Optional[pyVmomi.vim.VirtualMachine] = None
+   host: _typing.Optional[pyVmomi.vim.HostSystem] = None
 
 class FileAlreadyExists(FileFault):
    pass
@@ -753,26 +706,26 @@ class FileNotWritable(FileFault):
 
 class FileTooLarge(FileFault):
    datastore: str
-   fileSize: long
-   maxFileSize: Optional[long] = None
+   fileSize: pyVmomi.VmomiSupport.long
+   maxFileSize: _typing.Optional[pyVmomi.VmomiSupport.long] = None
 
 class FilesystemQuiesceFault(SnapshotFault):
    pass
 
 
 class FilterInUse(ResourceInUse):
-   disk: list[VirtualDiskId] = []
+   disk: list[pyVmomi.vim.vm.device.VirtualDiskId] = []
 
 
 class FtIssuesOnHost(VmFaultToleranceIssue):
-   class HostSelectionType(Enum):
-      user: ClassVar['HostSelectionType'] = 'user'
-      vc: ClassVar['HostSelectionType'] = 'vc'
-      drs: ClassVar['HostSelectionType'] = 'drs'
+   class HostSelectionType(pyVmomi.VmomiSupport.Enum):
+      user: _typing.ClassVar['HostSelectionType'] = 'user'
+      vc: _typing.ClassVar['HostSelectionType'] = 'vc'
+      drs: _typing.ClassVar['HostSelectionType'] = 'drs'
 
-   host: HostSystem
+   host: pyVmomi.vim.HostSystem
    hostName: str
-   errors: list[MethodFault] = []
+   errors: list[pyVmomi.vmodl.MethodFault] = []
 
 class FtVmHostRuleViolation(VmConfigFault):
    vmName: str
@@ -787,7 +740,7 @@ class GatewayConnectFault(HostConnectFault):
    gatewayType: str
    gatewayId: str
    gatewayInfo: str
-   details: Optional[LocalizableMessage] = None
+   details: _typing.Optional[pyVmomi.vmodl.LocalizableMessage] = None
 
 class GatewayHostNotReachable(GatewayToHostConnectFault):
    pass
@@ -808,24 +761,24 @@ class GatewayToHostAuthFault(GatewayToHostConnectFault):
 
 class GatewayToHostConnectFault(GatewayConnectFault):
    hostname: str
-   port: Optional[int] = None
+   port: _typing.Optional[int] = None
 
 
 class GatewayToHostTrustVerifyFault(GatewayToHostConnectFault):
    verificationToken: str
-   propertiesToVerify: list[KeyValue] = []
+   propertiesToVerify: list[pyVmomi.vim.KeyValue] = []
 
 
 class GenericDrsFault(VimFault):
-   hostFaults: list[MethodFault] = []
+   hostFaults: list[pyVmomi.vmodl.MethodFault] = []
 
 class GenericVmConfigFault(VmConfigFault):
    reason: str
 
 
 class GuestAuthenticationChallenge(GuestOperationsFault):
-   serverChallenge: GuestAuthentication
-   sessionID: long
+   serverChallenge: pyVmomi.vim.vm.guest.GuestAuthentication
+   sessionID: pyVmomi.VmomiSupport.long
 
 class GuestComponentsOutOfDate(GuestOperationsFault):
    pass
@@ -844,11 +797,11 @@ class GuestPermissionDenied(GuestOperationsFault):
 
 
 class GuestProcessNotFound(GuestOperationsFault):
-   pid: long
+   pid: pyVmomi.VmomiSupport.long
 
 
 class GuestRegistryFault(GuestOperationsFault):
-   windowsSystemErrorCode: long
+   windowsSystemErrorCode: pyVmomi.VmomiSupport.long
 
 class GuestRegistryKeyAlreadyExists(GuestRegistryKeyFault):
    pass
@@ -879,12 +832,12 @@ class HeterogenousHostsBlockingEVC(EVCConfigFault):
    pass
 
 
-class HostAccessRestrictedToManagementServer(NotSupported):
+class HostAccessRestrictedToManagementServer(pyVmomi.vmodl.fault.NotSupported):
    managementServer: str
 
 
 class HostConfigFailed(HostConfigFault):
-   failure: list[MethodFault] = []
+   failure: list[pyVmomi.vmodl.MethodFault] = []
 
 class HostConfigFault(VimFault):
    pass
@@ -894,8 +847,8 @@ class HostConnectFault(VimFault):
 
 
 class HostHasComponentFailure(VimFault):
-   class HostComponentType(Enum):
-      Datastore: ClassVar['HostComponentType'] = 'Datastore'
+   class HostComponentType(pyVmomi.VmomiSupport.Enum):
+      Datastore: _typing.ClassVar['HostComponentType'] = 'Datastore'
 
    hostName: str
    componentType: str
@@ -906,24 +859,24 @@ class HostInDomain(HostConfigFault):
 
 
 class HostIncompatibleForFaultTolerance(VmFaultToleranceIssue):
-   class Reason(Enum):
-      product: ClassVar['Reason'] = 'product'
-      processor: ClassVar['Reason'] = 'processor'
+   class Reason(pyVmomi.VmomiSupport.Enum):
+      product: _typing.ClassVar['Reason'] = 'product'
+      processor: _typing.ClassVar['Reason'] = 'processor'
 
-   hostName: Optional[str] = None
-   reason: Optional[str] = None
+   hostName: _typing.Optional[str] = None
+   reason: _typing.Optional[str] = None
 
 
 class HostIncompatibleForRecordReplay(VimFault):
-   class Reason(Enum):
-      product: ClassVar['Reason'] = 'product'
-      processor: ClassVar['Reason'] = 'processor'
+   class Reason(pyVmomi.VmomiSupport.Enum):
+      product: _typing.ClassVar['Reason'] = 'product'
+      processor: _typing.ClassVar['Reason'] = 'processor'
 
-   hostName: Optional[str] = None
-   reason: Optional[str] = None
+   hostName: _typing.Optional[str] = None
+   reason: _typing.Optional[str] = None
 
 
-class HostInventoryFull(NotEnoughLicenses):
+class HostInventoryFull(pyVmomi.vmodl.fault.NotEnoughLicenses):
    capacity: int
 
 class HostPowerOpFailed(VimFault):
@@ -931,7 +884,7 @@ class HostPowerOpFailed(VimFault):
 
 
 class HostSpecificationOperationFailed(VimFault):
-   host: HostSystem
+   host: pyVmomi.vim.HostSystem
 
 class HotSnapshotMoveNotSupported(SnapshotCopyNotSupported):
    pass
@@ -945,29 +898,29 @@ class IDEDiskNotSupported(DiskNotSupported):
 
 
 class IORMNotSupportedHostOnDatastore(VimFault):
-   datastore: Datastore
+   datastore: pyVmomi.vim.Datastore
    datastoreName: str
-   host: list[HostSystem] = []
+   host: list[pyVmomi.vim.HostSystem] = []
 
 class ImportHostAddFailure(DvsFault):
    hostIp: list[str] = []
 
 
 class ImportOperationBulkFault(DvsFault):
-   class FaultOnImport(DynamicData):
-      entityType: Optional[str] = None
-      key: Optional[str] = None
-      fault: MethodFault
+   class FaultOnImport(pyVmomi.vmodl.DynamicData):
+      entityType: _typing.Optional[str] = None
+      key: _typing.Optional[str] = None
+      fault: pyVmomi.vmodl.MethodFault
 
    importFaults: list[FaultOnImport] = []
 
 
-class InUseFeatureManipulationDisallowed(NotEnoughLicenses):
+class InUseFeatureManipulationDisallowed(pyVmomi.vmodl.fault.NotEnoughLicenses):
    pass
 
 
 class InaccessibleDatastore(InvalidDatastore):
-   detail: Optional[str] = None
+   detail: _typing.Optional[str] = None
 
 class InaccessibleFTMetadataDatastore(InaccessibleDatastore):
    pass
@@ -980,28 +933,28 @@ class IncompatibleDefaultDevice(MigrationFault):
 
 
 class IncompatibleHostForFtSecondary(VmFaultToleranceIssue):
-   host: HostSystem
-   error: list[MethodFault] = []
+   host: pyVmomi.vim.HostSystem
+   error: list[pyVmomi.vmodl.MethodFault] = []
 
 
 class IncompatibleHostForVmReplication(ReplicationFault):
-   class IncompatibleReason(Enum):
-      rpo: ClassVar['IncompatibleReason'] = 'rpo'
-      netCompression: ClassVar['IncompatibleReason'] = 'netCompression'
+   class IncompatibleReason(pyVmomi.VmomiSupport.Enum):
+      rpo: _typing.ClassVar['IncompatibleReason'] = 'rpo'
+      netCompression: _typing.ClassVar['IncompatibleReason'] = 'netCompression'
 
    vmName: str
    hostName: str
    reason: str
 
 
-class IncompatibleSetting(InvalidArgument):
-   conflictingProperty: PropertyPath
+class IncompatibleSetting(pyVmomi.vmodl.fault.InvalidArgument):
+   conflictingProperty: pyVmomi.VmomiSupport.PropertyPath
 
 class IncorrectFileType(FileFault):
    pass
 
 
-class IncorrectHostInformation(NotEnoughLicenses):
+class IncorrectHostInformation(pyVmomi.vmodl.fault.NotEnoughLicenses):
    pass
 
 class IndependentDiskVMotionNotSupported(MigrationFeatureNotSupported):
@@ -1014,8 +967,8 @@ class InsufficientAgentVmsDeployed(InsufficientResourcesFault):
 
 
 class InsufficientCpuResourcesFault(InsufficientResourcesFault):
-   unreserved: long
-   requested: long
+   unreserved: pyVmomi.VmomiSupport.long
+   requested: pyVmomi.VmomiSupport.long
 
 class InsufficientDisks(VsanDiskFault):
    pass
@@ -1028,22 +981,22 @@ class InsufficientGraphicsResourcesFault(InsufficientResourcesFault):
 
 
 class InsufficientHostCapacityFault(InsufficientResourcesFault):
-   host: Optional[HostSystem] = None
+   host: _typing.Optional[pyVmomi.vim.HostSystem] = None
 
 
 class InsufficientHostCpuCapacityFault(InsufficientHostCapacityFault):
-   unreserved: long
-   requested: long
+   unreserved: pyVmomi.VmomiSupport.long
+   requested: pyVmomi.VmomiSupport.long
 
 
 class InsufficientHostMemoryCapacityFault(InsufficientHostCapacityFault):
-   unreserved: long
-   requested: long
+   unreserved: pyVmomi.VmomiSupport.long
+   requested: pyVmomi.VmomiSupport.long
 
 
 class InsufficientMemoryResourcesFault(InsufficientResourcesFault):
-   unreserved: long
-   requested: long
+   unreserved: pyVmomi.VmomiSupport.long
+   requested: pyVmomi.VmomiSupport.long
 
 class InsufficientNetworkCapacity(InsufficientResourcesFault):
    pass
@@ -1053,8 +1006,8 @@ class InsufficientNetworkResourcePoolCapacity(InsufficientResourcesFault):
    dvsName: str
    dvsUuid: str
    resourcePoolKey: str
-   available: long
-   requested: long
+   available: pyVmomi.VmomiSupport.long
+   requested: pyVmomi.VmomiSupport.long
    device: list[str] = []
 
 class InsufficientPerCpuCapacity(InsufficientHostCapacityFault):
@@ -1065,21 +1018,21 @@ class InsufficientResourcesFault(VimFault):
 
 
 class InsufficientStandbyCpuResource(InsufficientStandbyResource):
-   available: long
-   requested: long
+   available: pyVmomi.VmomiSupport.long
+   requested: pyVmomi.VmomiSupport.long
 
 
 class InsufficientStandbyMemoryResource(InsufficientStandbyResource):
-   available: long
-   requested: long
+   available: pyVmomi.VmomiSupport.long
+   requested: pyVmomi.VmomiSupport.long
 
 class InsufficientStandbyResource(InsufficientResourcesFault):
    pass
 
 
 class InsufficientStorageIops(VimFault):
-   unreservedIops: long
-   requestedIops: long
+   unreservedIops: pyVmomi.VmomiSupport.long
+   requestedIops: pyVmomi.VmomiSupport.long
    datastoreName: str
 
 class InsufficientStorageSpace(InsufficientResourcesFault):
@@ -1087,10 +1040,10 @@ class InsufficientStorageSpace(InsufficientResourcesFault):
 
 
 class InsufficientVFlashResourcesFault(InsufficientResourcesFault):
-   freeSpaceInMB: Optional[long] = None
-   freeSpace: long
-   requestedSpaceInMB: Optional[long] = None
-   requestedSpace: long
+   freeSpaceInMB: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   freeSpace: pyVmomi.VmomiSupport.long
+   requestedSpaceInMB: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   requestedSpace: pyVmomi.VmomiSupport.long
 
 class InvalidAffinitySettingFault(VimFault):
    pass
@@ -1114,39 +1067,39 @@ class InvalidController(InvalidDeviceSpec):
    controllerKey: int
 
 
-class InvalidDasConfigArgument(InvalidArgument):
-   class EntryForInvalidArgument(Enum):
-      admissionControl: ClassVar['EntryForInvalidArgument'] = 'admissionControl'
-      userHeartbeatDs: ClassVar['EntryForInvalidArgument'] = 'userHeartbeatDs'
-      vmConfig: ClassVar['EntryForInvalidArgument'] = 'vmConfig'
+class InvalidDasConfigArgument(pyVmomi.vmodl.fault.InvalidArgument):
+   class EntryForInvalidArgument(pyVmomi.VmomiSupport.Enum):
+      admissionControl: _typing.ClassVar['EntryForInvalidArgument'] = 'admissionControl'
+      userHeartbeatDs: _typing.ClassVar['EntryForInvalidArgument'] = 'userHeartbeatDs'
+      vmConfig: _typing.ClassVar['EntryForInvalidArgument'] = 'vmConfig'
 
-   entry: Optional[str] = None
-   clusterName: Optional[str] = None
+   entry: _typing.Optional[str] = None
+   clusterName: _typing.Optional[str] = None
 
 
-class InvalidDasRestartPriorityForFtVm(InvalidArgument):
-   vm: VirtualMachine
+class InvalidDasRestartPriorityForFtVm(pyVmomi.vmodl.fault.InvalidArgument):
+   vm: pyVmomi.vim.VirtualMachine
    vmName: str
 
 
 class InvalidDatastore(VimFault):
-   datastore: Optional[Datastore] = None
-   name: Optional[str] = None
+   datastore: _typing.Optional[pyVmomi.vim.Datastore] = None
+   name: _typing.Optional[str] = None
 
 class InvalidDatastorePath(InvalidDatastore):
    datastorePath: str
 
 
 class InvalidDatastoreState(InvalidState):
-   datastoreName: Optional[str] = None
+   datastoreName: _typing.Optional[str] = None
 
 class InvalidDeviceBacking(InvalidDeviceSpec):
    pass
 
 
 class InvalidDeviceOperation(InvalidDeviceSpec):
-   badOp: Optional[VirtualDeviceSpec.Operation] = None
-   badFileOp: Optional[VirtualDeviceSpec.FileOperation] = None
+   badOp: _typing.Optional[pyVmomi.vim.vm.device.VirtualDeviceSpec.Operation] = None
+   badFileOp: _typing.Optional[pyVmomi.vim.vm.device.VirtualDeviceSpec.FileOperation] = None
 
 class InvalidDeviceSpec(InvalidVmConfig):
    deviceIndex: int
@@ -1155,12 +1108,12 @@ class InvalidDiskFormat(InvalidFormat):
    pass
 
 
-class InvalidDrsBehaviorForFtVm(InvalidArgument):
-   vm: VirtualMachine
+class InvalidDrsBehaviorForFtVm(pyVmomi.vmodl.fault.InvalidArgument):
+   vm: pyVmomi.vim.VirtualMachine
    vmName: str
 
 
-class InvalidEditionLicense(NotEnoughLicenses):
+class InvalidEditionLicense(pyVmomi.vmodl.fault.NotEnoughLicenses):
    feature: str
 
 class InvalidEvent(VimFault):
@@ -1168,7 +1121,7 @@ class InvalidEvent(VimFault):
 
 
 class InvalidFolder(VimFault):
-   target: ManagedEntity
+   target: pyVmomi.vim.ManagedEntity
 
 class InvalidFormat(VmConfigFault):
    pass
@@ -1184,15 +1137,15 @@ class InvalidHostName(HostConfigFault):
 
 
 class InvalidHostState(InvalidState):
-   host: Optional[HostSystem] = None
+   host: _typing.Optional[pyVmomi.vim.HostSystem] = None
 
 
-class InvalidIndexArgument(InvalidArgument):
+class InvalidIndexArgument(pyVmomi.vmodl.fault.InvalidArgument):
    key: str
 
 
 class InvalidIpfixConfig(DvsFault):
-   property: Optional[PropertyPath] = None
+   property: _typing.Optional[pyVmomi.VmomiSupport.PropertyPath] = None
 
 class InvalidIpmiLoginInfo(VimFault):
    pass
@@ -1213,7 +1166,7 @@ class InvalidLogin(VimFault):
 
 class InvalidName(VimFault):
    name: str
-   entity: Optional[ManagedEntity] = None
+   entity: _typing.Optional[pyVmomi.vim.ManagedEntity] = None
 
 class InvalidNasCredentials(NasConfigFault):
    userName: str
@@ -1230,22 +1183,22 @@ class InvalidOperationOnSecondaryVm(VmFaultToleranceIssue):
 
 
 class InvalidPowerState(InvalidState):
-   requestedState: Optional[VirtualMachine.PowerState] = None
-   existingState: VirtualMachine.PowerState
+   requestedState: _typing.Optional[pyVmomi.vim.VirtualMachine.PowerState] = None
+   existingState: pyVmomi.vim.VirtualMachine.PowerState
 
 class InvalidPrivilege(VimFault):
    privilege: str
 
 
-class InvalidProfileReferenceHost(RuntimeFault):
-   class Reason(Enum):
-      incompatibleVersion: ClassVar['Reason'] = 'incompatibleVersion'
-      missingReferenceHost: ClassVar['Reason'] = 'missingReferenceHost'
+class InvalidProfileReferenceHost(pyVmomi.vmodl.RuntimeFault):
+   class Reason(pyVmomi.VmomiSupport.Enum):
+      incompatibleVersion: _typing.ClassVar['Reason'] = 'incompatibleVersion'
+      missingReferenceHost: _typing.ClassVar['Reason'] = 'missingReferenceHost'
 
-   reason: Optional[str] = None
-   host: Optional[HostSystem] = None
-   profile: Optional[Profile] = None
-   profileName: Optional[str] = None
+   reason: _typing.Optional[str] = None
+   host: _typing.Optional[pyVmomi.vim.HostSystem] = None
+   profile: _typing.Optional[pyVmomi.vim.profile.Profile] = None
+   profileName: _typing.Optional[str] = None
 
 class InvalidPropertyType(VAppPropertyFault):
    pass
@@ -1257,7 +1210,7 @@ class InvalidResourcePoolStructureFault(InsufficientResourcesFault):
    pass
 
 
-class InvalidScheduledTask(RuntimeFault):
+class InvalidScheduledTask(pyVmomi.vmodl.RuntimeFault):
    pass
 
 class InvalidSnapshotFormat(InvalidFormat):
@@ -1268,14 +1221,14 @@ class InvalidState(VimFault):
 
 
 class InvalidVmConfig(VmConfigFault):
-   property: Optional[PropertyPath] = None
+   property: _typing.Optional[pyVmomi.VmomiSupport.PropertyPath] = None
 
 
 class InvalidVmState(InvalidState):
-   vm: VirtualMachine
+   vm: pyVmomi.vim.VirtualMachine
 
 
-class InventoryHasStandardAloneHosts(NotEnoughLicenses):
+class InventoryHasStandardAloneHosts(pyVmomi.vmodl.fault.NotEnoughLicenses):
    hosts: list[str] = []
 
 class IpHostnameGeneratorError(CustomizationFault):
@@ -1326,54 +1279,54 @@ class LargeRDMConversionNotSupported(MigrationFault):
 
 class LargeRDMNotSupportedOnDatastore(VmConfigFault):
    device: str
-   datastore: Datastore
+   datastore: pyVmomi.vim.Datastore
    datastoreName: str
 
 class LegacyNetworkInterfaceInUse(CannotAccessNetwork):
    pass
 
 
-class LicenseAssignmentFailed(RuntimeFault):
-   class Reason(Enum):
-      keyEntityMismatch: ClassVar['Reason'] = 'keyEntityMismatch'
-      downgradeDisallowed: ClassVar['Reason'] = 'downgradeDisallowed'
-      inventoryNotManageableByVirtualCenter: ClassVar['Reason'] = 'inventoryNotManageableByVirtualCenter'
-      hostsUnmanageableByVirtualCenterWithoutLicenseServer: ClassVar['Reason'] = 'hostsUnmanageableByVirtualCenterWithoutLicenseServer'
+class LicenseAssignmentFailed(pyVmomi.vmodl.RuntimeFault):
+   class Reason(pyVmomi.VmomiSupport.Enum):
+      keyEntityMismatch: _typing.ClassVar['Reason'] = 'keyEntityMismatch'
+      downgradeDisallowed: _typing.ClassVar['Reason'] = 'downgradeDisallowed'
+      inventoryNotManageableByVirtualCenter: _typing.ClassVar['Reason'] = 'inventoryNotManageableByVirtualCenter'
+      hostsUnmanageableByVirtualCenterWithoutLicenseServer: _typing.ClassVar['Reason'] = 'hostsUnmanageableByVirtualCenterWithoutLicenseServer'
 
-   reason: Optional[str] = None
+   reason: _typing.Optional[str] = None
 
 
-class LicenseDowngradeDisallowed(NotEnoughLicenses):
+class LicenseDowngradeDisallowed(pyVmomi.vmodl.fault.NotEnoughLicenses):
    edition: str
    entityId: str
-   features: list[KeyAnyValue] = []
+   features: list[pyVmomi.vmodl.KeyAnyValue] = []
 
 class LicenseEntityNotFound(VimFault):
    entityId: str
 
 
-class LicenseExpired(NotEnoughLicenses):
+class LicenseExpired(pyVmomi.vmodl.fault.NotEnoughLicenses):
    licenseKey: str
 
 
-class LicenseKeyEntityMismatch(NotEnoughLicenses):
+class LicenseKeyEntityMismatch(pyVmomi.vmodl.fault.NotEnoughLicenses):
    pass
 
 
-class LicenseRestricted(NotEnoughLicenses):
+class LicenseRestricted(pyVmomi.vmodl.fault.NotEnoughLicenses):
    pass
 
 class LicenseServerUnavailable(VimFault):
    licenseServer: str
 
 
-class LicenseSourceUnavailable(NotEnoughLicenses):
-   licenseSource: LicenseManager.LicenseSource
+class LicenseSourceUnavailable(pyVmomi.vmodl.fault.NotEnoughLicenses):
+   licenseSource: pyVmomi.vim.LicenseManager.LicenseSource
 
 
 class LimitExceeded(VimFault):
-   property: Optional[PropertyPath] = None
-   limit: Optional[int] = None
+   property: _typing.Optional[pyVmomi.VmomiSupport.PropertyPath] = None
+   limit: _typing.Optional[int] = None
 
 class LinuxVolumeNotClean(CustomizationFault):
    pass
@@ -1403,7 +1356,7 @@ class MemorySizeNotSupported(VirtualHardwareCompatibilityIssue):
 
 
 class MemorySizeNotSupportedByDatastore(VirtualHardwareCompatibilityIssue):
-   datastore: Datastore
+   datastore: pyVmomi.vim.Datastore
    memorySizeMB: int
    maxMemorySizeMB: int
 
@@ -1411,12 +1364,12 @@ class MemorySnapshotOnIndependentDisk(SnapshotFault):
    pass
 
 
-class MethodAlreadyDisabledFault(RuntimeFault):
+class MethodAlreadyDisabledFault(pyVmomi.vmodl.RuntimeFault):
    sourceId: str
 
 
-class MethodDisabled(RuntimeFault):
-   source: Optional[str] = None
+class MethodDisabled(pyVmomi.vmodl.RuntimeFault):
+   source: _typing.Optional[str] = None
 
 class MigrationDisabled(MigrationFault):
    pass
@@ -1428,7 +1381,7 @@ class MigrationFault(VimFault):
 class MigrationFeatureNotSupported(MigrationFault):
    atSourceHost: bool
    failedHostName: str
-   failedHost: HostSystem
+   failedHost: pyVmomi.vim.HostSystem
 
 class MigrationNotReady(MigrationFault):
    reason: str
@@ -1477,7 +1430,7 @@ class MksConnectionLimitReached(InvalidState):
 
 
 class MountError(CustomizationFault):
-   vm: VirtualMachine
+   vm: pyVmomi.vim.VirtualMachine
    diskIndex: int
 
 class MultiWriterNotSupported(DeviceNotSupported):
@@ -1485,7 +1438,7 @@ class MultiWriterNotSupported(DeviceNotSupported):
 
 
 class MultipleCertificatesVerifyFault(HostConnectFault):
-   class ThumbprintData(DynamicData):
+   class ThumbprintData(pyVmomi.vmodl.DynamicData):
       port: int
       thumbprint: str
 
@@ -1497,12 +1450,12 @@ class MultipleSnapshotsNotSupported(SnapshotFault):
 
 class NamespaceFull(VimFault):
    name: str
-   currentMaxSize: long
-   requiredSize: Optional[long] = None
+   currentMaxSize: pyVmomi.VmomiSupport.long
+   requiredSize: _typing.Optional[pyVmomi.VmomiSupport.long] = None
 
 
 class NamespaceLimitReached(VimFault):
-   limit: Optional[int] = None
+   limit: _typing.Optional[int] = None
 
 class NamespaceWriteProtected(VimFault):
    name: str
@@ -1534,7 +1487,7 @@ class NetworkInaccessible(NasConfigFault):
 
 
 class NetworksMayNotBeTheSame(MigrationFault):
-   name: Optional[str] = None
+   name: _typing.Optional[str] = None
 
 class NicSettingMismatch(CustomizationFault):
    numberOfNicsInSpec: int
@@ -1542,11 +1495,11 @@ class NicSettingMismatch(CustomizationFault):
 
 
 class NoActiveHostInCluster(InvalidState):
-   computeResource: ComputeResource
+   computeResource: pyVmomi.vim.ComputeResource
 
 
 class NoAvailableIp(VAppPropertyFault):
-   network: Network
+   network: pyVmomi.vim.Network
 
 class NoClientCertificate(VimFault):
    pass
@@ -1559,8 +1512,8 @@ class NoCompatibleHardAffinityHost(VmConfigFault):
 
 
 class NoCompatibleHost(VimFault):
-   host: list[HostSystem] = []
-   error: list[MethodFault] = []
+   host: list[pyVmomi.vim.HostSystem] = []
+   error: list[pyVmomi.vmodl.MethodFault] = []
 
 class NoCompatibleHostWithAccessToDevice(NoCompatibleHost):
    pass
@@ -1588,28 +1541,28 @@ class NoGuestHeartbeat(MigrationFault):
 
 
 class NoHost(HostConnectFault):
-   name: Optional[str] = None
+   name: _typing.Optional[str] = None
 
 
 class NoHostSuitableForFtSecondary(VmFaultToleranceIssue):
-   vm: VirtualMachine
+   vm: pyVmomi.vim.VirtualMachine
    vmName: str
 
 
-class NoLicenseServerConfigured(NotEnoughLicenses):
+class NoLicenseServerConfigured(pyVmomi.vmodl.fault.NotEnoughLicenses):
    pass
 
 class NoPeerHostFound(HostPowerOpFailed):
    pass
 
 
-class NoPermission(SecurityError):
-   class EntityPrivileges(DynamicData):
-      entity: ManagedObject
+class NoPermission(pyVmomi.vmodl.fault.SecurityError):
+   class EntityPrivileges(pyVmomi.vmodl.DynamicData):
+      entity: pyVmomi.VmomiSupport.ManagedObject
       privilegeIds: list[str] = []
 
-   object: Optional[ManagedObject] = None
-   privilegeId: Optional[str] = None
+   object: _typing.Optional[pyVmomi.VmomiSupport.ManagedObject] = None
+   privilegeId: _typing.Optional[str] = None
    missingPrivileges: list[EntityPrivileges] = []
 
 class NoPermissionOnAD(ActiveDirectoryFault):
@@ -1620,7 +1573,7 @@ class NoPermissionOnHost(HostConnectFault):
 
 
 class NoPermissionOnNasVolume(NasConfigFault):
-   userName: Optional[str] = None
+   userName: _typing.Optional[str] = None
 
 class NoSubjectName(VimFault):
    pass
@@ -1661,28 +1614,28 @@ class NotEnoughCpus(VirtualHardwareCompatibilityIssue):
 
 
 class NotEnoughLogicalCpus(NotEnoughCpus):
-   host: Optional[HostSystem] = None
+   host: _typing.Optional[pyVmomi.vim.HostSystem] = None
 
 class NotFound(VimFault):
    pass
 
 
 class NotSupportedDeviceForFT(VmFaultToleranceIssue):
-   class DeviceType(Enum):
-      virtualVmxnet3: ClassVar['DeviceType'] = 'virtualVmxnet3'
-      paraVirtualSCSIController: ClassVar['DeviceType'] = 'paraVirtualSCSIController'
+   class DeviceType(pyVmomi.VmomiSupport.Enum):
+      virtualVmxnet3: _typing.ClassVar['DeviceType'] = 'virtualVmxnet3'
+      paraVirtualSCSIController: _typing.ClassVar['DeviceType'] = 'paraVirtualSCSIController'
 
-   host: HostSystem
-   hostName: Optional[str] = None
-   vm: VirtualMachine
-   vmName: Optional[str] = None
+   host: pyVmomi.vim.HostSystem
+   hostName: _typing.Optional[str] = None
+   vm: pyVmomi.vim.VirtualMachine
+   vmName: _typing.Optional[str] = None
    deviceType: str
-   deviceLabel: Optional[str] = None
+   deviceLabel: _typing.Optional[str] = None
 
 
 class NotSupportedHost(HostConnectFault):
-   productName: Optional[str] = None
-   productVersion: Optional[str] = None
+   productName: _typing.Optional[str] = None
+   productVersion: _typing.Optional[str] = None
 
 class NotSupportedHostForChecksum(VimFault):
    pass
@@ -1704,7 +1657,7 @@ class NotSupportedHostInCluster(NotSupportedHost):
 
 
 class NotSupportedHostInDvs(NotSupportedHost):
-   switchProductSpec: ProductSpec
+   switchProductSpec: pyVmomi.vim.dvs.ProductSpec
 
 class NotSupportedHostInHACluster(NotSupportedHost):
    hostName: str
@@ -1722,9 +1675,9 @@ class NumVirtualCpusExceedsLimit(InsufficientResourcesFault):
 
 
 class NumVirtualCpusIncompatible(VmConfigFault):
-   class Reason(Enum):
-      recordReplay: ClassVar['Reason'] = 'recordReplay'
-      faultTolerance: ClassVar['Reason'] = 'faultTolerance'
+   class Reason(pyVmomi.VmomiSupport.Enum):
+      recordReplay: _typing.ClassVar['Reason'] = 'recordReplay'
+      faultTolerance: _typing.ClassVar['Reason'] = 'faultTolerance'
 
    reason: str
    numCpu: int
@@ -1737,7 +1690,7 @@ class OperationDisabledByGuest(GuestOperationsFault):
    pass
 
 
-class OperationDisallowedOnHost(RuntimeFault):
+class OperationDisallowedOnHost(pyVmomi.vmodl.RuntimeFault):
    pass
 
 class OperationNotSupportedByGuest(GuestOperationsFault):
@@ -1745,7 +1698,7 @@ class OperationNotSupportedByGuest(GuestOperationsFault):
 
 
 class OutOfBounds(VimFault):
-   argumentName: PropertyPath
+   argumentName: pyVmomi.VmomiSupport.PropertyPath
 
 class OvfAttribute(OvfInvalidPackage):
    elementName: str
@@ -1774,7 +1727,7 @@ class OvfConsumerCommunicationError(OvfConsumerCallbackFault):
 class OvfConsumerFault(OvfConsumerCallbackFault):
    errorKey: str
    message: str
-   params: list[KeyValue] = []
+   params: list[pyVmomi.vim.KeyValue] = []
 
 class OvfConsumerInvalidSection(OvfConsumerCallbackFault):
    lineNumber: int
@@ -1844,7 +1797,7 @@ class OvfHardwareCheck(OvfImport):
 
 
 class OvfHardwareExport(OvfExport):
-   device: Optional[VirtualDevice] = None
+   device: _typing.Optional[pyVmomi.vim.vm.device.VirtualDevice] = None
    vmPath: str
 
 class OvfHostResourceConstraint(OvfConstraint):
@@ -1948,7 +1901,7 @@ class OvfSystemFault(OvfFault):
 
 
 class OvfToXmlUnsupportedElement(OvfSystemFault):
-   name: Optional[str] = None
+   name: _typing.Optional[str] = None
 
 class OvfUnableToExportDisk(OvfHardwareExport):
    diskName: str
@@ -1958,12 +1911,12 @@ class OvfUnexpectedElement(OvfElement):
 
 
 class OvfUnknownDevice(OvfSystemFault):
-   device: Optional[VirtualDevice] = None
+   device: _typing.Optional[pyVmomi.vim.vm.device.VirtualDevice] = None
    vmName: str
 
 
 class OvfUnknownDeviceBacking(OvfHardwareExport):
-   backing: VirtualDevice.BackingInfo
+   backing: pyVmomi.vim.vm.device.VirtualDevice.BackingInfo
 
 class OvfUnknownEntity(OvfSystemFault):
    lineNumber: int
@@ -1977,17 +1930,17 @@ class OvfUnsupportedAttributeValue(OvfUnsupportedAttribute):
 
 
 class OvfUnsupportedDeviceBackingInfo(OvfSystemFault):
-   elementName: Optional[str] = None
-   instanceId: Optional[str] = None
+   elementName: _typing.Optional[str] = None
+   instanceId: _typing.Optional[str] = None
    deviceName: str
-   backingName: Optional[str] = None
+   backingName: _typing.Optional[str] = None
 
 
 class OvfUnsupportedDeviceBackingOption(OvfSystemFault):
-   elementName: Optional[str] = None
-   instanceId: Optional[str] = None
+   elementName: _typing.Optional[str] = None
+   instanceId: _typing.Optional[str] = None
    deviceName: str
-   backingName: Optional[str] = None
+   backingName: _typing.Optional[str] = None
 
 class OvfUnsupportedDeviceExport(OvfHardwareExport):
    pass
@@ -2004,7 +1957,7 @@ class OvfUnsupportedElementValue(OvfUnsupportedElement):
 
 
 class OvfUnsupportedPackage(OvfFault):
-   lineNumber: Optional[int] = None
+   lineNumber: _typing.Optional[int] = None
 
 class OvfUnsupportedSection(OvfUnsupportedElement):
    info: str
@@ -2077,33 +2030,33 @@ class PlatformConfigFault(HostConfigFault):
 
 
 class PowerOnFtSecondaryFailed(VmFaultToleranceIssue):
-   vm: VirtualMachine
+   vm: pyVmomi.vim.VirtualMachine
    vmName: str
    hostSelectionBy: FtIssuesOnHost.HostSelectionType
-   hostErrors: list[MethodFault] = []
-   rootCause: MethodFault
+   hostErrors: list[pyVmomi.vmodl.MethodFault] = []
+   rootCause: pyVmomi.vmodl.MethodFault
 
 
 class PowerOnFtSecondaryTimedout(Timedout):
-   vm: VirtualMachine
+   vm: pyVmomi.vim.VirtualMachine
    vmName: str
    timeout: int
 
 
 class ProfileUpdateFailed(VimFault):
-   class UpdateFailure(DynamicData):
-      profilePath: ProfilePropertyPath
-      errMsg: LocalizableMessage
+   class UpdateFailure(pyVmomi.vmodl.DynamicData):
+      profilePath: pyVmomi.vim.profile.ProfilePropertyPath
+      errMsg: pyVmomi.vmodl.LocalizableMessage
 
    failure: list[UpdateFailure] = []
    warnings: list[UpdateFailure] = []
 
 
 class QuarantineModeFault(VmConfigFault):
-   class FaultType(Enum):
-      NoCompatibleNonQuarantinedHost: ClassVar['FaultType'] = 'NoCompatibleNonQuarantinedHost'
-      CorrectionDisallowed: ClassVar['FaultType'] = 'CorrectionDisallowed'
-      CorrectionImpact: ClassVar['FaultType'] = 'CorrectionImpact'
+   class FaultType(pyVmomi.VmomiSupport.Enum):
+      NoCompatibleNonQuarantinedHost: _typing.ClassVar['FaultType'] = 'NoCompatibleNonQuarantinedHost'
+      CorrectionDisallowed: _typing.ClassVar['FaultType'] = 'CorrectionDisallowed'
+      CorrectionImpact: _typing.ClassVar['FaultType'] = 'CorrectionImpact'
 
    vmName: str
    faultType: str
@@ -2113,9 +2066,9 @@ class QuestionPending(InvalidState):
 
 
 class QuiesceDatastoreIOForHAFailed(ResourceInUse):
-   host: HostSystem
+   host: pyVmomi.vim.HostSystem
    hostName: str
-   ds: Datastore
+   ds: pyVmomi.vim.Datastore
    dsName: str
 
 class RDMConversionNotSupported(MigrationFault):
@@ -2130,7 +2083,7 @@ class RDMNotSupported(DeviceNotSupported):
 
 class RDMNotSupportedOnDatastore(VmConfigFault):
    device: str
-   datastore: Datastore
+   datastore: pyVmomi.vim.Datastore
    datastoreName: str
 
 class RDMPointsToInaccessibleDisk(CannotAccessVmDisk):
@@ -2148,7 +2101,7 @@ class ReadOnlyDisksWithLegacyDestination(MigrationFault):
 
 
 class RebootRequired(VimFault):
-   patch: Optional[str] = None
+   patch: _typing.Optional[str] = None
 
 class RecordReplayDisabled(VimFault):
    pass
@@ -2164,18 +2117,18 @@ class ReplicationConfigFault(ReplicationFault):
 
 
 class ReplicationDiskConfigFault(ReplicationConfigFault):
-   class ReasonForFault(Enum):
-      diskNotFound: ClassVar['ReasonForFault'] = 'diskNotFound'
-      diskTypeNotSupported: ClassVar['ReasonForFault'] = 'diskTypeNotSupported'
-      invalidDiskKey: ClassVar['ReasonForFault'] = 'invalidDiskKey'
-      invalidDiskReplicationId: ClassVar['ReasonForFault'] = 'invalidDiskReplicationId'
-      duplicateDiskReplicationId: ClassVar['ReasonForFault'] = 'duplicateDiskReplicationId'
-      invalidPersistentFilePath: ClassVar['ReasonForFault'] = 'invalidPersistentFilePath'
-      reconfigureDiskReplicationIdNotAllowed: ClassVar['ReasonForFault'] = 'reconfigureDiskReplicationIdNotAllowed'
+   class ReasonForFault(pyVmomi.VmomiSupport.Enum):
+      diskNotFound: _typing.ClassVar['ReasonForFault'] = 'diskNotFound'
+      diskTypeNotSupported: _typing.ClassVar['ReasonForFault'] = 'diskTypeNotSupported'
+      invalidDiskKey: _typing.ClassVar['ReasonForFault'] = 'invalidDiskKey'
+      invalidDiskReplicationId: _typing.ClassVar['ReasonForFault'] = 'invalidDiskReplicationId'
+      duplicateDiskReplicationId: _typing.ClassVar['ReasonForFault'] = 'duplicateDiskReplicationId'
+      invalidPersistentFilePath: _typing.ClassVar['ReasonForFault'] = 'invalidPersistentFilePath'
+      reconfigureDiskReplicationIdNotAllowed: _typing.ClassVar['ReasonForFault'] = 'reconfigureDiskReplicationIdNotAllowed'
 
-   reason: Optional[str] = None
-   vmRef: Optional[VirtualMachine] = None
-   key: Optional[int] = None
+   reason: _typing.Optional[str] = None
+   vmRef: _typing.Optional[pyVmomi.vim.VirtualMachine] = None
+   key: _typing.Optional[int] = None
 
 class ReplicationFault(VimFault):
    pass
@@ -2186,79 +2139,79 @@ class ReplicationIncompatibleWithFT(ReplicationFault):
 
 class ReplicationInvalidOptions(ReplicationFault):
    options: str
-   entity: Optional[ManagedEntity] = None
+   entity: _typing.Optional[pyVmomi.vim.ManagedEntity] = None
 
 class ReplicationNotSupportedOnHost(ReplicationFault):
    pass
 
 
 class ReplicationVmConfigFault(ReplicationConfigFault):
-   class ReasonForFault(Enum):
-      incompatibleHwVersion: ClassVar['ReasonForFault'] = 'incompatibleHwVersion'
-      invalidVmReplicationId: ClassVar['ReasonForFault'] = 'invalidVmReplicationId'
-      invalidGenerationNumber: ClassVar['ReasonForFault'] = 'invalidGenerationNumber'
-      outOfBoundsRpoValue: ClassVar['ReasonForFault'] = 'outOfBoundsRpoValue'
-      invalidDestinationIpAddress: ClassVar['ReasonForFault'] = 'invalidDestinationIpAddress'
-      invalidDestinationPort: ClassVar['ReasonForFault'] = 'invalidDestinationPort'
-      invalidExtraVmOptions: ClassVar['ReasonForFault'] = 'invalidExtraVmOptions'
-      staleGenerationNumber: ClassVar['ReasonForFault'] = 'staleGenerationNumber'
-      reconfigureVmReplicationIdNotAllowed: ClassVar['ReasonForFault'] = 'reconfigureVmReplicationIdNotAllowed'
-      cannotRetrieveVmReplicationConfiguration: ClassVar['ReasonForFault'] = 'cannotRetrieveVmReplicationConfiguration'
-      replicationAlreadyEnabled: ClassVar['ReasonForFault'] = 'replicationAlreadyEnabled'
-      invalidPriorConfiguration: ClassVar['ReasonForFault'] = 'invalidPriorConfiguration'
-      replicationNotEnabled: ClassVar['ReasonForFault'] = 'replicationNotEnabled'
-      replicationConfigurationFailed: ClassVar['ReasonForFault'] = 'replicationConfigurationFailed'
-      encryptedVm: ClassVar['ReasonForFault'] = 'encryptedVm'
-      invalidThumbprint: ClassVar['ReasonForFault'] = 'invalidThumbprint'
-      incompatibleDevice: ClassVar['ReasonForFault'] = 'incompatibleDevice'
+   class ReasonForFault(pyVmomi.VmomiSupport.Enum):
+      incompatibleHwVersion: _typing.ClassVar['ReasonForFault'] = 'incompatibleHwVersion'
+      invalidVmReplicationId: _typing.ClassVar['ReasonForFault'] = 'invalidVmReplicationId'
+      invalidGenerationNumber: _typing.ClassVar['ReasonForFault'] = 'invalidGenerationNumber'
+      outOfBoundsRpoValue: _typing.ClassVar['ReasonForFault'] = 'outOfBoundsRpoValue'
+      invalidDestinationIpAddress: _typing.ClassVar['ReasonForFault'] = 'invalidDestinationIpAddress'
+      invalidDestinationPort: _typing.ClassVar['ReasonForFault'] = 'invalidDestinationPort'
+      invalidExtraVmOptions: _typing.ClassVar['ReasonForFault'] = 'invalidExtraVmOptions'
+      staleGenerationNumber: _typing.ClassVar['ReasonForFault'] = 'staleGenerationNumber'
+      reconfigureVmReplicationIdNotAllowed: _typing.ClassVar['ReasonForFault'] = 'reconfigureVmReplicationIdNotAllowed'
+      cannotRetrieveVmReplicationConfiguration: _typing.ClassVar['ReasonForFault'] = 'cannotRetrieveVmReplicationConfiguration'
+      replicationAlreadyEnabled: _typing.ClassVar['ReasonForFault'] = 'replicationAlreadyEnabled'
+      invalidPriorConfiguration: _typing.ClassVar['ReasonForFault'] = 'invalidPriorConfiguration'
+      replicationNotEnabled: _typing.ClassVar['ReasonForFault'] = 'replicationNotEnabled'
+      replicationConfigurationFailed: _typing.ClassVar['ReasonForFault'] = 'replicationConfigurationFailed'
+      encryptedVm: _typing.ClassVar['ReasonForFault'] = 'encryptedVm'
+      invalidThumbprint: _typing.ClassVar['ReasonForFault'] = 'invalidThumbprint'
+      incompatibleDevice: _typing.ClassVar['ReasonForFault'] = 'incompatibleDevice'
 
-   reason: Optional[str] = None
-   vmRef: Optional[VirtualMachine] = None
+   reason: _typing.Optional[str] = None
+   vmRef: _typing.Optional[pyVmomi.vim.VirtualMachine] = None
 
 
 class ReplicationVmFault(ReplicationFault):
-   class ReasonForFault(Enum):
-      notConfigured: ClassVar['ReasonForFault'] = 'notConfigured'
-      poweredOff: ClassVar['ReasonForFault'] = 'poweredOff'
-      suspended: ClassVar['ReasonForFault'] = 'suspended'
-      poweredOn: ClassVar['ReasonForFault'] = 'poweredOn'
-      offlineReplicating: ClassVar['ReasonForFault'] = 'offlineReplicating'
-      invalidState: ClassVar['ReasonForFault'] = 'invalidState'
-      invalidInstanceId: ClassVar['ReasonForFault'] = 'invalidInstanceId'
-      closeDiskError: ClassVar['ReasonForFault'] = 'closeDiskError'
-      groupExist: ClassVar['ReasonForFault'] = 'groupExist'
+   class ReasonForFault(pyVmomi.VmomiSupport.Enum):
+      notConfigured: _typing.ClassVar['ReasonForFault'] = 'notConfigured'
+      poweredOff: _typing.ClassVar['ReasonForFault'] = 'poweredOff'
+      suspended: _typing.ClassVar['ReasonForFault'] = 'suspended'
+      poweredOn: _typing.ClassVar['ReasonForFault'] = 'poweredOn'
+      offlineReplicating: _typing.ClassVar['ReasonForFault'] = 'offlineReplicating'
+      invalidState: _typing.ClassVar['ReasonForFault'] = 'invalidState'
+      invalidInstanceId: _typing.ClassVar['ReasonForFault'] = 'invalidInstanceId'
+      closeDiskError: _typing.ClassVar['ReasonForFault'] = 'closeDiskError'
+      groupExist: _typing.ClassVar['ReasonForFault'] = 'groupExist'
 
    reason: str
-   state: Optional[str] = None
-   instanceId: Optional[str] = None
-   vm: VirtualMachine
+   state: _typing.Optional[str] = None
+   instanceId: _typing.Optional[str] = None
+   vm: pyVmomi.vim.VirtualMachine
 
 
 class ReplicationVmInProgressFault(ReplicationVmFault):
-   class Activity(Enum):
-      fullSync: ClassVar['Activity'] = 'fullSync'
-      delta: ClassVar['Activity'] = 'delta'
+   class Activity(pyVmomi.VmomiSupport.Enum):
+      fullSync: _typing.ClassVar['Activity'] = 'fullSync'
+      delta: _typing.ClassVar['Activity'] = 'delta'
 
    requestedActivity: str
    inProgressActivity: str
 
 
 class ResourceInUse(VimFault):
-   type: Optional[type] = None
-   name: Optional[str] = None
+   type: _typing.Optional[type] = None
+   name: _typing.Optional[str] = None
 
 
 class ResourceNotAvailable(VimFault):
-   containerType: Optional[type] = None
-   containerName: Optional[str] = None
-   type: Optional[type] = None
+   containerType: _typing.Optional[type] = None
+   containerName: _typing.Optional[str] = None
+   type: _typing.Optional[type] = None
 
 
-class RestrictedByAdministrator(RuntimeFault):
+class RestrictedByAdministrator(pyVmomi.vmodl.RuntimeFault):
    details: str
 
 
-class RestrictedVersion(SecurityError):
+class RestrictedVersion(pyVmomi.vmodl.fault.SecurityError):
    pass
 
 class RollbackFailure(DvsFault):
@@ -2267,8 +2220,8 @@ class RollbackFailure(DvsFault):
 
 
 class RuleViolation(VmConfigFault):
-   host: Optional[HostSystem] = None
-   rule: RuleInfo
+   host: _typing.Optional[pyVmomi.vim.HostSystem] = None
+   rule: pyVmomi.vim.cluster.RuleInfo
 
 class SSLDisabledFault(HostConnectFault):
    pass
@@ -2276,8 +2229,8 @@ class SSLDisabledFault(HostConnectFault):
 
 class SSLVerifyFault(HostConnectFault):
    selfSigned: bool
-   thumbprint: Optional[str] = None
-   certificate: Optional[str] = None
+   thumbprint: _typing.Optional[str] = None
+   certificate: _typing.Optional[str] = None
 
 class SSPIChallenge(VimFault):
    base64Token: str
@@ -2299,7 +2252,7 @@ class SharedBusControllerNotSupported(DeviceNotSupported):
 
 
 class ShrinkDiskFault(VimFault):
-   diskId: Optional[int] = None
+   diskId: _typing.Optional[int] = None
 
 class SnapshotCloneNotSupported(SnapshotCopyNotSupported):
    pass
@@ -2315,7 +2268,7 @@ class SnapshotFault(VimFault):
 
 
 class SnapshotIncompatibleDeviceInVm(SnapshotFault):
-   fault: MethodFault
+   fault: pyVmomi.vmodl.MethodFault
 
 class SnapshotLocked(SnapshotFault):
    pass
@@ -2334,8 +2287,8 @@ class SnapshotNoChange(SnapshotFault):
 
 
 class SnapshotRevertIssue(MigrationFault):
-   snapshotName: Optional[str] = None
-   event: list[Event] = []
+   snapshotName: _typing.Optional[str] = None
+   event: list[pyVmomi.vim.event.Event] = []
    errors: bool
 
 class SoftRuleVioCorrectionDisallowed(VmConfigFault):
@@ -2345,7 +2298,7 @@ class SoftRuleVioCorrectionImpact(VmConfigFault):
    vmName: str
 
 
-class SolutionUserRequired(SecurityError):
+class SolutionUserRequired(pyVmomi.vmodl.fault.SecurityError):
    pass
 
 class SsdDiskNotAvailable(VimFault):
@@ -2413,7 +2366,7 @@ class StorageVMotionNotSupported(MigrationFeatureNotSupported):
 
 
 class StorageVmotionIncompatible(VirtualHardwareCompatibilityIssue):
-   datastore: Optional[Datastore] = None
+   datastore: _typing.Optional[pyVmomi.vim.Datastore] = None
 
 class SuspendedRelocateNotSupported(MigrationFault):
    pass
@@ -2435,17 +2388,17 @@ class SwitchNotInUpgradeMode(DvsFault):
 
 
 class TaskInProgress(VimFault):
-   task: Task
+   task: pyVmomi.vim.Task
 
 
-class ThirdPartyLicenseAssignmentFailed(RuntimeFault):
-   class Reason(Enum):
-      licenseAssignmentFailed: ClassVar['Reason'] = 'licenseAssignmentFailed'
-      moduleNotInstalled: ClassVar['Reason'] = 'moduleNotInstalled'
+class ThirdPartyLicenseAssignmentFailed(pyVmomi.vmodl.RuntimeFault):
+   class Reason(pyVmomi.VmomiSupport.Enum):
+      licenseAssignmentFailed: _typing.ClassVar['Reason'] = 'licenseAssignmentFailed'
+      moduleNotInstalled: _typing.ClassVar['Reason'] = 'moduleNotInstalled'
 
-   host: HostSystem
+   host: pyVmomi.vim.HostSystem
    module: str
-   reason: Optional[str] = None
+   reason: _typing.Optional[str] = None
 
 class Timedout(VimFault):
    pass
@@ -2526,14 +2479,14 @@ class UnsharedSwapVMotionNotSupported(MigrationFeatureNotSupported):
 
 
 class UnsupportedDatastore(VmConfigFault):
-   datastore: Optional[Datastore] = None
+   datastore: _typing.Optional[pyVmomi.vim.Datastore] = None
 
 class UnsupportedGuest(InvalidVmConfig):
    unsupportedGuestOS: str
 
 
 class UnsupportedVimApiVersion(VimFault):
-   version: Optional[str] = None
+   version: _typing.Optional[str] = None
 
 class UnsupportedVmxLocation(VmConfigFault):
    pass
@@ -2552,7 +2505,7 @@ class VAppNotRunning(VmConfigFault):
    pass
 
 
-class VAppOperationInProgress(RuntimeFault):
+class VAppOperationInProgress(pyVmomi.vmodl.RuntimeFault):
    pass
 
 class VAppPropertyFault(VmConfigFault):
@@ -2570,12 +2523,12 @@ class VFlashCacheHotConfigNotSupported(VmConfigFault):
 
 
 class VFlashModuleNotSupported(VmConfigFault):
-   class Reason(Enum):
-      CacheModeNotSupported: ClassVar['Reason'] = 'CacheModeNotSupported'
-      CacheConsistencyTypeNotSupported: ClassVar['Reason'] = 'CacheConsistencyTypeNotSupported'
-      CacheBlockSizeNotSupported: ClassVar['Reason'] = 'CacheBlockSizeNotSupported'
-      CacheReservationNotSupported: ClassVar['Reason'] = 'CacheReservationNotSupported'
-      DiskSizeNotSupported: ClassVar['Reason'] = 'DiskSizeNotSupported'
+   class Reason(pyVmomi.VmomiSupport.Enum):
+      CacheModeNotSupported: _typing.ClassVar['Reason'] = 'CacheModeNotSupported'
+      CacheConsistencyTypeNotSupported: _typing.ClassVar['Reason'] = 'CacheConsistencyTypeNotSupported'
+      CacheBlockSizeNotSupported: _typing.ClassVar['Reason'] = 'CacheBlockSizeNotSupported'
+      CacheReservationNotSupported: _typing.ClassVar['Reason'] = 'CacheReservationNotSupported'
+      DiskSizeNotSupported: _typing.ClassVar['Reason'] = 'DiskSizeNotSupported'
 
    vmName: str
    moduleName: str
@@ -2604,7 +2557,7 @@ class VMotionAcrossNetworkNotSupported(MigrationFeatureNotSupported):
 class VMotionInterfaceIssue(MigrationFault):
    atSourceHost: bool
    failedHost: str
-   failedHostEntity: Optional[HostSystem] = None
+   failedHostEntity: _typing.Optional[pyVmomi.vim.HostSystem] = None
 
 class VMotionLinkCapacityLow(VMotionInterfaceIssue):
    network: str
@@ -2625,7 +2578,7 @@ class VMotionProtocolIncompatible(MigrationFault):
    pass
 
 
-class VimFault(MethodFault):
+class VimFault(pyVmomi.vmodl.MethodFault):
    pass
 
 class VirtualDiskBlocksNotFullyProvisioned(DeviceBackingNotSupported):
@@ -2643,106 +2596,106 @@ class VirtualHardwareCompatibilityIssue(VmConfigFault):
 
 class VirtualHardwareVersionNotSupported(VirtualHardwareCompatibilityIssue):
    hostName: str
-   host: HostSystem
+   host: pyVmomi.vim.HostSystem
 
 
 class VmAlreadyExistsInDatacenter(InvalidFolder):
-   host: HostSystem
+   host: pyVmomi.vim.HostSystem
    hostname: str
-   vm: list[VirtualMachine] = []
+   vm: list[pyVmomi.vim.VirtualMachine] = []
 
 class VmConfigFault(VimFault):
    pass
 
 
 class VmConfigIncompatibleForFaultTolerance(VmConfigFault):
-   fault: Optional[MethodFault] = None
+   fault: _typing.Optional[pyVmomi.vmodl.MethodFault] = None
 
 
 class VmConfigIncompatibleForRecordReplay(VmConfigFault):
-   fault: Optional[MethodFault] = None
+   fault: _typing.Optional[pyVmomi.vmodl.MethodFault] = None
 
 
 class VmFaultToleranceConfigIssue(VmFaultToleranceIssue):
-   class ReasonForIssue(Enum):
-      haNotEnabled: ClassVar['ReasonForIssue'] = 'haNotEnabled'
-      moreThanOneSecondary: ClassVar['ReasonForIssue'] = 'moreThanOneSecondary'
-      recordReplayNotSupported: ClassVar['ReasonForIssue'] = 'recordReplayNotSupported'
-      replayNotSupported: ClassVar['ReasonForIssue'] = 'replayNotSupported'
-      templateVm: ClassVar['ReasonForIssue'] = 'templateVm'
-      multipleVCPU: ClassVar['ReasonForIssue'] = 'multipleVCPU'
-      hostInactive: ClassVar['ReasonForIssue'] = 'hostInactive'
-      ftUnsupportedHardware: ClassVar['ReasonForIssue'] = 'ftUnsupportedHardware'
-      ftUnsupportedProduct: ClassVar['ReasonForIssue'] = 'ftUnsupportedProduct'
-      missingVMotionNic: ClassVar['ReasonForIssue'] = 'missingVMotionNic'
-      missingFTLoggingNic: ClassVar['ReasonForIssue'] = 'missingFTLoggingNic'
-      thinDisk: ClassVar['ReasonForIssue'] = 'thinDisk'
-      verifySSLCertificateFlagNotSet: ClassVar['ReasonForIssue'] = 'verifySSLCertificateFlagNotSet'
-      hasSnapshots: ClassVar['ReasonForIssue'] = 'hasSnapshots'
-      noConfig: ClassVar['ReasonForIssue'] = 'noConfig'
-      ftSecondaryVm: ClassVar['ReasonForIssue'] = 'ftSecondaryVm'
-      hasLocalDisk: ClassVar['ReasonForIssue'] = 'hasLocalDisk'
-      esxAgentVm: ClassVar['ReasonForIssue'] = 'esxAgentVm'
-      video3dEnabled: ClassVar['ReasonForIssue'] = 'video3dEnabled'
-      hasUnsupportedDisk: ClassVar['ReasonForIssue'] = 'hasUnsupportedDisk'
-      insufficientBandwidth: ClassVar['ReasonForIssue'] = 'insufficientBandwidth'
-      hasNestedHVConfiguration: ClassVar['ReasonForIssue'] = 'hasNestedHVConfiguration'
-      hasVFlashConfiguration: ClassVar['ReasonForIssue'] = 'hasVFlashConfiguration'
-      unsupportedProduct: ClassVar['ReasonForIssue'] = 'unsupportedProduct'
-      cpuHvUnsupported: ClassVar['ReasonForIssue'] = 'cpuHvUnsupported'
-      cpuHwmmuUnsupported: ClassVar['ReasonForIssue'] = 'cpuHwmmuUnsupported'
-      cpuHvDisabled: ClassVar['ReasonForIssue'] = 'cpuHvDisabled'
-      hasEFIFirmware: ClassVar['ReasonForIssue'] = 'hasEFIFirmware'
-      tooManyVCPUs: ClassVar['ReasonForIssue'] = 'tooManyVCPUs'
-      tooMuchMemory: ClassVar['ReasonForIssue'] = 'tooMuchMemory'
-      vMotionNotLicensed: ClassVar['ReasonForIssue'] = 'vMotionNotLicensed'
-      ftNotLicensed: ClassVar['ReasonForIssue'] = 'ftNotLicensed'
-      haAgentIssue: ClassVar['ReasonForIssue'] = 'haAgentIssue'
-      unsupportedSPBM: ClassVar['ReasonForIssue'] = 'unsupportedSPBM'
-      hasLinkedCloneDisk: ClassVar['ReasonForIssue'] = 'hasLinkedCloneDisk'
-      unsupportedPMemHAFailOver: ClassVar['ReasonForIssue'] = 'unsupportedPMemHAFailOver'
-      unsupportedEncryptedDisk: ClassVar['ReasonForIssue'] = 'unsupportedEncryptedDisk'
-      ftMetroClusterNotEditable: ClassVar['ReasonForIssue'] = 'ftMetroClusterNotEditable'
-      noHostGroupConfigured: ClassVar['ReasonForIssue'] = 'noHostGroupConfigured'
+   class ReasonForIssue(pyVmomi.VmomiSupport.Enum):
+      haNotEnabled: _typing.ClassVar['ReasonForIssue'] = 'haNotEnabled'
+      moreThanOneSecondary: _typing.ClassVar['ReasonForIssue'] = 'moreThanOneSecondary'
+      recordReplayNotSupported: _typing.ClassVar['ReasonForIssue'] = 'recordReplayNotSupported'
+      replayNotSupported: _typing.ClassVar['ReasonForIssue'] = 'replayNotSupported'
+      templateVm: _typing.ClassVar['ReasonForIssue'] = 'templateVm'
+      multipleVCPU: _typing.ClassVar['ReasonForIssue'] = 'multipleVCPU'
+      hostInactive: _typing.ClassVar['ReasonForIssue'] = 'hostInactive'
+      ftUnsupportedHardware: _typing.ClassVar['ReasonForIssue'] = 'ftUnsupportedHardware'
+      ftUnsupportedProduct: _typing.ClassVar['ReasonForIssue'] = 'ftUnsupportedProduct'
+      missingVMotionNic: _typing.ClassVar['ReasonForIssue'] = 'missingVMotionNic'
+      missingFTLoggingNic: _typing.ClassVar['ReasonForIssue'] = 'missingFTLoggingNic'
+      thinDisk: _typing.ClassVar['ReasonForIssue'] = 'thinDisk'
+      verifySSLCertificateFlagNotSet: _typing.ClassVar['ReasonForIssue'] = 'verifySSLCertificateFlagNotSet'
+      hasSnapshots: _typing.ClassVar['ReasonForIssue'] = 'hasSnapshots'
+      noConfig: _typing.ClassVar['ReasonForIssue'] = 'noConfig'
+      ftSecondaryVm: _typing.ClassVar['ReasonForIssue'] = 'ftSecondaryVm'
+      hasLocalDisk: _typing.ClassVar['ReasonForIssue'] = 'hasLocalDisk'
+      esxAgentVm: _typing.ClassVar['ReasonForIssue'] = 'esxAgentVm'
+      video3dEnabled: _typing.ClassVar['ReasonForIssue'] = 'video3dEnabled'
+      hasUnsupportedDisk: _typing.ClassVar['ReasonForIssue'] = 'hasUnsupportedDisk'
+      insufficientBandwidth: _typing.ClassVar['ReasonForIssue'] = 'insufficientBandwidth'
+      hasNestedHVConfiguration: _typing.ClassVar['ReasonForIssue'] = 'hasNestedHVConfiguration'
+      hasVFlashConfiguration: _typing.ClassVar['ReasonForIssue'] = 'hasVFlashConfiguration'
+      unsupportedProduct: _typing.ClassVar['ReasonForIssue'] = 'unsupportedProduct'
+      cpuHvUnsupported: _typing.ClassVar['ReasonForIssue'] = 'cpuHvUnsupported'
+      cpuHwmmuUnsupported: _typing.ClassVar['ReasonForIssue'] = 'cpuHwmmuUnsupported'
+      cpuHvDisabled: _typing.ClassVar['ReasonForIssue'] = 'cpuHvDisabled'
+      hasEFIFirmware: _typing.ClassVar['ReasonForIssue'] = 'hasEFIFirmware'
+      tooManyVCPUs: _typing.ClassVar['ReasonForIssue'] = 'tooManyVCPUs'
+      tooMuchMemory: _typing.ClassVar['ReasonForIssue'] = 'tooMuchMemory'
+      vMotionNotLicensed: _typing.ClassVar['ReasonForIssue'] = 'vMotionNotLicensed'
+      ftNotLicensed: _typing.ClassVar['ReasonForIssue'] = 'ftNotLicensed'
+      haAgentIssue: _typing.ClassVar['ReasonForIssue'] = 'haAgentIssue'
+      unsupportedSPBM: _typing.ClassVar['ReasonForIssue'] = 'unsupportedSPBM'
+      hasLinkedCloneDisk: _typing.ClassVar['ReasonForIssue'] = 'hasLinkedCloneDisk'
+      unsupportedPMemHAFailOver: _typing.ClassVar['ReasonForIssue'] = 'unsupportedPMemHAFailOver'
+      unsupportedEncryptedDisk: _typing.ClassVar['ReasonForIssue'] = 'unsupportedEncryptedDisk'
+      ftMetroClusterNotEditable: _typing.ClassVar['ReasonForIssue'] = 'ftMetroClusterNotEditable'
+      noHostGroupConfigured: _typing.ClassVar['ReasonForIssue'] = 'noHostGroupConfigured'
 
-   reason: Optional[str] = None
-   entityName: Optional[str] = None
-   entity: Optional[ManagedEntity] = None
+   reason: _typing.Optional[str] = None
+   entityName: _typing.Optional[str] = None
+   entity: _typing.Optional[pyVmomi.vim.ManagedEntity] = None
 
 
 class VmFaultToleranceConfigIssueWrapper(VmFaultToleranceIssue):
-   entityName: Optional[str] = None
-   entity: Optional[ManagedEntity] = None
-   error: Optional[MethodFault] = None
+   entityName: _typing.Optional[str] = None
+   entity: _typing.Optional[pyVmomi.vim.ManagedEntity] = None
+   error: _typing.Optional[pyVmomi.vmodl.MethodFault] = None
 
 
 class VmFaultToleranceInvalidFileBacking(VmFaultToleranceIssue):
-   class DeviceType(Enum):
-      virtualFloppy: ClassVar['DeviceType'] = 'virtualFloppy'
-      virtualCdrom: ClassVar['DeviceType'] = 'virtualCdrom'
-      virtualSerialPort: ClassVar['DeviceType'] = 'virtualSerialPort'
-      virtualParallelPort: ClassVar['DeviceType'] = 'virtualParallelPort'
-      virtualDisk: ClassVar['DeviceType'] = 'virtualDisk'
+   class DeviceType(pyVmomi.VmomiSupport.Enum):
+      virtualFloppy: _typing.ClassVar['DeviceType'] = 'virtualFloppy'
+      virtualCdrom: _typing.ClassVar['DeviceType'] = 'virtualCdrom'
+      virtualSerialPort: _typing.ClassVar['DeviceType'] = 'virtualSerialPort'
+      virtualParallelPort: _typing.ClassVar['DeviceType'] = 'virtualParallelPort'
+      virtualDisk: _typing.ClassVar['DeviceType'] = 'virtualDisk'
 
-   backingType: Optional[str] = None
-   backingFilename: Optional[str] = None
+   backingType: _typing.Optional[str] = None
+   backingFilename: _typing.Optional[str] = None
 
 class VmFaultToleranceIssue(VimFault):
    pass
 
 
 class VmFaultToleranceOpIssuesList(VmFaultToleranceIssue):
-   errors: list[MethodFault] = []
-   warnings: list[MethodFault] = []
+   errors: list[pyVmomi.vmodl.MethodFault] = []
+   warnings: list[pyVmomi.vmodl.MethodFault] = []
 
 
 class VmFaultToleranceTooManyFtVcpusOnHost(InsufficientResourcesFault):
-   hostName: Optional[str] = None
+   hostName: _typing.Optional[str] = None
    maxNumFtVcpus: int
 
 
 class VmFaultToleranceTooManyVMsOnHost(InsufficientResourcesFault):
-   hostName: Optional[str] = None
+   hostName: _typing.Optional[str] = None
    maxNumFtVms: int
 
 class VmHostAffinityRuleViolation(VmConfigFault):
@@ -2750,7 +2703,7 @@ class VmHostAffinityRuleViolation(VmConfigFault):
    hostName: str
 
 
-class VmLimitLicense(NotEnoughLicenses):
+class VmLimitLicense(pyVmomi.vmodl.fault.NotEnoughLicenses):
    limit: int
 
 class VmMetadataManagerFault(VimFault):
@@ -2764,7 +2717,7 @@ class VmPowerOnDisabled(InvalidState):
 
 
 class VmSmpFaultToleranceTooManyVMsOnHost(InsufficientResourcesFault):
-   hostName: Optional[str] = None
+   hostName: _typing.Optional[str] = None
    maxNumSmpFtVms: int
 
 class VmToolsUpgradeFault(VimFault):
@@ -2777,10 +2730,10 @@ class VmValidateMaxDevice(VimFault):
 
 
 class VmWwnConflict(InvalidVmConfig):
-   vm: Optional[VirtualMachine] = None
-   host: Optional[HostSystem] = None
-   name: Optional[str] = None
-   wwn: Optional[long] = None
+   vm: _typing.Optional[pyVmomi.vim.VirtualMachine] = None
+   host: _typing.Optional[pyVmomi.vim.HostSystem] = None
+   name: _typing.Optional[str] = None
+   wwn: _typing.Optional[pyVmomi.VmomiSupport.long] = None
 
 class VmfsAlreadyMounted(VmfsMountFault):
    pass
@@ -2798,7 +2751,7 @@ class VolumeEditorError(CustomizationFault):
    pass
 
 
-class VramLimitLicense(NotEnoughLicenses):
+class VramLimitLicense(pyVmomi.vmodl.fault.NotEnoughLicenses):
    limit: int
 
 class VsanClusterUuidMismatch(CannotMoveVsanEnabledHost):
@@ -2807,7 +2760,7 @@ class VsanClusterUuidMismatch(CannotMoveVsanEnabledHost):
 
 
 class VsanDiskFault(VsanFault):
-   device: Optional[str] = None
+   device: _typing.Optional[str] = None
 
 class VsanFault(VimFault):
    pass
@@ -2817,8 +2770,8 @@ class VsanIncompatibleDiskMapping(VsanDiskFault):
 
 
 class VsanNodeNotMaster(VimFault):
-   vsanMasterUuid: Optional[str] = None
-   cmmdsMasterButNotStatsMaster: Optional[bool] = None
+   vsanMasterUuid: _typing.Optional[str] = None
+   cmmdsMasterButNotStatsMaster: _typing.Optional[bool] = None
 
 class VsanSslVerifyCertFault(SSLVerifyFault):
    cert: str
@@ -2863,9 +2816,9 @@ class WakeOnLanNotSupportedByVmotionNIC(HostPowerOpFailed):
 
 
 class WillLoseHAProtection(MigrationFault):
-   class Resolution(Enum):
-      svmotion: ClassVar['Resolution'] = 'svmotion'
-      relocate: ClassVar['Resolution'] = 'relocate'
+   class Resolution(pyVmomi.VmomiSupport.Enum):
+      svmotion: _typing.ClassVar['Resolution'] = 'svmotion'
+      relocate: _typing.ClassVar['Resolution'] = 'relocate'
 
    resolution: str
 

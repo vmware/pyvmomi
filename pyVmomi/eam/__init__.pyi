@@ -7,69 +7,54 @@ from . import fault as fault
 from . import issue as issue
 from . import vib as vib
 
-from typing import ClassVar
-from typing import Optional
-
-from pyVmomi.VmomiSupport import Enum
-from pyVmomi.VmomiSupport import ManagedObject
-
-from pyVmomi.vim import ComputeResource
-from pyVmomi.vim import Datacenter
-from pyVmomi.vim import Datastore
-from pyVmomi.vim import Folder
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import Network
-from pyVmomi.vim import ResourcePool
-from pyVmomi.vim import VirtualMachine
-
-from pyVmomi.vmodl import DynamicData
-
-from pyVmomi.eam.issue import Issue
-
-from pyVmomi.eam.vib import VibInfo
-
-from pyVmomi.vim.vApp import IpPool
+import typing as _typing
+import pyVmomi.VmomiSupport
+import pyVmomi.vim
+import pyVmomi.vmodl
+import pyVmomi.eam.issue
+import pyVmomi.eam.vib
+import pyVmomi.vim.vApp
 
 
 
 class Agency(EamObject):
-   class VMResourcePool(DynamicData):
-      resourcePoolId: ResourcePool
-      computeResourceId: ComputeResource
+   class VMResourcePool(pyVmomi.vmodl.DynamicData):
+      resourcePoolId: pyVmomi.vim.ResourcePool
+      computeResourceId: pyVmomi.vim.ComputeResource
 
-   class VMFolder(DynamicData):
-      folderId: Folder
-      datacenterId: Datacenter
+   class VMFolder(pyVmomi.vmodl.DynamicData):
+      folderId: pyVmomi.vim.Folder
+      datacenterId: pyVmomi.vim.Datacenter
 
-   class ConfigInfo(DynamicData):
+   class ConfigInfo(pyVmomi.vmodl.DynamicData):
       agentConfig: list[Agent.ConfigInfo] = []
-      scope: Optional[Scope] = None
-      manuallyMarkAgentVmAvailableAfterProvisioning: Optional[bool] = None
-      manuallyMarkAgentVmAvailableAfterPowerOn: Optional[bool] = None
-      optimizedDeploymentEnabled: Optional[bool] = None
-      agentName: Optional[str] = None
-      agencyName: Optional[str] = None
-      useUuidVmName: Optional[bool] = None
-      manuallyProvisioned: Optional[bool] = None
-      manuallyMonitored: Optional[bool] = None
-      bypassVumEnabled: Optional[bool] = None
-      agentVmNetwork: list[Network] = []
-      agentVmDatastore: list[Datastore] = []
-      preferHostConfiguration: Optional[bool] = None
-      ipPool: Optional[IpPool] = None
+      scope: _typing.Optional[Scope] = None
+      manuallyMarkAgentVmAvailableAfterProvisioning: _typing.Optional[bool] = None
+      manuallyMarkAgentVmAvailableAfterPowerOn: _typing.Optional[bool] = None
+      optimizedDeploymentEnabled: _typing.Optional[bool] = None
+      agentName: _typing.Optional[str] = None
+      agencyName: _typing.Optional[str] = None
+      useUuidVmName: _typing.Optional[bool] = None
+      manuallyProvisioned: _typing.Optional[bool] = None
+      manuallyMonitored: _typing.Optional[bool] = None
+      bypassVumEnabled: _typing.Optional[bool] = None
+      agentVmNetwork: list[pyVmomi.vim.Network] = []
+      agentVmDatastore: list[pyVmomi.vim.Datastore] = []
+      preferHostConfiguration: _typing.Optional[bool] = None
+      ipPool: _typing.Optional[pyVmomi.vim.vApp.IpPool] = None
       resourcePools: list[VMResourcePool] = []
       folders: list[VMFolder] = []
 
-   class Scope(DynamicData):
+   class Scope(pyVmomi.vmodl.DynamicData):
       pass
 
    class ComputeResourceScope(Scope):
-      computeResource: list[ComputeResource] = []
+      computeResource: list[pyVmomi.vim.ComputeResource] = []
 
    @property
    def solutionId(self) -> str: ...
    @property
-   def owner(self) -> Optional[str]: ...
+   def owner(self) -> _typing.Optional[str]: ...
    @property
    def config(self) -> ConfigInfo: ...
    @property
@@ -82,46 +67,46 @@ class Agency(EamObject):
    def Update(self, config: ConfigInfo) -> None: ...
    def QueryRuntime(self) -> EamObject.RuntimeInfo: ...
    def QueryAgent(self) -> list[Agent]: ...
-   def RegisterAgentVm(self, agentVm: VirtualMachine) -> Agent: ...
-   def UnregisterAgentVm(self, agentVm: VirtualMachine) -> None: ...
+   def RegisterAgentVm(self, agentVm: pyVmomi.vim.VirtualMachine) -> Agent: ...
+   def UnregisterAgentVm(self, agentVm: pyVmomi.vim.VirtualMachine) -> None: ...
    def Enable(self) -> None: ...
    def Disable(self) -> None: ...
    def Uninstall(self) -> None: ...
    def DestroyAgency(self) -> None: ...
-   def AddIssue(self, issue: Issue) -> Issue: ...
+   def AddIssue(self, issue: pyVmomi.eam.issue.Issue) -> pyVmomi.eam.issue.Issue: ...
 
 
 class Agent(EamObject):
    class RuntimeInfo(EamObject.RuntimeInfo):
-      vmPowerState: VirtualMachine.PowerState
+      vmPowerState: pyVmomi.vim.VirtualMachine.PowerState
       receivingHeartBeat: bool
-      host: Optional[HostSystem] = None
-      vm: Optional[VirtualMachine] = None
-      vmIp: Optional[str] = None
+      host: _typing.Optional[pyVmomi.vim.HostSystem] = None
+      vm: _typing.Optional[pyVmomi.vim.VirtualMachine] = None
+      vmIp: _typing.Optional[str] = None
       vmName: str
-      esxAgentResourcePool: Optional[ResourcePool] = None
-      esxAgentFolder: Optional[Folder] = None
+      esxAgentResourcePool: _typing.Optional[pyVmomi.vim.ResourcePool] = None
+      esxAgentFolder: _typing.Optional[pyVmomi.vim.Folder] = None
       installedBulletin: list[str] = []
-      installedVibs: list[VibInfo] = []
-      agency: Optional[Agency] = None
-      vmHook: Optional[VmHook] = None
+      installedVibs: list[pyVmomi.eam.vib.VibInfo] = []
+      agency: _typing.Optional[Agency] = None
+      vmHook: _typing.Optional[VmHook] = None
 
-   class VmHook(DynamicData):
-      class VmState(Enum):
-         provisioned: ClassVar['VmState'] = 'provisioned'
-         poweredOn: ClassVar['VmState'] = 'poweredOn'
-         prePowerOn: ClassVar['VmState'] = 'prePowerOn'
+   class VmHook(pyVmomi.vmodl.DynamicData):
+      class VmState(pyVmomi.VmomiSupport.Enum):
+         provisioned: _typing.ClassVar['VmState'] = 'provisioned'
+         poweredOn: _typing.ClassVar['VmState'] = 'poweredOn'
+         prePowerOn: _typing.ClassVar['VmState'] = 'prePowerOn'
 
-      vm: VirtualMachine
+      vm: pyVmomi.vim.VirtualMachine
       vmState: str
 
-   class StoragePolicy(DynamicData):
+   class StoragePolicy(pyVmomi.vmodl.DynamicData):
       pass
 
    class VsanStoragePolicy(StoragePolicy):
       profileId: str
 
-   class SslTrust(DynamicData):
+   class SslTrust(pyVmomi.vmodl.DynamicData):
       pass
 
    class PinnedPemCertificate(SslTrust):
@@ -130,41 +115,41 @@ class Agent(EamObject):
    class AnyCertificate(SslTrust):
       pass
 
-   class ConfigInfo(DynamicData):
-      class OvfDiskProvisioning(Enum):
-         none: ClassVar['OvfDiskProvisioning'] = 'none'
-         thin: ClassVar['OvfDiskProvisioning'] = 'thin'
-         thick: ClassVar['OvfDiskProvisioning'] = 'thick'
+   class ConfigInfo(pyVmomi.vmodl.DynamicData):
+      class OvfDiskProvisioning(pyVmomi.VmomiSupport.Enum):
+         none: _typing.ClassVar['OvfDiskProvisioning'] = 'none'
+         thin: _typing.ClassVar['OvfDiskProvisioning'] = 'thin'
+         thick: _typing.ClassVar['OvfDiskProvisioning'] = 'thick'
 
-      class AuthenticationScheme(Enum):
-         NONE: ClassVar['AuthenticationScheme'] = 'NONE'
-         VMWARE_SESSION_ID: ClassVar['AuthenticationScheme'] = 'VMWARE_SESSION_ID'
+      class AuthenticationScheme(pyVmomi.VmomiSupport.Enum):
+         NONE: _typing.ClassVar['AuthenticationScheme'] = 'NONE'
+         VMWARE_SESSION_ID: _typing.ClassVar['AuthenticationScheme'] = 'VMWARE_SESSION_ID'
 
-      productLineId: Optional[str] = None
-      hostVersion: Optional[str] = None
-      ovfPackageUrl: Optional[str] = None
-      authenticationScheme: Optional[str] = None
-      ovfSslTrust: Optional[SslTrust] = None
-      ovfEnvironment: Optional[OvfEnvironmentInfo] = None
-      vibUrl: Optional[str] = None
-      vibSslTrust: Optional[SslTrust] = None
+      productLineId: _typing.Optional[str] = None
+      hostVersion: _typing.Optional[str] = None
+      ovfPackageUrl: _typing.Optional[str] = None
+      authenticationScheme: _typing.Optional[str] = None
+      ovfSslTrust: _typing.Optional[SslTrust] = None
+      ovfEnvironment: _typing.Optional[OvfEnvironmentInfo] = None
+      vibUrl: _typing.Optional[str] = None
+      vibSslTrust: _typing.Optional[SslTrust] = None
       vibMatchingRules: list[VibMatchingRule] = []
-      vibName: Optional[str] = None
-      dvFilterEnabled: Optional[bool] = None
-      rebootHostAfterVibUninstall: Optional[bool] = None
+      vibName: _typing.Optional[str] = None
+      dvFilterEnabled: _typing.Optional[bool] = None
+      rebootHostAfterVibUninstall: _typing.Optional[bool] = None
       vmciService: list[str] = []
-      ovfDiskProvisioning: Optional[str] = None
+      ovfDiskProvisioning: _typing.Optional[str] = None
       vmStoragePolicies: list[StoragePolicy] = []
-      vmResourceConfiguration: Optional[str] = None
+      vmResourceConfiguration: _typing.Optional[str] = None
 
-   class OvfEnvironmentInfo(DynamicData):
-      class OvfProperty(DynamicData):
+   class OvfEnvironmentInfo(pyVmomi.vmodl.DynamicData):
+      class OvfProperty(pyVmomi.vmodl.DynamicData):
          key: str
          value: str
 
       ovfProperty: list[OvfProperty] = []
 
-   class VibMatchingRule(DynamicData):
+   class VibMatchingRule(pyVmomi.vmodl.DynamicData):
       vibNameRegex: str
       vibVersionRegex: str
 
@@ -178,37 +163,37 @@ class Agent(EamObject):
    def QueryConfig(self) -> ConfigInfo: ...
 
 
-class EamObject(ManagedObject):
-   class RuntimeInfo(DynamicData):
-      class Status(Enum):
-         green: ClassVar['Status'] = 'green'
-         yellow: ClassVar['Status'] = 'yellow'
-         red: ClassVar['Status'] = 'red'
+class EamObject(pyVmomi.VmomiSupport.ManagedObject):
+   class RuntimeInfo(pyVmomi.vmodl.DynamicData):
+      class Status(pyVmomi.VmomiSupport.Enum):
+         green: _typing.ClassVar['Status'] = 'green'
+         yellow: _typing.ClassVar['Status'] = 'yellow'
+         red: _typing.ClassVar['Status'] = 'red'
 
-      class GoalState(Enum):
-         enabled: ClassVar['GoalState'] = 'enabled'
-         disabled: ClassVar['GoalState'] = 'disabled'
-         uninstalled: ClassVar['GoalState'] = 'uninstalled'
+      class GoalState(pyVmomi.VmomiSupport.Enum):
+         enabled: _typing.ClassVar['GoalState'] = 'enabled'
+         disabled: _typing.ClassVar['GoalState'] = 'disabled'
+         uninstalled: _typing.ClassVar['GoalState'] = 'uninstalled'
 
       status: str
-      issue: list[Issue] = []
+      issue: list[pyVmomi.eam.issue.Issue] = []
       goalState: str
       entity: EamObject
 
    def Resolve(self, issueKey: list[int]) -> list[int]: ...
    def ResolveAll(self) -> None: ...
-   def QueryIssue(self, issueKey: list[int]) -> list[Issue]: ...
+   def QueryIssue(self, issueKey: list[int]) -> list[pyVmomi.eam.issue.Issue]: ...
 
 
 class EsxAgentManager(EamObject):
-   class MaintenanceModePolicy(Enum):
-      singleHost: ClassVar['MaintenanceModePolicy'] = 'singleHost'
-      multipleHosts: ClassVar['MaintenanceModePolicy'] = 'multipleHosts'
+   class MaintenanceModePolicy(pyVmomi.VmomiSupport.Enum):
+      singleHost: _typing.ClassVar['MaintenanceModePolicy'] = 'singleHost'
+      multipleHosts: _typing.ClassVar['MaintenanceModePolicy'] = 'multipleHosts'
 
    @property
    def agency(self) -> list[Agency]: ...
    @property
-   def issue(self) -> list[Issue]: ...
+   def issue(self) -> list[pyVmomi.eam.issue.Issue]: ...
 
    def QueryAgency(self) -> list[Agency]: ...
    def CreateAgency(self, agencyConfigInfo: Agency.ConfigInfo, initialGoalState: str) -> Agency: ...
@@ -217,5 +202,5 @@ class EsxAgentManager(EamObject):
    def GetMaintenanceModePolicy(self) -> str: ...
 
 
-class Task(ManagedObject):
+class Task(pyVmomi.VmomiSupport.ManagedObject):
    pass

@@ -3,66 +3,23 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from datetime import datetime
-from typing import ClassVar
-from typing import Optional
-
-from pyVmomi.VmomiSupport import Enum
-
-from pyVmomi.VmomiSupport import ManagedObject
-from pyVmomi.VmomiSupport import long
-from pyVmomi.vim import AuthorizationManager
-from pyVmomi.vim import ComputeResource
-from pyVmomi.vim import Datacenter
-from pyVmomi.vim import Datastore
-from pyVmomi.vim import DistributedVirtualSwitch
-
-from pyVmomi.vim import ElementDescription
-from pyVmomi.vim import EnumDescription
-from pyVmomi.vim import Folder
-
-from pyVmomi.vim import HistoryCollector
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import LicenseManager
-
-from pyVmomi.vim import ManagedEntity
-from pyVmomi.vim import Network
-from pyVmomi.vim import ResourcePool
-from pyVmomi.vim import TaskInfo
-from pyVmomi.vim import TransitGateway
-from pyVmomi.vim import VirtualMachine
-
-from pyVmomi.vmodl import DynamicData
-
-from pyVmomi.vmodl import KeyAnyValue
-from pyVmomi.vmodl import MethodFault
-from pyVmomi.vim.alarm import Alarm
-
-from pyVmomi.vim.dvs import DistributedVirtualPort
-
-from pyVmomi.vim.dvs import DistributedVirtualPortgroup
-
-from pyVmomi.vim.dvs import HostMember
-
-from pyVmomi.vim.dvs import PortConnectee
-
-from pyVmomi.vim.dvs import PortConnection
-from pyVmomi.vim.dvs import ProductSpec
-from pyVmomi.vim.host import LocalAccountManager
-from pyVmomi.vim.profile import Profile
-
-from pyVmomi.vim.scheduler import ScheduledTask
-
-from pyVmomi.vim.vm import ConfigSpec
-
-from pyVmomi.vim.vm import Message
-from pyVmomi.vim.profile.host import HostSpecification
-from pyVmomi.vim.profile.host import HostSubSpecification
+import datetime as _datetime
+import typing as _typing
+import pyVmomi.VmomiSupport
+import pyVmomi.vim
+import pyVmomi.vmodl
+import pyVmomi.vim.alarm
+import pyVmomi.vim.dvs
+import pyVmomi.vim.host
+import pyVmomi.vim.profile
+import pyVmomi.vim.scheduler
+import pyVmomi.vim.vm
+import pyVmomi.vim.profile.host
 
 
 
 class AccountCreatedEvent(HostEvent):
-   spec: LocalAccountManager.AccountSpecification
+   spec: pyVmomi.vim.host.LocalAccountManager.AccountSpecification
    group: bool
 
 class AccountRemovedEvent(HostEvent):
@@ -71,9 +28,9 @@ class AccountRemovedEvent(HostEvent):
 
 
 class AccountUpdatedEvent(HostEvent):
-   spec: LocalAccountManager.AccountSpecification
+   spec: pyVmomi.vim.host.LocalAccountManager.AccountSpecification
    group: bool
-   prevDescription: Optional[str] = None
+   prevDescription: _typing.Optional[str] = None
 
 class AdminPasswordNotChangedEvent(HostEvent):
    pass
@@ -103,19 +60,19 @@ class AlarmEmailCompletedEvent(AlarmEvent):
 class AlarmEmailFailedEvent(AlarmEvent):
    entity: ManagedEntityEventArgument
    to: str
-   reason: MethodFault
+   reason: pyVmomi.vmodl.MethodFault
 
 class AlarmEvent(Event):
    alarm: AlarmEventArgument
 
 
 class AlarmEventArgument(EntityEventArgument):
-   alarm: Alarm
+   alarm: pyVmomi.vim.alarm.Alarm
 
 
 class AlarmReconfiguredEvent(AlarmEvent):
    entity: ManagedEntityEventArgument
-   configChanges: Optional[ChangesInfoEventArgument] = None
+   configChanges: _typing.Optional[ChangesInfoEventArgument] = None
 
 class AlarmRemovedEvent(AlarmEvent):
    entity: ManagedEntityEventArgument
@@ -128,7 +85,7 @@ class AlarmScriptCompleteEvent(AlarmEvent):
 class AlarmScriptFailedEvent(AlarmEvent):
    entity: ManagedEntityEventArgument
    script: str
-   reason: MethodFault
+   reason: pyVmomi.vmodl.MethodFault
 
 class AlarmSnmpCompletedEvent(AlarmEvent):
    entity: ManagedEntityEventArgument
@@ -136,7 +93,7 @@ class AlarmSnmpCompletedEvent(AlarmEvent):
 
 class AlarmSnmpFailedEvent(AlarmEvent):
    entity: ManagedEntityEventArgument
-   reason: MethodFault
+   reason: pyVmomi.vmodl.MethodFault
 
 class AlarmStatusChangedEvent(AlarmEvent):
    source: ManagedEntityEventArgument
@@ -161,10 +118,10 @@ class CanceledHostOperationEvent(HostEvent):
    pass
 
 
-class ChangesInfoEventArgument(DynamicData):
-   modified: Optional[str] = None
-   added: Optional[str] = None
-   deleted: Optional[str] = None
+class ChangesInfoEventArgument(pyVmomi.vmodl.DynamicData):
+   modified: _typing.Optional[str] = None
+   added: _typing.Optional[str] = None
+   deleted: _typing.Optional[str] = None
 
 class ClusterComplianceCheckedEvent(ClusterEvent):
    profile: ProfileEventArgument
@@ -183,7 +140,7 @@ class ClusterOvercommittedEvent(ClusterEvent):
 
 
 class ClusterReconfiguredEvent(ClusterEvent):
-   configChanges: Optional[ChangesInfoEventArgument] = None
+   configChanges: _typing.Optional[ChangesInfoEventArgument] = None
 
 class ClusterStatusChangedEvent(ClusterEvent):
    oldStatus: str
@@ -191,7 +148,7 @@ class ClusterStatusChangedEvent(ClusterEvent):
 
 
 class ComputeResourceEventArgument(EntityEventArgument):
-   computeResource: ComputeResource
+   computeResource: pyVmomi.vim.ComputeResource
 
 class CustomFieldDefAddedEvent(CustomFieldDefEvent):
    pass
@@ -215,21 +172,21 @@ class CustomFieldValueChangedEvent(CustomFieldEvent):
    fieldKey: int
    name: str
    value: str
-   prevState: Optional[str] = None
+   prevState: _typing.Optional[str] = None
 
 
 class CustomizationEvent(VmEvent):
-   logLocation: Optional[str] = None
+   logLocation: _typing.Optional[str] = None
 
 
 class CustomizationFailed(CustomizationEvent):
-   class ReasonCode(Enum):
-      userDefinedScriptDisabled: ClassVar['ReasonCode'] = 'userDefinedScriptDisabled'
-      customizationDisabled: ClassVar['ReasonCode'] = 'customizationDisabled'
-      rawDataIsNotSupported: ClassVar['ReasonCode'] = 'rawDataIsNotSupported'
-      wrongMetadataFormat: ClassVar['ReasonCode'] = 'wrongMetadataFormat'
+   class ReasonCode(pyVmomi.VmomiSupport.Enum):
+      userDefinedScriptDisabled: _typing.ClassVar['ReasonCode'] = 'userDefinedScriptDisabled'
+      customizationDisabled: _typing.ClassVar['ReasonCode'] = 'customizationDisabled'
+      rawDataIsNotSupported: _typing.ClassVar['ReasonCode'] = 'rawDataIsNotSupported'
+      wrongMetadataFormat: _typing.ClassVar['ReasonCode'] = 'wrongMetadataFormat'
 
-   reason: Optional[str] = None
+   reason: _typing.Optional[str] = None
 
 class CustomizationLinuxIdentityFailed(CustomizationFailed):
    pass
@@ -261,8 +218,8 @@ class DVPortgroupEvent(Event):
 
 
 class DVPortgroupReconfiguredEvent(DVPortgroupEvent):
-   configSpec: DistributedVirtualPortgroup.ConfigSpec
-   configChanges: Optional[ChangesInfoEventArgument] = None
+   configSpec: pyVmomi.vim.dvs.DistributedVirtualPortgroup.ConfigSpec
+   configChanges: _typing.Optional[ChangesInfoEventArgument] = None
 
 class DVPortgroupRenamedEvent(DVPortgroupEvent):
    oldName: str
@@ -303,7 +260,7 @@ class DatacenterEvent(Event):
 
 
 class DatacenterEventArgument(EntityEventArgument):
-   datacenter: Datacenter
+   datacenter: pyVmomi.vim.Datacenter
 
 class DatacenterRenamedEvent(DatacenterEvent):
    oldName: str
@@ -311,8 +268,8 @@ class DatacenterRenamedEvent(DatacenterEvent):
 
 
 class DatastoreCapacityIncreasedEvent(DatastoreEvent):
-   oldCapacity: long
-   newCapacity: long
+   oldCapacity: pyVmomi.VmomiSupport.long
+   newCapacity: pyVmomi.VmomiSupport.long
 
 class DatastoreDestroyedEvent(DatastoreEvent):
    pass
@@ -325,11 +282,11 @@ class DatastoreDuplicatedEvent(DatastoreEvent):
 
 
 class DatastoreEvent(Event):
-   datastore: Optional[DatastoreEventArgument] = None
+   datastore: _typing.Optional[DatastoreEventArgument] = None
 
 
 class DatastoreEventArgument(EntityEventArgument):
-   datastore: Datastore
+   datastore: pyVmomi.vim.Datastore
 
 class DatastoreFileCopiedEvent(DatastoreFileEvent):
    sourceDatastore: DatastoreEventArgument
@@ -341,8 +298,8 @@ class DatastoreFileDeletedEvent(DatastoreFileEvent):
 
 class DatastoreFileEvent(DatastoreEvent):
    targetFile: str
-   sourceOfOperation: Optional[str] = None
-   succeeded: Optional[bool] = None
+   sourceOfOperation: _typing.Optional[str] = None
+   succeeded: _typing.Optional[bool] = None
 
 class DatastoreFileMovedEvent(DatastoreFileEvent):
    sourceDatastore: DatastoreEventArgument
@@ -394,7 +351,7 @@ class DrsRecoveredFromFailureEvent(ClusterEvent):
 
 
 class DrsResourceConfigureFailedEvent(HostEvent):
-   reason: MethodFault
+   reason: pyVmomi.vmodl.MethodFault
 
 class DrsResourceConfigureSyncedEvent(HostEvent):
    pass
@@ -432,20 +389,20 @@ class DvsDestroyedEvent(DvsEvent):
 
 
 class DvsEvent(Event):
-   class PortBlockState(Enum):
-      unset: ClassVar['PortBlockState'] = 'unset'
-      blocked: ClassVar['PortBlockState'] = 'blocked'
-      unblocked: ClassVar['PortBlockState'] = 'unblocked'
-      unknown: ClassVar['PortBlockState'] = 'unknown'
+   class PortBlockState(pyVmomi.VmomiSupport.Enum):
+      unset: _typing.ClassVar['PortBlockState'] = 'unset'
+      blocked: _typing.ClassVar['PortBlockState'] = 'blocked'
+      unblocked: _typing.ClassVar['PortBlockState'] = 'unblocked'
+      unknown: _typing.ClassVar['PortBlockState'] = 'unknown'
 
 
 class DvsEventArgument(EntityEventArgument):
-   dvs: DistributedVirtualSwitch
+   dvs: pyVmomi.vim.DistributedVirtualSwitch
 
 
 class DvsHealthStatusChangeEvent(HostEvent):
    switchUuid: str
-   healthResult: Optional[HostMember.HealthCheckResult] = None
+   healthResult: _typing.Optional[pyVmomi.vim.dvs.HostMember.HealthCheckResult] = None
 
 class DvsHostBackInSyncEvent(DvsEvent):
    hostBackInSync: HostEventArgument
@@ -459,10 +416,10 @@ class DvsHostLeftEvent(DvsEvent):
 
 class DvsHostStatusUpdated(DvsEvent):
    hostMember: HostEventArgument
-   oldStatus: Optional[str] = None
-   newStatus: Optional[str] = None
-   oldStatusDetail: Optional[str] = None
-   newStatusDetail: Optional[str] = None
+   oldStatus: _typing.Optional[str] = None
+   newStatus: _typing.Optional[str] = None
+   oldStatusDetail: _typing.Optional[str] = None
+   newStatusDetail: _typing.Optional[str] = None
 
 class DvsHostWentOutOfSyncEvent(DvsEvent):
    hostOutOfSync: DvsOutOfSyncHostArgument
@@ -475,21 +432,21 @@ class DvsMergedEvent(DvsEvent):
    destinationDvs: DvsEventArgument
 
 
-class DvsOutOfSyncHostArgument(DynamicData):
+class DvsOutOfSyncHostArgument(pyVmomi.vmodl.DynamicData):
    outOfSyncHost: HostEventArgument
    configParamters: list[str] = []
 
 
 class DvsPortBlockedEvent(DvsEvent):
    portKey: str
-   statusDetail: Optional[str] = None
-   runtimeInfo: Optional[DistributedVirtualPort.RuntimeInfo] = None
-   prevBlockState: Optional[str] = None
+   statusDetail: _typing.Optional[str] = None
+   runtimeInfo: _typing.Optional[pyVmomi.vim.dvs.DistributedVirtualPort.RuntimeInfo] = None
+   prevBlockState: _typing.Optional[str] = None
 
 
 class DvsPortConnectedEvent(DvsEvent):
    portKey: str
-   connectee: Optional[PortConnectee] = None
+   connectee: _typing.Optional[pyVmomi.vim.dvs.PortConnectee] = None
 
 class DvsPortCreatedEvent(DvsEvent):
    portKey: list[str] = []
@@ -500,17 +457,17 @@ class DvsPortDeletedEvent(DvsEvent):
 
 class DvsPortDisconnectedEvent(DvsEvent):
    portKey: str
-   connectee: Optional[PortConnectee] = None
+   connectee: _typing.Optional[pyVmomi.vim.dvs.PortConnectee] = None
 
 
 class DvsPortEnteredPassthruEvent(DvsEvent):
    portKey: str
-   runtimeInfo: Optional[DistributedVirtualPort.RuntimeInfo] = None
+   runtimeInfo: _typing.Optional[pyVmomi.vim.dvs.DistributedVirtualPort.RuntimeInfo] = None
 
 
 class DvsPortExitedPassthruEvent(DvsEvent):
    portKey: str
-   runtimeInfo: Optional[DistributedVirtualPort.RuntimeInfo] = None
+   runtimeInfo: _typing.Optional[pyVmomi.vim.dvs.DistributedVirtualPort.RuntimeInfo] = None
 
 class DvsPortJoinPortgroupEvent(DvsEvent):
    portKey: str
@@ -525,12 +482,12 @@ class DvsPortLeavePortgroupEvent(DvsEvent):
 
 class DvsPortLinkDownEvent(DvsEvent):
    portKey: str
-   runtimeInfo: Optional[DistributedVirtualPort.RuntimeInfo] = None
+   runtimeInfo: _typing.Optional[pyVmomi.vim.dvs.DistributedVirtualPort.RuntimeInfo] = None
 
 
 class DvsPortLinkUpEvent(DvsEvent):
    portKey: str
-   runtimeInfo: Optional[DistributedVirtualPort.RuntimeInfo] = None
+   runtimeInfo: _typing.Optional[pyVmomi.vim.dvs.DistributedVirtualPort.RuntimeInfo] = None
 
 
 class DvsPortReconfiguredEvent(DvsEvent):
@@ -540,21 +497,21 @@ class DvsPortReconfiguredEvent(DvsEvent):
 
 class DvsPortRuntimeChangeEvent(DvsEvent):
    portKey: str
-   runtimeInfo: DistributedVirtualPort.RuntimeInfo
+   runtimeInfo: pyVmomi.vim.dvs.DistributedVirtualPort.RuntimeInfo
 
 
 class DvsPortUnblockedEvent(DvsEvent):
    portKey: str
-   runtimeInfo: Optional[DistributedVirtualPort.RuntimeInfo] = None
-   prevBlockState: Optional[str] = None
+   runtimeInfo: _typing.Optional[pyVmomi.vim.dvs.DistributedVirtualPort.RuntimeInfo] = None
+   prevBlockState: _typing.Optional[str] = None
 
 class DvsPortVendorSpecificStateChangeEvent(DvsEvent):
    portKey: str
 
 
 class DvsReconfiguredEvent(DvsEvent):
-   configSpec: DistributedVirtualSwitch.ConfigSpec
-   configChanges: Optional[ChangesInfoEventArgument] = None
+   configSpec: pyVmomi.vim.DistributedVirtualSwitch.ConfigSpec
+   configChanges: _typing.Optional[ChangesInfoEventArgument] = None
 
 class DvsRenamedEvent(DvsEvent):
    oldName: str
@@ -565,19 +522,19 @@ class DvsRestoreEvent(DvsEvent):
 
 
 class DvsUpgradeAvailableEvent(DvsEvent):
-   productInfo: ProductSpec
+   productInfo: pyVmomi.vim.dvs.ProductSpec
 
 
 class DvsUpgradeInProgressEvent(DvsEvent):
-   productInfo: ProductSpec
+   productInfo: pyVmomi.vim.dvs.ProductSpec
 
 
 class DvsUpgradeRejectedEvent(DvsEvent):
-   productInfo: ProductSpec
+   productInfo: pyVmomi.vim.dvs.ProductSpec
 
 
 class DvsUpgradedEvent(DvsEvent):
-   productInfo: ProductSpec
+   productInfo: pyVmomi.vim.dvs.ProductSpec
 
 class EnteredMaintenanceModeEvent(HostEvent):
    pass
@@ -598,120 +555,120 @@ class ErrorUpgradeEvent(UpgradeEvent):
    pass
 
 
-class Event(DynamicData):
-   class EventSeverity(Enum):
-      error: ClassVar['EventSeverity'] = 'error'
-      warning: ClassVar['EventSeverity'] = 'warning'
-      info: ClassVar['EventSeverity'] = 'info'
-      user: ClassVar['EventSeverity'] = 'user'
+class Event(pyVmomi.vmodl.DynamicData):
+   class EventSeverity(pyVmomi.VmomiSupport.Enum):
+      error: _typing.ClassVar['EventSeverity'] = 'error'
+      warning: _typing.ClassVar['EventSeverity'] = 'warning'
+      info: _typing.ClassVar['EventSeverity'] = 'info'
+      user: _typing.ClassVar['EventSeverity'] = 'user'
 
    key: int
    chainId: int
-   createdTime: datetime
+   createdTime: _datetime.datetime
    userName: str
-   datacenter: Optional[DatacenterEventArgument] = None
-   computeResource: Optional[ComputeResourceEventArgument] = None
-   host: Optional[HostEventArgument] = None
-   vm: Optional[VmEventArgument] = None
-   ds: Optional[DatastoreEventArgument] = None
-   net: Optional[NetworkEventArgument] = None
-   dvs: Optional[DvsEventArgument] = None
-   tgw: Optional[TgwEventArgument] = None
-   fullFormattedMessage: Optional[str] = None
-   changeTag: Optional[str] = None
-   auditId: Optional[str] = None
+   datacenter: _typing.Optional[DatacenterEventArgument] = None
+   computeResource: _typing.Optional[ComputeResourceEventArgument] = None
+   host: _typing.Optional[HostEventArgument] = None
+   vm: _typing.Optional[VmEventArgument] = None
+   ds: _typing.Optional[DatastoreEventArgument] = None
+   net: _typing.Optional[NetworkEventArgument] = None
+   dvs: _typing.Optional[DvsEventArgument] = None
+   tgw: _typing.Optional[TgwEventArgument] = None
+   fullFormattedMessage: _typing.Optional[str] = None
+   changeTag: _typing.Optional[str] = None
+   auditId: _typing.Optional[str] = None
 
 
-class EventArgument(DynamicData):
+class EventArgument(pyVmomi.vmodl.DynamicData):
    pass
 
 
-class EventDescription(DynamicData):
-   class EventCategory(Enum):
-      info: ClassVar['EventCategory'] = 'info'
-      warning: ClassVar['EventCategory'] = 'warning'
-      error: ClassVar['EventCategory'] = 'error'
-      user: ClassVar['EventCategory'] = 'user'
+class EventDescription(pyVmomi.vmodl.DynamicData):
+   class EventCategory(pyVmomi.VmomiSupport.Enum):
+      info: _typing.ClassVar['EventCategory'] = 'info'
+      warning: _typing.ClassVar['EventCategory'] = 'warning'
+      error: _typing.ClassVar['EventCategory'] = 'error'
+      user: _typing.ClassVar['EventCategory'] = 'user'
 
-   class EventArgDesc(DynamicData):
+   class EventArgDesc(pyVmomi.vmodl.DynamicData):
       name: str
       type: str
-      description: Optional[ElementDescription] = None
+      description: _typing.Optional[pyVmomi.vim.ElementDescription] = None
 
-   class EventDetail(DynamicData):
+   class EventDetail(pyVmomi.vmodl.DynamicData):
       key: type
-      description: Optional[str] = None
+      description: _typing.Optional[str] = None
       category: str
       formatOnDatacenter: str
       formatOnComputeResource: str
       formatOnHost: str
       formatOnVm: str
       fullFormat: str
-      longDescription: Optional[str] = None
+      longDescription: _typing.Optional[str] = None
 
-   category: list[ElementDescription] = []
+   category: list[pyVmomi.vim.ElementDescription] = []
    eventInfo: list[EventDetail] = []
-   enumeratedTypes: list[EnumDescription] = []
+   enumeratedTypes: list[pyVmomi.vim.EnumDescription] = []
 
 
 class EventEx(Event):
    eventTypeId: str
-   severity: Optional[str] = None
-   message: Optional[str] = None
-   arguments: list[KeyAnyValue] = []
-   objectId: Optional[str] = None
-   objectType: Optional[type] = None
-   objectName: Optional[str] = None
-   fault: Optional[MethodFault] = None
+   severity: _typing.Optional[str] = None
+   message: _typing.Optional[str] = None
+   arguments: list[pyVmomi.vmodl.KeyAnyValue] = []
+   objectId: _typing.Optional[str] = None
+   objectType: _typing.Optional[type] = None
+   objectName: _typing.Optional[str] = None
+   fault: _typing.Optional[pyVmomi.vmodl.MethodFault] = None
 
 
-class EventFilterSpec(DynamicData):
-   class RecursionOption(Enum):
-      self: ClassVar['RecursionOption'] = 'self'
-      children: ClassVar['RecursionOption'] = 'children'
-      all: ClassVar['RecursionOption'] = 'all'
+class EventFilterSpec(pyVmomi.vmodl.DynamicData):
+   class RecursionOption(pyVmomi.VmomiSupport.Enum):
+      self: _typing.ClassVar['RecursionOption'] = 'self'
+      children: _typing.ClassVar['RecursionOption'] = 'children'
+      all: _typing.ClassVar['RecursionOption'] = 'all'
 
-   class ByEntity(DynamicData):
-      entity: ManagedEntity
+   class ByEntity(pyVmomi.vmodl.DynamicData):
+      entity: pyVmomi.vim.ManagedEntity
       recursion: RecursionOption
 
-   class ByTime(DynamicData):
-      beginTime: Optional[datetime] = None
-      endTime: Optional[datetime] = None
+   class ByTime(pyVmomi.vmodl.DynamicData):
+      beginTime: _typing.Optional[_datetime.datetime] = None
+      endTime: _typing.Optional[_datetime.datetime] = None
 
-   class ByUsername(DynamicData):
+   class ByUsername(pyVmomi.vmodl.DynamicData):
       systemUser: bool
       userList: list[str] = []
 
-   entity: Optional[ByEntity] = None
-   time: Optional[ByTime] = None
-   userName: Optional[ByUsername] = None
-   eventChainId: Optional[int] = None
-   alarm: Optional[Alarm] = None
-   scheduledTask: Optional[ScheduledTask] = None
-   disableFullMessage: Optional[bool] = None
+   entity: _typing.Optional[ByEntity] = None
+   time: _typing.Optional[ByTime] = None
+   userName: _typing.Optional[ByUsername] = None
+   eventChainId: _typing.Optional[int] = None
+   alarm: _typing.Optional[pyVmomi.vim.alarm.Alarm] = None
+   scheduledTask: _typing.Optional[pyVmomi.vim.scheduler.ScheduledTask] = None
+   disableFullMessage: _typing.Optional[bool] = None
    category: list[str] = []
    type: list[type] = []
    tag: list[str] = []
    eventTypeId: list[str] = []
-   maxCount: Optional[int] = None
-   delayedInit: Optional[bool] = None
-   auditable: Optional[bool] = None
+   maxCount: _typing.Optional[int] = None
+   delayedInit: _typing.Optional[bool] = None
+   auditable: _typing.Optional[bool] = None
    auditId: list[str] = []
 
 
-class EventHistoryCollector(HistoryCollector):
+class EventHistoryCollector(pyVmomi.vim.HistoryCollector):
    @property
    def latestPage(self) -> list[Event]: ...
    @property
-   def initialized(self) -> Optional[bool]: ...
+   def initialized(self) -> _typing.Optional[bool]: ...
 
    def ReadNext(self, maxCount: int) -> list[Event]: ...
    def ReadPrev(self, maxCount: int) -> list[Event]: ...
 
 
-class EventManager(ManagedObject):
-   class EventViewSpec(DynamicData):
+class EventManager(pyVmomi.VmomiSupport.ManagedObject):
+   class EventViewSpec(pyVmomi.vmodl.DynamicData):
       pass
 
    class ViewByStartId(EventViewSpec):
@@ -721,15 +678,15 @@ class EventManager(ManagedObject):
    @property
    def description(self) -> EventDescription: ...
    @property
-   def latestEvent(self) -> Optional[Event]: ...
+   def latestEvent(self) -> _typing.Optional[Event]: ...
    @property
    def maxCollector(self) -> int: ...
 
    def RetrieveArgumentDescription(self, eventTypeId: str) -> list[EventDescription.EventArgDesc]: ...
    def CreateCollector(self, filter: EventFilterSpec) -> EventHistoryCollector: ...
-   def LogUserEvent(self, entity: ManagedEntity, msg: str) -> None: ...
-   def QueryEvent(self, filter: EventFilterSpec, eventViewSpec: Optional[EventViewSpec]) -> list[Event]: ...
-   def PostEvent(self, eventToPost: Event, taskInfo: Optional[TaskInfo]) -> None: ...
+   def LogUserEvent(self, entity: pyVmomi.vim.ManagedEntity, msg: str) -> None: ...
+   def QueryEvent(self, filter: EventFilterSpec, eventViewSpec: _typing.Optional[EventViewSpec]) -> list[Event]: ...
+   def PostEvent(self, eventToPost: Event, taskInfo: _typing.Optional[pyVmomi.vim.TaskInfo]) -> None: ...
 
 class ExitMaintenanceModeEvent(HostEvent):
    pass
@@ -745,12 +702,12 @@ class ExitingStandbyModeEvent(HostEvent):
 
 
 class ExtendedEvent(GeneralEvent):
-   class Pair(DynamicData):
+   class Pair(pyVmomi.vmodl.DynamicData):
       key: str
       value: str
 
    eventTypeId: str
-   managedObject: ManagedObject
+   managedObject: pyVmomi.VmomiSupport.ManagedObject
    data: list[Pair] = []
 
 class FailoverLevelRestored(ClusterEvent):
@@ -758,7 +715,7 @@ class FailoverLevelRestored(ClusterEvent):
 
 
 class FolderEventArgument(EntityEventArgument):
-   folder: Folder
+   folder: pyVmomi.vim.Folder
 
 class GeneralEvent(Event):
    message: str
@@ -774,7 +731,7 @@ class GeneralHostWarningEvent(GeneralEvent):
 
 
 class GeneralUserEvent(GeneralEvent):
-   entity: Optional[ManagedEntityEventArgument] = None
+   entity: _typing.Optional[ManagedEntityEventArgument] = None
 
 class GeneralVmErrorEvent(GeneralEvent):
    pass
@@ -794,7 +751,7 @@ class GhostDvsProxySwitchRemovedEvent(HostEvent):
 
 class GlobalMessageChangedEvent(SessionEvent):
    message: str
-   prevMessage: Optional[str] = None
+   prevMessage: _typing.Optional[str] = None
 
 
 class HealthStatusChangedEvent(Event):
@@ -802,7 +759,7 @@ class HealthStatusChangedEvent(Event):
    oldStatus: str
    newStatus: str
    componentName: str
-   serviceId: Optional[str] = None
+   serviceId: _typing.Optional[str] = None
 
 class HostAddFailedEvent(HostEvent):
    hostname: str
@@ -884,18 +841,18 @@ class HostDasEnablingEvent(HostEvent):
 
 
 class HostDasErrorEvent(HostEvent):
-   class HostDasErrorReason(Enum):
-      configFailed: ClassVar['HostDasErrorReason'] = 'configFailed'
-      timeout: ClassVar['HostDasErrorReason'] = 'timeout'
-      communicationInitFailed: ClassVar['HostDasErrorReason'] = 'communicationInitFailed'
-      healthCheckScriptFailed: ClassVar['HostDasErrorReason'] = 'healthCheckScriptFailed'
-      agentFailed: ClassVar['HostDasErrorReason'] = 'agentFailed'
-      agentShutdown: ClassVar['HostDasErrorReason'] = 'agentShutdown'
-      isolationAddressUnpingable: ClassVar['HostDasErrorReason'] = 'isolationAddressUnpingable'
-      other: ClassVar['HostDasErrorReason'] = 'other'
+   class HostDasErrorReason(pyVmomi.VmomiSupport.Enum):
+      configFailed: _typing.ClassVar['HostDasErrorReason'] = 'configFailed'
+      timeout: _typing.ClassVar['HostDasErrorReason'] = 'timeout'
+      communicationInitFailed: _typing.ClassVar['HostDasErrorReason'] = 'communicationInitFailed'
+      healthCheckScriptFailed: _typing.ClassVar['HostDasErrorReason'] = 'healthCheckScriptFailed'
+      agentFailed: _typing.ClassVar['HostDasErrorReason'] = 'agentFailed'
+      agentShutdown: _typing.ClassVar['HostDasErrorReason'] = 'agentShutdown'
+      isolationAddressUnpingable: _typing.ClassVar['HostDasErrorReason'] = 'isolationAddressUnpingable'
+      other: _typing.ClassVar['HostDasErrorReason'] = 'other'
 
-   message: Optional[str] = None
-   reason: Optional[str] = None
+   message: _typing.Optional[str] = None
+   reason: _typing.Optional[str] = None
 
 class HostDasEvent(HostEvent):
    pass
@@ -905,33 +862,33 @@ class HostDasOkEvent(HostEvent):
 
 
 class HostDisconnectedEvent(HostEvent):
-   class ReasonCode(Enum):
-      sslThumbprintVerifyFailed: ClassVar['ReasonCode'] = 'sslThumbprintVerifyFailed'
-      licenseExpired: ClassVar['ReasonCode'] = 'licenseExpired'
-      agentUpgrade: ClassVar['ReasonCode'] = 'agentUpgrade'
-      userRequest: ClassVar['ReasonCode'] = 'userRequest'
-      insufficientLicenses: ClassVar['ReasonCode'] = 'insufficientLicenses'
-      agentOutOfDate: ClassVar['ReasonCode'] = 'agentOutOfDate'
-      passwordDecryptFailure: ClassVar['ReasonCode'] = 'passwordDecryptFailure'
-      unknown: ClassVar['ReasonCode'] = 'unknown'
-      vcVRAMCapacityExceeded: ClassVar['ReasonCode'] = 'vcVRAMCapacityExceeded'
+   class ReasonCode(pyVmomi.VmomiSupport.Enum):
+      sslThumbprintVerifyFailed: _typing.ClassVar['ReasonCode'] = 'sslThumbprintVerifyFailed'
+      licenseExpired: _typing.ClassVar['ReasonCode'] = 'licenseExpired'
+      agentUpgrade: _typing.ClassVar['ReasonCode'] = 'agentUpgrade'
+      userRequest: _typing.ClassVar['ReasonCode'] = 'userRequest'
+      insufficientLicenses: _typing.ClassVar['ReasonCode'] = 'insufficientLicenses'
+      agentOutOfDate: _typing.ClassVar['ReasonCode'] = 'agentOutOfDate'
+      passwordDecryptFailure: _typing.ClassVar['ReasonCode'] = 'passwordDecryptFailure'
+      unknown: _typing.ClassVar['ReasonCode'] = 'unknown'
+      vcVRAMCapacityExceeded: _typing.ClassVar['ReasonCode'] = 'vcVRAMCapacityExceeded'
 
-   reason: Optional[str] = None
+   reason: _typing.Optional[str] = None
 
 
 class HostEnableAdminFailedEvent(HostEvent):
-   permissions: list[AuthorizationManager.Permission] = []
+   permissions: list[pyVmomi.vim.AuthorizationManager.Permission] = []
 
 class HostEvent(Event):
    pass
 
 
 class HostEventArgument(EntityEventArgument):
-   host: HostSystem
+   host: pyVmomi.vim.HostSystem
 
 
 class HostExtraNetworksEvent(HostDasEvent):
-   ips: Optional[str] = None
+   ips: _typing.Optional[str] = None
 
 class HostGetShortNameFailedEvent(HostEvent):
    pass
@@ -964,20 +921,20 @@ class HostLicenseExpiredEvent(LicenseEvent):
 
 
 class HostLocalPortCreatedEvent(DvsEvent):
-   hostLocalPort: DistributedVirtualPort.HostLocalPortInfo
+   hostLocalPort: pyVmomi.vim.dvs.DistributedVirtualPort.HostLocalPortInfo
 
 
 class HostMissingNetworksEvent(HostDasEvent):
-   ips: Optional[str] = None
+   ips: _typing.Optional[str] = None
 
 
 class HostMonitoringStateChangedEvent(ClusterEvent):
    state: str
-   prevState: Optional[str] = None
+   prevState: _typing.Optional[str] = None
 
 
 class HostNoAvailableNetworksEvent(HostDasEvent):
-   ips: Optional[str] = None
+   ips: _typing.Optional[str] = None
 
 class HostNoHAEnabledPortGroupsEvent(HostDasEvent):
    pass
@@ -1024,7 +981,7 @@ class HostSpecificationRequireEvent(HostEvent):
 
 
 class HostSpecificationUpdateEvent(HostEvent):
-   hostSpec: HostSpecification
+   hostSpec: pyVmomi.vim.profile.host.HostSpecification
 
 class HostStatusChangedEvent(ClusterStatusChangedEvent):
    pass
@@ -1034,11 +991,11 @@ class HostSubSpecificationDeleteEvent(HostEvent):
 
 
 class HostSubSpecificationUpdateEvent(HostEvent):
-   hostSubSpec: HostSubSpecification
+   hostSubSpec: pyVmomi.vim.profile.host.HostSubSpecification
 
 
 class HostSyncFailedEvent(HostEvent):
-   reason: MethodFault
+   reason: pyVmomi.vmodl.MethodFault
 
 class HostUpgradeFailedEvent(HostEvent):
    pass
@@ -1049,20 +1006,20 @@ class HostUserWorldSwapNotEnabledEvent(HostEvent):
 
 class HostVnicConnectedToCustomizedDVPortEvent(HostEvent):
    vnic: VnicPortArgument
-   prevPortKey: Optional[str] = None
+   prevPortKey: _typing.Optional[str] = None
 
 
 class HostWwnChangedEvent(HostEvent):
-   oldNodeWwns: list[long] = []
-   oldPortWwns: list[long] = []
-   newNodeWwns: list[long] = []
-   newPortWwns: list[long] = []
+   oldNodeWwns: list[pyVmomi.VmomiSupport.long] = []
+   oldPortWwns: list[pyVmomi.VmomiSupport.long] = []
+   newNodeWwns: list[pyVmomi.VmomiSupport.long] = []
+   newPortWwns: list[pyVmomi.VmomiSupport.long] = []
 
 
 class HostWwnConflictEvent(HostEvent):
    conflictedVms: list[VmEventArgument] = []
    conflictedHosts: list[HostEventArgument] = []
-   wwn: long
+   wwn: pyVmomi.VmomiSupport.long
 
 class IncorrectHostInformationEvent(LicenseEvent):
    pass
@@ -1081,7 +1038,7 @@ class LicenseEvent(Event):
 
 
 class LicenseExpiredEvent(Event):
-   feature: LicenseManager.FeatureInfo
+   feature: pyVmomi.vim.LicenseManager.FeatureInfo
 
 class LicenseNonComplianceEvent(LicenseEvent):
    url: str
@@ -1098,7 +1055,7 @@ class LicenseServerUnavailableEvent(LicenseEvent):
 
 class LocalDatastoreCreatedEvent(HostEvent):
    datastore: DatastoreEventArgument
-   datastoreUrl: Optional[str] = None
+   datastoreUrl: _typing.Optional[str] = None
 
 class LocalTSMEnabledEvent(HostEvent):
    pass
@@ -1108,19 +1065,19 @@ class LockerMisconfiguredEvent(Event):
 
 
 class LockerReconfiguredEvent(Event):
-   oldDatastore: Optional[DatastoreEventArgument] = None
-   newDatastore: Optional[DatastoreEventArgument] = None
+   oldDatastore: _typing.Optional[DatastoreEventArgument] = None
+   newDatastore: _typing.Optional[DatastoreEventArgument] = None
 
 
 class ManagedEntityEventArgument(EntityEventArgument):
-   entity: ManagedEntity
+   entity: pyVmomi.vim.ManagedEntity
 
 class MigrationErrorEvent(MigrationEvent):
    pass
 
 
 class MigrationEvent(VmEvent):
-   fault: MethodFault
+   fault: pyVmomi.vmodl.MethodFault
 
 class MigrationHostErrorEvent(MigrationEvent):
    dstHost: HostEventArgument
@@ -1148,11 +1105,11 @@ class MtuMismatchEvent(DvsHealthStatusChangeEvent):
 
 class NASDatastoreCreatedEvent(HostEvent):
    datastore: DatastoreEventArgument
-   datastoreUrl: Optional[str] = None
+   datastoreUrl: _typing.Optional[str] = None
 
 
 class NetworkEventArgument(EntityEventArgument):
-   network: Network
+   network: pyVmomi.vim.Network
 
 class NetworkRollbackEvent(Event):
    methodName: str
@@ -1166,7 +1123,7 @@ class NoDatastoresConfiguredEvent(HostEvent):
 
 
 class NoLicenseEvent(LicenseEvent):
-   feature: LicenseManager.FeatureInfo
+   feature: pyVmomi.vim.LicenseManager.FeatureInfo
 
 class NoMaintenanceModeDrsRecommendationForVM(VmEvent):
    pass
@@ -1196,8 +1153,8 @@ class PermissionRemovedEvent(PermissionEvent):
 class PermissionUpdatedEvent(PermissionEvent):
    role: RoleEventArgument
    propagate: bool
-   prevRole: Optional[RoleEventArgument] = None
-   prevPropagate: Optional[bool] = None
+   prevRole: _typing.Optional[RoleEventArgument] = None
+   prevPropagate: _typing.Optional[bool] = None
 
 class ProfileAssociatedEvent(ProfileEvent):
    pass
@@ -1216,14 +1173,14 @@ class ProfileEvent(Event):
 
 
 class ProfileEventArgument(EventArgument):
-   profile: Profile
+   profile: pyVmomi.vim.profile.Profile
    name: str
 
 
 class ProfileReferenceHostChangedEvent(ProfileEvent):
-   referenceHost: Optional[HostSystem] = None
-   referenceHostName: Optional[str] = None
-   prevReferenceHostName: Optional[str] = None
+   referenceHost: _typing.Optional[pyVmomi.vim.HostSystem] = None
+   referenceHostName: _typing.Optional[str] = None
+   prevReferenceHostName: _typing.Optional[str] = None
 
 class ProfileRemovedEvent(ProfileEvent):
    pass
@@ -1232,8 +1189,8 @@ class ProfileRemovedEvent(ProfileEvent):
 class RecoveryEvent(DvsEvent):
    hostName: str
    portKey: str
-   dvsUuid: Optional[str] = None
-   vnic: Optional[str] = None
+   dvsUuid: _typing.Optional[str] = None
+   vnic: _typing.Optional[str] = None
 
 class RemoteTSMEnabledEvent(HostEvent):
    pass
@@ -1249,7 +1206,7 @@ class ResourcePoolEvent(Event):
 
 
 class ResourcePoolEventArgument(EntityEventArgument):
-   resourcePool: ResourcePool
+   resourcePool: pyVmomi.vim.ResourcePool
 
 class ResourcePoolMovedEvent(ResourcePoolEvent):
    oldParent: ResourcePoolEventArgument
@@ -1257,7 +1214,7 @@ class ResourcePoolMovedEvent(ResourcePoolEvent):
 
 
 class ResourcePoolReconfiguredEvent(ResourcePoolEvent):
-   configChanges: Optional[ChangesInfoEventArgument] = None
+   configChanges: _typing.Optional[ChangesInfoEventArgument] = None
 
 class ResourceViolatedEvent(ResourcePoolEvent):
    pass
@@ -1279,14 +1236,14 @@ class RoleRemovedEvent(RoleEvent):
 
 class RoleUpdatedEvent(RoleEvent):
    privilegeList: list[str] = []
-   prevRoleName: Optional[str] = None
+   prevRoleName: _typing.Optional[str] = None
    privilegesAdded: list[str] = []
    privilegesRemoved: list[str] = []
 
 
 class RollbackEvent(DvsEvent):
    hostName: str
-   methodName: Optional[str] = None
+   methodName: _typing.Optional[str] = None
 
 class ScheduledTaskCompletedEvent(ScheduledTaskEvent):
    pass
@@ -1300,7 +1257,7 @@ class ScheduledTaskEmailCompletedEvent(ScheduledTaskEvent):
 
 class ScheduledTaskEmailFailedEvent(ScheduledTaskEvent):
    to: str
-   reason: MethodFault
+   reason: pyVmomi.vmodl.MethodFault
 
 class ScheduledTaskEvent(Event):
    scheduledTask: ScheduledTaskEventArgument
@@ -1308,15 +1265,15 @@ class ScheduledTaskEvent(Event):
 
 
 class ScheduledTaskEventArgument(EntityEventArgument):
-   scheduledTask: ScheduledTask
+   scheduledTask: pyVmomi.vim.scheduler.ScheduledTask
 
 
 class ScheduledTaskFailedEvent(ScheduledTaskEvent):
-   reason: MethodFault
+   reason: pyVmomi.vmodl.MethodFault
 
 
 class ScheduledTaskReconfiguredEvent(ScheduledTaskEvent):
-   configChanges: Optional[ChangesInfoEventArgument] = None
+   configChanges: _typing.Optional[ChangesInfoEventArgument] = None
 
 class ScheduledTaskRemovedEvent(ScheduledTaskEvent):
    pass
@@ -1339,7 +1296,7 @@ class SessionTerminatedEvent(SessionEvent):
 
 
 class TaskEvent(Event):
-   info: TaskInfo
+   info: pyVmomi.vim.TaskInfo
 
 class TaskTimeoutEvent(TaskEvent):
    pass
@@ -1358,14 +1315,14 @@ class TemplateUpgradeEvent(Event):
 
 
 class TemplateUpgradeFailedEvent(TemplateUpgradeEvent):
-   reason: MethodFault
+   reason: pyVmomi.vmodl.MethodFault
 
 class TemplateUpgradedEvent(TemplateUpgradeEvent):
    pass
 
 
 class TgwEventArgument(EntityEventArgument):
-   tgw: TransitGateway
+   tgw: pyVmomi.vim.TransitGateway
 
 class TimedOutHostOperationEvent(HostEvent):
    pass
@@ -1402,17 +1359,17 @@ class UserAssignedToGroup(HostEvent):
 
 class UserLoginSessionEvent(SessionEvent):
    ipAddress: str
-   userAgent: Optional[str] = None
+   userAgent: _typing.Optional[str] = None
    locale: str
    sessionId: str
 
 
 class UserLogoutSessionEvent(SessionEvent):
-   ipAddress: Optional[str] = None
-   userAgent: Optional[str] = None
-   callCount: Optional[long] = None
-   sessionId: Optional[str] = None
-   loginTime: Optional[datetime] = None
+   ipAddress: _typing.Optional[str] = None
+   userAgent: _typing.Optional[str] = None
+   callCount: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   sessionId: _typing.Optional[str] = None
+   loginTime: _typing.Optional[_datetime.datetime] = None
 
 class UserPasswordChanged(HostEvent):
    userLogin: str
@@ -1427,7 +1384,7 @@ class UserUpgradeEvent(UpgradeEvent):
 
 class VMFSDatastoreCreatedEvent(HostEvent):
    datastore: DatastoreEventArgument
-   datastoreUrl: Optional[str] = None
+   datastoreUrl: _typing.Optional[str] = None
 
 class VMFSDatastoreExpandedEvent(HostEvent):
    datastore: DatastoreEventArgument
@@ -1440,14 +1397,14 @@ class VMotionLicenseExpiredEvent(LicenseEvent):
 
 
 class VcAgentUninstallFailedEvent(HostEvent):
-   reason: Optional[str] = None
+   reason: _typing.Optional[str] = None
 
 class VcAgentUninstalledEvent(HostEvent):
    pass
 
 
 class VcAgentUpgradeFailedEvent(HostEvent):
-   reason: Optional[str] = None
+   reason: _typing.Optional[str] = None
 
 class VcAgentUpgradedEvent(HostEvent):
    pass
@@ -1476,7 +1433,7 @@ class VmBeingClonedNoFolderEvent(VmCloneEvent):
 
 
 class VmBeingCreatedEvent(VmEvent):
-   configSpec: Optional[ConfigSpec] = None
+   configSpec: _typing.Optional[pyVmomi.vim.vm.ConfigSpec] = None
 
 class VmBeingDeployedEvent(VmEvent):
    srcTemplate: VmEventArgument
@@ -1484,20 +1441,20 @@ class VmBeingDeployedEvent(VmEvent):
 
 class VmBeingHotMigratedEvent(VmEvent):
    destHost: HostEventArgument
-   destDatacenter: Optional[DatacenterEventArgument] = None
-   destDatastore: Optional[DatastoreEventArgument] = None
+   destDatacenter: _typing.Optional[DatacenterEventArgument] = None
+   destDatastore: _typing.Optional[DatastoreEventArgument] = None
 
 
 class VmBeingMigratedEvent(VmEvent):
    destHost: HostEventArgument
-   destDatacenter: Optional[DatacenterEventArgument] = None
-   destDatastore: Optional[DatastoreEventArgument] = None
+   destDatacenter: _typing.Optional[DatacenterEventArgument] = None
+   destDatastore: _typing.Optional[DatastoreEventArgument] = None
 
 
 class VmBeingRelocatedEvent(VmRelocateSpecEvent):
    destHost: HostEventArgument
-   destDatacenter: Optional[DatacenterEventArgument] = None
-   destDatastore: Optional[DatastoreEventArgument] = None
+   destDatacenter: _typing.Optional[DatacenterEventArgument] = None
+   destDatastore: _typing.Optional[DatastoreEventArgument] = None
 
 class VmCloneEvent(VmEvent):
    pass
@@ -1507,7 +1464,7 @@ class VmCloneFailedEvent(VmCloneEvent):
    destFolder: FolderEventArgument
    destName: str
    destHost: HostEventArgument
-   reason: MethodFault
+   reason: pyVmomi.vmodl.MethodFault
 
 class VmClonedEvent(VmCloneEvent):
    sourceVm: VmEventArgument
@@ -1523,14 +1480,14 @@ class VmCreatedEvent(VmEvent):
 
 
 class VmDasBeingResetEvent(VmEvent):
-   class ReasonCode(Enum):
-      vmtoolsHeartbeatFailure: ClassVar['ReasonCode'] = 'vmtoolsHeartbeatFailure'
-      appHeartbeatFailure: ClassVar['ReasonCode'] = 'appHeartbeatFailure'
-      appImmediateResetRequest: ClassVar['ReasonCode'] = 'appImmediateResetRequest'
-      vmcpResetApdCleared: ClassVar['ReasonCode'] = 'vmcpResetApdCleared'
-      guestOsCrashFailure: ClassVar['ReasonCode'] = 'guestOsCrashFailure'
+   class ReasonCode(pyVmomi.VmomiSupport.Enum):
+      vmtoolsHeartbeatFailure: _typing.ClassVar['ReasonCode'] = 'vmtoolsHeartbeatFailure'
+      appHeartbeatFailure: _typing.ClassVar['ReasonCode'] = 'appHeartbeatFailure'
+      appImmediateResetRequest: _typing.ClassVar['ReasonCode'] = 'appImmediateResetRequest'
+      vmcpResetApdCleared: _typing.ClassVar['ReasonCode'] = 'vmcpResetApdCleared'
+      guestOsCrashFailure: _typing.ClassVar['ReasonCode'] = 'guestOsCrashFailure'
 
-   reason: Optional[str] = None
+   reason: _typing.Optional[str] = None
 
 class VmDasBeingResetWithScreenshotEvent(VmDasBeingResetEvent):
    screenshotFilePath: str
@@ -1550,7 +1507,7 @@ class VmDateRolledBackEvent(VmEvent):
 
 class VmDeployFailedEvent(VmEvent):
    destDatastore: EntityEventArgument
-   reason: MethodFault
+   reason: pyVmomi.vmodl.MethodFault
 
 class VmDeployedEvent(VmEvent):
    srcTemplate: VmEventArgument
@@ -1564,7 +1521,7 @@ class VmDiscoveredEvent(VmEvent):
 
 class VmDiskFailedEvent(VmEvent):
    disk: str
-   reason: MethodFault
+   reason: pyVmomi.vmodl.MethodFault
 
 class VmEmigratingEvent(VmEvent):
    pass
@@ -1580,78 +1537,78 @@ class VmEvent(Event):
 
 
 class VmEventArgument(EntityEventArgument):
-   vm: VirtualMachine
+   vm: pyVmomi.vim.VirtualMachine
 
 
 class VmFailedMigrateEvent(VmEvent):
    destHost: HostEventArgument
-   reason: MethodFault
-   destDatacenter: Optional[DatacenterEventArgument] = None
-   destDatastore: Optional[DatastoreEventArgument] = None
+   reason: pyVmomi.vmodl.MethodFault
+   destDatacenter: _typing.Optional[DatacenterEventArgument] = None
+   destDatastore: _typing.Optional[DatastoreEventArgument] = None
 
 
 class VmFailedRelayoutEvent(VmEvent):
-   reason: MethodFault
+   reason: pyVmomi.vmodl.MethodFault
 
 class VmFailedRelayoutOnVmfs2DatastoreEvent(VmEvent):
    pass
 
 
 class VmFailedStartingSecondaryEvent(VmEvent):
-   class FailureReason(Enum):
-      incompatibleHost: ClassVar['FailureReason'] = 'incompatibleHost'
-      loginFailed: ClassVar['FailureReason'] = 'loginFailed'
-      registerVmFailed: ClassVar['FailureReason'] = 'registerVmFailed'
-      migrateFailed: ClassVar['FailureReason'] = 'migrateFailed'
+   class FailureReason(pyVmomi.VmomiSupport.Enum):
+      incompatibleHost: _typing.ClassVar['FailureReason'] = 'incompatibleHost'
+      loginFailed: _typing.ClassVar['FailureReason'] = 'loginFailed'
+      registerVmFailed: _typing.ClassVar['FailureReason'] = 'registerVmFailed'
+      migrateFailed: _typing.ClassVar['FailureReason'] = 'migrateFailed'
 
-   reason: Optional[str] = None
+   reason: _typing.Optional[str] = None
 
 
 class VmFailedToPowerOffEvent(VmEvent):
-   reason: MethodFault
+   reason: pyVmomi.vmodl.MethodFault
 
 
 class VmFailedToPowerOnEvent(VmEvent):
-   reason: MethodFault
+   reason: pyVmomi.vmodl.MethodFault
 
 
 class VmFailedToRebootGuestEvent(VmEvent):
-   reason: MethodFault
+   reason: pyVmomi.vmodl.MethodFault
 
 
 class VmFailedToResetEvent(VmEvent):
-   reason: MethodFault
+   reason: pyVmomi.vmodl.MethodFault
 
 
 class VmFailedToShutdownGuestEvent(VmEvent):
-   reason: MethodFault
+   reason: pyVmomi.vmodl.MethodFault
 
 
 class VmFailedToStandbyGuestEvent(VmEvent):
-   reason: MethodFault
+   reason: pyVmomi.vmodl.MethodFault
 
 
 class VmFailedToSuspendEvent(VmEvent):
-   reason: MethodFault
+   reason: pyVmomi.vmodl.MethodFault
 
 class VmFailedUpdatingSecondaryConfig(VmEvent):
    pass
 
 
 class VmFailoverFailed(VmEvent):
-   reason: Optional[MethodFault] = None
+   reason: _typing.Optional[pyVmomi.vmodl.MethodFault] = None
 
 
 class VmFaultToleranceStateChangedEvent(VmEvent):
-   oldState: VirtualMachine.FaultToleranceState
-   newState: VirtualMachine.FaultToleranceState
+   oldState: pyVmomi.vim.VirtualMachine.FaultToleranceState
+   newState: pyVmomi.vim.VirtualMachine.FaultToleranceState
 
 class VmFaultToleranceTurnedOffEvent(VmEvent):
    pass
 
 
 class VmFaultToleranceVmTerminatedEvent(VmEvent):
-   reason: Optional[str] = None
+   reason: _typing.Optional[str] = None
 
 class VmGuestOSCrashedEvent(VmEvent):
    pass
@@ -1668,7 +1625,7 @@ class VmGuestStandbyEvent(VmEvent):
 
 class VmHealthMonitoringStateChangedEvent(ClusterEvent):
    state: str
-   prevState: Optional[str] = None
+   prevState: _typing.Optional[str] = None
 
 class VmInstanceUuidAssignedEvent(VmEvent):
    instanceUuid: str
@@ -1703,23 +1660,23 @@ class VmMaxRestartCountReached(VmEvent):
 
 class VmMessageErrorEvent(VmEvent):
    message: str
-   messageInfo: list[Message] = []
+   messageInfo: list[pyVmomi.vim.vm.Message] = []
 
 
 class VmMessageEvent(VmEvent):
    message: str
-   messageInfo: list[Message] = []
+   messageInfo: list[pyVmomi.vim.vm.Message] = []
 
 
 class VmMessageWarningEvent(VmEvent):
    message: str
-   messageInfo: list[Message] = []
+   messageInfo: list[pyVmomi.vim.vm.Message] = []
 
 
 class VmMigratedEvent(VmEvent):
    sourceHost: HostEventArgument
-   sourceDatacenter: Optional[DatacenterEventArgument] = None
-   sourceDatastore: Optional[DatastoreEventArgument] = None
+   sourceDatacenter: _typing.Optional[DatacenterEventArgument] = None
+   sourceDatastore: _typing.Optional[DatastoreEventArgument] = None
 
 class VmNoCompatibleHostForSecondaryEvent(VmEvent):
    pass
@@ -1744,12 +1701,12 @@ class VmPoweringOnWithCustomizedDVPortEvent(VmEvent):
 
 
 class VmPrimaryFailoverEvent(VmEvent):
-   reason: Optional[str] = None
+   reason: _typing.Optional[str] = None
 
 
 class VmReconfiguredEvent(VmEvent):
-   configSpec: ConfigSpec
-   configChanges: Optional[ChangesInfoEventArgument] = None
+   configSpec: pyVmomi.vim.vm.ConfigSpec
+   configChanges: _typing.Optional[ChangesInfoEventArgument] = None
 
 class VmRegisteredEvent(VmEvent):
    pass
@@ -1769,9 +1726,9 @@ class VmReloadFromPathFailedEvent(VmEvent):
 
 class VmRelocateFailedEvent(VmRelocateSpecEvent):
    destHost: HostEventArgument
-   reason: MethodFault
-   destDatacenter: Optional[DatacenterEventArgument] = None
-   destDatastore: Optional[DatastoreEventArgument] = None
+   reason: pyVmomi.vmodl.MethodFault
+   destDatacenter: _typing.Optional[DatacenterEventArgument] = None
+   destDatastore: _typing.Optional[DatastoreEventArgument] = None
 
 class VmRelocateSpecEvent(VmEvent):
    pass
@@ -1779,8 +1736,8 @@ class VmRelocateSpecEvent(VmEvent):
 
 class VmRelocatedEvent(VmRelocateSpecEvent):
    sourceHost: HostEventArgument
-   sourceDatacenter: Optional[DatacenterEventArgument] = None
-   sourceDatastore: Optional[DatastoreEventArgument] = None
+   sourceDatacenter: _typing.Optional[DatacenterEventArgument] = None
+   sourceDatastore: _typing.Optional[DatastoreEventArgument] = None
 
 class VmRemoteConsoleConnectedEvent(VmEvent):
    pass
@@ -1807,7 +1764,7 @@ class VmResourcePoolMovedEvent(VmEvent):
 
 
 class VmResourceReallocatedEvent(VmEvent):
-   configChanges: Optional[ChangesInfoEventArgument] = None
+   configChanges: _typing.Optional[ChangesInfoEventArgument] = None
 
 class VmRestartedOnAlternateHostEvent(VmPoweredOnEvent):
    sourceHost: HostEventArgument
@@ -1820,7 +1777,7 @@ class VmSecondaryAddedEvent(VmEvent):
 
 
 class VmSecondaryDisabledBySystemEvent(VmEvent):
-   reason: Optional[MethodFault] = None
+   reason: _typing.Optional[pyVmomi.vmodl.MethodFault] = None
 
 class VmSecondaryDisabledEvent(VmEvent):
    pass
@@ -1833,12 +1790,12 @@ class VmSecondaryStartedEvent(VmEvent):
 
 
 class VmShutdownOnIsolationEvent(VmPoweredOffEvent):
-   class Operation(Enum):
-      shutdown: ClassVar['Operation'] = 'shutdown'
-      poweredOff: ClassVar['Operation'] = 'poweredOff'
+   class Operation(pyVmomi.VmomiSupport.Enum):
+      shutdown: _typing.ClassVar['Operation'] = 'shutdown'
+      poweredOff: _typing.ClassVar['Operation'] = 'poweredOff'
 
    isolatedHost: HostEventArgument
-   shutdownResult: Optional[str] = None
+   shutdownResult: _typing.Optional[str] = None
 
 class VmStartRecordingEvent(VmEvent):
    pass
@@ -1867,7 +1824,7 @@ class VmSuspendingEvent(VmEvent):
 
 
 class VmTimedoutStartingSecondaryEvent(VmEvent):
-   timeout: Optional[long] = None
+   timeout: _typing.Optional[pyVmomi.VmomiSupport.long] = None
 
 class VmUnsupportedStartingEvent(VmStartingEvent):
    guestId: str
@@ -1895,35 +1852,35 @@ class VmUuidConflictEvent(VmEvent):
 
 class VmVnicPoolReservationViolationClearEvent(DvsEvent):
    vmVnicResourcePoolKey: str
-   vmVnicResourcePoolName: Optional[str] = None
+   vmVnicResourcePoolName: _typing.Optional[str] = None
 
 
 class VmVnicPoolReservationViolationRaiseEvent(DvsEvent):
    vmVnicResourcePoolKey: str
-   vmVnicResourcePoolName: Optional[str] = None
+   vmVnicResourcePoolName: _typing.Optional[str] = None
 
 
 class VmWwnAssignedEvent(VmEvent):
-   nodeWwns: list[long] = []
-   portWwns: list[long] = []
+   nodeWwns: list[pyVmomi.VmomiSupport.long] = []
+   portWwns: list[pyVmomi.VmomiSupport.long] = []
 
 
 class VmWwnChangedEvent(VmEvent):
-   oldNodeWwns: list[long] = []
-   oldPortWwns: list[long] = []
-   newNodeWwns: list[long] = []
-   newPortWwns: list[long] = []
+   oldNodeWwns: list[pyVmomi.VmomiSupport.long] = []
+   oldPortWwns: list[pyVmomi.VmomiSupport.long] = []
+   newNodeWwns: list[pyVmomi.VmomiSupport.long] = []
+   newPortWwns: list[pyVmomi.VmomiSupport.long] = []
 
 
 class VmWwnConflictEvent(VmEvent):
    conflictedVms: list[VmEventArgument] = []
    conflictedHosts: list[HostEventArgument] = []
-   wwn: long
+   wwn: pyVmomi.VmomiSupport.long
 
 
-class VnicPortArgument(DynamicData):
+class VnicPortArgument(pyVmomi.vmodl.DynamicData):
    vnic: str
-   port: PortConnection
+   port: pyVmomi.vim.dvs.PortConnection
 
 class WarningUpgradeEvent(UpgradeEvent):
    pass

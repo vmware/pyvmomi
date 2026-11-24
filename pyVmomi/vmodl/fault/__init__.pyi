@@ -3,44 +3,35 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import ClassVar
-from typing import Optional
-
-from pyVmomi.VmomiSupport import Enum
-from pyVmomi.VmomiSupport import ManagedObject
-
-from pyVmomi.VmomiSupport import PropertyPath
-
-from pyVmomi.vmodl import DynamicData
-
-from pyVmomi.vmodl import MethodFault
-from pyVmomi.vmodl import RuntimeFault
+import typing as _typing
+import pyVmomi.VmomiSupport
+import pyVmomi.vmodl
 
 
 
-class AuthenticationRequired(RuntimeFault):
-   class AuthenticationScheme(Enum):
-      Basic: ClassVar['AuthenticationScheme'] = 'Basic'
-      Bearer: ClassVar['AuthenticationScheme'] = 'Bearer'
+class AuthenticationRequired(pyVmomi.vmodl.RuntimeFault):
+   class AuthenticationScheme(pyVmomi.VmomiSupport.Enum):
+      Basic: _typing.ClassVar['AuthenticationScheme'] = 'Basic'
+      Bearer: _typing.ClassVar['AuthenticationScheme'] = 'Bearer'
 
-   class ErrorType(Enum):
-      invalid_request: ClassVar['ErrorType'] = 'invalid_request'
-      invalid_token: ClassVar['ErrorType'] = 'invalid_token'
-      insufficient_scope: ClassVar['ErrorType'] = 'insufficient_scope'
-      registration_required: ClassVar['ErrorType'] = 'registration_required'
+   class ErrorType(pyVmomi.VmomiSupport.Enum):
+      invalid_request: _typing.ClassVar['ErrorType'] = 'invalid_request'
+      invalid_token: _typing.ClassVar['ErrorType'] = 'invalid_token'
+      insufficient_scope: _typing.ClassVar['ErrorType'] = 'insufficient_scope'
+      registration_required: _typing.ClassVar['ErrorType'] = 'registration_required'
 
-   class Challenge(DynamicData):
+   class Challenge(pyVmomi.vmodl.DynamicData):
       scheme: str
-      realm: Optional[str] = None
-      error: Optional[str] = None
-      errorDescription: Optional[str] = None
-      ovl: Optional[str] = None
-      oidcConfigUrl: Optional[str] = None
+      realm: _typing.Optional[str] = None
+      error: _typing.Optional[str] = None
+      errorDescription: _typing.Optional[str] = None
+      ovl: _typing.Optional[str] = None
+      oidcConfigUrl: _typing.Optional[str] = None
 
    authenticate: list[Challenge] = []
 
 
-class HostCommunication(RuntimeFault):
+class HostCommunication(pyVmomi.vmodl.RuntimeFault):
    pass
 
 class HostNotConnected(HostCommunication):
@@ -50,59 +41,59 @@ class HostNotReachable(HostCommunication):
    pass
 
 
-class InvalidArgument(RuntimeFault):
-   invalidProperty: Optional[PropertyPath] = None
+class InvalidArgument(pyVmomi.vmodl.RuntimeFault):
+   invalidProperty: _typing.Optional[pyVmomi.VmomiSupport.PropertyPath] = None
 
 
-class InvalidRequest(RuntimeFault):
+class InvalidRequest(pyVmomi.vmodl.RuntimeFault):
    pass
 
 
-class InvalidToken(RuntimeFault):
+class InvalidToken(pyVmomi.vmodl.RuntimeFault):
    pass
 
 
 class InvalidType(InvalidRequest):
-   argument: Optional[PropertyPath] = None
+   argument: _typing.Optional[pyVmomi.VmomiSupport.PropertyPath] = None
 
 
-class ManagedObjectNotFound(RuntimeFault):
-   obj: ManagedObject
+class ManagedObjectNotFound(pyVmomi.vmodl.RuntimeFault):
+   obj: pyVmomi.VmomiSupport.ManagedObject
 
 
 class MethodNotFound(InvalidRequest):
-   receiver: ManagedObject
+   receiver: pyVmomi.VmomiSupport.ManagedObject
    method: str
 
 
-class NotEnoughLicenses(RuntimeFault):
+class NotEnoughLicenses(pyVmomi.vmodl.RuntimeFault):
    pass
 
 
-class NotImplemented(RuntimeFault):
+class NotImplemented(pyVmomi.vmodl.RuntimeFault):
    pass
 
 
-class NotSupported(RuntimeFault):
+class NotSupported(pyVmomi.vmodl.RuntimeFault):
    pass
 
 
-class RequestCanceled(RuntimeFault):
+class RequestCanceled(pyVmomi.vmodl.RuntimeFault):
    pass
 
 
-class SecurityError(RuntimeFault):
+class SecurityError(pyVmomi.vmodl.RuntimeFault):
    pass
 
 
-class SessionNotFound(RuntimeFault):
+class SessionNotFound(pyVmomi.vmodl.RuntimeFault):
    pass
 
 
-class SystemError(RuntimeFault):
+class SystemError(pyVmomi.vmodl.RuntimeFault):
    reason: str
 
 
-class UnexpectedFault(RuntimeFault):
+class UnexpectedFault(pyVmomi.vmodl.RuntimeFault):
    faultName: type
-   fault: Optional[MethodFault] = None
+   fault: _typing.Optional[pyVmomi.vmodl.MethodFault] = None

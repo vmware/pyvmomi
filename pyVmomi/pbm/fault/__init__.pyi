@@ -3,30 +3,25 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import Optional
-
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import MethodFault
-from pyVmomi.pbm.capability import CapabilityMetadata
-from pyVmomi.pbm.capability import PropertyInstance
-from pyVmomi.pbm.placement import PlacementHub
-
-from pyVmomi.pbm.profile import ProfileId
-
-from pyVmomi.vmodl.fault import SecurityError
+import typing as _typing
+import pyVmomi.vmodl
+import pyVmomi.pbm.capability
+import pyVmomi.pbm.placement
+import pyVmomi.pbm.profile
+import pyVmomi.vmodl.fault
 
 
 
 class AlreadyExists(PBMFault):
-   name: Optional[str] = None
+   name: _typing.Optional[str] = None
 
 
 class CapabilityProfilePropertyMismatchFault(PropertyMismatchFault):
-   resourcePropertyInstance: PropertyInstance
+   resourcePropertyInstance: pyVmomi.pbm.capability.PropertyInstance
 
 
 class CompatibilityCheckFault(PBMFault):
-   hub: PlacementHub
+   hub: pyVmomi.pbm.placement.PlacementHub
 
 class DefaultProfileAppliesFault(CompatibilityCheckFault):
    pass
@@ -42,25 +37,25 @@ class InvalidLogin(PBMFault):
 
 
 class LegacyHubsNotSupported(PBMFault):
-   hubs: list[PlacementHub] = []
+   hubs: list[pyVmomi.pbm.placement.PlacementHub] = []
 
 
-class NoPermission(SecurityError):
-   class EntityPrivileges(DynamicData):
-      profileId: Optional[ProfileId] = None
+class NoPermission(pyVmomi.vmodl.fault.SecurityError):
+   class EntityPrivileges(pyVmomi.vmodl.DynamicData):
+      profileId: _typing.Optional[pyVmomi.pbm.profile.ProfileId] = None
       privilegeIds: list[str] = []
 
    missingPrivileges: list[EntityPrivileges] = []
 
 
 class NonExistentHubs(PBMFault):
-   hubs: list[PlacementHub] = []
+   hubs: list[pyVmomi.pbm.placement.PlacementHub] = []
 
 class NotFound(PBMFault):
    pass
 
 
-class PBMFault(MethodFault):
+class PBMFault(pyVmomi.vmodl.MethodFault):
    pass
 
 class ProfileStorageFault(PBMFault):
@@ -68,10 +63,10 @@ class ProfileStorageFault(PBMFault):
 
 
 class PropertyMismatchFault(CompatibilityCheckFault):
-   capabilityInstanceId: CapabilityMetadata.UniqueId
-   requirementPropertyInstance: PropertyInstance
+   capabilityInstanceId: pyVmomi.pbm.capability.CapabilityMetadata.UniqueId
+   requirementPropertyInstance: pyVmomi.pbm.capability.PropertyInstance
 
 
 class ResourceInUse(PBMFault):
-   type: Optional[type] = None
-   name: Optional[str] = None
+   type: _typing.Optional[type] = None
+   name: _typing.Optional[str] = None

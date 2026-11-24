@@ -6,50 +6,33 @@
 from . import host as host
 from . import vcenter as vcenter
 
-from datetime import datetime
-
-from typing import ClassVar
-from typing import Optional
-
-from pyVmomi.VmomiSupport import Enum
-
-from pyVmomi.VmomiSupport import ManagedObject
-from pyVmomi.VmomiSupport import long
-
-from pyVmomi.vim import Datastore
-from pyVmomi.vim import KeyValue
-
-from pyVmomi.vim import ServiceLocator
-from pyVmomi.vim import Task
-
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import MethodFault
-
-from pyVmomi.vim.encryption import CryptoKeyId
-
-from pyVmomi.vim.encryption import CryptoSpec
-
-from pyVmomi.vim.vm import ProfileSpec
+import datetime as _datetime
+import typing as _typing
+import pyVmomi.VmomiSupport
+import pyVmomi.vim
+import pyVmomi.vmodl
+import pyVmomi.vim.encryption
+import pyVmomi.vim.vm
 
 
 
-class BaseConfigInfo(DynamicData):
-   class BackingInfo(DynamicData):
-      datastore: Datastore
+class BaseConfigInfo(pyVmomi.vmodl.DynamicData):
+   class BackingInfo(pyVmomi.vmodl.DynamicData):
+      datastore: pyVmomi.vim.Datastore
 
    class FileBackingInfo(BackingInfo):
       filePath: str
-      backingObjectId: Optional[str] = None
-      parent: Optional[FileBackingInfo] = None
-      deltaSizeInMB: Optional[long] = None
-      keyId: Optional[CryptoKeyId] = None
-      sharedFileBacking: Optional[bool] = None
+      backingObjectId: _typing.Optional[str] = None
+      parent: _typing.Optional[FileBackingInfo] = None
+      deltaSizeInMB: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+      keyId: _typing.Optional[pyVmomi.vim.encryption.CryptoKeyId] = None
+      sharedFileBacking: _typing.Optional[bool] = None
 
    class DiskFileBackingInfo(FileBackingInfo):
-      class ProvisioningType(Enum):
-         thin: ClassVar['ProvisioningType'] = 'thin'
-         eagerZeroedThick: ClassVar['ProvisioningType'] = 'eagerZeroedThick'
-         lazyZeroedThick: ClassVar['ProvisioningType'] = 'lazyZeroedThick'
+      class ProvisioningType(pyVmomi.VmomiSupport.Enum):
+         thin: _typing.ClassVar['ProvisioningType'] = 'thin'
+         eagerZeroedThick: _typing.ClassVar['ProvisioningType'] = 'eagerZeroedThick'
+         lazyZeroedThick: _typing.ClassVar['ProvisioningType'] = 'lazyZeroedThick'
 
       provisioningType: str
 
@@ -59,181 +42,181 @@ class BaseConfigInfo(DynamicData):
 
    id: ID
    name: str
-   createTime: datetime
-   keepAfterDeleteVm: Optional[bool] = None
-   relocationDisabled: Optional[bool] = None
-   nativeSnapshotSupported: Optional[bool] = None
-   changedBlockTrackingEnabled: Optional[bool] = None
+   createTime: _datetime.datetime
+   keepAfterDeleteVm: _typing.Optional[bool] = None
+   relocationDisabled: _typing.Optional[bool] = None
+   nativeSnapshotSupported: _typing.Optional[bool] = None
+   changedBlockTrackingEnabled: _typing.Optional[bool] = None
    backing: BackingInfo
-   metadata: list[KeyValue] = []
-   vclock: Optional[VClockInfo] = None
+   metadata: list[pyVmomi.vim.KeyValue] = []
+   vclock: _typing.Optional[VClockInfo] = None
    iofilter: list[str] = []
 
 
 class CloneSpec(MigrateSpec):
    name: str
-   keepAfterDeleteVm: Optional[bool] = None
-   metadata: list[KeyValue] = []
+   keepAfterDeleteVm: _typing.Optional[bool] = None
+   metadata: list[pyVmomi.vim.KeyValue] = []
 
 
-class CreateSpec(DynamicData):
-   class BackingSpec(DynamicData):
-      datastore: Datastore
-      path: Optional[str] = None
+class CreateSpec(pyVmomi.vmodl.DynamicData):
+   class BackingSpec(pyVmomi.vmodl.DynamicData):
+      datastore: pyVmomi.vim.Datastore
+      path: _typing.Optional[str] = None
 
    class DiskFileBackingSpec(BackingSpec):
-      provisioningType: Optional[str] = None
+      provisioningType: _typing.Optional[str] = None
 
    class RawDiskMappingBackingSpec(BackingSpec):
       lunUuid: str
       compatibilityMode: str
 
-   id: Optional[ID] = None
+   id: _typing.Optional[ID] = None
    name: str
-   keepAfterDeleteVm: Optional[bool] = None
+   keepAfterDeleteVm: _typing.Optional[bool] = None
    backingSpec: BackingSpec
-   capacityInMB: long
-   profile: list[ProfileSpec] = []
-   crypto: Optional[CryptoSpec] = None
-   metadata: list[KeyValue] = []
+   capacityInMB: pyVmomi.VmomiSupport.long
+   profile: list[pyVmomi.vim.vm.ProfileSpec] = []
+   crypto: _typing.Optional[pyVmomi.vim.encryption.CryptoSpec] = None
+   metadata: list[pyVmomi.vim.KeyValue] = []
 
 
-class DiskCryptoSpec(DynamicData):
-   parent: Optional[DiskCryptoSpec] = None
-   crypto: CryptoSpec
+class DiskCryptoSpec(pyVmomi.vmodl.DynamicData):
+   parent: _typing.Optional[DiskCryptoSpec] = None
+   crypto: pyVmomi.vim.encryption.CryptoSpec
 
 class DiskInfoFlag:
    pass
 
 
-class ID(DynamicData):
+class ID(pyVmomi.vmodl.DynamicData):
    id: str
 
 
-class InfrastructureObjectPolicy(DynamicData):
+class InfrastructureObjectPolicy(pyVmomi.vmodl.DynamicData):
    name: str
    backingObjectId: str
    profileId: str
-   error: Optional[MethodFault] = None
+   error: _typing.Optional[pyVmomi.vmodl.MethodFault] = None
 
 
-class InfrastructureObjectPolicySpec(DynamicData):
-   datastore: Datastore
-   profile: list[ProfileSpec] = []
+class InfrastructureObjectPolicySpec(pyVmomi.vmodl.DynamicData):
+   datastore: pyVmomi.vim.Datastore
+   profile: list[pyVmomi.vim.vm.ProfileSpec] = []
 
 
-class MigrateSpec(DynamicData):
+class MigrateSpec(pyVmomi.vmodl.DynamicData):
    backingSpec: CreateSpec.BackingSpec
-   profile: list[ProfileSpec] = []
-   consolidate: Optional[bool] = None
-   disksCrypto: Optional[DiskCryptoSpec] = None
-   service: Optional[ServiceLocator] = None
+   profile: list[pyVmomi.vim.vm.ProfileSpec] = []
+   consolidate: _typing.Optional[bool] = None
+   disksCrypto: _typing.Optional[DiskCryptoSpec] = None
+   service: _typing.Optional[pyVmomi.vim.ServiceLocator] = None
 
 
-class ReconcileResult(DynamicData):
-   class InvalidDiskPath(DynamicData):
+class ReconcileResult(pyVmomi.vmodl.DynamicData):
+   class InvalidDiskPath(pyVmomi.vmodl.DynamicData):
       path: str
       reason: str
 
-   class ReconcileDetail(DynamicData):
-      hostName: Optional[str] = None
-      reconcileReportPath: Optional[str] = None
-      isReconciled: Optional[bool] = None
-      isDeepScanned: Optional[bool] = None
-      numberOfReconcileIssues: Optional[int] = None
-      numberOfFcdsBeforeReconcile: Optional[int] = None
-      numberOfFcdsAfterReconcile: Optional[int] = None
+   class ReconcileDetail(pyVmomi.vmodl.DynamicData):
+      hostName: _typing.Optional[str] = None
+      reconcileReportPath: _typing.Optional[str] = None
+      isReconciled: _typing.Optional[bool] = None
+      isDeepScanned: _typing.Optional[bool] = None
+      numberOfReconcileIssues: _typing.Optional[int] = None
+      numberOfFcdsBeforeReconcile: _typing.Optional[int] = None
+      numberOfFcdsAfterReconcile: _typing.Optional[int] = None
       invalidDiskPaths: list[InvalidDiskPath] = []
 
    reconcileDetails: list[ReconcileDetail] = []
 
 
-class ReconcileSpec(DynamicData):
-   datastore: Datastore
+class ReconcileSpec(pyVmomi.vmodl.DynamicData):
+   datastore: pyVmomi.vim.Datastore
    includeDiskPaths: list[str] = []
    excludeDiskPaths: list[str] = []
-   deepScan: Optional[bool] = None
-   dryRun: Optional[bool] = None
-   generateReport: Optional[int] = None
+   deepScan: _typing.Optional[bool] = None
+   dryRun: _typing.Optional[bool] = None
+   generateReport: _typing.Optional[int] = None
 
 class RelocateSpec(MigrateSpec):
    pass
 
 
-class StateInfo(DynamicData):
-   tentative: Optional[bool] = None
+class StateInfo(pyVmomi.vmodl.DynamicData):
+   tentative: _typing.Optional[bool] = None
 
 
-class TagEntry(DynamicData):
+class TagEntry(pyVmomi.vmodl.DynamicData):
    tagName: str
    parentCategoryName: str
 
 
-class VClockInfo(DynamicData):
-   vClockTime: long
+class VClockInfo(pyVmomi.vmodl.DynamicData):
+   vClockTime: pyVmomi.VmomiSupport.long
 
 
-class VStorageObject(DynamicData):
-   class ConsumptionType(Enum):
-      disk: ClassVar['ConsumptionType'] = 'disk'
+class VStorageObject(pyVmomi.vmodl.DynamicData):
+   class ConsumptionType(pyVmomi.VmomiSupport.Enum):
+      disk: _typing.ClassVar['ConsumptionType'] = 'disk'
 
    class ConfigInfo(BaseConfigInfo):
-      descriptorVersion: Optional[int] = None
-      capacityInMB: long
+      descriptorVersion: _typing.Optional[int] = None
+      capacityInMB: pyVmomi.VmomiSupport.long
       consumptionType: list[str] = []
       consumerId: list[ID] = []
-      virtualDiskFormat: Optional[str] = None
-      linkedCloneBasePath: Optional[str] = None
-      linkedCloneParentId: Optional[ID] = None
+      virtualDiskFormat: _typing.Optional[str] = None
+      linkedCloneBasePath: _typing.Optional[str] = None
+      linkedCloneParentId: _typing.Optional[ID] = None
 
    config: ConfigInfo
 
 
-class VStorageObjectAttachResult(DynamicData):
+class VStorageObjectAttachResult(pyVmomi.vmodl.DynamicData):
    volumeId: ID
-   diskUUID: Optional[str] = None
-   fault: Optional[MethodFault] = None
+   diskUUID: _typing.Optional[str] = None
+   fault: _typing.Optional[pyVmomi.vmodl.MethodFault] = None
 
 
-class VStorageObjectAttachSpec(DynamicData):
+class VStorageObjectAttachSpec(pyVmomi.vmodl.DynamicData):
    volumeId: ID
-   datastore: Datastore
-   diskMode: Optional[str] = None
-   sharing: Optional[str] = None
-   controllerKey: Optional[int] = None
-   unitNumber: Optional[int] = None
+   datastore: pyVmomi.vim.Datastore
+   diskMode: _typing.Optional[str] = None
+   sharing: _typing.Optional[str] = None
+   controllerKey: _typing.Optional[int] = None
+   unitNumber: _typing.Optional[int] = None
 
 class VStorageObjectControlFlag:
    pass
 
 
-class VStorageObjectManagerBase(ManagedObject):
-   def ExtendDiskEx(self, id: ID, datastore: Datastore, newCapacityInMB: long) -> Task: ...
-   def RenameVStorageObjectEx(self, id: ID, datastore: Datastore, name: str) -> VClockInfo: ...
-   def CreateSnapshotEx(self, id: ID, datastore: Datastore, description: str, snapshotId: Optional[ID]) -> Task: ...
-   def DeleteSnapshotEx(self, id: ID, datastore: Datastore, snapshotId: ID) -> Task: ...
-   def DeleteSnapshotEx2(self, id: ID, datastore: Datastore, snapshotId: ID) -> Task: ...
-   def RevertVStorageObjectEx(self, id: ID, datastore: Datastore, snapshotId: ID) -> Task: ...
-   def RepairDiskChain(self, id: ID, datastore: Datastore) -> Task: ...
-   def UnregisterDisk(self, id: ID, datastore: Datastore) -> Task: ...
+class VStorageObjectManagerBase(pyVmomi.VmomiSupport.ManagedObject):
+   def ExtendDiskEx(self, id: ID, datastore: pyVmomi.vim.Datastore, newCapacityInMB: pyVmomi.VmomiSupport.long) -> pyVmomi.vim.Task: ...
+   def RenameVStorageObjectEx(self, id: ID, datastore: pyVmomi.vim.Datastore, name: str) -> VClockInfo: ...
+   def CreateSnapshotEx(self, id: ID, datastore: pyVmomi.vim.Datastore, description: str, snapshotId: _typing.Optional[ID]) -> pyVmomi.vim.Task: ...
+   def DeleteSnapshotEx(self, id: ID, datastore: pyVmomi.vim.Datastore, snapshotId: ID) -> pyVmomi.vim.Task: ...
+   def DeleteSnapshotEx2(self, id: ID, datastore: pyVmomi.vim.Datastore, snapshotId: ID) -> pyVmomi.vim.Task: ...
+   def RevertVStorageObjectEx(self, id: ID, datastore: pyVmomi.vim.Datastore, snapshotId: ID) -> pyVmomi.vim.Task: ...
+   def RepairDiskChain(self, id: ID, datastore: pyVmomi.vim.Datastore) -> pyVmomi.vim.Task: ...
+   def UnregisterDisk(self, id: ID, datastore: pyVmomi.vim.Datastore) -> pyVmomi.vim.Task: ...
 
 
-class VStorageObjectSnapshot(DynamicData):
+class VStorageObjectSnapshot(pyVmomi.vmodl.DynamicData):
    id: ID
    vclock: VClockInfo
-   usedCapacity: Optional[long] = None
+   usedCapacity: _typing.Optional[pyVmomi.VmomiSupport.long] = None
 
 
-class VStorageObjectSnapshotDetails(DynamicData):
-   path: Optional[str] = None
-   changedBlockTrackingId: Optional[str] = None
+class VStorageObjectSnapshotDetails(pyVmomi.vmodl.DynamicData):
+   path: _typing.Optional[str] = None
+   changedBlockTrackingId: _typing.Optional[str] = None
 
 
-class VStorageObjectSnapshotInfo(DynamicData):
-   class VStorageObjectSnapshot(DynamicData):
-      id: Optional[ID] = None
-      backingObjectId: Optional[str] = None
-      createTime: datetime
+class VStorageObjectSnapshotInfo(pyVmomi.vmodl.DynamicData):
+   class VStorageObjectSnapshot(pyVmomi.vmodl.DynamicData):
+      id: _typing.Optional[ID] = None
+      backingObjectId: _typing.Optional[str] = None
+      createTime: _datetime.datetime
       description: str
 
    snapshots: list[VStorageObjectSnapshot] = []

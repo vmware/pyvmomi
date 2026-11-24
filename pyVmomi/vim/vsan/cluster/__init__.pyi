@@ -3,37 +3,36 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import Optional
-
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vim.vsan import VbossConfig
+import typing as _typing
+import pyVmomi.vmodl
+import pyVmomi.vim.vsan
 
 
 class ComplianceResourceCheckStatusType:
    pass
 
 
-class ConfigInfo(DynamicData):
-   class HostDefaultInfo(DynamicData):
-      uuid: Optional[str] = None
-      autoClaimStorage: Optional[bool] = None
-      checksumEnabled: Optional[bool] = None
+class ConfigInfo(pyVmomi.vmodl.DynamicData):
+   class HostDefaultInfo(pyVmomi.vmodl.DynamicData):
+      uuid: _typing.Optional[str] = None
+      autoClaimStorage: _typing.Optional[bool] = None
+      checksumEnabled: _typing.Optional[bool] = None
 
-   enabled: Optional[bool] = None
-   defaultConfig: Optional[HostDefaultInfo] = None
-   vsanEsaEnabled: Optional[bool] = None
-   vsanCyberRecoveryEnabled: Optional[bool] = None
-
-
-class CoreConfigInfo(DynamicData):
-   vsanMaxEnabled: Optional[bool] = None
+   enabled: _typing.Optional[bool] = None
+   defaultConfig: _typing.Optional[HostDefaultInfo] = None
+   vsanEsaEnabled: _typing.Optional[bool] = None
+   vsanCyberRecoveryEnabled: _typing.Optional[bool] = None
 
 
-class CoreConfigSpec(DynamicData):
-   vsanMaxEnabled: Optional[bool] = None
+class CoreConfigInfo(pyVmomi.vmodl.DynamicData):
+   vsanMaxEnabled: _typing.Optional[bool] = None
 
 
-class VbossClusterConfig(VbossConfig):
+class CoreConfigSpec(pyVmomi.vmodl.DynamicData):
+   vsanMaxEnabled: _typing.Optional[bool] = None
+
+
+class VbossClusterConfig(pyVmomi.vim.vsan.VbossConfig):
    pass
 
 class VsanManagedStorageType:

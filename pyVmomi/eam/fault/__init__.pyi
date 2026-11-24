@@ -3,35 +3,32 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import Optional
-
-from pyVmomi.eam import Agent
-
-from pyVmomi.vim import ComputeResource
-from pyVmomi.vmodl import MethodFault
-from pyVmomi.vmodl import RuntimeFault
+import typing as _typing
+import pyVmomi.eam
+import pyVmomi.vim
+import pyVmomi.vmodl
 
 
 
 class CertificateNotTrustedFault(EamAppFault):
-   url: Optional[str] = None
+   url: _typing.Optional[str] = None
 
 
 class DisabledClusterFault(EamAppFault):
-   disabledComputeResource: list[ComputeResource] = []
+   disabledComputeResource: list[pyVmomi.vim.ComputeResource] = []
 
 class EamAppFault(EamRuntimeFault):
    pass
 
 
-class EamFault(MethodFault):
+class EamFault(pyVmomi.vmodl.MethodFault):
    pass
 
 class EamIOFault(EamRuntimeFault):
    pass
 
 
-class EamRuntimeFault(RuntimeFault):
+class EamRuntimeFault(pyVmomi.vmodl.RuntimeFault):
    pass
 
 class EamServiceNotInitialized(EamRuntimeFault):
@@ -42,12 +39,12 @@ class EamSystemFault(EamRuntimeFault):
 
 
 class InvalidAgencyScope(EamFault):
-   unknownComputeResource: list[ComputeResource] = []
+   unknownComputeResource: list[pyVmomi.vim.ComputeResource] = []
 
 
 class InvalidAgentConfiguration(EamFault):
-   invalidAgentConfiguration: Optional[Agent.ConfigInfo] = None
-   invalidField: Optional[str] = None
+   invalidAgentConfiguration: _typing.Optional[pyVmomi.eam.Agent.ConfigInfo] = None
+   invalidField: _typing.Optional[str] = None
 
 class InvalidLogin(EamRuntimeFault):
    pass
@@ -61,7 +58,7 @@ class InvalidUrl(EamFault):
    malformedUrl: bool
    unknownHost: bool
    connectionRefused: bool
-   responseCode: Optional[int] = None
+   responseCode: _typing.Optional[int] = None
 
 class InvalidVibPackage(EamRuntimeFault):
    pass

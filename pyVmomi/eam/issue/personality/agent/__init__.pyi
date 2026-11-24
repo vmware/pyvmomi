@@ -3,7 +3,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.eam.issue import AgentIssue
+import pyVmomi.eam.issue
 
 
 class AwaitingPMRemediation(PMIssue):
@@ -13,5 +13,5 @@ class BlockedByAgencyOperation(PMIssue):
    pass
 
 
-class PMIssue(AgentIssue):
+class PMIssue(pyVmomi.eam.issue.AgentIssue):
    pass

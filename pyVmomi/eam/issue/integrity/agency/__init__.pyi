@@ -3,7 +3,7 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.eam.issue import AgencyIssue
+import pyVmomi.eam.issue
 
 
 class CannotDeleteSoftware(VUMIssue):
@@ -13,7 +13,7 @@ class CannotStageSoftware(VUMIssue):
    pass
 
 
-class VUMIssue(AgencyIssue):
+class VUMIssue(pyVmomi.eam.issue.AgencyIssue):
    pass
 
 class VUMUnavailable(VUMIssue):

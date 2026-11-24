@@ -7,242 +7,162 @@ from . import cluster as cluster
 from . import host as host
 from . import upgradesystem as upgradesystem
 
-from datetime import datetime
-
-from typing import ClassVar
-from typing import Optional
-
-from pyVmomi.VmomiSupport import Enum
-
-from pyVmomi.VmomiSupport import ManagedObject
-
-from pyVmomi.VmomiSupport import long
-from pyVmomi.vim import ClusterComputeResource
-
-from pyVmomi.vim import ComputeResource
-
-from pyVmomi.vim import Datastore
-
-from pyVmomi.vim import DistributedVirtualSwitch
-from pyVmomi.vim import HostSystem
-
-from pyVmomi.vim import KeyValue
-
-from pyVmomi.vim import ManagedEntity
-
-from pyVmomi.vim import Network
-
-from pyVmomi.vim import SDDCBase
-
-from pyVmomi.vim import Task
-
-from pyVmomi.vim import VirtualMachine
-
-from pyVmomi.vmodl import DynamicArray
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import KeyAnyValue
-
-from pyVmomi.vmodl import LocalizableMessage
-from pyVmomi.vmodl import MethodFault
-
-from pyVmomi.vim.cluster import SiteFaultDomainConfig
-
-from pyVmomi.vim.cluster import VsanClusterHealthSummary
-
-from pyVmomi.vim.cluster import VsanDiskMappingsConfigSpec
-from pyVmomi.vim.cluster import VsanFaultDomainsConfigSpec
-from pyVmomi.vim.cluster import VsanHistoricalHealthQuerySpec
-from pyVmomi.vim.cluster import VsanIscsiTargetServiceConfig
-from pyVmomi.vim.cluster import VsanIscsiTargetServiceSpec
-
-from pyVmomi.vim.cluster import VsanObjectInformation
-from pyVmomi.vim.cluster import VsanPerfNodeInformation
-from pyVmomi.vim.cluster import VsanPerfsvcConfig
-
-from pyVmomi.vim.cluster import VsanStretchedClusterConfig
-
-from pyVmomi.vim.cluster import VsanUnicastAddressInfo
-
-from pyVmomi.vim.dvs import DistributedVirtualPortgroup
-
-from pyVmomi.vim.dvs import VmwareDistributedVirtualSwitch
-
-from pyVmomi.vim.encryption import KeyProviderId
-
-from pyVmomi.vim.host import ConnectSpec
-
-from pyVmomi.vim.host import IpConfig
-
-from pyVmomi.vim.host import MaintenanceSpec
-
-from pyVmomi.vim.host import VsanBasicDeviceInfo
-
-from pyVmomi.vim.host import VsanHclFirmwareUpdateSpec
-
-from pyVmomi.vim.host import VsanHwToVcgInfoMapping
-
-from pyVmomi.vim.vm import CertThumbprint
-
-from pyVmomi.vim.vm import ProfileSpec
-
-from pyVmomi.vim.vm.device import VirtualDevice
-
-from pyVmomi.vim.vsan.cluster import ConfigInfo
-from pyVmomi.vim.vsan.cluster import VbossClusterConfig
-
-from pyVmomi.vim.vsan.host import AddStoragePoolDiskSpec
-
-from pyVmomi.vim.vsan.host import ClientClusterUnicastInfo
-from pyVmomi.vim.vsan.host import CreateNativeKeyProviderSpec
-from pyVmomi.vim.vsan.host import DeleteStoragePoolDiskSpec
-from pyVmomi.vim.vsan.host import DiskMapping
-from pyVmomi.vim.vsan.host import DiskMappingCreationSpec
-from pyVmomi.vim.vsan.host import EncryptionInfo
-
-from pyVmomi.vim.vsan.host import RuntimeStats
+import datetime as _datetime
+import typing as _typing
+import pyVmomi.VmomiSupport
+import pyVmomi.vim
+import pyVmomi.vmodl
+import pyVmomi.vim.cluster
+import pyVmomi.vim.dvs
+import pyVmomi.vim.encryption
+import pyVmomi.vim.host
+import pyVmomi.vim.vm
+import pyVmomi.vim.vm.device
+import pyVmomi.vim.vsan.cluster
+import pyVmomi.vim.vsan.host
 
 
 
 class ActiveDirectoryServerConfig(DirectoryServerConfig):
-   activeDirectoryDomainName: Optional[str] = None
-   username: Optional[str] = None
-   password: Optional[str] = None
-   organizationalUnit: Optional[str] = None
+   activeDirectoryDomainName: _typing.Optional[str] = None
+   username: _typing.Optional[str] = None
+   password: _typing.Optional[str] = None
+   organizationalUnit: _typing.Optional[str] = None
    preferredADServers: list[str] = []
 
 
 class AdvancedDatastoreConfig(DatastoreConfig):
-   remoteDatastores: list[Datastore] = []
+   remoteDatastores: list[pyVmomi.vim.Datastore] = []
 
 
-class AutoRAIDConfig(DynamicData):
+class AutoRAIDConfig(pyVmomi.vmodl.DynamicData):
    assumeAutoManagedRAID: bool
 
 
-class AutoRAIDInfo(DynamicData):
-   hostFailuresToTolerate: long
-   subFailuresToTolerate: Optional[long] = None
+class AutoRAIDInfo(pyVmomi.vmodl.DynamicData):
+   hostFailuresToTolerate: pyVmomi.VmomiSupport.long
+   subFailuresToTolerate: _typing.Optional[pyVmomi.VmomiSupport.long] = None
 
 
-class CapacityReservationInfo(DynamicData):
-   hostRebuildThreshold: Optional[str] = None
-   vsanOpSpaceThreshold: Optional[str] = None
+class CapacityReservationInfo(pyVmomi.vmodl.DynamicData):
+   hostRebuildThreshold: _typing.Optional[str] = None
+   vsanOpSpaceThreshold: _typing.Optional[str] = None
 
 class CapacityReservationState:
    pass
 
 
 class ClientDatastoreConfig(DatastoreSpec):
-   clusters: list[ClusterComputeResource] = []
+   clusters: list[pyVmomi.vim.ClusterComputeResource] = []
 
 
-class ClientUnicastConfig(DynamicData):
-   unicastInfo: list[ClientClusterUnicastInfo] = []
+class ClientUnicastConfig(pyVmomi.vmodl.DynamicData):
+   unicastInfo: list[pyVmomi.vim.vsan.host.ClientClusterUnicastInfo] = []
 
 
-class ClusterConfigPrecheckItem(ClusterComputeResource.ValidationResultBase):
+class ClusterConfigPrecheckItem(pyVmomi.vim.ClusterComputeResource.ValidationResultBase):
    status: str
-   description: Optional[LocalizableMessage] = None
+   description: _typing.Optional[pyVmomi.vmodl.LocalizableMessage] = None
 
 
-class ClusterRuntimeInfo(DynamicData):
+class ClusterRuntimeInfo(pyVmomi.vmodl.DynamicData):
    clusterUuid: str
    totalComponentsCount: int
-   cluster: Optional[ClusterComputeResource] = None
+   cluster: _typing.Optional[pyVmomi.vim.ClusterComputeResource] = None
 
 
-class CompatibilityCheckResult(DynamicData):
+class CompatibilityCheckResult(pyVmomi.vmodl.DynamicData):
    status: str
-   message: Optional[LocalizableMessage] = None
+   message: _typing.Optional[pyVmomi.vmodl.LocalizableMessage] = None
 
 
-class ConfigInfoEx(ConfigInfo):
-   dataEfficiencyConfig: Optional[DataEfficiencyConfig] = None
-   resyncIopsLimitConfig: Optional[ResyncIopsInfo] = None
-   iscsiConfig: Optional[VsanIscsiTargetServiceConfig] = None
-   dataEncryptionConfig: Optional[DataEncryptionConfig] = None
-   extendedConfig: Optional[VsanExtendedConfig] = None
-   datastoreConfig: Optional[DatastoreConfig] = None
-   perfsvcConfig: Optional[VsanPerfsvcConfig] = None
-   unmapConfig: Optional[VsanUnmapConfig] = None
-   vumConfig: Optional[VsanVumConfig] = None
-   fileServiceConfig: Optional[FileServiceConfig] = None
-   metricsConfig: Optional[MetricsConfig] = None
-   rdmaConfig: Optional[RdmaConfig] = None
-   dataInTransitEncryptionConfig: Optional[DataInTransitEncryptionConfig] = None
-   vsanHealthConfig: Optional[VsanHealthConfigSpec] = None
-   mode: Optional[str] = None
-   vsanPMemConfig: Optional[VsanPMemConfig] = None
-   vsanEsaConfigInfo: Optional[VsanEsaConfigInfo] = None
-   xvcDatastoreConfig: Optional[XVCDatastoreConfig] = None
-   serverClusterConfig: Optional[VcRemoteVsanServerClusterConfig] = None
-   datastoreDefaultPolicySelectionConfig: Optional[VsanDatastoreDefaultPolicySelectionConfig] = None
-   snapServiceConfig: Optional[SnapServiceConfig] = None
-   deconvergedNetConfig: Optional[VsanDeconvergedNetConfig] = None
-   siteFaultDomainConfig: Optional[SiteFaultDomainConfig] = None
-   vbossClusterConfig: Optional[VbossClusterConfig] = None
+class ConfigInfoEx(pyVmomi.vim.vsan.cluster.ConfigInfo):
+   dataEfficiencyConfig: _typing.Optional[DataEfficiencyConfig] = None
+   resyncIopsLimitConfig: _typing.Optional[ResyncIopsInfo] = None
+   iscsiConfig: _typing.Optional[pyVmomi.vim.cluster.VsanIscsiTargetServiceConfig] = None
+   dataEncryptionConfig: _typing.Optional[DataEncryptionConfig] = None
+   extendedConfig: _typing.Optional[VsanExtendedConfig] = None
+   datastoreConfig: _typing.Optional[DatastoreConfig] = None
+   perfsvcConfig: _typing.Optional[pyVmomi.vim.cluster.VsanPerfsvcConfig] = None
+   unmapConfig: _typing.Optional[VsanUnmapConfig] = None
+   vumConfig: _typing.Optional[VsanVumConfig] = None
+   fileServiceConfig: _typing.Optional[FileServiceConfig] = None
+   metricsConfig: _typing.Optional[MetricsConfig] = None
+   rdmaConfig: _typing.Optional[RdmaConfig] = None
+   dataInTransitEncryptionConfig: _typing.Optional[DataInTransitEncryptionConfig] = None
+   vsanHealthConfig: _typing.Optional[VsanHealthConfigSpec] = None
+   mode: _typing.Optional[str] = None
+   vsanPMemConfig: _typing.Optional[VsanPMemConfig] = None
+   vsanEsaConfigInfo: _typing.Optional[VsanEsaConfigInfo] = None
+   xvcDatastoreConfig: _typing.Optional[XVCDatastoreConfig] = None
+   serverClusterConfig: _typing.Optional[VcRemoteVsanServerClusterConfig] = None
+   datastoreDefaultPolicySelectionConfig: _typing.Optional[VsanDatastoreDefaultPolicySelectionConfig] = None
+   snapServiceConfig: _typing.Optional[SnapServiceConfig] = None
+   deconvergedNetConfig: _typing.Optional[VsanDeconvergedNetConfig] = None
+   siteFaultDomainConfig: _typing.Optional[pyVmomi.vim.cluster.SiteFaultDomainConfig] = None
+   vbossClusterConfig: _typing.Optional[pyVmomi.vim.vsan.cluster.VbossClusterConfig] = None
 
 
-class CyberRecoveryConfig(DynamicData):
+class CyberRecoveryConfig(pyVmomi.vmodl.DynamicData):
    enabled: bool
 
 
-class DataEfficiencyCapacityState(DynamicData):
-   logicalCapacity: Optional[long] = None
-   logicalCapacityUsed: Optional[long] = None
-   physicalCapacity: Optional[long] = None
-   physicalCapacityUsed: Optional[long] = None
-   dedupMetadataSize: Optional[long] = None
-   spaceEfficiencyMetadataSize: Optional[VsanSpaceEfficiencyMetadataSize] = None
-   esaDedupSpaceSaving: Optional[long] = None
-   esaCompressionSpaceSaving: Optional[long] = None
-   totalSpaceUsedWithoutOverhead: Optional[long] = None
-   dedupEnabledObjectSpaceUsed: Optional[long] = None
+class DataEfficiencyCapacityState(pyVmomi.vmodl.DynamicData):
+   logicalCapacity: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   logicalCapacityUsed: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   physicalCapacity: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   physicalCapacityUsed: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   dedupMetadataSize: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   spaceEfficiencyMetadataSize: _typing.Optional[VsanSpaceEfficiencyMetadataSize] = None
+   esaDedupSpaceSaving: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   esaCompressionSpaceSaving: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   totalSpaceUsedWithoutOverhead: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   dedupEnabledObjectSpaceUsed: _typing.Optional[pyVmomi.VmomiSupport.long] = None
 
 
-class DataEfficiencyConfig(DynamicData):
+class DataEfficiencyConfig(pyVmomi.vmodl.DynamicData):
    dedupEnabled: bool
-   compressionEnabled: Optional[bool] = None
+   compressionEnabled: _typing.Optional[bool] = None
 
 
 class DataEfficiencyConfigEx(DataEfficiencyConfig):
-   dedupStoreUuid: Optional[str] = None
-   dedupPaused: Optional[bool] = None
+   dedupStoreUuid: _typing.Optional[str] = None
+   dedupPaused: _typing.Optional[bool] = None
 
 
-class DataEncryptionConfig(DynamicData):
+class DataEncryptionConfig(pyVmomi.vmodl.DynamicData):
    encryptionEnabled: bool
-   kmsProviderId: Optional[KeyProviderId] = None
-   kekId: Optional[str] = None
-   hostKeyId: Optional[str] = None
-   dekGenerationId: Optional[long] = None
-   changing: Optional[bool] = None
-   eraseDisksBeforeUse: Optional[bool] = None
-   wrappedDek: Optional[str] = None
-   dekId: Optional[str] = None
-   oldWrappedDek: Optional[str] = None
-   oldDekId: Optional[str] = None
-   kekVerifier: Optional[str] = None
-   dekVerifier: Optional[str] = None
-   oldDekVerifier: Optional[str] = None
-   iv: Optional[str] = None
-   syncing: Optional[bool] = None
+   kmsProviderId: _typing.Optional[pyVmomi.vim.encryption.KeyProviderId] = None
+   kekId: _typing.Optional[str] = None
+   hostKeyId: _typing.Optional[str] = None
+   dekGenerationId: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   changing: _typing.Optional[bool] = None
+   eraseDisksBeforeUse: _typing.Optional[bool] = None
+   wrappedDek: _typing.Optional[str] = None
+   dekId: _typing.Optional[str] = None
+   oldWrappedDek: _typing.Optional[str] = None
+   oldDekId: _typing.Optional[str] = None
+   kekVerifier: _typing.Optional[str] = None
+   dekVerifier: _typing.Optional[str] = None
+   oldDekVerifier: _typing.Optional[str] = None
+   iv: _typing.Optional[str] = None
+   syncing: _typing.Optional[bool] = None
 
 
-class DataInTransitEncryptionConfig(DynamicData):
-   enabled: Optional[bool] = None
-   rekeyInterval: Optional[int] = None
-   state: Optional[str] = None
+class DataInTransitEncryptionConfig(pyVmomi.vmodl.DynamicData):
+   enabled: _typing.Optional[bool] = None
+   rekeyInterval: _typing.Optional[int] = None
+   state: _typing.Optional[str] = None
 
 
-class DataProtectionHealthSystem(ManagedObject):
-   def QueryHealthSummary(self, cluster: ClusterComputeResource) -> VsanClusterHealthSummary: ...
-   def QueryHistoricalHealth(self, spec: VsanHistoricalHealthQuerySpec) -> list[VsanClusterHealthSummary]: ...
-   def GetDpClusterSilentChecks(self, cluster: ClusterComputeResource) -> list[str]: ...
-   def SetDpClusterSilentChecks(self, cluster: ClusterComputeResource, addSilentChecks: list[str], removeSilentChecks: list[str]) -> bool: ...
+class DataProtectionHealthSystem(pyVmomi.VmomiSupport.ManagedObject):
+   def QueryHealthSummary(self, cluster: pyVmomi.vim.ClusterComputeResource) -> pyVmomi.vim.cluster.VsanClusterHealthSummary: ...
+   def QueryHistoricalHealth(self, spec: pyVmomi.vim.cluster.VsanHistoricalHealthQuerySpec) -> list[pyVmomi.vim.cluster.VsanClusterHealthSummary]: ...
+   def GetDpClusterSilentChecks(self, cluster: pyVmomi.vim.ClusterComputeResource) -> list[str]: ...
+   def SetDpClusterSilentChecks(self, cluster: pyVmomi.vim.ClusterComputeResource, addSilentChecks: list[str], removeSilentChecks: list[str]) -> bool: ...
 
 
-class DatastoreConfig(DynamicData):
+class DatastoreConfig(pyVmomi.vmodl.DynamicData):
    datastores: list[DatastoreSpec] = []
 
 class DatastoreSourcePrecheckItem(MountPrecheckItem):
@@ -252,118 +172,118 @@ class DatastoreSourcePrecheckResult(MountPrecheckResult):
    pass
 
 
-class DatastoreSpec(DynamicData):
+class DatastoreSpec(pyVmomi.vmodl.DynamicData):
    uuid: str
    name: str
 
 
-class DefaultDatastorePolicySelectionInfo(DynamicData):
+class DefaultDatastorePolicySelectionInfo(pyVmomi.vmodl.DynamicData):
    enabled: bool
-   defaultPolicyId: Optional[str] = None
-   lastPolicySelectionTime: Optional[datetime] = None
+   defaultPolicyId: _typing.Optional[str] = None
+   lastPolicySelectionTime: _typing.Optional[_datetime.datetime] = None
 
 
-class DirectoryServerConfig(DynamicData):
+class DirectoryServerConfig(pyVmomi.vmodl.DynamicData):
    pass
 
 
-class DiskClaimConfiguration(DynamicData):
+class DiskClaimConfiguration(pyVmomi.vmodl.DynamicData):
    diskType: str
-   diskNamePrefix: Optional[str] = None
-   numberOfDisks: Optional[int] = None
-   diskModel: Optional[str] = None
-   vendor: Optional[str] = None
-   diskCapacity: Optional[long] = None
+   diskNamePrefix: _typing.Optional[str] = None
+   numberOfDisks: _typing.Optional[int] = None
+   diskModel: _typing.Optional[str] = None
+   vendor: _typing.Optional[str] = None
+   diskCapacity: _typing.Optional[pyVmomi.VmomiSupport.long] = None
 
 
 class DiskDataEvacuationResourceCheckTaskDetails(ResourceCheckTaskDetails):
-   diskUuid: Optional[str] = None
-   isCapacityTier: Optional[bool] = None
+   diskUuid: _typing.Optional[str] = None
+   isCapacityTier: _typing.Optional[bool] = None
 
 
 class DiskGroupResourceCheckResult(EntityResourceCheckDetails):
-   cacheTierDisk: Optional[DiskResourceCheckResult] = None
+   cacheTierDisk: _typing.Optional[DiskResourceCheckResult] = None
    capacityTierDisks: list[DiskResourceCheckResult] = []
 
 
-class DiskInfo(DynamicData):
+class DiskInfo(pyVmomi.vmodl.DynamicData):
    diskUuid: str
    diskName: str
-   isSsd: Optional[bool] = None
+   isSsd: _typing.Optional[bool] = None
 
 class DiskResourceCheckResult(EntityResourceCheckDetails):
    pass
 
 
-class DpDaemonHealth(DynamicData):
-   host: HostSystem
+class DpDaemonHealth(pyVmomi.vmodl.DynamicData):
+   host: pyVmomi.vim.HostSystem
    name: str
    status: str
 
 
-class EntityCompatibilityResult(DynamicData):
-   entity: ManagedEntity
+class EntityCompatibilityResult(pyVmomi.vmodl.DynamicData):
+   entity: pyVmomi.vim.ManagedEntity
    compatible: bool
-   incompatibleReasons: list[LocalizableMessage] = []
-   extendedAttributes: list[KeyAnyValue] = []
+   incompatibleReasons: list[pyVmomi.vmodl.LocalizableMessage] = []
+   extendedAttributes: list[pyVmomi.vmodl.KeyAnyValue] = []
 
 
-class EntityResourceCheckDetails(DynamicData):
-   name: Optional[str] = None
-   uuid: Optional[str] = None
-   isNew: Optional[bool] = None
-   capacity: Optional[long] = None
-   postOperationCapacity: Optional[long] = None
-   usedCapacity: Optional[long] = None
-   postOperationUsedCapacity: Optional[long] = None
-   additionalRequiredCapacity: Optional[long] = None
-   maxComponents: Optional[long] = None
-   components: Optional[long] = None
+class EntityResourceCheckDetails(pyVmomi.vmodl.DynamicData):
+   name: _typing.Optional[str] = None
+   uuid: _typing.Optional[str] = None
+   isNew: _typing.Optional[bool] = None
+   capacity: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   postOperationCapacity: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   usedCapacity: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   postOperationUsedCapacity: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   additionalRequiredCapacity: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   maxComponents: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   components: _typing.Optional[pyVmomi.VmomiSupport.long] = None
 
 
 class FaultDomainResourceCheckResult(EntityResourceCheckDetails):
    hosts: list[HostResourceCheckResult] = []
 
 
-class FileServiceConfig(DynamicData):
+class FileServiceConfig(pyVmomi.vmodl.DynamicData):
    enabled: bool
-   fileServerMemoryMB: Optional[long] = None
-   fileServerCPUMhz: Optional[long] = None
-   fsvmMemoryMB: Optional[long] = None
-   fsvmCPU: Optional[long] = None
-   network: Optional[Network] = None
+   fileServerMemoryMB: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   fileServerCPUMhz: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   fsvmMemoryMB: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   fsvmCPU: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   network: _typing.Optional[pyVmomi.vim.Network] = None
    domains: list[FileServiceDomainConfig] = []
-   fileAnalyticsEnabled: Optional[bool] = None
+   fileAnalyticsEnabled: _typing.Optional[bool] = None
 
 class FileServiceConfigOpType:
    pass
 
 
-class FileServiceDomain(DynamicData):
+class FileServiceDomain(pyVmomi.vmodl.DynamicData):
    uuid: str
-   config: Optional[FileServiceDomainConfig] = None
+   config: _typing.Optional[FileServiceDomainConfig] = None
 
 
-class FileServiceDomainConfig(DynamicData):
-   name: Optional[str] = None
+class FileServiceDomainConfig(pyVmomi.vmodl.DynamicData):
+   name: _typing.Optional[str] = None
    dnsServerAddresses: list[str] = []
    dnsSuffixes: list[str] = []
    fileServerIpConfig: list[FileServiceIpConfig] = []
-   directoryServerConfig: Optional[DirectoryServerConfig] = None
-   version: Optional[str] = None
+   directoryServerConfig: _typing.Optional[DirectoryServerConfig] = None
+   version: _typing.Optional[str] = None
 
 
-class FileServiceDomainQuerySpec(DynamicData):
+class FileServiceDomainQuerySpec(pyVmomi.vmodl.DynamicData):
    uuids: list[str] = []
    names: list[str] = []
 
 
-class FileServiceIpConfig(IpConfig):
-   fqdn: Optional[str] = None
-   isPrimary: Optional[bool] = None
+class FileServiceIpConfig(pyVmomi.vim.host.IpConfig):
+   fqdn: _typing.Optional[str] = None
+   isPrimary: _typing.Optional[bool] = None
    gateway: str
-   affinityLocation: Optional[str] = None
-   ipv6Gateway: Optional[str] = None
+   affinityLocation: _typing.Optional[str] = None
+   ipv6Gateway: _typing.Optional[str] = None
 
 class FileServicePreflightCheckScope:
    pass
@@ -372,36 +292,36 @@ class FileServiceVMStatus:
    pass
 
 
-class FileShare(DynamicData):
+class FileShare(pyVmomi.vmodl.DynamicData):
    uuid: str
-   config: Optional[FileShareConfig] = None
-   runtime: Optional[FileShareRuntimeInfo] = None
+   config: _typing.Optional[FileShareConfig] = None
+   runtime: _typing.Optional[FileShareRuntimeInfo] = None
 
 class FileShareAccessType:
    pass
 
 
-class FileShareConfig(DynamicData):
-   name: Optional[str] = None
-   domainName: Optional[str] = None
-   quota: Optional[str] = None
-   softQuota: Optional[str] = None
-   labels: list[KeyValue] = []
-   storagePolicy: Optional[ProfileSpec] = None
+class FileShareConfig(pyVmomi.vmodl.DynamicData):
+   name: _typing.Optional[str] = None
+   domainName: _typing.Optional[str] = None
+   quota: _typing.Optional[str] = None
+   softQuota: _typing.Optional[str] = None
+   labels: list[pyVmomi.vim.KeyValue] = []
+   storagePolicy: _typing.Optional[pyVmomi.vim.vm.ProfileSpec] = None
    permission: list[FileShareNetPermission] = []
    protocols: list[str] = []
-   smbOptions: Optional[FileShareSmbOptions] = None
-   nfsSecType: Optional[str] = None
-   affinityLocation: Optional[str] = None
+   smbOptions: _typing.Optional[FileShareSmbOptions] = None
+   nfsSecType: _typing.Optional[str] = None
+   affinityLocation: _typing.Optional[str] = None
 
 class FileShareManagingEntity:
    pass
 
 
-class FileShareNetPermission(DynamicData):
+class FileShareNetPermission(pyVmomi.vmodl.DynamicData):
    ips: str
-   permissions: Optional[str] = None
-   allowRoot: Optional[bool] = None
+   permissions: _typing.Optional[str] = None
+   allowRoot: _typing.Optional[bool] = None
 
 class FileShareNfsSecType:
    pass
@@ -410,156 +330,156 @@ class FileShareProtocol:
    pass
 
 
-class FileShareQueryProperties(DynamicData):
-   includeBasic: Optional[bool] = None
-   includeUsedCapacity: Optional[bool] = None
-   includeVsanObjectUuids: Optional[bool] = None
-   includeAllLabels: Optional[bool] = None
+class FileShareQueryProperties(pyVmomi.vmodl.DynamicData):
+   includeBasic: _typing.Optional[bool] = None
+   includeUsedCapacity: _typing.Optional[bool] = None
+   includeVsanObjectUuids: _typing.Optional[bool] = None
+   includeAllLabels: _typing.Optional[bool] = None
    labelKeys: list[str] = []
 
 
-class FileShareQueryResult(DynamicData):
+class FileShareQueryResult(pyVmomi.vmodl.DynamicData):
    fileShares: list[FileShare] = []
-   nextOffset: Optional[str] = None
-   totalShareCount: Optional[long] = None
-   maxShareCount: Optional[long] = None
+   nextOffset: _typing.Optional[str] = None
+   totalShareCount: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   maxShareCount: _typing.Optional[pyVmomi.VmomiSupport.long] = None
 
 
-class FileShareQuerySpec(DynamicData):
-   domainName: Optional[str] = None
+class FileShareQuerySpec(pyVmomi.vmodl.DynamicData):
+   domainName: _typing.Optional[str] = None
    uuids: list[str] = []
    names: list[str] = []
-   offset: Optional[str] = None
-   limit: Optional[long] = None
+   offset: _typing.Optional[str] = None
+   limit: _typing.Optional[pyVmomi.VmomiSupport.long] = None
    managedBy: list[str] = []
    protocols: list[str] = []
-   pageNumber: Optional[long] = None
-   properties: Optional[FileShareQueryProperties] = None
+   pageNumber: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   properties: _typing.Optional[FileShareQueryProperties] = None
 
 
-class FileShareRuntimeInfo(DynamicData):
-   usedCapacity: Optional[long] = None
-   hostname: Optional[str] = None
-   address: Optional[str] = None
+class FileShareRuntimeInfo(pyVmomi.vmodl.DynamicData):
+   usedCapacity: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   hostname: _typing.Optional[str] = None
+   address: _typing.Optional[str] = None
    vsanObjectUuids: list[str] = []
-   accessPoints: list[KeyValue] = []
-   managedBy: Optional[str] = None
-   fileServerFQDN: Optional[str] = None
+   accessPoints: list[pyVmomi.vim.KeyValue] = []
+   managedBy: _typing.Optional[str] = None
+   fileServerFQDN: _typing.Optional[str] = None
 
 class FileShareSmbEncryptionType:
    pass
 
 
-class FileShareSmbOptions(DynamicData):
-   encryption: Optional[str] = None
-   accessBasedEnumeration: Optional[bool] = None
+class FileShareSmbOptions(pyVmomi.vmodl.DynamicData):
+   encryption: _typing.Optional[str] = None
+   accessBasedEnumeration: _typing.Optional[bool] = None
 
 
-class FileShareSnapshot(DynamicData):
-   config: Optional[FileShareSnapshotConfig] = None
-   creationTime: Optional[datetime] = None
-   usedCapacity: Optional[long] = None
+class FileShareSnapshot(pyVmomi.vmodl.DynamicData):
+   config: _typing.Optional[FileShareSnapshotConfig] = None
+   creationTime: _typing.Optional[_datetime.datetime] = None
+   usedCapacity: _typing.Optional[pyVmomi.VmomiSupport.long] = None
 
 
-class FileShareSnapshotConfig(DynamicData):
-   shareUuid: Optional[str] = None
-   name: Optional[str] = None
+class FileShareSnapshotConfig(pyVmomi.vmodl.DynamicData):
+   shareUuid: _typing.Optional[str] = None
+   name: _typing.Optional[str] = None
 
 
-class FileShareSnapshotQueryResult(DynamicData):
+class FileShareSnapshotQueryResult(pyVmomi.vmodl.DynamicData):
    snapshots: list[FileShareSnapshot] = []
-   totalCount: Optional[int] = None
+   totalCount: _typing.Optional[int] = None
 
 
-class FileShareSnapshotQuerySpec(DynamicData):
+class FileShareSnapshotQuerySpec(pyVmomi.vmodl.DynamicData):
    shareUuid: str
    snapshotNames: list[str] = []
-   startTime: Optional[datetime] = None
-   endTime: Optional[datetime] = None
-   pageSize: Optional[int] = None
-   pageNumber: Optional[int] = None
+   startTime: _typing.Optional[_datetime.datetime] = None
+   endTime: _typing.Optional[_datetime.datetime] = None
+   pageSize: _typing.Optional[int] = None
+   pageNumber: _typing.Optional[int] = None
 
 class HciMeshClientOperation:
    pass
 
 
-class HciMeshDatastoreSource(DynamicData):
+class HciMeshDatastoreSource(pyVmomi.vmodl.DynamicData):
    vcInfo: RemoteVcInfo
 
 
 class HostResourceCheckResult(EntityResourceCheckDetails):
-   host: Optional[HostSystem] = None
+   host: _typing.Optional[pyVmomi.vim.HostSystem] = None
    diskGroups: list[DiskGroupResourceCheckResult] = []
    storagePools: list[StoragePoolResourceCheckResult] = []
 
 
-class HostSiteMaintenanceStatus(DynamicData):
-   host: HostSystem
-   state: Optional[str] = None
-   startTime: Optional[datetime] = None
-   hostCount: Optional[long] = None
+class HostSiteMaintenanceStatus(pyVmomi.vmodl.DynamicData):
+   host: pyVmomi.vim.HostSystem
+   state: _typing.Optional[str] = None
+   startTime: _typing.Optional[_datetime.datetime] = None
+   hostCount: _typing.Optional[pyVmomi.VmomiSupport.long] = None
    hosts: list[str] = []
-   statusUpdateTime: Optional[long] = None
+   statusUpdateTime: _typing.Optional[pyVmomi.VmomiSupport.long] = None
 
 
-class IODiagnosticsFailedCheck(DynamicData):
+class IODiagnosticsFailedCheck(pyVmomi.vmodl.DynamicData):
    unsupportedType: str
-   reason: LocalizableMessage
+   reason: pyVmomi.vmodl.LocalizableMessage
 
 class IODiagnosticsFailedCheckType:
    pass
 
 
-class IODiagnosticsInstance(DynamicData):
+class IODiagnosticsInstance(pyVmomi.vmodl.DynamicData):
    name: str
    state: str
    events: list[IODiagnosticsInstanceEvent] = []
    targets: list[IODiagnosticsTarget] = []
-   startTime: datetime
-   endTime: datetime
-   recurrenceName: Optional[str] = None
+   startTime: _datetime.datetime
+   endTime: _datetime.datetime
+   recurrenceName: _typing.Optional[str] = None
 
 
-class IODiagnosticsInstanceEvent(DynamicData):
+class IODiagnosticsInstanceEvent(pyVmomi.vmodl.DynamicData):
    eventType: str
-   eventTime: datetime
+   eventTime: _datetime.datetime
    eventTargets: list[IODiagnosticsTarget] = []
 
 class IODiagnosticsInstanceEventType:
    pass
 
 
-class IODiagnosticsInstanceQuerySpec(DynamicData):
+class IODiagnosticsInstanceQuerySpec(pyVmomi.vmodl.DynamicData):
    targets: list[IODiagnosticsTarget] = []
-   startTime: datetime
-   endTime: Optional[datetime] = None
+   startTime: _datetime.datetime
+   endTime: _typing.Optional[_datetime.datetime] = None
 
 class IODiagnosticsInstanceState:
    pass
 
 
-class IODiagnosticsObjectLayout(DynamicData):
+class IODiagnosticsObjectLayout(pyVmomi.vmodl.DynamicData):
    layout: str
 
 
-class IODiagnosticsPrecheckResult(DynamicData):
+class IODiagnosticsPrecheckResult(pyVmomi.vmodl.DynamicData):
    supported: bool
    failedChecks: list[IODiagnosticsFailedCheck] = []
 
 
-class IODiagnosticsStats(DynamicData):
+class IODiagnosticsStats(pyVmomi.vmodl.DynamicData):
    objectsIOStats: list[ObjectIOStats] = []
-   startTime: datetime
-   endTime: datetime
+   startTime: _datetime.datetime
+   endTime: _datetime.datetime
 
 
-class IODiagnosticsTarget(DynamicData):
+class IODiagnosticsTarget(pyVmomi.vmodl.DynamicData):
    type: str
    entityId: str
    objUuids: list[str] = []
 
 
-class IODiagnosticsTargetStats(DynamicData):
+class IODiagnosticsTargetStats(pyVmomi.vmodl.DynamicData):
    target: IODiagnosticsTarget
    objectsIODiagnosticsStats: list[IODiagnosticsStats] = []
 
@@ -567,19 +487,19 @@ class IODiagnosticsTargetType:
    pass
 
 
-class IOLatency(DynamicData):
+class IOLatency(pyVmomi.vmodl.DynamicData):
    latencyType: str
    sourceEntityUuid: str
    destEntityUuid: str
    readLatencyStats: IOLatencyMetrics
    writeLatencyStats: IOLatencyMetrics
-   detailedInfo: list[KeyAnyValue] = []
+   detailedInfo: list[pyVmomi.vmodl.KeyAnyValue] = []
 
 
-class IOLatencyMetrics(DynamicData):
+class IOLatencyMetrics(pyVmomi.vmodl.DynamicData):
    totalCount: int
    averageLatency: float
-   stddevLatency: Optional[float] = None
+   stddevLatency: _typing.Optional[float] = None
 
 class IOLatencyType:
    pass
@@ -591,62 +511,62 @@ class LifecycleClusterType:
    pass
 
 
-class LifecycleConfigDetails(DynamicData):
+class LifecycleConfigDetails(pyVmomi.vmodl.DynamicData):
    clusterType: str
    faultDomainsDetails: list[LifecycleFaultDomainDetails] = []
    witnessHostsDetails: list[LifecycleWitnessDetails] = []
 
 
-class LifecycleFaultDomainDetails(DynamicData):
-   isPreferredFaultDomain: Optional[bool] = None
-   name: Optional[str] = None
-   hosts: list[HostSystem] = []
+class LifecycleFaultDomainDetails(pyVmomi.vmodl.DynamicData):
+   isPreferredFaultDomain: _typing.Optional[bool] = None
+   name: _typing.Optional[str] = None
+   hosts: list[pyVmomi.vim.HostSystem] = []
 
 
-class LifecyclePreCheckResult(DynamicData):
-   type: Optional[str] = None
-   description: Optional[LocalizableMessage] = None
+class LifecyclePreCheckResult(pyVmomi.vmodl.DynamicData):
+   type: _typing.Optional[str] = None
+   description: _typing.Optional[pyVmomi.vmodl.LocalizableMessage] = None
    status: str
-   reason: Optional[LocalizableMessage] = None
+   reason: _typing.Optional[pyVmomi.vmodl.LocalizableMessage] = None
 
 class LifecyclePreCheckType:
    pass
 
 
-class LifecycleWitnessDetails(DynamicData):
-   host: HostSystem
+class LifecycleWitnessDetails(pyVmomi.vmodl.DynamicData):
+   host: pyVmomi.vim.HostSystem
    isVirtualAppliance: bool
-   sharedClusters: list[ClusterComputeResource] = []
+   sharedClusters: list[pyVmomi.vim.ClusterComputeResource] = []
 
 
-class MetricProfile(DynamicData):
+class MetricProfile(pyVmomi.vmodl.DynamicData):
    authToken: str
 
 
-class MetricsConfig(DynamicData):
+class MetricsConfig(pyVmomi.vmodl.DynamicData):
    profiles: list[MetricProfile] = []
 
 class Mode:
    pass
 
 
-class MountPrecheckItem(DynamicData):
+class MountPrecheckItem(pyVmomi.vmodl.DynamicData):
    type: str
-   description: LocalizableMessage
+   description: pyVmomi.vmodl.LocalizableMessage
    status: str
-   reason: list[LocalizableMessage] = []
-   ignoreMessage: list[LocalizableMessage] = []
+   reason: list[pyVmomi.vmodl.LocalizableMessage] = []
+   ignoreMessage: list[pyVmomi.vmodl.LocalizableMessage] = []
 
 
-class MountPrecheckNetworkConnectivity(DynamicData):
-   host: HostSystem
+class MountPrecheckNetworkConnectivity(pyVmomi.vmodl.DynamicData):
+   host: pyVmomi.vim.HostSystem
    smallPingTestSuccessPct: int
    largePingTestSuccessPct: int
    status: str
 
 
-class MountPrecheckNetworkConnectivityDetail(DynamicData):
-   host: HostSystem
+class MountPrecheckNetworkConnectivityDetail(pyVmomi.vmodl.DynamicData):
+   host: pyVmomi.vim.HostSystem
    networkConnectivity: list[MountPrecheckNetworkConnectivity] = []
 
 
@@ -654,21 +574,21 @@ class MountPrecheckNetworkConnectivityResult(MountPrecheckItem):
    details: list[MountPrecheckNetworkConnectivityDetail] = []
 
 
-class MountPrecheckNetworkLatency(DynamicData):
-   host: HostSystem
-   networkLatency: long
+class MountPrecheckNetworkLatency(pyVmomi.vmodl.DynamicData):
+   host: pyVmomi.vim.HostSystem
+   networkLatency: pyVmomi.VmomiSupport.long
    status: str
 
 
-class MountPrecheckNetworkLatencyDetail(DynamicData):
-   host: HostSystem
+class MountPrecheckNetworkLatencyDetail(pyVmomi.vmodl.DynamicData):
+   host: pyVmomi.vim.HostSystem
    networkLatencies: list[MountPrecheckNetworkLatency] = []
 
 class MountPrecheckNetworkLatencyResult(MountPrecheckItem):
    details: list[MountPrecheckNetworkLatencyDetail] = []
 
 
-class MountPrecheckResult(DynamicData):
+class MountPrecheckResult(pyVmomi.vmodl.DynamicData):
    result: list[MountPrecheckItem] = []
 
 class MountPrecheckType:
@@ -678,7 +598,7 @@ class MountPrecheckTypeDIT:
    pass
 
 
-class ObjectHealthTelemetrySummary(DynamicData):
+class ObjectHealthTelemetrySummary(pyVmomi.vmodl.DynamicData):
    healthyObjectCount: int
    inaccessibleObjectCount: int
    needRetryObjectCount: int
@@ -686,7 +606,7 @@ class ObjectHealthTelemetrySummary(DynamicData):
    clusterHostCount: int
 
 
-class ObjectIOStats(DynamicData):
+class ObjectIOStats(pyVmomi.vmodl.DynamicData):
    backingObjectId: str
    ioLatencyStats: list[IOLatency] = []
    objectLayout: IODiagnosticsObjectLayout
@@ -698,53 +618,53 @@ class PrecheckDatastoreSourceOperation:
    pass
 
 
-class ProactiveRebalanceInfo(DynamicData):
-   enabled: Optional[bool] = None
-   threshold: Optional[int] = None
+class ProactiveRebalanceInfo(pyVmomi.vmodl.DynamicData):
+   enabled: _typing.Optional[bool] = None
+   threshold: _typing.Optional[int] = None
 
 
-class RdmaConfig(DynamicData):
+class RdmaConfig(pyVmomi.vmodl.DynamicData):
    rdmaEnabled: bool
 
 
-class ReconfigSpec(SDDCBase):
-   vsanClusterConfig: Optional[ConfigInfo] = None
-   dataEfficiencyConfig: Optional[DataEfficiencyConfig] = None
-   diskMappingSpec: Optional[VsanDiskMappingsConfigSpec] = None
-   faultDomainsSpec: Optional[VsanFaultDomainsConfigSpec] = None
+class ReconfigSpec(pyVmomi.vim.SDDCBase):
+   vsanClusterConfig: _typing.Optional[pyVmomi.vim.vsan.cluster.ConfigInfo] = None
+   dataEfficiencyConfig: _typing.Optional[DataEfficiencyConfig] = None
+   diskMappingSpec: _typing.Optional[pyVmomi.vim.cluster.VsanDiskMappingsConfigSpec] = None
+   faultDomainsSpec: _typing.Optional[pyVmomi.vim.cluster.VsanFaultDomainsConfigSpec] = None
    modify: bool
-   allowReducedRedundancy: Optional[bool] = None
-   resyncIopsLimitConfig: Optional[ResyncIopsInfo] = None
-   iscsiSpec: Optional[VsanIscsiTargetServiceSpec] = None
-   dataEncryptionConfig: Optional[DataEncryptionConfig] = None
-   extendedConfig: Optional[VsanExtendedConfig] = None
-   datastoreConfig: Optional[DatastoreConfig] = None
-   perfsvcConfig: Optional[VsanPerfsvcConfig] = None
-   unmapConfig: Optional[VsanUnmapConfig] = None
-   vumConfig: Optional[VsanVumConfig] = None
-   metricsConfig: Optional[MetricsConfig] = None
-   fileServiceConfig: Optional[FileServiceConfig] = None
-   rdmaConfig: Optional[RdmaConfig] = None
-   dataInTransitEncryptionConfig: Optional[DataInTransitEncryptionConfig] = None
-   mode: Optional[str] = None
-   vsanHealthConfig: Optional[VsanHealthConfigSpec] = None
-   vsanEsaConfig: Optional[VsanEsaConfig] = None
-   xvcDatastoreConfig: Optional[XVCDatastoreConfig] = None
-   serverClusterConfig: Optional[VcRemoteVsanServerClusterConfig] = None
-   snapServiceConfig: Optional[SnapServiceConfig] = None
-   deconvergedNetConfig: Optional[VsanDeconvergedNetConfig] = None
-   vbossClusterConfig: Optional[VbossClusterConfig] = None
+   allowReducedRedundancy: _typing.Optional[bool] = None
+   resyncIopsLimitConfig: _typing.Optional[ResyncIopsInfo] = None
+   iscsiSpec: _typing.Optional[pyVmomi.vim.cluster.VsanIscsiTargetServiceSpec] = None
+   dataEncryptionConfig: _typing.Optional[DataEncryptionConfig] = None
+   extendedConfig: _typing.Optional[VsanExtendedConfig] = None
+   datastoreConfig: _typing.Optional[DatastoreConfig] = None
+   perfsvcConfig: _typing.Optional[pyVmomi.vim.cluster.VsanPerfsvcConfig] = None
+   unmapConfig: _typing.Optional[VsanUnmapConfig] = None
+   vumConfig: _typing.Optional[VsanVumConfig] = None
+   metricsConfig: _typing.Optional[MetricsConfig] = None
+   fileServiceConfig: _typing.Optional[FileServiceConfig] = None
+   rdmaConfig: _typing.Optional[RdmaConfig] = None
+   dataInTransitEncryptionConfig: _typing.Optional[DataInTransitEncryptionConfig] = None
+   mode: _typing.Optional[str] = None
+   vsanHealthConfig: _typing.Optional[VsanHealthConfigSpec] = None
+   vsanEsaConfig: _typing.Optional[VsanEsaConfig] = None
+   xvcDatastoreConfig: _typing.Optional[XVCDatastoreConfig] = None
+   serverClusterConfig: _typing.Optional[VcRemoteVsanServerClusterConfig] = None
+   snapServiceConfig: _typing.Optional[SnapServiceConfig] = None
+   deconvergedNetConfig: _typing.Optional[VsanDeconvergedNetConfig] = None
+   vbossClusterConfig: _typing.Optional[pyVmomi.vim.vsan.cluster.VbossClusterConfig] = None
 
 
-class RemoteVcInfo(DynamicData):
-   linkType: Optional[str] = None
+class RemoteVcInfo(pyVmomi.vmodl.DynamicData):
+   linkType: _typing.Optional[str] = None
    vcHost: str
 
 
 class RemoteVcInfoStandalone(RemoteVcInfo):
-   user: Optional[str] = None
-   password: Optional[str] = None
-   cert: Optional[str] = None
+   user: _typing.Optional[str] = None
+   password: _typing.Optional[str] = None
+   cert: _typing.Optional[str] = None
 
 class RemoteVcLinkType:
    pass
@@ -753,20 +673,20 @@ class RemoteVsanNetworkTopology:
    pass
 
 
-class RemoteVsanSite(DynamicData):
+class RemoteVsanSite(pyVmomi.vmodl.DynamicData):
    name: str
 
 
-class RemoteVsanSiteAffinity(DynamicData):
-   clientSite: Optional[RemoteVsanSite] = None
+class RemoteVsanSiteAffinity(pyVmomi.vmodl.DynamicData):
+   clientSite: _typing.Optional[RemoteVsanSite] = None
    serverSite: RemoteVsanSite
 
 
-class RepairTimerInfo(DynamicData):
+class RepairTimerInfo(pyVmomi.vmodl.DynamicData):
    maxTimeToRepair: int
    minTimeToRepair: int
    objectCount: int
-   objectCountWithRepairTimer: Optional[int] = None
+   objectCountWithRepairTimer: _typing.Optional[int] = None
 
 class ResourceCheckComponentResult(ResourceCheckResult):
    type: str
@@ -776,132 +696,132 @@ class ResourceCheckComponentType:
 
 
 class ResourceCheckDataPersistenceResult(ResourceCheckComponentResult):
-   dataToRebuild: Optional[long] = None
+   dataToRebuild: _typing.Optional[pyVmomi.VmomiSupport.long] = None
    inaccessibleInstances: list[str] = []
    reducedAvailabilityInstances: list[str] = []
    rebuildInstances: list[str] = []
 
 
 class ResourceCheckResult(EntityResourceCheckDetails):
-   class ResourceCheckDedupStoreHealthState(Enum):
-      Inaccessible: ClassVar['ResourceCheckDedupStoreHealthState'] = 'Inaccessible'
-      Noncompliant: ClassVar['ResourceCheckDedupStoreHealthState'] = 'Noncompliant'
+   class ResourceCheckDedupStoreHealthState(pyVmomi.VmomiSupport.Enum):
+      Inaccessible: _typing.ClassVar['ResourceCheckDedupStoreHealthState'] = 'Inaccessible'
+      Noncompliant: _typing.ClassVar['ResourceCheckDedupStoreHealthState'] = 'Noncompliant'
 
-   timestamp: datetime
+   timestamp: _datetime.datetime
    status: str
-   messages: list[LocalizableMessage] = []
+   messages: list[pyVmomi.vmodl.LocalizableMessage] = []
    faultDomains: list[FaultDomainResourceCheckResult] = []
-   dataToMove: Optional[long] = None
+   dataToMove: _typing.Optional[pyVmomi.VmomiSupport.long] = None
    nonCompliantObjects: list[str] = []
    inaccessibleObjects: list[str] = []
-   capacityThreshold: Optional[VsanHealthThreshold] = None
-   health: Optional[VsanClusterHealthSummary] = None
-   dataToResync: Optional[long] = None
-   dedupStoreHealth: Optional[str] = None
+   capacityThreshold: _typing.Optional[VsanHealthThreshold] = None
+   health: _typing.Optional[pyVmomi.vim.cluster.VsanClusterHealthSummary] = None
+   dataToResync: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   dedupStoreHealth: _typing.Optional[str] = None
 
 
-class ResourceCheckSpec(DynamicData):
+class ResourceCheckSpec(pyVmomi.vmodl.DynamicData):
    operation: str
    entities: list[str] = []
-   maintenanceSpec: Optional[MaintenanceSpec] = None
-   parent: Optional[Task] = None
+   maintenanceSpec: _typing.Optional[pyVmomi.vim.host.MaintenanceSpec] = None
+   parent: _typing.Optional[pyVmomi.vim.Task] = None
 
 
-class ResourceCheckStatus(DynamicData):
+class ResourceCheckStatus(pyVmomi.vmodl.DynamicData):
    status: str
-   result: Optional[ResourceCheckResult] = None
-   task: Optional[ResourceCheckTaskDetails] = None
-   parentTask: Optional[ResourceCheckTaskDetails] = None
+   result: _typing.Optional[ResourceCheckResult] = None
+   task: _typing.Optional[ResourceCheckTaskDetails] = None
+   parentTask: _typing.Optional[ResourceCheckTaskDetails] = None
    componentResults: list[ResourceCheckComponentResult] = []
 
 class ResourceCheckStatusType:
    pass
 
 
-class ResourceCheckTaskDetails(DynamicData):
-   task: Task
-   host: Optional[HostSystem] = None
-   hostUuid: Optional[str] = None
-   maintenanceSpec: Optional[MaintenanceSpec] = None
+class ResourceCheckTaskDetails(pyVmomi.vmodl.DynamicData):
+   task: pyVmomi.vim.Task
+   host: _typing.Optional[pyVmomi.vim.HostSystem] = None
+   hostUuid: _typing.Optional[str] = None
+   maintenanceSpec: _typing.Optional[pyVmomi.vim.host.MaintenanceSpec] = None
 
 class ResourceCheckVsanResult(ResourceCheckComponentResult):
    pass
 
 
-class ResyncIopsInfo(DynamicData):
+class ResyncIopsInfo(pyVmomi.vmodl.DynamicData):
    resyncIops: int
 
 
-class RuntimeStatsHostMap(DynamicData):
-   host: HostSystem
-   stats: Optional[RuntimeStats] = None
+class RuntimeStatsHostMap(pyVmomi.vmodl.DynamicData):
+   host: pyVmomi.vim.HostSystem
+   stats: _typing.Optional[pyVmomi.vim.vsan.host.RuntimeStats] = None
 
 
-class SSDEnduranceThresholdSpec(DynamicData):
+class SSDEnduranceThresholdSpec(pyVmomi.vmodl.DynamicData):
    clustername: str
-   clusternameop: Optional[str] = None
-   hostname: Optional[str] = None
-   hostnameop: Optional[str] = None
-   diskname: Optional[str] = None
-   disknameop: Optional[str] = None
-   diskvendorname: Optional[str] = None
-   diskvendorop: Optional[str] = None
+   clusternameop: _typing.Optional[str] = None
+   hostname: _typing.Optional[str] = None
+   hostnameop: _typing.Optional[str] = None
+   diskname: _typing.Optional[str] = None
+   disknameop: _typing.Optional[str] = None
+   diskvendorname: _typing.Optional[str] = None
+   diskvendorop: _typing.Optional[str] = None
    ssdEndurancePtg: float
    severity: str
 
 
-class ServerHostUnicastInfo(DynamicData):
+class ServerHostUnicastInfo(pyVmomi.vmodl.DynamicData):
    hostUuid: str
-   nodeType: Optional[str] = None
-   unicastSpec: list[VsanUnicastAddressInfo] = []
-   thumbprintList: list[CertThumbprint] = []
+   nodeType: _typing.Optional[str] = None
+   unicastSpec: list[pyVmomi.vim.cluster.VsanUnicastAddressInfo] = []
+   thumbprintList: list[pyVmomi.vim.vm.CertThumbprint] = []
 
 
-class SharedWitnessCompatibilityResult(DynamicData):
+class SharedWitnessCompatibilityResult(pyVmomi.vmodl.DynamicData):
    witnessHostCompatibility: EntityCompatibilityResult
    roboClusterCompatibility: list[EntityCompatibilityResult] = []
 
 
 class SiteMaintenanceCheckTaskDetails(ResourceCheckTaskDetails):
-   cluster: ClusterComputeResource
+   cluster: pyVmomi.vim.ClusterComputeResource
    siteMaintenanceSpec: SiteMaintenanceSpec
 
 
-class SiteMaintenanceInfo(DynamicData):
+class SiteMaintenanceInfo(pyVmomi.vmodl.DynamicData):
    faultDomainName: str
    state: str
-   trackingTask: Optional[Task] = None
+   trackingTask: _typing.Optional[pyVmomi.vim.Task] = None
    hostStatus: list[HostSiteMaintenanceStatus] = []
-   statusUpdateTime: Optional[long] = None
+   statusUpdateTime: _typing.Optional[pyVmomi.VmomiSupport.long] = None
 
 
-class SiteMaintenancePrecheckDetail(DynamicData):
+class SiteMaintenancePrecheckDetail(pyVmomi.vmodl.DynamicData):
    testName: str
    testStatus: str
-   message: Optional[LocalizableMessage] = None
+   message: _typing.Optional[pyVmomi.vmodl.LocalizableMessage] = None
 
 
-class SiteMaintenancePrecheckStatus(DynamicData):
-   timestamp: datetime
+class SiteMaintenancePrecheckStatus(pyVmomi.vmodl.DynamicData):
+   timestamp: _datetime.datetime
    status: str
-   taskDetails: Optional[SiteMaintenanceCheckTaskDetails] = None
-   resourceCheckResult: Optional[SiteMaintenanceResourceCheckResult] = None
+   taskDetails: _typing.Optional[SiteMaintenanceCheckTaskDetails] = None
+   resourceCheckResult: _typing.Optional[SiteMaintenanceResourceCheckResult] = None
 
 
 class SiteMaintenanceResourceCheckResult(ResourceCheckVsanResult):
-   vmToMigrate: list[ManagedObject] = []
+   vmToMigrate: list[pyVmomi.VmomiSupport.ManagedObject] = []
    vmToPowerOffInfo: list[VMPowerOffInfo] = []
    checkDetails: list[SiteMaintenancePrecheckDetail] = []
 
 
-class SiteMaintenanceSpec(DynamicData):
+class SiteMaintenanceSpec(pyVmomi.vmodl.DynamicData):
    faultDomainName: str
 
 class SiteMaintenanceState:
    pass
 
 
-class SnapServiceConfig(DynamicData):
+class SnapServiceConfig(pyVmomi.vmodl.DynamicData):
    enabled: bool
 
 class SnapshotCreator:
@@ -912,70 +832,70 @@ class SnapshotType:
 
 
 class StoragePoolDiskResourceCheckResult(DiskResourceCheckResult):
-   diskType: Optional[str] = None
+   diskType: _typing.Optional[str] = None
 
 
 class StoragePoolResourceCheckResult(EntityResourceCheckDetails):
    disks: list[StoragePoolDiskResourceCheckResult] = []
 
 
-class VMPowerOffInfo(DynamicData):
-   vmToPowerOff: list[ManagedObject] = []
-   reason: Optional[LocalizableMessage] = None
+class VMPowerOffInfo(pyVmomi.vmodl.DynamicData):
+   vmToPowerOff: list[pyVmomi.VmomiSupport.ManagedObject] = []
+   reason: _typing.Optional[pyVmomi.vmodl.LocalizableMessage] = None
 
 
-class VbossConfig(DynamicData):
+class VbossConfig(pyVmomi.vmodl.DynamicData):
    enabled: bool
    configs: list[VbossObjectStoreConfig] = []
 
 
-class VbossObjectStoreConfig(DynamicData):
+class VbossObjectStoreConfig(pyVmomi.vmodl.DynamicData):
    id: str
-   secretKey: Optional[str] = None
+   secretKey: _typing.Optional[str] = None
    volumeUuids: list[str] = []
-   properties: Optional[str] = None
+   properties: _typing.Optional[str] = None
 
 
-class VcRemoteVsanServerClusterConfig(DynamicData):
+class VcRemoteVsanServerClusterConfig(pyVmomi.vmodl.DynamicData):
    serverClusters: list[VcRemoteVsanServerClusterInfo] = []
 
 
-class VcRemoteVsanServerClusterInfo(DynamicData):
+class VcRemoteVsanServerClusterInfo(pyVmomi.vmodl.DynamicData):
    clusterUuid: str
-   networkTopology: Optional[str] = None
+   networkTopology: _typing.Optional[str] = None
    siteAffinity: list[RemoteVsanSiteAffinity] = []
-   ownerVc: Optional[str] = None
-   ditConfig: Optional[DataInTransitEncryptionConfig] = None
+   ownerVc: _typing.Optional[str] = None
+   ditConfig: _typing.Optional[DataInTransitEncryptionConfig] = None
 
 
 class VipConfig(VipConfigSpec):
-   vmknicName: Optional[str] = None
-   owner: Optional[HostSystem] = None
-   ownerHostUuid: Optional[str] = None
+   vmknicName: _typing.Optional[str] = None
+   owner: _typing.Optional[pyVmomi.vim.HostSystem] = None
+   ownerHostUuid: _typing.Optional[str] = None
 
 
-class VipConfigSpec(DynamicData):
-   enabled: Optional[bool] = None
-   v4NetworkConfig: Optional[VipNetworkConfig] = None
-   v6NetworkConfig: Optional[VipNetworkConfig] = None
-   vswitchConfig: Optional[VipVswitchConfig] = None
-   distributedSwitchConfig: Optional[VipDVswitchConfig] = None
+class VipConfigSpec(pyVmomi.vmodl.DynamicData):
+   enabled: _typing.Optional[bool] = None
+   v4NetworkConfig: _typing.Optional[VipNetworkConfig] = None
+   v6NetworkConfig: _typing.Optional[VipNetworkConfig] = None
+   vswitchConfig: _typing.Optional[VipVswitchConfig] = None
+   distributedSwitchConfig: _typing.Optional[VipDVswitchConfig] = None
 
 
-class VipDVswitchConfig(DynamicData):
-   portGroup: Optional[DistributedVirtualPortgroup] = None
-   dvsUuid: Optional[str] = None
+class VipDVswitchConfig(pyVmomi.vmodl.DynamicData):
+   portGroup: _typing.Optional[pyVmomi.vim.dvs.DistributedVirtualPortgroup] = None
+   dvsUuid: _typing.Optional[str] = None
 
 
-class VipNetworkConfig(DynamicData):
+class VipNetworkConfig(pyVmomi.vmodl.DynamicData):
    ipAddress: str
    subnet: str
-   gateway: Optional[str] = None
+   gateway: _typing.Optional[str] = None
 
 
-class VipVswitchConfig(DynamicData):
+class VipVswitchConfig(pyVmomi.vmodl.DynamicData):
    vswitchName: str
-   vlanId: Optional[int] = None
+   vlanId: _typing.Optional[int] = None
 
 class VsanAnalyticsEventLocationType:
    pass
@@ -987,160 +907,160 @@ class VsanAnalyticsEventType:
    pass
 
 
-class VsanBurnInTest(DynamicData):
+class VsanBurnInTest(pyVmomi.vmodl.DynamicData):
    testname: str
-   workload: Optional[str] = None
-   duration: long
+   workload: _typing.Optional[str] = None
+   duration: pyVmomi.VmomiSupport.long
    result: str
 
 
-class VsanBurnInTestCheckResult(DynamicData):
+class VsanBurnInTestCheckResult(pyVmomi.vmodl.DynamicData):
    passedTests: list[VsanBurnInTest] = []
    notPerformedTests: list[VsanBurnInTest] = []
    failedTests: list[VsanBurnInTest] = []
 
 
-class VsanCloudHealthStatus(DynamicData):
-   collectorRunning: Optional[bool] = None
-   lastSentTimestamp: Optional[str] = None
-   internetConnectivity: Optional[bool] = None
+class VsanCloudHealthStatus(pyVmomi.vmodl.DynamicData):
+   collectorRunning: _typing.Optional[bool] = None
+   lastSentTimestamp: _typing.Optional[str] = None
+   internetConnectivity: _typing.Optional[bool] = None
 
 
-class VsanClusterBurnInTestResultList(DynamicData):
+class VsanClusterBurnInTestResultList(pyVmomi.vmodl.DynamicData):
    items: list[VsanBurnInTest] = []
    hosts: list[str] = []
 
 
-class VsanCompliantDriver(DynamicData):
+class VsanCompliantDriver(pyVmomi.vmodl.DynamicData):
    driverName: str
    driverVersion: str
    supportedFeatures: list[str] = []
 
 
-class VsanCompliantFirmware(DynamicData):
+class VsanCompliantFirmware(pyVmomi.vmodl.DynamicData):
    firmwareVersion: str
    compliantDrivers: list[VsanCompliantDriver] = []
 
 
-class VsanConfigBaseIssue(DynamicData):
+class VsanConfigBaseIssue(pyVmomi.vmodl.DynamicData):
    pass
 
 
-class VsanConfigCheckResult(DynamicData):
+class VsanConfigCheckResult(pyVmomi.vmodl.DynamicData):
    vsanEnabled: bool
    issues: list[VsanConfigBaseIssue] = []
 
 
 class VsanConfigNotAllDisksClaimedIssue(VsanConfigBaseIssue):
-   host: HostSystem
+   host: pyVmomi.vim.HostSystem
    disks: list[str] = []
 
 class VsanConfigType:
    pass
 
 
-class VsanDatastoreDefaultPolicySelectionConfig(DynamicData):
+class VsanDatastoreDefaultPolicySelectionConfig(pyVmomi.vmodl.DynamicData):
    enabled: bool
 
 
-class VsanDeconvergedNetConfig(DynamicData):
+class VsanDeconvergedNetConfig(pyVmomi.vmodl.DynamicData):
    enabled: bool
 
 class VsanDiskCompatibilityType:
    pass
 
 
-class VsanDiskModelInfo(DynamicData):
+class VsanDiskModelInfo(pyVmomi.vmodl.DynamicData):
    productId: str
    vendor: str
-   partNumber: Optional[str] = None
+   partNumber: _typing.Optional[str] = None
 
 
-class VsanDownloadItem(DynamicData):
+class VsanDownloadItem(pyVmomi.vmodl.DynamicData):
    url: str
    sha1sum: str
-   formatType: Optional[str] = None
-   itemId: Optional[str] = None
+   formatType: _typing.Optional[str] = None
+   itemId: _typing.Optional[str] = None
 
 
-class VsanEsaConfig(DynamicData):
-   storagePoolSpecs: list[AddStoragePoolDiskSpec] = []
-   hclDiskClaimEnabled: Optional[bool] = None
-   datastoreDefaultPolicySelectionConfig: Optional[VsanDatastoreDefaultPolicySelectionConfig] = None
-   diskConfiguration: Optional[VsanEsaDiskConfiguration] = None
-   autoRAIDConfig: Optional[AutoRAIDConfig] = None
-   deleteStoragePoolDiskSpec: Optional[DeleteStoragePoolDiskSpec] = None
+class VsanEsaConfig(pyVmomi.vmodl.DynamicData):
+   storagePoolSpecs: list[pyVmomi.vim.vsan.host.AddStoragePoolDiskSpec] = []
+   hclDiskClaimEnabled: _typing.Optional[bool] = None
+   datastoreDefaultPolicySelectionConfig: _typing.Optional[VsanDatastoreDefaultPolicySelectionConfig] = None
+   diskConfiguration: _typing.Optional[VsanEsaDiskConfiguration] = None
+   autoRAIDConfig: _typing.Optional[AutoRAIDConfig] = None
+   deleteStoragePoolDiskSpec: _typing.Optional[pyVmomi.vim.vsan.host.DeleteStoragePoolDiskSpec] = None
 
 
-class VsanEsaConfigInfo(DynamicData):
-   hclDiskClaimEnabled: Optional[bool] = None
-   datastoreDefaultPolicySelectionConfig: Optional[VsanDatastoreDefaultPolicySelectionConfig] = None
-   diskConfiguration: Optional[VsanEsaDiskConfiguration] = None
-   autoRAIDConfig: Optional[AutoRAIDConfig] = None
+class VsanEsaConfigInfo(pyVmomi.vmodl.DynamicData):
+   hclDiskClaimEnabled: _typing.Optional[bool] = None
+   datastoreDefaultPolicySelectionConfig: _typing.Optional[VsanDatastoreDefaultPolicySelectionConfig] = None
+   diskConfiguration: _typing.Optional[VsanEsaDiskConfiguration] = None
+   autoRAIDConfig: _typing.Optional[AutoRAIDConfig] = None
 
 
-class VsanEsaDiskConfiguration(DynamicData):
+class VsanEsaDiskConfiguration(pyVmomi.vmodl.DynamicData):
    diskClaimConfiguration: list[DiskClaimConfiguration] = []
 
 
-class VsanExtendedConfig(DynamicData):
-   objectRepairTimer: Optional[long] = None
-   disableSiteReadLocality: Optional[bool] = None
-   enableCustomizedSwapObject: Optional[bool] = None
-   largeScaleClusterSupport: Optional[bool] = None
-   proactiveRebalanceInfo: Optional[ProactiveRebalanceInfo] = None
-   capacityReservationInfo: Optional[CapacityReservationInfo] = None
+class VsanExtendedConfig(pyVmomi.vmodl.DynamicData):
+   objectRepairTimer: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   disableSiteReadLocality: _typing.Optional[bool] = None
+   enableCustomizedSwapObject: _typing.Optional[bool] = None
+   largeScaleClusterSupport: _typing.Optional[bool] = None
+   proactiveRebalanceInfo: _typing.Optional[ProactiveRebalanceInfo] = None
+   capacityReservationInfo: _typing.Optional[CapacityReservationInfo] = None
 
 
-class VsanFileServiceOvfSpec(DynamicData):
-   version: Optional[str] = None
-   updateTime: Optional[datetime] = None
-   task: Optional[Task] = None
+class VsanFileServiceOvfSpec(pyVmomi.vmodl.DynamicData):
+   version: _typing.Optional[str] = None
+   updateTime: _typing.Optional[_datetime.datetime] = None
+   task: _typing.Optional[pyVmomi.vim.Task] = None
 
 
-class VsanFileServicePreflightCheckResult(DynamicData):
-   ovfInstalled: Optional[str] = None
-   fsvmVersion: Optional[str] = None
-   lastUpgradeDate: Optional[datetime] = None
-   ovfMixedModeIssue: Optional[str] = None
-   hostVersion: Optional[str] = None
-   mixedModeIssue: Optional[str] = None
-   networkPartitionIssue: Optional[str] = None
-   vsanDatastoreIssue: Optional[str] = None
-   domainConfigIssue: Optional[str] = None
-   fileServiceVersion: Optional[str] = None
-   dvsConfigIssue: Optional[str] = None
-   domainConfigWarning: Optional[str] = None
-   ntpConfigWarning: Optional[str] = None
-   svsConfigIssue: Optional[str] = None
-   nsxConfigIssue: Optional[str] = None
+class VsanFileServicePreflightCheckResult(pyVmomi.vmodl.DynamicData):
+   ovfInstalled: _typing.Optional[str] = None
+   fsvmVersion: _typing.Optional[str] = None
+   lastUpgradeDate: _typing.Optional[_datetime.datetime] = None
+   ovfMixedModeIssue: _typing.Optional[str] = None
+   hostVersion: _typing.Optional[str] = None
+   mixedModeIssue: _typing.Optional[str] = None
+   networkPartitionIssue: _typing.Optional[str] = None
+   vsanDatastoreIssue: _typing.Optional[str] = None
+   domainConfigIssue: _typing.Optional[str] = None
+   fileServiceVersion: _typing.Optional[str] = None
+   dvsConfigIssue: _typing.Optional[str] = None
+   domainConfigWarning: _typing.Optional[str] = None
+   ntpConfigWarning: _typing.Optional[str] = None
+   svsConfigIssue: _typing.Optional[str] = None
+   nsxConfigIssue: _typing.Optional[str] = None
 
 
-class VsanFileServiceSystem(ManagedObject):
-   def DownloadFileServiceOvf(self, downloadUrl: str) -> Task: ...
+class VsanFileServiceSystem(pyVmomi.VmomiSupport.ManagedObject):
+   def DownloadFileServiceOvf(self, downloadUrl: str) -> pyVmomi.vim.Task: ...
    def QueryFileServiceOvfs(self) -> list[VsanFileServiceOvfSpec]: ...
-   def FindOvfDownloadUrl(self, cluster: ClusterComputeResource) -> str: ...
-   def PerformFileServicePreflightCheck(self, cluster: ClusterComputeResource, domainConfig: Optional[FileServiceDomainConfig], network: Optional[Network], scope: Optional[str], domainUuid: Optional[str]) -> VsanFileServicePreflightCheckResult: ...
-   def CreateFileServiceDomain(self, domainConfig: FileServiceDomainConfig, cluster: Optional[ClusterComputeResource]) -> Task: ...
-   def ReconfigureFileServiceDomain(self, domainUuid: str, domainConfig: FileServiceDomainConfig, cluster: Optional[ClusterComputeResource], deleteDomainConfigFields: list[str]) -> Task: ...
-   def RemoveFileServiceDomain(self, domainUuid: str, cluster: Optional[ClusterComputeResource]) -> Task: ...
-   def QueryFileServiceDomains(self, querySpec: Optional[FileServiceDomainQuerySpec], cluster: Optional[ClusterComputeResource]) -> list[FileServiceDomain]: ...
-   def CreateFileShare(self, config: FileShareConfig, cluster: Optional[ClusterComputeResource]) -> Task: ...
-   def ReconfigureFileShare(self, shareUuid: str, config: FileShareConfig, cluster: Optional[ClusterComputeResource], deleteLabelKeys: list[str], force: Optional[bool]) -> Task: ...
-   def RemoveFileShare(self, shareUuid: str, cluster: Optional[ClusterComputeResource], force: Optional[bool]) -> Task: ...
-   def QueryFileShares(self, querySpec: FileShareQuerySpec, cluster: Optional[ClusterComputeResource]) -> Optional[FileShareQueryResult]: ...
-   def UpgradeFsvm(self, cluster: ClusterComputeResource) -> Task: ...
-   def RebalanceFileService(self, cluster: Optional[ClusterComputeResource]) -> Task: ...
-   def CreateFileShareSnapshot(self, config: FileShareSnapshotConfig, cluster: Optional[ClusterComputeResource]) -> Task: ...
-   def RemoveFileShareSnapshot(self, shareUuid: str, snapshotName: str, cluster: Optional[ClusterComputeResource]) -> Task: ...
-   def QueryFileShareSnapshots(self, querySpec: FileShareSnapshotQuerySpec, cluster: Optional[ClusterComputeResource]) -> Optional[FileShareSnapshotQueryResult]: ...
+   def FindOvfDownloadUrl(self, cluster: pyVmomi.vim.ClusterComputeResource) -> str: ...
+   def PerformFileServicePreflightCheck(self, cluster: pyVmomi.vim.ClusterComputeResource, domainConfig: _typing.Optional[FileServiceDomainConfig], network: _typing.Optional[pyVmomi.vim.Network], scope: _typing.Optional[str], domainUuid: _typing.Optional[str]) -> VsanFileServicePreflightCheckResult: ...
+   def CreateFileServiceDomain(self, domainConfig: FileServiceDomainConfig, cluster: _typing.Optional[pyVmomi.vim.ClusterComputeResource]) -> pyVmomi.vim.Task: ...
+   def ReconfigureFileServiceDomain(self, domainUuid: str, domainConfig: FileServiceDomainConfig, cluster: _typing.Optional[pyVmomi.vim.ClusterComputeResource], deleteDomainConfigFields: list[str]) -> pyVmomi.vim.Task: ...
+   def RemoveFileServiceDomain(self, domainUuid: str, cluster: _typing.Optional[pyVmomi.vim.ClusterComputeResource]) -> pyVmomi.vim.Task: ...
+   def QueryFileServiceDomains(self, querySpec: _typing.Optional[FileServiceDomainQuerySpec], cluster: _typing.Optional[pyVmomi.vim.ClusterComputeResource]) -> list[FileServiceDomain]: ...
+   def CreateFileShare(self, config: FileShareConfig, cluster: _typing.Optional[pyVmomi.vim.ClusterComputeResource]) -> pyVmomi.vim.Task: ...
+   def ReconfigureFileShare(self, shareUuid: str, config: FileShareConfig, cluster: _typing.Optional[pyVmomi.vim.ClusterComputeResource], deleteLabelKeys: list[str], force: _typing.Optional[bool]) -> pyVmomi.vim.Task: ...
+   def RemoveFileShare(self, shareUuid: str, cluster: _typing.Optional[pyVmomi.vim.ClusterComputeResource], force: _typing.Optional[bool]) -> pyVmomi.vim.Task: ...
+   def QueryFileShares(self, querySpec: FileShareQuerySpec, cluster: _typing.Optional[pyVmomi.vim.ClusterComputeResource]) -> _typing.Optional[FileShareQueryResult]: ...
+   def UpgradeFsvm(self, cluster: pyVmomi.vim.ClusterComputeResource) -> pyVmomi.vim.Task: ...
+   def RebalanceFileService(self, cluster: _typing.Optional[pyVmomi.vim.ClusterComputeResource]) -> pyVmomi.vim.Task: ...
+   def CreateFileShareSnapshot(self, config: FileShareSnapshotConfig, cluster: _typing.Optional[pyVmomi.vim.ClusterComputeResource]) -> pyVmomi.vim.Task: ...
+   def RemoveFileShareSnapshot(self, shareUuid: str, snapshotName: str, cluster: _typing.Optional[pyVmomi.vim.ClusterComputeResource]) -> pyVmomi.vim.Task: ...
+   def QueryFileShareSnapshots(self, querySpec: FileShareSnapshotQuerySpec, cluster: _typing.Optional[pyVmomi.vim.ClusterComputeResource]) -> _typing.Optional[FileShareSnapshotQueryResult]: ...
 
 
-class VsanGenericClusterBaseIssue(DynamicData):
+class VsanGenericClusterBaseIssue(pyVmomi.vmodl.DynamicData):
    pass
 
 
-class VsanGenericClusterBestPracticeHealth(DynamicData):
+class VsanGenericClusterBestPracticeHealth(pyVmomi.vmodl.DynamicData):
    drsEnabled: bool
    haEnabled: bool
    issues: list[VsanGenericClusterBaseIssue] = []
@@ -1149,69 +1069,69 @@ class VsanHciMeshConfigLimits:
    pass
 
 
-class VsanHclDeviceConstraint(DynamicData):
+class VsanHclDeviceConstraint(pyVmomi.vmodl.DynamicData):
    pciId: str
-   vcgLink: Optional[str] = None
+   vcgLink: _typing.Optional[str] = None
    similarVcgLinks: list[str] = []
    compliantFirmwares: list[VsanCompliantFirmware] = []
-   vcgId: Optional[int] = None
-   model: Optional[str] = None
-   partner: Optional[str] = None
-   partNumber: Optional[str] = None
-   release: Optional[str] = None
+   vcgId: _typing.Optional[int] = None
+   model: _typing.Optional[str] = None
+   partner: _typing.Optional[str] = None
+   partNumber: _typing.Optional[str] = None
+   release: _typing.Optional[str] = None
 
 
-class VsanHclDiskConstraint(DynamicData):
+class VsanHclDiskConstraint(pyVmomi.vmodl.DynamicData):
    productId: str
    vendor: str
    constraints: list[VsanHclMinFwConstraint] = []
    pcieConstraints: list[VsanHclDeviceConstraint] = []
-   partNumber: Optional[str] = None
+   partNumber: _typing.Optional[str] = None
 
 
-class VsanHclDriverInfo(DynamicData):
-   driverVersion: Optional[str] = None
-   driverLink: Optional[VsanDownloadItem] = None
-   fwVersion: Optional[str] = None
+class VsanHclDriverInfo(pyVmomi.vmodl.DynamicData):
+   driverVersion: _typing.Optional[str] = None
+   driverLink: _typing.Optional[VsanDownloadItem] = None
+   fwVersion: _typing.Optional[str] = None
    fwLinks: list[VsanDownloadItem] = []
    toolsLinks: list[VsanDownloadItem] = []
-   eula: Optional[str] = None
-   driverType: Optional[str] = None
-   driverName: Optional[str] = None
+   eula: _typing.Optional[str] = None
+   driverType: _typing.Optional[str] = None
+   driverName: _typing.Optional[str] = None
    diskModes: list[str] = []
    supportedFeatures: list[str] = []
 
 
-class VsanHclMinFwConstraint(DynamicData):
+class VsanHclMinFwConstraint(pyVmomi.vmodl.DynamicData):
    vcgId: int
    vcgLink: str
    model: str
    partner: str
-   partNumber: Optional[str] = None
+   partNumber: _typing.Optional[str] = None
    release: str
    firmware: str
 
 
-class VsanHclQuerySpec(DynamicData):
-   includeOnlyVsanControllers: Optional[bool] = None
-   cluster: Optional[ComputeResource] = None
-   hosts: list[HostSystem] = []
-   vsanStoragePoolEligibleDisksOnly: Optional[bool] = None
+class VsanHclQuerySpec(pyVmomi.vmodl.DynamicData):
+   includeOnlyVsanControllers: _typing.Optional[bool] = None
+   cluster: _typing.Optional[pyVmomi.vim.ComputeResource] = None
+   hosts: list[pyVmomi.vim.HostSystem] = []
+   vsanStoragePoolEligibleDisksOnly: _typing.Optional[bool] = None
 
 
-class VsanHclReleaseConstraint(DynamicData):
-   cluster: ClusterComputeResource
+class VsanHclReleaseConstraint(pyVmomi.vmodl.DynamicData):
+   cluster: pyVmomi.vim.ClusterComputeResource
    release: str
    hostDevices: list[VsanHostDeviceInfo] = []
    constraints: list[VsanHclDeviceConstraint] = []
 
 
-class VsanHealthConfigSpec(DynamicData):
+class VsanHealthConfigSpec(pyVmomi.vmodl.DynamicData):
    healthCheckThresholdSpec: list[VsanHealthThreshold] = []
-   historicalHealthConfig: Optional[VsanHistoricalHealthConfig] = None
+   historicalHealthConfig: _typing.Optional[VsanHistoricalHealthConfig] = None
 
 
-class VsanHealthCustomizationSpec(DynamicData):
+class VsanHealthCustomizationSpec(pyVmomi.vmodl.DynamicData):
    ssdEnduranceSpec: list[SSDEnduranceThresholdSpec] = []
 
 class VsanHealthPerspective:
@@ -1224,162 +1144,162 @@ class VsanHealthStatusType:
    pass
 
 
-class VsanHealthThreshold(DynamicData):
-   yellowValue: long
-   redValue: long
-   target: Optional[str] = None
-   enabled: Optional[bool] = None
+class VsanHealthThreshold(pyVmomi.vmodl.DynamicData):
+   yellowValue: pyVmomi.VmomiSupport.long
+   redValue: pyVmomi.VmomiSupport.long
+   target: _typing.Optional[str] = None
+   enabled: _typing.Optional[bool] = None
 
 class VsanHealthThresholdTarget:
    pass
 
 
-class VsanHistoricalHealthConfig(DynamicData):
+class VsanHistoricalHealthConfig(pyVmomi.vmodl.DynamicData):
    enabled: bool
 
 
-class VsanHostDeviceInfo(DynamicData):
+class VsanHostDeviceInfo(pyVmomi.vmodl.DynamicData):
    hostname: str
-   devices: list[VsanBasicDeviceInfo] = []
+   devices: list[pyVmomi.vim.host.VsanBasicDeviceInfo] = []
 
 
-class VsanHostVdsSystem(ManagedObject):
-   def VsanMigrateVmsToVds(self, vmConfigSpecs: list[VsanVmVdsMigrationSpec], vdsUuid: str, timeoutSec: long, revert: Optional[bool]) -> str: ...
+class VsanHostVdsSystem(pyVmomi.VmomiSupport.ManagedObject):
+   def VsanMigrateVmsToVds(self, vmConfigSpecs: list[VsanVmVdsMigrationSpec], vdsUuid: str, timeoutSec: pyVmomi.VmomiSupport.long, revert: _typing.Optional[bool]) -> str: ...
    def VsanCompleteMigrateVmsToVds(self, jobId: str, newState: str) -> None: ...
 
 
-class VsanHwToVcgInfoMappingSpec(DynamicData):
+class VsanHwToVcgInfoMappingSpec(pyVmomi.vmodl.DynamicData):
    entity: str
-   vsanHwToVcgInfoMappings: list[VsanHwToVcgInfoMapping] = []
+   vsanHwToVcgInfoMappings: list[pyVmomi.vim.host.VsanHwToVcgInfoMapping] = []
 
 
-class VsanIOTripAnalyzerConfig(DynamicData):
+class VsanIOTripAnalyzerConfig(pyVmomi.vmodl.DynamicData):
    recurrences: list[VsanIOTripAnalyzerRecurrence] = []
 
 
-class VsanIOTripAnalyzerRecurrence(DynamicData):
-   name: Optional[str] = None
+class VsanIOTripAnalyzerRecurrence(pyVmomi.vmodl.DynamicData):
+   name: _typing.Optional[str] = None
    targets: list[IODiagnosticsTarget] = []
-   startTime: datetime
-   endTime: Optional[datetime] = None
-   duration: long
-   interval: long
+   startTime: _datetime.datetime
+   endTime: _typing.Optional[_datetime.datetime] = None
+   duration: pyVmomi.VmomiSupport.long
+   interval: pyVmomi.VmomiSupport.long
    status: str
 
 class VsanIOTripAnalyzerRecurrenceStatus:
    pass
 
 
-class VsanInternalExtendedConfig(DynamicData):
-   vcMaxDiskVersion: Optional[int] = None
-   stretchedClient: Optional[bool] = None
+class VsanInternalExtendedConfig(pyVmomi.vmodl.DynamicData):
+   vcMaxDiskVersion: _typing.Optional[int] = None
+   stretchedClient: _typing.Optional[bool] = None
 
 
-class VsanNetworkConfigBaseIssue(DynamicData):
+class VsanNetworkConfigBaseIssue(pyVmomi.vmodl.DynamicData):
    pass
 
 
-class VsanNetworkConfigBestPracticeHealth(DynamicData):
+class VsanNetworkConfigBestPracticeHealth(pyVmomi.vmodl.DynamicData):
    vdsPresent: bool
    issues: list[VsanNetworkConfigBaseIssue] = []
 
 
 class VsanNetworkConfigPnicSpeedInconsistencyIssue(VsanNetworkConfigBaseIssue):
-   host: HostSystem
-   vswitchName: Optional[str] = None
-   vds: Optional[DistributedVirtualSwitch] = None
-   speedsMb: list[long] = []
+   host: pyVmomi.vim.HostSystem
+   vswitchName: _typing.Optional[str] = None
+   vds: _typing.Optional[pyVmomi.vim.DistributedVirtualSwitch] = None
+   speedsMb: list[pyVmomi.VmomiSupport.long] = []
 
 
 class VsanNetworkConfigPortgroupWithNoRedundancyIssue(VsanNetworkConfigBaseIssue):
-   host: HostSystem
-   portgroupName: Optional[str] = None
-   vds: Optional[DistributedVirtualSwitch] = None
-   pg: Optional[Network] = None
-   numPnics: long
+   host: pyVmomi.vim.HostSystem
+   portgroupName: _typing.Optional[str] = None
+   vds: _typing.Optional[pyVmomi.vim.DistributedVirtualSwitch] = None
+   pg: _typing.Optional[pyVmomi.vim.Network] = None
+   numPnics: pyVmomi.VmomiSupport.long
 
 
 class VsanNetworkConfigVdsScopeIssue(VsanNetworkConfigBaseIssue):
-   vds: DistributedVirtualSwitch
-   memberHosts: list[HostSystem] = []
-   nonMemberHosts: list[HostSystem] = []
+   vds: pyVmomi.vim.DistributedVirtualSwitch
+   memberHosts: list[pyVmomi.vim.HostSystem] = []
+   nonMemberHosts: list[pyVmomi.vim.HostSystem] = []
 
 
 class VsanNetworkConfigVsanNotOnVdsIssue(VsanNetworkConfigBaseIssue):
-   host: HostSystem
+   host: pyVmomi.vim.HostSystem
    vmknic: str
 
 
 class VsanNetworkConfigVswitchWithNoRedundancyIssue(VsanNetworkConfigBaseIssue):
-   host: HostSystem
-   vswitchName: Optional[str] = None
-   vds: Optional[DistributedVirtualSwitch] = None
-   numPnics: long
+   host: pyVmomi.vim.HostSystem
+   vswitchName: _typing.Optional[str] = None
+   vds: _typing.Optional[pyVmomi.vim.DistributedVirtualSwitch] = None
+   numPnics: pyVmomi.VmomiSupport.long
 
 
 class VsanNetworkVMotionVmknicNotFountIssue(VsanNetworkConfigBaseIssue):
-   hostWithoutVmotionVmknic: HostSystem
+   hostWithoutVmotionVmknic: pyVmomi.vim.HostSystem
 
 
-class VsanObjSnapParams(DynamicData):
+class VsanObjSnapParams(pyVmomi.vmodl.DynamicData):
    uuid: str
-   creator: Optional[str] = None
-   snapshotType: Optional[str] = None
-   cookie: Optional[str] = None
-   immutableTag: Optional[str] = None
+   creator: _typing.Optional[str] = None
+   snapshotType: _typing.Optional[str] = None
+   cookie: _typing.Optional[str] = None
+   immutableTag: _typing.Optional[str] = None
 
 
-class VsanObjectDetail(DynamicData):
+class VsanObjectDetail(pyVmomi.vmodl.DynamicData):
    uuid: str
-   objectPath: Optional[str] = None
+   objectPath: _typing.Optional[str] = None
    snapshots: list[VsanSnapshotDetail] = []
 
 
-class VsanObjectManager(ManagedObject):
+class VsanObjectManager(pyVmomi.VmomiSupport.ManagedObject):
    pass
 
 
-class VsanObjectSnapshotId(DynamicData):
+class VsanObjectSnapshotId(pyVmomi.vmodl.DynamicData):
    uuid: str
    snapshotId: int
-   cookie: Optional[str] = None
+   cookie: _typing.Optional[str] = None
 
 
-class VsanPMemConfig(DynamicData):
+class VsanPMemConfig(pyVmomi.vmodl.DynamicData):
    enabled: bool
 
 
-class VsanPerfsvcHealthResult(DynamicData):
-   statsObjectInfo: Optional[VsanObjectInformation] = None
-   statsObjectConsistent: Optional[bool] = None
-   statsObjectPolicyConsistent: Optional[bool] = None
-   datastoreCompatible: Optional[bool] = None
-   enoughFreeSpace: Optional[bool] = None
-   remediateAction: Optional[str] = None
-   hostResults: list[VsanPerfNodeInformation] = []
-   verboseModeStatus: Optional[bool] = None
+class VsanPerfsvcHealthResult(pyVmomi.vmodl.DynamicData):
+   statsObjectInfo: _typing.Optional[pyVmomi.vim.cluster.VsanObjectInformation] = None
+   statsObjectConsistent: _typing.Optional[bool] = None
+   statsObjectPolicyConsistent: _typing.Optional[bool] = None
+   datastoreCompatible: _typing.Optional[bool] = None
+   enoughFreeSpace: _typing.Optional[bool] = None
+   remediateAction: _typing.Optional[str] = None
+   hostResults: list[pyVmomi.vim.cluster.VsanPerfNodeInformation] = []
+   verboseModeStatus: _typing.Optional[bool] = None
 
 
-class VsanPolicyManager(ManagedObject):
+class VsanPolicyManager(pyVmomi.VmomiSupport.ManagedObject):
    pass
 
 class VsanPolicyRegulationCheckOpEnum:
    pass
 
 
-class VsanPrepareVsanForVcsaSpec(DynamicData):
-   vsanDiskMappingCreationSpec: Optional[DiskMappingCreationSpec] = None
-   vsanDataEfficiencyConfig: Optional[DataEfficiencyConfig] = None
-   taskId: Optional[str] = None
-   vsanDataEncryptionConfig: Optional[EncryptionInfo] = None
-   vsanAddStoragePoolDiskSpec: Optional[AddStoragePoolDiskSpec] = None
-   createNativeKeyProviderSpec: Optional[CreateNativeKeyProviderSpec] = None
+class VsanPrepareVsanForVcsaSpec(pyVmomi.vmodl.DynamicData):
+   vsanDiskMappingCreationSpec: _typing.Optional[pyVmomi.vim.vsan.host.DiskMappingCreationSpec] = None
+   vsanDataEfficiencyConfig: _typing.Optional[DataEfficiencyConfig] = None
+   taskId: _typing.Optional[str] = None
+   vsanDataEncryptionConfig: _typing.Optional[pyVmomi.vim.vsan.host.EncryptionInfo] = None
+   vsanAddStoragePoolDiskSpec: _typing.Optional[pyVmomi.vim.vsan.host.AddStoragePoolDiskSpec] = None
+   createNativeKeyProviderSpec: _typing.Optional[pyVmomi.vim.vsan.host.CreateNativeKeyProviderSpec] = None
 
 
-class VsanResourceCheckSystem(ManagedObject):
-   def PerformResourceCheck(self, resourceCheckSpec: ResourceCheckSpec, cluster: Optional[ClusterComputeResource]) -> Task: ...
-   def GetResourceCheckStatus(self, resourceCheckSpec: Optional[ResourceCheckSpec], cluster: Optional[ClusterComputeResource]) -> ResourceCheckStatus: ...
-   def PerformResourceCheckOnHost(self, resourceCheckSpec: ResourceCheckSpec) -> Task: ...
+class VsanResourceCheckSystem(pyVmomi.VmomiSupport.ManagedObject):
+   def PerformResourceCheck(self, resourceCheckSpec: ResourceCheckSpec, cluster: _typing.Optional[pyVmomi.vim.ClusterComputeResource]) -> pyVmomi.vim.Task: ...
+   def GetResourceCheckStatus(self, resourceCheckSpec: _typing.Optional[ResourceCheckSpec], cluster: _typing.Optional[pyVmomi.vim.ClusterComputeResource]) -> ResourceCheckStatus: ...
+   def PerformResourceCheckOnHost(self, resourceCheckSpec: ResourceCheckSpec) -> pyVmomi.vim.Task: ...
    def CancelResourceCheckOnHost(self) -> bool: ...
 
 class VsanServiceStatus:
@@ -1389,12 +1309,12 @@ class VsanSiteLocationType:
    pass
 
 
-class VsanSiteMaintenanceSystem(ManagedObject):
-   def EnterSiteMaintenanceMode(self, faultDomainName: str, cluster: ClusterComputeResource) -> Task: ...
-   def ExitSiteMaintenanceMode(self, faultDomainName: str, cluster: ClusterComputeResource) -> Task: ...
-   def PerformSiteMaintenancePrecheck(self, cluster: ClusterComputeResource, spec: SiteMaintenanceSpec) -> Task: ...
-   def GetSiteMaintenancePrecheckStatus(self, cluster: ClusterComputeResource, faultDomainName: str) -> SiteMaintenancePrecheckStatus: ...
-   def QueryClusterSiteMaintenanceState(self, cluster: ClusterComputeResource) -> list[SiteMaintenanceInfo]: ...
+class VsanSiteMaintenanceSystem(pyVmomi.VmomiSupport.ManagedObject):
+   def EnterSiteMaintenanceMode(self, faultDomainName: str, cluster: pyVmomi.vim.ClusterComputeResource) -> pyVmomi.vim.Task: ...
+   def ExitSiteMaintenanceMode(self, faultDomainName: str, cluster: pyVmomi.vim.ClusterComputeResource) -> pyVmomi.vim.Task: ...
+   def PerformSiteMaintenancePrecheck(self, cluster: pyVmomi.vim.ClusterComputeResource, spec: SiteMaintenanceSpec) -> pyVmomi.vim.Task: ...
+   def GetSiteMaintenancePrecheckStatus(self, cluster: pyVmomi.vim.ClusterComputeResource, faultDomainName: str) -> SiteMaintenancePrecheckStatus: ...
+   def QueryClusterSiteMaintenanceState(self, cluster: pyVmomi.vim.ClusterComputeResource) -> list[SiteMaintenanceInfo]: ...
 
 class VsanSnapHealthType:
    pass
@@ -1406,38 +1326,38 @@ class VsanSnapVmMembershipChangeStatus:
    pass
 
 
-class VsanSnapshotDetail(DynamicData):
+class VsanSnapshotDetail(pyVmomi.vmodl.DynamicData):
    snapshotId: int
    snapshotType: str
-   snapshotPath: Optional[str] = None
-   snapshotTagsInfo: list[KeyValue] = []
+   snapshotPath: _typing.Optional[str] = None
+   snapshotTagsInfo: list[pyVmomi.vim.KeyValue] = []
 
 
-class VsanSnapshotQueryResult(DynamicData):
+class VsanSnapshotQueryResult(pyVmomi.vmodl.DynamicData):
    objects: list[VsanObjectDetail] = []
 
 
-class VsanSnapshotQuerySpec(DynamicData):
+class VsanSnapshotQuerySpec(pyVmomi.vmodl.DynamicData):
    datastoreUuid: str
    objectUuids: list[str] = []
-   snapshotType: Optional[str] = None
-   creator: Optional[str] = None
-   includeDescriptorPath: Optional[bool] = None
-   snapshotTagMask: Optional[int] = None
+   snapshotType: _typing.Optional[str] = None
+   creator: _typing.Optional[str] = None
+   includeDescriptorPath: _typing.Optional[bool] = None
+   snapshotTagMask: _typing.Optional[int] = None
 
 
-class VsanSpaceEfficiencyMetadataSize(DynamicData):
-   dedupMetadataSize: Optional[long] = None
-   compressionMetadataSize: Optional[long] = None
+class VsanSpaceEfficiencyMetadataSize(pyVmomi.vmodl.DynamicData):
+   dedupMetadataSize: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   compressionMetadataSize: _typing.Optional[pyVmomi.VmomiSupport.long] = None
 
 
-class VsanSpaceEfficiencyRatio(DynamicData):
-   overallRatio: Optional[float] = None
-   compressionRatio: Optional[float] = None
-   dedupRatio: Optional[float] = None
-   dedupEnabledRatio: Optional[float] = None
-   thinProvisionRatio: Optional[float] = None
-   snapshotSavingRatio: Optional[float] = None
+class VsanSpaceEfficiencyRatio(pyVmomi.vmodl.DynamicData):
+   overallRatio: _typing.Optional[float] = None
+   compressionRatio: _typing.Optional[float] = None
+   dedupRatio: _typing.Optional[float] = None
+   dedupEnabledRatio: _typing.Optional[float] = None
+   thinProvisionRatio: _typing.Optional[float] = None
+   snapshotSavingRatio: _typing.Optional[float] = None
 
 class VsanSyncReason:
    pass
@@ -1446,26 +1366,26 @@ class VsanSyncStatus:
    pass
 
 
-class VsanUnmapConfig(DynamicData):
+class VsanUnmapConfig(pyVmomi.vmodl.DynamicData):
    enable: bool
 
 
-class VsanUpdateItem(DynamicData):
-   host: HostSystem
+class VsanUpdateItem(pyVmomi.vmodl.DynamicData):
+   host: pyVmomi.vim.HostSystem
    type: str
    name: str
    version: str
-   existingVersion: Optional[str] = None
+   existingVersion: _typing.Optional[str] = None
    present: bool
    vibSpec: list[VsanVibSpec] = []
-   vibType: Optional[str] = None
-   firmwareSpec: Optional[VsanHclFirmwareUpdateSpec] = None
+   vibType: _typing.Optional[str] = None
+   firmwareSpec: _typing.Optional[pyVmomi.vim.host.VsanHclFirmwareUpdateSpec] = None
    downloadInfo: list[VsanDownloadItem] = []
-   eula: Optional[str] = None
-   adapter: Optional[str] = None
-   key: Optional[str] = None
-   impact: Optional[str] = None
-   firmwareUnknown: Optional[bool] = None
+   eula: _typing.Optional[str] = None
+   adapter: _typing.Optional[str] = None
+   key: _typing.Optional[str] = None
+   impact: _typing.Optional[str] = None
+   firmwareUnknown: _typing.Optional[bool] = None
 
 class VsanUpdateItemImpactType:
    pass
@@ -1474,101 +1394,101 @@ class VsanUpdateItemType:
    pass
 
 
-class VsanValidationItem(ClusterComputeResource.ValidationResultBase):
+class VsanValidationItem(pyVmomi.vim.ClusterComputeResource.ValidationResultBase):
    pass
 
 
-class VsanVcPostDeployConfigSpec(DynamicData):
-   dcName: Optional[str] = None
-   clusterName: Optional[str] = None
-   firstHost: Optional[ConnectSpec] = None
-   hostsToAdd: list[ConnectSpec] = []
-   vsanDataEfficiencyConfig: Optional[DataEfficiencyConfig] = None
-   vsanLicenseKey: Optional[str] = None
-   hostLicenseKey: Optional[str] = None
-   taskId: Optional[str] = None
-   vsanDataEncryptionConfig: Optional[EncryptionInfo] = None
-   createNativeKeyProviderSpec: Optional[CreateNativeKeyProviderSpec] = None
-   vsanClusterMode: Optional[str] = None
-   deconvergedNetConfig: Optional[VsanDeconvergedNetConfig] = None
+class VsanVcPostDeployConfigSpec(pyVmomi.vmodl.DynamicData):
+   dcName: _typing.Optional[str] = None
+   clusterName: _typing.Optional[str] = None
+   firstHost: _typing.Optional[pyVmomi.vim.host.ConnectSpec] = None
+   hostsToAdd: list[pyVmomi.vim.host.ConnectSpec] = []
+   vsanDataEfficiencyConfig: _typing.Optional[DataEfficiencyConfig] = None
+   vsanLicenseKey: _typing.Optional[str] = None
+   hostLicenseKey: _typing.Optional[str] = None
+   taskId: _typing.Optional[str] = None
+   vsanDataEncryptionConfig: _typing.Optional[pyVmomi.vim.vsan.host.EncryptionInfo] = None
+   createNativeKeyProviderSpec: _typing.Optional[pyVmomi.vim.vsan.host.CreateNativeKeyProviderSpec] = None
+   vsanClusterMode: _typing.Optional[str] = None
+   deconvergedNetConfig: _typing.Optional[VsanDeconvergedNetConfig] = None
 
 
-class VsanVcStretchedClusterConfigSpec(DynamicData):
-   witnessHost: HostSystem
-   clusters: list[VsanStretchedClusterConfig] = []
-   witnessDiskMappings: list[DiskMapping] = []
-   witnessStoragePoolSpecs: list[AddStoragePoolDiskSpec] = []
+class VsanVcStretchedClusterConfigSpec(pyVmomi.vmodl.DynamicData):
+   witnessHost: pyVmomi.vim.HostSystem
+   clusters: list[pyVmomi.vim.cluster.VsanStretchedClusterConfig] = []
+   witnessDiskMappings: list[pyVmomi.vim.vsan.host.DiskMapping] = []
+   witnessStoragePoolSpecs: list[pyVmomi.vim.vsan.host.AddStoragePoolDiskSpec] = []
 
 class VsanVcsaDeploymentPhase:
    pass
 
 
-class VsanVcsaDeploymentProgress(DynamicData):
+class VsanVcsaDeploymentProgress(pyVmomi.vmodl.DynamicData):
    phase: str
-   progressPct: long
+   progressPct: pyVmomi.VmomiSupport.long
    message: str
    success: bool
-   error: Optional[MethodFault] = None
-   updateCounter: long
-   taskId: Optional[str] = None
-   vm: Optional[VirtualMachine] = None
+   error: _typing.Optional[pyVmomi.vmodl.MethodFault] = None
+   updateCounter: pyVmomi.VmomiSupport.long
+   taskId: _typing.Optional[str] = None
+   vm: _typing.Optional[pyVmomi.vim.VirtualMachine] = None
 
 
-class VsanVdsMigrationPlan(DynamicData):
-   vdsSpec: DistributedVirtualSwitch.CreateSpec
+class VsanVdsMigrationPlan(pyVmomi.vmodl.DynamicData):
+   vdsSpec: pyVmomi.vim.DistributedVirtualSwitch.CreateSpec
    pgs: list[VsanVdsPgMigrationSpec] = []
-   inaccessibleVms: list[VirtualMachine] = []
-   infraVms: list[VirtualMachine] = []
+   inaccessibleVms: list[pyVmomi.vim.VirtualMachine] = []
+   infraVms: list[pyVmomi.vim.VirtualMachine] = []
 
 
-class VsanVdsPgMigrationHostInfo(DynamicData):
-   host: HostSystem
+class VsanVdsPgMigrationHostInfo(pyVmomi.vmodl.DynamicData):
+   host: pyVmomi.vim.HostSystem
    hostname: str
    vmknicDevices: list[str] = []
    vmVnics: list[VsanVdsPgMigrationVmInfo] = []
 
 
-class VsanVdsPgMigrationSpec(DynamicData):
+class VsanVdsPgMigrationSpec(pyVmomi.vmodl.DynamicData):
    vssPgName: str
    dvPgName: str
-   vdsPgSetting: VmwareDistributedVirtualSwitch.VmwarePortConfigPolicy
+   vdsPgSetting: pyVmomi.vim.dvs.VmwareDistributedVirtualSwitch.VmwarePortConfigPolicy
    vdsPgType: str
    hosts: list[VsanVdsPgMigrationHostInfo] = []
    collisionRename: bool
 
 
-class VsanVdsPgMigrationVmInfo(DynamicData):
-   vm: VirtualMachine
+class VsanVdsPgMigrationVmInfo(pyVmomi.vmodl.DynamicData):
+   vm: pyVmomi.vim.VirtualMachine
    vnicLabel: list[str] = []
 
 
-class VsanVdsSystem(ManagedObject):
-   def VsanVdsGetMigrationPlan(self, cluster: ComputeResource, vswitchName: Optional[str], vdsName: Optional[str], vmnicDevices: list[str], infraVm: list[VirtualMachine], vds: Optional[VmwareDistributedVirtualSwitch], hosts: list[HostSystem]) -> VsanVdsMigrationPlan: ...
-   def VsanVdsMigrateVss(self, cluster: ComputeResource, migrationPlan: Optional[VsanVdsMigrationPlan], vswitchName: Optional[str], vdsName: Optional[str], vmnicDevices: list[str], infraVm: list[VirtualMachine], vds: Optional[VmwareDistributedVirtualSwitch], hosts: list[HostSystem]) -> Task: ...
-   def VsanVssMigrateVds(self, cluster: Optional[ComputeResource], hosts: list[HostSystem], vds: VmwareDistributedVirtualSwitch, vswitchName: Optional[str], vmnicDevices: list[str], infraVm: list[VirtualMachine]) -> Task: ...
-   def RollbackVdsToVss(self, task: Task) -> bool: ...
+class VsanVdsSystem(pyVmomi.VmomiSupport.ManagedObject):
+   def VsanVdsGetMigrationPlan(self, cluster: pyVmomi.vim.ComputeResource, vswitchName: _typing.Optional[str], vdsName: _typing.Optional[str], vmnicDevices: list[str], infraVm: list[pyVmomi.vim.VirtualMachine], vds: _typing.Optional[pyVmomi.vim.dvs.VmwareDistributedVirtualSwitch], hosts: list[pyVmomi.vim.HostSystem]) -> VsanVdsMigrationPlan: ...
+   def VsanVdsMigrateVss(self, cluster: pyVmomi.vim.ComputeResource, migrationPlan: _typing.Optional[VsanVdsMigrationPlan], vswitchName: _typing.Optional[str], vdsName: _typing.Optional[str], vmnicDevices: list[str], infraVm: list[pyVmomi.vim.VirtualMachine], vds: _typing.Optional[pyVmomi.vim.dvs.VmwareDistributedVirtualSwitch], hosts: list[pyVmomi.vim.HostSystem]) -> pyVmomi.vim.Task: ...
+   def VsanVssMigrateVds(self, cluster: _typing.Optional[pyVmomi.vim.ComputeResource], hosts: list[pyVmomi.vim.HostSystem], vds: pyVmomi.vim.dvs.VmwareDistributedVirtualSwitch, vswitchName: _typing.Optional[str], vmnicDevices: list[str], infraVm: list[pyVmomi.vim.VirtualMachine]) -> pyVmomi.vim.Task: ...
+   def RollbackVdsToVss(self, task: pyVmomi.vim.Task) -> bool: ...
 
 
-class VsanVibInstallPreflightStatus(DynamicData):
+class VsanVibInstallPreflightStatus(pyVmomi.vmodl.DynamicData):
    manualVmotionRequired: bool
    rollingRequired: bool
 
 
-class VsanVibScanResult(DynamicData):
-   host: HostSystem
+class VsanVibScanResult(pyVmomi.vmodl.DynamicData):
+   host: pyVmomi.vim.HostSystem
    vibName: str
    vibVersion: str
-   existingVersion: Optional[str] = None
+   existingVersion: _typing.Optional[str] = None
    maintenanceModeRequired: bool
    rebootRequired: bool
    meetsSystemReq: bool
    pkgDepsMetByHost: bool
 
 
-class VsanVibSpec(DynamicData):
-   host: HostSystem
-   metaUrl: Optional[str] = None
-   metaSha1Sum: Optional[str] = None
+class VsanVibSpec(pyVmomi.vmodl.DynamicData):
+   host: pyVmomi.vim.HostSystem
+   metaUrl: _typing.Optional[str] = None
+   metaSha1Sum: _typing.Optional[str] = None
    vibUrl: str
    vibSha1Sum: str
 
@@ -1576,41 +1496,41 @@ class VsanVibType:
    pass
 
 
-class VsanVmVdsMigrationSpec(DynamicData):
+class VsanVmVdsMigrationSpec(pyVmomi.vmodl.DynamicData):
    vmInstanceUuid: str
    vnics: list[VsanVnicVdsMigrationSpec] = []
 
 
-class VsanVnicVdsMigrationSpec(DynamicData):
+class VsanVnicVdsMigrationSpec(pyVmomi.vmodl.DynamicData):
    key: int
-   vdsBacking: VirtualDevice.BackingInfo
+   vdsBacking: pyVmomi.vim.vm.device.VirtualDevice.BackingInfo
 
 
-class VsanVumConfig(DynamicData):
+class VsanVumConfig(pyVmomi.vmodl.DynamicData):
    baselinePreferenceType: str
 
 
-class WitnessHostConfig(DynamicData):
+class WitnessHostConfig(pyVmomi.vmodl.DynamicData):
    subClusterUuid: str
    preferredFaultDomainName: str
-   metadataMode: Optional[bool] = None
+   metadataMode: _typing.Optional[bool] = None
 
 
-class XVCClientInfo(DynamicData):
-   cluster: ClusterComputeResource
+class XVCClientInfo(pyVmomi.vmodl.DynamicData):
+   cluster: pyVmomi.vim.ClusterComputeResource
    clusterName: str
    vsanFormatVersion: str
    ownerVc: str
-   vcUuid: Optional[str] = None
-   clusterUuid: Optional[str] = None
+   vcUuid: _typing.Optional[str] = None
+   clusterUuid: _typing.Optional[str] = None
 
 
-class XVCDatastoreConfig(DynamicData):
+class XVCDatastoreConfig(pyVmomi.vmodl.DynamicData):
    xvcDatastores: list[XVCDatastoreInfo] = []
 
 
-class XVCDatastoreInfo(DynamicData):
-   datastore: Datastore
+class XVCDatastoreInfo(pyVmomi.vmodl.DynamicData):
+   datastore: pyVmomi.vim.Datastore
    ownerVc: str
 
 
@@ -1618,59 +1538,59 @@ class XvcClientConfig(DatastoreSpec):
    xvcClusters: list[XVCClientInfo] = []
 
 
-class XvcClientInfoSpec(DynamicData):
+class XvcClientInfoSpec(pyVmomi.vmodl.DynamicData):
    clientVc: str
-   vcUuid: Optional[str] = None
-   vcVersion: Optional[str] = None
-   cluster: Optional[ClusterComputeResource] = None
-   clusterName: Optional[str] = None
-   clusterUuid: Optional[str] = None
-   vsanFormatVersion: Optional[str] = None
-   minVsanFormatVersion: Optional[str] = None
-   datastore: list[Datastore] = []
-   unicastInfo: Optional[ClientClusterUnicastInfo] = None
-   saGeneration: Optional[long] = None
+   vcUuid: _typing.Optional[str] = None
+   vcVersion: _typing.Optional[str] = None
+   cluster: _typing.Optional[pyVmomi.vim.ClusterComputeResource] = None
+   clusterName: _typing.Optional[str] = None
+   clusterUuid: _typing.Optional[str] = None
+   vsanFormatVersion: _typing.Optional[str] = None
+   minVsanFormatVersion: _typing.Optional[str] = None
+   datastore: list[pyVmomi.vim.Datastore] = []
+   unicastInfo: _typing.Optional[pyVmomi.vim.vsan.host.ClientClusterUnicastInfo] = None
+   saGeneration: _typing.Optional[pyVmomi.VmomiSupport.long] = None
 
 
-class XvcQueryCriteria(DynamicData):
+class XvcQueryCriteria(pyVmomi.vmodl.DynamicData):
    property: str
-   operator: Optional[str] = None
-   comparableValue: Optional[object] = None
-   comparableList: Optional[DynamicArray] = None
-   ignoreCase: Optional[bool] = None
+   operator: _typing.Optional[str] = None
+   comparableValue: _typing.Optional[object] = None
+   comparableList: _typing.Optional[pyVmomi.vmodl.DynamicArray] = None
+   ignoreCase: _typing.Optional[bool] = None
 
 class XvcQueryCriteriaOperator:
    pass
 
 
-class XvcQueryFilter(DynamicData):
+class XvcQueryFilter(pyVmomi.vmodl.DynamicData):
    criterias: list[XvcQueryCriteria] = []
-   operator: Optional[str] = None
+   operator: _typing.Optional[str] = None
 
 class XvcQueryFilterOperator:
    pass
 
 
-class XvcQueryPropertyValue(DynamicData):
-   value: Optional[object] = None
+class XvcQueryPropertyValue(pyVmomi.vmodl.DynamicData):
+   value: _typing.Optional[object] = None
 
 
-class XvcQueryResultSet(DynamicData):
+class XvcQueryResultSet(pyVmomi.vmodl.DynamicData):
    properties: list[str] = []
    resultItems: list[XvcResultItem] = []
-   totalCount: Optional[long] = None
+   totalCount: _typing.Optional[pyVmomi.VmomiSupport.long] = None
 
 
-class XvcQuerySpec(DynamicData):
-   objectModel: Optional[str] = None
+class XvcQuerySpec(pyVmomi.vmodl.DynamicData):
+   objectModel: _typing.Optional[str] = None
    properties: list[str] = []
-   filter: Optional[XvcQueryFilter] = None
-   offset: Optional[int] = None
-   limit: Optional[int] = None
-   returnTotalCount: Optional[bool] = None
+   filter: _typing.Optional[XvcQueryFilter] = None
+   offset: _typing.Optional[int] = None
+   limit: _typing.Optional[int] = None
+   returnTotalCount: _typing.Optional[bool] = None
 
 
-class XvcResultItem(DynamicData):
+class XvcResultItem(pyVmomi.vmodl.DynamicData):
    propertyValues: list[XvcQueryPropertyValue] = []
 
 class clusterPowerState:

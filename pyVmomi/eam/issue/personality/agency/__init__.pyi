@@ -3,15 +3,14 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import Optional
-
-from pyVmomi.vim import ComputeResource
-from pyVmomi.eam.issue import AgencyIssue
+import typing as _typing
+import pyVmomi.vim
+import pyVmomi.eam.issue
 
 
 
 class CannotConfigureSolutions(PMIssue):
-   cr: ComputeResource
+   cr: pyVmomi.vim.ComputeResource
    solutionsToModify: list[str] = []
    solutionsToRemove: list[str] = []
 
@@ -28,7 +27,7 @@ class InvalidDepot(DepotIssue):
    pass
 
 
-class PMIssue(AgencyIssue):
+class PMIssue(pyVmomi.eam.issue.AgencyIssue):
    pass
 
 class PMUnavailable(PMIssue):

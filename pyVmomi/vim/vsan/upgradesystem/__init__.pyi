@@ -3,70 +3,67 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import Optional
-
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import VsanUpgradeSystem
-
-from pyVmomi.vmodl import KeyAnyValue
+import typing as _typing
+import pyVmomi.vim
+import pyVmomi.vmodl
 
 
 
-class BrokenDiskChainIssue(VsanUpgradeSystem.PreflightCheckIssue):
+class BrokenDiskChainIssue(pyVmomi.vim.VsanUpgradeSystem.PreflightCheckIssue):
    uuids: list[str] = []
 
 
-class DisallowDataMovementIssue(VsanUpgradeSystem.PreflightCheckIssue):
+class DisallowDataMovementIssue(pyVmomi.vim.VsanUpgradeSystem.PreflightCheckIssue):
    pass
 
 
-class DisallowEvacuateDataIssue(VsanUpgradeSystem.PreflightCheckIssue):
-   hosts: list[HostSystem] = []
+class DisallowEvacuateDataIssue(pyVmomi.vim.VsanUpgradeSystem.PreflightCheckIssue):
+   hosts: list[pyVmomi.vim.HostSystem] = []
 
 
-class DiskUnhealthIssue(VsanUpgradeSystem.PreflightCheckIssue):
+class DiskUnhealthIssue(pyVmomi.vim.VsanUpgradeSystem.PreflightCheckIssue):
    uuids: list[str] = []
 
 
-class HigherObjectsPresentDuringDowngradeIssue(VsanUpgradeSystem.PreflightCheckIssue):
+class HigherObjectsPresentDuringDowngradeIssue(pyVmomi.vim.VsanUpgradeSystem.PreflightCheckIssue):
    uuids: list[str] = []
 
 
-class HostPropertyRetrieveIssue(VsanUpgradeSystem.PreflightCheckIssue):
-   hosts: list[HostSystem] = []
+class HostPropertyRetrieveIssue(pyVmomi.vim.VsanUpgradeSystem.PreflightCheckIssue):
+   hosts: list[pyVmomi.vim.HostSystem] = []
 
 
-class HostWithHybridDiskgroupIssue(VsanUpgradeSystem.PreflightCheckIssue):
-   hosts: list[HostSystem] = []
+class HostWithHybridDiskgroupIssue(pyVmomi.vim.VsanUpgradeSystem.PreflightCheckIssue):
+   hosts: list[pyVmomi.vim.HostSystem] = []
 
 
-class HostsCompressionOnlyNotSupported(VsanUpgradeSystem.PreflightCheckIssue):
-   hosts: list[HostSystem] = []
+class HostsCompressionOnlyNotSupported(pyVmomi.vim.VsanUpgradeSystem.PreflightCheckIssue):
+   hosts: list[pyVmomi.vim.HostSystem] = []
 
 
-class MixedEsxVersionInClientIssue(VsanUpgradeSystem.PreflightCheckIssue):
+class MixedEsxVersionInClientIssue(pyVmomi.vim.VsanUpgradeSystem.PreflightCheckIssue):
    clusterName: str
 
 
-class MixedEsxVersionIssue(VsanUpgradeSystem.PreflightCheckIssue):
+class MixedEsxVersionIssue(pyVmomi.vim.VsanUpgradeSystem.PreflightCheckIssue):
    pass
 
 
-class ObjectInaccessibleIssue(VsanUpgradeSystem.PreflightCheckIssue):
+class ObjectInaccessibleIssue(pyVmomi.vim.VsanUpgradeSystem.PreflightCheckIssue):
    uuids: list[str] = []
 
 
-class ObjectPolicyIssue(VsanUpgradeSystem.PreflightCheckIssue):
+class ObjectPolicyIssue(pyVmomi.vim.VsanUpgradeSystem.PreflightCheckIssue):
    uuids: list[str] = []
 
 
-class RemoteClusterNotCompatible(VsanUpgradeSystem.PreflightCheckIssue):
-   compatibilityInfo: list[KeyAnyValue] = []
+class RemoteClusterNotCompatible(pyVmomi.vim.VsanUpgradeSystem.PreflightCheckIssue):
+   compatibilityInfo: list[pyVmomi.vmodl.KeyAnyValue] = []
 
 
-class UnknownScanIssue(VsanUpgradeSystem.PreflightCheckIssue):
+class UnknownScanIssue(pyVmomi.vim.VsanUpgradeSystem.PreflightCheckIssue):
    uuids: list[str] = []
 
 
-class UnsupportedHighDiskVersionIssue(VsanUpgradeSystem.PreflightCheckIssue):
-   hosts: list[HostSystem] = []
+class UnsupportedHighDiskVersionIssue(pyVmomi.vim.VsanUpgradeSystem.PreflightCheckIssue):
+   hosts: list[pyVmomi.vim.HostSystem] = []

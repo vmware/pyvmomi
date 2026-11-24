@@ -3,28 +3,23 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import ClassVar
-from typing import Optional
-
-from pyVmomi.VmomiSupport import Enum
-
-from pyVmomi.VmomiSupport import ManagedMethod
-
-from pyVmomi.vmodl import DynamicData
+import typing as _typing
+import pyVmomi.VmomiSupport
+import pyVmomi.vmodl
 
 
 
-class Action(DynamicData):
-   class ActionParameter(Enum):
-      targetName: ClassVar['ActionParameter'] = 'targetName'
-      alarmName: ClassVar['ActionParameter'] = 'alarmName'
-      oldStatus: ClassVar['ActionParameter'] = 'oldStatus'
-      newStatus: ClassVar['ActionParameter'] = 'newStatus'
-      triggeringSummary: ClassVar['ActionParameter'] = 'triggeringSummary'
-      declaringSummary: ClassVar['ActionParameter'] = 'declaringSummary'
-      eventDescription: ClassVar['ActionParameter'] = 'eventDescription'
-      target: ClassVar['ActionParameter'] = 'target'
-      alarm: ClassVar['ActionParameter'] = 'alarm'
+class Action(pyVmomi.vmodl.DynamicData):
+   class ActionParameter(pyVmomi.VmomiSupport.Enum):
+      targetName: _typing.ClassVar['ActionParameter'] = 'targetName'
+      alarmName: _typing.ClassVar['ActionParameter'] = 'alarmName'
+      oldStatus: _typing.ClassVar['ActionParameter'] = 'oldStatus'
+      newStatus: _typing.ClassVar['ActionParameter'] = 'newStatus'
+      triggeringSummary: _typing.ClassVar['ActionParameter'] = 'triggeringSummary'
+      declaringSummary: _typing.ClassVar['ActionParameter'] = 'declaringSummary'
+      eventDescription: _typing.ClassVar['ActionParameter'] = 'eventDescription'
+      target: _typing.ClassVar['ActionParameter'] = 'target'
+      alarm: _typing.ClassVar['ActionParameter'] = 'alarm'
 
 class CreateTaskAction(Action):
    taskTypeId: str
@@ -32,12 +27,12 @@ class CreateTaskAction(Action):
 
 
 class MethodAction(Action):
-   name: ManagedMethod
+   name: pyVmomi.VmomiSupport.ManagedMethod
    argument: list[MethodActionArgument] = []
 
 
-class MethodActionArgument(DynamicData):
-   value: Optional[object] = None
+class MethodActionArgument(pyVmomi.vmodl.DynamicData):
+   value: _typing.Optional[object] = None
 
 class RunScriptAction(Action):
    script: str

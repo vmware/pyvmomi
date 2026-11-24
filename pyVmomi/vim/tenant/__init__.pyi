@@ -3,15 +3,13 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import Optional
-
-from pyVmomi.VmomiSupport import ManagedObject
-
-from pyVmomi.vim import ManagedEntity
+import typing as _typing
+import pyVmomi.VmomiSupport
+import pyVmomi.vim
 
 
 
-class TenantManager(ManagedObject):
-   def MarkServiceProviderEntities(self, entity: list[ManagedEntity]) -> None: ...
-   def UnmarkServiceProviderEntities(self, entity: list[ManagedEntity]) -> None: ...
-   def RetrieveServiceProviderEntities(self) -> list[ManagedEntity]: ...
+class TenantManager(pyVmomi.VmomiSupport.ManagedObject):
+   def MarkServiceProviderEntities(self, entity: list[pyVmomi.vim.ManagedEntity]) -> None: ...
+   def UnmarkServiceProviderEntities(self, entity: list[pyVmomi.vim.ManagedEntity]) -> None: ...
+   def RetrieveServiceProviderEntities(self) -> list[pyVmomi.vim.ManagedEntity]: ...

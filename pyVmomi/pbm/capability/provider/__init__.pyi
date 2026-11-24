@@ -3,68 +3,64 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import ClassVar
-from typing import Optional
-
-from pyVmomi.VmomiSupport import Enum
-
-from pyVmomi.pbm import ExtendedElementDescription
-from pyVmomi.vmodl import DynamicData
-
-from pyVmomi.pbm.capability import CapabilityMetadata
+import typing as _typing
+import pyVmomi.VmomiSupport
+import pyVmomi.pbm
+import pyVmomi.vmodl
+import pyVmomi.pbm.capability
 
 
 
-class CapabilityObjectMetadataPerCategory(DynamicData):
+class CapabilityObjectMetadataPerCategory(pyVmomi.vmodl.DynamicData):
    subCategory: str
-   capabilityMetadata: list[CapabilityMetadata] = []
+   capabilityMetadata: list[pyVmomi.pbm.capability.CapabilityMetadata] = []
 
 
-class CapabilityObjectSchema(DynamicData):
-   class VendorInfo(DynamicData):
+class CapabilityObjectSchema(pyVmomi.vmodl.DynamicData):
+   class VendorInfo(pyVmomi.vmodl.DynamicData):
       vendorUuid: str
-      info: ExtendedElementDescription
+      info: pyVmomi.pbm.ExtendedElementDescription
 
-   class NamespaceInfo(DynamicData):
+   class NamespaceInfo(pyVmomi.vmodl.DynamicData):
       version: str
       namespace: str
-      info: Optional[ExtendedElementDescription] = None
+      info: _typing.Optional[pyVmomi.pbm.ExtendedElementDescription] = None
 
-   class VendorResourceTypeInfo(DynamicData):
+   class VendorResourceTypeInfo(pyVmomi.vmodl.DynamicData):
       resourceType: str
       vendorNamespaceInfo: list[VendorNamespaceInfo] = []
 
-   class VendorNamespaceInfo(DynamicData):
+   class VendorNamespaceInfo(pyVmomi.vmodl.DynamicData):
       vendorInfo: VendorInfo
       namespaceInfo: NamespaceInfo
 
-   class CapabilityCategory(Enum):
-      common: ClassVar['CapabilityCategory'] = 'common'
-      datastoreSpecific: ClassVar['CapabilityCategory'] = 'datastoreSpecific'
+   class CapabilityCategory(pyVmomi.VmomiSupport.Enum):
+      common: _typing.ClassVar['CapabilityCategory'] = 'common'
+      datastoreSpecific: _typing.ClassVar['CapabilityCategory'] = 'datastoreSpecific'
 
    vendorInfo: VendorInfo
    namespaceInfo: NamespaceInfo
-   lineOfService: Optional[LineOfServiceInfo] = None
+   lineOfService: _typing.Optional[LineOfServiceInfo] = None
    capabilityMetadataPerCategory: list[CapabilityObjectMetadataPerCategory] = []
-   capabilityCategory: Optional[str] = None
+   capabilityCategory: _typing.Optional[str] = None
 
 
-class LineOfServiceInfo(DynamicData):
-   class LineOfServiceEnum(Enum):
-      INSPECTION: ClassVar['LineOfServiceEnum'] = 'INSPECTION'
-      COMPRESSION: ClassVar['LineOfServiceEnum'] = 'COMPRESSION'
-      ENCRYPTION: ClassVar['LineOfServiceEnum'] = 'ENCRYPTION'
-      REPLICATION: ClassVar['LineOfServiceEnum'] = 'REPLICATION'
-      CACHING: ClassVar['LineOfServiceEnum'] = 'CACHING'
-      PERSISTENCE: ClassVar['LineOfServiceEnum'] = 'PERSISTENCE'
-      DATA_PROVIDER: ClassVar['LineOfServiceEnum'] = 'DATA_PROVIDER'
-      DATASTORE_IO_CONTROL: ClassVar['LineOfServiceEnum'] = 'DATASTORE_IO_CONTROL'
-      DATA_PROTECTION: ClassVar['LineOfServiceEnum'] = 'DATA_PROTECTION'
-      STRETCHED_CLUSTER: ClassVar['LineOfServiceEnum'] = 'STRETCHED_CLUSTER'
+class LineOfServiceInfo(pyVmomi.vmodl.DynamicData):
+   class LineOfServiceEnum(pyVmomi.VmomiSupport.Enum):
+      INSPECTION: _typing.ClassVar['LineOfServiceEnum'] = 'INSPECTION'
+      COMPRESSION: _typing.ClassVar['LineOfServiceEnum'] = 'COMPRESSION'
+      ENCRYPTION: _typing.ClassVar['LineOfServiceEnum'] = 'ENCRYPTION'
+      REPLICATION: _typing.ClassVar['LineOfServiceEnum'] = 'REPLICATION'
+      CACHING: _typing.ClassVar['LineOfServiceEnum'] = 'CACHING'
+      PERSISTENCE: _typing.ClassVar['LineOfServiceEnum'] = 'PERSISTENCE'
+      DATA_PROVIDER: _typing.ClassVar['LineOfServiceEnum'] = 'DATA_PROVIDER'
+      DATASTORE_IO_CONTROL: _typing.ClassVar['LineOfServiceEnum'] = 'DATASTORE_IO_CONTROL'
+      DATA_PROTECTION: _typing.ClassVar['LineOfServiceEnum'] = 'DATA_PROTECTION'
+      STRETCHED_CLUSTER: _typing.ClassVar['LineOfServiceEnum'] = 'STRETCHED_CLUSTER'
 
    lineOfService: str
-   name: ExtendedElementDescription
-   description: Optional[ExtendedElementDescription] = None
+   name: pyVmomi.pbm.ExtendedElementDescription
+   description: _typing.Optional[pyVmomi.pbm.ExtendedElementDescription] = None
 
 
 class PersistenceBasedDataServiceInfo(LineOfServiceInfo):

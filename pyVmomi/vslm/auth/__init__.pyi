@@ -3,10 +3,10 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.VmomiSupport import ManagedObject
+import pyVmomi.VmomiSupport
 
 
 
-class SessionManager(ManagedObject):
+class SessionManager(pyVmomi.VmomiSupport.ManagedObject):
    def LoginByToken(self, delegatedTokenXml: str) -> None: ...
    def Logout(self) -> None: ...

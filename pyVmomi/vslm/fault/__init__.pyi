@@ -3,17 +3,15 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import Optional
-
-from pyVmomi.vmodl import MethodFault
-
-from pyVmomi.vim.vslm import ID
+import typing as _typing
+import pyVmomi.vmodl
+import pyVmomi.vim.vslm
 
 
 
 class SyncFault(VslmFault):
-   id: Optional[ID] = None
+   id: _typing.Optional[pyVmomi.vim.vslm.ID] = None
 
 
-class VslmFault(MethodFault):
-   msg: Optional[str] = None
+class VslmFault(pyVmomi.vmodl.MethodFault):
+   msg: _typing.Optional[str] = None

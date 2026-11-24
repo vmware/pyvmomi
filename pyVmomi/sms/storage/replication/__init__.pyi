@@ -3,35 +3,28 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from datetime import datetime
-from typing import Optional
-
-from pyVmomi.vim import Datastore
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import MethodFault
-
-from pyVmomi.sms.provider import Provider
-from pyVmomi.vim.vm.replication import DeviceGroupId
-
-from pyVmomi.vim.vm.replication import FaultDomainId
-
-from pyVmomi.vim.vm.replication import ReplicationGroupId
+import datetime as _datetime
+import typing as _typing
+import pyVmomi.vim
+import pyVmomi.vmodl
+import pyVmomi.sms.provider
+import pyVmomi.vim.vm.replication
 
 
 
-class DeviceId(DynamicData):
+class DeviceId(pyVmomi.vmodl.DynamicData):
    pass
 
 
-class FailoverParam(DynamicData):
-   class ReplicationGroupData(DynamicData):
-      groupId: ReplicationGroupId
-      pitId: Optional[PointInTimeReplicaId] = None
+class FailoverParam(pyVmomi.vmodl.DynamicData):
+   class ReplicationGroupData(pyVmomi.vmodl.DynamicData):
+      groupId: pyVmomi.vim.vm.replication.ReplicationGroupId
+      pitId: _typing.Optional[PointInTimeReplicaId] = None
 
-   class PolicyAssociation(DynamicData):
+   class PolicyAssociation(pyVmomi.vmodl.DynamicData):
       id: DeviceId
       policyId: str
-      datastore: Datastore
+      datastore: pyVmomi.vim.Datastore
 
    isPlanned: bool
    checkOnly: bool
@@ -40,84 +33,84 @@ class FailoverParam(DynamicData):
 
 
 class FailoverSuccessResult(GroupOperationResult):
-   class RecoveredDiskInfo(DynamicData):
+   class RecoveredDiskInfo(pyVmomi.vmodl.DynamicData):
       deviceKey: int
       dsUrl: str
       diskPath: str
 
-   class RecoveredDevice(DynamicData):
-      targetDeviceId: Optional[ReplicaId] = None
-      recoveredDeviceId: Optional[DeviceId] = None
+   class RecoveredDevice(pyVmomi.vmodl.DynamicData):
+      targetDeviceId: _typing.Optional[ReplicaId] = None
+      recoveredDeviceId: _typing.Optional[DeviceId] = None
       sourceDeviceId: DeviceId
       info: list[str] = []
-      datastore: Datastore
+      datastore: pyVmomi.vim.Datastore
       recoveredDiskInfo: list[RecoveredDiskInfo] = []
-      error: Optional[MethodFault] = None
-      warnings: list[MethodFault] = []
+      error: _typing.Optional[pyVmomi.vmodl.MethodFault] = None
+      warnings: list[pyVmomi.vmodl.MethodFault] = []
 
    newState: str
-   pitId: Optional[PointInTimeReplicaId] = None
-   pitIdBeforeFailover: Optional[PointInTimeReplicaId] = None
+   pitId: _typing.Optional[PointInTimeReplicaId] = None
+   pitIdBeforeFailover: _typing.Optional[PointInTimeReplicaId] = None
    recoveredDeviceInfo: list[RecoveredDevice] = []
-   timeStamp: Optional[datetime] = None
+   timeStamp: _typing.Optional[_datetime.datetime] = None
 
 
-class FaultDomainInfo(FaultDomainId):
-   name: Optional[str] = None
-   description: Optional[str] = None
-   storageArrayId: Optional[str] = None
-   children: list[FaultDomainId] = []
-   provider: Optional[Provider] = None
+class FaultDomainInfo(pyVmomi.vim.vm.replication.FaultDomainId):
+   name: _typing.Optional[str] = None
+   description: _typing.Optional[str] = None
+   storageArrayId: _typing.Optional[str] = None
+   children: list[pyVmomi.vim.vm.replication.FaultDomainId] = []
+   provider: _typing.Optional[pyVmomi.sms.provider.Provider] = None
 
 
 class GroupErrorResult(GroupOperationResult):
-   error: list[MethodFault] = []
+   error: list[pyVmomi.vmodl.MethodFault] = []
 
 
-class GroupInfo(DynamicData):
-   groupId: ReplicationGroupId
+class GroupInfo(pyVmomi.vmodl.DynamicData):
+   groupId: pyVmomi.vim.vm.replication.ReplicationGroupId
 
 
-class GroupOperationResult(DynamicData):
-   groupId: ReplicationGroupId
-   warning: list[MethodFault] = []
+class GroupOperationResult(pyVmomi.vmodl.DynamicData):
+   groupId: pyVmomi.vim.vm.replication.ReplicationGroupId
+   warning: list[pyVmomi.vmodl.MethodFault] = []
 
 
-class PointInTimeReplicaId(DynamicData):
+class PointInTimeReplicaId(pyVmomi.vmodl.DynamicData):
    id: str
 
 
-class PromoteParam(DynamicData):
+class PromoteParam(pyVmomi.vmodl.DynamicData):
    isPlanned: bool
-   replicationGroupsToPromote: list[ReplicationGroupId] = []
+   replicationGroupsToPromote: list[pyVmomi.vim.vm.replication.ReplicationGroupId] = []
 
 
-class QueryPointInTimeReplicaParam(DynamicData):
-   class ReplicaQueryIntervalParam(DynamicData):
-      fromDate: Optional[datetime] = None
-      toDate: Optional[datetime] = None
-      number: Optional[int] = None
+class QueryPointInTimeReplicaParam(pyVmomi.vmodl.DynamicData):
+   class ReplicaQueryIntervalParam(pyVmomi.vmodl.DynamicData):
+      fromDate: _typing.Optional[_datetime.datetime] = None
+      toDate: _typing.Optional[_datetime.datetime] = None
+      number: _typing.Optional[int] = None
 
-   replicaTimeQueryParam: Optional[ReplicaQueryIntervalParam] = None
-   pitName: Optional[str] = None
+   replicaTimeQueryParam: _typing.Optional[ReplicaQueryIntervalParam] = None
+   pitName: _typing.Optional[str] = None
    tags: list[str] = []
-   preferDetails: Optional[bool] = None
+   preferDetails: _typing.Optional[bool] = None
 
 
 class QueryPointInTimeReplicaSuccessResult(GroupOperationResult):
-   class PointInTimeReplicaInfo(DynamicData):
+   class PointInTimeReplicaInfo(pyVmomi.vmodl.DynamicData):
       id: PointInTimeReplicaId
       pitName: str
-      timeStamp: datetime
+      timeStamp: _datetime.datetime
       tags: list[str] = []
 
    replicaInfo: list[PointInTimeReplicaInfo] = []
 
 
 class QueryPointInTimeReplicaSummaryResult(GroupOperationResult):
-   class ReplicaIntervalQueryResult(DynamicData):
-      fromDate: datetime
-      toDate: datetime
+   class ReplicaIntervalQueryResult(pyVmomi.vmodl.DynamicData):
+      fromDate: _datetime.datetime
+      toDate: _datetime.datetime
       number: int
 
    intervalResults: list[ReplicaIntervalQueryResult] = []
@@ -126,18 +119,18 @@ class QueryReplicationGroupSuccessResult(GroupOperationResult):
    rgInfo: GroupInfo
 
 
-class QueryReplicationPeerResult(DynamicData):
-   sourceDomain: FaultDomainId
-   targetDomain: list[FaultDomainId] = []
-   error: list[MethodFault] = []
-   warning: list[MethodFault] = []
+class QueryReplicationPeerResult(pyVmomi.vmodl.DynamicData):
+   sourceDomain: pyVmomi.vim.vm.replication.FaultDomainId
+   targetDomain: list[pyVmomi.vim.vm.replication.FaultDomainId] = []
+   error: list[pyVmomi.vmodl.MethodFault] = []
+   warning: list[pyVmomi.vmodl.MethodFault] = []
 
 
 class RecoveredTargetGroupMemberInfo(TargetGroupMemberInfo):
-   recoveredDeviceId: Optional[DeviceId] = None
+   recoveredDeviceId: _typing.Optional[DeviceId] = None
 
 
-class ReplicaId(DynamicData):
+class ReplicaId(pyVmomi.vmodl.DynamicData):
    id: str
 
 class ReplicationState:
@@ -145,24 +138,24 @@ class ReplicationState:
 
 
 class ReverseReplicationSuccessResult(GroupOperationResult):
-   newGroupId: DeviceGroupId
+   newGroupId: pyVmomi.vim.vm.replication.DeviceGroupId
 
 
 class SourceGroupInfo(GroupInfo):
-   class ReplicationTargetInfo(DynamicData):
-      targetGroupId: ReplicationGroupId
-      replicationAgreementDescription: Optional[str] = None
+   class ReplicationTargetInfo(pyVmomi.vmodl.DynamicData):
+      targetGroupId: pyVmomi.vim.vm.replication.ReplicationGroupId
+      replicationAgreementDescription: _typing.Optional[str] = None
 
-   name: Optional[str] = None
-   description: Optional[str] = None
+   name: _typing.Optional[str] = None
+   description: _typing.Optional[str] = None
    state: str
    replica: list[ReplicationTargetInfo] = []
    memberInfo: list[SourceGroupMemberInfo] = []
 
 
-class SourceGroupMemberInfo(DynamicData):
-   class TargetDeviceId(DynamicData):
-      domainId: FaultDomainId
+class SourceGroupMemberInfo(pyVmomi.vmodl.DynamicData):
+   class TargetDeviceId(pyVmomi.vmodl.DynamicData):
+      domainId: pyVmomi.vim.vm.replication.FaultDomainId
       deviceId: ReplicaId
 
    deviceId: DeviceId
@@ -170,27 +163,27 @@ class SourceGroupMemberInfo(DynamicData):
 
 
 class SyncReplicationGroupSuccessResult(GroupOperationResult):
-   timeStamp: datetime
-   pitId: Optional[PointInTimeReplicaId] = None
-   pitName: Optional[str] = None
+   timeStamp: _datetime.datetime
+   pitId: _typing.Optional[PointInTimeReplicaId] = None
+   pitName: _typing.Optional[str] = None
 
 
 class TargetGroupInfo(GroupInfo):
-   class TargetToSourceInfo(DynamicData):
-      sourceGroupId: ReplicationGroupId
-      replicationAgreementDescription: Optional[str] = None
+   class TargetToSourceInfo(pyVmomi.vmodl.DynamicData):
+      sourceGroupId: pyVmomi.vim.vm.replication.ReplicationGroupId
+      replicationAgreementDescription: _typing.Optional[str] = None
 
    sourceInfo: TargetToSourceInfo
    state: str
    devices: list[TargetGroupMemberInfo] = []
-   isPromoteCapable: Optional[bool] = None
-   name: Optional[str] = None
+   isPromoteCapable: _typing.Optional[bool] = None
+   name: _typing.Optional[str] = None
 
 
-class TargetGroupMemberInfo(DynamicData):
+class TargetGroupMemberInfo(pyVmomi.vmodl.DynamicData):
    replicaId: ReplicaId
    sourceId: DeviceId
-   targetDatastore: Datastore
+   targetDatastore: pyVmomi.vim.Datastore
 
 class TestFailoverParam(FailoverParam):
    pass
@@ -207,13 +200,13 @@ class VirtualDiskKey(DeviceId):
 
 
 class VirtualDiskMoId(DeviceId):
-   vcUuid: Optional[str] = None
+   vcUuid: _typing.Optional[str] = None
    vmMoid: str
    diskKey: str
 
 
 class VirtualMachineFilePath(VirtualMachineId):
-   vcUuid: Optional[str] = None
+   vcUuid: _typing.Optional[str] = None
    dsUrl: str
    vmxPath: str
 
@@ -222,7 +215,7 @@ class VirtualMachineId(DeviceId):
 
 
 class VirtualMachineMoId(VirtualMachineId):
-   vcUuid: Optional[str] = None
+   vcUuid: _typing.Optional[str] = None
    vmMoid: str
 
 class VirtualMachineUUID(VirtualMachineId):

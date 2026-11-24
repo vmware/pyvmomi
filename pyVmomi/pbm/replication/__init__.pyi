@@ -3,24 +3,19 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import Optional
-
-from pyVmomi.VmomiSupport import ManagedObject
-
-from pyVmomi.pbm import ServerObjectRef
-
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import MethodFault
-
-from pyVmomi.vim.vm.replication import ReplicationGroupId
+import typing as _typing
+import pyVmomi.VmomiSupport
+import pyVmomi.pbm
+import pyVmomi.vmodl
+import pyVmomi.vim.vm.replication
 
 
 
-class QueryReplicationGroupResult(DynamicData):
-   object: ServerObjectRef
-   replicationGroupId: Optional[ReplicationGroupId] = None
-   fault: Optional[MethodFault] = None
+class QueryReplicationGroupResult(pyVmomi.vmodl.DynamicData):
+   object: pyVmomi.pbm.ServerObjectRef
+   replicationGroupId: _typing.Optional[pyVmomi.vim.vm.replication.ReplicationGroupId] = None
+   fault: _typing.Optional[pyVmomi.vmodl.MethodFault] = None
 
 
-class ReplicationManager(ManagedObject):
-   def QueryReplicationGroups(self, entities: list[ServerObjectRef]) -> list[QueryReplicationGroupResult]: ...
+class ReplicationManager(pyVmomi.VmomiSupport.ManagedObject):
+   def QueryReplicationGroups(self, entities: list[pyVmomi.pbm.ServerObjectRef]) -> list[QueryReplicationGroupResult]: ...

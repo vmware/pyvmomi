@@ -3,195 +3,180 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import ClassVar
-from typing import Optional
-
-from pyVmomi.VmomiSupport import Enum
-
-from pyVmomi.vim import Datastore
-from pyVmomi.vim import Folder
-from pyVmomi.vim import HostSystem
-
-from pyVmomi.vim import ImportSpec
-from pyVmomi.vim import KeyValue
-from pyVmomi.vim import ManagedEntity
-from pyVmomi.vim import Network
-from pyVmomi.vim import ResourceConfigSpec
-from pyVmomi.vim import ResourcePool
-
-from pyVmomi.vmodl import DynamicData
-
-from pyVmomi.vim.ext import ManagedByInfo
-
-from pyVmomi.vim.option import ArrayUpdateSpec
+import typing as _typing
+import pyVmomi.VmomiSupport
+import pyVmomi.vim
+import pyVmomi.vmodl
+import pyVmomi.vim.ext
+import pyVmomi.vim.option
 
 
 
-class CloneSpec(DynamicData):
-   class NetworkMappingPair(DynamicData):
-      source: Network
-      destination: Network
+class CloneSpec(pyVmomi.vmodl.DynamicData):
+   class NetworkMappingPair(pyVmomi.vmodl.DynamicData):
+      source: pyVmomi.vim.Network
+      destination: pyVmomi.vim.Network
 
-   class ResourceMap(DynamicData):
-      source: ManagedEntity
-      parent: Optional[ResourcePool] = None
-      resourceSpec: Optional[ResourceConfigSpec] = None
-      location: Optional[Datastore] = None
+   class ResourceMap(pyVmomi.vmodl.DynamicData):
+      source: pyVmomi.vim.ManagedEntity
+      parent: _typing.Optional[pyVmomi.vim.ResourcePool] = None
+      resourceSpec: _typing.Optional[pyVmomi.vim.ResourceConfigSpec] = None
+      location: _typing.Optional[pyVmomi.vim.Datastore] = None
 
-   class ProvisioningType(Enum):
-      sameAsSource: ClassVar['ProvisioningType'] = 'sameAsSource'
-      thin: ClassVar['ProvisioningType'] = 'thin'
-      thick: ClassVar['ProvisioningType'] = 'thick'
+   class ProvisioningType(pyVmomi.VmomiSupport.Enum):
+      sameAsSource: _typing.ClassVar['ProvisioningType'] = 'sameAsSource'
+      thin: _typing.ClassVar['ProvisioningType'] = 'thin'
+      thick: _typing.ClassVar['ProvisioningType'] = 'thick'
 
-   location: Datastore
-   host: Optional[HostSystem] = None
-   resourceSpec: Optional[ResourceConfigSpec] = None
-   vmFolder: Optional[Folder] = None
+   location: pyVmomi.vim.Datastore
+   host: _typing.Optional[pyVmomi.vim.HostSystem] = None
+   resourceSpec: _typing.Optional[pyVmomi.vim.ResourceConfigSpec] = None
+   vmFolder: _typing.Optional[pyVmomi.vim.Folder] = None
    networkMapping: list[NetworkMappingPair] = []
-   property: list[KeyValue] = []
+   property: list[pyVmomi.vim.KeyValue] = []
    resourceMapping: list[ResourceMap] = []
-   provisioning: Optional[str] = None
+   provisioning: _typing.Optional[str] = None
 
 
-class EntityConfigInfo(DynamicData):
-   class Action(Enum):
-      none: ClassVar['Action'] = 'none'
-      powerOn: ClassVar['Action'] = 'powerOn'
-      powerOff: ClassVar['Action'] = 'powerOff'
-      guestShutdown: ClassVar['Action'] = 'guestShutdown'
-      suspend: ClassVar['Action'] = 'suspend'
+class EntityConfigInfo(pyVmomi.vmodl.DynamicData):
+   class Action(pyVmomi.VmomiSupport.Enum):
+      none: _typing.ClassVar['Action'] = 'none'
+      powerOn: _typing.ClassVar['Action'] = 'powerOn'
+      powerOff: _typing.ClassVar['Action'] = 'powerOff'
+      guestShutdown: _typing.ClassVar['Action'] = 'guestShutdown'
+      suspend: _typing.ClassVar['Action'] = 'suspend'
 
-   key: Optional[ManagedEntity] = None
-   tag: Optional[str] = None
-   startOrder: Optional[int] = None
-   startDelay: Optional[int] = None
-   waitingForGuest: Optional[bool] = None
-   startAction: Optional[str] = None
-   stopDelay: Optional[int] = None
-   stopAction: Optional[str] = None
-   destroyWithParent: Optional[bool] = None
+   key: _typing.Optional[pyVmomi.vim.ManagedEntity] = None
+   tag: _typing.Optional[str] = None
+   startOrder: _typing.Optional[int] = None
+   startDelay: _typing.Optional[int] = None
+   waitingForGuest: _typing.Optional[bool] = None
+   startAction: _typing.Optional[str] = None
+   stopDelay: _typing.Optional[int] = None
+   stopAction: _typing.Optional[str] = None
+   destroyWithParent: _typing.Optional[bool] = None
 
 
-class IPAssignmentInfo(DynamicData):
-   class IpAllocationPolicy(Enum):
-      dhcpPolicy: ClassVar['IpAllocationPolicy'] = 'dhcpPolicy'
-      transientPolicy: ClassVar['IpAllocationPolicy'] = 'transientPolicy'
-      fixedPolicy: ClassVar['IpAllocationPolicy'] = 'fixedPolicy'
-      fixedAllocatedPolicy: ClassVar['IpAllocationPolicy'] = 'fixedAllocatedPolicy'
+class IPAssignmentInfo(pyVmomi.vmodl.DynamicData):
+   class IpAllocationPolicy(pyVmomi.VmomiSupport.Enum):
+      dhcpPolicy: _typing.ClassVar['IpAllocationPolicy'] = 'dhcpPolicy'
+      transientPolicy: _typing.ClassVar['IpAllocationPolicy'] = 'transientPolicy'
+      fixedPolicy: _typing.ClassVar['IpAllocationPolicy'] = 'fixedPolicy'
+      fixedAllocatedPolicy: _typing.ClassVar['IpAllocationPolicy'] = 'fixedAllocatedPolicy'
 
-   class AllocationSchemes(Enum):
-      dhcp: ClassVar['AllocationSchemes'] = 'dhcp'
-      ovfenv: ClassVar['AllocationSchemes'] = 'ovfenv'
+   class AllocationSchemes(pyVmomi.VmomiSupport.Enum):
+      dhcp: _typing.ClassVar['AllocationSchemes'] = 'dhcp'
+      ovfenv: _typing.ClassVar['AllocationSchemes'] = 'ovfenv'
 
-   class Protocols(Enum):
-      IPv4: ClassVar['Protocols'] = 'IPv4'
-      IPv6: ClassVar['Protocols'] = 'IPv6'
+   class Protocols(pyVmomi.VmomiSupport.Enum):
+      IPv4: _typing.ClassVar['Protocols'] = 'IPv4'
+      IPv6: _typing.ClassVar['Protocols'] = 'IPv6'
 
    supportedAllocationScheme: list[str] = []
-   ipAllocationPolicy: Optional[str] = None
+   ipAllocationPolicy: _typing.Optional[str] = None
    supportedIpProtocol: list[str] = []
-   ipProtocol: Optional[str] = None
+   ipProtocol: _typing.Optional[str] = None
 
 
-class IpPool(DynamicData):
-   class IpPoolConfigInfo(DynamicData):
-      subnetAddress: Optional[str] = None
-      netmask: Optional[str] = None
-      gateway: Optional[str] = None
-      range: Optional[str] = None
+class IpPool(pyVmomi.vmodl.DynamicData):
+   class IpPoolConfigInfo(pyVmomi.vmodl.DynamicData):
+      subnetAddress: _typing.Optional[str] = None
+      netmask: _typing.Optional[str] = None
+      gateway: _typing.Optional[str] = None
+      range: _typing.Optional[str] = None
       dns: list[str] = []
-      dhcpServerAvailable: Optional[bool] = None
-      ipPoolEnabled: Optional[bool] = None
+      dhcpServerAvailable: _typing.Optional[bool] = None
+      ipPoolEnabled: _typing.Optional[bool] = None
 
-   class Association(DynamicData):
-      network: Optional[Network] = None
+   class Association(pyVmomi.vmodl.DynamicData):
+      network: _typing.Optional[pyVmomi.vim.Network] = None
       networkName: str
 
-   id: Optional[int] = None
-   name: Optional[str] = None
-   ipv4Config: Optional[IpPoolConfigInfo] = None
-   ipv6Config: Optional[IpPoolConfigInfo] = None
-   dnsDomain: Optional[str] = None
-   dnsSearchPath: Optional[str] = None
-   hostPrefix: Optional[str] = None
-   httpProxy: Optional[str] = None
+   id: _typing.Optional[int] = None
+   name: _typing.Optional[str] = None
+   ipv4Config: _typing.Optional[IpPoolConfigInfo] = None
+   ipv6Config: _typing.Optional[IpPoolConfigInfo] = None
+   dnsDomain: _typing.Optional[str] = None
+   dnsSearchPath: _typing.Optional[str] = None
+   hostPrefix: _typing.Optional[str] = None
+   httpProxy: _typing.Optional[str] = None
    networkAssociation: list[Association] = []
-   availableIpv4Addresses: Optional[int] = None
-   availableIpv6Addresses: Optional[int] = None
-   allocatedIpv4Addresses: Optional[int] = None
-   allocatedIpv6Addresses: Optional[int] = None
+   availableIpv4Addresses: _typing.Optional[int] = None
+   availableIpv6Addresses: _typing.Optional[int] = None
+   allocatedIpv4Addresses: _typing.Optional[int] = None
+   allocatedIpv6Addresses: _typing.Optional[int] = None
 
 
-class OvfSectionInfo(DynamicData):
-   key: Optional[int] = None
-   namespace: Optional[str] = None
-   type: Optional[str] = None
-   atEnvelopeLevel: Optional[bool] = None
-   contents: Optional[str] = None
+class OvfSectionInfo(pyVmomi.vmodl.DynamicData):
+   key: _typing.Optional[int] = None
+   namespace: _typing.Optional[str] = None
+   type: _typing.Optional[str] = None
+   atEnvelopeLevel: _typing.Optional[bool] = None
+   contents: _typing.Optional[str] = None
 
 
-class OvfSectionSpec(ArrayUpdateSpec):
-   info: Optional[OvfSectionInfo] = None
+class OvfSectionSpec(pyVmomi.vim.option.ArrayUpdateSpec):
+   info: _typing.Optional[OvfSectionInfo] = None
 
 
-class ProductInfo(DynamicData):
+class ProductInfo(pyVmomi.vmodl.DynamicData):
    key: int
-   classId: Optional[str] = None
-   instanceId: Optional[str] = None
-   name: Optional[str] = None
-   vendor: Optional[str] = None
-   version: Optional[str] = None
-   fullVersion: Optional[str] = None
-   vendorUrl: Optional[str] = None
-   productUrl: Optional[str] = None
-   appUrl: Optional[str] = None
+   classId: _typing.Optional[str] = None
+   instanceId: _typing.Optional[str] = None
+   name: _typing.Optional[str] = None
+   vendor: _typing.Optional[str] = None
+   version: _typing.Optional[str] = None
+   fullVersion: _typing.Optional[str] = None
+   vendorUrl: _typing.Optional[str] = None
+   productUrl: _typing.Optional[str] = None
+   appUrl: _typing.Optional[str] = None
 
 
-class ProductSpec(ArrayUpdateSpec):
-   info: Optional[ProductInfo] = None
+class ProductSpec(pyVmomi.vim.option.ArrayUpdateSpec):
+   info: _typing.Optional[ProductInfo] = None
 
 
-class PropertyInfo(DynamicData):
+class PropertyInfo(pyVmomi.vmodl.DynamicData):
    key: int
-   classId: Optional[str] = None
-   instanceId: Optional[str] = None
-   id: Optional[str] = None
-   category: Optional[str] = None
-   label: Optional[str] = None
-   type: Optional[str] = None
-   typeReference: Optional[str] = None
-   userConfigurable: Optional[bool] = None
-   defaultValue: Optional[str] = None
-   value: Optional[str] = None
-   description: Optional[str] = None
+   classId: _typing.Optional[str] = None
+   instanceId: _typing.Optional[str] = None
+   id: _typing.Optional[str] = None
+   category: _typing.Optional[str] = None
+   label: _typing.Optional[str] = None
+   type: _typing.Optional[str] = None
+   typeReference: _typing.Optional[str] = None
+   userConfigurable: _typing.Optional[bool] = None
+   defaultValue: _typing.Optional[str] = None
+   value: _typing.Optional[str] = None
+   description: _typing.Optional[str] = None
 
 
-class PropertySpec(ArrayUpdateSpec):
-   info: Optional[PropertyInfo] = None
+class PropertySpec(pyVmomi.vim.option.ArrayUpdateSpec):
+   info: _typing.Optional[PropertyInfo] = None
 
 
 class VAppConfigInfo(VmConfigInfo):
    entityConfig: list[EntityConfigInfo] = []
    annotation: str
-   instanceUuid: Optional[str] = None
-   managedBy: Optional[ManagedByInfo] = None
+   instanceUuid: _typing.Optional[str] = None
+   managedBy: _typing.Optional[pyVmomi.vim.ext.ManagedByInfo] = None
 
 
 class VAppConfigSpec(VmConfigSpec):
    entityConfig: list[EntityConfigInfo] = []
-   annotation: Optional[str] = None
-   instanceUuid: Optional[str] = None
-   managedBy: Optional[ManagedByInfo] = None
+   annotation: _typing.Optional[str] = None
+   instanceUuid: _typing.Optional[str] = None
+   managedBy: _typing.Optional[pyVmomi.vim.ext.ManagedByInfo] = None
 
 
-class VAppImportSpec(ImportSpec):
+class VAppImportSpec(pyVmomi.vim.ImportSpec):
    name: str
    vAppConfigSpec: VAppConfigSpec
-   resourcePoolSpec: ResourceConfigSpec
-   child: list[ImportSpec] = []
+   resourcePoolSpec: pyVmomi.vim.ResourceConfigSpec
+   child: list[pyVmomi.vim.ImportSpec] = []
 
 
-class VmConfigInfo(DynamicData):
+class VmConfigInfo(pyVmomi.vmodl.DynamicData):
    product: list[ProductInfo] = []
    property: list[PropertyInfo] = []
    ipAssignment: IPAssignmentInfo
@@ -202,12 +187,12 @@ class VmConfigInfo(DynamicData):
    installBootStopDelay: int
 
 
-class VmConfigSpec(DynamicData):
+class VmConfigSpec(pyVmomi.vmodl.DynamicData):
    product: list[ProductSpec] = []
    property: list[PropertySpec] = []
-   ipAssignment: Optional[IPAssignmentInfo] = None
+   ipAssignment: _typing.Optional[IPAssignmentInfo] = None
    eula: list[str] = []
    ovfSection: list[OvfSectionSpec] = []
    ovfEnvironmentTransport: list[str] = []
-   installBootRequired: Optional[bool] = None
-   installBootStopDelay: Optional[int] = None
+   installBootRequired: _typing.Optional[bool] = None
+   installBootStopDelay: _typing.Optional[int] = None

@@ -3,26 +3,17 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import Optional
-
-from pyVmomi.eam import Agent
-
-from pyVmomi.vim import ComputeResource
-
-from pyVmomi.vim import Datastore
-
-from pyVmomi.vim import Network
-from pyVmomi.vim import VirtualMachine
-
-from pyVmomi.vmodl import MethodFault
-
-from pyVmomi.eam.issue import AgencyIssue
+import typing as _typing
+import pyVmomi.eam
+import pyVmomi.vim
+import pyVmomi.vmodl
+import pyVmomi.eam.issue
 
 
 
-class AgentIssue(AgencyIssue):
-   agent: Agent
-   cluster: Optional[ComputeResource] = None
+class AgentIssue(pyVmomi.eam.issue.AgencyIssue):
+   agent: pyVmomi.eam.Agent
+   cluster: _typing.Optional[pyVmomi.vim.ComputeResource] = None
 
 class CertificateNotTrusted(VmNotDeployed):
    url: str
@@ -44,16 +35,16 @@ class InvalidConfig(VmIssue):
 
 
 class MissingClusterVmDatastore(VmNotDeployed):
-   missingDatastores: list[Datastore] = []
+   missingDatastores: list[pyVmomi.vim.Datastore] = []
 
 
 class MissingClusterVmNetwork(VmNotDeployed):
-   missingNetworks: list[Network] = []
+   missingNetworks: list[pyVmomi.vim.Network] = []
    networkNames: list[str] = []
 
 
 class OvfInvalidProperty(AgentIssue):
-   error: list[MethodFault] = []
+   error: list[pyVmomi.vmodl.MethodFault] = []
 
 class TransitionFailed(AgentIssue):
    pass
@@ -69,7 +60,7 @@ class VmInaccessible(VmIssue):
 
 
 class VmIssue(AgentIssue):
-   vm: VirtualMachine
+   vm: pyVmomi.vim.VirtualMachine
 
 class VmNotDeployed(AgentIssue):
    pass

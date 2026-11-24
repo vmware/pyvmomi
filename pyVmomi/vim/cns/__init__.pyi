@@ -3,60 +3,44 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import Optional
-
-from pyVmomi.VmomiSupport import ManagedObject
-
-from pyVmomi.VmomiSupport import long
-
-from pyVmomi.vim import ClusterComputeResource
-from pyVmomi.vim import Datastore
-
-from pyVmomi.vim import KeyValue
-
-from pyVmomi.vim import Task
-
-from pyVmomi.vim import VirtualMachine
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import MethodFault
-
-from pyVmomi.vim.encryption import CryptoSpec
-
-from pyVmomi.vim.vm import ProfileSpec
-
-from pyVmomi.vim.vsan import FileShareNetPermission
-
-from pyVmomi.vim.vslm import DiskCryptoSpec
+import typing as _typing
+import pyVmomi.VmomiSupport
+import pyVmomi.vim
+import pyVmomi.vmodl
+import pyVmomi.vim.encryption
+import pyVmomi.vim.vm
+import pyVmomi.vim.vsan
+import pyVmomi.vim.vslm
 
 
 
-class AccessControlSpec(DynamicData):
+class AccessControlSpec(pyVmomi.vmodl.DynamicData):
    pass
 
 
 class AsyncQueryResult(VolumeOperationResult):
-   queryResult: Optional[QueryResult] = None
+   queryResult: _typing.Optional[QueryResult] = None
 
 
-class BackingObjectDetails(DynamicData):
-   capacityInMb: Optional[long] = None
+class BackingObjectDetails(pyVmomi.vmodl.DynamicData):
+   capacityInMb: _typing.Optional[pyVmomi.VmomiSupport.long] = None
 
 
-class BaseCreateSpec(DynamicData):
+class BaseCreateSpec(pyVmomi.vmodl.DynamicData):
    pass
 
 
 class BlockBackingDetails(BackingObjectDetails):
-   backingDiskId: Optional[str] = None
-   backingDiskUrlPath: Optional[str] = None
-   backingDiskPath: Optional[str] = None
-   backingDiskObjectId: Optional[str] = None
-   usedCapacityInMb: Optional[long] = None
-   aggregatedSnapshotCapacityInMb: Optional[long] = None
+   backingDiskId: _typing.Optional[str] = None
+   backingDiskUrlPath: _typing.Optional[str] = None
+   backingDiskPath: _typing.Optional[str] = None
+   backingDiskObjectId: _typing.Optional[str] = None
+   usedCapacityInMb: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   aggregatedSnapshotCapacityInMb: _typing.Optional[pyVmomi.VmomiSupport.long] = None
 
 
 class BlockCreateSpec(BaseCreateSpec):
-   cryptoSpec: Optional[CryptoSpec] = None
+   cryptoSpec: _typing.Optional[pyVmomi.vim.encryption.CryptoSpec] = None
 
 class BlockVolumeRelocateSpec(VolumeRelocateSpec):
    pass
@@ -64,7 +48,7 @@ class BlockVolumeRelocateSpec(VolumeRelocateSpec):
 
 class CloneVolumeSource(VolumeSource):
    volumeId: VolumeId
-   keepAfterDeleteVm: Optional[bool] = None
+   keepAfterDeleteVm: _typing.Optional[bool] = None
 
 class ClusterFlavor:
    pass
@@ -73,30 +57,30 @@ class ClusterType:
    pass
 
 
-class ContainerCluster(DynamicData):
+class ContainerCluster(pyVmomi.vmodl.DynamicData):
    clusterType: str
    clusterId: str
    vSphereUser: str
-   clusterFlavor: Optional[str] = None
-   clusterDistribution: Optional[str] = None
-   delete: Optional[bool] = None
+   clusterFlavor: _typing.Optional[str] = None
+   clusterDistribution: _typing.Optional[str] = None
+   delete: _typing.Optional[bool] = None
 
 
-class Cursor(DynamicData):
-   offset: long
-   limit: long
-   totalRecords: Optional[long] = None
+class Cursor(pyVmomi.vmodl.DynamicData):
+   offset: pyVmomi.VmomiSupport.long
+   limit: pyVmomi.VmomiSupport.long
+   totalRecords: _typing.Optional[pyVmomi.VmomiSupport.long] = None
 
 
-class EntityMetadata(DynamicData):
+class EntityMetadata(pyVmomi.vmodl.DynamicData):
    entityName: str
-   labels: list[KeyValue] = []
-   delete: Optional[bool] = None
-   clusterId: Optional[str] = None
+   labels: list[pyVmomi.vim.KeyValue] = []
+   delete: _typing.Optional[bool] = None
+   clusterId: _typing.Optional[str] = None
 
 
 class FileBackingDetails(BackingObjectDetails):
-   backingFileId: Optional[str] = None
+   backingFileId: _typing.Optional[str] = None
 
 class FileCreateSpec(BaseCreateSpec):
    pass
@@ -104,15 +88,15 @@ class FileCreateSpec(BaseCreateSpec):
 
 class KubernetesEntityMetadata(EntityMetadata):
    entityType: str
-   namespace: Optional[str] = None
+   namespace: _typing.Optional[str] = None
    referredEntity: list[KubernetesEntityReference] = []
 
 
-class KubernetesEntityReference(DynamicData):
+class KubernetesEntityReference(pyVmomi.vmodl.DynamicData):
    entityType: str
    entityName: str
-   namespace: Optional[str] = None
-   clusterId: Optional[str] = None
+   namespace: _typing.Optional[str] = None
+   clusterId: _typing.Optional[str] = None
 
 class KubernetesEntityType:
    pass
@@ -132,204 +116,204 @@ class MetricType:
 
 
 class NFSAccessControlSpec(AccessControlSpec):
-   netPermission: FileShareNetPermission
-   delete: Optional[bool] = None
+   netPermission: pyVmomi.vim.vsan.FileShareNetPermission
+   delete: _typing.Optional[bool] = None
 
 
-class PlacementResult(DynamicData):
-   datastore: Datastore
-   placementFaults: list[MethodFault] = []
-   clusters: list[ClusterComputeResource] = []
+class PlacementResult(pyVmomi.vmodl.DynamicData):
+   datastore: pyVmomi.vim.Datastore
+   placementFaults: list[pyVmomi.vmodl.MethodFault] = []
+   clusters: list[pyVmomi.vim.ClusterComputeResource] = []
 
 
-class QueryFilter(DynamicData):
+class QueryFilter(pyVmomi.vmodl.DynamicData):
    volumeIds: list[VolumeId] = []
    names: list[str] = []
    containerClusterIds: list[str] = []
-   storagePolicyId: Optional[str] = None
-   datastores: list[Datastore] = []
-   labels: list[KeyValue] = []
-   complianceStatus: Optional[str] = None
-   datastoreAccessibilityStatus: Optional[str] = None
-   cursor: Optional[Cursor] = None
-   healthStatus: Optional[str] = None
+   storagePolicyId: _typing.Optional[str] = None
+   datastores: list[pyVmomi.vim.Datastore] = []
+   labels: list[pyVmomi.vim.KeyValue] = []
+   complianceStatus: _typing.Optional[str] = None
+   datastoreAccessibilityStatus: _typing.Optional[str] = None
+   cursor: _typing.Optional[Cursor] = None
+   healthStatus: _typing.Optional[str] = None
 
 
-class QueryResult(DynamicData):
+class QueryResult(pyVmomi.vmodl.DynamicData):
    volumes: list[Volume] = []
    cursor: Cursor
 
 
-class QuerySelection(DynamicData):
+class QuerySelection(pyVmomi.vmodl.DynamicData):
    names: list[str] = []
 
 class QuerySelectionNameType:
    pass
 
 
-class SnapshotCreateSpec(DynamicData):
+class SnapshotCreateSpec(pyVmomi.vmodl.DynamicData):
    volumeId: VolumeId
    description: str
-   snapshotId: Optional[SnapshotId] = None
+   snapshotId: _typing.Optional[SnapshotId] = None
 
 
-class SnapshotDeleteSpec(DynamicData):
+class SnapshotDeleteSpec(pyVmomi.vmodl.DynamicData):
    volumeId: VolumeId
    snapshotId: SnapshotId
 
 
-class SnapshotId(DynamicData):
+class SnapshotId(pyVmomi.vmodl.DynamicData):
    id: str
 
 
 class SnapshotVolumeSource(VolumeSource):
-   volumeId: Optional[VolumeId] = None
-   snapshotId: Optional[SnapshotId] = None
-   linkedClone: Optional[bool] = None
+   volumeId: _typing.Optional[VolumeId] = None
+   snapshotId: _typing.Optional[SnapshotId] = None
+   linkedClone: _typing.Optional[bool] = None
 
 class SyncVolumeMode:
    pass
 
 
-class SyncVolumeSpec(DynamicData):
+class SyncVolumeSpec(pyVmomi.vmodl.DynamicData):
    volumeId: VolumeId
-   datastore: Optional[Datastore] = None
+   datastore: _typing.Optional[pyVmomi.vim.Datastore] = None
    syncMode: list[str] = []
 
 class UnregisterTargetVolumeType:
    pass
 
 
-class UnregisterVolumeSpec(DynamicData):
+class UnregisterVolumeSpec(pyVmomi.vmodl.DynamicData):
    volumeId: VolumeId
    targetVolumeType: str
 
 
 class VSANFileCreateSpec(FileCreateSpec):
-   softQuotaInMb: Optional[long] = None
-   permission: list[FileShareNetPermission] = []
+   softQuotaInMb: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   permission: list[pyVmomi.vim.vsan.FileShareNetPermission] = []
 
 
-class Volume(DynamicData):
+class Volume(pyVmomi.vmodl.DynamicData):
    volumeId: VolumeId
-   datastoreUrl: Optional[str] = None
-   name: Optional[str] = None
-   volumeType: Optional[str] = None
-   storagePolicyId: Optional[str] = None
-   metadata: Optional[VolumeMetadata] = None
-   backingObjectDetails: Optional[BackingObjectDetails] = None
-   complianceStatus: Optional[str] = None
-   datastoreAccessibilityStatus: Optional[str] = None
-   healthStatus: Optional[str] = None
+   datastoreUrl: _typing.Optional[str] = None
+   name: _typing.Optional[str] = None
+   volumeType: _typing.Optional[str] = None
+   storagePolicyId: _typing.Optional[str] = None
+   metadata: _typing.Optional[VolumeMetadata] = None
+   backingObjectDetails: _typing.Optional[BackingObjectDetails] = None
+   complianceStatus: _typing.Optional[str] = None
+   datastoreAccessibilityStatus: _typing.Optional[str] = None
+   healthStatus: _typing.Optional[str] = None
 
 
-class VolumeACLConfigureSpec(DynamicData):
+class VolumeACLConfigureSpec(pyVmomi.vmodl.DynamicData):
    volumeId: VolumeId
    accessControlSpecList: list[AccessControlSpec] = []
 
 
-class VolumeAttachDetachSpec(DynamicData):
+class VolumeAttachDetachSpec(pyVmomi.vmodl.DynamicData):
    volumeId: VolumeId
-   vm: VirtualMachine
-   diskMode: Optional[str] = None
-   sharing: Optional[str] = None
-   controllerKey: Optional[int] = None
-   unitNumber: Optional[int] = None
-   backingTypeName: Optional[str] = None
-   volumeEncrypted: Optional[bool] = None
+   vm: pyVmomi.vim.VirtualMachine
+   diskMode: _typing.Optional[str] = None
+   sharing: _typing.Optional[str] = None
+   controllerKey: _typing.Optional[int] = None
+   unitNumber: _typing.Optional[int] = None
+   backingTypeName: _typing.Optional[str] = None
+   volumeEncrypted: _typing.Optional[bool] = None
 
 
 class VolumeAttachResult(VolumeOperationResult):
-   diskUUID: Optional[str] = None
+   diskUUID: _typing.Optional[str] = None
 
 class VolumeBackingType:
    pass
 
 
 class VolumeCreateResult(VolumeOperationResult):
-   name: Optional[str] = None
+   name: _typing.Optional[str] = None
    placementResults: list[PlacementResult] = []
 
 
-class VolumeCreateSpec(DynamicData):
+class VolumeCreateSpec(pyVmomi.vmodl.DynamicData):
    name: str
    volumeType: str
-   volumeId: Optional[VolumeId] = None
-   datastores: list[Datastore] = []
-   metadata: Optional[VolumeMetadata] = None
+   volumeId: _typing.Optional[VolumeId] = None
+   datastores: list[pyVmomi.vim.Datastore] = []
+   metadata: _typing.Optional[VolumeMetadata] = None
    backingObjectDetails: BackingObjectDetails
-   profile: list[ProfileSpec] = []
-   activeClusters: list[ClusterComputeResource] = []
-   createSpec: Optional[BaseCreateSpec] = None
-   volumeSource: Optional[VolumeSource] = None
+   profile: list[pyVmomi.vim.vm.ProfileSpec] = []
+   activeClusters: list[pyVmomi.vim.ClusterComputeResource] = []
+   createSpec: _typing.Optional[BaseCreateSpec] = None
+   volumeSource: _typing.Optional[VolumeSource] = None
 
 
-class VolumeCryptoUpdateSpec(DynamicData):
+class VolumeCryptoUpdateSpec(pyVmomi.vmodl.DynamicData):
    volumeId: VolumeId
-   profile: list[ProfileSpec] = []
-   disksCrypto: Optional[DiskCryptoSpec] = None
+   profile: list[pyVmomi.vim.vm.ProfileSpec] = []
+   disksCrypto: _typing.Optional[pyVmomi.vim.vslm.DiskCryptoSpec] = None
 
 
-class VolumeExtendSpec(DynamicData):
+class VolumeExtendSpec(pyVmomi.vmodl.DynamicData):
    volumeId: VolumeId
-   capacityInMb: long
+   capacityInMb: pyVmomi.VmomiSupport.long
 
 
-class VolumeId(DynamicData):
+class VolumeId(pyVmomi.vmodl.DynamicData):
    id: str
 
 
-class VolumeManager(ManagedObject):
-   def Create(self, createSpecs: list[VolumeCreateSpec]) -> Task: ...
-   def UpdateVolumeMetadata(self, updateSpecs: list[VolumeMetadataUpdateSpec]) -> Task: ...
-   def Delete(self, volumeIds: list[VolumeId], deleteDisk: bool) -> Task: ...
-   def Attach(self, attachSpecs: list[VolumeAttachDetachSpec]) -> Task: ...
-   def Detach(self, detachSpecs: list[VolumeAttachDetachSpec]) -> Task: ...
-   def QueryAsync(self, filter: QueryFilter, selection: Optional[QuerySelection]) -> Task: ...
-   def Query(self, filter: QueryFilter, selection: Optional[QuerySelection]) -> QueryResult: ...
-   def ConfigureVolumeACLs(self, ACLConfigSpecs: list[VolumeACLConfigureSpec]) -> Task: ...
-   def Extend(self, extendSpecs: list[VolumeExtendSpec]) -> Task: ...
-   def CreateSnapshots(self, snapshotSpecs: list[SnapshotCreateSpec]) -> Task: ...
-   def DeleteSnapshots(self, snapshotDeleteSpecs: list[SnapshotDeleteSpec]) -> Task: ...
-   def Relocate(self, relocateSpecs: list[VolumeRelocateSpec]) -> Task: ...
-   def ReconfigPolicy(self, volumePolicyReconfigSpecs: list[VolumePolicyReconfigSpec]) -> Task: ...
-   def UpdateVolumeCrypto(self, updateSpecs: list[VolumeCryptoUpdateSpec]) -> Task: ...
-   def UnregisterVolume(self, unregisterSpec: list[UnregisterVolumeSpec]) -> Task: ...
-   def SyncVolume(self, syncSpecs: list[SyncVolumeSpec]) -> Task: ...
+class VolumeManager(pyVmomi.VmomiSupport.ManagedObject):
+   def Create(self, createSpecs: list[VolumeCreateSpec]) -> pyVmomi.vim.Task: ...
+   def UpdateVolumeMetadata(self, updateSpecs: list[VolumeMetadataUpdateSpec]) -> pyVmomi.vim.Task: ...
+   def Delete(self, volumeIds: list[VolumeId], deleteDisk: bool) -> pyVmomi.vim.Task: ...
+   def Attach(self, attachSpecs: list[VolumeAttachDetachSpec]) -> pyVmomi.vim.Task: ...
+   def Detach(self, detachSpecs: list[VolumeAttachDetachSpec]) -> pyVmomi.vim.Task: ...
+   def QueryAsync(self, filter: QueryFilter, selection: _typing.Optional[QuerySelection]) -> pyVmomi.vim.Task: ...
+   def Query(self, filter: QueryFilter, selection: _typing.Optional[QuerySelection]) -> QueryResult: ...
+   def ConfigureVolumeACLs(self, ACLConfigSpecs: list[VolumeACLConfigureSpec]) -> pyVmomi.vim.Task: ...
+   def Extend(self, extendSpecs: list[VolumeExtendSpec]) -> pyVmomi.vim.Task: ...
+   def CreateSnapshots(self, snapshotSpecs: list[SnapshotCreateSpec]) -> pyVmomi.vim.Task: ...
+   def DeleteSnapshots(self, snapshotDeleteSpecs: list[SnapshotDeleteSpec]) -> pyVmomi.vim.Task: ...
+   def Relocate(self, relocateSpecs: list[VolumeRelocateSpec]) -> pyVmomi.vim.Task: ...
+   def ReconfigPolicy(self, volumePolicyReconfigSpecs: list[VolumePolicyReconfigSpec]) -> pyVmomi.vim.Task: ...
+   def UpdateVolumeCrypto(self, updateSpecs: list[VolumeCryptoUpdateSpec]) -> pyVmomi.vim.Task: ...
+   def UnregisterVolume(self, unregisterSpec: list[UnregisterVolumeSpec]) -> pyVmomi.vim.Task: ...
+   def SyncVolume(self, syncSpecs: list[SyncVolumeSpec]) -> pyVmomi.vim.Task: ...
 
 
-class VolumeMetadata(DynamicData):
+class VolumeMetadata(pyVmomi.vmodl.DynamicData):
    containerCluster: ContainerCluster
    entityMetadata: list[EntityMetadata] = []
    containerClusterArray: list[ContainerCluster] = []
 
 
-class VolumeMetadataUpdateSpec(DynamicData):
+class VolumeMetadataUpdateSpec(pyVmomi.vmodl.DynamicData):
    volumeId: VolumeId
    metadata: VolumeMetadata
 
 
-class VolumeOperationBatchResult(DynamicData):
+class VolumeOperationBatchResult(pyVmomi.vmodl.DynamicData):
    volumeResults: list[VolumeOperationResult] = []
 
 
-class VolumeOperationResult(DynamicData):
-   volumeId: Optional[VolumeId] = None
-   fault: Optional[MethodFault] = None
+class VolumeOperationResult(pyVmomi.vmodl.DynamicData):
+   volumeId: _typing.Optional[VolumeId] = None
+   fault: _typing.Optional[pyVmomi.vmodl.MethodFault] = None
 
 
-class VolumePolicyReconfigSpec(DynamicData):
+class VolumePolicyReconfigSpec(pyVmomi.vmodl.DynamicData):
    volumeId: VolumeId
-   profile: list[ProfileSpec] = []
+   profile: list[pyVmomi.vim.vm.ProfileSpec] = []
 
 
-class VolumeRelocateSpec(DynamicData):
+class VolumeRelocateSpec(pyVmomi.vmodl.DynamicData):
    volumeId: VolumeId
-   datastore: Datastore
-   profile: list[ProfileSpec] = []
+   datastore: pyVmomi.vim.Datastore
+   profile: list[pyVmomi.vim.vm.ProfileSpec] = []
 
 
-class VolumeSource(DynamicData):
+class VolumeSource(pyVmomi.vmodl.DynamicData):
    pass
 
 class VolumeType:
@@ -337,6 +321,6 @@ class VolumeType:
 
 
 class VsanFileShareBackingDetails(FileBackingDetails):
-   name: Optional[str] = None
-   accessPoints: list[KeyValue] = []
-   permission: list[FileShareNetPermission] = []
+   name: _typing.Optional[str] = None
+   accessPoints: list[pyVmomi.vim.KeyValue] = []
+   permission: list[pyVmomi.vim.vsan.FileShareNetPermission] = []

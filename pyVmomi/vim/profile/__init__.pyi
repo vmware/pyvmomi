@@ -6,93 +6,77 @@
 from . import cluster as cluster
 from . import host as host
 
-from datetime import datetime
-
-from typing import ClassVar
-from typing import Optional
-
-from pyVmomi.VmomiSupport import Enum
-
-from pyVmomi.VmomiSupport import ManagedObject
-
-from pyVmomi.VmomiSupport import PropertyPath
-
-from pyVmomi.vim import ExtendedDescription
-
-from pyVmomi.vim import ExtendedElementDescription
-
-from pyVmomi.vim import ManagedEntity
-from pyVmomi.vim import Task
-
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import KeyAnyValue
-from pyVmomi.vmodl import LocalizableMessage
+import datetime as _datetime
+import typing as _typing
+import pyVmomi.VmomiSupport
+import pyVmomi.vim
+import pyVmomi.vmodl
 
 
 
-class ApplyProfile(DynamicData):
+class ApplyProfile(pyVmomi.vmodl.DynamicData):
    enabled: bool
    policy: list[Policy] = []
-   profileTypeName: Optional[str] = None
-   profileVersion: Optional[str] = None
+   profileTypeName: _typing.Optional[str] = None
+   profileVersion: _typing.Optional[str] = None
    property: list[ApplyProfileProperty] = []
-   favorite: Optional[bool] = None
-   toBeMerged: Optional[bool] = None
-   toReplaceWith: Optional[bool] = None
-   toBeDeleted: Optional[bool] = None
-   copyEnableStatus: Optional[bool] = None
-   hidden: Optional[bool] = None
+   favorite: _typing.Optional[bool] = None
+   toBeMerged: _typing.Optional[bool] = None
+   toReplaceWith: _typing.Optional[bool] = None
+   toBeDeleted: _typing.Optional[bool] = None
+   copyEnableStatus: _typing.Optional[bool] = None
+   hidden: _typing.Optional[bool] = None
 
 class ApplyProfileElement(ApplyProfile):
    key: str
 
 
-class ApplyProfileProperty(DynamicData):
+class ApplyProfileProperty(pyVmomi.vmodl.DynamicData):
    propertyName: str
    array: bool
    profile: list[ApplyProfile] = []
 
 
-class ComplianceLocator(DynamicData):
+class ComplianceLocator(pyVmomi.vmodl.DynamicData):
    expressionName: str
    applyPath: ProfilePropertyPath
 
 
-class ComplianceManager(ManagedObject):
-   def CheckCompliance(self, profile: list[Profile], entity: list[ManagedEntity]) -> Task: ...
-   def QueryComplianceStatus(self, profile: list[Profile], entity: list[ManagedEntity]) -> list[ComplianceResult]: ...
-   def ClearComplianceStatus(self, profile: list[Profile], entity: list[ManagedEntity]) -> None: ...
-   def QueryExpressionMetadata(self, expressionName: list[str], profile: Optional[Profile]) -> list[ExpressionMetadata]: ...
+class ComplianceManager(pyVmomi.VmomiSupport.ManagedObject):
+   def CheckCompliance(self, profile: list[Profile], entity: list[pyVmomi.vim.ManagedEntity]) -> pyVmomi.vim.Task: ...
+   def QueryComplianceStatus(self, profile: list[Profile], entity: list[pyVmomi.vim.ManagedEntity]) -> list[ComplianceResult]: ...
+   def ClearComplianceStatus(self, profile: list[Profile], entity: list[pyVmomi.vim.ManagedEntity]) -> None: ...
+   def QueryExpressionMetadata(self, expressionName: list[str], profile: _typing.Optional[Profile]) -> list[ExpressionMetadata]: ...
 
 
-class ComplianceProfile(DynamicData):
+class ComplianceProfile(pyVmomi.vmodl.DynamicData):
    expression: list[Expression] = []
    rootExpression: str
 
 
-class ComplianceResult(DynamicData):
-   class Status(Enum):
-      compliant: ClassVar['Status'] = 'compliant'
-      nonCompliant: ClassVar['Status'] = 'nonCompliant'
-      unknown: ClassVar['Status'] = 'unknown'
-      running: ClassVar['Status'] = 'running'
+class ComplianceResult(pyVmomi.vmodl.DynamicData):
+   class Status(pyVmomi.VmomiSupport.Enum):
+      compliant: _typing.ClassVar['Status'] = 'compliant'
+      nonCompliant: _typing.ClassVar['Status'] = 'nonCompliant'
+      unknown: _typing.ClassVar['Status'] = 'unknown'
+      running: _typing.ClassVar['Status'] = 'running'
 
-   class ComplianceFailure(DynamicData):
-      class ComplianceFailureValues(DynamicData):
+   class ComplianceFailure(pyVmomi.vmodl.DynamicData):
+      class ComplianceFailureValues(pyVmomi.vmodl.DynamicData):
          comparisonIdentifier: str
-         profileInstance: Optional[str] = None
-         hostValue: Optional[object] = None
-         profileValue: Optional[object] = None
+         profileInstance: _typing.Optional[str] = None
+         hostValue: _typing.Optional[object] = None
+         profileValue: _typing.Optional[object] = None
 
       failureType: str
-      message: LocalizableMessage
-      expressionName: Optional[str] = None
+      message: pyVmomi.vmodl.LocalizableMessage
+      expressionName: _typing.Optional[str] = None
       failureValues: list[ComplianceFailureValues] = []
 
-   profile: Optional[Profile] = None
+   profile: _typing.Optional[Profile] = None
    complianceStatus: str
-   entity: Optional[ManagedEntity] = None
-   checkTime: Optional[datetime] = None
+   entity: _typing.Optional[pyVmomi.vim.ManagedEntity] = None
+   checkTime: _typing.Optional[_datetime.datetime] = None
    failure: list[ComplianceFailure] = []
 
 class CompositeExpression(Expression):
@@ -107,154 +91,154 @@ class CompositePolicyOptionMetadata(PolicyOptionMetadata):
    option: list[str] = []
 
 
-class DeferredPolicyOptionParameter(DynamicData):
+class DeferredPolicyOptionParameter(pyVmomi.vmodl.DynamicData):
    inputPath: ProfilePropertyPath
-   parameter: list[KeyAnyValue] = []
+   parameter: list[pyVmomi.vmodl.KeyAnyValue] = []
 
 
-class Expression(DynamicData):
+class Expression(pyVmomi.vmodl.DynamicData):
    id: str
    displayName: str
    negated: bool
 
 
-class ExpressionMetadata(DynamicData):
-   expressionId: ExtendedElementDescription
+class ExpressionMetadata(pyVmomi.vmodl.DynamicData):
+   expressionId: pyVmomi.vim.ExtendedElementDescription
    parameter: list[ParameterMetadata] = []
 
 class NumericComparator:
    pass
 
 
-class ParameterMetadata(DynamicData):
-   class RelationType(Enum):
-      dynamic_relation: ClassVar['RelationType'] = 'dynamic_relation'
-      extensible_relation: ClassVar['RelationType'] = 'extensible_relation'
-      localizable_relation: ClassVar['RelationType'] = 'localizable_relation'
-      static_relation: ClassVar['RelationType'] = 'static_relation'
-      validation_relation: ClassVar['RelationType'] = 'validation_relation'
+class ParameterMetadata(pyVmomi.vmodl.DynamicData):
+   class RelationType(pyVmomi.VmomiSupport.Enum):
+      dynamic_relation: _typing.ClassVar['RelationType'] = 'dynamic_relation'
+      extensible_relation: _typing.ClassVar['RelationType'] = 'extensible_relation'
+      localizable_relation: _typing.ClassVar['RelationType'] = 'localizable_relation'
+      static_relation: _typing.ClassVar['RelationType'] = 'static_relation'
+      validation_relation: _typing.ClassVar['RelationType'] = 'validation_relation'
 
-   class ParameterRelationMetadata(DynamicData):
+   class ParameterRelationMetadata(pyVmomi.vmodl.DynamicData):
       relationTypes: list[str] = []
       values: list[object] = []
-      path: Optional[ProfilePropertyPath] = None
+      path: _typing.Optional[ProfilePropertyPath] = None
       minCount: int
       maxCount: int
 
-   id: ExtendedElementDescription
+   id: pyVmomi.vim.ExtendedElementDescription
    type: type
    optional: bool
-   defaultValue: Optional[object] = None
-   hidden: Optional[bool] = None
-   securitySensitive: Optional[bool] = None
-   readOnly: Optional[bool] = None
+   defaultValue: _typing.Optional[object] = None
+   hidden: _typing.Optional[bool] = None
+   securitySensitive: _typing.Optional[bool] = None
+   readOnly: _typing.Optional[bool] = None
    parameterRelations: list[ParameterRelationMetadata] = []
 
 
-class Policy(DynamicData):
+class Policy(pyVmomi.vmodl.DynamicData):
    id: str
    policyOption: PolicyOption
 
 
-class PolicyMetadata(DynamicData):
-   id: ExtendedElementDescription
+class PolicyMetadata(pyVmomi.vmodl.DynamicData):
+   id: pyVmomi.vim.ExtendedElementDescription
    possibleOption: list[PolicyOptionMetadata] = []
 
 
-class PolicyOption(DynamicData):
+class PolicyOption(pyVmomi.vmodl.DynamicData):
    id: str
-   parameter: list[KeyAnyValue] = []
+   parameter: list[pyVmomi.vmodl.KeyAnyValue] = []
 
 
-class PolicyOptionMetadata(DynamicData):
-   id: ExtendedElementDescription
+class PolicyOptionMetadata(pyVmomi.vmodl.DynamicData):
+   id: pyVmomi.vim.ExtendedElementDescription
    parameter: list[ParameterMetadata] = []
 
 
-class Profile(ManagedObject):
-   class CreateSpec(DynamicData):
-      name: Optional[str] = None
-      annotation: Optional[str] = None
-      enabled: Optional[bool] = None
+class Profile(pyVmomi.VmomiSupport.ManagedObject):
+   class CreateSpec(pyVmomi.vmodl.DynamicData):
+      name: _typing.Optional[str] = None
+      annotation: _typing.Optional[str] = None
+      enabled: _typing.Optional[bool] = None
 
    class SerializedCreateSpec(CreateSpec):
       profileConfigString: str
 
-   class ConfigInfo(DynamicData):
+   class ConfigInfo(pyVmomi.vmodl.DynamicData):
       name: str
-      annotation: Optional[str] = None
+      annotation: _typing.Optional[str] = None
       enabled: bool
 
-   class Description(DynamicData):
-      class Section(DynamicData):
-         description: ExtendedElementDescription
-         message: list[LocalizableMessage] = []
+   class Description(pyVmomi.vmodl.DynamicData):
+      class Section(pyVmomi.vmodl.DynamicData):
+         description: pyVmomi.vim.ExtendedElementDescription
+         message: list[pyVmomi.vmodl.LocalizableMessage] = []
 
       section: list[Section] = []
 
    @property
    def config(self) -> ConfigInfo: ...
    @property
-   def description(self) -> Optional[Description]: ...
+   def description(self) -> _typing.Optional[Description]: ...
    @property
    def name(self) -> str: ...
    @property
-   def createdTime(self) -> datetime: ...
+   def createdTime(self) -> _datetime.datetime: ...
    @property
-   def modifiedTime(self) -> datetime: ...
+   def modifiedTime(self) -> _datetime.datetime: ...
    @property
-   def entity(self) -> list[ManagedEntity]: ...
+   def entity(self) -> list[pyVmomi.vim.ManagedEntity]: ...
    @property
    def complianceStatus(self) -> str: ...
 
-   def RetrieveDescription(self) -> Optional[Description]: ...
+   def RetrieveDescription(self) -> _typing.Optional[Description]: ...
    def Destroy(self) -> None: ...
-   def AssociateEntities(self, entity: list[ManagedEntity]) -> None: ...
-   def DissociateEntities(self, entity: list[ManagedEntity]) -> None: ...
-   def CheckCompliance(self, entity: list[ManagedEntity]) -> Task: ...
+   def AssociateEntities(self, entity: list[pyVmomi.vim.ManagedEntity]) -> None: ...
+   def DissociateEntities(self, entity: list[pyVmomi.vim.ManagedEntity]) -> None: ...
+   def CheckCompliance(self, entity: list[pyVmomi.vim.ManagedEntity]) -> pyVmomi.vim.Task: ...
    def ExportProfile(self) -> str: ...
 
 
-class ProfileManager(ManagedObject):
+class ProfileManager(pyVmomi.VmomiSupport.ManagedObject):
    @property
    def profile(self) -> list[Profile]: ...
 
    def CreateProfile(self, createSpec: Profile.CreateSpec) -> Profile: ...
-   def QueryPolicyMetadata(self, policyName: list[str], profile: Optional[Profile]) -> list[PolicyMetadata]: ...
-   def FindAssociatedProfile(self, entity: ManagedEntity) -> list[Profile]: ...
+   def QueryPolicyMetadata(self, policyName: list[str], profile: _typing.Optional[Profile]) -> list[PolicyMetadata]: ...
+   def FindAssociatedProfile(self, entity: pyVmomi.vim.ManagedEntity) -> list[Profile]: ...
 
 
-class ProfileMetadata(DynamicData):
-   class ProfileSortSpec(DynamicData):
+class ProfileMetadata(pyVmomi.vmodl.DynamicData):
+   class ProfileSortSpec(pyVmomi.vmodl.DynamicData):
       policyId: str
       parameter: str
 
-   class ProfileOperationMessage(DynamicData):
+   class ProfileOperationMessage(pyVmomi.vmodl.DynamicData):
       operationName: str
-      message: LocalizableMessage
+      message: pyVmomi.vmodl.LocalizableMessage
 
    key: type
-   profileTypeName: Optional[str] = None
-   description: Optional[ExtendedDescription] = None
+   profileTypeName: _typing.Optional[str] = None
+   description: _typing.Optional[pyVmomi.vim.ExtendedDescription] = None
    sortSpec: list[ProfileSortSpec] = []
-   profileCategory: Optional[str] = None
-   profileComponent: Optional[str] = None
+   profileCategory: _typing.Optional[str] = None
+   profileComponent: _typing.Optional[str] = None
    operationMessages: list[ProfileOperationMessage] = []
 
 
-class ProfilePropertyPath(DynamicData):
-   profilePath: PropertyPath
-   policyId: Optional[str] = None
-   parameterId: Optional[str] = None
-   policyOptionId: Optional[str] = None
+class ProfilePropertyPath(pyVmomi.vmodl.DynamicData):
+   profilePath: pyVmomi.VmomiSupport.PropertyPath
+   policyId: _typing.Optional[str] = None
+   parameterId: _typing.Optional[str] = None
+   policyOptionId: _typing.Optional[str] = None
 
 
-class ProfileStructure(DynamicData):
+class ProfileStructure(pyVmomi.vmodl.DynamicData):
    profileTypeName: str
    child: list[ProfileStructureProperty] = []
 
 
-class ProfileStructureProperty(DynamicData):
+class ProfileStructureProperty(pyVmomi.vmodl.DynamicData):
    propertyName: str
    array: bool
    element: ProfileStructure
@@ -262,7 +246,7 @@ class ProfileStructureProperty(DynamicData):
 
 class SimpleExpression(Expression):
    expressionType: str
-   parameter: list[KeyAnyValue] = []
+   parameter: list[pyVmomi.vmodl.KeyAnyValue] = []
 
 
 class UserInputRequiredParameterMetadata(PolicyOptionMetadata):

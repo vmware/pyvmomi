@@ -7,34 +7,20 @@ from . import auth as auth
 from . import fault as fault
 from . import vso as vso
 
-from datetime import datetime
-
-from typing import ClassVar
-from typing import Optional
-
-from pyVmomi.VmomiSupport import Enum
-from pyVmomi.VmomiSupport import ManagedMethod
-from pyVmomi.VmomiSupport import ManagedObject
-from pyVmomi.vim import Datacenter
-from pyVmomi.vim import Datastore
-
-from pyVmomi.vim import ManagedEntity
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import LocalizableMessage
-from pyVmomi.vmodl import MethodFault
-
-from pyVmomi.vim.alarm import Alarm
-from pyVmomi.vim.scheduler import ScheduledTask
-
-from pyVmomi.vim.vslm import ID
-
-from pyVmomi.vslm.auth import SessionManager
-
-from pyVmomi.vslm.vso import VStorageObjectManager
+import datetime as _datetime
+import typing as _typing
+import pyVmomi.VmomiSupport
+import pyVmomi.vim
+import pyVmomi.vmodl
+import pyVmomi.vim.alarm
+import pyVmomi.vim.scheduler
+import pyVmomi.vim.vslm
+import pyVmomi.vslm.auth
+import pyVmomi.vslm.vso
 
 
 
-class AboutInfo(DynamicData):
+class AboutInfo(pyVmomi.vmodl.DynamicData):
    name: str
    fullName: str
    vendor: str
@@ -42,82 +28,82 @@ class AboutInfo(DynamicData):
    instanceUuid: str
 
 
-class QueryDatastoreInfoResult(DynamicData):
-   datacenter: Datacenter
-   datastore: Datastore
+class QueryDatastoreInfoResult(pyVmomi.vmodl.DynamicData):
+   datacenter: pyVmomi.vim.Datacenter
+   datastore: pyVmomi.vim.Datastore
 
 
-class ServiceInstance(ManagedObject):
+class ServiceInstance(pyVmomi.VmomiSupport.ManagedObject):
    @property
    def content(self) -> ServiceInstanceContent: ...
 
    def RetrieveContent(self) -> ServiceInstanceContent: ...
 
 
-class ServiceInstanceContent(DynamicData):
+class ServiceInstanceContent(pyVmomi.vmodl.DynamicData):
    aboutInfo: AboutInfo
-   sessionManager: SessionManager
-   vStorageObjectManager: VStorageObjectManager
+   sessionManager: pyVmomi.vslm.auth.SessionManager
+   vStorageObjectManager: pyVmomi.vslm.vso.VStorageObjectManager
    storageLifecycleManager: StorageLifecycleManager
 
 
-class StorageLifecycleManager(ManagedObject):
-   def SyncDatastore(self, datastoreUrl: str, fullSync: bool, fcdId: Optional[ID]) -> None: ...
+class StorageLifecycleManager(pyVmomi.VmomiSupport.ManagedObject):
+   def SyncDatastore(self, datastoreUrl: str, fullSync: bool, fcdId: _typing.Optional[pyVmomi.vim.vslm.ID]) -> None: ...
    def QueryDatastoreInfo(self, datastoreUrl: str) -> list[QueryDatastoreInfoResult]: ...
 
 
-class Task(ManagedObject):
-   def QueryResult(self) -> Optional[object]: ...
+class Task(pyVmomi.VmomiSupport.ManagedObject):
+   def QueryResult(self) -> _typing.Optional[object]: ...
    def QueryInfo(self) -> TaskInfo: ...
    def Cancel(self) -> None: ...
 
 
-class TaskInfo(DynamicData):
-   class State(Enum):
-      queued: ClassVar['State'] = 'queued'
-      running: ClassVar['State'] = 'running'
-      success: ClassVar['State'] = 'success'
-      error: ClassVar['State'] = 'error'
+class TaskInfo(pyVmomi.vmodl.DynamicData):
+   class State(pyVmomi.VmomiSupport.Enum):
+      queued: _typing.ClassVar['State'] = 'queued'
+      running: _typing.ClassVar['State'] = 'running'
+      success: _typing.ClassVar['State'] = 'success'
+      error: _typing.ClassVar['State'] = 'error'
 
    key: str
    task: Task
-   description: Optional[LocalizableMessage] = None
-   name: Optional[ManagedMethod] = None
+   description: _typing.Optional[pyVmomi.vmodl.LocalizableMessage] = None
+   name: _typing.Optional[pyVmomi.VmomiSupport.ManagedMethod] = None
    descriptionId: str
-   entity: Optional[ManagedEntity] = None
-   entityName: Optional[str] = None
-   locked: list[ManagedEntity] = []
+   entity: _typing.Optional[pyVmomi.vim.ManagedEntity] = None
+   entityName: _typing.Optional[str] = None
+   locked: list[pyVmomi.vim.ManagedEntity] = []
    state: State
    cancelled: bool
    cancelable: bool
-   error: Optional[MethodFault] = None
-   result: Optional[object] = None
-   progress: Optional[int] = None
+   error: _typing.Optional[pyVmomi.vmodl.MethodFault] = None
+   result: _typing.Optional[object] = None
+   progress: _typing.Optional[int] = None
    reason: TaskReason
-   queueTime: datetime
-   startTime: Optional[datetime] = None
-   completeTime: Optional[datetime] = None
+   queueTime: _datetime.datetime
+   startTime: _typing.Optional[_datetime.datetime] = None
+   completeTime: _typing.Optional[_datetime.datetime] = None
    eventChainId: int
-   changeTag: Optional[str] = None
-   parentTaskKey: Optional[str] = None
-   rootTaskKey: Optional[str] = None
-   activationId: Optional[str] = None
+   changeTag: _typing.Optional[str] = None
+   parentTaskKey: _typing.Optional[str] = None
+   rootTaskKey: _typing.Optional[str] = None
+   activationId: _typing.Optional[str] = None
 
 
-class TaskReason(DynamicData):
+class TaskReason(pyVmomi.vmodl.DynamicData):
    pass
 
 
 class TaskReasonAlarm(TaskReason):
    alarmName: str
-   alarm: Alarm
+   alarm: pyVmomi.vim.alarm.Alarm
    entityName: str
-   entity: ManagedEntity
+   entity: pyVmomi.vim.ManagedEntity
 
 
 class TaskReasonSchedule(TaskReason):
    name: str
-   scheduledTask: ScheduledTask
+   scheduledTask: pyVmomi.vim.scheduler.ScheduledTask
 
 class TaskReasonSystem(TaskReason):
    pass

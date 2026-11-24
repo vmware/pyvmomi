@@ -6,38 +6,37 @@
 from . import provider as provider
 from . import types as types
 
-from typing import Optional
-from pyVmomi.VmomiSupport import ManagedObject
-
-from pyVmomi.pbm import ExtendedElementDescription
-from pyVmomi.vmodl import DynamicData
-
+import typing as _typing
+import pyVmomi.VmomiSupport
+import pyVmomi.pbm
+import pyVmomi.vmodl
 
 
-class CapabilityInstance(DynamicData):
+
+class CapabilityInstance(pyVmomi.vmodl.DynamicData):
    id: CapabilityMetadata.UniqueId
    constraint: list[ConstraintInstance] = []
 
 
-class CapabilityMetadata(DynamicData):
-   class UniqueId(DynamicData):
+class CapabilityMetadata(pyVmomi.vmodl.DynamicData):
+   class UniqueId(pyVmomi.vmodl.DynamicData):
       namespace: str
       id: str
 
    id: UniqueId
-   summary: ExtendedElementDescription
-   mandatory: Optional[bool] = None
-   hint: Optional[bool] = None
-   keyId: Optional[str] = None
-   allowMultipleConstraints: Optional[bool] = None
+   summary: pyVmomi.pbm.ExtendedElementDescription
+   mandatory: _typing.Optional[bool] = None
+   hint: _typing.Optional[bool] = None
+   keyId: _typing.Optional[str] = None
+   allowMultipleConstraints: _typing.Optional[bool] = None
    propertyMetadata: list[PropertyMetadata] = []
 
 
-class CapabilityMetadataManager(ManagedObject):
+class CapabilityMetadataManager(pyVmomi.VmomiSupport.ManagedObject):
    pass
 
 
-class ConstraintInstance(DynamicData):
+class ConstraintInstance(pyVmomi.vmodl.DynamicData):
    propertyInstance: list[PropertyInstance] = []
 
 class GenericTypeInfo(TypeInfo):
@@ -47,21 +46,21 @@ class Operator:
    pass
 
 
-class PropertyInstance(DynamicData):
+class PropertyInstance(pyVmomi.vmodl.DynamicData):
    id: str
-   operator: Optional[str] = None
+   operator: _typing.Optional[str] = None
    value: object
 
 
-class PropertyMetadata(DynamicData):
+class PropertyMetadata(pyVmomi.vmodl.DynamicData):
    id: str
-   summary: ExtendedElementDescription
+   summary: pyVmomi.pbm.ExtendedElementDescription
    mandatory: bool
-   type: Optional[TypeInfo] = None
-   defaultValue: Optional[object] = None
-   allowedValue: Optional[object] = None
-   requirementsTypeHint: Optional[str] = None
+   type: _typing.Optional[TypeInfo] = None
+   defaultValue: _typing.Optional[object] = None
+   allowedValue: _typing.Optional[object] = None
+   requirementsTypeHint: _typing.Optional[str] = None
 
 
-class TypeInfo(DynamicData):
+class TypeInfo(pyVmomi.vmodl.DynamicData):
    typeName: str

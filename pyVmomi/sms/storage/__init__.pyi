@@ -5,27 +5,14 @@
 
 from . import replication as replication
 
-from datetime import datetime
-from typing import ClassVar
-from typing import Optional
-
-from pyVmomi.VmomiSupport import Enum
-
-from pyVmomi.VmomiSupport import long
-
-from pyVmomi.vim import Datastore
-
-from pyVmomi.vim import VasaStorageArray
-
-from pyVmomi.vmodl import DynamicData
-
-from pyVmomi.sms.provider import Provider
-
-from pyVmomi.sms.provider import ProviderInfo
-
-from pyVmomi.vim.host import HostBusAdapter
-
-from pyVmomi.vim.vm.replication import FaultDomainId
+import datetime as _datetime
+import typing as _typing
+import pyVmomi.VmomiSupport
+import pyVmomi.vim
+import pyVmomi.vmodl
+import pyVmomi.sms.provider
+import pyVmomi.vim.host
+import pyVmomi.vim.vm.replication
 
 
 class AlarmStatus:
@@ -35,37 +22,37 @@ class AlarmType:
    pass
 
 
-class BackingConfig(DynamicData):
-   thinProvisionBackingIdentifier: Optional[str] = None
-   deduplicationBackingIdentifier: Optional[str] = None
-   autoTieringEnabled: Optional[bool] = None
-   deduplicationEfficiency: Optional[long] = None
-   performanceOptimizationInterval: Optional[long] = None
+class BackingConfig(pyVmomi.vmodl.DynamicData):
+   thinProvisionBackingIdentifier: _typing.Optional[str] = None
+   deduplicationBackingIdentifier: _typing.Optional[str] = None
+   autoTieringEnabled: _typing.Optional[bool] = None
+   deduplicationEfficiency: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   performanceOptimizationInterval: _typing.Optional[pyVmomi.VmomiSupport.long] = None
 
 
-class BackingStoragePool(DynamicData):
-   class BackingStoragePoolType(Enum):
-      thinProvisioningPool: ClassVar['BackingStoragePoolType'] = 'thinProvisioningPool'
-      deduplicationPool: ClassVar['BackingStoragePoolType'] = 'deduplicationPool'
-      thinAndDeduplicationCombinedPool: ClassVar['BackingStoragePoolType'] = 'thinAndDeduplicationCombinedPool'
+class BackingStoragePool(pyVmomi.vmodl.DynamicData):
+   class BackingStoragePoolType(pyVmomi.VmomiSupport.Enum):
+      thinProvisioningPool: _typing.ClassVar['BackingStoragePoolType'] = 'thinProvisioningPool'
+      deduplicationPool: _typing.ClassVar['BackingStoragePoolType'] = 'deduplicationPool'
+      thinAndDeduplicationCombinedPool: _typing.ClassVar['BackingStoragePoolType'] = 'thinAndDeduplicationCombinedPool'
 
    uuid: str
    type: str
-   capacityInMB: long
-   usedSpaceInMB: long
+   capacityInMB: pyVmomi.VmomiSupport.long
+   usedSpaceInMB: pyVmomi.VmomiSupport.long
 
 
-class DatastoreBackingPoolMapping(DynamicData):
-   datastore: list[Datastore] = []
+class DatastoreBackingPoolMapping(pyVmomi.vmodl.DynamicData):
+   datastore: list[pyVmomi.vim.Datastore] = []
    backingStoragePool: list[BackingStoragePool] = []
 
 
-class DatastorePair(DynamicData):
-   datastore1: Datastore
-   datastore2: Datastore
+class DatastorePair(pyVmomi.vmodl.DynamicData):
+   datastore1: pyVmomi.vim.Datastore
+   datastore2: pyVmomi.vim.Datastore
 
 
-class DrsMigrationCapabilityResult(DynamicData):
+class DrsMigrationCapabilityResult(pyVmomi.vmodl.DynamicData):
    recommendedDatastorePair: list[DatastorePair] = []
    nonRecommendedDatastorePair: list[DatastorePair] = []
 
@@ -73,9 +60,9 @@ class EntityType:
    pass
 
 
-class FaultDomainProviderMapping(DynamicData):
-   activeProvider: Provider
-   faultDomainId: list[FaultDomainId] = []
+class FaultDomainProviderMapping(pyVmomi.vmodl.DynamicData):
+   activeProvider: pyVmomi.sms.provider.Provider
+   faultDomainId: list[pyVmomi.vim.vm.replication.FaultDomainId] = []
 
 class FcStoragePort(StoragePort):
    portWwn: str
@@ -86,106 +73,106 @@ class FcoeStoragePort(StoragePort):
    nodeWwn: str
 
 
-class FileSystemInfo(DynamicData):
+class FileSystemInfo(pyVmomi.vmodl.DynamicData):
    fileServerName: str
    fileSystemPath: str
-   ipAddress: Optional[str] = None
+   ipAddress: _typing.Optional[str] = None
 
 class IscsiStoragePort(StoragePort):
    identifier: str
 
 
-class LunHbaAssociation(DynamicData):
+class LunHbaAssociation(pyVmomi.vmodl.DynamicData):
    canonicalName: str
-   hba: list[HostBusAdapter] = []
+   hba: list[pyVmomi.vim.host.HostBusAdapter] = []
 
 
-class NameValuePair(DynamicData):
+class NameValuePair(pyVmomi.vmodl.DynamicData):
    parameterName: str
    parameterValue: str
 
 
-class StorageAlarm(DynamicData):
-   alarmId: long
+class StorageAlarm(pyVmomi.vmodl.DynamicData):
+   alarmId: pyVmomi.VmomiSupport.long
    alarmType: str
-   containerId: Optional[str] = None
-   objectId: Optional[str] = None
+   containerId: _typing.Optional[str] = None
+   objectId: _typing.Optional[str] = None
    objectType: str
    status: str
-   alarmTimeStamp: datetime
+   alarmTimeStamp: _datetime.datetime
    messageId: str
    parameterList: list[NameValuePair] = []
-   alarmObject: Optional[object] = None
+   alarmObject: _typing.Optional[object] = None
 
 
-class StorageArray(DynamicData):
-   class BlockDeviceInterface(Enum):
-      fc: ClassVar['BlockDeviceInterface'] = 'fc'
-      iscsi: ClassVar['BlockDeviceInterface'] = 'iscsi'
-      fcoe: ClassVar['BlockDeviceInterface'] = 'fcoe'
-      otherBlock: ClassVar['BlockDeviceInterface'] = 'otherBlock'
+class StorageArray(pyVmomi.vmodl.DynamicData):
+   class BlockDeviceInterface(pyVmomi.VmomiSupport.Enum):
+      fc: _typing.ClassVar['BlockDeviceInterface'] = 'fc'
+      iscsi: _typing.ClassVar['BlockDeviceInterface'] = 'iscsi'
+      fcoe: _typing.ClassVar['BlockDeviceInterface'] = 'fcoe'
+      otherBlock: _typing.ClassVar['BlockDeviceInterface'] = 'otherBlock'
 
-   class FileSystemInterface(Enum):
-      nfs: ClassVar['FileSystemInterface'] = 'nfs'
-      otherFileSystem: ClassVar['FileSystemInterface'] = 'otherFileSystem'
+   class FileSystemInterface(pyVmomi.VmomiSupport.Enum):
+      nfs: _typing.ClassVar['FileSystemInterface'] = 'nfs'
+      otherFileSystem: _typing.ClassVar['FileSystemInterface'] = 'otherFileSystem'
 
-   class VasaProfile(Enum):
-      blockDevice: ClassVar['VasaProfile'] = 'blockDevice'
-      fileSystem: ClassVar['VasaProfile'] = 'fileSystem'
-      capability: ClassVar['VasaProfile'] = 'capability'
-      policy: ClassVar['VasaProfile'] = 'policy'
-      object: ClassVar['VasaProfile'] = 'object'
-      statistics: ClassVar['VasaProfile'] = 'statistics'
-      storageDrsBlockDevice: ClassVar['VasaProfile'] = 'storageDrsBlockDevice'
-      storageDrsFileSystem: ClassVar['VasaProfile'] = 'storageDrsFileSystem'
+   class VasaProfile(pyVmomi.VmomiSupport.Enum):
+      blockDevice: _typing.ClassVar['VasaProfile'] = 'blockDevice'
+      fileSystem: _typing.ClassVar['VasaProfile'] = 'fileSystem'
+      capability: _typing.ClassVar['VasaProfile'] = 'capability'
+      policy: _typing.ClassVar['VasaProfile'] = 'policy'
+      object: _typing.ClassVar['VasaProfile'] = 'object'
+      statistics: _typing.ClassVar['VasaProfile'] = 'statistics'
+      storageDrsBlockDevice: _typing.ClassVar['VasaProfile'] = 'storageDrsBlockDevice'
+      storageDrsFileSystem: _typing.ClassVar['VasaProfile'] = 'storageDrsFileSystem'
 
    name: str
    uuid: str
    vendorId: str
    modelId: str
-   firmware: Optional[str] = None
+   firmware: _typing.Optional[str] = None
    alternateName: list[str] = []
    supportedBlockInterface: list[str] = []
    supportedFileSystemInterface: list[str] = []
    supportedProfile: list[str] = []
-   priority: Optional[int] = None
-   discoverySvc: list[VasaStorageArray.DiscoverySvcInfo] = []
+   priority: _typing.Optional[int] = None
+   discoverySvc: list[pyVmomi.vim.VasaStorageArray.DiscoverySvcInfo] = []
 
 
-class StorageCapability(DynamicData):
+class StorageCapability(pyVmomi.vmodl.DynamicData):
    uuid: str
    name: str
    description: str
 
 
-class StorageContainer(DynamicData):
-   class VvolContainerTypeEnum(Enum):
-      NFS: ClassVar['VvolContainerTypeEnum'] = 'NFS'
-      NFS4x: ClassVar['VvolContainerTypeEnum'] = 'NFS4x'
-      SCSI: ClassVar['VvolContainerTypeEnum'] = 'SCSI'
-      NVMe: ClassVar['VvolContainerTypeEnum'] = 'NVMe'
+class StorageContainer(pyVmomi.vmodl.DynamicData):
+   class VvolContainerTypeEnum(pyVmomi.VmomiSupport.Enum):
+      NFS: _typing.ClassVar['VvolContainerTypeEnum'] = 'NFS'
+      NFS4x: _typing.ClassVar['VvolContainerTypeEnum'] = 'NFS4x'
+      SCSI: _typing.ClassVar['VvolContainerTypeEnum'] = 'SCSI'
+      NVMe: _typing.ClassVar['VvolContainerTypeEnum'] = 'NVMe'
 
    uuid: str
    name: str
-   maxVvolSizeInMB: long
+   maxVvolSizeInMB: pyVmomi.VmomiSupport.long
    providerId: list[str] = []
    arrayId: list[str] = []
-   vvolContainerType: Optional[str] = None
-   stretched: Optional[bool] = None
+   vvolContainerType: _typing.Optional[str] = None
+   stretched: _typing.Optional[bool] = None
 
 
-class StorageContainerResult(DynamicData):
+class StorageContainerResult(pyVmomi.vmodl.DynamicData):
    storageContainer: list[StorageContainer] = []
-   providerInfo: list[ProviderInfo] = []
+   providerInfo: list[pyVmomi.sms.provider.ProviderInfo] = []
 
 
-class StorageContainerSpec(DynamicData):
+class StorageContainerSpec(pyVmomi.vmodl.DynamicData):
    containerId: list[str] = []
 
 
-class StorageFileSystem(DynamicData):
-   class FileSystemInterfaceVersion(Enum):
-      NFSV3_0: ClassVar['FileSystemInterfaceVersion'] = 'NFSV3_0'
+class StorageFileSystem(pyVmomi.vmodl.DynamicData):
+   class FileSystemInterfaceVersion(pyVmomi.VmomiSupport.Enum):
+      NFSV3_0: _typing.ClassVar['FileSystemInterfaceVersion'] = 'NFSV3_0'
 
    uuid: str
    info: list[FileSystemInfo] = []
@@ -193,29 +180,29 @@ class StorageFileSystem(DynamicData):
    thinProvisioningStatus: str
    type: str
    version: str
-   backingConfig: Optional[BackingConfig] = None
+   backingConfig: _typing.Optional[BackingConfig] = None
 
 
-class StorageLun(DynamicData):
+class StorageLun(pyVmomi.vmodl.DynamicData):
    uuid: str
    vSphereLunIdentifier: str
    vendorDisplayName: str
-   capacityInMB: long
-   usedSpaceInMB: long
+   capacityInMB: pyVmomi.VmomiSupport.long
+   usedSpaceInMB: pyVmomi.VmomiSupport.long
    lunThinProvisioned: bool
    alternateIdentifier: list[str] = []
    drsManagementPermitted: bool
    thinProvisioningStatus: str
-   backingConfig: Optional[BackingConfig] = None
+   backingConfig: _typing.Optional[BackingConfig] = None
 
 
-class StoragePort(DynamicData):
+class StoragePort(pyVmomi.vmodl.DynamicData):
    uuid: str
    type: str
    alternateName: list[str] = []
 
 
-class StorageProcessor(DynamicData):
+class StorageProcessor(pyVmomi.vmodl.DynamicData):
    uuid: str
    alternateIdentifer: list[str] = []
 

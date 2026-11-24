@@ -3,66 +3,34 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import ClassVar
-from typing import Optional
-
-from pyVmomi.VmomiSupport import Enum
-from pyVmomi.VmomiSupport import PropertyPath
-
-from pyVmomi.VmomiSupport import binary
-
-from pyVmomi.VmomiSupport import long
-
-from pyVmomi.VmomiSupport import short
-
-from pyVmomi.vim import Datastore
-from pyVmomi.vim import Description
-
-from pyVmomi.vim import Network
-
-from pyVmomi.vim import SharesInfo
-from pyVmomi.vim import StorageResourceManager
-from pyVmomi.vim import VirtualMachine
-
-from pyVmomi.vmodl import DynamicData
-
-from pyVmomi.vim.dvs import PortConnection
-
-from pyVmomi.vim.encryption import CryptoKeyId
-
-from pyVmomi.vim.encryption import CryptoSpec
-from pyVmomi.vim.option import BoolOption
-from pyVmomi.vim.option import ChoiceOption
-
-from pyVmomi.vim.option import IntOption
-from pyVmomi.vim.option import LongOption
-
-from pyVmomi.vim.option import OptionValue
-from pyVmomi.vim.option import StringOption
-
-from pyVmomi.vim.vm import BaseIndependentFilterSpec
-from pyVmomi.vim.vm import ProfileSpec
-
-from pyVmomi.vim.vslm import ID
+import typing as _typing
+import pyVmomi.VmomiSupport
+import pyVmomi.vim
+import pyVmomi.vmodl
+import pyVmomi.vim.dvs
+import pyVmomi.vim.encryption
+import pyVmomi.vim.option
+import pyVmomi.vim.vm
+import pyVmomi.vim.vslm
 
 
 
-class HostDiskMappingInfo(DynamicData):
-   class PartitionInfo(DynamicData):
+class HostDiskMappingInfo(pyVmomi.vmodl.DynamicData):
+   class PartitionInfo(pyVmomi.vmodl.DynamicData):
       name: str
       fileSystem: str
-      capacityInKb: long
+      capacityInKb: pyVmomi.VmomiSupport.long
 
-   physicalPartition: Optional[PartitionInfo] = None
+   physicalPartition: _typing.Optional[PartitionInfo] = None
    name: str
-   exclusive: Optional[bool] = None
+   exclusive: _typing.Optional[bool] = None
 
 
-class HostDiskMappingOption(DynamicData):
-   class PartitionOption(DynamicData):
+class HostDiskMappingOption(pyVmomi.vmodl.DynamicData):
+   class PartitionOption(pyVmomi.vmodl.DynamicData):
       name: str
       fileSystem: str
-      capacityInKb: long
+      capacityInKb: pyVmomi.VmomiSupport.long
 
    physicalPartition: list[PartitionOption] = []
    name: str
@@ -107,10 +75,10 @@ class VirtualCdromOption(VirtualDeviceOption):
       pass
 
    class PassthroughBackingOption(VirtualDeviceOption.DeviceBackingOption):
-      exclusive: BoolOption
+      exclusive: pyVmomi.vim.option.BoolOption
 
    class RemotePassthroughBackingOption(VirtualDeviceOption.RemoteDeviceBackingOption):
-      exclusive: BoolOption
+      exclusive: pyVmomi.vim.option.BoolOption
 
    class AtapiBackingOption(VirtualDeviceOption.DeviceBackingOption):
       pass
@@ -125,26 +93,26 @@ class VirtualController(VirtualDevice):
 
 
 class VirtualControllerOption(VirtualDeviceOption):
-   devices: IntOption
+   devices: pyVmomi.vim.option.IntOption
    supportedDevice: list[type] = []
 
 
-class VirtualDevice(DynamicData):
-   class BackingInfo(DynamicData):
+class VirtualDevice(pyVmomi.vmodl.DynamicData):
+   class BackingInfo(pyVmomi.vmodl.DynamicData):
       pass
 
    class FileBackingInfo(BackingInfo):
       fileName: str
-      datastore: Optional[Datastore] = None
-      backingObjectId: Optional[str] = None
+      datastore: _typing.Optional[pyVmomi.vim.Datastore] = None
+      backingObjectId: _typing.Optional[str] = None
 
    class DeviceBackingInfo(BackingInfo):
       deviceName: str
-      useAutoDetect: Optional[bool] = None
+      useAutoDetect: _typing.Optional[bool] = None
 
    class RemoteDeviceBackingInfo(BackingInfo):
       deviceName: str
-      useAutoDetect: Optional[bool] = None
+      useAutoDetect: _typing.Optional[bool] = None
 
    class PipeBackingInfo(BackingInfo):
       pipeName: str
@@ -152,357 +120,357 @@ class VirtualDevice(DynamicData):
    class URIBackingInfo(BackingInfo):
       serviceURI: str
       direction: str
-      proxyURI: Optional[str] = None
+      proxyURI: _typing.Optional[str] = None
 
-   class ConnectInfo(DynamicData):
-      class Status(Enum):
-         ok: ClassVar['Status'] = 'ok'
-         recoverableError: ClassVar['Status'] = 'recoverableError'
-         unrecoverableError: ClassVar['Status'] = 'unrecoverableError'
-         untried: ClassVar['Status'] = 'untried'
+   class ConnectInfo(pyVmomi.vmodl.DynamicData):
+      class Status(pyVmomi.VmomiSupport.Enum):
+         ok: _typing.ClassVar['Status'] = 'ok'
+         recoverableError: _typing.ClassVar['Status'] = 'recoverableError'
+         unrecoverableError: _typing.ClassVar['Status'] = 'unrecoverableError'
+         untried: _typing.ClassVar['Status'] = 'untried'
 
-      class MigrateConnectOp(Enum):
-         connect: ClassVar['MigrateConnectOp'] = 'connect'
-         disconnect: ClassVar['MigrateConnectOp'] = 'disconnect'
-         unset: ClassVar['MigrateConnectOp'] = 'unset'
+      class MigrateConnectOp(pyVmomi.VmomiSupport.Enum):
+         connect: _typing.ClassVar['MigrateConnectOp'] = 'connect'
+         disconnect: _typing.ClassVar['MigrateConnectOp'] = 'disconnect'
+         unset: _typing.ClassVar['MigrateConnectOp'] = 'unset'
 
-      migrateConnect: Optional[str] = None
+      migrateConnect: _typing.Optional[str] = None
       startConnected: bool
       allowGuestControl: bool
       connected: bool
-      status: Optional[str] = None
+      status: _typing.Optional[str] = None
 
-   class BusSlotInfo(DynamicData):
+   class BusSlotInfo(pyVmomi.vmodl.DynamicData):
       pass
 
    class PciBusSlotInfo(BusSlotInfo):
       pciSlotNumber: int
 
-   class DeviceGroupInfo(DynamicData):
+   class DeviceGroupInfo(pyVmomi.vmodl.DynamicData):
       groupInstanceKey: int
       sequenceId: int
 
    key: int
-   deviceInfo: Optional[Description] = None
-   backing: Optional[BackingInfo] = None
-   connectable: Optional[ConnectInfo] = None
-   slotInfo: Optional[BusSlotInfo] = None
-   controllerKey: Optional[int] = None
-   unitNumber: Optional[int] = None
-   numaNode: Optional[int] = None
-   deviceGroupInfo: Optional[DeviceGroupInfo] = None
+   deviceInfo: _typing.Optional[pyVmomi.vim.Description] = None
+   backing: _typing.Optional[BackingInfo] = None
+   connectable: _typing.Optional[ConnectInfo] = None
+   slotInfo: _typing.Optional[BusSlotInfo] = None
+   controllerKey: _typing.Optional[int] = None
+   unitNumber: _typing.Optional[int] = None
+   numaNode: _typing.Optional[int] = None
+   deviceGroupInfo: _typing.Optional[DeviceGroupInfo] = None
 
 
-class VirtualDeviceOption(DynamicData):
-   class BackingOption(DynamicData):
+class VirtualDeviceOption(pyVmomi.vmodl.DynamicData):
+   class BackingOption(pyVmomi.vmodl.DynamicData):
       type: type
 
    class FileBackingOption(BackingOption):
-      class FileExtension(Enum):
-         iso: ClassVar['FileExtension'] = 'iso'
-         flp: ClassVar['FileExtension'] = 'flp'
-         vmdk: ClassVar['FileExtension'] = 'vmdk'
-         dsk: ClassVar['FileExtension'] = 'dsk'
-         rdm: ClassVar['FileExtension'] = 'rdm'
+      class FileExtension(pyVmomi.VmomiSupport.Enum):
+         iso: _typing.ClassVar['FileExtension'] = 'iso'
+         flp: _typing.ClassVar['FileExtension'] = 'flp'
+         vmdk: _typing.ClassVar['FileExtension'] = 'vmdk'
+         dsk: _typing.ClassVar['FileExtension'] = 'dsk'
+         rdm: _typing.ClassVar['FileExtension'] = 'rdm'
 
-      fileNameExtensions: Optional[ChoiceOption] = None
+      fileNameExtensions: _typing.Optional[pyVmomi.vim.option.ChoiceOption] = None
 
    class DeviceBackingOption(BackingOption):
-      autoDetectAvailable: BoolOption
+      autoDetectAvailable: pyVmomi.vim.option.BoolOption
 
    class RemoteDeviceBackingOption(BackingOption):
-      autoDetectAvailable: BoolOption
+      autoDetectAvailable: pyVmomi.vim.option.BoolOption
 
    class PipeBackingOption(BackingOption):
       pass
 
    class URIBackingOption(BackingOption):
-      class Direction(Enum):
-         server: ClassVar['Direction'] = 'server'
-         client: ClassVar['Direction'] = 'client'
+      class Direction(pyVmomi.VmomiSupport.Enum):
+         server: _typing.ClassVar['Direction'] = 'server'
+         client: _typing.ClassVar['Direction'] = 'client'
 
-      directions: ChoiceOption
+      directions: pyVmomi.vim.option.ChoiceOption
 
-   class ConnectOption(DynamicData):
-      startConnected: BoolOption
-      allowGuestControl: BoolOption
+   class ConnectOption(pyVmomi.vmodl.DynamicData):
+      startConnected: pyVmomi.vim.option.BoolOption
+      allowGuestControl: pyVmomi.vim.option.BoolOption
 
-   class BusSlotOption(DynamicData):
+   class BusSlotOption(pyVmomi.vmodl.DynamicData):
       type: type
 
    type: type
-   connectOption: Optional[ConnectOption] = None
-   busSlotOption: Optional[BusSlotOption] = None
-   controllerType: Optional[type] = None
-   autoAssignController: Optional[BoolOption] = None
+   connectOption: _typing.Optional[ConnectOption] = None
+   busSlotOption: _typing.Optional[BusSlotOption] = None
+   controllerType: _typing.Optional[type] = None
+   autoAssignController: _typing.Optional[pyVmomi.vim.option.BoolOption] = None
    backingOption: list[BackingOption] = []
-   defaultBackingOptionIndex: Optional[int] = None
-   licensingLimit: list[PropertyPath] = []
+   defaultBackingOptionIndex: _typing.Optional[int] = None
+   licensingLimit: list[pyVmomi.VmomiSupport.PropertyPath] = []
    deprecated: bool
    plugAndPlay: bool
    hotRemoveSupported: bool
-   numaSupported: Optional[bool] = None
+   numaSupported: _typing.Optional[bool] = None
 
 
-class VirtualDeviceSpec(DynamicData):
-   class Operation(Enum):
-      add: ClassVar['Operation'] = 'add'
-      remove: ClassVar['Operation'] = 'remove'
-      edit: ClassVar['Operation'] = 'edit'
+class VirtualDeviceSpec(pyVmomi.vmodl.DynamicData):
+   class Operation(pyVmomi.VmomiSupport.Enum):
+      add: _typing.ClassVar['Operation'] = 'add'
+      remove: _typing.ClassVar['Operation'] = 'remove'
+      edit: _typing.ClassVar['Operation'] = 'edit'
 
-   class FileOperation(Enum):
-      create: ClassVar['FileOperation'] = 'create'
-      destroy: ClassVar['FileOperation'] = 'destroy'
-      replace: ClassVar['FileOperation'] = 'replace'
+   class FileOperation(pyVmomi.VmomiSupport.Enum):
+      create: _typing.ClassVar['FileOperation'] = 'create'
+      destroy: _typing.ClassVar['FileOperation'] = 'destroy'
+      replace: _typing.ClassVar['FileOperation'] = 'replace'
 
-   class BackingSpec(DynamicData):
-      parent: Optional[BackingSpec] = None
-      crypto: Optional[CryptoSpec] = None
+   class BackingSpec(pyVmomi.vmodl.DynamicData):
+      parent: _typing.Optional[BackingSpec] = None
+      crypto: _typing.Optional[pyVmomi.vim.encryption.CryptoSpec] = None
 
-   class ChangeMode(Enum):
-      fail: ClassVar['ChangeMode'] = 'fail'
-      skip: ClassVar['ChangeMode'] = 'skip'
+   class ChangeMode(pyVmomi.VmomiSupport.Enum):
+      fail: _typing.ClassVar['ChangeMode'] = 'fail'
+      skip: _typing.ClassVar['ChangeMode'] = 'skip'
 
-   operation: Optional[Operation] = None
-   fileOperation: Optional[FileOperation] = None
+   operation: _typing.Optional[Operation] = None
+   fileOperation: _typing.Optional[FileOperation] = None
    device: VirtualDevice
-   profile: list[ProfileSpec] = []
-   backing: Optional[BackingSpec] = None
-   filterSpec: list[BaseIndependentFilterSpec] = []
-   changeMode: Optional[str] = None
+   profile: list[pyVmomi.vim.vm.ProfileSpec] = []
+   backing: _typing.Optional[BackingSpec] = None
+   filterSpec: list[pyVmomi.vim.vm.BaseIndependentFilterSpec] = []
+   changeMode: _typing.Optional[str] = None
 
 
 class VirtualDisk(VirtualDevice):
-   class DeltaDiskFormat(Enum):
-      redoLogFormat: ClassVar['DeltaDiskFormat'] = 'redoLogFormat'
-      nativeFormat: ClassVar['DeltaDiskFormat'] = 'nativeFormat'
-      seSparseFormat: ClassVar['DeltaDiskFormat'] = 'seSparseFormat'
+   class DeltaDiskFormat(pyVmomi.VmomiSupport.Enum):
+      redoLogFormat: _typing.ClassVar['DeltaDiskFormat'] = 'redoLogFormat'
+      nativeFormat: _typing.ClassVar['DeltaDiskFormat'] = 'nativeFormat'
+      seSparseFormat: _typing.ClassVar['DeltaDiskFormat'] = 'seSparseFormat'
 
-   class DeltaDiskFormatVariant(Enum):
-      vmfsSparseVariant: ClassVar['DeltaDiskFormatVariant'] = 'vmfsSparseVariant'
-      vsanSparseVariant: ClassVar['DeltaDiskFormatVariant'] = 'vsanSparseVariant'
+   class DeltaDiskFormatVariant(pyVmomi.VmomiSupport.Enum):
+      vmfsSparseVariant: _typing.ClassVar['DeltaDiskFormatVariant'] = 'vmfsSparseVariant'
+      vsanSparseVariant: _typing.ClassVar['DeltaDiskFormatVariant'] = 'vsanSparseVariant'
 
-   class DiskChainBrokenIssue(Enum):
-      noIssue: ClassVar['DiskChainBrokenIssue'] = 'noIssue'
-      cidMismatch: ClassVar['DiskChainBrokenIssue'] = 'cidMismatch'
+   class DiskChainBrokenIssue(pyVmomi.VmomiSupport.Enum):
+      noIssue: _typing.ClassVar['DiskChainBrokenIssue'] = 'noIssue'
+      cidMismatch: _typing.ClassVar['DiskChainBrokenIssue'] = 'cidMismatch'
 
-   class Sharing(Enum):
-      sharingNone: ClassVar['Sharing'] = 'sharingNone'
-      sharingMultiWriter: ClassVar['Sharing'] = 'sharingMultiWriter'
+   class Sharing(pyVmomi.VmomiSupport.Enum):
+      sharingNone: _typing.ClassVar['Sharing'] = 'sharingNone'
+      sharingMultiWriter: _typing.ClassVar['Sharing'] = 'sharingMultiWriter'
 
    class SparseVer1BackingInfo(VirtualDevice.FileBackingInfo):
       diskMode: str
-      split: Optional[bool] = None
-      writeThrough: Optional[bool] = None
-      spaceUsedInKB: Optional[long] = None
-      contentId: Optional[str] = None
-      parent: Optional[SparseVer1BackingInfo] = None
+      split: _typing.Optional[bool] = None
+      writeThrough: _typing.Optional[bool] = None
+      spaceUsedInKB: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+      contentId: _typing.Optional[str] = None
+      parent: _typing.Optional[SparseVer1BackingInfo] = None
 
    class SparseVer2BackingInfo(VirtualDevice.FileBackingInfo):
       diskMode: str
-      split: Optional[bool] = None
-      writeThrough: Optional[bool] = None
-      spaceUsedInKB: Optional[long] = None
-      uuid: Optional[str] = None
-      contentId: Optional[str] = None
-      changeId: Optional[str] = None
-      parent: Optional[SparseVer2BackingInfo] = None
-      keyId: Optional[CryptoKeyId] = None
+      split: _typing.Optional[bool] = None
+      writeThrough: _typing.Optional[bool] = None
+      spaceUsedInKB: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+      uuid: _typing.Optional[str] = None
+      contentId: _typing.Optional[str] = None
+      changeId: _typing.Optional[str] = None
+      parent: _typing.Optional[SparseVer2BackingInfo] = None
+      keyId: _typing.Optional[pyVmomi.vim.encryption.CryptoKeyId] = None
 
    class FlatVer1BackingInfo(VirtualDevice.FileBackingInfo):
       diskMode: str
-      split: Optional[bool] = None
-      writeThrough: Optional[bool] = None
-      contentId: Optional[str] = None
-      parent: Optional[FlatVer1BackingInfo] = None
+      split: _typing.Optional[bool] = None
+      writeThrough: _typing.Optional[bool] = None
+      contentId: _typing.Optional[str] = None
+      parent: _typing.Optional[FlatVer1BackingInfo] = None
 
    class FlatVer2BackingInfo(VirtualDevice.FileBackingInfo):
       diskMode: str
-      split: Optional[bool] = None
-      writeThrough: Optional[bool] = None
-      thinProvisioned: Optional[bool] = None
-      eagerlyScrub: Optional[bool] = None
-      uuid: Optional[str] = None
-      contentId: Optional[str] = None
-      changeId: Optional[str] = None
-      parent: Optional[FlatVer2BackingInfo] = None
-      deltaDiskFormat: Optional[str] = None
-      digestEnabled: Optional[bool] = None
-      deltaGrainSize: Optional[int] = None
-      deltaDiskFormatVariant: Optional[str] = None
-      sharing: Optional[str] = None
-      keyId: Optional[CryptoKeyId] = None
+      split: _typing.Optional[bool] = None
+      writeThrough: _typing.Optional[bool] = None
+      thinProvisioned: _typing.Optional[bool] = None
+      eagerlyScrub: _typing.Optional[bool] = None
+      uuid: _typing.Optional[str] = None
+      contentId: _typing.Optional[str] = None
+      changeId: _typing.Optional[str] = None
+      parent: _typing.Optional[FlatVer2BackingInfo] = None
+      deltaDiskFormat: _typing.Optional[str] = None
+      digestEnabled: _typing.Optional[bool] = None
+      deltaGrainSize: _typing.Optional[int] = None
+      deltaDiskFormatVariant: _typing.Optional[str] = None
+      sharing: _typing.Optional[str] = None
+      keyId: _typing.Optional[pyVmomi.vim.encryption.CryptoKeyId] = None
 
    class SeSparseBackingInfo(VirtualDevice.FileBackingInfo):
       diskMode: str
-      writeThrough: Optional[bool] = None
-      uuid: Optional[str] = None
-      contentId: Optional[str] = None
-      changeId: Optional[str] = None
-      parent: Optional[SeSparseBackingInfo] = None
-      deltaDiskFormat: Optional[str] = None
-      digestEnabled: Optional[bool] = None
-      grainSize: Optional[int] = None
-      keyId: Optional[CryptoKeyId] = None
+      writeThrough: _typing.Optional[bool] = None
+      uuid: _typing.Optional[str] = None
+      contentId: _typing.Optional[str] = None
+      changeId: _typing.Optional[str] = None
+      parent: _typing.Optional[SeSparseBackingInfo] = None
+      deltaDiskFormat: _typing.Optional[str] = None
+      digestEnabled: _typing.Optional[bool] = None
+      grainSize: _typing.Optional[int] = None
+      keyId: _typing.Optional[pyVmomi.vim.encryption.CryptoKeyId] = None
 
    class RawDiskVer2BackingInfo(VirtualDevice.DeviceBackingInfo):
       descriptorFileName: str
-      uuid: Optional[str] = None
-      changeId: Optional[str] = None
-      sharing: Optional[str] = None
+      uuid: _typing.Optional[str] = None
+      changeId: _typing.Optional[str] = None
+      sharing: _typing.Optional[str] = None
 
    class PartitionedRawDiskVer2BackingInfo(RawDiskVer2BackingInfo):
       partition: list[int] = []
 
    class RawDiskMappingVer1BackingInfo(VirtualDevice.FileBackingInfo):
-      lunUuid: Optional[str] = None
-      deviceName: Optional[str] = None
-      compatibilityMode: Optional[str] = None
-      diskMode: Optional[str] = None
-      uuid: Optional[str] = None
-      contentId: Optional[str] = None
-      changeId: Optional[str] = None
-      parent: Optional[RawDiskMappingVer1BackingInfo] = None
-      deltaDiskFormat: Optional[str] = None
-      deltaGrainSize: Optional[int] = None
-      sharing: Optional[str] = None
+      lunUuid: _typing.Optional[str] = None
+      deviceName: _typing.Optional[str] = None
+      compatibilityMode: _typing.Optional[str] = None
+      diskMode: _typing.Optional[str] = None
+      uuid: _typing.Optional[str] = None
+      contentId: _typing.Optional[str] = None
+      changeId: _typing.Optional[str] = None
+      parent: _typing.Optional[RawDiskMappingVer1BackingInfo] = None
+      deltaDiskFormat: _typing.Optional[str] = None
+      deltaGrainSize: _typing.Optional[int] = None
+      sharing: _typing.Optional[str] = None
 
    class LocalPMemBackingInfo(VirtualDevice.FileBackingInfo):
       diskMode: str
-      uuid: Optional[str] = None
-      volumeUUID: Optional[str] = None
-      contentId: Optional[str] = None
+      uuid: _typing.Optional[str] = None
+      volumeUUID: _typing.Optional[str] = None
+      contentId: _typing.Optional[str] = None
 
-   class VFlashCacheConfigInfo(DynamicData):
-      class CacheConsistencyType(Enum):
-         strong: ClassVar['CacheConsistencyType'] = 'strong'
-         weak: ClassVar['CacheConsistencyType'] = 'weak'
+   class VFlashCacheConfigInfo(pyVmomi.vmodl.DynamicData):
+      class CacheConsistencyType(pyVmomi.VmomiSupport.Enum):
+         strong: _typing.ClassVar['CacheConsistencyType'] = 'strong'
+         weak: _typing.ClassVar['CacheConsistencyType'] = 'weak'
 
-      class CacheMode(Enum):
-         write_thru: ClassVar['CacheMode'] = 'write_thru'
-         write_back: ClassVar['CacheMode'] = 'write_back'
+      class CacheMode(pyVmomi.VmomiSupport.Enum):
+         write_thru: _typing.ClassVar['CacheMode'] = 'write_thru'
+         write_back: _typing.ClassVar['CacheMode'] = 'write_back'
 
-      vFlashModule: Optional[str] = None
-      reservationInMB: Optional[long] = None
-      cacheConsistencyType: Optional[str] = None
-      cacheMode: Optional[str] = None
-      blockSizeInKB: Optional[long] = None
+      vFlashModule: _typing.Optional[str] = None
+      reservationInMB: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+      cacheConsistencyType: _typing.Optional[str] = None
+      cacheMode: _typing.Optional[str] = None
+      blockSizeInKB: _typing.Optional[pyVmomi.VmomiSupport.long] = None
 
-   capacityInKB: long
-   capacityInBytes: Optional[long] = None
-   shares: Optional[SharesInfo] = None
-   storageIOAllocation: Optional[StorageResourceManager.IOAllocationInfo] = None
-   diskObjectId: Optional[str] = None
-   vFlashCacheConfigInfo: Optional[VFlashCacheConfigInfo] = None
+   capacityInKB: pyVmomi.VmomiSupport.long
+   capacityInBytes: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   shares: _typing.Optional[pyVmomi.vim.SharesInfo] = None
+   storageIOAllocation: _typing.Optional[pyVmomi.vim.StorageResourceManager.IOAllocationInfo] = None
+   diskObjectId: _typing.Optional[str] = None
+   vFlashCacheConfigInfo: _typing.Optional[VFlashCacheConfigInfo] = None
    iofilter: list[str] = []
-   vDiskId: Optional[ID] = None
-   vDiskVersion: Optional[int] = None
-   virtualDiskFormat: Optional[str] = None
-   nativeUnmanagedLinkedClone: Optional[bool] = None
-   independentFilters: list[BaseIndependentFilterSpec] = []
-   guestReadOnly: Optional[bool] = None
-   diskChainBrokenIssue: Optional[str] = None
+   vDiskId: _typing.Optional[pyVmomi.vim.vslm.ID] = None
+   vDiskVersion: _typing.Optional[int] = None
+   virtualDiskFormat: _typing.Optional[str] = None
+   nativeUnmanagedLinkedClone: _typing.Optional[bool] = None
+   independentFilters: list[pyVmomi.vim.vm.BaseIndependentFilterSpec] = []
+   guestReadOnly: _typing.Optional[bool] = None
+   diskChainBrokenIssue: _typing.Optional[str] = None
 
 
-class VirtualDiskId(DynamicData):
-   vm: VirtualMachine
+class VirtualDiskId(pyVmomi.vmodl.DynamicData):
+   vm: pyVmomi.vim.VirtualMachine
    diskId: int
 
 
 class VirtualDiskOption(VirtualDeviceOption):
-   class DiskMode(Enum):
-      persistent: ClassVar['DiskMode'] = 'persistent'
-      nonpersistent: ClassVar['DiskMode'] = 'nonpersistent'
-      undoable: ClassVar['DiskMode'] = 'undoable'
-      independent_persistent: ClassVar['DiskMode'] = 'independent_persistent'
-      independent_nonpersistent: ClassVar['DiskMode'] = 'independent_nonpersistent'
-      append: ClassVar['DiskMode'] = 'append'
+   class DiskMode(pyVmomi.VmomiSupport.Enum):
+      persistent: _typing.ClassVar['DiskMode'] = 'persistent'
+      nonpersistent: _typing.ClassVar['DiskMode'] = 'nonpersistent'
+      undoable: _typing.ClassVar['DiskMode'] = 'undoable'
+      independent_persistent: _typing.ClassVar['DiskMode'] = 'independent_persistent'
+      independent_nonpersistent: _typing.ClassVar['DiskMode'] = 'independent_nonpersistent'
+      append: _typing.ClassVar['DiskMode'] = 'append'
 
-   class CompatibilityMode(Enum):
-      virtualMode: ClassVar['CompatibilityMode'] = 'virtualMode'
-      physicalMode: ClassVar['CompatibilityMode'] = 'physicalMode'
+   class CompatibilityMode(pyVmomi.VmomiSupport.Enum):
+      virtualMode: _typing.ClassVar['CompatibilityMode'] = 'virtualMode'
+      physicalMode: _typing.ClassVar['CompatibilityMode'] = 'physicalMode'
 
    class SparseVer1BackingOption(VirtualDeviceOption.FileBackingOption):
-      diskModes: ChoiceOption
-      split: BoolOption
-      writeThrough: BoolOption
+      diskModes: pyVmomi.vim.option.ChoiceOption
+      split: pyVmomi.vim.option.BoolOption
+      writeThrough: pyVmomi.vim.option.BoolOption
       growable: bool
 
    class SparseVer2BackingOption(VirtualDeviceOption.FileBackingOption):
-      diskMode: ChoiceOption
-      split: BoolOption
-      writeThrough: BoolOption
+      diskMode: pyVmomi.vim.option.ChoiceOption
+      split: pyVmomi.vim.option.BoolOption
+      writeThrough: pyVmomi.vim.option.BoolOption
       growable: bool
       hotGrowable: bool
       uuid: bool
-      virtualDiskFormat: Optional[ChoiceOption] = None
+      virtualDiskFormat: _typing.Optional[pyVmomi.vim.option.ChoiceOption] = None
 
    class FlatVer1BackingOption(VirtualDeviceOption.FileBackingOption):
-      diskMode: ChoiceOption
-      split: BoolOption
-      writeThrough: BoolOption
+      diskMode: pyVmomi.vim.option.ChoiceOption
+      split: pyVmomi.vim.option.BoolOption
+      writeThrough: pyVmomi.vim.option.BoolOption
       growable: bool
 
-   class DeltaDiskFormatsSupported(DynamicData):
+   class DeltaDiskFormatsSupported(pyVmomi.vmodl.DynamicData):
       datastoreType: type
-      deltaDiskFormat: ChoiceOption
+      deltaDiskFormat: pyVmomi.vim.option.ChoiceOption
 
    class FlatVer2BackingOption(VirtualDeviceOption.FileBackingOption):
-      diskMode: ChoiceOption
-      split: BoolOption
-      writeThrough: BoolOption
+      diskMode: pyVmomi.vim.option.ChoiceOption
+      split: pyVmomi.vim.option.BoolOption
+      writeThrough: pyVmomi.vim.option.BoolOption
       growable: bool
       hotGrowable: bool
       uuid: bool
-      thinProvisioned: BoolOption
-      eagerlyScrub: BoolOption
-      deltaDiskFormat: ChoiceOption
+      thinProvisioned: pyVmomi.vim.option.BoolOption
+      eagerlyScrub: pyVmomi.vim.option.BoolOption
+      deltaDiskFormat: pyVmomi.vim.option.ChoiceOption
       deltaDiskFormatsSupported: list[DeltaDiskFormatsSupported] = []
-      virtualDiskFormat: Optional[ChoiceOption] = None
+      virtualDiskFormat: _typing.Optional[pyVmomi.vim.option.ChoiceOption] = None
 
    class SeSparseBackingOption(VirtualDeviceOption.FileBackingOption):
-      diskMode: ChoiceOption
-      writeThrough: BoolOption
+      diskMode: pyVmomi.vim.option.ChoiceOption
+      writeThrough: pyVmomi.vim.option.BoolOption
       growable: bool
       hotGrowable: bool
       uuid: bool
       deltaDiskFormatsSupported: list[DeltaDiskFormatsSupported] = []
-      virtualDiskFormat: Optional[ChoiceOption] = None
+      virtualDiskFormat: _typing.Optional[pyVmomi.vim.option.ChoiceOption] = None
 
    class RawDiskVer2BackingOption(VirtualDeviceOption.DeviceBackingOption):
-      descriptorFileNameExtensions: ChoiceOption
+      descriptorFileNameExtensions: pyVmomi.vim.option.ChoiceOption
       uuid: bool
 
    class PartitionedRawDiskVer2BackingOption(RawDiskVer2BackingOption):
       pass
 
    class RawDiskMappingVer1BackingOption(VirtualDeviceOption.DeviceBackingOption):
-      descriptorFileNameExtensions: Optional[ChoiceOption] = None
-      compatibilityMode: ChoiceOption
-      diskMode: ChoiceOption
+      descriptorFileNameExtensions: _typing.Optional[pyVmomi.vim.option.ChoiceOption] = None
+      compatibilityMode: pyVmomi.vim.option.ChoiceOption
+      diskMode: pyVmomi.vim.option.ChoiceOption
       uuid: bool
-      virtualDiskFormat: Optional[ChoiceOption] = None
+      virtualDiskFormat: _typing.Optional[pyVmomi.vim.option.ChoiceOption] = None
 
    class LocalPMemBackingOption(VirtualDeviceOption.FileBackingOption):
-      diskMode: ChoiceOption
+      diskMode: pyVmomi.vim.option.ChoiceOption
       growable: bool
       hotGrowable: bool
       uuid: bool
 
-   class VFlashCacheConfigOption(DynamicData):
-      cacheConsistencyType: ChoiceOption
-      cacheMode: ChoiceOption
-      reservationInMB: LongOption
-      blockSizeInKB: LongOption
+   class VFlashCacheConfigOption(pyVmomi.vmodl.DynamicData):
+      cacheConsistencyType: pyVmomi.vim.option.ChoiceOption
+      cacheMode: pyVmomi.vim.option.ChoiceOption
+      reservationInMB: pyVmomi.vim.option.LongOption
+      blockSizeInKB: pyVmomi.vim.option.LongOption
 
-   capacityInKB: LongOption
-   ioAllocationOption: StorageResourceManager.IOAllocationOption
-   vFlashCacheConfigOption: Optional[VFlashCacheConfigOption] = None
+   capacityInKB: pyVmomi.vim.option.LongOption
+   ioAllocationOption: pyVmomi.vim.StorageResourceManager.IOAllocationOption
+   vFlashCacheConfigOption: _typing.Optional[VFlashCacheConfigOption] = None
 
 
 class VirtualDiskSpec(VirtualDeviceSpec):
-   diskMoveType: Optional[str] = None
-   migrateCache: Optional[bool] = None
+   diskMoveType: _typing.Optional[str] = None
+   migrateCache: _typing.Optional[bool] = None
 
 class VirtualE1000(VirtualEthernetCard):
    pass
@@ -525,31 +493,31 @@ class VirtualEnsoniq1371Option(VirtualSoundCardOption):
 
 class VirtualEthernetCard(VirtualDevice):
    class NetworkBackingInfo(VirtualDevice.DeviceBackingInfo):
-      network: Optional[Network] = None
-      inPassthroughMode: Optional[bool] = None
+      network: _typing.Optional[pyVmomi.vim.Network] = None
+      inPassthroughMode: _typing.Optional[bool] = None
 
    class LegacyNetworkBackingInfo(VirtualDevice.DeviceBackingInfo):
       pass
 
    class DistributedVirtualPortBackingInfo(VirtualDevice.BackingInfo):
-      port: PortConnection
+      port: pyVmomi.vim.dvs.PortConnection
 
    class OpaqueNetworkBackingInfo(VirtualDevice.BackingInfo):
       opaqueNetworkId: str
       opaqueNetworkType: str
 
-   class ResourceAllocation(DynamicData):
-      reservation: Optional[long] = None
-      share: SharesInfo
-      limit: Optional[long] = None
+   class ResourceAllocation(pyVmomi.vmodl.DynamicData):
+      reservation: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+      share: pyVmomi.vim.SharesInfo
+      limit: _typing.Optional[pyVmomi.VmomiSupport.long] = None
 
-   addressType: Optional[str] = None
-   macAddress: Optional[str] = None
-   wakeOnLanEnabled: Optional[bool] = None
-   resourceAllocation: Optional[ResourceAllocation] = None
-   externalId: Optional[str] = None
-   uptCompatibilityEnabled: Optional[bool] = None
-   subnetId: Optional[str] = None
+   addressType: _typing.Optional[str] = None
+   macAddress: _typing.Optional[str] = None
+   wakeOnLanEnabled: _typing.Optional[bool] = None
+   resourceAllocation: _typing.Optional[ResourceAllocation] = None
+   externalId: _typing.Optional[str] = None
+   uptCompatibilityEnabled: _typing.Optional[bool] = None
+   subnetId: _typing.Optional[str] = None
 
 
 class VirtualEthernetCardOption(VirtualDeviceOption):
@@ -560,24 +528,24 @@ class VirtualEthernetCardOption(VirtualDeviceOption):
       pass
 
    class LegacyNetworkBackingOption(VirtualDeviceOption.DeviceBackingOption):
-      class LegacyNetworkDeviceName(Enum):
-         bridged: ClassVar['LegacyNetworkDeviceName'] = 'bridged'
-         nat: ClassVar['LegacyNetworkDeviceName'] = 'nat'
-         hostonly: ClassVar['LegacyNetworkDeviceName'] = 'hostonly'
+      class LegacyNetworkDeviceName(pyVmomi.VmomiSupport.Enum):
+         bridged: _typing.ClassVar['LegacyNetworkDeviceName'] = 'bridged'
+         nat: _typing.ClassVar['LegacyNetworkDeviceName'] = 'nat'
+         hostonly: _typing.ClassVar['LegacyNetworkDeviceName'] = 'hostonly'
 
    class DistributedVirtualPortBackingOption(VirtualDeviceOption.BackingOption):
       pass
 
-   class MacTypes(Enum):
-      manual: ClassVar['MacTypes'] = 'manual'
-      generated: ClassVar['MacTypes'] = 'generated'
-      assigned: ClassVar['MacTypes'] = 'assigned'
+   class MacTypes(pyVmomi.VmomiSupport.Enum):
+      manual: _typing.ClassVar['MacTypes'] = 'manual'
+      generated: _typing.ClassVar['MacTypes'] = 'generated'
+      assigned: _typing.ClassVar['MacTypes'] = 'assigned'
 
-   supportedOUI: ChoiceOption
-   macType: ChoiceOption
-   wakeOnLanEnabled: BoolOption
-   vmDirectPathGen2Supported: Optional[bool] = None
-   uptCompatibilityEnabled: Optional[BoolOption] = None
+   supportedOUI: pyVmomi.vim.option.ChoiceOption
+   macType: pyVmomi.vim.option.ChoiceOption
+   wakeOnLanEnabled: pyVmomi.vim.option.BoolOption
+   vmDirectPathGen2Supported: _typing.Optional[bool] = None
+   uptCompatibilityEnabled: _typing.Optional[pyVmomi.vim.option.BoolOption] = None
 
 class VirtualFloppy(VirtualDevice):
    class ImageBackingInfo(VirtualDevice.FileBackingInfo):
@@ -610,8 +578,8 @@ class VirtualIDEController(VirtualController):
 
 
 class VirtualIDEControllerOption(VirtualControllerOption):
-   numIDEDisks: IntOption
-   numIDECdroms: IntOption
+   numIDEDisks: pyVmomi.vim.option.IntOption
+   numIDECdroms: pyVmomi.vim.option.IntOption
 
 class VirtualKeyboard(VirtualDevice):
    pass
@@ -634,37 +602,37 @@ class VirtualLsiLogicSASControllerOption(VirtualSCSIControllerOption):
 
 class VirtualNVDIMM(VirtualDevice):
    class BackingInfo(VirtualDevice.FileBackingInfo):
-      parent: Optional[BackingInfo] = None
-      changeId: Optional[str] = None
+      parent: _typing.Optional[BackingInfo] = None
+      changeId: _typing.Optional[str] = None
 
-   capacityInMB: long
-   configuredCapacityInMB: Optional[long] = None
+   capacityInMB: pyVmomi.VmomiSupport.long
+   configuredCapacityInMB: _typing.Optional[pyVmomi.VmomiSupport.long] = None
 
 class VirtualNVDIMMController(VirtualController):
    pass
 
 
 class VirtualNVDIMMControllerOption(VirtualControllerOption):
-   numNVDIMMControllers: IntOption
+   numNVDIMMControllers: pyVmomi.vim.option.IntOption
 
 
 class VirtualNVDIMMOption(VirtualDeviceOption):
-   capacityInMB: LongOption
+   capacityInMB: pyVmomi.vim.option.LongOption
    growable: bool
    hotGrowable: bool
-   granularityInMB: long
+   granularityInMB: pyVmomi.VmomiSupport.long
 
 
 class VirtualNVMEController(VirtualController):
-   class Sharing(Enum):
-      noSharing: ClassVar['Sharing'] = 'noSharing'
-      physicalSharing: ClassVar['Sharing'] = 'physicalSharing'
+   class Sharing(pyVmomi.VmomiSupport.Enum):
+      noSharing: _typing.ClassVar['Sharing'] = 'noSharing'
+      physicalSharing: _typing.ClassVar['Sharing'] = 'physicalSharing'
 
-   sharedBus: Optional[str] = None
+   sharedBus: _typing.Optional[str] = None
 
 
 class VirtualNVMEControllerOption(VirtualControllerOption):
-   numNVMEDisks: IntOption
+   numNVMEDisks: pyVmomi.vim.option.IntOption
    sharing: list[str] = []
 
 class VirtualPCIController(VirtualController):
@@ -672,19 +640,19 @@ class VirtualPCIController(VirtualController):
 
 
 class VirtualPCIControllerOption(VirtualControllerOption):
-   numSCSIControllers: IntOption
-   numEthernetCards: IntOption
-   numVideoCards: IntOption
-   numSoundCards: IntOption
-   numVmiRoms: IntOption
-   numVmciDevices: IntOption
-   numPCIPassthroughDevices: IntOption
-   numSasSCSIControllers: IntOption
-   numVmxnet3EthernetCards: IntOption
-   numParaVirtualSCSIControllers: IntOption
-   numSATAControllers: IntOption
-   numNVMEControllers: Optional[IntOption] = None
-   numVmxnet3VrdmaEthernetCards: Optional[IntOption] = None
+   numSCSIControllers: pyVmomi.vim.option.IntOption
+   numEthernetCards: pyVmomi.vim.option.IntOption
+   numVideoCards: pyVmomi.vim.option.IntOption
+   numSoundCards: pyVmomi.vim.option.IntOption
+   numVmiRoms: pyVmomi.vim.option.IntOption
+   numVmciDevices: pyVmomi.vim.option.IntOption
+   numPCIPassthroughDevices: pyVmomi.vim.option.IntOption
+   numSasSCSIControllers: pyVmomi.vim.option.IntOption
+   numVmxnet3EthernetCards: pyVmomi.vim.option.IntOption
+   numParaVirtualSCSIControllers: pyVmomi.vim.option.IntOption
+   numSATAControllers: pyVmomi.vim.option.IntOption
+   numNVMEControllers: _typing.Optional[pyVmomi.vim.option.IntOption] = None
+   numVmxnet3VrdmaEthernetCards: _typing.Optional[pyVmomi.vim.option.IntOption] = None
 
 
 class VirtualPCIPassthrough(VirtualDevice):
@@ -692,32 +660,32 @@ class VirtualPCIPassthrough(VirtualDevice):
       id: str
       deviceId: str
       systemId: str
-      vendorId: short
+      vendorId: pyVmomi.VmomiSupport.short
 
-   class AllowedDevice(DynamicData):
+   class AllowedDevice(pyVmomi.vmodl.DynamicData):
       vendorId: int
       deviceId: int
-      subVendorId: Optional[int] = None
-      subDeviceId: Optional[int] = None
-      revisionId: Optional[short] = None
+      subVendorId: _typing.Optional[int] = None
+      subDeviceId: _typing.Optional[int] = None
+      revisionId: _typing.Optional[pyVmomi.VmomiSupport.short] = None
 
    class DynamicBackingInfo(VirtualDevice.DeviceBackingInfo):
       allowedDevice: list[AllowedDevice] = []
-      customLabel: Optional[str] = None
-      assignedId: Optional[str] = None
+      customLabel: _typing.Optional[str] = None
+      assignedId: _typing.Optional[str] = None
 
    class PluginBackingInfo(VirtualDevice.BackingInfo):
       pass
 
    class VmiopBackingInfo(PluginBackingInfo):
-      vgpu: Optional[str] = None
-      vgpuMigrateDataSizeMB: Optional[int] = None
-      migrateSupported: Optional[bool] = None
-      enhancedMigrateCapability: Optional[bool] = None
+      vgpu: _typing.Optional[str] = None
+      vgpuMigrateDataSizeMB: _typing.Optional[int] = None
+      migrateSupported: _typing.Optional[bool] = None
+      enhancedMigrateCapability: _typing.Optional[bool] = None
 
    class DvxBackingInfo(VirtualDevice.BackingInfo):
-      deviceClass: Optional[str] = None
-      configParams: list[OptionValue] = []
+      deviceClass: _typing.Optional[str] = None
+      configParams: list[pyVmomi.vim.option.OptionValue] = []
 
 
 class VirtualPCIPassthroughOption(VirtualDeviceOption):
@@ -728,7 +696,7 @@ class VirtualPCIPassthroughOption(VirtualDeviceOption):
       pass
 
    class VmiopBackingOption(PluginBackingOption):
-      vgpu: StringOption
+      vgpu: pyVmomi.vim.option.StringOption
       maxInstances: int
 
    class DynamicBackingOption(VirtualDeviceOption.DeviceBackingOption):
@@ -748,8 +716,8 @@ class VirtualPS2Controller(VirtualController):
 
 
 class VirtualPS2ControllerOption(VirtualControllerOption):
-   numKeyboards: IntOption
-   numPointingDevices: IntOption
+   numKeyboards: pyVmomi.vim.option.IntOption
+   numPointingDevices: pyVmomi.vim.option.IntOption
 
 class VirtualParallelPort(VirtualDevice):
    class FileBackingInfo(VirtualDevice.FileBackingInfo):
@@ -772,55 +740,55 @@ class VirtualPointingDevice(VirtualDevice):
 
 class VirtualPointingDeviceOption(VirtualDeviceOption):
    class DeviceBackingOption(VirtualDeviceOption.DeviceBackingOption):
-      class HostPointingDeviceChoice(Enum):
-         autodetect: ClassVar['HostPointingDeviceChoice'] = 'autodetect'
-         intellimouseExplorer: ClassVar['HostPointingDeviceChoice'] = 'intellimouseExplorer'
-         intellimousePs2: ClassVar['HostPointingDeviceChoice'] = 'intellimousePs2'
-         logitechMouseman: ClassVar['HostPointingDeviceChoice'] = 'logitechMouseman'
-         microsoft_serial: ClassVar['HostPointingDeviceChoice'] = 'microsoft_serial'
-         mouseSystems: ClassVar['HostPointingDeviceChoice'] = 'mouseSystems'
-         mousemanSerial: ClassVar['HostPointingDeviceChoice'] = 'mousemanSerial'
-         ps2: ClassVar['HostPointingDeviceChoice'] = 'ps2'
+      class HostPointingDeviceChoice(pyVmomi.VmomiSupport.Enum):
+         autodetect: _typing.ClassVar['HostPointingDeviceChoice'] = 'autodetect'
+         intellimouseExplorer: _typing.ClassVar['HostPointingDeviceChoice'] = 'intellimouseExplorer'
+         intellimousePs2: _typing.ClassVar['HostPointingDeviceChoice'] = 'intellimousePs2'
+         logitechMouseman: _typing.ClassVar['HostPointingDeviceChoice'] = 'logitechMouseman'
+         microsoft_serial: _typing.ClassVar['HostPointingDeviceChoice'] = 'microsoft_serial'
+         mouseSystems: _typing.ClassVar['HostPointingDeviceChoice'] = 'mouseSystems'
+         mousemanSerial: _typing.ClassVar['HostPointingDeviceChoice'] = 'mousemanSerial'
+         ps2: _typing.ClassVar['HostPointingDeviceChoice'] = 'ps2'
 
-      hostPointingDevice: ChoiceOption
+      hostPointingDevice: pyVmomi.vim.option.ChoiceOption
 
 
 class VirtualPrecisionClock(VirtualDevice):
    class SystemClockBackingInfo(VirtualDevice.BackingInfo):
-      protocol: Optional[str] = None
+      protocol: _typing.Optional[str] = None
 
 
 class VirtualPrecisionClockOption(VirtualDeviceOption):
    class SystemClockBackingOption(VirtualDeviceOption.BackingOption):
-      protocol: ChoiceOption
+      protocol: pyVmomi.vim.option.ChoiceOption
 
 class VirtualSATAController(VirtualController):
    pass
 
 
 class VirtualSATAControllerOption(VirtualControllerOption):
-   numSATADisks: IntOption
-   numSATACdroms: IntOption
+   numSATADisks: pyVmomi.vim.option.IntOption
+   numSATACdroms: pyVmomi.vim.option.IntOption
 
 
 class VirtualSCSIController(VirtualController):
-   class Sharing(Enum):
-      noSharing: ClassVar['Sharing'] = 'noSharing'
-      virtualSharing: ClassVar['Sharing'] = 'virtualSharing'
-      physicalSharing: ClassVar['Sharing'] = 'physicalSharing'
+   class Sharing(pyVmomi.VmomiSupport.Enum):
+      noSharing: _typing.ClassVar['Sharing'] = 'noSharing'
+      virtualSharing: _typing.ClassVar['Sharing'] = 'virtualSharing'
+      physicalSharing: _typing.ClassVar['Sharing'] = 'physicalSharing'
 
-   hotAddRemove: Optional[bool] = None
+   hotAddRemove: _typing.Optional[bool] = None
    sharedBus: Sharing
-   scsiCtlrUnitNumber: Optional[int] = None
+   scsiCtlrUnitNumber: _typing.Optional[int] = None
 
 
 class VirtualSCSIControllerOption(VirtualControllerOption):
-   numSCSIDisks: IntOption
-   numSCSICdroms: IntOption
-   numSCSIPassthrough: IntOption
+   numSCSIDisks: pyVmomi.vim.option.IntOption
+   numSCSICdroms: pyVmomi.vim.option.IntOption
+   numSCSIPassthrough: pyVmomi.vim.option.IntOption
    sharing: list[VirtualSCSIController.Sharing] = []
    defaultSharedIndex: int
-   hotAddRemove: BoolOption
+   hotAddRemove: pyVmomi.vim.option.BoolOption
    scsiCtlrUnitNumber: int
 
 class VirtualSCSIPassthrough(VirtualDevice):
@@ -836,9 +804,9 @@ class VirtualSIOController(VirtualController):
 
 
 class VirtualSIOControllerOption(VirtualControllerOption):
-   numFloppyDrives: IntOption
-   numSerialPorts: IntOption
-   numParallelPorts: IntOption
+   numFloppyDrives: pyVmomi.vim.option.IntOption
+   numSerialPorts: pyVmomi.vim.option.IntOption
+   numParallelPorts: pyVmomi.vim.option.IntOption
 
 
 class VirtualSerialPort(VirtualDevice):
@@ -850,7 +818,7 @@ class VirtualSerialPort(VirtualDevice):
 
    class PipeBackingInfo(VirtualDevice.PipeBackingInfo):
       endpoint: str
-      noRxLoss: Optional[bool] = None
+      noRxLoss: _typing.Optional[bool] = None
 
    class URIBackingInfo(VirtualDevice.URIBackingInfo):
       pass
@@ -862,9 +830,9 @@ class VirtualSerialPort(VirtualDevice):
 
 
 class VirtualSerialPortOption(VirtualDeviceOption):
-   class EndPoint(Enum):
-      client: ClassVar['EndPoint'] = 'client'
-      server: ClassVar['EndPoint'] = 'server'
+   class EndPoint(pyVmomi.VmomiSupport.Enum):
+      client: _typing.ClassVar['EndPoint'] = 'client'
+      server: _typing.ClassVar['EndPoint'] = 'server'
 
    class FileBackingOption(VirtualDeviceOption.FileBackingOption):
       pass
@@ -873,8 +841,8 @@ class VirtualSerialPortOption(VirtualDeviceOption):
       pass
 
    class PipeBackingOption(VirtualDeviceOption.PipeBackingOption):
-      endpoint: ChoiceOption
-      noRxLoss: BoolOption
+      endpoint: pyVmomi.vim.option.ChoiceOption
+      noRxLoss: pyVmomi.vim.option.BoolOption
 
    class URIBackingOption(VirtualDeviceOption.URIBackingOption):
       pass
@@ -882,7 +850,7 @@ class VirtualSerialPortOption(VirtualDeviceOption):
    class ThinPrintBackingOption(VirtualDeviceOption.BackingOption):
       pass
 
-   yieldOnPoll: BoolOption
+   yieldOnPoll: pyVmomi.vim.option.BoolOption
 
 class VirtualSoundBlaster16(VirtualSoundCard):
    pass
@@ -901,13 +869,13 @@ class VirtualSoundCardOption(VirtualDeviceOption):
 
 class VirtualSriovEthernetCard(VirtualEthernetCard):
    class SriovBackingInfo(VirtualDevice.BackingInfo):
-      physicalFunctionBacking: Optional[VirtualPCIPassthrough.DeviceBackingInfo] = None
-      virtualFunctionBacking: Optional[VirtualPCIPassthrough.DeviceBackingInfo] = None
-      virtualFunctionIndex: Optional[int] = None
+      physicalFunctionBacking: _typing.Optional[VirtualPCIPassthrough.DeviceBackingInfo] = None
+      virtualFunctionBacking: _typing.Optional[VirtualPCIPassthrough.DeviceBackingInfo] = None
+      virtualFunctionIndex: _typing.Optional[int] = None
 
-   allowGuestOSMtuChange: Optional[bool] = None
-   sriovBacking: Optional[SriovBackingInfo] = None
-   dvxBackingInfo: Optional[VirtualPCIPassthrough.DvxBackingInfo] = None
+   allowGuestOSMtuChange: _typing.Optional[bool] = None
+   sriovBacking: _typing.Optional[SriovBackingInfo] = None
+   dvxBackingInfo: _typing.Optional[VirtualPCIPassthrough.DvxBackingInfo] = None
 
 class VirtualSriovEthernetCardOption(VirtualEthernetCardOption):
    class SriovBackingOption(VirtualDeviceOption.BackingOption):
@@ -915,8 +883,8 @@ class VirtualSriovEthernetCardOption(VirtualEthernetCardOption):
 
 
 class VirtualTPM(VirtualDevice):
-   endorsementKeyCertificateSigningRequest: list[binary] = []
-   endorsementKeyCertificate: list[binary] = []
+   endorsementKeyCertificateSigningRequest: list[pyVmomi.VmomiSupport.binary] = []
+   endorsementKeyCertificate: list[pyVmomi.VmomiSupport.binary] = []
 
 
 class VirtualTPMOption(VirtualDeviceOption):
@@ -934,23 +902,23 @@ class VirtualUSB(VirtualDevice):
       hostname: str
 
    connected: bool
-   vendor: Optional[int] = None
-   product: Optional[int] = None
+   vendor: _typing.Optional[int] = None
+   product: _typing.Optional[int] = None
    family: list[str] = []
    speed: list[str] = []
 
 
 class VirtualUSBController(VirtualController):
    class PciBusSlotInfo(VirtualDevice.PciBusSlotInfo):
-      ehciPciSlotNumber: Optional[int] = None
+      ehciPciSlotNumber: _typing.Optional[int] = None
 
-   autoConnectDevices: Optional[bool] = None
-   ehciEnabled: Optional[bool] = None
+   autoConnectDevices: _typing.Optional[bool] = None
+   ehciEnabled: _typing.Optional[bool] = None
 
 
 class VirtualUSBControllerOption(VirtualControllerOption):
-   autoConnectDevices: BoolOption
-   ehciSupported: BoolOption
+   autoConnectDevices: pyVmomi.vim.option.BoolOption
+   ehciSupported: pyVmomi.vim.option.BoolOption
    supportedSpeeds: list[str] = []
 
 class VirtualUSBOption(VirtualDeviceOption):
@@ -965,60 +933,60 @@ class VirtualUSBOption(VirtualDeviceOption):
 
 
 class VirtualUSBXHCIController(VirtualController):
-   autoConnectDevices: Optional[bool] = None
+   autoConnectDevices: _typing.Optional[bool] = None
 
 
 class VirtualUSBXHCIControllerOption(VirtualControllerOption):
-   autoConnectDevices: BoolOption
+   autoConnectDevices: pyVmomi.vim.option.BoolOption
    supportedSpeeds: list[str] = []
 
 
 class VirtualVMCIDevice(VirtualDevice):
-   class Action(Enum):
-      allow: ClassVar['Action'] = 'allow'
-      deny: ClassVar['Action'] = 'deny'
+   class Action(pyVmomi.VmomiSupport.Enum):
+      allow: _typing.ClassVar['Action'] = 'allow'
+      deny: _typing.ClassVar['Action'] = 'deny'
 
-   class Protocol(Enum):
-      hypervisor: ClassVar['Protocol'] = 'hypervisor'
-      doorbell: ClassVar['Protocol'] = 'doorbell'
-      queuepair: ClassVar['Protocol'] = 'queuepair'
-      datagram: ClassVar['Protocol'] = 'datagram'
-      stream: ClassVar['Protocol'] = 'stream'
-      anyProtocol: ClassVar['Protocol'] = 'anyProtocol'
+   class Protocol(pyVmomi.VmomiSupport.Enum):
+      hypervisor: _typing.ClassVar['Protocol'] = 'hypervisor'
+      doorbell: _typing.ClassVar['Protocol'] = 'doorbell'
+      queuepair: _typing.ClassVar['Protocol'] = 'queuepair'
+      datagram: _typing.ClassVar['Protocol'] = 'datagram'
+      stream: _typing.ClassVar['Protocol'] = 'stream'
+      anyProtocol: _typing.ClassVar['Protocol'] = 'anyProtocol'
 
-   class Direction(Enum):
-      guest: ClassVar['Direction'] = 'guest'
-      host: ClassVar['Direction'] = 'host'
-      anyDirection: ClassVar['Direction'] = 'anyDirection'
+   class Direction(pyVmomi.VmomiSupport.Enum):
+      guest: _typing.ClassVar['Direction'] = 'guest'
+      host: _typing.ClassVar['Direction'] = 'host'
+      anyDirection: _typing.ClassVar['Direction'] = 'anyDirection'
 
-   class FilterSpec(DynamicData):
-      rank: long
+   class FilterSpec(pyVmomi.vmodl.DynamicData):
+      rank: pyVmomi.VmomiSupport.long
       action: str
       protocol: str
       direction: str
-      lowerDstPortBoundary: Optional[long] = None
-      upperDstPortBoundary: Optional[long] = None
+      lowerDstPortBoundary: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+      upperDstPortBoundary: _typing.Optional[pyVmomi.VmomiSupport.long] = None
 
-   class FilterInfo(DynamicData):
+   class FilterInfo(pyVmomi.vmodl.DynamicData):
       filters: list[FilterSpec] = []
 
-   id: Optional[long] = None
-   allowUnrestrictedCommunication: Optional[bool] = None
-   filterEnable: Optional[bool] = None
-   filterInfo: Optional[FilterInfo] = None
+   id: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   allowUnrestrictedCommunication: _typing.Optional[bool] = None
+   filterEnable: _typing.Optional[bool] = None
+   filterInfo: _typing.Optional[FilterInfo] = None
 
 
 class VirtualVMCIDeviceOption(VirtualDeviceOption):
-   class FilterSpecOption(DynamicData):
-      action: ChoiceOption
-      protocol: ChoiceOption
-      direction: ChoiceOption
-      lowerDstPortBoundary: LongOption
-      upperDstPortBoundary: LongOption
+   class FilterSpecOption(pyVmomi.vmodl.DynamicData):
+      action: pyVmomi.vim.option.ChoiceOption
+      protocol: pyVmomi.vim.option.ChoiceOption
+      direction: pyVmomi.vim.option.ChoiceOption
+      lowerDstPortBoundary: pyVmomi.vim.option.LongOption
+      upperDstPortBoundary: pyVmomi.vim.option.LongOption
 
-   allowUnrestrictedCommunication: BoolOption
-   filterSpecOption: Optional[FilterSpecOption] = None
-   filterSupported: Optional[BoolOption] = None
+   allowUnrestrictedCommunication: pyVmomi.vim.option.BoolOption
+   filterSpecOption: _typing.Optional[FilterSpecOption] = None
+   filterSupported: _typing.Optional[pyVmomi.vim.option.BoolOption] = None
 
 class VirtualVMIROM(VirtualDevice):
    pass
@@ -1028,27 +996,27 @@ class VirtualVMIROMOption(VirtualDeviceOption):
 
 
 class VirtualVideoCard(VirtualDevice):
-   class Use3dRenderer(Enum):
-      automatic: ClassVar['Use3dRenderer'] = 'automatic'
-      software: ClassVar['Use3dRenderer'] = 'software'
-      hardware: ClassVar['Use3dRenderer'] = 'hardware'
+   class Use3dRenderer(pyVmomi.VmomiSupport.Enum):
+      automatic: _typing.ClassVar['Use3dRenderer'] = 'automatic'
+      software: _typing.ClassVar['Use3dRenderer'] = 'software'
+      hardware: _typing.ClassVar['Use3dRenderer'] = 'hardware'
 
-   videoRamSizeInKB: Optional[long] = None
-   numDisplays: Optional[int] = None
-   useAutoDetect: Optional[bool] = None
-   enable3DSupport: Optional[bool] = None
-   use3dRenderer: Optional[str] = None
-   graphicsMemorySizeInKB: Optional[long] = None
+   videoRamSizeInKB: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   numDisplays: _typing.Optional[int] = None
+   useAutoDetect: _typing.Optional[bool] = None
+   enable3DSupport: _typing.Optional[bool] = None
+   use3dRenderer: _typing.Optional[str] = None
+   graphicsMemorySizeInKB: _typing.Optional[pyVmomi.VmomiSupport.long] = None
 
 
 class VirtualVideoCardOption(VirtualDeviceOption):
-   videoRamSizeInKB: Optional[LongOption] = None
-   numDisplays: Optional[IntOption] = None
-   useAutoDetect: Optional[BoolOption] = None
-   support3D: Optional[BoolOption] = None
-   use3dRendererSupported: Optional[BoolOption] = None
-   graphicsMemorySizeInKB: Optional[LongOption] = None
-   graphicsMemorySizeSupported: Optional[BoolOption] = None
+   videoRamSizeInKB: _typing.Optional[pyVmomi.vim.option.LongOption] = None
+   numDisplays: _typing.Optional[pyVmomi.vim.option.IntOption] = None
+   useAutoDetect: _typing.Optional[pyVmomi.vim.option.BoolOption] = None
+   support3D: _typing.Optional[pyVmomi.vim.option.BoolOption] = None
+   use3dRendererSupported: _typing.Optional[pyVmomi.vim.option.BoolOption] = None
+   graphicsMemorySizeInKB: _typing.Optional[pyVmomi.vim.option.LongOption] = None
+   graphicsMemorySizeSupported: _typing.Optional[pyVmomi.vim.option.BoolOption] = None
 
 class VirtualVmxnet(VirtualEthernetCard):
    pass
@@ -1061,49 +1029,49 @@ class VirtualVmxnet2Option(VirtualVmxnetOption):
 
 
 class VirtualVmxnet3(VirtualVmxnet):
-   class StrictLatencyConfig(DynamicData):
-      class DisableOffload(Enum):
-         NONE: ClassVar['DisableOffload'] = 'NONE'
-         TSO: ClassVar['DisableOffload'] = 'TSO'
-         LRO: ClassVar['DisableOffload'] = 'LRO'
-         TSO_LRO: ClassVar['DisableOffload'] = 'TSO_LRO'
+   class StrictLatencyConfig(pyVmomi.vmodl.DynamicData):
+      class DisableOffload(pyVmomi.VmomiSupport.Enum):
+         NONE: _typing.ClassVar['DisableOffload'] = 'NONE'
+         TSO: _typing.ClassVar['DisableOffload'] = 'TSO'
+         LRO: _typing.ClassVar['DisableOffload'] = 'LRO'
+         TSO_LRO: _typing.ClassVar['DisableOffload'] = 'TSO_LRO'
 
-      allowed: Optional[bool] = None
-      measureLatency: Optional[bool] = None
-      maxTxQueues: Optional[int] = None
-      maxRxQueues: Optional[int] = None
-      txDataRingDescSize: Optional[int] = None
-      rxDataRingDescSize: Optional[int] = None
-      disableOffload: Optional[str] = None
+      allowed: _typing.Optional[bool] = None
+      measureLatency: _typing.Optional[bool] = None
+      maxTxQueues: _typing.Optional[int] = None
+      maxRxQueues: _typing.Optional[int] = None
+      txDataRingDescSize: _typing.Optional[int] = None
+      rxDataRingDescSize: _typing.Optional[int] = None
+      disableOffload: _typing.Optional[str] = None
 
-   uptv2Enabled: Optional[bool] = None
-   strictLatencyConfig: Optional[StrictLatencyConfig] = None
+   uptv2Enabled: _typing.Optional[bool] = None
+   strictLatencyConfig: _typing.Optional[StrictLatencyConfig] = None
 
 
 class VirtualVmxnet3Option(VirtualVmxnetOption):
-   class StrictLatencyConfigOption(DynamicData):
-      allowed: BoolOption
-      measureLatency: BoolOption
-      maxTxQueues: IntOption
-      maxRxQueues: IntOption
-      txDataRingDescSize: IntOption
-      rxDataRingDescSize: IntOption
-      disableOffload: ChoiceOption
+   class StrictLatencyConfigOption(pyVmomi.vmodl.DynamicData):
+      allowed: pyVmomi.vim.option.BoolOption
+      measureLatency: pyVmomi.vim.option.BoolOption
+      maxTxQueues: pyVmomi.vim.option.IntOption
+      maxRxQueues: pyVmomi.vim.option.IntOption
+      txDataRingDescSize: pyVmomi.vim.option.IntOption
+      rxDataRingDescSize: pyVmomi.vim.option.IntOption
+      disableOffload: pyVmomi.vim.option.ChoiceOption
 
-   uptv2Enabled: Optional[BoolOption] = None
-   strictLatencyConfigOption: Optional[StrictLatencyConfigOption] = None
+   uptv2Enabled: _typing.Optional[pyVmomi.vim.option.BoolOption] = None
+   strictLatencyConfigOption: _typing.Optional[StrictLatencyConfigOption] = None
 
 
 class VirtualVmxnet3Vrdma(VirtualVmxnet3):
-   deviceProtocol: Optional[str] = None
+   deviceProtocol: _typing.Optional[str] = None
 
 
 class VirtualVmxnet3VrdmaOption(VirtualVmxnet3Option):
-   class DeviceProtocols(Enum):
-      rocev1: ClassVar['DeviceProtocols'] = 'rocev1'
-      rocev2: ClassVar['DeviceProtocols'] = 'rocev2'
+   class DeviceProtocols(pyVmomi.VmomiSupport.Enum):
+      rocev1: _typing.ClassVar['DeviceProtocols'] = 'rocev1'
+      rocev2: _typing.ClassVar['DeviceProtocols'] = 'rocev2'
 
-   deviceProtocol: Optional[ChoiceOption] = None
+   deviceProtocol: _typing.Optional[pyVmomi.vim.option.ChoiceOption] = None
 
 class VirtualVmxnetOption(VirtualEthernetCardOption):
    pass
@@ -1114,4 +1082,4 @@ class VirtualWDT(VirtualDevice):
 
 
 class VirtualWDTOption(VirtualDeviceOption):
-   runOnBoot: BoolOption
+   runOnBoot: pyVmomi.vim.option.BoolOption

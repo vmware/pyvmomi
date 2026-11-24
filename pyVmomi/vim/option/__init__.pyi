@@ -3,28 +3,21 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import ClassVar
-from typing import Optional
-
-from pyVmomi.VmomiSupport import Enum
-
-from pyVmomi.VmomiSupport import ManagedObject
-from pyVmomi.VmomiSupport import long
-
-from pyVmomi.vim import ElementDescription
-
-from pyVmomi.vmodl import DynamicData
+import typing as _typing
+import pyVmomi.VmomiSupport
+import pyVmomi.vim
+import pyVmomi.vmodl
 
 
 
-class ArrayUpdateSpec(DynamicData):
-   class Operation(Enum):
-      add: ClassVar['Operation'] = 'add'
-      remove: ClassVar['Operation'] = 'remove'
-      edit: ClassVar['Operation'] = 'edit'
+class ArrayUpdateSpec(pyVmomi.vmodl.DynamicData):
+   class Operation(pyVmomi.VmomiSupport.Enum):
+      add: _typing.ClassVar['Operation'] = 'add'
+      remove: _typing.ClassVar['Operation'] = 'remove'
+      edit: _typing.ClassVar['Operation'] = 'edit'
 
    operation: Operation
-   removeKey: Optional[object] = None
+   removeKey: _typing.Optional[object] = None
 
 class BoolOption(OptionType):
    supported: bool
@@ -32,8 +25,8 @@ class BoolOption(OptionType):
 
 
 class ChoiceOption(OptionType):
-   choiceInfo: list[ElementDescription] = []
-   defaultIndex: Optional[int] = None
+   choiceInfo: list[pyVmomi.vim.ElementDescription] = []
+   defaultIndex: _typing.Optional[int] = None
 
 class FloatOption(OptionType):
    min: float
@@ -47,34 +40,34 @@ class IntOption(OptionType):
 
 
 class LongOption(OptionType):
-   min: long
-   max: long
-   defaultValue: long
+   min: pyVmomi.VmomiSupport.long
+   max: pyVmomi.VmomiSupport.long
+   defaultValue: pyVmomi.VmomiSupport.long
 
 
-class OptionDef(ElementDescription):
+class OptionDef(pyVmomi.vim.ElementDescription):
    optionType: OptionType
 
 
-class OptionManager(ManagedObject):
+class OptionManager(pyVmomi.VmomiSupport.ManagedObject):
    @property
    def supportedOption(self) -> list[OptionDef]: ...
    @property
    def setting(self) -> list[OptionValue]: ...
 
-   def QueryView(self, name: Optional[str]) -> list[OptionValue]: ...
+   def QueryView(self, name: _typing.Optional[str]) -> list[OptionValue]: ...
    def UpdateValues(self, changedValue: list[OptionValue]) -> None: ...
 
 
-class OptionType(DynamicData):
-   valueIsReadonly: Optional[bool] = None
+class OptionType(pyVmomi.vmodl.DynamicData):
+   valueIsReadonly: _typing.Optional[bool] = None
 
 
-class OptionValue(DynamicData):
+class OptionValue(pyVmomi.vmodl.DynamicData):
    key: str
-   value: Optional[object] = None
+   value: _typing.Optional[object] = None
 
 
 class StringOption(OptionType):
    defaultValue: str
-   validCharacters: Optional[str] = None
+   validCharacters: _typing.Optional[str] = None

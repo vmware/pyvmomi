@@ -3,26 +3,11 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from datetime import datetime
-from typing import Optional
-from pyVmomi.eam import Agency
-from pyVmomi.eam import Agent
-from pyVmomi.vim import Datastore
-from pyVmomi.vim import Folder
-
-from pyVmomi.vim import HostSystem
-
-from pyVmomi.vim import ManagedEntity
-from pyVmomi.vim import Network
-from pyVmomi.vim import ResourcePool
-
-from pyVmomi.vim import VirtualMachine
-
-from pyVmomi.vmodl import DynamicData
-
-from pyVmomi.vmodl import KeyAnyValue
-
-from pyVmomi.vmodl import MethodFault
+import datetime as _datetime
+import typing as _typing
+import pyVmomi.eam
+import pyVmomi.vim
+import pyVmomi.vmodl
 
 
 class AgencyDisabled(AgencyIssue):
@@ -30,16 +15,16 @@ class AgencyDisabled(AgencyIssue):
 
 
 class AgencyIssue(Issue):
-   agency: Agency
+   agency: pyVmomi.eam.Agency
    agencyName: str
    solutionId: str
    solutionName: str
 
 
 class AgentIssue(AgencyIssue):
-   agent: Agent
+   agent: pyVmomi.eam.Agent
    agentName: str
-   host: HostSystem
+   host: pyVmomi.vim.HostSystem
    hostName: str
 
 class CannotAccessAgentOVF(VmNotDeployed):
@@ -54,24 +39,24 @@ class CertificateNotTrusted(AgentIssue):
 
 class ExtensibleIssue(Issue):
    typeId: str
-   argument: list[KeyAnyValue] = []
-   target: Optional[ManagedEntity] = None
-   agent: Optional[Agent] = None
-   agency: Optional[Agency] = None
+   argument: list[pyVmomi.vmodl.KeyAnyValue] = []
+   target: _typing.Optional[pyVmomi.vim.ManagedEntity] = None
+   agent: _typing.Optional[pyVmomi.eam.Agent] = None
+   agency: _typing.Optional[pyVmomi.eam.Agency] = None
 
 class HostInMaintenanceMode(VmDeployed):
    pass
 
 
 class HostInPartialMaintenanceMode(AgentIssue):
-   vm: Optional[VirtualMachine] = None
+   vm: _typing.Optional[pyVmomi.vim.VirtualMachine] = None
 
 class HostInStandbyMode(VmDeployed):
    pass
 
 
 class HostIssue(Issue):
-   host: HostSystem
+   host: pyVmomi.vim.HostSystem
 
 class HostNotReachable(AgentIssue):
    pass
@@ -87,7 +72,7 @@ class IncompatibleHostVersion(VmNotDeployed):
 
 
 class InsufficientIpAddresses(VmPoweredOff):
-   network: Network
+   network: pyVmomi.vim.Network
 
 class InsufficientResources(VmNotDeployed):
    pass
@@ -99,14 +84,14 @@ class InvalidConfig(VmIssue):
    error: object
 
 
-class Issue(DynamicData):
+class Issue(pyVmomi.vmodl.DynamicData):
    key: int
    description: str
-   time: datetime
+   time: _datetime.datetime
 
 
 class MissingAgentIpPool(VmPoweredOff):
-   network: Network
+   network: pyVmomi.vim.Network
 
 class MissingDvFilterSwitch(AgentIssue):
    pass
@@ -119,12 +104,12 @@ class NoAgentVmNetwork(VmNotDeployed):
 
 
 class NoCustomAgentVmDatastore(NoAgentVmDatastore):
-   customAgentVmDatastore: list[Datastore] = []
+   customAgentVmDatastore: list[pyVmomi.vim.Datastore] = []
    customAgentVmDatastoreName: list[str] = []
 
 
 class NoCustomAgentVmNetwork(NoAgentVmNetwork):
-   customAgentVmNetwork: list[Network] = []
+   customAgentVmNetwork: list[pyVmomi.vim.Network] = []
    customAgentVmNetworkName: list[str] = []
 
 class NoDiscoverableAgentVmDatastore(VmNotDeployed):
@@ -141,18 +126,18 @@ class OrphanedDvFilterSwitch(HostIssue):
 
 
 class OvfInvalidFormat(VmNotDeployed):
-   error: list[MethodFault] = []
+   error: list[pyVmomi.vmodl.MethodFault] = []
 
 
 class OvfInvalidProperty(AgentIssue):
-   error: list[MethodFault] = []
+   error: list[pyVmomi.vmodl.MethodFault] = []
 
 class TransitionFailed(AgentIssue):
    pass
 
 
 class UnknownAgentVm(HostIssue):
-   vm: VirtualMachine
+   vm: pyVmomi.vim.VirtualMachine
 
 class VibCannotPutHostInMaintenanceMode(VibIssue):
    pass
@@ -189,7 +174,7 @@ class VibRequiresManualUninstallation(VibIssue):
 
 
 class VmCorrupted(VmIssue):
-   missingFile: Optional[str] = None
+   missingFile: _typing.Optional[str] = None
 
 class VmDeployed(VmIssue):
    pass
@@ -205,7 +190,7 @@ class VmInaccessible(VmIssue):
 
 
 class VmIssue(AgentIssue):
-   vm: VirtualMachine
+   vm: pyVmomi.vim.VirtualMachine
 
 class VmMarkedAsTemplate(VmIssue):
    pass
@@ -233,10 +218,10 @@ class VmSuspended(VmIssue):
 
 
 class VmWrongFolder(VmIssue):
-   currentFolder: Folder
-   requiredFolder: Folder
+   currentFolder: pyVmomi.vim.Folder
+   requiredFolder: pyVmomi.vim.Folder
 
 
 class VmWrongResourcePool(VmIssue):
-   currentResourcePool: ResourcePool
-   requiredResourcePool: ResourcePool
+   currentResourcePool: pyVmomi.vim.ResourcePool
+   requiredResourcePool: pyVmomi.vim.ResourcePool

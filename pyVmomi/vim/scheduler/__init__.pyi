@@ -3,27 +3,12 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from datetime import datetime
-from typing import ClassVar
-
-from typing import Optional
-
-from pyVmomi.VmomiSupport import Enum
-
-from pyVmomi.VmomiSupport import ManagedObject
-from pyVmomi.vim import ElementDescription
-from pyVmomi.vim import ExtensibleManagedObject
-
-from pyVmomi.vim import ManagedEntity
-from pyVmomi.vim import Task
-from pyVmomi.vim import TaskInfo
-from pyVmomi.vim import TypeDescription
-
-from pyVmomi.vmodl import DynamicData
-
-from pyVmomi.vmodl import MethodFault
-
-from pyVmomi.vim.action import Action
+import datetime as _datetime
+import typing as _typing
+import pyVmomi.VmomiSupport
+import pyVmomi.vim
+import pyVmomi.vmodl
+import pyVmomi.vim.action
 
 
 class AfterStartupTaskScheduler(TaskScheduler):
@@ -40,21 +25,21 @@ class MonthlyByDayTaskScheduler(MonthlyTaskScheduler):
 
 
 class MonthlyByWeekdayTaskScheduler(MonthlyTaskScheduler):
-   class DayOfWeek(Enum):
-      sunday: ClassVar['DayOfWeek'] = 'sunday'
-      monday: ClassVar['DayOfWeek'] = 'monday'
-      tuesday: ClassVar['DayOfWeek'] = 'tuesday'
-      wednesday: ClassVar['DayOfWeek'] = 'wednesday'
-      thursday: ClassVar['DayOfWeek'] = 'thursday'
-      friday: ClassVar['DayOfWeek'] = 'friday'
-      saturday: ClassVar['DayOfWeek'] = 'saturday'
+   class DayOfWeek(pyVmomi.VmomiSupport.Enum):
+      sunday: _typing.ClassVar['DayOfWeek'] = 'sunday'
+      monday: _typing.ClassVar['DayOfWeek'] = 'monday'
+      tuesday: _typing.ClassVar['DayOfWeek'] = 'tuesday'
+      wednesday: _typing.ClassVar['DayOfWeek'] = 'wednesday'
+      thursday: _typing.ClassVar['DayOfWeek'] = 'thursday'
+      friday: _typing.ClassVar['DayOfWeek'] = 'friday'
+      saturday: _typing.ClassVar['DayOfWeek'] = 'saturday'
 
-   class WeekOfMonth(Enum):
-      first: ClassVar['WeekOfMonth'] = 'first'
-      second: ClassVar['WeekOfMonth'] = 'second'
-      third: ClassVar['WeekOfMonth'] = 'third'
-      fourth: ClassVar['WeekOfMonth'] = 'fourth'
-      last: ClassVar['WeekOfMonth'] = 'last'
+   class WeekOfMonth(pyVmomi.VmomiSupport.Enum):
+      first: _typing.ClassVar['WeekOfMonth'] = 'first'
+      second: _typing.ClassVar['WeekOfMonth'] = 'second'
+      third: _typing.ClassVar['WeekOfMonth'] = 'third'
+      fourth: _typing.ClassVar['WeekOfMonth'] = 'fourth'
+      last: _typing.ClassVar['WeekOfMonth'] = 'last'
 
    offset: WeekOfMonth
    weekday: DayOfWeek
@@ -64,13 +49,13 @@ class MonthlyTaskScheduler(DailyTaskScheduler):
 
 
 class OnceTaskScheduler(TaskScheduler):
-   runAt: Optional[datetime] = None
+   runAt: _typing.Optional[_datetime.datetime] = None
 
 class RecurrentTaskScheduler(TaskScheduler):
    interval: int
 
 
-class ScheduledTask(ExtensibleManagedObject):
+class ScheduledTask(pyVmomi.vim.ExtensibleManagedObject):
    @property
    def info(self) -> ScheduledTaskInfo: ...
 
@@ -79,56 +64,56 @@ class ScheduledTask(ExtensibleManagedObject):
    def Run(self) -> None: ...
 
 
-class ScheduledTaskDescription(DynamicData):
-   class SchedulerDetail(TypeDescription):
+class ScheduledTaskDescription(pyVmomi.vmodl.DynamicData):
+   class SchedulerDetail(pyVmomi.vim.TypeDescription):
       frequency: str
 
-   action: list[TypeDescription] = []
+   action: list[pyVmomi.vim.TypeDescription] = []
    schedulerInfo: list[SchedulerDetail] = []
-   state: list[ElementDescription] = []
-   dayOfWeek: list[ElementDescription] = []
-   weekOfMonth: list[ElementDescription] = []
+   state: list[pyVmomi.vim.ElementDescription] = []
+   dayOfWeek: list[pyVmomi.vim.ElementDescription] = []
+   weekOfMonth: list[pyVmomi.vim.ElementDescription] = []
 
 
 class ScheduledTaskInfo(ScheduledTaskSpec):
    scheduledTask: ScheduledTask
-   entity: ManagedEntity
-   lastModifiedTime: datetime
+   entity: pyVmomi.vim.ManagedEntity
+   lastModifiedTime: _datetime.datetime
    lastModifiedUser: str
-   nextRunTime: Optional[datetime] = None
-   prevRunTime: Optional[datetime] = None
-   state: TaskInfo.State
-   error: Optional[MethodFault] = None
-   result: Optional[object] = None
-   progress: Optional[int] = None
-   activeTask: Optional[Task] = None
-   taskObject: ManagedObject
+   nextRunTime: _typing.Optional[_datetime.datetime] = None
+   prevRunTime: _typing.Optional[_datetime.datetime] = None
+   state: pyVmomi.vim.TaskInfo.State
+   error: _typing.Optional[pyVmomi.vmodl.MethodFault] = None
+   result: _typing.Optional[object] = None
+   progress: _typing.Optional[int] = None
+   activeTask: _typing.Optional[pyVmomi.vim.Task] = None
+   taskObject: pyVmomi.VmomiSupport.ManagedObject
 
 
-class ScheduledTaskManager(ManagedObject):
+class ScheduledTaskManager(pyVmomi.VmomiSupport.ManagedObject):
    @property
    def scheduledTask(self) -> list[ScheduledTask]: ...
    @property
    def description(self) -> ScheduledTaskDescription: ...
 
-   def Create(self, entity: ManagedEntity, spec: ScheduledTaskSpec) -> ScheduledTask: ...
-   def RetrieveEntityScheduledTask(self, entity: Optional[ManagedEntity]) -> list[ScheduledTask]: ...
-   def CreateObjectScheduledTask(self, obj: ManagedObject, spec: ScheduledTaskSpec) -> ScheduledTask: ...
-   def RetrieveObjectScheduledTask(self, obj: Optional[ManagedObject]) -> list[ScheduledTask]: ...
+   def Create(self, entity: pyVmomi.vim.ManagedEntity, spec: ScheduledTaskSpec) -> ScheduledTask: ...
+   def RetrieveEntityScheduledTask(self, entity: _typing.Optional[pyVmomi.vim.ManagedEntity]) -> list[ScheduledTask]: ...
+   def CreateObjectScheduledTask(self, obj: pyVmomi.VmomiSupport.ManagedObject, spec: ScheduledTaskSpec) -> ScheduledTask: ...
+   def RetrieveObjectScheduledTask(self, obj: _typing.Optional[pyVmomi.VmomiSupport.ManagedObject]) -> list[ScheduledTask]: ...
 
 
-class ScheduledTaskSpec(DynamicData):
+class ScheduledTaskSpec(pyVmomi.vmodl.DynamicData):
    name: str
    description: str
    enabled: bool
    scheduler: TaskScheduler
-   action: Action
-   notification: Optional[str] = None
+   action: pyVmomi.vim.action.Action
+   notification: _typing.Optional[str] = None
 
 
-class TaskScheduler(DynamicData):
-   activeTime: Optional[datetime] = None
-   expireTime: Optional[datetime] = None
+class TaskScheduler(pyVmomi.vmodl.DynamicData):
+   activeTime: _typing.Optional[_datetime.datetime] = None
+   expireTime: _typing.Optional[_datetime.datetime] = None
 
 class WeeklyTaskScheduler(DailyTaskScheduler):
    sunday: bool

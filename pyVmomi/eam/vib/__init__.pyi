@@ -3,16 +3,14 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from datetime import datetime
-
-from typing import Optional
-
-from pyVmomi.vmodl import DynamicData
+import datetime as _datetime
+import typing as _typing
+import pyVmomi.vmodl
 
 
 
-class VibInfo(DynamicData):
-   class SoftwareTags(DynamicData):
+class VibInfo(pyVmomi.vmodl.DynamicData):
+   class SoftwareTags(pyVmomi.vmodl.DynamicData):
       tags: list[str] = []
 
    id: str
@@ -20,5 +18,5 @@ class VibInfo(DynamicData):
    version: str
    vendor: str
    summary: str
-   softwareTags: Optional[SoftwareTags] = None
-   releaseDate: datetime
+   softwareTags: _typing.Optional[SoftwareTags] = None
+   releaseDate: _datetime.datetime

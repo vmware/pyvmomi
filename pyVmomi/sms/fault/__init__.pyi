@@ -5,24 +5,18 @@
 
 from . import replication as replication
 
-from typing import Optional
-
-from pyVmomi.VmomiSupport import long
-
-from pyVmomi.sms import EntityReference
-
-from pyVmomi.vmodl import MethodFault
-from pyVmomi.vmodl import RuntimeFault
-
-from pyVmomi.sms.storage import FaultDomainProviderMapping
-from pyVmomi.vim.fault import NoPermission
-from pyVmomi.vmodl.fault import InvalidArgument
-
-from pyVmomi.sms.storage.replication import DeviceId
+import typing as _typing
+import pyVmomi.VmomiSupport
+import pyVmomi.sms
+import pyVmomi.vmodl
+import pyVmomi.sms.storage
+import pyVmomi.vim.fault
+import pyVmomi.vmodl.fault
+import pyVmomi.sms.storage.replication
 
 
 
-class AuthConnectionFailed(NoPermission):
+class AuthConnectionFailed(pyVmomi.vim.fault.NoPermission):
    pass
 
 class CertificateAuthorityFault(ProviderRegistrationFault):
@@ -35,20 +29,20 @@ class CertificateNotTrusted(ProviderRegistrationFault):
    certificate: str
 
 
-class CertificateRefreshFailed(MethodFault):
+class CertificateRefreshFailed(pyVmomi.vmodl.MethodFault):
    providerId: list[str] = []
 
 
-class CertificateRevocationFailed(MethodFault):
+class CertificateRevocationFailed(pyVmomi.vmodl.MethodFault):
    pass
 
 
-class DuplicateEntry(MethodFault):
+class DuplicateEntry(pyVmomi.vmodl.MethodFault):
    pass
 
 
-class InactiveProvider(MethodFault):
-   mapping: list[FaultDomainProviderMapping] = []
+class InactiveProvider(pyVmomi.vmodl.MethodFault):
+   mapping: list[pyVmomi.sms.storage.FaultDomainProviderMapping] = []
 
 class IncorrectUsernamePassword(ProviderRegistrationFault):
    pass
@@ -57,98 +51,98 @@ class InvalidCertificate(ProviderRegistrationFault):
    certificate: str
 
 
-class InvalidLogin(MethodFault):
+class InvalidLogin(pyVmomi.vmodl.MethodFault):
    pass
 
 
-class InvalidProfile(MethodFault):
+class InvalidProfile(pyVmomi.vmodl.MethodFault):
    pass
 
 
-class InvalidSession(NoPermission):
+class InvalidSession(pyVmomi.vim.fault.NoPermission):
    sessionCookie: str
 
 class InvalidUrl(ProviderRegistrationFault):
    url: str
 
 
-class MultipleSortSpecsNotSupported(InvalidArgument):
+class MultipleSortSpecsNotSupported(pyVmomi.vmodl.fault.InvalidArgument):
    pass
 
 class NoCommonProviderForAllBackings(QueryExecutionFault):
    pass
 
 
-class NotSupportedByProvider(MethodFault):
+class NotSupportedByProvider(pyVmomi.vmodl.MethodFault):
    pass
 
 
-class ProviderBusy(MethodFault):
+class ProviderBusy(pyVmomi.vmodl.MethodFault):
    pass
 
 
-class ProviderConnectionFailed(RuntimeFault):
+class ProviderConnectionFailed(pyVmomi.vmodl.RuntimeFault):
    pass
 
 class ProviderNotFound(QueryExecutionFault):
    pass
 
 
-class ProviderOutOfProvisioningResource(MethodFault):
+class ProviderOutOfProvisioningResource(pyVmomi.vmodl.MethodFault):
    provisioningResourceId: str
-   availableBefore: Optional[long] = None
-   availableAfter: Optional[long] = None
-   total: Optional[long] = None
-   isTransient: Optional[bool] = None
+   availableBefore: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   availableAfter: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   total: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   isTransient: _typing.Optional[bool] = None
 
 
-class ProviderOutOfResource(MethodFault):
+class ProviderOutOfResource(pyVmomi.vmodl.MethodFault):
    pass
 
 
-class ProviderRegistrationFault(MethodFault):
+class ProviderRegistrationFault(pyVmomi.vmodl.MethodFault):
    pass
 
 
-class ProviderSyncFailed(MethodFault):
+class ProviderSyncFailed(pyVmomi.vmodl.MethodFault):
    pass
 
 
-class ProviderUnavailable(MethodFault):
+class ProviderUnavailable(pyVmomi.vmodl.MethodFault):
    pass
 
 
-class ProviderUnregistrationFault(MethodFault):
+class ProviderUnregistrationFault(pyVmomi.vmodl.MethodFault):
    pass
 
 
-class ProxyRegistrationFailed(RuntimeFault):
+class ProxyRegistrationFailed(pyVmomi.vmodl.RuntimeFault):
    pass
 
 
-class QueryExecutionFault(MethodFault):
+class QueryExecutionFault(pyVmomi.vmodl.MethodFault):
    pass
 
 
-class QueryNotSupported(InvalidArgument):
-   entityType: Optional[EntityReference.EntityType] = None
-   relatedEntityType: EntityReference.EntityType
+class QueryNotSupported(pyVmomi.vmodl.fault.InvalidArgument):
+   entityType: _typing.Optional[pyVmomi.sms.EntityReference.EntityType] = None
+   relatedEntityType: pyVmomi.sms.EntityReference.EntityType
 
 
-class ResourceInUse(ResourceInUse):
-   deviceIds: list[DeviceId] = []
+class ResourceInUse(pyVmomi.vim.fault.ResourceInUse):
+   deviceIds: list[pyVmomi.sms.storage.replication.DeviceId] = []
 
 
-class ServiceNotInitialized(RuntimeFault):
+class ServiceNotInitialized(pyVmomi.vmodl.RuntimeFault):
    pass
 
 
-class SmsFault(MethodFault):
+class SmsFault(pyVmomi.vmodl.MethodFault):
    pass
 
 class SyncInProgress(ProviderSyncFailed):
    pass
 
 
-class TooMany(MethodFault):
-   maxBatchSize: Optional[long] = None
+class TooMany(pyVmomi.vmodl.MethodFault):
+   maxBatchSize: _typing.Optional[pyVmomi.VmomiSupport.long] = None

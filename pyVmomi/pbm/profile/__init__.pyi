@@ -5,150 +5,137 @@
 
 from . import provider as provider
 
-from datetime import datetime
-from typing import ClassVar
-from typing import Optional
-
-from pyVmomi.VmomiSupport import Enum
-
-from pyVmomi.VmomiSupport import ManagedObject
-from pyVmomi.VmomiSupport import long
-
-from pyVmomi.pbm import ServerObjectRef
-
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import MethodFault
-
-from pyVmomi.pbm.capability import CapabilityInstance
-
-from pyVmomi.pbm.placement import PlacementHub
-
-from pyVmomi.pbm.capability.provider import CapabilityObjectMetadataPerCategory
-from pyVmomi.pbm.capability.provider import CapabilityObjectSchema
-
-from pyVmomi.pbm.profile.provider import DatastoreSpaceStatistics
+import datetime as _datetime
+import typing as _typing
+import pyVmomi.VmomiSupport
+import pyVmomi.pbm
+import pyVmomi.vmodl
+import pyVmomi.pbm.capability
+import pyVmomi.pbm.placement
+import pyVmomi.pbm.capability.provider
+import pyVmomi.pbm.profile.provider
 
 
 
 class CapabilityBasedProfile(Profile):
-   class ProfileCategoryEnum(Enum):
-      REQUIREMENT: ClassVar['ProfileCategoryEnum'] = 'REQUIREMENT'
-      RESOURCE: ClassVar['ProfileCategoryEnum'] = 'RESOURCE'
-      DATA_SERVICE_POLICY: ClassVar['ProfileCategoryEnum'] = 'DATA_SERVICE_POLICY'
+   class ProfileCategoryEnum(pyVmomi.VmomiSupport.Enum):
+      REQUIREMENT: _typing.ClassVar['ProfileCategoryEnum'] = 'REQUIREMENT'
+      RESOURCE: _typing.ClassVar['ProfileCategoryEnum'] = 'RESOURCE'
+      DATA_SERVICE_POLICY: _typing.ClassVar['ProfileCategoryEnum'] = 'DATA_SERVICE_POLICY'
 
-   class SystemCreatedProfileType(Enum):
-      VsanDefaultProfile: ClassVar['SystemCreatedProfileType'] = 'VsanDefaultProfile'
-      VVolDefaultProfile: ClassVar['SystemCreatedProfileType'] = 'VVolDefaultProfile'
-      PmemDefaultProfile: ClassVar['SystemCreatedProfileType'] = 'PmemDefaultProfile'
-      VmcManagementProfile: ClassVar['SystemCreatedProfileType'] = 'VmcManagementProfile'
-      VsanMaxDefaultProfile: ClassVar['SystemCreatedProfileType'] = 'VsanMaxDefaultProfile'
-      VsanEsaAutoManagedRaidProfile: ClassVar['SystemCreatedProfileType'] = 'VsanEsaAutoManagedRaidProfile'
+   class SystemCreatedProfileType(pyVmomi.VmomiSupport.Enum):
+      VsanDefaultProfile: _typing.ClassVar['SystemCreatedProfileType'] = 'VsanDefaultProfile'
+      VVolDefaultProfile: _typing.ClassVar['SystemCreatedProfileType'] = 'VVolDefaultProfile'
+      PmemDefaultProfile: _typing.ClassVar['SystemCreatedProfileType'] = 'PmemDefaultProfile'
+      VmcManagementProfile: _typing.ClassVar['SystemCreatedProfileType'] = 'VmcManagementProfile'
+      VsanMaxDefaultProfile: _typing.ClassVar['SystemCreatedProfileType'] = 'VsanMaxDefaultProfile'
+      VsanEsaAutoManagedRaidProfile: _typing.ClassVar['SystemCreatedProfileType'] = 'VsanEsaAutoManagedRaidProfile'
 
    profileCategory: str
    resourceType: ResourceType
    constraints: CapabilityConstraints
-   generationId: Optional[long] = None
+   generationId: _typing.Optional[pyVmomi.VmomiSupport.long] = None
    isDefault: bool
-   systemCreatedProfileType: Optional[str] = None
-   lineOfService: Optional[str] = None
-   k8sCompliantName: Optional[str] = None
+   systemCreatedProfileType: _typing.Optional[str] = None
+   lineOfService: _typing.Optional[str] = None
+   k8sCompliantName: _typing.Optional[str] = None
    otherK8sCompliantNames: list[str] = []
 
 
-class CapabilityBasedProfileCreateSpec(DynamicData):
+class CapabilityBasedProfileCreateSpec(pyVmomi.vmodl.DynamicData):
    name: str
-   description: Optional[str] = None
-   category: Optional[str] = None
+   description: _typing.Optional[str] = None
+   category: _typing.Optional[str] = None
    resourceType: ResourceType
    constraints: CapabilityConstraints
-   k8sCompliantName: Optional[str] = None
+   k8sCompliantName: _typing.Optional[str] = None
 
 
-class CapabilityBasedProfileUpdateSpec(DynamicData):
-   name: Optional[str] = None
-   description: Optional[str] = None
-   constraints: Optional[CapabilityConstraints] = None
+class CapabilityBasedProfileUpdateSpec(pyVmomi.vmodl.DynamicData):
+   name: _typing.Optional[str] = None
+   description: _typing.Optional[str] = None
+   constraints: _typing.Optional[CapabilityConstraints] = None
 
 
-class CapabilityConstraints(DynamicData):
+class CapabilityConstraints(pyVmomi.vmodl.DynamicData):
    pass
 
 
-class DataServiceToPoliciesMap(DynamicData):
+class DataServiceToPoliciesMap(pyVmomi.vmodl.DynamicData):
    dataServicePolicy: ProfileId
    parentStoragePolicies: list[ProfileId] = []
-   fault: Optional[MethodFault] = None
+   fault: _typing.Optional[pyVmomi.vmodl.MethodFault] = None
 
 class DefaultCapabilityBasedProfile(CapabilityBasedProfile):
    vvolType: list[str] = []
    containerId: str
 
 
-class DefaultProfileInfo(DynamicData):
-   datastores: list[PlacementHub] = []
-   defaultProfile: Optional[Profile] = None
-   methodFault: Optional[MethodFault] = None
+class DefaultProfileInfo(pyVmomi.vmodl.DynamicData):
+   datastores: list[pyVmomi.pbm.placement.PlacementHub] = []
+   defaultProfile: _typing.Optional[Profile] = None
+   methodFault: _typing.Optional[pyVmomi.vmodl.MethodFault] = None
 
 
-class Profile(DynamicData):
+class Profile(pyVmomi.vmodl.DynamicData):
    profileId: ProfileId
    name: str
-   description: Optional[str] = None
-   creationTime: datetime
+   description: _typing.Optional[str] = None
+   creationTime: _datetime.datetime
    createdBy: str
-   lastUpdatedTime: datetime
+   lastUpdatedTime: _datetime.datetime
    lastUpdatedBy: str
 
 
-class ProfileId(DynamicData):
+class ProfileId(pyVmomi.vmodl.DynamicData):
    uniqueId: str
 
 
-class ProfileK8sCompliantNameSpec(DynamicData):
+class ProfileK8sCompliantNameSpec(pyVmomi.vmodl.DynamicData):
    profileId: str
    k8sCompliantName: str
    otherK8sCompliantNames: list[str] = []
 
 
-class ProfileManager(ManagedObject):
+class ProfileManager(pyVmomi.VmomiSupport.ManagedObject):
    def FetchResourceType(self) -> list[ResourceType]: ...
-   def FetchVendorInfo(self, resourceType: Optional[ResourceType]) -> list[CapabilityObjectSchema.VendorResourceTypeInfo]: ...
-   def FetchCapabilityMetadata(self, resourceType: Optional[ResourceType], vendorUuid: Optional[str]) -> list[CapabilityObjectMetadataPerCategory]: ...
-   def FetchCapabilitySchema(self, vendorUuid: Optional[str], lineOfService: list[str]) -> list[CapabilityObjectSchema]: ...
+   def FetchVendorInfo(self, resourceType: _typing.Optional[ResourceType]) -> list[pyVmomi.pbm.capability.provider.CapabilityObjectSchema.VendorResourceTypeInfo]: ...
+   def FetchCapabilityMetadata(self, resourceType: _typing.Optional[ResourceType], vendorUuid: _typing.Optional[str]) -> list[pyVmomi.pbm.capability.provider.CapabilityObjectMetadataPerCategory]: ...
+   def FetchCapabilitySchema(self, vendorUuid: _typing.Optional[str], lineOfService: list[str]) -> list[pyVmomi.pbm.capability.provider.CapabilityObjectSchema]: ...
    def Create(self, createSpec: CapabilityBasedProfileCreateSpec) -> ProfileId: ...
    def Update(self, profileId: ProfileId, updateSpec: CapabilityBasedProfileUpdateSpec) -> None: ...
    def Delete(self, profileId: list[ProfileId]) -> list[ProfileOperationOutcome]: ...
-   def QueryProfile(self, resourceType: ResourceType, profileCategory: Optional[str]) -> list[ProfileId]: ...
+   def QueryProfile(self, resourceType: ResourceType, profileCategory: _typing.Optional[str]) -> list[ProfileId]: ...
    def RetrieveContent(self, profileIds: list[ProfileId]) -> list[Profile]: ...
-   def QueryAssociatedProfiles(self, entities: list[ServerObjectRef]) -> list[QueryProfileResult]: ...
-   def QueryAssociatedProfile(self, entity: ServerObjectRef) -> list[ProfileId]: ...
-   def QueryAssociatedEntity(self, profile: ProfileId, entityType: Optional[str]) -> list[ServerObjectRef]: ...
-   def QueryDefaultRequirementProfile(self, hub: PlacementHub) -> Optional[ProfileId]: ...
-   def ResetDefaultRequirementProfile(self, profile: Optional[ProfileId]) -> None: ...
-   def AssignDefaultRequirementProfile(self, profile: ProfileId, datastores: list[PlacementHub]) -> None: ...
-   def FindApplicableDefaultProfile(self, datastores: list[PlacementHub]) -> list[Profile]: ...
-   def QueryDefaultRequirementProfiles(self, datastores: list[PlacementHub]) -> list[DefaultProfileInfo]: ...
+   def QueryAssociatedProfiles(self, entities: list[pyVmomi.pbm.ServerObjectRef]) -> list[QueryProfileResult]: ...
+   def QueryAssociatedProfile(self, entity: pyVmomi.pbm.ServerObjectRef) -> list[ProfileId]: ...
+   def QueryAssociatedEntity(self, profile: ProfileId, entityType: _typing.Optional[str]) -> list[pyVmomi.pbm.ServerObjectRef]: ...
+   def QueryDefaultRequirementProfile(self, hub: pyVmomi.pbm.placement.PlacementHub) -> _typing.Optional[ProfileId]: ...
+   def ResetDefaultRequirementProfile(self, profile: _typing.Optional[ProfileId]) -> None: ...
+   def AssignDefaultRequirementProfile(self, profile: ProfileId, datastores: list[pyVmomi.pbm.placement.PlacementHub]) -> None: ...
+   def FindApplicableDefaultProfile(self, datastores: list[pyVmomi.pbm.placement.PlacementHub]) -> list[Profile]: ...
+   def QueryDefaultRequirementProfiles(self, datastores: list[pyVmomi.pbm.placement.PlacementHub]) -> list[DefaultProfileInfo]: ...
    def ResetVSanDefaultProfile(self) -> None: ...
-   def QuerySpaceStatsForStorageContainer(self, datastore: ServerObjectRef, capabilityProfileId: list[ProfileId]) -> list[DatastoreSpaceStatistics]: ...
+   def QuerySpaceStatsForStorageContainer(self, datastore: pyVmomi.pbm.ServerObjectRef, capabilityProfileId: list[ProfileId]) -> list[pyVmomi.pbm.profile.provider.DatastoreSpaceStatistics]: ...
    def QueryAssociatedEntities(self, profiles: list[ProfileId]) -> list[QueryProfileResult]: ...
 
 
-class ProfileOperationOutcome(DynamicData):
+class ProfileOperationOutcome(pyVmomi.vmodl.DynamicData):
    profileId: ProfileId
-   fault: Optional[MethodFault] = None
+   fault: _typing.Optional[pyVmomi.vmodl.MethodFault] = None
 
 
-class ProfileType(DynamicData):
+class ProfileType(pyVmomi.vmodl.DynamicData):
    uniqueId: str
 
 
-class QueryProfileResult(DynamicData):
-   object: ServerObjectRef
+class QueryProfileResult(pyVmomi.vmodl.DynamicData):
+   object: pyVmomi.pbm.ServerObjectRef
    profileId: list[ProfileId] = []
-   fault: Optional[MethodFault] = None
+   fault: _typing.Optional[pyVmomi.vmodl.MethodFault] = None
 
 
-class ResourceType(DynamicData):
+class ResourceType(pyVmomi.vmodl.DynamicData):
    resourceType: str
 
 class ResourceTypeEnum:
@@ -156,9 +143,9 @@ class ResourceTypeEnum:
 
 
 class SubProfileCapabilityConstraints(CapabilityConstraints):
-   class SubProfile(DynamicData):
+   class SubProfile(pyVmomi.vmodl.DynamicData):
       name: str
-      capability: list[CapabilityInstance] = []
-      forceProvision: Optional[bool] = None
+      capability: list[pyVmomi.pbm.capability.CapabilityInstance] = []
+      forceProvision: _typing.Optional[bool] = None
 
    subProfiles: list[SubProfile] = []

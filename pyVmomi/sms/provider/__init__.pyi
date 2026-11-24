@@ -3,156 +3,140 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import ClassVar
-from typing import Optional
-
-from pyVmomi.VmomiSupport import Enum
-from pyVmomi.VmomiSupport import ManagedObject
-from pyVmomi.VmomiSupport import long
-
-from pyVmomi.vim import Task
-
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import MethodFault
-
-from pyVmomi.sms.storage import StorageAlarm
-
-from pyVmomi.sms.storage.replication import FailoverParam
-from pyVmomi.sms.storage.replication import GroupOperationResult
-from pyVmomi.sms.storage.replication import PromoteParam
-from pyVmomi.sms.storage.replication import QueryPointInTimeReplicaParam
-from pyVmomi.sms.storage.replication import QueryReplicationPeerResult
-from pyVmomi.sms.storage.replication import TestFailoverParam
-
-from pyVmomi.vim.vm.replication import FaultDomainId
-from pyVmomi.vim.vm.replication import ReplicationGroupId
+import typing as _typing
+import pyVmomi.VmomiSupport
+import pyVmomi.vim
+import pyVmomi.vmodl
+import pyVmomi.sms.storage
+import pyVmomi.sms.storage.replication
+import pyVmomi.vim.vm.replication
 
 
 
-class AlarmFilter(DynamicData):
-   alarmStatus: Optional[str] = None
-   alarmType: Optional[str] = None
-   entityType: Optional[str] = None
+class AlarmFilter(pyVmomi.vmodl.DynamicData):
+   alarmStatus: _typing.Optional[str] = None
+   alarmType: _typing.Optional[str] = None
+   entityType: _typing.Optional[str] = None
    entityId: list[object] = []
-   pageMarker: Optional[str] = None
+   pageMarker: _typing.Optional[str] = None
 
 
-class AlarmResult(DynamicData):
-   storageAlarm: list[StorageAlarm] = []
-   pageMarker: Optional[str] = None
+class AlarmResult(pyVmomi.vmodl.DynamicData):
+   storageAlarm: list[pyVmomi.sms.storage.StorageAlarm] = []
+   pageMarker: _typing.Optional[str] = None
 
 
-class Provider(ManagedObject):
+class Provider(pyVmomi.VmomiSupport.ManagedObject):
    def QueryProviderInfo(self) -> ProviderInfo: ...
 
 
-class ProviderInfo(DynamicData):
+class ProviderInfo(pyVmomi.vmodl.DynamicData):
    uid: str
    name: str
-   description: Optional[str] = None
-   version: Optional[str] = None
+   description: _typing.Optional[str] = None
+   version: _typing.Optional[str] = None
 
 
-class ProviderSpec(DynamicData):
+class ProviderSpec(pyVmomi.vmodl.DynamicData):
    name: str
-   description: Optional[str] = None
+   description: _typing.Optional[str] = None
 
 
-class VASAProviderUpgradeSpec(DynamicData):
+class VASAProviderUpgradeSpec(pyVmomi.vmodl.DynamicData):
    providerUid: str
    username: str
    password: str
 
 
 class VasaProvider(Provider):
-   def Sync(self, arrayId: Optional[str]) -> Task: ...
-   def RefreshCertificate(self) -> Task: ...
-   def RevokeCertificate(self) -> Task: ...
-   def Reconnect(self) -> Task: ...
-   def QueryReplicationPeer(self, faultDomainId: list[FaultDomainId]) -> list[QueryReplicationPeerResult]: ...
-   def QueryReplicationGroup(self, groupId: list[ReplicationGroupId]) -> list[GroupOperationResult]: ...
-   def QueryPointInTimeReplica(self, groupId: list[ReplicationGroupId], queryParam: Optional[QueryPointInTimeReplicaParam]) -> list[GroupOperationResult]: ...
-   def TestFailoverReplicationGroupStart(self, testFailoverParam: TestFailoverParam) -> Task: ...
-   def TestFailoverReplicationGroupStop(self, groupId: list[ReplicationGroupId], force: bool) -> Task: ...
-   def PromoteReplicationGroup(self, promoteParam: PromoteParam) -> Task: ...
-   def SyncReplicationGroup(self, groupId: list[ReplicationGroupId], pitName: str) -> Task: ...
-   def PrepareFailoverReplicationGroup(self, groupId: list[ReplicationGroupId]) -> Task: ...
-   def FailoverReplicationGroup(self, failoverParam: FailoverParam) -> Task: ...
-   def ReverseReplicateGroup(self, groupId: list[ReplicationGroupId]) -> Task: ...
-   def QueryActiveAlarm(self, alarmFilter: Optional[AlarmFilter]) -> Optional[AlarmResult]: ...
+   def Sync(self, arrayId: _typing.Optional[str]) -> pyVmomi.vim.Task: ...
+   def RefreshCertificate(self) -> pyVmomi.vim.Task: ...
+   def RevokeCertificate(self) -> pyVmomi.vim.Task: ...
+   def Reconnect(self) -> pyVmomi.vim.Task: ...
+   def QueryReplicationPeer(self, faultDomainId: list[pyVmomi.vim.vm.replication.FaultDomainId]) -> list[pyVmomi.sms.storage.replication.QueryReplicationPeerResult]: ...
+   def QueryReplicationGroup(self, groupId: list[pyVmomi.vim.vm.replication.ReplicationGroupId]) -> list[pyVmomi.sms.storage.replication.GroupOperationResult]: ...
+   def QueryPointInTimeReplica(self, groupId: list[pyVmomi.vim.vm.replication.ReplicationGroupId], queryParam: _typing.Optional[pyVmomi.sms.storage.replication.QueryPointInTimeReplicaParam]) -> list[pyVmomi.sms.storage.replication.GroupOperationResult]: ...
+   def TestFailoverReplicationGroupStart(self, testFailoverParam: pyVmomi.sms.storage.replication.TestFailoverParam) -> pyVmomi.vim.Task: ...
+   def TestFailoverReplicationGroupStop(self, groupId: list[pyVmomi.vim.vm.replication.ReplicationGroupId], force: bool) -> pyVmomi.vim.Task: ...
+   def PromoteReplicationGroup(self, promoteParam: pyVmomi.sms.storage.replication.PromoteParam) -> pyVmomi.vim.Task: ...
+   def SyncReplicationGroup(self, groupId: list[pyVmomi.vim.vm.replication.ReplicationGroupId], pitName: str) -> pyVmomi.vim.Task: ...
+   def PrepareFailoverReplicationGroup(self, groupId: list[pyVmomi.vim.vm.replication.ReplicationGroupId]) -> pyVmomi.vim.Task: ...
+   def FailoverReplicationGroup(self, failoverParam: pyVmomi.sms.storage.replication.FailoverParam) -> pyVmomi.vim.Task: ...
+   def ReverseReplicateGroup(self, groupId: list[pyVmomi.vim.vm.replication.ReplicationGroupId]) -> pyVmomi.vim.Task: ...
+   def QueryActiveAlarm(self, alarmFilter: _typing.Optional[AlarmFilter]) -> _typing.Optional[AlarmResult]: ...
 
 
 class VasaProviderInfo(ProviderInfo):
-   class CertificateStatus(Enum):
-      valid: ClassVar['CertificateStatus'] = 'valid'
-      expirySoftLimitReached: ClassVar['CertificateStatus'] = 'expirySoftLimitReached'
-      expiryHardLimitReached: ClassVar['CertificateStatus'] = 'expiryHardLimitReached'
-      expired: ClassVar['CertificateStatus'] = 'expired'
-      invalid: ClassVar['CertificateStatus'] = 'invalid'
+   class CertificateStatus(pyVmomi.VmomiSupport.Enum):
+      valid: _typing.ClassVar['CertificateStatus'] = 'valid'
+      expirySoftLimitReached: _typing.ClassVar['CertificateStatus'] = 'expirySoftLimitReached'
+      expiryHardLimitReached: _typing.ClassVar['CertificateStatus'] = 'expiryHardLimitReached'
+      expired: _typing.ClassVar['CertificateStatus'] = 'expired'
+      invalid: _typing.ClassVar['CertificateStatus'] = 'invalid'
 
-   class RelatedStorageArray(DynamicData):
+   class RelatedStorageArray(pyVmomi.vmodl.DynamicData):
       arrayId: str
       active: bool
       manageable: bool
       priority: int
 
-   class SupportedVendorModelMapping(DynamicData):
-      vendorId: Optional[str] = None
-      modelId: Optional[str] = None
+   class SupportedVendorModelMapping(pyVmomi.vmodl.DynamicData):
+      vendorId: _typing.Optional[str] = None
+      modelId: _typing.Optional[str] = None
 
-   class VasaProviderStatus(Enum):
-      online: ClassVar['VasaProviderStatus'] = 'online'
-      offline: ClassVar['VasaProviderStatus'] = 'offline'
-      syncError: ClassVar['VasaProviderStatus'] = 'syncError'
-      unknown: ClassVar['VasaProviderStatus'] = 'unknown'
-      connected: ClassVar['VasaProviderStatus'] = 'connected'
-      disconnected: ClassVar['VasaProviderStatus'] = 'disconnected'
+   class VasaProviderStatus(pyVmomi.VmomiSupport.Enum):
+      online: _typing.ClassVar['VasaProviderStatus'] = 'online'
+      offline: _typing.ClassVar['VasaProviderStatus'] = 'offline'
+      syncError: _typing.ClassVar['VasaProviderStatus'] = 'syncError'
+      unknown: _typing.ClassVar['VasaProviderStatus'] = 'unknown'
+      connected: _typing.ClassVar['VasaProviderStatus'] = 'connected'
+      disconnected: _typing.ClassVar['VasaProviderStatus'] = 'disconnected'
 
-   class VasaProviderProfile(Enum):
-      blockDevice: ClassVar['VasaProviderProfile'] = 'blockDevice'
-      fileSystem: ClassVar['VasaProviderProfile'] = 'fileSystem'
-      capability: ClassVar['VasaProviderProfile'] = 'capability'
+   class VasaProviderProfile(pyVmomi.VmomiSupport.Enum):
+      blockDevice: _typing.ClassVar['VasaProviderProfile'] = 'blockDevice'
+      fileSystem: _typing.ClassVar['VasaProviderProfile'] = 'fileSystem'
+      capability: _typing.ClassVar['VasaProviderProfile'] = 'capability'
 
-   class ProviderProfile(Enum):
-      ProfileBasedManagement: ClassVar['ProviderProfile'] = 'ProfileBasedManagement'
-      Replication: ClassVar['ProviderProfile'] = 'Replication'
+   class ProviderProfile(pyVmomi.VmomiSupport.Enum):
+      ProfileBasedManagement: _typing.ClassVar['ProviderProfile'] = 'ProfileBasedManagement'
+      Replication: _typing.ClassVar['ProviderProfile'] = 'Replication'
 
-   class Type(Enum):
-      PERSISTENCE: ClassVar['Type'] = 'PERSISTENCE'
-      DATASERVICE: ClassVar['Type'] = 'DATASERVICE'
-      UNKNOWN: ClassVar['Type'] = 'UNKNOWN'
+   class Type(pyVmomi.VmomiSupport.Enum):
+      PERSISTENCE: _typing.ClassVar['Type'] = 'PERSISTENCE'
+      DATASERVICE: _typing.ClassVar['Type'] = 'DATASERVICE'
+      UNKNOWN: _typing.ClassVar['Type'] = 'UNKNOWN'
 
-   class Category(Enum):
-      internal: ClassVar['Category'] = 'internal'
-      external: ClassVar['Category'] = 'external'
+   class Category(pyVmomi.VmomiSupport.Enum):
+      internal: _typing.ClassVar['Category'] = 'internal'
+      external: _typing.ClassVar['Category'] = 'external'
 
    url: str
-   certificate: Optional[str] = None
-   status: Optional[str] = None
-   statusFault: Optional[MethodFault] = None
-   vasaVersion: Optional[str] = None
-   namespace: Optional[str] = None
-   lastSyncTime: Optional[str] = None
+   certificate: _typing.Optional[str] = None
+   status: _typing.Optional[str] = None
+   statusFault: _typing.Optional[pyVmomi.vmodl.MethodFault] = None
+   vasaVersion: _typing.Optional[str] = None
+   namespace: _typing.Optional[str] = None
+   lastSyncTime: _typing.Optional[str] = None
    supportedVendorModelMapping: list[SupportedVendorModelMapping] = []
    supportedProfile: list[str] = []
    supportedProviderProfile: list[str] = []
    relatedStorageArray: list[RelatedStorageArray] = []
-   providerId: Optional[str] = None
-   certificateExpiryDate: Optional[str] = None
-   certificateStatus: Optional[str] = None
-   serviceLocation: Optional[str] = None
-   needsExplicitActivation: Optional[bool] = None
-   maxBatchSize: Optional[long] = None
-   retainVasaProviderCertificate: Optional[bool] = None
-   arrayIndependentProvider: Optional[bool] = None
-   type: Optional[str] = None
-   category: Optional[str] = None
-   priority: Optional[int] = None
-   failoverGroupId: Optional[str] = None
+   providerId: _typing.Optional[str] = None
+   certificateExpiryDate: _typing.Optional[str] = None
+   certificateStatus: _typing.Optional[str] = None
+   serviceLocation: _typing.Optional[str] = None
+   needsExplicitActivation: _typing.Optional[bool] = None
+   maxBatchSize: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   retainVasaProviderCertificate: _typing.Optional[bool] = None
+   arrayIndependentProvider: _typing.Optional[bool] = None
+   type: _typing.Optional[str] = None
+   category: _typing.Optional[str] = None
+   priority: _typing.Optional[int] = None
+   failoverGroupId: _typing.Optional[str] = None
 
 
 class VasaProviderSpec(ProviderSpec):
    username: str
    password: str
    url: str
-   certificate: Optional[str] = None
+   certificate: _typing.Optional[str] = None

@@ -3,39 +3,34 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from datetime import datetime
-
-from typing import ClassVar
-from typing import Optional
-
-from pyVmomi.VmomiSupport import Enum
-
-from pyVmomi.vim import KeyValue
-
-from pyVmomi.vmodl import DynamicData
+import datetime as _datetime
+import typing as _typing
+import pyVmomi.VmomiSupport
+import pyVmomi.vim
+import pyVmomi.vmodl
 
 
 
-class DhcpConfigInfo(DynamicData):
-   class DhcpOptions(DynamicData):
+class DhcpConfigInfo(pyVmomi.vmodl.DynamicData):
+   class DhcpOptions(pyVmomi.vmodl.DynamicData):
       enable: bool
-      config: list[KeyValue] = []
+      config: list[pyVmomi.vim.KeyValue] = []
 
-   ipv6: Optional[DhcpOptions] = None
-   ipv4: Optional[DhcpOptions] = None
+   ipv6: _typing.Optional[DhcpOptions] = None
+   ipv4: _typing.Optional[DhcpOptions] = None
 
 
-class DhcpConfigSpec(DynamicData):
-   class DhcpOptionsSpec(DynamicData):
-      enable: Optional[bool] = None
-      config: list[KeyValue] = []
+class DhcpConfigSpec(pyVmomi.vmodl.DynamicData):
+   class DhcpOptionsSpec(pyVmomi.vmodl.DynamicData):
+      enable: _typing.Optional[bool] = None
+      config: list[pyVmomi.vim.KeyValue] = []
       operation: str
 
-   ipv6: Optional[DhcpOptionsSpec] = None
-   ipv4: Optional[DhcpOptionsSpec] = None
+   ipv6: _typing.Optional[DhcpOptionsSpec] = None
+   ipv4: _typing.Optional[DhcpOptionsSpec] = None
 
 
-class DnsConfigInfo(DynamicData):
+class DnsConfigInfo(pyVmomi.vmodl.DynamicData):
    dhcp: bool
    hostName: str
    domainName: str
@@ -43,60 +38,60 @@ class DnsConfigInfo(DynamicData):
    searchDomain: list[str] = []
 
 
-class DnsConfigSpec(DynamicData):
-   dhcp: Optional[bool] = None
-   hostName: Optional[str] = None
-   domainName: Optional[str] = None
+class DnsConfigSpec(pyVmomi.vmodl.DynamicData):
+   dhcp: _typing.Optional[bool] = None
+   hostName: _typing.Optional[str] = None
+   domainName: _typing.Optional[str] = None
    ipAddress: list[str] = []
    searchDomain: list[str] = []
 
 
-class IpConfigInfo(DynamicData):
-   class IpAddressOrigin(Enum):
-      other: ClassVar['IpAddressOrigin'] = 'other'
-      manual: ClassVar['IpAddressOrigin'] = 'manual'
-      dhcp: ClassVar['IpAddressOrigin'] = 'dhcp'
-      linklayer: ClassVar['IpAddressOrigin'] = 'linklayer'
-      random: ClassVar['IpAddressOrigin'] = 'random'
+class IpConfigInfo(pyVmomi.vmodl.DynamicData):
+   class IpAddressOrigin(pyVmomi.VmomiSupport.Enum):
+      other: _typing.ClassVar['IpAddressOrigin'] = 'other'
+      manual: _typing.ClassVar['IpAddressOrigin'] = 'manual'
+      dhcp: _typing.ClassVar['IpAddressOrigin'] = 'dhcp'
+      linklayer: _typing.ClassVar['IpAddressOrigin'] = 'linklayer'
+      random: _typing.ClassVar['IpAddressOrigin'] = 'random'
 
-   class IpAddressStatus(Enum):
-      preferred: ClassVar['IpAddressStatus'] = 'preferred'
-      deprecated: ClassVar['IpAddressStatus'] = 'deprecated'
-      invalid: ClassVar['IpAddressStatus'] = 'invalid'
-      inaccessible: ClassVar['IpAddressStatus'] = 'inaccessible'
-      unknown: ClassVar['IpAddressStatus'] = 'unknown'
-      tentative: ClassVar['IpAddressStatus'] = 'tentative'
-      duplicate: ClassVar['IpAddressStatus'] = 'duplicate'
+   class IpAddressStatus(pyVmomi.VmomiSupport.Enum):
+      preferred: _typing.ClassVar['IpAddressStatus'] = 'preferred'
+      deprecated: _typing.ClassVar['IpAddressStatus'] = 'deprecated'
+      invalid: _typing.ClassVar['IpAddressStatus'] = 'invalid'
+      inaccessible: _typing.ClassVar['IpAddressStatus'] = 'inaccessible'
+      unknown: _typing.ClassVar['IpAddressStatus'] = 'unknown'
+      tentative: _typing.ClassVar['IpAddressStatus'] = 'tentative'
+      duplicate: _typing.ClassVar['IpAddressStatus'] = 'duplicate'
 
-   class IpAddress(DynamicData):
+   class IpAddress(pyVmomi.vmodl.DynamicData):
       ipAddress: str
       prefixLength: int
-      origin: Optional[str] = None
-      state: Optional[str] = None
-      lifetime: Optional[datetime] = None
+      origin: _typing.Optional[str] = None
+      state: _typing.Optional[str] = None
+      lifetime: _typing.Optional[_datetime.datetime] = None
 
    ipAddress: list[IpAddress] = []
-   dhcp: Optional[DhcpConfigInfo] = None
-   autoConfigurationEnabled: Optional[bool] = None
+   dhcp: _typing.Optional[DhcpConfigInfo] = None
+   autoConfigurationEnabled: _typing.Optional[bool] = None
 
 
-class IpConfigSpec(DynamicData):
-   class IpAddressSpec(DynamicData):
+class IpConfigSpec(pyVmomi.vmodl.DynamicData):
+   class IpAddressSpec(pyVmomi.vmodl.DynamicData):
       ipAddress: str
       prefixLength: int
       operation: str
 
    ipAddress: list[IpAddressSpec] = []
-   dhcp: Optional[DhcpConfigSpec] = None
-   autoConfigurationEnabled: Optional[bool] = None
+   dhcp: _typing.Optional[DhcpConfigSpec] = None
+   autoConfigurationEnabled: _typing.Optional[bool] = None
 
 
-class IpRouteConfigInfo(DynamicData):
-   class Gateway(DynamicData):
-      ipAddress: Optional[str] = None
-      device: Optional[str] = None
+class IpRouteConfigInfo(pyVmomi.vmodl.DynamicData):
+   class Gateway(pyVmomi.vmodl.DynamicData):
+      ipAddress: _typing.Optional[str] = None
+      device: _typing.Optional[str] = None
 
-   class IpRoute(DynamicData):
+   class IpRoute(pyVmomi.vmodl.DynamicData):
       network: str
       prefixLength: int
       gateway: Gateway
@@ -104,12 +99,12 @@ class IpRouteConfigInfo(DynamicData):
    ipRoute: list[IpRoute] = []
 
 
-class IpRouteConfigSpec(DynamicData):
-   class GatewaySpec(DynamicData):
-      ipAddress: Optional[str] = None
-      device: Optional[str] = None
+class IpRouteConfigSpec(pyVmomi.vmodl.DynamicData):
+   class GatewaySpec(pyVmomi.vmodl.DynamicData):
+      ipAddress: _typing.Optional[str] = None
+      device: _typing.Optional[str] = None
 
-   class IpRouteSpec(DynamicData):
+   class IpRouteSpec(pyVmomi.vmodl.DynamicData):
       network: str
       prefixLength: int
       gateway: GatewaySpec
@@ -118,45 +113,45 @@ class IpRouteConfigSpec(DynamicData):
    ipRoute: list[IpRouteSpec] = []
 
 
-class IpStackInfo(DynamicData):
-   class EntryType(Enum):
-      other: ClassVar['EntryType'] = 'other'
-      invalid: ClassVar['EntryType'] = 'invalid'
-      dynamic: ClassVar['EntryType'] = 'dynamic'
-      manual: ClassVar['EntryType'] = 'manual'
+class IpStackInfo(pyVmomi.vmodl.DynamicData):
+   class EntryType(pyVmomi.VmomiSupport.Enum):
+      other: _typing.ClassVar['EntryType'] = 'other'
+      invalid: _typing.ClassVar['EntryType'] = 'invalid'
+      dynamic: _typing.ClassVar['EntryType'] = 'dynamic'
+      manual: _typing.ClassVar['EntryType'] = 'manual'
 
-   class Preference(Enum):
-      reserved: ClassVar['Preference'] = 'reserved'
-      low: ClassVar['Preference'] = 'low'
-      medium: ClassVar['Preference'] = 'medium'
-      high: ClassVar['Preference'] = 'high'
+   class Preference(pyVmomi.VmomiSupport.Enum):
+      reserved: _typing.ClassVar['Preference'] = 'reserved'
+      low: _typing.ClassVar['Preference'] = 'low'
+      medium: _typing.ClassVar['Preference'] = 'medium'
+      high: _typing.ClassVar['Preference'] = 'high'
 
-   class NetToMedia(DynamicData):
+   class NetToMedia(pyVmomi.vmodl.DynamicData):
       ipAddress: str
       physicalAddress: str
       device: str
       type: str
 
-   class DefaultRouter(DynamicData):
+   class DefaultRouter(pyVmomi.vmodl.DynamicData):
       ipAddress: str
       device: str
-      lifetime: datetime
+      lifetime: _datetime.datetime
       preference: str
 
    neighbor: list[NetToMedia] = []
    defaultRouter: list[DefaultRouter] = []
 
 
-class NetBIOSConfigInfo(DynamicData):
-   class Mode(Enum):
-      unknown: ClassVar['Mode'] = 'unknown'
-      enabled: ClassVar['Mode'] = 'enabled'
-      disabled: ClassVar['Mode'] = 'disabled'
-      enabledViaDHCP: ClassVar['Mode'] = 'enabledViaDHCP'
+class NetBIOSConfigInfo(pyVmomi.vmodl.DynamicData):
+   class Mode(pyVmomi.VmomiSupport.Enum):
+      unknown: _typing.ClassVar['Mode'] = 'unknown'
+      enabled: _typing.ClassVar['Mode'] = 'enabled'
+      disabled: _typing.ClassVar['Mode'] = 'disabled'
+      enabledViaDHCP: _typing.ClassVar['Mode'] = 'enabledViaDHCP'
 
    mode: str
 
 
 class WinNetBIOSConfigInfo(NetBIOSConfigInfo):
    primaryWINS: str
-   secondaryWINS: Optional[str] = None
+   secondaryWINS: _typing.Optional[str] = None

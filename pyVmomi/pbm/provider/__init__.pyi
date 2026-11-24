@@ -3,9 +3,9 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from pyVmomi.VmomiSupport import ManagedObject
+import pyVmomi.VmomiSupport
 
 
 
-class Provider(ManagedObject):
+class Provider(pyVmomi.VmomiSupport.ManagedObject):
    pass

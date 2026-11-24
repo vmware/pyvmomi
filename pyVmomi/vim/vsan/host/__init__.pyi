@@ -3,297 +3,257 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from datetime import datetime
-from typing import ClassVar
-from typing import Optional
-
-from pyVmomi.VmomiSupport import Enum
-
-from pyVmomi.VmomiSupport import binary
-
-from pyVmomi.VmomiSupport import long
-
-from pyVmomi.vim import Datastore
-from pyVmomi.vim import HostSystem
-
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import LocalizableMessage
-from pyVmomi.vmodl import MethodFault
-
-from pyVmomi.vim.cluster import VsanConfigGeneration
-
-from pyVmomi.vim.cluster import VsanUnicastAddressInfo
-
-from pyVmomi.vim.encryption import KmipServerSpec
-
-from pyVmomi.vim.host import DiskDimensions
-
-from pyVmomi.vim.host import MaintenanceSpec
-from pyVmomi.vim.host import MountInfo
-
-from pyVmomi.vim.host import ScsiDisk
-
-from pyVmomi.vim.vm import CertThumbprint
-
-from pyVmomi.vim.vsan import AutoRAIDConfig
-from pyVmomi.vim.vsan import DataEfficiencyConfig
-from pyVmomi.vim.vsan import DataEncryptionConfig
-from pyVmomi.vim.vsan import DatastoreConfig
-from pyVmomi.vim.vsan import MetricsConfig
-from pyVmomi.vim.vsan import RdmaConfig
-
-from pyVmomi.vim.vsan import RepairTimerInfo
-from pyVmomi.vim.vsan import ResyncIopsInfo
-
-from pyVmomi.vim.vsan import ServerHostUnicastInfo
-from pyVmomi.vim.vsan import SnapServiceConfig
-from pyVmomi.vim.vsan import VbossConfig
-from pyVmomi.vim.vsan import VsanDeconvergedNetConfig
-from pyVmomi.vim.vsan import VsanExtendedConfig
-from pyVmomi.vim.vsan import VsanInternalExtendedConfig
-from pyVmomi.vim.vsan import VsanUnmapConfig
-from pyVmomi.vim.vsan import WitnessHostConfig
+import datetime as _datetime
+import typing as _typing
+import pyVmomi.VmomiSupport
+import pyVmomi.vim
+import pyVmomi.vmodl
+import pyVmomi.vim.cluster
+import pyVmomi.vim.encryption
+import pyVmomi.vim.host
+import pyVmomi.vim.vm
+import pyVmomi.vim.vsan
 
 
 
-class AbortWipeDiskStatus(DynamicData):
+class AbortWipeDiskStatus(pyVmomi.vmodl.DynamicData):
    disk: str
    success: bool
-   reason: list[LocalizableMessage] = []
+   reason: list[pyVmomi.vmodl.LocalizableMessage] = []
 
 
-class AboutInfoEx(DynamicData):
-   name: Optional[str] = None
-   version: Optional[str] = None
-   build: Optional[str] = None
-   buildType: Optional[str] = None
-   apiVersion: Optional[str] = None
+class AboutInfoEx(pyVmomi.vmodl.DynamicData):
+   name: _typing.Optional[str] = None
+   version: _typing.Optional[str] = None
+   build: _typing.Optional[str] = None
+   buildType: _typing.Optional[str] = None
+   apiVersion: _typing.Optional[str] = None
 
 
-class AddStoragePoolDiskSpec(DynamicData):
-   host: HostSystem
+class AddStoragePoolDiskSpec(pyVmomi.vmodl.DynamicData):
+   host: pyVmomi.vim.HostSystem
    disks: list[StoragePoolDisk] = []
 
 
-class ClientClusterUnicastConfig(DynamicData):
+class ClientClusterUnicastConfig(pyVmomi.vmodl.DynamicData):
    remoteUnicastConfig: list[ClientClusterUnicastInfo] = []
 
 
-class ClientClusterUnicastInfo(DynamicData):
+class ClientClusterUnicastInfo(pyVmomi.vmodl.DynamicData):
    clusterUuid: str
    unicastInfo: list[ClientHostUnicastInfo] = []
 
 
-class ClientHostUnicastInfo(DynamicData):
+class ClientHostUnicastInfo(pyVmomi.vmodl.DynamicData):
    hostUuid: str
-   unicastSpec: list[VsanUnicastAddressInfo] = []
-   thumbprintList: list[CertThumbprint] = []
+   unicastSpec: list[pyVmomi.vim.cluster.VsanUnicastAddressInfo] = []
+   thumbprintList: list[pyVmomi.vim.vm.CertThumbprint] = []
 
 
-class ClusterStatus(DynamicData):
-   class State(DynamicData):
-      class CompletionEstimate(DynamicData):
-         completeTime: Optional[datetime] = None
-         percentComplete: Optional[int] = None
+class ClusterStatus(pyVmomi.vmodl.DynamicData):
+   class State(pyVmomi.vmodl.DynamicData):
+      class CompletionEstimate(pyVmomi.vmodl.DynamicData):
+         completeTime: _typing.Optional[_datetime.datetime] = None
+         percentComplete: _typing.Optional[int] = None
 
       state: str
-      completion: Optional[CompletionEstimate] = None
+      completion: _typing.Optional[CompletionEstimate] = None
 
-   uuid: Optional[str] = None
-   nodeUuid: Optional[str] = None
+   uuid: _typing.Optional[str] = None
+   nodeUuid: _typing.Optional[str] = None
    health: str
    nodeState: State
    memberUuid: list[str] = []
 
 
-class ComplianceDetail(DynamicData):
+class ComplianceDetail(pyVmomi.vmodl.DynamicData):
    objectUUID: str
    complianceStatus: str
    objectHealth: int
    violatedPolicies: list[PolicyStatus] = []
 
 
-class ComplianceResult(DynamicData):
-   checkTime: datetime
-   policyId: Optional[str] = None
-   policyGen: Optional[int] = None
+class ComplianceResult(pyVmomi.vmodl.DynamicData):
+   checkTime: _datetime.datetime
+   policyId: _typing.Optional[str] = None
+   policyGen: _typing.Optional[int] = None
    objComplianceDetail: list[ComplianceDetail] = []
 
 class ComplianceStatus:
    pass
 
 
-class ConfigInfo(DynamicData):
-   class StorageInfo(DynamicData):
-      autoClaimStorage: Optional[bool] = None
+class ConfigInfo(pyVmomi.vmodl.DynamicData):
+   class StorageInfo(pyVmomi.vmodl.DynamicData):
+      autoClaimStorage: _typing.Optional[bool] = None
       diskMapping: list[DiskMapping] = []
       diskMapInfo: list[DiskMapInfo] = []
-      checksumEnabled: Optional[bool] = None
+      checksumEnabled: _typing.Optional[bool] = None
 
-   class ClusterInfo(DynamicData):
-      uuid: Optional[str] = None
-      nodeUuid: Optional[str] = None
+   class ClusterInfo(pyVmomi.vmodl.DynamicData):
+      uuid: _typing.Optional[str] = None
+      nodeUuid: _typing.Optional[str] = None
 
-   class NetworkInfo(DynamicData):
-      class PortConfig(DynamicData):
-         ipConfig: Optional[IpConfig] = None
+   class NetworkInfo(pyVmomi.vmodl.DynamicData):
+      class PortConfig(pyVmomi.vmodl.DynamicData):
+         ipConfig: _typing.Optional[IpConfig] = None
          device: str
 
       port: list[PortConfig] = []
 
-   class FaultDomainInfo(DynamicData):
+   class FaultDomainInfo(pyVmomi.vmodl.DynamicData):
       name: str
 
-   enabled: Optional[bool] = None
-   hostSystem: Optional[HostSystem] = None
-   clusterInfo: Optional[ClusterInfo] = None
-   storageInfo: Optional[StorageInfo] = None
-   networkInfo: Optional[NetworkInfo] = None
-   faultDomainInfo: Optional[FaultDomainInfo] = None
-   vsanEsaEnabled: Optional[bool] = None
-   vsanCyberRecoveryEnabled: Optional[bool] = None
+   enabled: _typing.Optional[bool] = None
+   hostSystem: _typing.Optional[pyVmomi.vim.HostSystem] = None
+   clusterInfo: _typing.Optional[ClusterInfo] = None
+   storageInfo: _typing.Optional[StorageInfo] = None
+   networkInfo: _typing.Optional[NetworkInfo] = None
+   faultDomainInfo: _typing.Optional[FaultDomainInfo] = None
+   vsanEsaEnabled: _typing.Optional[bool] = None
+   vsanCyberRecoveryEnabled: _typing.Optional[bool] = None
 
 
 class ConfigInfoEx(ConfigInfo):
-   encryptionInfo: Optional[EncryptionInfo] = None
-   dataEfficiencyInfo: Optional[DataEfficiencyConfig] = None
-   resyncIopsLimitInfo: Optional[ResyncIopsInfo] = None
-   extendedConfig: Optional[VsanExtendedConfig] = None
-   datastoreInfo: Optional[DatastoreConfig] = None
-   unmapConfig: Optional[VsanUnmapConfig] = None
-   witnessHostConfig: list[WitnessHostConfig] = []
-   internalExtendedConfig: Optional[VsanInternalExtendedConfig] = None
-   metricsConfig: Optional[MetricsConfig] = None
-   unicastConfig: Optional[ServerClusterUnicastConfig] = None
-   rdmaConfig: Optional[RdmaConfig] = None
-   dataInTransitEncryptionInfo: Optional[DataInTransitEncryptionInfo] = None
-   mode: Optional[str] = None
+   encryptionInfo: _typing.Optional[EncryptionInfo] = None
+   dataEfficiencyInfo: _typing.Optional[pyVmomi.vim.vsan.DataEfficiencyConfig] = None
+   resyncIopsLimitInfo: _typing.Optional[pyVmomi.vim.vsan.ResyncIopsInfo] = None
+   extendedConfig: _typing.Optional[pyVmomi.vim.vsan.VsanExtendedConfig] = None
+   datastoreInfo: _typing.Optional[pyVmomi.vim.vsan.DatastoreConfig] = None
+   unmapConfig: _typing.Optional[pyVmomi.vim.vsan.VsanUnmapConfig] = None
+   witnessHostConfig: list[pyVmomi.vim.vsan.WitnessHostConfig] = []
+   internalExtendedConfig: _typing.Optional[pyVmomi.vim.vsan.VsanInternalExtendedConfig] = None
+   metricsConfig: _typing.Optional[pyVmomi.vim.vsan.MetricsConfig] = None
+   unicastConfig: _typing.Optional[ServerClusterUnicastConfig] = None
+   rdmaConfig: _typing.Optional[pyVmomi.vim.vsan.RdmaConfig] = None
+   dataInTransitEncryptionInfo: _typing.Optional[DataInTransitEncryptionInfo] = None
+   mode: _typing.Optional[str] = None
    serverClusterConfigs: list[RemoteVsanServerClusterConfig] = []
-   snapServiceConfig: Optional[SnapServiceConfig] = None
-   deconvergedNetConfig: Optional[VsanDeconvergedNetConfig] = None
+   snapServiceConfig: _typing.Optional[pyVmomi.vim.vsan.SnapServiceConfig] = None
+   deconvergedNetConfig: _typing.Optional[pyVmomi.vim.vsan.VsanDeconvergedNetConfig] = None
    remoteDITInfos: list[DataInTransitEncryptionInfo] = []
-   clientUnicastConfig: Optional[ClientClusterUnicastConfig] = None
-   siteTakeoverConfig: Optional[SiteTakeoverConfig] = None
-   vbossHostConfig: Optional[VbossHostConfig] = None
-   autoRAIDConfig: Optional[AutoRAIDConfig] = None
+   clientUnicastConfig: _typing.Optional[ClientClusterUnicastConfig] = None
+   siteTakeoverConfig: _typing.Optional[SiteTakeoverConfig] = None
+   vbossHostConfig: _typing.Optional[VbossHostConfig] = None
+   autoRAIDConfig: _typing.Optional[pyVmomi.vim.vsan.AutoRAIDConfig] = None
 
 
-class CreateNativeKeyProviderSpec(DynamicData):
+class CreateNativeKeyProviderSpec(pyVmomi.vmodl.DynamicData):
    provider: str
-   keyId: Optional[str] = None
-   keyDerivationKey: Optional[str] = None
-   tpmRequired: Optional[bool] = None
+   keyId: _typing.Optional[str] = None
+   keyDerivationKey: _typing.Optional[str] = None
+   tpmRequired: _typing.Optional[bool] = None
 
 
-class DataInTransitEncryptionInfo(DynamicData):
-   enabled: Optional[bool] = None
-   rekeyInterval: Optional[int] = None
-   transitionState: Optional[str] = None
-   serverClusterUuid: Optional[str] = None
-   clientClusterUuid: Optional[str] = None
+class DataInTransitEncryptionInfo(pyVmomi.vmodl.DynamicData):
+   enabled: _typing.Optional[bool] = None
+   rekeyInterval: _typing.Optional[int] = None
+   transitionState: _typing.Optional[str] = None
+   serverClusterUuid: _typing.Optional[str] = None
+   clientClusterUuid: _typing.Optional[str] = None
 
 
-class DecommissionMode(DynamicData):
-   class ObjectAction(Enum):
-      noAction: ClassVar['ObjectAction'] = 'noAction'
-      ensureObjectAccessibility: ClassVar['ObjectAction'] = 'ensureObjectAccessibility'
-      evacuateAllData: ClassVar['ObjectAction'] = 'evacuateAllData'
+class DecommissionMode(pyVmomi.vmodl.DynamicData):
+   class ObjectAction(pyVmomi.VmomiSupport.Enum):
+      noAction: _typing.ClassVar['ObjectAction'] = 'noAction'
+      ensureObjectAccessibility: _typing.ClassVar['ObjectAction'] = 'ensureObjectAccessibility'
+      evacuateAllData: _typing.ClassVar['ObjectAction'] = 'evacuateAllData'
 
    objectAction: str
 
 
-class DeleteStoragePoolDiskSpec(DynamicData):
+class DeleteStoragePoolDiskSpec(pyVmomi.vmodl.DynamicData):
    diskUuids: list[str] = []
-   maintenanceSpec: MaintenanceSpec
+   maintenanceSpec: pyVmomi.vim.host.MaintenanceSpec
 
 
-class DiskMapInfo(DynamicData):
+class DiskMapInfo(pyVmomi.vmodl.DynamicData):
    mapping: DiskMapping
    mounted: bool
 
 
-class DiskMapInfoEx(DynamicData):
+class DiskMapInfoEx(pyVmomi.vmodl.DynamicData):
    mapping: DiskMapping
    isMounted: bool
-   unlockedEncrypted: Optional[bool] = None
+   unlockedEncrypted: _typing.Optional[bool] = None
    isAllFlash: bool
-   isDataEfficiency: Optional[bool] = None
-   encryptionInfo: Optional[DataEncryptionConfig] = None
-   dataEfficiencyConfig: Optional[DataEfficiencyConfig] = None
+   isDataEfficiency: _typing.Optional[bool] = None
+   encryptionInfo: _typing.Optional[pyVmomi.vim.vsan.DataEncryptionConfig] = None
+   dataEfficiencyConfig: _typing.Optional[pyVmomi.vim.vsan.DataEfficiencyConfig] = None
    diskgroupCapability: list[str] = []
 
 
-class DiskMapResult(DynamicData):
+class DiskMapResult(pyVmomi.vmodl.DynamicData):
    mapping: DiskMapping
    diskResult: list[DiskResult] = []
-   error: Optional[MethodFault] = None
+   error: _typing.Optional[pyVmomi.vmodl.MethodFault] = None
 
 
-class DiskMapping(DynamicData):
-   ssd: ScsiDisk
-   nonSsd: list[ScsiDisk] = []
+class DiskMapping(pyVmomi.vmodl.DynamicData):
+   ssd: pyVmomi.vim.host.ScsiDisk
+   nonSsd: list[pyVmomi.vim.host.ScsiDisk] = []
 
 
-class DiskMappingCreationSpec(DynamicData):
-   class DiskMappingCreationType(Enum):
-      hybrid: ClassVar['DiskMappingCreationType'] = 'hybrid'
-      allFlash: ClassVar['DiskMappingCreationType'] = 'allFlash'
-      vsandirect: ClassVar['DiskMappingCreationType'] = 'vsandirect'
-      pmem: ClassVar['DiskMappingCreationType'] = 'pmem'
-      DiskMappingCreationType_Unknown: ClassVar['DiskMappingCreationType'] = 'DiskMappingCreationType_Unknown'
+class DiskMappingCreationSpec(pyVmomi.vmodl.DynamicData):
+   class DiskMappingCreationType(pyVmomi.VmomiSupport.Enum):
+      hybrid: _typing.ClassVar['DiskMappingCreationType'] = 'hybrid'
+      allFlash: _typing.ClassVar['DiskMappingCreationType'] = 'allFlash'
+      vsandirect: _typing.ClassVar['DiskMappingCreationType'] = 'vsandirect'
+      pmem: _typing.ClassVar['DiskMappingCreationType'] = 'pmem'
+      DiskMappingCreationType_Unknown: _typing.ClassVar['DiskMappingCreationType'] = 'DiskMappingCreationType_Unknown'
 
-   host: HostSystem
-   cacheDisks: list[ScsiDisk] = []
-   capacityDisks: list[ScsiDisk] = []
+   host: pyVmomi.vim.HostSystem
+   cacheDisks: list[pyVmomi.vim.host.ScsiDisk] = []
+   capacityDisks: list[pyVmomi.vim.host.ScsiDisk] = []
    creationType: str
 
 
-class DiskResult(DynamicData):
-   class State(Enum):
-      inUse: ClassVar['State'] = 'inUse'
-      eligible: ClassVar['State'] = 'eligible'
-      ineligible: ClassVar['State'] = 'ineligible'
+class DiskResult(pyVmomi.vmodl.DynamicData):
+   class State(pyVmomi.VmomiSupport.Enum):
+      inUse: _typing.ClassVar['State'] = 'inUse'
+      eligible: _typing.ClassVar['State'] = 'eligible'
+      ineligible: _typing.ClassVar['State'] = 'ineligible'
 
-   disk: ScsiDisk
+   disk: pyVmomi.vim.host.ScsiDisk
    state: str
-   vsanUuid: Optional[str] = None
-   error: Optional[MethodFault] = None
-   degraded: Optional[bool] = None
+   vsanUuid: _typing.Optional[str] = None
+   error: _typing.Optional[pyVmomi.vmodl.MethodFault] = None
+   degraded: _typing.Optional[bool] = None
 
 
 class DiskResultEx(DiskResult):
    vsanDirectTagged: bool
-   storagePoolDiskState: Optional[str] = None
-   storagePoolDiskError: Optional[MethodFault] = None
-   isCapacityFlash: Optional[bool] = None
+   storagePoolDiskState: _typing.Optional[str] = None
+   storagePoolDiskError: _typing.Optional[pyVmomi.vmodl.MethodFault] = None
+   isCapacityFlash: _typing.Optional[bool] = None
 
 
-class DrsStats(DynamicData):
-   host: HostSystem
-   stats: binary
-   readLocalityPresented: Optional[bool] = None
+class DrsStats(pyVmomi.vmodl.DynamicData):
+   host: pyVmomi.vim.HostSystem
+   stats: pyVmomi.VmomiSupport.binary
+   readLocalityPresented: _typing.Optional[bool] = None
 
 
-class EncryptionInfo(DynamicData):
-   enabled: Optional[bool] = None
-   kekId: Optional[str] = None
-   hostKeyId: Optional[str] = None
-   kmipServers: list[KmipServerSpec] = []
+class EncryptionInfo(pyVmomi.vmodl.DynamicData):
+   enabled: _typing.Optional[bool] = None
+   kekId: _typing.Optional[str] = None
+   hostKeyId: _typing.Optional[str] = None
+   kmipServers: list[pyVmomi.vim.encryption.KmipServerSpec] = []
    kmsServerCerts: list[str] = []
-   clientKey: Optional[str] = None
-   clientCert: Optional[str] = None
-   dekGenerationId: Optional[long] = None
-   changing: Optional[bool] = None
-   eraseDisksBeforeUse: Optional[bool] = None
-   wrappedDek: Optional[str] = None
-   dekId: Optional[str] = None
-   oldWrappedDek: Optional[str] = None
-   oldDekId: Optional[str] = None
-   kekVerifier: Optional[str] = None
-   dekVerifier: Optional[str] = None
-   oldDekVerifier: Optional[str] = None
-   iv: Optional[str] = None
-   syncing: Optional[bool] = None
+   clientKey: _typing.Optional[str] = None
+   clientCert: _typing.Optional[str] = None
+   dekGenerationId: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   changing: _typing.Optional[bool] = None
+   eraseDisksBeforeUse: _typing.Optional[bool] = None
+   wrappedDek: _typing.Optional[str] = None
+   dekId: _typing.Optional[str] = None
+   oldWrappedDek: _typing.Optional[str] = None
+   oldDekId: _typing.Optional[str] = None
+   kekVerifier: _typing.Optional[str] = None
+   dekVerifier: _typing.Optional[str] = None
+   oldDekVerifier: _typing.Optional[str] = None
+   iv: _typing.Optional[str] = None
+   syncing: _typing.Optional[bool] = None
 
 class EncryptionOperation:
    pass
@@ -305,17 +265,17 @@ class HealthState:
    pass
 
 
-class IpConfig(DynamicData):
+class IpConfig(pyVmomi.vmodl.DynamicData):
    upstreamIpAddress: str
    downstreamIpAddress: str
 
 
 class IpConfigEx(IpConfig):
-   upstreamIpV6Address: Optional[str] = None
-   downstreamIpV6Address: Optional[str] = None
+   upstreamIpV6Address: _typing.Optional[str] = None
+   downstreamIpV6Address: _typing.Optional[str] = None
 
 
-class MembershipInfo(DynamicData):
+class MembershipInfo(pyVmomi.vmodl.DynamicData):
    nodeUuid: str
    hostname: str
 
@@ -323,151 +283,151 @@ class NodeState:
    pass
 
 
-class PolicyStatus(DynamicData):
+class PolicyStatus(pyVmomi.vmodl.DynamicData):
    id: str
    expectedValue: str
    currentValue: str
 
 
 class PortConfigEx(ConfigInfo.NetworkInfo.PortConfig):
-   class TrafficType(Enum):
-      vsan: ClassVar['TrafficType'] = 'vsan'
-      witness: ClassVar['TrafficType'] = 'witness'
-      TrafficType_Unknown: ClassVar['TrafficType'] = 'TrafficType_Unknown'
+   class TrafficType(pyVmomi.VmomiSupport.Enum):
+      vsan: _typing.ClassVar['TrafficType'] = 'vsan'
+      witness: _typing.ClassVar['TrafficType'] = 'witness'
+      TrafficType_Unknown: _typing.ClassVar['TrafficType'] = 'TrafficType_Unknown'
 
-   class TrafficType90(Enum):
-      vsanExternal: ClassVar['TrafficType90'] = 'vsanExternal'
+   class TrafficType90(pyVmomi.VmomiSupport.Enum):
+      vsanExternal: _typing.ClassVar['TrafficType90'] = 'vsanExternal'
 
    trafficTypes: list[str] = []
 
 
-class QueryVsanDisksSpec(DynamicData):
-   diskName: Optional[str] = None
-   vsanDiskType: Optional[str] = None
+class QueryVsanDisksSpec(pyVmomi.vmodl.DynamicData):
+   diskName: _typing.Optional[str] = None
+   vsanDiskType: _typing.Optional[str] = None
 
 
-class RemoteVsanServerClusterConfig(DynamicData):
+class RemoteVsanServerClusterConfig(pyVmomi.vmodl.DynamicData):
    clusterUuid: str
-   siteAffinity: Optional[SiteAffinityInfo] = None
+   siteAffinity: _typing.Optional[SiteAffinityInfo] = None
 
 
-class RuntimeStats(DynamicData):
-   resyncIopsInfo: Optional[ResyncIopsInfo] = None
-   configGeneration: Optional[VsanConfigGeneration] = None
-   supportedClusterSize: Optional[int] = None
-   repairTimerInfo: Optional[RepairTimerInfo] = None
-   componentLimitPerCluster: Optional[int] = None
-   maxWitnessClusters: Optional[int] = None
+class RuntimeStats(pyVmomi.vmodl.DynamicData):
+   resyncIopsInfo: _typing.Optional[pyVmomi.vim.vsan.ResyncIopsInfo] = None
+   configGeneration: _typing.Optional[pyVmomi.vim.cluster.VsanConfigGeneration] = None
+   supportedClusterSize: _typing.Optional[int] = None
+   repairTimerInfo: _typing.Optional[pyVmomi.vim.vsan.RepairTimerInfo] = None
+   componentLimitPerCluster: _typing.Optional[int] = None
+   maxWitnessClusters: _typing.Optional[int] = None
 
 
-class ServerClusterUnicastConfig(DynamicData):
+class ServerClusterUnicastConfig(pyVmomi.vmodl.DynamicData):
    remoteUnicastConfig: list[ServerClusterUnicastInfo] = []
 
 
-class ServerClusterUnicastInfo(DynamicData):
+class ServerClusterUnicastInfo(pyVmomi.vmodl.DynamicData):
    clusterUuid: str
-   unicastInfo: list[ServerHostUnicastInfo] = []
+   unicastInfo: list[pyVmomi.vim.vsan.ServerHostUnicastInfo] = []
 
 class ServerNodeType:
    pass
 
 
-class SiteAffinityInfo(DynamicData):
+class SiteAffinityInfo(pyVmomi.vmodl.DynamicData):
    name: str
-   siteId: Optional[str] = None
+   siteId: _typing.Optional[str] = None
 
 
-class SiteTakeoverConfig(DynamicData):
-   takeoverTimestamp: Optional[long] = None
+class SiteTakeoverConfig(pyVmomi.vmodl.DynamicData):
+   takeoverTimestamp: _typing.Optional[pyVmomi.VmomiSupport.long] = None
 
 class StatsType:
    pass
 
 
-class StoragePoolDisk(DynamicData):
+class StoragePoolDisk(pyVmomi.vmodl.DynamicData):
    diskName: str
    diskType: str
 
 
-class StoragePoolDiskInfo(DynamicData):
-   disk: ScsiDisk
-   vsanUuid: Optional[str] = None
-   error: Optional[MethodFault] = None
-   isMounted: Optional[bool] = None
-   isEncrypted: Optional[bool] = None
-   dekId: Optional[str] = None
-   diskType: Optional[str] = None
+class StoragePoolDiskInfo(pyVmomi.vmodl.DynamicData):
+   disk: pyVmomi.vim.host.ScsiDisk
+   vsanUuid: _typing.Optional[str] = None
+   error: _typing.Optional[pyVmomi.vmodl.MethodFault] = None
+   isMounted: _typing.Optional[bool] = None
+   isEncrypted: _typing.Optional[bool] = None
+   dekId: _typing.Optional[str] = None
+   diskType: _typing.Optional[str] = None
 
 class StoragePoolDiskType:
    pass
 
 
-class StoragePoolInfo(DynamicData):
+class StoragePoolInfo(pyVmomi.vmodl.DynamicData):
    storagePoolDisks: list[StoragePoolDiskInfo] = []
 
 
-class TrimDiskEntry(DynamicData):
+class TrimDiskEntry(pyVmomi.vmodl.DynamicData):
    diskName: str
-   diskType: Optional[str] = None
+   diskType: _typing.Optional[str] = None
 
 
-class TrimDiskSpec(DynamicData):
+class TrimDiskSpec(pyVmomi.vmodl.DynamicData):
    disks: list[TrimDiskEntry] = []
 
 class TrimDiskType:
    pass
 
 
-class UpdateStoragePoolDiskSpec(DynamicData):
+class UpdateStoragePoolDiskSpec(pyVmomi.vmodl.DynamicData):
    diskUuids: list[str] = []
-   diskFormatVersion: Optional[long] = None
+   diskFormatVersion: _typing.Optional[pyVmomi.VmomiSupport.long] = None
 
 
-class VbossHostConfig(VbossConfig):
+class VbossHostConfig(pyVmomi.vim.vsan.VbossConfig):
    pass
 
 
-class VsanAssociatedObjects(DynamicData):
+class VsanAssociatedObjects(pyVmomi.vmodl.DynamicData):
    spbmProfileId: str
    spbmProfileGenerationNum: int
    vsanObjects: list[str] = []
 
 
-class VsanAssociatedObjectsResult(DynamicData):
+class VsanAssociatedObjectsResult(pyVmomi.vmodl.DynamicData):
    data: list[VsanAssociatedObjects] = []
    offset: int
    limit: int
 
 
-class VsanComplianceQuerySpec(DynamicData):
+class VsanComplianceQuerySpec(pyVmomi.vmodl.DynamicData):
    uuids: list[str] = []
-   spbmProfileId: Optional[str] = None
-   spbmProfileGenerationId: Optional[int] = None
+   spbmProfileId: _typing.Optional[str] = None
+   spbmProfileGenerationId: _typing.Optional[int] = None
 
 
-class VsanComponentSyncState(DynamicData):
+class VsanComponentSyncState(pyVmomi.vmodl.DynamicData):
    uuid: str
    diskUuid: str
    hostUuid: str
-   bytesToSync: long
-   recoveryETA: Optional[long] = None
+   bytesToSync: pyVmomi.VmomiSupport.long
+   recoveryETA: _typing.Optional[pyVmomi.VmomiSupport.long] = None
    reasons: list[str] = []
 
 
-class VsanDirectStorage(DynamicData):
+class VsanDirectStorage(pyVmomi.vmodl.DynamicData):
    scsiDisks: list[VsanScsiDisk] = []
-   tier: Optional[str] = None
+   tier: _typing.Optional[str] = None
 
 class VsanDiskEvacReason:
    pass
 
 
-class VsanDiskInfo(DynamicData):
+class VsanDiskInfo(pyVmomi.vmodl.DynamicData):
    vsanUuid: str
    formatVersion: int
 
 
-class VsanDiskManagementSystemCapability(DynamicData):
+class VsanDiskManagementSystemCapability(pyVmomi.vmodl.DynamicData):
    version: str
 
 class VsanDiskTrimOption:
@@ -480,96 +440,96 @@ class VsanDiskgroupCapability:
    pass
 
 
-class VsanHostCapability(DynamicData):
-   host: HostSystem
+class VsanHostCapability(pyVmomi.vmodl.DynamicData):
+   host: pyVmomi.vim.HostSystem
    isSupported: bool
    isLicensed: bool
 
 
-class VsanManagedDisksInfo(DynamicData):
+class VsanManagedDisksInfo(pyVmomi.vmodl.DynamicData):
    vSANDirectDisks: list[VsanDirectStorage] = []
    vSANDiskMapInfo: list[DiskMapInfoEx] = []
-   vSANPMemInfo: Optional[VsanManagedPMemInfo] = None
+   vSANPMemInfo: _typing.Optional[VsanManagedPMemInfo] = None
    storagePools: list[StoragePoolInfo] = []
 
 
-class VsanManagedPMemInfo(DynamicData):
-   localPMemDatastores: list[Datastore] = []
+class VsanManagedPMemInfo(pyVmomi.vmodl.DynamicData):
+   localPMemDatastores: list[pyVmomi.vim.Datastore] = []
 
 
-class VsanObjectProfileInfo(DynamicData):
+class VsanObjectProfileInfo(pyVmomi.vmodl.DynamicData):
    vsanObjectUuid: str
    spbmProfileId: str
    spbmProfileGenerationNum: int
 
 
-class VsanObjectSyncState(DynamicData):
+class VsanObjectSyncState(pyVmomi.vmodl.DynamicData):
    uuid: str
    components: list[VsanComponentSyncState] = []
 
 
-class VsanRuntimeInfo(DynamicData):
-   class DiskIssueType(Enum):
-      nonExist: ClassVar['DiskIssueType'] = 'nonExist'
-      stampMismatch: ClassVar['DiskIssueType'] = 'stampMismatch'
-      unknown: ClassVar['DiskIssueType'] = 'unknown'
+class VsanRuntimeInfo(pyVmomi.vmodl.DynamicData):
+   class DiskIssueType(pyVmomi.VmomiSupport.Enum):
+      nonExist: _typing.ClassVar['DiskIssueType'] = 'nonExist'
+      stampMismatch: _typing.ClassVar['DiskIssueType'] = 'stampMismatch'
+      unknown: _typing.ClassVar['DiskIssueType'] = 'unknown'
 
-   class DiskIssue(DynamicData):
+   class DiskIssue(pyVmomi.vmodl.DynamicData):
       diskId: str
       issue: str
 
    membershipList: list[MembershipInfo] = []
    diskIssues: list[DiskIssue] = []
-   accessGenNo: Optional[int] = None
+   accessGenNo: _typing.Optional[int] = None
 
 
-class VsanScsiDisk(DynamicData):
-   capacity: DiskDimensions.Lba
-   usedCapacity: Optional[long] = None
+class VsanScsiDisk(pyVmomi.vmodl.DynamicData):
+   capacity: pyVmomi.vim.host.DiskDimensions.Lba
+   usedCapacity: _typing.Optional[pyVmomi.VmomiSupport.long] = None
    devicePath: str
-   ssd: Optional[bool] = None
-   localDisk: Optional[bool] = None
-   scsiDiskType: Optional[str] = None
+   ssd: _typing.Optional[bool] = None
+   localDisk: _typing.Optional[bool] = None
+   scsiDiskType: _typing.Optional[str] = None
    uuid: str
    operationalState: list[str] = []
-   canonicalName: Optional[str] = None
-   displayName: Optional[str] = None
+   canonicalName: _typing.Optional[str] = None
+   displayName: _typing.Optional[str] = None
    lunType: str
-   vendor: Optional[str] = None
-   model: Optional[str] = None
-   mountInfo: Optional[MountInfo] = None
+   vendor: _typing.Optional[str] = None
+   model: _typing.Optional[str] = None
+   mountInfo: _typing.Optional[pyVmomi.vim.host.MountInfo] = None
 
 
-class VsanSyncingObjectQueryResult(DynamicData):
-   totalObjectsToSync: Optional[long] = None
-   totalBytesToSync: Optional[long] = None
-   totalRecoveryETA: Optional[long] = None
+class VsanSyncingObjectQueryResult(pyVmomi.vmodl.DynamicData):
+   totalObjectsToSync: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   totalBytesToSync: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   totalRecoveryETA: _typing.Optional[pyVmomi.VmomiSupport.long] = None
    objects: list[VsanObjectSyncState] = []
-   syncingObjectRecoveryDetails: Optional[VsanSyncingObjectRecoveryDetails] = None
+   syncingObjectRecoveryDetails: _typing.Optional[VsanSyncingObjectRecoveryDetails] = None
 
 
-class VsanSyncingObjectRecoveryDetails(DynamicData):
-   activelySyncingObjectRecoveryETA: Optional[long] = None
-   queuedForSyncObjectRecoveryETA: Optional[long] = None
-   suspendedObjectRecoveryETA: Optional[long] = None
-   activeObjectsToSync: Optional[long] = None
-   queuedObjectsToSync: Optional[long] = None
-   suspendedObjectsToSync: Optional[long] = None
-   bytesToSyncForActiveObjects: Optional[long] = None
-   bytesToSyncForQueuedObjects: Optional[long] = None
-   bytesToSyncForSuspendedObjects: Optional[long] = None
+class VsanSyncingObjectRecoveryDetails(pyVmomi.vmodl.DynamicData):
+   activelySyncingObjectRecoveryETA: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   queuedForSyncObjectRecoveryETA: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   suspendedObjectRecoveryETA: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   activeObjectsToSync: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   queuedObjectsToSync: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   suspendedObjectsToSync: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   bytesToSyncForActiveObjects: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   bytesToSyncForQueuedObjects: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   bytesToSyncForSuspendedObjects: _typing.Optional[pyVmomi.VmomiSupport.long] = None
 
 
-class VsanWhatIfEvacDetail(DynamicData):
-   success: Optional[bool] = None
-   bytesToSync: Optional[long] = None
+class VsanWhatIfEvacDetail(pyVmomi.vmodl.DynamicData):
+   success: _typing.Optional[bool] = None
+   bytesToSync: _typing.Optional[pyVmomi.VmomiSupport.long] = None
    inaccessibleObjects: list[str] = []
    incompliantObjects: list[str] = []
-   extraSpaceNeeded: Optional[long] = None
-   failedDueToInaccessibleObjects: Optional[bool] = None
+   extraSpaceNeeded: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   failedDueToInaccessibleObjects: _typing.Optional[bool] = None
 
 
-class VsanWhatIfEvacResult(DynamicData):
+class VsanWhatIfEvacResult(pyVmomi.vmodl.DynamicData):
    noAction: VsanWhatIfEvacDetail
    ensureAccess: VsanWhatIfEvacDetail
    evacAllData: VsanWhatIfEvacDetail
@@ -581,12 +541,12 @@ class WipeDiskState:
    pass
 
 
-class WipeDiskStatus(DynamicData):
+class WipeDiskStatus(pyVmomi.vmodl.DynamicData):
    disk: str
    eligible: str
-   ineligibleReason: list[LocalizableMessage] = []
-   wipeState: Optional[str] = None
-   percentageCompleted: Optional[int] = None
-   estimatedTime: Optional[long] = None
-   wipeStartTime: Optional[datetime] = None
-   wipeCompleteTime: Optional[datetime] = None
+   ineligibleReason: list[pyVmomi.vmodl.LocalizableMessage] = []
+   wipeState: _typing.Optional[str] = None
+   percentageCompleted: _typing.Optional[int] = None
+   estimatedTime: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   wipeStartTime: _typing.Optional[_datetime.datetime] = None
+   wipeCompleteTime: _typing.Optional[_datetime.datetime] = None

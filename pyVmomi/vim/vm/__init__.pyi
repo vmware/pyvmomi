@@ -9,132 +9,40 @@ from . import device as device
 from . import guest as guest
 from . import replication as replication
 
-from datetime import datetime
-from typing import ClassVar
-from typing import Optional
-
-from pyVmomi.VmomiSupport import Enum
-
-from pyVmomi.VmomiSupport import ManagedObject
-
-from pyVmomi.VmomiSupport import PropertyPath
-from pyVmomi.VmomiSupport import binary
-from pyVmomi.VmomiSupport import long
-from pyVmomi.VmomiSupport import short
-
-from pyVmomi.vim import CustomFieldsManager
-
-from pyVmomi.vim import Datastore
-
-from pyVmomi.vim import Description
-
-from pyVmomi.vim import ElementDescription
-
-from pyVmomi.vim import ExtensibleManagedObject
-from pyVmomi.vim import Folder
-
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import HttpNfcLease
-
-from pyVmomi.vim import ImportSpec
-
-from pyVmomi.vim import KeyValue
-
-from pyVmomi.vim import LatencySensitivity
-from pyVmomi.vim import ManagedEntity
-
-from pyVmomi.vim import Network
-
-from pyVmomi.vim import OpaqueNetwork
-from pyVmomi.vim import ResourceAllocationInfo
-
-from pyVmomi.vim import ResourceConfigOption
-
-from pyVmomi.vim import ResourcePool
-from pyVmomi.vim import ServiceLocator
-
-from pyVmomi.vim import TagId
-from pyVmomi.vim import TagSpec
-
-from pyVmomi.vim import Task
-
-from pyVmomi.vim import VirtualMachine
-
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import DynamicProperty
-from pyVmomi.vmodl import MethodFault
-
-from pyVmomi.vim.cluster import PowerOnVmResult
-
-from pyVmomi.vim.dvs import DistributedVirtualPortgroupInfo
-from pyVmomi.vim.dvs import DistributedVirtualSwitchInfo
-
-from pyVmomi.vim.encryption import CryptoKeyId
-
-from pyVmomi.vim.encryption import CryptoSpec
-
-from pyVmomi.vim.ext import ManagedByInfo
-
-from pyVmomi.vim.host import CpuIdInfo
-
-from pyVmomi.vim.host import FeatureMask
-from pyVmomi.vim.host import PciDevice
-
-from pyVmomi.vim.host import ScsiDisk
-from pyVmomi.vim.host import VFlashManager
-
-from pyVmomi.vim.net import DhcpConfigInfo
-from pyVmomi.vim.net import DnsConfigInfo
-from pyVmomi.vim.net import IpConfigInfo
-from pyVmomi.vim.net import IpRouteConfigInfo
-from pyVmomi.vim.net import NetBIOSConfigInfo
-
-from pyVmomi.vim.option import ArrayUpdateSpec
-
-from pyVmomi.vim.option import BoolOption
-
-from pyVmomi.vim.option import ChoiceOption
-from pyVmomi.vim.option import IntOption
-from pyVmomi.vim.option import LongOption
-
-from pyVmomi.vim.option import OptionDef
-
-from pyVmomi.vim.option import OptionValue
-
-from pyVmomi.vim.vApp import ProductInfo
-
-from pyVmomi.vim.vApp import VmConfigInfo
-
-from pyVmomi.vim.vApp import VmConfigSpec
-
-from pyVmomi.vim.vm.customization import Specification
-
-from pyVmomi.vim.vm.device import VirtualDevice
-
-from pyVmomi.vim.vm.device import VirtualDeviceOption
-
-from pyVmomi.vim.vm.device import VirtualDeviceSpec
-
-from pyVmomi.vim.vm.guest import GuestAuthentication
-
-from pyVmomi.vim.vm.replication import ReplicationSpec
+import datetime as _datetime
+import typing as _typing
+import pyVmomi.VmomiSupport
+import pyVmomi.vim
+import pyVmomi.vmodl
+import pyVmomi.vim.cluster
+import pyVmomi.vim.dvs
+import pyVmomi.vim.encryption
+import pyVmomi.vim.ext
+import pyVmomi.vim.host
+import pyVmomi.vim.net
+import pyVmomi.vim.option
+import pyVmomi.vim.vApp
+import pyVmomi.vim.vm.customization
+import pyVmomi.vim.vm.device
+import pyVmomi.vim.vm.guest
+import pyVmomi.vim.vm.replication
 
 
 
-class AffinityInfo(DynamicData):
+class AffinityInfo(pyVmomi.vmodl.DynamicData):
    affinitySet: list[int] = []
 
 
-class BaseIndependentFilterSpec(DynamicData):
+class BaseIndependentFilterSpec(pyVmomi.vmodl.DynamicData):
    pass
 
 
-class BootOptions(DynamicData):
-   class NetworkBootProtocolType(Enum):
-      ipv4: ClassVar['NetworkBootProtocolType'] = 'ipv4'
-      ipv6: ClassVar['NetworkBootProtocolType'] = 'ipv6'
+class BootOptions(pyVmomi.vmodl.DynamicData):
+   class NetworkBootProtocolType(pyVmomi.VmomiSupport.Enum):
+      ipv4: _typing.ClassVar['NetworkBootProtocolType'] = 'ipv4'
+      ipv6: _typing.ClassVar['NetworkBootProtocolType'] = 'ipv6'
 
-   class BootableDevice(DynamicData):
+   class BootableDevice(pyVmomi.vmodl.DynamicData):
       pass
 
    class BootableDiskDevice(BootableDevice):
@@ -149,16 +57,16 @@ class BootOptions(DynamicData):
    class BootableCdromDevice(BootableDevice):
       pass
 
-   bootDelay: Optional[long] = None
-   enterBIOSSetup: Optional[bool] = None
-   efiSecureBootEnabled: Optional[bool] = None
-   bootRetryEnabled: Optional[bool] = None
-   bootRetryDelay: Optional[long] = None
+   bootDelay: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   enterBIOSSetup: _typing.Optional[bool] = None
+   efiSecureBootEnabled: _typing.Optional[bool] = None
+   bootRetryEnabled: _typing.Optional[bool] = None
+   bootRetryDelay: _typing.Optional[pyVmomi.VmomiSupport.long] = None
    bootOrder: list[BootableDevice] = []
-   networkBootProtocol: Optional[str] = None
+   networkBootProtocol: _typing.Optional[str] = None
 
 
-class Capability(DynamicData):
+class Capability(pyVmomi.vmodl.DynamicData):
    snapshotOperationsSupported: bool
    multipleSnapshotsSupported: bool
    snapshotConfigSupported: bool
@@ -196,159 +104,159 @@ class Capability(DynamicData):
    seSparseDiskSupported: bool
    nestedHVSupported: bool
    vPMCSupported: bool
-   secureBootSupported: Optional[bool] = None
-   perVmEvcSupported: Optional[bool] = None
-   virtualMmuUsageIgnored: Optional[bool] = None
-   virtualExecUsageIgnored: Optional[bool] = None
-   diskOnlySnapshotOnSuspendedVMSupported: Optional[bool] = None
-   suspendToMemorySupported: Optional[bool] = None
-   toolsSyncTimeAllowSupported: Optional[bool] = None
-   sevSupported: Optional[bool] = None
-   pmemFailoverSupported: Optional[bool] = None
-   requireSgxAttestationSupported: Optional[bool] = None
-   changeModeDisksSupported: Optional[bool] = None
-   vendorDeviceGroupSupported: Optional[bool] = None
-   sevSnpSupported: Optional[bool] = None
-   tdxSupported: Optional[bool] = None
-   ehvSecureBootSupported: Optional[bool] = None
+   secureBootSupported: _typing.Optional[bool] = None
+   perVmEvcSupported: _typing.Optional[bool] = None
+   virtualMmuUsageIgnored: _typing.Optional[bool] = None
+   virtualExecUsageIgnored: _typing.Optional[bool] = None
+   diskOnlySnapshotOnSuspendedVMSupported: _typing.Optional[bool] = None
+   suspendToMemorySupported: _typing.Optional[bool] = None
+   toolsSyncTimeAllowSupported: _typing.Optional[bool] = None
+   sevSupported: _typing.Optional[bool] = None
+   pmemFailoverSupported: _typing.Optional[bool] = None
+   requireSgxAttestationSupported: _typing.Optional[bool] = None
+   changeModeDisksSupported: _typing.Optional[bool] = None
+   vendorDeviceGroupSupported: _typing.Optional[bool] = None
+   sevSnpSupported: _typing.Optional[bool] = None
+   tdxSupported: _typing.Optional[bool] = None
+   ehvSecureBootSupported: _typing.Optional[bool] = None
 
 
 class CdromInfo(TargetInfo):
-   description: Optional[str] = None
+   description: _typing.Optional[str] = None
 
 
-class CertThumbprint(DynamicData):
-   class HashAlgorithm(Enum):
-      sha256: ClassVar['HashAlgorithm'] = 'sha256'
+class CertThumbprint(pyVmomi.vmodl.DynamicData):
+   class HashAlgorithm(pyVmomi.VmomiSupport.Enum):
+      sha256: _typing.ClassVar['HashAlgorithm'] = 'sha256'
 
    thumbprint: str
-   hashAlgorithm: Optional[str] = None
+   hashAlgorithm: _typing.Optional[str] = None
 
 
-class CloneSpec(DynamicData):
-   class TpmProvisionPolicy(Enum):
-      copy: ClassVar['TpmProvisionPolicy'] = 'copy'
-      replace: ClassVar['TpmProvisionPolicy'] = 'replace'
+class CloneSpec(pyVmomi.vmodl.DynamicData):
+   class TpmProvisionPolicy(pyVmomi.VmomiSupport.Enum):
+      copy: _typing.ClassVar['TpmProvisionPolicy'] = 'copy'
+      replace: _typing.ClassVar['TpmProvisionPolicy'] = 'replace'
 
    location: RelocateSpec
    template: bool
-   config: Optional[ConfigSpec] = None
-   customization: Optional[Specification] = None
+   config: _typing.Optional[ConfigSpec] = None
+   customization: _typing.Optional[pyVmomi.vim.vm.customization.Specification] = None
    powerOn: bool
-   snapshot: Optional[Snapshot] = None
-   memory: Optional[bool] = None
-   tpmProvisionPolicy: Optional[str] = None
+   snapshot: _typing.Optional[Snapshot] = None
+   memory: _typing.Optional[bool] = None
+   tpmProvisionPolicy: _typing.Optional[str] = None
 
 
-class ConfigInfo(DynamicData):
-   class NpivWwnType(Enum):
-      vc: ClassVar['NpivWwnType'] = 'vc'
-      host: ClassVar['NpivWwnType'] = 'host'
-      external: ClassVar['NpivWwnType'] = 'external'
+class ConfigInfo(pyVmomi.vmodl.DynamicData):
+   class NpivWwnType(pyVmomi.VmomiSupport.Enum):
+      vc: _typing.ClassVar['NpivWwnType'] = 'vc'
+      host: _typing.ClassVar['NpivWwnType'] = 'host'
+      external: _typing.ClassVar['NpivWwnType'] = 'external'
 
-   class SwapPlacementType(Enum):
-      inherit: ClassVar['SwapPlacementType'] = 'inherit'
-      vmDirectory: ClassVar['SwapPlacementType'] = 'vmDirectory'
-      hostLocal: ClassVar['SwapPlacementType'] = 'hostLocal'
+   class SwapPlacementType(pyVmomi.VmomiSupport.Enum):
+      inherit: _typing.ClassVar['SwapPlacementType'] = 'inherit'
+      vmDirectory: _typing.ClassVar['SwapPlacementType'] = 'vmDirectory'
+      hostLocal: _typing.ClassVar['SwapPlacementType'] = 'hostLocal'
 
-   class DatastoreUrlPair(DynamicData):
+   class DatastoreUrlPair(pyVmomi.vmodl.DynamicData):
       name: str
       url: str
 
-   class OverheadInfo(DynamicData):
-      initialMemoryReservation: Optional[long] = None
-      initialSwapReservation: Optional[long] = None
+   class OverheadInfo(pyVmomi.vmodl.DynamicData):
+      initialMemoryReservation: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+      initialSwapReservation: _typing.Optional[pyVmomi.VmomiSupport.long] = None
 
    changeVersion: str
-   modified: datetime
+   modified: _datetime.datetime
    name: str
    guestFullName: str
    version: str
    uuid: str
-   createDate: Optional[datetime] = None
-   instanceUuid: Optional[str] = None
-   npivNodeWorldWideName: list[long] = []
-   npivPortWorldWideName: list[long] = []
-   npivWorldWideNameType: Optional[str] = None
-   npivDesiredNodeWwns: Optional[short] = None
-   npivDesiredPortWwns: Optional[short] = None
-   npivTemporaryDisabled: Optional[bool] = None
-   npivOnNonRdmDisks: Optional[bool] = None
-   locationId: Optional[str] = None
+   createDate: _typing.Optional[_datetime.datetime] = None
+   instanceUuid: _typing.Optional[str] = None
+   npivNodeWorldWideName: list[pyVmomi.VmomiSupport.long] = []
+   npivPortWorldWideName: list[pyVmomi.VmomiSupport.long] = []
+   npivWorldWideNameType: _typing.Optional[str] = None
+   npivDesiredNodeWwns: _typing.Optional[pyVmomi.VmomiSupport.short] = None
+   npivDesiredPortWwns: _typing.Optional[pyVmomi.VmomiSupport.short] = None
+   npivTemporaryDisabled: _typing.Optional[bool] = None
+   npivOnNonRdmDisks: _typing.Optional[bool] = None
+   locationId: _typing.Optional[str] = None
    template: bool
    guestId: str
    alternateGuestName: str
-   annotation: Optional[str] = None
+   annotation: _typing.Optional[str] = None
    files: FileInfo
-   tools: Optional[ToolsConfigInfo] = None
+   tools: _typing.Optional[ToolsConfigInfo] = None
    flags: FlagInfo
-   consolePreferences: Optional[ConsolePreferences] = None
+   consolePreferences: _typing.Optional[ConsolePreferences] = None
    defaultPowerOps: DefaultPowerOpInfo
-   rebootPowerOff: Optional[bool] = None
+   rebootPowerOff: _typing.Optional[bool] = None
    hardware: VirtualHardware
    vcpuConfig: list[VcpuConfig] = []
-   cpuAllocation: Optional[ResourceAllocationInfo] = None
-   memoryAllocation: Optional[ResourceAllocationInfo] = None
-   latencySensitivity: Optional[LatencySensitivity] = None
-   memoryHotAddEnabled: Optional[bool] = None
-   cpuHotAddEnabled: Optional[bool] = None
-   cpuHotRemoveEnabled: Optional[bool] = None
-   hotPlugMemoryLimit: Optional[long] = None
-   hotPlugMemoryIncrementSize: Optional[long] = None
-   cpuAffinity: Optional[AffinityInfo] = None
-   memoryAffinity: Optional[AffinityInfo] = None
-   networkShaper: Optional[NetworkShaperInfo] = None
-   extraConfig: list[OptionValue] = []
-   cpuFeatureMask: list[CpuIdInfo] = []
+   cpuAllocation: _typing.Optional[pyVmomi.vim.ResourceAllocationInfo] = None
+   memoryAllocation: _typing.Optional[pyVmomi.vim.ResourceAllocationInfo] = None
+   latencySensitivity: _typing.Optional[pyVmomi.vim.LatencySensitivity] = None
+   memoryHotAddEnabled: _typing.Optional[bool] = None
+   cpuHotAddEnabled: _typing.Optional[bool] = None
+   cpuHotRemoveEnabled: _typing.Optional[bool] = None
+   hotPlugMemoryLimit: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   hotPlugMemoryIncrementSize: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   cpuAffinity: _typing.Optional[AffinityInfo] = None
+   memoryAffinity: _typing.Optional[AffinityInfo] = None
+   networkShaper: _typing.Optional[NetworkShaperInfo] = None
+   extraConfig: list[pyVmomi.vim.option.OptionValue] = []
+   cpuFeatureMask: list[pyVmomi.vim.host.CpuIdInfo] = []
    datastoreUrl: list[DatastoreUrlPair] = []
-   swapPlacement: Optional[str] = None
-   bootOptions: Optional[BootOptions] = None
-   ftInfo: Optional[FaultToleranceConfigInfo] = None
-   repConfig: Optional[ReplicationConfigSpec] = None
-   vAppConfig: Optional[VmConfigInfo] = None
-   vAssertsEnabled: Optional[bool] = None
-   changeTrackingEnabled: Optional[bool] = None
-   firmware: Optional[str] = None
-   maxMksConnections: Optional[int] = None
-   guestAutoLockEnabled: Optional[bool] = None
-   managedBy: Optional[ManagedByInfo] = None
-   memoryReservationLockedToMax: Optional[bool] = None
-   initialOverhead: Optional[OverheadInfo] = None
-   nestedHVEnabled: Optional[bool] = None
-   vPMCEnabled: Optional[bool] = None
-   scheduledHardwareUpgradeInfo: Optional[ScheduledHardwareUpgradeInfo] = None
-   forkConfigInfo: Optional[ForkConfigInfo] = None
-   vFlashCacheReservation: Optional[long] = None
-   vmxConfigChecksum: Optional[binary] = None
-   messageBusTunnelEnabled: Optional[bool] = None
-   vmStorageObjectId: Optional[str] = None
-   swapStorageObjectId: Optional[str] = None
-   keyId: Optional[CryptoKeyId] = None
-   guestIntegrityInfo: Optional[GuestIntegrityInfo] = None
-   migrateEncryption: Optional[str] = None
-   sgxInfo: Optional[SgxInfo] = None
-   contentLibItemInfo: Optional[ContentLibraryItemInfo] = None
-   ftEncryptionMode: Optional[str] = None
-   guestMonitoringModeInfo: Optional[GuestMonitoringModeInfo] = None
-   sevEnabled: Optional[bool] = None
-   numaInfo: Optional[VirtualNumaInfo] = None
-   pmemFailoverEnabled: Optional[bool] = None
-   vmxStatsCollectionEnabled: Optional[bool] = None
-   vmOpNotificationToAppEnabled: Optional[bool] = None
-   vmOpNotificationTimeout: Optional[long] = None
-   deviceSwap: Optional[VirtualDeviceSwap] = None
-   pmem: Optional[VirtualPMem] = None
-   deviceGroups: Optional[VirtualDeviceGroups] = None
-   fixedPassthruHotPlugEnabled: Optional[bool] = None
-   metroFtEnabled: Optional[bool] = None
-   vmxRuntimeConfig: list[OptionValue] = []
-   metroFtHostGroup: Optional[str] = None
-   tdxEnabled: Optional[bool] = None
-   sevSnpEnabled: Optional[bool] = None
-   guestArchitecture: Optional[str] = None
+   swapPlacement: _typing.Optional[str] = None
+   bootOptions: _typing.Optional[BootOptions] = None
+   ftInfo: _typing.Optional[FaultToleranceConfigInfo] = None
+   repConfig: _typing.Optional[ReplicationConfigSpec] = None
+   vAppConfig: _typing.Optional[pyVmomi.vim.vApp.VmConfigInfo] = None
+   vAssertsEnabled: _typing.Optional[bool] = None
+   changeTrackingEnabled: _typing.Optional[bool] = None
+   firmware: _typing.Optional[str] = None
+   maxMksConnections: _typing.Optional[int] = None
+   guestAutoLockEnabled: _typing.Optional[bool] = None
+   managedBy: _typing.Optional[pyVmomi.vim.ext.ManagedByInfo] = None
+   memoryReservationLockedToMax: _typing.Optional[bool] = None
+   initialOverhead: _typing.Optional[OverheadInfo] = None
+   nestedHVEnabled: _typing.Optional[bool] = None
+   vPMCEnabled: _typing.Optional[bool] = None
+   scheduledHardwareUpgradeInfo: _typing.Optional[ScheduledHardwareUpgradeInfo] = None
+   forkConfigInfo: _typing.Optional[ForkConfigInfo] = None
+   vFlashCacheReservation: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   vmxConfigChecksum: _typing.Optional[pyVmomi.VmomiSupport.binary] = None
+   messageBusTunnelEnabled: _typing.Optional[bool] = None
+   vmStorageObjectId: _typing.Optional[str] = None
+   swapStorageObjectId: _typing.Optional[str] = None
+   keyId: _typing.Optional[pyVmomi.vim.encryption.CryptoKeyId] = None
+   guestIntegrityInfo: _typing.Optional[GuestIntegrityInfo] = None
+   migrateEncryption: _typing.Optional[str] = None
+   sgxInfo: _typing.Optional[SgxInfo] = None
+   contentLibItemInfo: _typing.Optional[ContentLibraryItemInfo] = None
+   ftEncryptionMode: _typing.Optional[str] = None
+   guestMonitoringModeInfo: _typing.Optional[GuestMonitoringModeInfo] = None
+   sevEnabled: _typing.Optional[bool] = None
+   numaInfo: _typing.Optional[VirtualNumaInfo] = None
+   pmemFailoverEnabled: _typing.Optional[bool] = None
+   vmxStatsCollectionEnabled: _typing.Optional[bool] = None
+   vmOpNotificationToAppEnabled: _typing.Optional[bool] = None
+   vmOpNotificationTimeout: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   deviceSwap: _typing.Optional[VirtualDeviceSwap] = None
+   pmem: _typing.Optional[VirtualPMem] = None
+   deviceGroups: _typing.Optional[VirtualDeviceGroups] = None
+   fixedPassthruHotPlugEnabled: _typing.Optional[bool] = None
+   metroFtEnabled: _typing.Optional[bool] = None
+   vmxRuntimeConfig: list[pyVmomi.vim.option.OptionValue] = []
+   metroFtHostGroup: _typing.Optional[str] = None
+   tdxEnabled: _typing.Optional[bool] = None
+   sevSnpEnabled: _typing.Optional[bool] = None
+   guestArchitecture: _typing.Optional[str] = None
 
 
-class ConfigOption(DynamicData):
+class ConfigOption(pyVmomi.vmodl.DynamicData):
    version: str
    description: str
    guestOSDescriptor: list[GuestOsDescriptor] = []
@@ -356,139 +264,139 @@ class ConfigOption(DynamicData):
    hardwareOptions: VirtualHardwareOption
    capabilities: Capability
    datastore: DatastoreOption
-   defaultDevice: list[VirtualDevice] = []
+   defaultDevice: list[pyVmomi.vim.vm.device.VirtualDevice] = []
    supportedMonitorType: list[str] = []
    supportedOvfEnvironmentTransport: list[str] = []
    supportedOvfInstallTransport: list[str] = []
    propertyRelations: list[PropertyRelation] = []
 
 
-class ConfigOptionDescriptor(DynamicData):
+class ConfigOptionDescriptor(pyVmomi.vmodl.DynamicData):
    key: str
-   description: Optional[str] = None
-   host: list[HostSystem] = []
+   description: _typing.Optional[str] = None
+   host: list[pyVmomi.vim.HostSystem] = []
    createSupported: bool
    defaultConfigOption: bool
    runSupported: bool
    upgradeSupported: bool
 
 
-class ConfigSpec(DynamicData):
-   class NpivWwnOp(Enum):
-      generate: ClassVar['NpivWwnOp'] = 'generate'
-      set: ClassVar['NpivWwnOp'] = 'set'
-      remove: ClassVar['NpivWwnOp'] = 'remove'
-      extend: ClassVar['NpivWwnOp'] = 'extend'
+class ConfigSpec(pyVmomi.vmodl.DynamicData):
+   class NpivWwnOp(pyVmomi.VmomiSupport.Enum):
+      generate: _typing.ClassVar['NpivWwnOp'] = 'generate'
+      set: _typing.ClassVar['NpivWwnOp'] = 'set'
+      remove: _typing.ClassVar['NpivWwnOp'] = 'remove'
+      extend: _typing.ClassVar['NpivWwnOp'] = 'extend'
 
-   class EncryptedFtModes(Enum):
-      ftEncryptionDisabled: ClassVar['EncryptedFtModes'] = 'ftEncryptionDisabled'
-      ftEncryptionOpportunistic: ClassVar['EncryptedFtModes'] = 'ftEncryptionOpportunistic'
-      ftEncryptionRequired: ClassVar['EncryptedFtModes'] = 'ftEncryptionRequired'
+   class EncryptedFtModes(pyVmomi.VmomiSupport.Enum):
+      ftEncryptionDisabled: _typing.ClassVar['EncryptedFtModes'] = 'ftEncryptionDisabled'
+      ftEncryptionOpportunistic: _typing.ClassVar['EncryptedFtModes'] = 'ftEncryptionOpportunistic'
+      ftEncryptionRequired: _typing.ClassVar['EncryptedFtModes'] = 'ftEncryptionRequired'
 
-   class EncryptedVMotionModes(Enum):
-      disabled: ClassVar['EncryptedVMotionModes'] = 'disabled'
-      opportunistic: ClassVar['EncryptedVMotionModes'] = 'opportunistic'
-      required: ClassVar['EncryptedVMotionModes'] = 'required'
+   class EncryptedVMotionModes(pyVmomi.VmomiSupport.Enum):
+      disabled: _typing.ClassVar['EncryptedVMotionModes'] = 'disabled'
+      opportunistic: _typing.ClassVar['EncryptedVMotionModes'] = 'opportunistic'
+      required: _typing.ClassVar['EncryptedVMotionModes'] = 'required'
 
-   class CpuIdInfoSpec(ArrayUpdateSpec):
-      info: Optional[CpuIdInfo] = None
+   class CpuIdInfoSpec(pyVmomi.vim.option.ArrayUpdateSpec):
+      info: _typing.Optional[pyVmomi.vim.host.CpuIdInfo] = None
 
-   changeVersion: Optional[str] = None
-   name: Optional[str] = None
-   version: Optional[str] = None
-   createDate: Optional[datetime] = None
-   uuid: Optional[str] = None
-   instanceUuid: Optional[str] = None
-   npivNodeWorldWideName: list[long] = []
-   npivPortWorldWideName: list[long] = []
-   npivWorldWideNameType: Optional[str] = None
-   npivDesiredNodeWwns: Optional[short] = None
-   npivDesiredPortWwns: Optional[short] = None
-   npivTemporaryDisabled: Optional[bool] = None
-   npivOnNonRdmDisks: Optional[bool] = None
-   npivWorldWideNameOp: Optional[str] = None
-   locationId: Optional[str] = None
-   guestId: Optional[str] = None
-   alternateGuestName: Optional[str] = None
-   annotation: Optional[str] = None
-   files: Optional[FileInfo] = None
-   tools: Optional[ToolsConfigInfo] = None
-   flags: Optional[FlagInfo] = None
-   consolePreferences: Optional[ConsolePreferences] = None
-   powerOpInfo: Optional[DefaultPowerOpInfo] = None
-   rebootPowerOff: Optional[bool] = None
-   numCPUs: Optional[int] = None
+   changeVersion: _typing.Optional[str] = None
+   name: _typing.Optional[str] = None
+   version: _typing.Optional[str] = None
+   createDate: _typing.Optional[_datetime.datetime] = None
+   uuid: _typing.Optional[str] = None
+   instanceUuid: _typing.Optional[str] = None
+   npivNodeWorldWideName: list[pyVmomi.VmomiSupport.long] = []
+   npivPortWorldWideName: list[pyVmomi.VmomiSupport.long] = []
+   npivWorldWideNameType: _typing.Optional[str] = None
+   npivDesiredNodeWwns: _typing.Optional[pyVmomi.VmomiSupport.short] = None
+   npivDesiredPortWwns: _typing.Optional[pyVmomi.VmomiSupport.short] = None
+   npivTemporaryDisabled: _typing.Optional[bool] = None
+   npivOnNonRdmDisks: _typing.Optional[bool] = None
+   npivWorldWideNameOp: _typing.Optional[str] = None
+   locationId: _typing.Optional[str] = None
+   guestId: _typing.Optional[str] = None
+   alternateGuestName: _typing.Optional[str] = None
+   annotation: _typing.Optional[str] = None
+   files: _typing.Optional[FileInfo] = None
+   tools: _typing.Optional[ToolsConfigInfo] = None
+   flags: _typing.Optional[FlagInfo] = None
+   consolePreferences: _typing.Optional[ConsolePreferences] = None
+   powerOpInfo: _typing.Optional[DefaultPowerOpInfo] = None
+   rebootPowerOff: _typing.Optional[bool] = None
+   numCPUs: _typing.Optional[int] = None
    vcpuConfig: list[VcpuConfig] = []
-   numCoresPerSocket: Optional[int] = None
-   memoryMB: Optional[long] = None
-   memoryHotAddEnabled: Optional[bool] = None
-   cpuHotAddEnabled: Optional[bool] = None
-   cpuHotRemoveEnabled: Optional[bool] = None
-   virtualICH7MPresent: Optional[bool] = None
-   virtualSMCPresent: Optional[bool] = None
-   deviceChange: list[VirtualDeviceSpec] = []
-   cpuAllocation: Optional[ResourceAllocationInfo] = None
-   memoryAllocation: Optional[ResourceAllocationInfo] = None
-   latencySensitivity: Optional[LatencySensitivity] = None
-   cpuAffinity: Optional[AffinityInfo] = None
-   memoryAffinity: Optional[AffinityInfo] = None
-   networkShaper: Optional[NetworkShaperInfo] = None
+   numCoresPerSocket: _typing.Optional[int] = None
+   memoryMB: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   memoryHotAddEnabled: _typing.Optional[bool] = None
+   cpuHotAddEnabled: _typing.Optional[bool] = None
+   cpuHotRemoveEnabled: _typing.Optional[bool] = None
+   virtualICH7MPresent: _typing.Optional[bool] = None
+   virtualSMCPresent: _typing.Optional[bool] = None
+   deviceChange: list[pyVmomi.vim.vm.device.VirtualDeviceSpec] = []
+   cpuAllocation: _typing.Optional[pyVmomi.vim.ResourceAllocationInfo] = None
+   memoryAllocation: _typing.Optional[pyVmomi.vim.ResourceAllocationInfo] = None
+   latencySensitivity: _typing.Optional[pyVmomi.vim.LatencySensitivity] = None
+   cpuAffinity: _typing.Optional[AffinityInfo] = None
+   memoryAffinity: _typing.Optional[AffinityInfo] = None
+   networkShaper: _typing.Optional[NetworkShaperInfo] = None
    cpuFeatureMask: list[CpuIdInfoSpec] = []
-   extraConfig: list[OptionValue] = []
-   swapPlacement: Optional[str] = None
-   bootOptions: Optional[BootOptions] = None
-   vAppConfig: Optional[VmConfigSpec] = None
-   ftInfo: Optional[FaultToleranceConfigInfo] = None
-   repConfig: Optional[ReplicationConfigSpec] = None
-   vAppConfigRemoved: Optional[bool] = None
-   vAssertsEnabled: Optional[bool] = None
-   changeTrackingEnabled: Optional[bool] = None
-   firmware: Optional[str] = None
-   maxMksConnections: Optional[int] = None
-   guestAutoLockEnabled: Optional[bool] = None
-   managedBy: Optional[ManagedByInfo] = None
-   memoryReservationLockedToMax: Optional[bool] = None
-   nestedHVEnabled: Optional[bool] = None
-   vPMCEnabled: Optional[bool] = None
-   scheduledHardwareUpgradeInfo: Optional[ScheduledHardwareUpgradeInfo] = None
+   extraConfig: list[pyVmomi.vim.option.OptionValue] = []
+   swapPlacement: _typing.Optional[str] = None
+   bootOptions: _typing.Optional[BootOptions] = None
+   vAppConfig: _typing.Optional[pyVmomi.vim.vApp.VmConfigSpec] = None
+   ftInfo: _typing.Optional[FaultToleranceConfigInfo] = None
+   repConfig: _typing.Optional[ReplicationConfigSpec] = None
+   vAppConfigRemoved: _typing.Optional[bool] = None
+   vAssertsEnabled: _typing.Optional[bool] = None
+   changeTrackingEnabled: _typing.Optional[bool] = None
+   firmware: _typing.Optional[str] = None
+   maxMksConnections: _typing.Optional[int] = None
+   guestAutoLockEnabled: _typing.Optional[bool] = None
+   managedBy: _typing.Optional[pyVmomi.vim.ext.ManagedByInfo] = None
+   memoryReservationLockedToMax: _typing.Optional[bool] = None
+   nestedHVEnabled: _typing.Optional[bool] = None
+   vPMCEnabled: _typing.Optional[bool] = None
+   scheduledHardwareUpgradeInfo: _typing.Optional[ScheduledHardwareUpgradeInfo] = None
    vmProfile: list[ProfileSpec] = []
-   messageBusTunnelEnabled: Optional[bool] = None
-   crypto: Optional[CryptoSpec] = None
-   migrateEncryption: Optional[str] = None
-   sgxInfo: Optional[SgxInfo] = None
-   ftEncryptionMode: Optional[str] = None
-   guestMonitoringModeInfo: Optional[GuestMonitoringModeInfo] = None
-   sevEnabled: Optional[bool] = None
-   virtualNuma: Optional[VirtualNuma] = None
-   motherboardLayout: Optional[str] = None
-   pmemFailoverEnabled: Optional[bool] = None
-   vmxStatsCollectionEnabled: Optional[bool] = None
-   vmOpNotificationToAppEnabled: Optional[bool] = None
-   vmOpNotificationTimeout: Optional[long] = None
-   deviceSwap: Optional[VirtualDeviceSwap] = None
-   simultaneousThreads: Optional[int] = None
-   pmem: Optional[VirtualPMem] = None
-   deviceGroups: Optional[VirtualDeviceGroups] = None
-   fixedPassthruHotPlugEnabled: Optional[bool] = None
-   metroFtEnabled: Optional[bool] = None
-   metroFtHostGroup: Optional[str] = None
-   tdxEnabled: Optional[bool] = None
-   sevSnpEnabled: Optional[bool] = None
-   tagSpecs: list[TagSpec] = []
+   messageBusTunnelEnabled: _typing.Optional[bool] = None
+   crypto: _typing.Optional[pyVmomi.vim.encryption.CryptoSpec] = None
+   migrateEncryption: _typing.Optional[str] = None
+   sgxInfo: _typing.Optional[SgxInfo] = None
+   ftEncryptionMode: _typing.Optional[str] = None
+   guestMonitoringModeInfo: _typing.Optional[GuestMonitoringModeInfo] = None
+   sevEnabled: _typing.Optional[bool] = None
+   virtualNuma: _typing.Optional[VirtualNuma] = None
+   motherboardLayout: _typing.Optional[str] = None
+   pmemFailoverEnabled: _typing.Optional[bool] = None
+   vmxStatsCollectionEnabled: _typing.Optional[bool] = None
+   vmOpNotificationToAppEnabled: _typing.Optional[bool] = None
+   vmOpNotificationTimeout: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   deviceSwap: _typing.Optional[VirtualDeviceSwap] = None
+   simultaneousThreads: _typing.Optional[int] = None
+   pmem: _typing.Optional[VirtualPMem] = None
+   deviceGroups: _typing.Optional[VirtualDeviceGroups] = None
+   fixedPassthruHotPlugEnabled: _typing.Optional[bool] = None
+   metroFtEnabled: _typing.Optional[bool] = None
+   metroFtHostGroup: _typing.Optional[str] = None
+   tdxEnabled: _typing.Optional[bool] = None
+   sevSnpEnabled: _typing.Optional[bool] = None
+   tagSpecs: list[pyVmomi.vim.TagSpec] = []
    vmPlacementPolicies: list[VmPlacementPolicy] = []
 
 
-class ConfigTarget(DynamicData):
+class ConfigTarget(pyVmomi.vmodl.DynamicData):
    numCpus: int
    numCpuCores: int
    numNumaNodes: int
-   maxCpusPerHost: Optional[int] = None
+   maxCpusPerHost: _typing.Optional[int] = None
    smcPresent: bool
    datastore: list[DatastoreInfo] = []
    network: list[NetworkInfo] = []
    opaqueNetwork: list[OpaqueNetworkInfo] = []
-   distributedVirtualPortgroup: list[DistributedVirtualPortgroupInfo] = []
-   distributedVirtualSwitch: list[DistributedVirtualSwitchInfo] = []
+   distributedVirtualPortgroup: list[pyVmomi.vim.dvs.DistributedVirtualPortgroupInfo] = []
+   distributedVirtualSwitch: list[pyVmomi.vim.dvs.DistributedVirtualSwitchInfo] = []
    subnetInfo: list[SubnetInfo] = []
    cdRom: list[CdromInfo] = []
    serial: list[SerialInfo] = []
@@ -501,76 +409,76 @@ class ConfigTarget(DynamicData):
    scsiDisk: list[ScsiDiskDeviceInfo] = []
    ideDisk: list[IdeDiskDeviceInfo] = []
    maxMemMBOptimalPerf: int
-   supportedMaxMemMB: Optional[int] = None
-   resourcePool: Optional[ResourcePool.RuntimeInfo] = None
-   autoVmotion: Optional[bool] = None
+   supportedMaxMemMB: _typing.Optional[int] = None
+   resourcePool: _typing.Optional[pyVmomi.vim.ResourcePool.RuntimeInfo] = None
+   autoVmotion: _typing.Optional[bool] = None
    pciPassthrough: list[PciPassthroughInfo] = []
    sriov: list[SriovInfo] = []
    vFlashModule: list[VFlashModuleInfo] = []
    sharedGpuPassthroughTypes: list[PciSharedGpuPassthroughInfo] = []
-   availablePersistentMemoryReservationMB: Optional[long] = None
+   availablePersistentMemoryReservationMB: _typing.Optional[pyVmomi.VmomiSupport.long] = None
    dynamicPassthrough: list[DynamicPassthroughInfo] = []
-   sgxTargetInfo: Optional[SgxTargetInfo] = None
+   sgxTargetInfo: _typing.Optional[SgxTargetInfo] = None
    precisionClockInfo: list[PrecisionClockInfo] = []
-   sevSupported: Optional[bool] = None
+   sevSupported: _typing.Optional[bool] = None
    vgpuDeviceInfo: list[VgpuDeviceInfo] = []
    vgpuProfileInfo: list[VgpuProfileInfo] = []
    vendorDeviceGroupInfo: list[VendorDeviceGroupInfo] = []
-   maxSimultaneousThreads: Optional[int] = None
+   maxSimultaneousThreads: _typing.Optional[int] = None
    dvxClassInfo: list[DvxClassInfo] = []
-   sevSnpSupported: Optional[bool] = None
-   tdxSupported: Optional[bool] = None
-   vMotionBandwidth: list[long] = []
+   sevSnpSupported: _typing.Optional[bool] = None
+   tdxSupported: _typing.Optional[bool] = None
+   vMotionBandwidth: list[pyVmomi.VmomiSupport.long] = []
 
 
-class ConsolePreferences(DynamicData):
-   powerOnWhenOpened: Optional[bool] = None
-   enterFullScreenOnPowerOn: Optional[bool] = None
-   closeOnPowerOffOrSuspend: Optional[bool] = None
+class ConsolePreferences(pyVmomi.vmodl.DynamicData):
+   powerOnWhenOpened: _typing.Optional[bool] = None
+   enterFullScreenOnPowerOn: _typing.Optional[bool] = None
+   closeOnPowerOffOrSuspend: _typing.Optional[bool] = None
 
 
-class ContentLibraryItemInfo(DynamicData):
+class ContentLibraryItemInfo(pyVmomi.vmodl.DynamicData):
    contentLibraryItemUuid: str
-   contentLibraryItemVersion: Optional[str] = None
+   contentLibraryItemVersion: _typing.Optional[str] = None
 
 
 class DatastoreInfo(TargetInfo):
-   datastore: Datastore.Summary
-   capability: Datastore.Capability
-   maxFileSize: long
-   maxVirtualDiskCapacity: Optional[long] = None
-   maxPhysicalRDMFileSize: Optional[long] = None
-   maxVirtualRDMFileSize: Optional[long] = None
+   datastore: pyVmomi.vim.Datastore.Summary
+   capability: pyVmomi.vim.Datastore.Capability
+   maxFileSize: pyVmomi.VmomiSupport.long
+   maxVirtualDiskCapacity: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   maxPhysicalRDMFileSize: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   maxVirtualRDMFileSize: _typing.Optional[pyVmomi.VmomiSupport.long] = None
    mode: str
-   vStorageSupport: Optional[str] = None
+   vStorageSupport: _typing.Optional[str] = None
    supportedVDiskFormats: list[str] = []
 
 
-class DatastoreOption(DynamicData):
-   class FileSystemVolumeOption(DynamicData):
+class DatastoreOption(pyVmomi.vmodl.DynamicData):
+   class FileSystemVolumeOption(pyVmomi.vmodl.DynamicData):
       fileSystemType: type
-      majorVersion: Optional[int] = None
+      majorVersion: _typing.Optional[int] = None
 
    unsupportedVolumes: list[FileSystemVolumeOption] = []
 
 
-class DefaultPowerOpInfo(DynamicData):
-   class PowerOpType(Enum):
-      soft: ClassVar['PowerOpType'] = 'soft'
-      hard: ClassVar['PowerOpType'] = 'hard'
-      preset: ClassVar['PowerOpType'] = 'preset'
+class DefaultPowerOpInfo(pyVmomi.vmodl.DynamicData):
+   class PowerOpType(pyVmomi.VmomiSupport.Enum):
+      soft: _typing.ClassVar['PowerOpType'] = 'soft'
+      hard: _typing.ClassVar['PowerOpType'] = 'hard'
+      preset: _typing.ClassVar['PowerOpType'] = 'preset'
 
-   class StandbyActionType(Enum):
-      checkpoint: ClassVar['StandbyActionType'] = 'checkpoint'
-      powerOnSuspend: ClassVar['StandbyActionType'] = 'powerOnSuspend'
+   class StandbyActionType(pyVmomi.VmomiSupport.Enum):
+      checkpoint: _typing.ClassVar['StandbyActionType'] = 'checkpoint'
+      powerOnSuspend: _typing.ClassVar['StandbyActionType'] = 'powerOnSuspend'
 
-   powerOffType: Optional[str] = None
-   suspendType: Optional[str] = None
-   resetType: Optional[str] = None
-   defaultPowerOffType: Optional[str] = None
-   defaultSuspendType: Optional[str] = None
-   defaultResetType: Optional[str] = None
-   standbyAction: Optional[str] = None
+   powerOffType: _typing.Optional[str] = None
+   suspendType: _typing.Optional[str] = None
+   resetType: _typing.Optional[str] = None
+   defaultPowerOffType: _typing.Optional[str] = None
+   defaultSuspendType: _typing.Optional[str] = None
+   defaultResetType: _typing.Optional[str] = None
+   standbyAction: _typing.Optional[str] = None
 
 class DefaultProfileSpec(ProfileSpec):
    pass
@@ -578,45 +486,45 @@ class DefaultProfileSpec(ProfileSpec):
 
 class DefinedProfileSpec(ProfileSpec):
    profileId: str
-   replicationSpec: Optional[ReplicationSpec] = None
-   profileData: Optional[ProfileRawData] = None
-   profileParams: list[KeyValue] = []
+   replicationSpec: _typing.Optional[pyVmomi.vim.vm.replication.ReplicationSpec] = None
+   profileData: _typing.Optional[ProfileRawData] = None
+   profileParams: list[pyVmomi.vim.KeyValue] = []
 
 
-class DeviceRuntimeInfo(DynamicData):
-   class DeviceRuntimeState(DynamicData):
+class DeviceRuntimeInfo(pyVmomi.vmodl.DynamicData):
+   class DeviceRuntimeState(pyVmomi.vmodl.DynamicData):
       pass
 
    class VirtualEthernetCardRuntimeState(DeviceRuntimeState):
-      class VmDirectPathGen2InactiveReasonVm(Enum):
-         vmNptIncompatibleGuest: ClassVar['VmDirectPathGen2InactiveReasonVm'] = 'vmNptIncompatibleGuest'
-         vmNptIncompatibleGuestDriver: ClassVar['VmDirectPathGen2InactiveReasonVm'] = 'vmNptIncompatibleGuestDriver'
-         vmNptIncompatibleAdapterType: ClassVar['VmDirectPathGen2InactiveReasonVm'] = 'vmNptIncompatibleAdapterType'
-         vmNptDisabledOrDisconnectedAdapter: ClassVar['VmDirectPathGen2InactiveReasonVm'] = 'vmNptDisabledOrDisconnectedAdapter'
-         vmNptIncompatibleAdapterFeatures: ClassVar['VmDirectPathGen2InactiveReasonVm'] = 'vmNptIncompatibleAdapterFeatures'
-         vmNptIncompatibleBackingType: ClassVar['VmDirectPathGen2InactiveReasonVm'] = 'vmNptIncompatibleBackingType'
-         vmNptInsufficientMemoryReservation: ClassVar['VmDirectPathGen2InactiveReasonVm'] = 'vmNptInsufficientMemoryReservation'
-         vmNptFaultToleranceOrRecordReplayConfigured: ClassVar['VmDirectPathGen2InactiveReasonVm'] = 'vmNptFaultToleranceOrRecordReplayConfigured'
-         vmNptConflictingIOChainConfigured: ClassVar['VmDirectPathGen2InactiveReasonVm'] = 'vmNptConflictingIOChainConfigured'
-         vmNptMonitorBlocks: ClassVar['VmDirectPathGen2InactiveReasonVm'] = 'vmNptMonitorBlocks'
-         vmNptConflictingOperationInProgress: ClassVar['VmDirectPathGen2InactiveReasonVm'] = 'vmNptConflictingOperationInProgress'
-         vmNptRuntimeError: ClassVar['VmDirectPathGen2InactiveReasonVm'] = 'vmNptRuntimeError'
-         vmNptOutOfIntrVector: ClassVar['VmDirectPathGen2InactiveReasonVm'] = 'vmNptOutOfIntrVector'
-         vmNptVMCIActive: ClassVar['VmDirectPathGen2InactiveReasonVm'] = 'vmNptVMCIActive'
+      class VmDirectPathGen2InactiveReasonVm(pyVmomi.VmomiSupport.Enum):
+         vmNptIncompatibleGuest: _typing.ClassVar['VmDirectPathGen2InactiveReasonVm'] = 'vmNptIncompatibleGuest'
+         vmNptIncompatibleGuestDriver: _typing.ClassVar['VmDirectPathGen2InactiveReasonVm'] = 'vmNptIncompatibleGuestDriver'
+         vmNptIncompatibleAdapterType: _typing.ClassVar['VmDirectPathGen2InactiveReasonVm'] = 'vmNptIncompatibleAdapterType'
+         vmNptDisabledOrDisconnectedAdapter: _typing.ClassVar['VmDirectPathGen2InactiveReasonVm'] = 'vmNptDisabledOrDisconnectedAdapter'
+         vmNptIncompatibleAdapterFeatures: _typing.ClassVar['VmDirectPathGen2InactiveReasonVm'] = 'vmNptIncompatibleAdapterFeatures'
+         vmNptIncompatibleBackingType: _typing.ClassVar['VmDirectPathGen2InactiveReasonVm'] = 'vmNptIncompatibleBackingType'
+         vmNptInsufficientMemoryReservation: _typing.ClassVar['VmDirectPathGen2InactiveReasonVm'] = 'vmNptInsufficientMemoryReservation'
+         vmNptFaultToleranceOrRecordReplayConfigured: _typing.ClassVar['VmDirectPathGen2InactiveReasonVm'] = 'vmNptFaultToleranceOrRecordReplayConfigured'
+         vmNptConflictingIOChainConfigured: _typing.ClassVar['VmDirectPathGen2InactiveReasonVm'] = 'vmNptConflictingIOChainConfigured'
+         vmNptMonitorBlocks: _typing.ClassVar['VmDirectPathGen2InactiveReasonVm'] = 'vmNptMonitorBlocks'
+         vmNptConflictingOperationInProgress: _typing.ClassVar['VmDirectPathGen2InactiveReasonVm'] = 'vmNptConflictingOperationInProgress'
+         vmNptRuntimeError: _typing.ClassVar['VmDirectPathGen2InactiveReasonVm'] = 'vmNptRuntimeError'
+         vmNptOutOfIntrVector: _typing.ClassVar['VmDirectPathGen2InactiveReasonVm'] = 'vmNptOutOfIntrVector'
+         vmNptVMCIActive: _typing.ClassVar['VmDirectPathGen2InactiveReasonVm'] = 'vmNptVMCIActive'
 
-      class VmDirectPathGen2InactiveReasonOther(Enum):
-         vmNptIncompatibleHost: ClassVar['VmDirectPathGen2InactiveReasonOther'] = 'vmNptIncompatibleHost'
-         vmNptIncompatibleNetwork: ClassVar['VmDirectPathGen2InactiveReasonOther'] = 'vmNptIncompatibleNetwork'
+      class VmDirectPathGen2InactiveReasonOther(pyVmomi.VmomiSupport.Enum):
+         vmNptIncompatibleHost: _typing.ClassVar['VmDirectPathGen2InactiveReasonOther'] = 'vmNptIncompatibleHost'
+         vmNptIncompatibleNetwork: _typing.ClassVar['VmDirectPathGen2InactiveReasonOther'] = 'vmNptIncompatibleNetwork'
 
-      vmDirectPathGen2Active: Optional[bool] = None
+      vmDirectPathGen2Active: _typing.Optional[bool] = None
       vmDirectPathGen2InactiveReasonVm: list[str] = []
       vmDirectPathGen2InactiveReasonOther: list[str] = []
-      vmDirectPathGen2InactiveReasonExtended: Optional[str] = None
-      uptv2Active: Optional[bool] = None
+      vmDirectPathGen2InactiveReasonExtended: _typing.Optional[str] = None
+      uptv2Active: _typing.Optional[bool] = None
       uptv2InactiveReasonVm: list[str] = []
       uptv2InactiveReasonOther: list[str] = []
-      reservationStatus: Optional[str] = None
-      attachmentStatus: Optional[str] = None
+      reservationStatus: _typing.Optional[str] = None
+      attachmentStatus: _typing.Optional[str] = None
       featureRequirement: list[FeatureRequirement] = []
 
    runtimeState: DeviceRuntimeState
@@ -624,21 +532,21 @@ class DeviceRuntimeInfo(DynamicData):
 
 
 class DiskDeviceInfo(TargetInfo):
-   capacity: Optional[long] = None
-   vm: list[VirtualMachine] = []
+   capacity: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   vm: list[pyVmomi.vim.VirtualMachine] = []
 
 
-class DvxClassInfo(DynamicData):
-   deviceClass: ElementDescription
+class DvxClassInfo(pyVmomi.vmodl.DynamicData):
+   deviceClass: pyVmomi.vim.ElementDescription
    vendorName: str
    sriovNic: bool
-   configParams: list[OptionDef] = []
+   configParams: list[pyVmomi.vim.option.OptionDef] = []
 
 
 class DynamicPassthroughInfo(TargetInfo):
    vendorName: str
    deviceName: str
-   customLabel: Optional[str] = None
+   customLabel: _typing.Optional[str] = None
    vendorId: int
    deviceId: int
 
@@ -649,67 +557,67 @@ class EmptyProfileSpec(ProfileSpec):
    pass
 
 
-class FaultToleranceConfigInfo(DynamicData):
+class FaultToleranceConfigInfo(pyVmomi.vmodl.DynamicData):
    role: int
    instanceUuids: list[str] = []
    configPaths: list[str] = []
-   orphaned: Optional[bool] = None
+   orphaned: _typing.Optional[bool] = None
 
 
-class FaultToleranceConfigSpec(DynamicData):
-   metaDataPath: Optional[FaultToleranceMetaSpec] = None
-   secondaryVmSpec: Optional[FaultToleranceVMConfigSpec] = None
-   metroFtEnabled: Optional[bool] = None
-   metroFtHostGroup: Optional[str] = None
+class FaultToleranceConfigSpec(pyVmomi.vmodl.DynamicData):
+   metaDataPath: _typing.Optional[FaultToleranceMetaSpec] = None
+   secondaryVmSpec: _typing.Optional[FaultToleranceVMConfigSpec] = None
+   metroFtEnabled: _typing.Optional[bool] = None
+   metroFtHostGroup: _typing.Optional[str] = None
 
 
-class FaultToleranceMetaSpec(DynamicData):
-   metaDataDatastore: Datastore
+class FaultToleranceMetaSpec(pyVmomi.vmodl.DynamicData):
+   metaDataDatastore: pyVmomi.vim.Datastore
 
 
 class FaultTolerancePrimaryConfigInfo(FaultToleranceConfigInfo):
-   secondaries: list[VirtualMachine] = []
+   secondaries: list[pyVmomi.vim.VirtualMachine] = []
 
 
 class FaultToleranceSecondaryConfigInfo(FaultToleranceConfigInfo):
-   primaryVM: VirtualMachine
+   primaryVM: pyVmomi.vim.VirtualMachine
 
 
-class FaultToleranceSecondaryOpResult(DynamicData):
-   vm: VirtualMachine
+class FaultToleranceSecondaryOpResult(pyVmomi.vmodl.DynamicData):
+   vm: pyVmomi.vim.VirtualMachine
    powerOnAttempted: bool
-   powerOnResult: Optional[PowerOnVmResult] = None
+   powerOnResult: _typing.Optional[pyVmomi.vim.cluster.PowerOnVmResult] = None
 
 
-class FaultToleranceVMConfigSpec(DynamicData):
-   class FaultToleranceDiskSpec(DynamicData):
-      disk: VirtualDevice
-      datastore: Datastore
+class FaultToleranceVMConfigSpec(pyVmomi.vmodl.DynamicData):
+   class FaultToleranceDiskSpec(pyVmomi.vmodl.DynamicData):
+      disk: pyVmomi.vim.vm.device.VirtualDevice
+      datastore: pyVmomi.vim.Datastore
 
-   vmConfig: Optional[Datastore] = None
+   vmConfig: _typing.Optional[pyVmomi.vim.Datastore] = None
    disks: list[FaultToleranceDiskSpec] = []
 
 
-class FeatureRequirement(DynamicData):
+class FeatureRequirement(pyVmomi.vmodl.DynamicData):
    key: str
    featureName: str
    value: str
 
 
-class FileInfo(DynamicData):
-   vmPathName: Optional[str] = None
-   snapshotDirectory: Optional[str] = None
-   suspendDirectory: Optional[str] = None
-   logDirectory: Optional[str] = None
-   ftMetadataDirectory: Optional[str] = None
+class FileInfo(pyVmomi.vmodl.DynamicData):
+   vmPathName: _typing.Optional[str] = None
+   snapshotDirectory: _typing.Optional[str] = None
+   suspendDirectory: _typing.Optional[str] = None
+   logDirectory: _typing.Optional[str] = None
+   ftMetadataDirectory: _typing.Optional[str] = None
 
 
-class FileLayout(DynamicData):
-   class DiskLayout(DynamicData):
+class FileLayout(pyVmomi.vmodl.DynamicData):
+   class DiskLayout(pyVmomi.vmodl.DynamicData):
       key: int
       diskFile: list[str] = []
 
-   class SnapshotLayout(DynamicData):
+   class SnapshotLayout(pyVmomi.vmodl.DynamicData):
       key: Snapshot
       snapshotFile: list[str] = []
 
@@ -717,55 +625,55 @@ class FileLayout(DynamicData):
    logFile: list[str] = []
    disk: list[DiskLayout] = []
    snapshot: list[SnapshotLayout] = []
-   swapFile: Optional[str] = None
+   swapFile: _typing.Optional[str] = None
 
 
-class FileLayoutEx(DynamicData):
-   class FileType(Enum):
-      config: ClassVar['FileType'] = 'config'
-      extendedConfig: ClassVar['FileType'] = 'extendedConfig'
-      diskDescriptor: ClassVar['FileType'] = 'diskDescriptor'
-      diskExtent: ClassVar['FileType'] = 'diskExtent'
-      digestDescriptor: ClassVar['FileType'] = 'digestDescriptor'
-      digestExtent: ClassVar['FileType'] = 'digestExtent'
-      diskReplicationState: ClassVar['FileType'] = 'diskReplicationState'
-      log: ClassVar['FileType'] = 'log'
-      stat: ClassVar['FileType'] = 'stat'
-      namespaceData: ClassVar['FileType'] = 'namespaceData'
-      dataSetsDiskModeStore: ClassVar['FileType'] = 'dataSetsDiskModeStore'
-      dataSetsVmModeStore: ClassVar['FileType'] = 'dataSetsVmModeStore'
-      nvram: ClassVar['FileType'] = 'nvram'
-      snapshotData: ClassVar['FileType'] = 'snapshotData'
-      snapshotMemory: ClassVar['FileType'] = 'snapshotMemory'
-      snapshotList: ClassVar['FileType'] = 'snapshotList'
-      snapshotManifestList: ClassVar['FileType'] = 'snapshotManifestList'
-      suspend: ClassVar['FileType'] = 'suspend'
-      suspendMemory: ClassVar['FileType'] = 'suspendMemory'
-      swap: ClassVar['FileType'] = 'swap'
-      uwswap: ClassVar['FileType'] = 'uwswap'
-      core: ClassVar['FileType'] = 'core'
-      screenshot: ClassVar['FileType'] = 'screenshot'
-      ftMetadata: ClassVar['FileType'] = 'ftMetadata'
-      guestCustomization: ClassVar['FileType'] = 'guestCustomization'
+class FileLayoutEx(pyVmomi.vmodl.DynamicData):
+   class FileType(pyVmomi.VmomiSupport.Enum):
+      config: _typing.ClassVar['FileType'] = 'config'
+      extendedConfig: _typing.ClassVar['FileType'] = 'extendedConfig'
+      diskDescriptor: _typing.ClassVar['FileType'] = 'diskDescriptor'
+      diskExtent: _typing.ClassVar['FileType'] = 'diskExtent'
+      digestDescriptor: _typing.ClassVar['FileType'] = 'digestDescriptor'
+      digestExtent: _typing.ClassVar['FileType'] = 'digestExtent'
+      diskReplicationState: _typing.ClassVar['FileType'] = 'diskReplicationState'
+      log: _typing.ClassVar['FileType'] = 'log'
+      stat: _typing.ClassVar['FileType'] = 'stat'
+      namespaceData: _typing.ClassVar['FileType'] = 'namespaceData'
+      dataSetsDiskModeStore: _typing.ClassVar['FileType'] = 'dataSetsDiskModeStore'
+      dataSetsVmModeStore: _typing.ClassVar['FileType'] = 'dataSetsVmModeStore'
+      nvram: _typing.ClassVar['FileType'] = 'nvram'
+      snapshotData: _typing.ClassVar['FileType'] = 'snapshotData'
+      snapshotMemory: _typing.ClassVar['FileType'] = 'snapshotMemory'
+      snapshotList: _typing.ClassVar['FileType'] = 'snapshotList'
+      snapshotManifestList: _typing.ClassVar['FileType'] = 'snapshotManifestList'
+      suspend: _typing.ClassVar['FileType'] = 'suspend'
+      suspendMemory: _typing.ClassVar['FileType'] = 'suspendMemory'
+      swap: _typing.ClassVar['FileType'] = 'swap'
+      uwswap: _typing.ClassVar['FileType'] = 'uwswap'
+      core: _typing.ClassVar['FileType'] = 'core'
+      screenshot: _typing.ClassVar['FileType'] = 'screenshot'
+      ftMetadata: _typing.ClassVar['FileType'] = 'ftMetadata'
+      guestCustomization: _typing.ClassVar['FileType'] = 'guestCustomization'
 
-   class FileInfo(DynamicData):
+   class FileInfo(pyVmomi.vmodl.DynamicData):
       key: int
       name: str
       type: str
-      size: long
-      uniqueSize: Optional[long] = None
-      backingObjectId: Optional[str] = None
-      accessible: Optional[bool] = None
+      size: pyVmomi.VmomiSupport.long
+      uniqueSize: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+      backingObjectId: _typing.Optional[str] = None
+      accessible: _typing.Optional[bool] = None
 
-   class DiskUnit(DynamicData):
+   class DiskUnit(pyVmomi.vmodl.DynamicData):
       fileKey: list[int] = []
 
-   class DiskLayout(DynamicData):
+   class DiskLayout(pyVmomi.vmodl.DynamicData):
       key: int
-      virtualDiskFormat: Optional[str] = None
+      virtualDiskFormat: _typing.Optional[str] = None
       chain: list[DiskUnit] = []
 
-   class SnapshotLayout(DynamicData):
+   class SnapshotLayout(pyVmomi.vmodl.DynamicData):
       key: Snapshot
       dataKey: int
       memoryKey: int
@@ -774,448 +682,448 @@ class FileLayoutEx(DynamicData):
    file: list[FileInfo] = []
    disk: list[DiskLayout] = []
    snapshot: list[SnapshotLayout] = []
-   timestamp: datetime
+   timestamp: _datetime.datetime
 
 
-class FlagInfo(DynamicData):
-   class HtSharing(Enum):
-      any: ClassVar['HtSharing'] = 'any'
-      none: ClassVar['HtSharing'] = 'none'
-      internal: ClassVar['HtSharing'] = 'internal'
+class FlagInfo(pyVmomi.vmodl.DynamicData):
+   class HtSharing(pyVmomi.VmomiSupport.Enum):
+      any: _typing.ClassVar['HtSharing'] = 'any'
+      none: _typing.ClassVar['HtSharing'] = 'none'
+      internal: _typing.ClassVar['HtSharing'] = 'internal'
 
-   class PowerOffBehavior(Enum):
-      powerOff: ClassVar['PowerOffBehavior'] = 'powerOff'
-      revert: ClassVar['PowerOffBehavior'] = 'revert'
-      prompt: ClassVar['PowerOffBehavior'] = 'prompt'
-      take: ClassVar['PowerOffBehavior'] = 'take'
+   class PowerOffBehavior(pyVmomi.VmomiSupport.Enum):
+      powerOff: _typing.ClassVar['PowerOffBehavior'] = 'powerOff'
+      revert: _typing.ClassVar['PowerOffBehavior'] = 'revert'
+      prompt: _typing.ClassVar['PowerOffBehavior'] = 'prompt'
+      take: _typing.ClassVar['PowerOffBehavior'] = 'take'
 
-   class MonitorType(Enum):
-      release: ClassVar['MonitorType'] = 'release'
-      debug: ClassVar['MonitorType'] = 'debug'
-      stats: ClassVar['MonitorType'] = 'stats'
+   class MonitorType(pyVmomi.VmomiSupport.Enum):
+      release: _typing.ClassVar['MonitorType'] = 'release'
+      debug: _typing.ClassVar['MonitorType'] = 'debug'
+      stats: _typing.ClassVar['MonitorType'] = 'stats'
 
-   class VirtualMmuUsage(Enum):
-      automatic: ClassVar['VirtualMmuUsage'] = 'automatic'
-      on: ClassVar['VirtualMmuUsage'] = 'on'
-      off: ClassVar['VirtualMmuUsage'] = 'off'
+   class VirtualMmuUsage(pyVmomi.VmomiSupport.Enum):
+      automatic: _typing.ClassVar['VirtualMmuUsage'] = 'automatic'
+      on: _typing.ClassVar['VirtualMmuUsage'] = 'on'
+      off: _typing.ClassVar['VirtualMmuUsage'] = 'off'
 
-   class VirtualExecUsage(Enum):
-      hvAuto: ClassVar['VirtualExecUsage'] = 'hvAuto'
-      hvOn: ClassVar['VirtualExecUsage'] = 'hvOn'
-      hvOff: ClassVar['VirtualExecUsage'] = 'hvOff'
+   class VirtualExecUsage(pyVmomi.VmomiSupport.Enum):
+      hvAuto: _typing.ClassVar['VirtualExecUsage'] = 'hvAuto'
+      hvOn: _typing.ClassVar['VirtualExecUsage'] = 'hvOn'
+      hvOff: _typing.ClassVar['VirtualExecUsage'] = 'hvOff'
 
-   disableAcceleration: Optional[bool] = None
-   enableLogging: Optional[bool] = None
-   useToe: Optional[bool] = None
-   runWithDebugInfo: Optional[bool] = None
-   monitorType: Optional[str] = None
-   htSharing: Optional[str] = None
-   snapshotDisabled: Optional[bool] = None
-   snapshotLocked: Optional[bool] = None
-   diskUuidEnabled: Optional[bool] = None
-   virtualMmuUsage: Optional[str] = None
-   virtualExecUsage: Optional[str] = None
-   snapshotPowerOffBehavior: Optional[str] = None
-   recordReplayEnabled: Optional[bool] = None
-   faultToleranceType: Optional[str] = None
-   cbrcCacheEnabled: Optional[bool] = None
-   vvtdEnabled: Optional[bool] = None
-   vbsEnabled: Optional[bool] = None
+   disableAcceleration: _typing.Optional[bool] = None
+   enableLogging: _typing.Optional[bool] = None
+   useToe: _typing.Optional[bool] = None
+   runWithDebugInfo: _typing.Optional[bool] = None
+   monitorType: _typing.Optional[str] = None
+   htSharing: _typing.Optional[str] = None
+   snapshotDisabled: _typing.Optional[bool] = None
+   snapshotLocked: _typing.Optional[bool] = None
+   diskUuidEnabled: _typing.Optional[bool] = None
+   virtualMmuUsage: _typing.Optional[str] = None
+   virtualExecUsage: _typing.Optional[str] = None
+   snapshotPowerOffBehavior: _typing.Optional[str] = None
+   recordReplayEnabled: _typing.Optional[bool] = None
+   faultToleranceType: _typing.Optional[str] = None
+   cbrcCacheEnabled: _typing.Optional[bool] = None
+   vvtdEnabled: _typing.Optional[bool] = None
+   vbsEnabled: _typing.Optional[bool] = None
 
 class FloppyInfo(TargetInfo):
    pass
 
 
-class ForkConfigInfo(DynamicData):
-   class ChildType(Enum):
-      none: ClassVar['ChildType'] = 'none'
-      persistent: ClassVar['ChildType'] = 'persistent'
-      nonpersistent: ClassVar['ChildType'] = 'nonpersistent'
+class ForkConfigInfo(pyVmomi.vmodl.DynamicData):
+   class ChildType(pyVmomi.VmomiSupport.Enum):
+      none: _typing.ClassVar['ChildType'] = 'none'
+      persistent: _typing.ClassVar['ChildType'] = 'persistent'
+      nonpersistent: _typing.ClassVar['ChildType'] = 'nonpersistent'
 
-   parentEnabled: Optional[bool] = None
-   childForkGroupId: Optional[str] = None
-   parentForkGroupId: Optional[str] = None
-   childType: Optional[str] = None
-
-
-class GuestCustomizationManager(ManagedObject):
-   def Customize(self, vm: VirtualMachine, auth: GuestAuthentication, spec: Specification, configParams: list[OptionValue]) -> Task: ...
-   def StartNetwork(self, vm: VirtualMachine, auth: GuestAuthentication) -> Task: ...
-   def AbortCustomization(self, vm: VirtualMachine, auth: GuestAuthentication) -> Task: ...
+   parentEnabled: _typing.Optional[bool] = None
+   childForkGroupId: _typing.Optional[str] = None
+   parentForkGroupId: _typing.Optional[str] = None
+   childType: _typing.Optional[str] = None
 
 
-class GuestInfo(DynamicData):
-   class ToolsStatus(Enum):
-      toolsNotInstalled: ClassVar['ToolsStatus'] = 'toolsNotInstalled'
-      toolsNotRunning: ClassVar['ToolsStatus'] = 'toolsNotRunning'
-      toolsOld: ClassVar['ToolsStatus'] = 'toolsOld'
-      toolsOk: ClassVar['ToolsStatus'] = 'toolsOk'
+class GuestCustomizationManager(pyVmomi.VmomiSupport.ManagedObject):
+   def Customize(self, vm: pyVmomi.vim.VirtualMachine, auth: pyVmomi.vim.vm.guest.GuestAuthentication, spec: pyVmomi.vim.vm.customization.Specification, configParams: list[pyVmomi.vim.option.OptionValue]) -> pyVmomi.vim.Task: ...
+   def StartNetwork(self, vm: pyVmomi.vim.VirtualMachine, auth: pyVmomi.vim.vm.guest.GuestAuthentication) -> pyVmomi.vim.Task: ...
+   def AbortCustomization(self, vm: pyVmomi.vim.VirtualMachine, auth: pyVmomi.vim.vm.guest.GuestAuthentication) -> pyVmomi.vim.Task: ...
 
-   class ToolsVersionStatus(Enum):
-      guestToolsNotInstalled: ClassVar['ToolsVersionStatus'] = 'guestToolsNotInstalled'
-      guestToolsNeedUpgrade: ClassVar['ToolsVersionStatus'] = 'guestToolsNeedUpgrade'
-      guestToolsCurrent: ClassVar['ToolsVersionStatus'] = 'guestToolsCurrent'
-      guestToolsUnmanaged: ClassVar['ToolsVersionStatus'] = 'guestToolsUnmanaged'
-      guestToolsTooOld: ClassVar['ToolsVersionStatus'] = 'guestToolsTooOld'
-      guestToolsSupportedOld: ClassVar['ToolsVersionStatus'] = 'guestToolsSupportedOld'
-      guestToolsSupportedNew: ClassVar['ToolsVersionStatus'] = 'guestToolsSupportedNew'
-      guestToolsTooNew: ClassVar['ToolsVersionStatus'] = 'guestToolsTooNew'
-      guestToolsBlacklisted: ClassVar['ToolsVersionStatus'] = 'guestToolsBlacklisted'
 
-   class ToolsRunningStatus(Enum):
-      guestToolsNotRunning: ClassVar['ToolsRunningStatus'] = 'guestToolsNotRunning'
-      guestToolsRunning: ClassVar['ToolsRunningStatus'] = 'guestToolsRunning'
-      guestToolsExecutingScripts: ClassVar['ToolsRunningStatus'] = 'guestToolsExecutingScripts'
+class GuestInfo(pyVmomi.vmodl.DynamicData):
+   class ToolsStatus(pyVmomi.VmomiSupport.Enum):
+      toolsNotInstalled: _typing.ClassVar['ToolsStatus'] = 'toolsNotInstalled'
+      toolsNotRunning: _typing.ClassVar['ToolsStatus'] = 'toolsNotRunning'
+      toolsOld: _typing.ClassVar['ToolsStatus'] = 'toolsOld'
+      toolsOk: _typing.ClassVar['ToolsStatus'] = 'toolsOk'
 
-   class ToolsInstallType(Enum):
-      guestToolsTypeUnknown: ClassVar['ToolsInstallType'] = 'guestToolsTypeUnknown'
-      guestToolsTypeMSI: ClassVar['ToolsInstallType'] = 'guestToolsTypeMSI'
-      guestToolsTypeTar: ClassVar['ToolsInstallType'] = 'guestToolsTypeTar'
-      guestToolsTypeOSP: ClassVar['ToolsInstallType'] = 'guestToolsTypeOSP'
-      guestToolsTypeOpenVMTools: ClassVar['ToolsInstallType'] = 'guestToolsTypeOpenVMTools'
+   class ToolsVersionStatus(pyVmomi.VmomiSupport.Enum):
+      guestToolsNotInstalled: _typing.ClassVar['ToolsVersionStatus'] = 'guestToolsNotInstalled'
+      guestToolsNeedUpgrade: _typing.ClassVar['ToolsVersionStatus'] = 'guestToolsNeedUpgrade'
+      guestToolsCurrent: _typing.ClassVar['ToolsVersionStatus'] = 'guestToolsCurrent'
+      guestToolsUnmanaged: _typing.ClassVar['ToolsVersionStatus'] = 'guestToolsUnmanaged'
+      guestToolsTooOld: _typing.ClassVar['ToolsVersionStatus'] = 'guestToolsTooOld'
+      guestToolsSupportedOld: _typing.ClassVar['ToolsVersionStatus'] = 'guestToolsSupportedOld'
+      guestToolsSupportedNew: _typing.ClassVar['ToolsVersionStatus'] = 'guestToolsSupportedNew'
+      guestToolsTooNew: _typing.ClassVar['ToolsVersionStatus'] = 'guestToolsTooNew'
+      guestToolsBlacklisted: _typing.ClassVar['ToolsVersionStatus'] = 'guestToolsBlacklisted'
 
-   class GuestRebootStatus(DynamicData):
+   class ToolsRunningStatus(pyVmomi.VmomiSupport.Enum):
+      guestToolsNotRunning: _typing.ClassVar['ToolsRunningStatus'] = 'guestToolsNotRunning'
+      guestToolsRunning: _typing.ClassVar['ToolsRunningStatus'] = 'guestToolsRunning'
+      guestToolsExecutingScripts: _typing.ClassVar['ToolsRunningStatus'] = 'guestToolsExecutingScripts'
+
+   class ToolsInstallType(pyVmomi.VmomiSupport.Enum):
+      guestToolsTypeUnknown: _typing.ClassVar['ToolsInstallType'] = 'guestToolsTypeUnknown'
+      guestToolsTypeMSI: _typing.ClassVar['ToolsInstallType'] = 'guestToolsTypeMSI'
+      guestToolsTypeTar: _typing.ClassVar['ToolsInstallType'] = 'guestToolsTypeTar'
+      guestToolsTypeOSP: _typing.ClassVar['ToolsInstallType'] = 'guestToolsTypeOSP'
+      guestToolsTypeOpenVMTools: _typing.ClassVar['ToolsInstallType'] = 'guestToolsTypeOpenVMTools'
+
+   class GuestRebootStatus(pyVmomi.vmodl.DynamicData):
       rebootRequested: bool
       requestingComponents: list[str] = []
-      requestTimestamp: Optional[datetime] = None
+      requestTimestamp: _typing.Optional[_datetime.datetime] = None
 
-   class VirtualDiskMapping(DynamicData):
+   class VirtualDiskMapping(pyVmomi.vmodl.DynamicData):
       key: int
 
-   class DiskInfo(DynamicData):
-      diskPath: Optional[str] = None
-      capacity: Optional[long] = None
-      freeSpace: Optional[long] = None
-      filesystemType: Optional[str] = None
+   class DiskInfo(pyVmomi.vmodl.DynamicData):
+      diskPath: _typing.Optional[str] = None
+      capacity: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+      freeSpace: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+      filesystemType: _typing.Optional[str] = None
       mappings: list[VirtualDiskMapping] = []
 
-   class NicInfo(DynamicData):
-      network: Optional[str] = None
+   class NicInfo(pyVmomi.vmodl.DynamicData):
+      network: _typing.Optional[str] = None
       ipAddress: list[str] = []
-      macAddress: Optional[str] = None
+      macAddress: _typing.Optional[str] = None
       connected: bool
       deviceConfigId: int
-      dnsConfig: Optional[DnsConfigInfo] = None
-      ipConfig: Optional[IpConfigInfo] = None
-      netBIOSConfig: Optional[NetBIOSConfigInfo] = None
+      dnsConfig: _typing.Optional[pyVmomi.vim.net.DnsConfigInfo] = None
+      ipConfig: _typing.Optional[pyVmomi.vim.net.IpConfigInfo] = None
+      netBIOSConfig: _typing.Optional[pyVmomi.vim.net.NetBIOSConfigInfo] = None
 
-   class StackInfo(DynamicData):
-      dnsConfig: Optional[DnsConfigInfo] = None
-      ipRouteConfig: Optional[IpRouteConfigInfo] = None
-      ipStackConfig: list[KeyValue] = []
-      dhcpConfig: Optional[DhcpConfigInfo] = None
+   class StackInfo(pyVmomi.vmodl.DynamicData):
+      dnsConfig: _typing.Optional[pyVmomi.vim.net.DnsConfigInfo] = None
+      ipRouteConfig: _typing.Optional[pyVmomi.vim.net.IpRouteConfigInfo] = None
+      ipStackConfig: list[pyVmomi.vim.KeyValue] = []
+      dhcpConfig: _typing.Optional[pyVmomi.vim.net.DhcpConfigInfo] = None
 
-   class ScreenInfo(DynamicData):
+   class ScreenInfo(pyVmomi.vmodl.DynamicData):
       width: int
       height: int
 
-   class GuestState(Enum):
-      running: ClassVar['GuestState'] = 'running'
-      shuttingDown: ClassVar['GuestState'] = 'shuttingDown'
-      resetting: ClassVar['GuestState'] = 'resetting'
-      standby: ClassVar['GuestState'] = 'standby'
-      notRunning: ClassVar['GuestState'] = 'notRunning'
-      unknown: ClassVar['GuestState'] = 'unknown'
+   class GuestState(pyVmomi.VmomiSupport.Enum):
+      running: _typing.ClassVar['GuestState'] = 'running'
+      shuttingDown: _typing.ClassVar['GuestState'] = 'shuttingDown'
+      resetting: _typing.ClassVar['GuestState'] = 'resetting'
+      standby: _typing.ClassVar['GuestState'] = 'standby'
+      notRunning: _typing.ClassVar['GuestState'] = 'notRunning'
+      unknown: _typing.ClassVar['GuestState'] = 'unknown'
 
-   class AppStateType(Enum):
-      none: ClassVar['AppStateType'] = 'none'
-      appStateOk: ClassVar['AppStateType'] = 'appStateOk'
-      appStateNeedReset: ClassVar['AppStateType'] = 'appStateNeedReset'
+   class AppStateType(pyVmomi.VmomiSupport.Enum):
+      none: _typing.ClassVar['AppStateType'] = 'none'
+      appStateOk: _typing.ClassVar['AppStateType'] = 'appStateOk'
+      appStateNeedReset: _typing.ClassVar['AppStateType'] = 'appStateNeedReset'
 
-   class NamespaceGenerationInfo(DynamicData):
+   class NamespaceGenerationInfo(pyVmomi.vmodl.DynamicData):
       key: str
       generationNo: int
 
-   class CustomizationStatus(Enum):
-      TOOLSDEPLOYPKG_IDLE: ClassVar['CustomizationStatus'] = 'TOOLSDEPLOYPKG_IDLE'
-      TOOLSDEPLOYPKG_PENDING: ClassVar['CustomizationStatus'] = 'TOOLSDEPLOYPKG_PENDING'
-      TOOLSDEPLOYPKG_RUNNING: ClassVar['CustomizationStatus'] = 'TOOLSDEPLOYPKG_RUNNING'
-      TOOLSDEPLOYPKG_SUCCEEDED: ClassVar['CustomizationStatus'] = 'TOOLSDEPLOYPKG_SUCCEEDED'
-      TOOLSDEPLOYPKG_FAILED: ClassVar['CustomizationStatus'] = 'TOOLSDEPLOYPKG_FAILED'
+   class CustomizationStatus(pyVmomi.VmomiSupport.Enum):
+      TOOLSDEPLOYPKG_IDLE: _typing.ClassVar['CustomizationStatus'] = 'TOOLSDEPLOYPKG_IDLE'
+      TOOLSDEPLOYPKG_PENDING: _typing.ClassVar['CustomizationStatus'] = 'TOOLSDEPLOYPKG_PENDING'
+      TOOLSDEPLOYPKG_RUNNING: _typing.ClassVar['CustomizationStatus'] = 'TOOLSDEPLOYPKG_RUNNING'
+      TOOLSDEPLOYPKG_SUCCEEDED: _typing.ClassVar['CustomizationStatus'] = 'TOOLSDEPLOYPKG_SUCCEEDED'
+      TOOLSDEPLOYPKG_FAILED: _typing.ClassVar['CustomizationStatus'] = 'TOOLSDEPLOYPKG_FAILED'
 
-   class CustomizationInfo(DynamicData):
+   class CustomizationInfo(pyVmomi.vmodl.DynamicData):
       customizationStatus: str
-      startTime: Optional[datetime] = None
-      endTime: Optional[datetime] = None
-      errorMsg: Optional[str] = None
+      startTime: _typing.Optional[_datetime.datetime] = None
+      endTime: _typing.Optional[_datetime.datetime] = None
+      errorMsg: _typing.Optional[str] = None
 
-   toolsStatus: Optional[ToolsStatus] = None
-   toolsVersionStatus: Optional[str] = None
-   toolsVersionStatus2: Optional[str] = None
-   toolsRunningStatus: Optional[str] = None
-   toolsVersion: Optional[str] = None
-   toolsInstallType: Optional[str] = None
-   guestId: Optional[str] = None
-   guestFamily: Optional[str] = None
-   guestFullName: Optional[str] = None
-   guestRebootStatus: Optional[GuestRebootStatus] = None
-   guestDetailedData: Optional[str] = None
-   hostName: Optional[str] = None
-   ipAddress: Optional[str] = None
+   toolsStatus: _typing.Optional[ToolsStatus] = None
+   toolsVersionStatus: _typing.Optional[str] = None
+   toolsVersionStatus2: _typing.Optional[str] = None
+   toolsRunningStatus: _typing.Optional[str] = None
+   toolsVersion: _typing.Optional[str] = None
+   toolsInstallType: _typing.Optional[str] = None
+   guestId: _typing.Optional[str] = None
+   guestFamily: _typing.Optional[str] = None
+   guestFullName: _typing.Optional[str] = None
+   guestRebootStatus: _typing.Optional[GuestRebootStatus] = None
+   guestDetailedData: _typing.Optional[str] = None
+   hostName: _typing.Optional[str] = None
+   ipAddress: _typing.Optional[str] = None
    net: list[NicInfo] = []
    ipStack: list[StackInfo] = []
    disk: list[DiskInfo] = []
-   screen: Optional[ScreenInfo] = None
+   screen: _typing.Optional[ScreenInfo] = None
    guestState: str
-   appHeartbeatStatus: Optional[str] = None
-   guestKernelCrashed: Optional[bool] = None
-   appState: Optional[str] = None
-   guestOperationsReady: Optional[bool] = None
-   interactiveGuestOperationsReady: Optional[bool] = None
-   guestStateChangeSupported: Optional[bool] = None
+   appHeartbeatStatus: _typing.Optional[str] = None
+   guestKernelCrashed: _typing.Optional[bool] = None
+   appState: _typing.Optional[str] = None
+   guestOperationsReady: _typing.Optional[bool] = None
+   interactiveGuestOperationsReady: _typing.Optional[bool] = None
+   guestStateChangeSupported: _typing.Optional[bool] = None
    generationInfo: list[NamespaceGenerationInfo] = []
-   hwVersion: Optional[str] = None
-   customizationInfo: Optional[CustomizationInfo] = None
+   hwVersion: _typing.Optional[str] = None
+   customizationInfo: _typing.Optional[CustomizationInfo] = None
 
 
-class GuestIntegrityInfo(DynamicData):
-   enabled: Optional[bool] = None
+class GuestIntegrityInfo(pyVmomi.vmodl.DynamicData):
+   enabled: _typing.Optional[bool] = None
 
 
-class GuestMonitoringModeInfo(DynamicData):
-   gmmFile: Optional[str] = None
-   gmmAppliance: Optional[str] = None
+class GuestMonitoringModeInfo(pyVmomi.vmodl.DynamicData):
+   gmmFile: _typing.Optional[str] = None
+   gmmAppliance: _typing.Optional[str] = None
 
 
-class GuestOsDescriptor(DynamicData):
-   class GuestOsFamily(Enum):
-      windowsGuest: ClassVar['GuestOsFamily'] = 'windowsGuest'
-      linuxGuest: ClassVar['GuestOsFamily'] = 'linuxGuest'
-      netwareGuest: ClassVar['GuestOsFamily'] = 'netwareGuest'
-      solarisGuest: ClassVar['GuestOsFamily'] = 'solarisGuest'
-      darwinGuestFamily: ClassVar['GuestOsFamily'] = 'darwinGuestFamily'
-      otherGuestFamily: ClassVar['GuestOsFamily'] = 'otherGuestFamily'
+class GuestOsDescriptor(pyVmomi.vmodl.DynamicData):
+   class GuestOsFamily(pyVmomi.VmomiSupport.Enum):
+      windowsGuest: _typing.ClassVar['GuestOsFamily'] = 'windowsGuest'
+      linuxGuest: _typing.ClassVar['GuestOsFamily'] = 'linuxGuest'
+      netwareGuest: _typing.ClassVar['GuestOsFamily'] = 'netwareGuest'
+      solarisGuest: _typing.ClassVar['GuestOsFamily'] = 'solarisGuest'
+      darwinGuestFamily: _typing.ClassVar['GuestOsFamily'] = 'darwinGuestFamily'
+      otherGuestFamily: _typing.ClassVar['GuestOsFamily'] = 'otherGuestFamily'
 
-   class GuestArchitecture(Enum):
-      x86: ClassVar['GuestArchitecture'] = 'x86'
-      arm: ClassVar['GuestArchitecture'] = 'arm'
+   class GuestArchitecture(pyVmomi.VmomiSupport.Enum):
+      x86: _typing.ClassVar['GuestArchitecture'] = 'x86'
+      arm: _typing.ClassVar['GuestArchitecture'] = 'arm'
 
-   class GuestOsIdentifier(Enum):
-      dosGuest: ClassVar['GuestOsIdentifier'] = 'dosGuest'
-      win31Guest: ClassVar['GuestOsIdentifier'] = 'win31Guest'
-      win95Guest: ClassVar['GuestOsIdentifier'] = 'win95Guest'
-      win98Guest: ClassVar['GuestOsIdentifier'] = 'win98Guest'
-      winMeGuest: ClassVar['GuestOsIdentifier'] = 'winMeGuest'
-      winNTGuest: ClassVar['GuestOsIdentifier'] = 'winNTGuest'
-      win2000ProGuest: ClassVar['GuestOsIdentifier'] = 'win2000ProGuest'
-      win2000ServGuest: ClassVar['GuestOsIdentifier'] = 'win2000ServGuest'
-      win2000AdvServGuest: ClassVar['GuestOsIdentifier'] = 'win2000AdvServGuest'
-      winXPHomeGuest: ClassVar['GuestOsIdentifier'] = 'winXPHomeGuest'
-      winXPProGuest: ClassVar['GuestOsIdentifier'] = 'winXPProGuest'
-      winXPPro64Guest: ClassVar['GuestOsIdentifier'] = 'winXPPro64Guest'
-      winNetWebGuest: ClassVar['GuestOsIdentifier'] = 'winNetWebGuest'
-      winNetStandardGuest: ClassVar['GuestOsIdentifier'] = 'winNetStandardGuest'
-      winNetEnterpriseGuest: ClassVar['GuestOsIdentifier'] = 'winNetEnterpriseGuest'
-      winNetDatacenterGuest: ClassVar['GuestOsIdentifier'] = 'winNetDatacenterGuest'
-      winNetBusinessGuest: ClassVar['GuestOsIdentifier'] = 'winNetBusinessGuest'
-      winNetStandard64Guest: ClassVar['GuestOsIdentifier'] = 'winNetStandard64Guest'
-      winNetEnterprise64Guest: ClassVar['GuestOsIdentifier'] = 'winNetEnterprise64Guest'
-      winLonghornGuest: ClassVar['GuestOsIdentifier'] = 'winLonghornGuest'
-      winLonghorn64Guest: ClassVar['GuestOsIdentifier'] = 'winLonghorn64Guest'
-      winNetDatacenter64Guest: ClassVar['GuestOsIdentifier'] = 'winNetDatacenter64Guest'
-      winVistaGuest: ClassVar['GuestOsIdentifier'] = 'winVistaGuest'
-      winVista64Guest: ClassVar['GuestOsIdentifier'] = 'winVista64Guest'
-      windows7Guest: ClassVar['GuestOsIdentifier'] = 'windows7Guest'
-      windows7_64Guest: ClassVar['GuestOsIdentifier'] = 'windows7_64Guest'
-      windows7Server64Guest: ClassVar['GuestOsIdentifier'] = 'windows7Server64Guest'
-      windows8Guest: ClassVar['GuestOsIdentifier'] = 'windows8Guest'
-      windows8_64Guest: ClassVar['GuestOsIdentifier'] = 'windows8_64Guest'
-      windows8Server64Guest: ClassVar['GuestOsIdentifier'] = 'windows8Server64Guest'
-      windows9Guest: ClassVar['GuestOsIdentifier'] = 'windows9Guest'
-      windows9_64Guest: ClassVar['GuestOsIdentifier'] = 'windows9_64Guest'
-      windows9Server64Guest: ClassVar['GuestOsIdentifier'] = 'windows9Server64Guest'
-      windows11_64Guest: ClassVar['GuestOsIdentifier'] = 'windows11_64Guest'
-      windows12_64Guest: ClassVar['GuestOsIdentifier'] = 'windows12_64Guest'
-      windowsHyperVGuest: ClassVar['GuestOsIdentifier'] = 'windowsHyperVGuest'
-      windows2019srv_64Guest: ClassVar['GuestOsIdentifier'] = 'windows2019srv_64Guest'
-      windows2019srvNext_64Guest: ClassVar['GuestOsIdentifier'] = 'windows2019srvNext_64Guest'
-      windows2022srvNext_64Guest: ClassVar['GuestOsIdentifier'] = 'windows2022srvNext_64Guest'
-      freebsdGuest: ClassVar['GuestOsIdentifier'] = 'freebsdGuest'
-      freebsd64Guest: ClassVar['GuestOsIdentifier'] = 'freebsd64Guest'
-      freebsd11Guest: ClassVar['GuestOsIdentifier'] = 'freebsd11Guest'
-      freebsd11_64Guest: ClassVar['GuestOsIdentifier'] = 'freebsd11_64Guest'
-      freebsd12Guest: ClassVar['GuestOsIdentifier'] = 'freebsd12Guest'
-      freebsd12_64Guest: ClassVar['GuestOsIdentifier'] = 'freebsd12_64Guest'
-      freebsd13Guest: ClassVar['GuestOsIdentifier'] = 'freebsd13Guest'
-      freebsd13_64Guest: ClassVar['GuestOsIdentifier'] = 'freebsd13_64Guest'
-      freebsd14Guest: ClassVar['GuestOsIdentifier'] = 'freebsd14Guest'
-      freebsd14_64Guest: ClassVar['GuestOsIdentifier'] = 'freebsd14_64Guest'
-      freebsd15Guest: ClassVar['GuestOsIdentifier'] = 'freebsd15Guest'
-      freebsd15_64Guest: ClassVar['GuestOsIdentifier'] = 'freebsd15_64Guest'
-      redhatGuest: ClassVar['GuestOsIdentifier'] = 'redhatGuest'
-      rhel2Guest: ClassVar['GuestOsIdentifier'] = 'rhel2Guest'
-      rhel3Guest: ClassVar['GuestOsIdentifier'] = 'rhel3Guest'
-      rhel3_64Guest: ClassVar['GuestOsIdentifier'] = 'rhel3_64Guest'
-      rhel4Guest: ClassVar['GuestOsIdentifier'] = 'rhel4Guest'
-      rhel4_64Guest: ClassVar['GuestOsIdentifier'] = 'rhel4_64Guest'
-      rhel5Guest: ClassVar['GuestOsIdentifier'] = 'rhel5Guest'
-      rhel5_64Guest: ClassVar['GuestOsIdentifier'] = 'rhel5_64Guest'
-      rhel6Guest: ClassVar['GuestOsIdentifier'] = 'rhel6Guest'
-      rhel6_64Guest: ClassVar['GuestOsIdentifier'] = 'rhel6_64Guest'
-      rhel7Guest: ClassVar['GuestOsIdentifier'] = 'rhel7Guest'
-      rhel7_64Guest: ClassVar['GuestOsIdentifier'] = 'rhel7_64Guest'
-      rhel8_64Guest: ClassVar['GuestOsIdentifier'] = 'rhel8_64Guest'
-      rhel9_64Guest: ClassVar['GuestOsIdentifier'] = 'rhel9_64Guest'
-      rhel10_64Guest: ClassVar['GuestOsIdentifier'] = 'rhel10_64Guest'
-      centosGuest: ClassVar['GuestOsIdentifier'] = 'centosGuest'
-      centos64Guest: ClassVar['GuestOsIdentifier'] = 'centos64Guest'
-      centos6Guest: ClassVar['GuestOsIdentifier'] = 'centos6Guest'
-      centos6_64Guest: ClassVar['GuestOsIdentifier'] = 'centos6_64Guest'
-      centos7Guest: ClassVar['GuestOsIdentifier'] = 'centos7Guest'
-      centos7_64Guest: ClassVar['GuestOsIdentifier'] = 'centos7_64Guest'
-      centos8_64Guest: ClassVar['GuestOsIdentifier'] = 'centos8_64Guest'
-      centos9_64Guest: ClassVar['GuestOsIdentifier'] = 'centos9_64Guest'
-      oracleLinuxGuest: ClassVar['GuestOsIdentifier'] = 'oracleLinuxGuest'
-      oracleLinux64Guest: ClassVar['GuestOsIdentifier'] = 'oracleLinux64Guest'
-      oracleLinux6Guest: ClassVar['GuestOsIdentifier'] = 'oracleLinux6Guest'
-      oracleLinux6_64Guest: ClassVar['GuestOsIdentifier'] = 'oracleLinux6_64Guest'
-      oracleLinux7Guest: ClassVar['GuestOsIdentifier'] = 'oracleLinux7Guest'
-      oracleLinux7_64Guest: ClassVar['GuestOsIdentifier'] = 'oracleLinux7_64Guest'
-      oracleLinux8_64Guest: ClassVar['GuestOsIdentifier'] = 'oracleLinux8_64Guest'
-      oracleLinux9_64Guest: ClassVar['GuestOsIdentifier'] = 'oracleLinux9_64Guest'
-      oracleLinux10_64Guest: ClassVar['GuestOsIdentifier'] = 'oracleLinux10_64Guest'
-      suseGuest: ClassVar['GuestOsIdentifier'] = 'suseGuest'
-      suse64Guest: ClassVar['GuestOsIdentifier'] = 'suse64Guest'
-      slesGuest: ClassVar['GuestOsIdentifier'] = 'slesGuest'
-      sles64Guest: ClassVar['GuestOsIdentifier'] = 'sles64Guest'
-      sles10Guest: ClassVar['GuestOsIdentifier'] = 'sles10Guest'
-      sles10_64Guest: ClassVar['GuestOsIdentifier'] = 'sles10_64Guest'
-      sles11Guest: ClassVar['GuestOsIdentifier'] = 'sles11Guest'
-      sles11_64Guest: ClassVar['GuestOsIdentifier'] = 'sles11_64Guest'
-      sles12Guest: ClassVar['GuestOsIdentifier'] = 'sles12Guest'
-      sles12_64Guest: ClassVar['GuestOsIdentifier'] = 'sles12_64Guest'
-      sles15_64Guest: ClassVar['GuestOsIdentifier'] = 'sles15_64Guest'
-      sles16_64Guest: ClassVar['GuestOsIdentifier'] = 'sles16_64Guest'
-      nld9Guest: ClassVar['GuestOsIdentifier'] = 'nld9Guest'
-      oesGuest: ClassVar['GuestOsIdentifier'] = 'oesGuest'
-      sjdsGuest: ClassVar['GuestOsIdentifier'] = 'sjdsGuest'
-      mandrakeGuest: ClassVar['GuestOsIdentifier'] = 'mandrakeGuest'
-      mandrivaGuest: ClassVar['GuestOsIdentifier'] = 'mandrivaGuest'
-      mandriva64Guest: ClassVar['GuestOsIdentifier'] = 'mandriva64Guest'
-      turboLinuxGuest: ClassVar['GuestOsIdentifier'] = 'turboLinuxGuest'
-      turboLinux64Guest: ClassVar['GuestOsIdentifier'] = 'turboLinux64Guest'
-      ubuntuGuest: ClassVar['GuestOsIdentifier'] = 'ubuntuGuest'
-      ubuntu64Guest: ClassVar['GuestOsIdentifier'] = 'ubuntu64Guest'
-      debian4Guest: ClassVar['GuestOsIdentifier'] = 'debian4Guest'
-      debian4_64Guest: ClassVar['GuestOsIdentifier'] = 'debian4_64Guest'
-      debian5Guest: ClassVar['GuestOsIdentifier'] = 'debian5Guest'
-      debian5_64Guest: ClassVar['GuestOsIdentifier'] = 'debian5_64Guest'
-      debian6Guest: ClassVar['GuestOsIdentifier'] = 'debian6Guest'
-      debian6_64Guest: ClassVar['GuestOsIdentifier'] = 'debian6_64Guest'
-      debian7Guest: ClassVar['GuestOsIdentifier'] = 'debian7Guest'
-      debian7_64Guest: ClassVar['GuestOsIdentifier'] = 'debian7_64Guest'
-      debian8Guest: ClassVar['GuestOsIdentifier'] = 'debian8Guest'
-      debian8_64Guest: ClassVar['GuestOsIdentifier'] = 'debian8_64Guest'
-      debian9Guest: ClassVar['GuestOsIdentifier'] = 'debian9Guest'
-      debian9_64Guest: ClassVar['GuestOsIdentifier'] = 'debian9_64Guest'
-      debian10Guest: ClassVar['GuestOsIdentifier'] = 'debian10Guest'
-      debian10_64Guest: ClassVar['GuestOsIdentifier'] = 'debian10_64Guest'
-      debian11Guest: ClassVar['GuestOsIdentifier'] = 'debian11Guest'
-      debian11_64Guest: ClassVar['GuestOsIdentifier'] = 'debian11_64Guest'
-      debian12Guest: ClassVar['GuestOsIdentifier'] = 'debian12Guest'
-      debian12_64Guest: ClassVar['GuestOsIdentifier'] = 'debian12_64Guest'
-      debian13Guest: ClassVar['GuestOsIdentifier'] = 'debian13Guest'
-      debian13_64Guest: ClassVar['GuestOsIdentifier'] = 'debian13_64Guest'
-      asianux3Guest: ClassVar['GuestOsIdentifier'] = 'asianux3Guest'
-      asianux3_64Guest: ClassVar['GuestOsIdentifier'] = 'asianux3_64Guest'
-      asianux4Guest: ClassVar['GuestOsIdentifier'] = 'asianux4Guest'
-      asianux4_64Guest: ClassVar['GuestOsIdentifier'] = 'asianux4_64Guest'
-      asianux5_64Guest: ClassVar['GuestOsIdentifier'] = 'asianux5_64Guest'
-      asianux7_64Guest: ClassVar['GuestOsIdentifier'] = 'asianux7_64Guest'
-      asianux8_64Guest: ClassVar['GuestOsIdentifier'] = 'asianux8_64Guest'
-      asianux9_64Guest: ClassVar['GuestOsIdentifier'] = 'asianux9_64Guest'
-      miraclelinux_64Guest: ClassVar['GuestOsIdentifier'] = 'miraclelinux_64Guest'
-      pardus_64Guest: ClassVar['GuestOsIdentifier'] = 'pardus_64Guest'
-      opensuseGuest: ClassVar['GuestOsIdentifier'] = 'opensuseGuest'
-      opensuse64Guest: ClassVar['GuestOsIdentifier'] = 'opensuse64Guest'
-      fedoraGuest: ClassVar['GuestOsIdentifier'] = 'fedoraGuest'
-      fedora64Guest: ClassVar['GuestOsIdentifier'] = 'fedora64Guest'
-      coreos64Guest: ClassVar['GuestOsIdentifier'] = 'coreos64Guest'
-      vmwarePhoton64Guest: ClassVar['GuestOsIdentifier'] = 'vmwarePhoton64Guest'
-      other24xLinuxGuest: ClassVar['GuestOsIdentifier'] = 'other24xLinuxGuest'
-      other26xLinuxGuest: ClassVar['GuestOsIdentifier'] = 'other26xLinuxGuest'
-      otherLinuxGuest: ClassVar['GuestOsIdentifier'] = 'otherLinuxGuest'
-      other3xLinuxGuest: ClassVar['GuestOsIdentifier'] = 'other3xLinuxGuest'
-      other4xLinuxGuest: ClassVar['GuestOsIdentifier'] = 'other4xLinuxGuest'
-      other5xLinuxGuest: ClassVar['GuestOsIdentifier'] = 'other5xLinuxGuest'
-      other6xLinuxGuest: ClassVar['GuestOsIdentifier'] = 'other6xLinuxGuest'
-      other7xLinuxGuest: ClassVar['GuestOsIdentifier'] = 'other7xLinuxGuest'
-      genericLinuxGuest: ClassVar['GuestOsIdentifier'] = 'genericLinuxGuest'
-      other24xLinux64Guest: ClassVar['GuestOsIdentifier'] = 'other24xLinux64Guest'
-      other26xLinux64Guest: ClassVar['GuestOsIdentifier'] = 'other26xLinux64Guest'
-      other3xLinux64Guest: ClassVar['GuestOsIdentifier'] = 'other3xLinux64Guest'
-      other4xLinux64Guest: ClassVar['GuestOsIdentifier'] = 'other4xLinux64Guest'
-      other5xLinux64Guest: ClassVar['GuestOsIdentifier'] = 'other5xLinux64Guest'
-      other6xLinux64Guest: ClassVar['GuestOsIdentifier'] = 'other6xLinux64Guest'
-      other7xLinux64Guest: ClassVar['GuestOsIdentifier'] = 'other7xLinux64Guest'
-      otherLinux64Guest: ClassVar['GuestOsIdentifier'] = 'otherLinux64Guest'
-      solaris6Guest: ClassVar['GuestOsIdentifier'] = 'solaris6Guest'
-      solaris7Guest: ClassVar['GuestOsIdentifier'] = 'solaris7Guest'
-      solaris8Guest: ClassVar['GuestOsIdentifier'] = 'solaris8Guest'
-      solaris9Guest: ClassVar['GuestOsIdentifier'] = 'solaris9Guest'
-      solaris10Guest: ClassVar['GuestOsIdentifier'] = 'solaris10Guest'
-      solaris10_64Guest: ClassVar['GuestOsIdentifier'] = 'solaris10_64Guest'
-      solaris11_64Guest: ClassVar['GuestOsIdentifier'] = 'solaris11_64Guest'
-      fusionos_64Guest: ClassVar['GuestOsIdentifier'] = 'fusionos_64Guest'
-      prolinux_64Guest: ClassVar['GuestOsIdentifier'] = 'prolinux_64Guest'
-      kylinlinux_64Guest: ClassVar['GuestOsIdentifier'] = 'kylinlinux_64Guest'
-      flatcar_64Guest: ClassVar['GuestOsIdentifier'] = 'flatcar_64Guest'
-      os2Guest: ClassVar['GuestOsIdentifier'] = 'os2Guest'
-      eComStationGuest: ClassVar['GuestOsIdentifier'] = 'eComStationGuest'
-      eComStation2Guest: ClassVar['GuestOsIdentifier'] = 'eComStation2Guest'
-      netware4Guest: ClassVar['GuestOsIdentifier'] = 'netware4Guest'
-      netware5Guest: ClassVar['GuestOsIdentifier'] = 'netware5Guest'
-      netware6Guest: ClassVar['GuestOsIdentifier'] = 'netware6Guest'
-      openServer5Guest: ClassVar['GuestOsIdentifier'] = 'openServer5Guest'
-      openServer6Guest: ClassVar['GuestOsIdentifier'] = 'openServer6Guest'
-      unixWare7Guest: ClassVar['GuestOsIdentifier'] = 'unixWare7Guest'
-      darwinGuest: ClassVar['GuestOsIdentifier'] = 'darwinGuest'
-      darwin64Guest: ClassVar['GuestOsIdentifier'] = 'darwin64Guest'
-      darwin10Guest: ClassVar['GuestOsIdentifier'] = 'darwin10Guest'
-      darwin10_64Guest: ClassVar['GuestOsIdentifier'] = 'darwin10_64Guest'
-      darwin11Guest: ClassVar['GuestOsIdentifier'] = 'darwin11Guest'
-      darwin11_64Guest: ClassVar['GuestOsIdentifier'] = 'darwin11_64Guest'
-      darwin12_64Guest: ClassVar['GuestOsIdentifier'] = 'darwin12_64Guest'
-      darwin13_64Guest: ClassVar['GuestOsIdentifier'] = 'darwin13_64Guest'
-      darwin14_64Guest: ClassVar['GuestOsIdentifier'] = 'darwin14_64Guest'
-      darwin15_64Guest: ClassVar['GuestOsIdentifier'] = 'darwin15_64Guest'
-      darwin16_64Guest: ClassVar['GuestOsIdentifier'] = 'darwin16_64Guest'
-      darwin17_64Guest: ClassVar['GuestOsIdentifier'] = 'darwin17_64Guest'
-      darwin18_64Guest: ClassVar['GuestOsIdentifier'] = 'darwin18_64Guest'
-      darwin19_64Guest: ClassVar['GuestOsIdentifier'] = 'darwin19_64Guest'
-      darwin20_64Guest: ClassVar['GuestOsIdentifier'] = 'darwin20_64Guest'
-      darwin21_64Guest: ClassVar['GuestOsIdentifier'] = 'darwin21_64Guest'
-      darwin22_64Guest: ClassVar['GuestOsIdentifier'] = 'darwin22_64Guest'
-      darwin23_64Guest: ClassVar['GuestOsIdentifier'] = 'darwin23_64Guest'
-      vmkernelGuest: ClassVar['GuestOsIdentifier'] = 'vmkernelGuest'
-      vmkernel5Guest: ClassVar['GuestOsIdentifier'] = 'vmkernel5Guest'
-      vmkernel6Guest: ClassVar['GuestOsIdentifier'] = 'vmkernel6Guest'
-      vmkernel65Guest: ClassVar['GuestOsIdentifier'] = 'vmkernel65Guest'
-      vmkernel7Guest: ClassVar['GuestOsIdentifier'] = 'vmkernel7Guest'
-      vmkernel8Guest: ClassVar['GuestOsIdentifier'] = 'vmkernel8Guest'
-      vmkernel9Guest: ClassVar['GuestOsIdentifier'] = 'vmkernel9Guest'
-      amazonlinux2_64Guest: ClassVar['GuestOsIdentifier'] = 'amazonlinux2_64Guest'
-      amazonlinux3_64Guest: ClassVar['GuestOsIdentifier'] = 'amazonlinux3_64Guest'
-      crxPod1Guest: ClassVar['GuestOsIdentifier'] = 'crxPod1Guest'
-      crxSys1Guest: ClassVar['GuestOsIdentifier'] = 'crxSys1Guest'
-      rockylinux_64Guest: ClassVar['GuestOsIdentifier'] = 'rockylinux_64Guest'
-      almalinux_64Guest: ClassVar['GuestOsIdentifier'] = 'almalinux_64Guest'
-      otherGuest: ClassVar['GuestOsIdentifier'] = 'otherGuest'
-      otherGuest64: ClassVar['GuestOsIdentifier'] = 'otherGuest64'
+   class GuestOsIdentifier(pyVmomi.VmomiSupport.Enum):
+      dosGuest: _typing.ClassVar['GuestOsIdentifier'] = 'dosGuest'
+      win31Guest: _typing.ClassVar['GuestOsIdentifier'] = 'win31Guest'
+      win95Guest: _typing.ClassVar['GuestOsIdentifier'] = 'win95Guest'
+      win98Guest: _typing.ClassVar['GuestOsIdentifier'] = 'win98Guest'
+      winMeGuest: _typing.ClassVar['GuestOsIdentifier'] = 'winMeGuest'
+      winNTGuest: _typing.ClassVar['GuestOsIdentifier'] = 'winNTGuest'
+      win2000ProGuest: _typing.ClassVar['GuestOsIdentifier'] = 'win2000ProGuest'
+      win2000ServGuest: _typing.ClassVar['GuestOsIdentifier'] = 'win2000ServGuest'
+      win2000AdvServGuest: _typing.ClassVar['GuestOsIdentifier'] = 'win2000AdvServGuest'
+      winXPHomeGuest: _typing.ClassVar['GuestOsIdentifier'] = 'winXPHomeGuest'
+      winXPProGuest: _typing.ClassVar['GuestOsIdentifier'] = 'winXPProGuest'
+      winXPPro64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'winXPPro64Guest'
+      winNetWebGuest: _typing.ClassVar['GuestOsIdentifier'] = 'winNetWebGuest'
+      winNetStandardGuest: _typing.ClassVar['GuestOsIdentifier'] = 'winNetStandardGuest'
+      winNetEnterpriseGuest: _typing.ClassVar['GuestOsIdentifier'] = 'winNetEnterpriseGuest'
+      winNetDatacenterGuest: _typing.ClassVar['GuestOsIdentifier'] = 'winNetDatacenterGuest'
+      winNetBusinessGuest: _typing.ClassVar['GuestOsIdentifier'] = 'winNetBusinessGuest'
+      winNetStandard64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'winNetStandard64Guest'
+      winNetEnterprise64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'winNetEnterprise64Guest'
+      winLonghornGuest: _typing.ClassVar['GuestOsIdentifier'] = 'winLonghornGuest'
+      winLonghorn64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'winLonghorn64Guest'
+      winNetDatacenter64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'winNetDatacenter64Guest'
+      winVistaGuest: _typing.ClassVar['GuestOsIdentifier'] = 'winVistaGuest'
+      winVista64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'winVista64Guest'
+      windows7Guest: _typing.ClassVar['GuestOsIdentifier'] = 'windows7Guest'
+      windows7_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'windows7_64Guest'
+      windows7Server64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'windows7Server64Guest'
+      windows8Guest: _typing.ClassVar['GuestOsIdentifier'] = 'windows8Guest'
+      windows8_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'windows8_64Guest'
+      windows8Server64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'windows8Server64Guest'
+      windows9Guest: _typing.ClassVar['GuestOsIdentifier'] = 'windows9Guest'
+      windows9_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'windows9_64Guest'
+      windows9Server64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'windows9Server64Guest'
+      windows11_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'windows11_64Guest'
+      windows12_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'windows12_64Guest'
+      windowsHyperVGuest: _typing.ClassVar['GuestOsIdentifier'] = 'windowsHyperVGuest'
+      windows2019srv_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'windows2019srv_64Guest'
+      windows2019srvNext_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'windows2019srvNext_64Guest'
+      windows2022srvNext_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'windows2022srvNext_64Guest'
+      freebsdGuest: _typing.ClassVar['GuestOsIdentifier'] = 'freebsdGuest'
+      freebsd64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'freebsd64Guest'
+      freebsd11Guest: _typing.ClassVar['GuestOsIdentifier'] = 'freebsd11Guest'
+      freebsd11_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'freebsd11_64Guest'
+      freebsd12Guest: _typing.ClassVar['GuestOsIdentifier'] = 'freebsd12Guest'
+      freebsd12_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'freebsd12_64Guest'
+      freebsd13Guest: _typing.ClassVar['GuestOsIdentifier'] = 'freebsd13Guest'
+      freebsd13_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'freebsd13_64Guest'
+      freebsd14Guest: _typing.ClassVar['GuestOsIdentifier'] = 'freebsd14Guest'
+      freebsd14_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'freebsd14_64Guest'
+      freebsd15Guest: _typing.ClassVar['GuestOsIdentifier'] = 'freebsd15Guest'
+      freebsd15_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'freebsd15_64Guest'
+      redhatGuest: _typing.ClassVar['GuestOsIdentifier'] = 'redhatGuest'
+      rhel2Guest: _typing.ClassVar['GuestOsIdentifier'] = 'rhel2Guest'
+      rhel3Guest: _typing.ClassVar['GuestOsIdentifier'] = 'rhel3Guest'
+      rhel3_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'rhel3_64Guest'
+      rhel4Guest: _typing.ClassVar['GuestOsIdentifier'] = 'rhel4Guest'
+      rhel4_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'rhel4_64Guest'
+      rhel5Guest: _typing.ClassVar['GuestOsIdentifier'] = 'rhel5Guest'
+      rhel5_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'rhel5_64Guest'
+      rhel6Guest: _typing.ClassVar['GuestOsIdentifier'] = 'rhel6Guest'
+      rhel6_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'rhel6_64Guest'
+      rhel7Guest: _typing.ClassVar['GuestOsIdentifier'] = 'rhel7Guest'
+      rhel7_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'rhel7_64Guest'
+      rhel8_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'rhel8_64Guest'
+      rhel9_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'rhel9_64Guest'
+      rhel10_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'rhel10_64Guest'
+      centosGuest: _typing.ClassVar['GuestOsIdentifier'] = 'centosGuest'
+      centos64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'centos64Guest'
+      centos6Guest: _typing.ClassVar['GuestOsIdentifier'] = 'centos6Guest'
+      centos6_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'centos6_64Guest'
+      centos7Guest: _typing.ClassVar['GuestOsIdentifier'] = 'centos7Guest'
+      centos7_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'centos7_64Guest'
+      centos8_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'centos8_64Guest'
+      centos9_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'centos9_64Guest'
+      oracleLinuxGuest: _typing.ClassVar['GuestOsIdentifier'] = 'oracleLinuxGuest'
+      oracleLinux64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'oracleLinux64Guest'
+      oracleLinux6Guest: _typing.ClassVar['GuestOsIdentifier'] = 'oracleLinux6Guest'
+      oracleLinux6_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'oracleLinux6_64Guest'
+      oracleLinux7Guest: _typing.ClassVar['GuestOsIdentifier'] = 'oracleLinux7Guest'
+      oracleLinux7_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'oracleLinux7_64Guest'
+      oracleLinux8_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'oracleLinux8_64Guest'
+      oracleLinux9_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'oracleLinux9_64Guest'
+      oracleLinux10_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'oracleLinux10_64Guest'
+      suseGuest: _typing.ClassVar['GuestOsIdentifier'] = 'suseGuest'
+      suse64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'suse64Guest'
+      slesGuest: _typing.ClassVar['GuestOsIdentifier'] = 'slesGuest'
+      sles64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'sles64Guest'
+      sles10Guest: _typing.ClassVar['GuestOsIdentifier'] = 'sles10Guest'
+      sles10_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'sles10_64Guest'
+      sles11Guest: _typing.ClassVar['GuestOsIdentifier'] = 'sles11Guest'
+      sles11_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'sles11_64Guest'
+      sles12Guest: _typing.ClassVar['GuestOsIdentifier'] = 'sles12Guest'
+      sles12_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'sles12_64Guest'
+      sles15_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'sles15_64Guest'
+      sles16_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'sles16_64Guest'
+      nld9Guest: _typing.ClassVar['GuestOsIdentifier'] = 'nld9Guest'
+      oesGuest: _typing.ClassVar['GuestOsIdentifier'] = 'oesGuest'
+      sjdsGuest: _typing.ClassVar['GuestOsIdentifier'] = 'sjdsGuest'
+      mandrakeGuest: _typing.ClassVar['GuestOsIdentifier'] = 'mandrakeGuest'
+      mandrivaGuest: _typing.ClassVar['GuestOsIdentifier'] = 'mandrivaGuest'
+      mandriva64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'mandriva64Guest'
+      turboLinuxGuest: _typing.ClassVar['GuestOsIdentifier'] = 'turboLinuxGuest'
+      turboLinux64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'turboLinux64Guest'
+      ubuntuGuest: _typing.ClassVar['GuestOsIdentifier'] = 'ubuntuGuest'
+      ubuntu64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'ubuntu64Guest'
+      debian4Guest: _typing.ClassVar['GuestOsIdentifier'] = 'debian4Guest'
+      debian4_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'debian4_64Guest'
+      debian5Guest: _typing.ClassVar['GuestOsIdentifier'] = 'debian5Guest'
+      debian5_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'debian5_64Guest'
+      debian6Guest: _typing.ClassVar['GuestOsIdentifier'] = 'debian6Guest'
+      debian6_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'debian6_64Guest'
+      debian7Guest: _typing.ClassVar['GuestOsIdentifier'] = 'debian7Guest'
+      debian7_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'debian7_64Guest'
+      debian8Guest: _typing.ClassVar['GuestOsIdentifier'] = 'debian8Guest'
+      debian8_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'debian8_64Guest'
+      debian9Guest: _typing.ClassVar['GuestOsIdentifier'] = 'debian9Guest'
+      debian9_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'debian9_64Guest'
+      debian10Guest: _typing.ClassVar['GuestOsIdentifier'] = 'debian10Guest'
+      debian10_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'debian10_64Guest'
+      debian11Guest: _typing.ClassVar['GuestOsIdentifier'] = 'debian11Guest'
+      debian11_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'debian11_64Guest'
+      debian12Guest: _typing.ClassVar['GuestOsIdentifier'] = 'debian12Guest'
+      debian12_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'debian12_64Guest'
+      debian13Guest: _typing.ClassVar['GuestOsIdentifier'] = 'debian13Guest'
+      debian13_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'debian13_64Guest'
+      asianux3Guest: _typing.ClassVar['GuestOsIdentifier'] = 'asianux3Guest'
+      asianux3_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'asianux3_64Guest'
+      asianux4Guest: _typing.ClassVar['GuestOsIdentifier'] = 'asianux4Guest'
+      asianux4_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'asianux4_64Guest'
+      asianux5_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'asianux5_64Guest'
+      asianux7_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'asianux7_64Guest'
+      asianux8_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'asianux8_64Guest'
+      asianux9_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'asianux9_64Guest'
+      miraclelinux_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'miraclelinux_64Guest'
+      pardus_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'pardus_64Guest'
+      opensuseGuest: _typing.ClassVar['GuestOsIdentifier'] = 'opensuseGuest'
+      opensuse64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'opensuse64Guest'
+      fedoraGuest: _typing.ClassVar['GuestOsIdentifier'] = 'fedoraGuest'
+      fedora64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'fedora64Guest'
+      coreos64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'coreos64Guest'
+      vmwarePhoton64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'vmwarePhoton64Guest'
+      other24xLinuxGuest: _typing.ClassVar['GuestOsIdentifier'] = 'other24xLinuxGuest'
+      other26xLinuxGuest: _typing.ClassVar['GuestOsIdentifier'] = 'other26xLinuxGuest'
+      otherLinuxGuest: _typing.ClassVar['GuestOsIdentifier'] = 'otherLinuxGuest'
+      other3xLinuxGuest: _typing.ClassVar['GuestOsIdentifier'] = 'other3xLinuxGuest'
+      other4xLinuxGuest: _typing.ClassVar['GuestOsIdentifier'] = 'other4xLinuxGuest'
+      other5xLinuxGuest: _typing.ClassVar['GuestOsIdentifier'] = 'other5xLinuxGuest'
+      other6xLinuxGuest: _typing.ClassVar['GuestOsIdentifier'] = 'other6xLinuxGuest'
+      other7xLinuxGuest: _typing.ClassVar['GuestOsIdentifier'] = 'other7xLinuxGuest'
+      genericLinuxGuest: _typing.ClassVar['GuestOsIdentifier'] = 'genericLinuxGuest'
+      other24xLinux64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'other24xLinux64Guest'
+      other26xLinux64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'other26xLinux64Guest'
+      other3xLinux64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'other3xLinux64Guest'
+      other4xLinux64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'other4xLinux64Guest'
+      other5xLinux64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'other5xLinux64Guest'
+      other6xLinux64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'other6xLinux64Guest'
+      other7xLinux64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'other7xLinux64Guest'
+      otherLinux64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'otherLinux64Guest'
+      solaris6Guest: _typing.ClassVar['GuestOsIdentifier'] = 'solaris6Guest'
+      solaris7Guest: _typing.ClassVar['GuestOsIdentifier'] = 'solaris7Guest'
+      solaris8Guest: _typing.ClassVar['GuestOsIdentifier'] = 'solaris8Guest'
+      solaris9Guest: _typing.ClassVar['GuestOsIdentifier'] = 'solaris9Guest'
+      solaris10Guest: _typing.ClassVar['GuestOsIdentifier'] = 'solaris10Guest'
+      solaris10_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'solaris10_64Guest'
+      solaris11_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'solaris11_64Guest'
+      fusionos_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'fusionos_64Guest'
+      prolinux_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'prolinux_64Guest'
+      kylinlinux_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'kylinlinux_64Guest'
+      flatcar_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'flatcar_64Guest'
+      os2Guest: _typing.ClassVar['GuestOsIdentifier'] = 'os2Guest'
+      eComStationGuest: _typing.ClassVar['GuestOsIdentifier'] = 'eComStationGuest'
+      eComStation2Guest: _typing.ClassVar['GuestOsIdentifier'] = 'eComStation2Guest'
+      netware4Guest: _typing.ClassVar['GuestOsIdentifier'] = 'netware4Guest'
+      netware5Guest: _typing.ClassVar['GuestOsIdentifier'] = 'netware5Guest'
+      netware6Guest: _typing.ClassVar['GuestOsIdentifier'] = 'netware6Guest'
+      openServer5Guest: _typing.ClassVar['GuestOsIdentifier'] = 'openServer5Guest'
+      openServer6Guest: _typing.ClassVar['GuestOsIdentifier'] = 'openServer6Guest'
+      unixWare7Guest: _typing.ClassVar['GuestOsIdentifier'] = 'unixWare7Guest'
+      darwinGuest: _typing.ClassVar['GuestOsIdentifier'] = 'darwinGuest'
+      darwin64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'darwin64Guest'
+      darwin10Guest: _typing.ClassVar['GuestOsIdentifier'] = 'darwin10Guest'
+      darwin10_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'darwin10_64Guest'
+      darwin11Guest: _typing.ClassVar['GuestOsIdentifier'] = 'darwin11Guest'
+      darwin11_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'darwin11_64Guest'
+      darwin12_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'darwin12_64Guest'
+      darwin13_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'darwin13_64Guest'
+      darwin14_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'darwin14_64Guest'
+      darwin15_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'darwin15_64Guest'
+      darwin16_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'darwin16_64Guest'
+      darwin17_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'darwin17_64Guest'
+      darwin18_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'darwin18_64Guest'
+      darwin19_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'darwin19_64Guest'
+      darwin20_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'darwin20_64Guest'
+      darwin21_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'darwin21_64Guest'
+      darwin22_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'darwin22_64Guest'
+      darwin23_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'darwin23_64Guest'
+      vmkernelGuest: _typing.ClassVar['GuestOsIdentifier'] = 'vmkernelGuest'
+      vmkernel5Guest: _typing.ClassVar['GuestOsIdentifier'] = 'vmkernel5Guest'
+      vmkernel6Guest: _typing.ClassVar['GuestOsIdentifier'] = 'vmkernel6Guest'
+      vmkernel65Guest: _typing.ClassVar['GuestOsIdentifier'] = 'vmkernel65Guest'
+      vmkernel7Guest: _typing.ClassVar['GuestOsIdentifier'] = 'vmkernel7Guest'
+      vmkernel8Guest: _typing.ClassVar['GuestOsIdentifier'] = 'vmkernel8Guest'
+      vmkernel9Guest: _typing.ClassVar['GuestOsIdentifier'] = 'vmkernel9Guest'
+      amazonlinux2_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'amazonlinux2_64Guest'
+      amazonlinux3_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'amazonlinux3_64Guest'
+      crxPod1Guest: _typing.ClassVar['GuestOsIdentifier'] = 'crxPod1Guest'
+      crxSys1Guest: _typing.ClassVar['GuestOsIdentifier'] = 'crxSys1Guest'
+      rockylinux_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'rockylinux_64Guest'
+      almalinux_64Guest: _typing.ClassVar['GuestOsIdentifier'] = 'almalinux_64Guest'
+      otherGuest: _typing.ClassVar['GuestOsIdentifier'] = 'otherGuest'
+      otherGuest64: _typing.ClassVar['GuestOsIdentifier'] = 'otherGuest64'
 
-   class FirmwareType(Enum):
-      bios: ClassVar['FirmwareType'] = 'bios'
-      efi: ClassVar['FirmwareType'] = 'efi'
-      csm: ClassVar['FirmwareType'] = 'csm'
+   class FirmwareType(pyVmomi.VmomiSupport.Enum):
+      bios: _typing.ClassVar['FirmwareType'] = 'bios'
+      efi: _typing.ClassVar['FirmwareType'] = 'efi'
+      csm: _typing.ClassVar['FirmwareType'] = 'csm'
 
-   class SupportLevel(Enum):
-      experimental: ClassVar['SupportLevel'] = 'experimental'
-      legacy: ClassVar['SupportLevel'] = 'legacy'
-      terminated: ClassVar['SupportLevel'] = 'terminated'
-      supported: ClassVar['SupportLevel'] = 'supported'
-      unsupported: ClassVar['SupportLevel'] = 'unsupported'
-      deprecated: ClassVar['SupportLevel'] = 'deprecated'
-      techPreview: ClassVar['SupportLevel'] = 'techPreview'
+   class SupportLevel(pyVmomi.VmomiSupport.Enum):
+      experimental: _typing.ClassVar['SupportLevel'] = 'experimental'
+      legacy: _typing.ClassVar['SupportLevel'] = 'legacy'
+      terminated: _typing.ClassVar['SupportLevel'] = 'terminated'
+      supported: _typing.ClassVar['SupportLevel'] = 'supported'
+      unsupported: _typing.ClassVar['SupportLevel'] = 'unsupported'
+      deprecated: _typing.ClassVar['SupportLevel'] = 'deprecated'
+      techPreview: _typing.ClassVar['SupportLevel'] = 'techPreview'
 
    id: str
    family: str
@@ -1228,15 +1136,15 @@ class GuestOsDescriptor(DynamicData):
    recommendedMemMB: int
    recommendedColorDepth: int
    supportedDiskControllerList: list[type] = []
-   recommendedSCSIController: Optional[type] = None
+   recommendedSCSIController: _typing.Optional[type] = None
    recommendedDiskController: type
    supportedNumDisks: int
    recommendedDiskSizeMB: int
    recommendedCdromController: type
    supportedEthernetCard: list[type] = []
-   recommendedEthernetCard: Optional[type] = None
-   supportsSlaveDisk: Optional[bool] = None
-   cpuFeatureMask: list[CpuIdInfo] = []
+   recommendedEthernetCard: _typing.Optional[type] = None
+   supportsSlaveDisk: _typing.Optional[bool] = None
+   cpuFeatureMask: list[pyVmomi.vim.host.CpuIdInfo] = []
    smcRequired: bool
    supportsWakeOnLan: bool
    supportsVMI: bool
@@ -1246,7 +1154,7 @@ class GuestOsDescriptor(DynamicData):
    supportedFirmware: list[str] = []
    recommendedFirmware: str
    supportedUSBControllerList: list[type] = []
-   recommendedUSBController: Optional[type] = None
+   recommendedUSBController: _typing.Optional[type] = None
    supports3D: bool
    recommended3D: bool
    smcRecommended: bool
@@ -1254,41 +1162,41 @@ class GuestOsDescriptor(DynamicData):
    usbRecommended: bool
    supportLevel: str
    supportedForCreate: bool
-   vRAMSizeInKB: IntOption
+   vRAMSizeInKB: pyVmomi.vim.option.IntOption
    numSupportedFloppyDevices: int
    wakeOnLanEthernetCard: list[type] = []
    supportsPvscsiControllerForBoot: bool
    diskUuidEnabled: bool
    supportsHotPlugPCI: bool
-   supportsSecureBoot: Optional[bool] = None
-   defaultSecureBoot: Optional[bool] = None
-   persistentMemorySupported: Optional[bool] = None
-   supportedMinPersistentMemoryMB: Optional[long] = None
-   supportedMaxPersistentMemoryMB: Optional[long] = None
-   recommendedPersistentMemoryMB: Optional[long] = None
-   persistentMemoryHotAddSupported: Optional[bool] = None
-   persistentMemoryHotRemoveSupported: Optional[bool] = None
-   persistentMemoryColdGrowthSupported: Optional[bool] = None
-   persistentMemoryColdGrowthGranularityMB: Optional[long] = None
-   persistentMemoryHotGrowthSupported: Optional[bool] = None
-   persistentMemoryHotGrowthGranularityMB: Optional[long] = None
-   numRecommendedPhysicalSockets: Optional[int] = None
-   numRecommendedCoresPerSocket: Optional[int] = None
-   vvtdSupported: Optional[BoolOption] = None
-   vbsSupported: Optional[BoolOption] = None
-   vsgxSupported: Optional[BoolOption] = None
-   vsgxRemoteAttestationSupported: Optional[bool] = None
-   supportsTPM20: Optional[bool] = None
-   recommendedTPM20: Optional[bool] = None
-   vwdtSupported: Optional[bool] = None
+   supportsSecureBoot: _typing.Optional[bool] = None
+   defaultSecureBoot: _typing.Optional[bool] = None
+   persistentMemorySupported: _typing.Optional[bool] = None
+   supportedMinPersistentMemoryMB: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   supportedMaxPersistentMemoryMB: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   recommendedPersistentMemoryMB: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   persistentMemoryHotAddSupported: _typing.Optional[bool] = None
+   persistentMemoryHotRemoveSupported: _typing.Optional[bool] = None
+   persistentMemoryColdGrowthSupported: _typing.Optional[bool] = None
+   persistentMemoryColdGrowthGranularityMB: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   persistentMemoryHotGrowthSupported: _typing.Optional[bool] = None
+   persistentMemoryHotGrowthGranularityMB: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   numRecommendedPhysicalSockets: _typing.Optional[int] = None
+   numRecommendedCoresPerSocket: _typing.Optional[int] = None
+   vvtdSupported: _typing.Optional[pyVmomi.vim.option.BoolOption] = None
+   vbsSupported: _typing.Optional[pyVmomi.vim.option.BoolOption] = None
+   vsgxSupported: _typing.Optional[pyVmomi.vim.option.BoolOption] = None
+   vsgxRemoteAttestationSupported: _typing.Optional[bool] = None
+   supportsTPM20: _typing.Optional[bool] = None
+   recommendedTPM20: _typing.Optional[bool] = None
+   vwdtSupported: _typing.Optional[bool] = None
 
 
-class GuestQuiesceSpec(DynamicData):
-   timeout: Optional[int] = None
+class GuestQuiesceSpec(pyVmomi.vmodl.DynamicData):
+   timeout: _typing.Optional[int] = None
 
 
 class IdeDiskDeviceInfo(DiskDeviceInfo):
-   class PartitionInfo(DynamicData):
+   class PartitionInfo(pyVmomi.vmodl.DynamicData):
       id: int
       capacity: int
 
@@ -1297,49 +1205,49 @@ class IdeDiskDeviceInfo(DiskDeviceInfo):
 
 class IndependentFilterSpec(BaseIndependentFilterSpec):
    filterName: str
-   filterClass: Optional[str] = None
-   filterCapabilities: list[KeyValue] = []
+   filterClass: _typing.Optional[str] = None
+   filterCapabilities: list[pyVmomi.vim.KeyValue] = []
 
 
-class InstantCloneSpec(DynamicData):
+class InstantCloneSpec(pyVmomi.vmodl.DynamicData):
    name: str
    location: RelocateSpec
-   config: list[OptionValue] = []
-   biosUuid: Optional[str] = None
+   config: list[pyVmomi.vim.option.OptionValue] = []
+   biosUuid: _typing.Optional[str] = None
 
 
-class LegacyNetworkSwitchInfo(DynamicData):
+class LegacyNetworkSwitchInfo(pyVmomi.vmodl.DynamicData):
    name: str
 
 
-class Message(DynamicData):
+class Message(pyVmomi.vmodl.DynamicData):
    id: str
    argument: list[object] = []
-   text: Optional[str] = None
+   text: _typing.Optional[str] = None
 
 
 class NetworkInfo(TargetInfo):
-   network: Network.Summary
-   vswitch: Optional[str] = None
+   network: pyVmomi.vim.Network.Summary
+   vswitch: _typing.Optional[str] = None
 
 
-class NetworkShaperInfo(DynamicData):
-   enabled: Optional[bool] = None
-   peakBps: Optional[long] = None
-   averageBps: Optional[long] = None
-   burstSize: Optional[long] = None
+class NetworkShaperInfo(pyVmomi.vmodl.DynamicData):
+   enabled: _typing.Optional[bool] = None
+   peakBps: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   averageBps: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   burstSize: _typing.Optional[pyVmomi.VmomiSupport.long] = None
 
 
 class OpaqueNetworkInfo(TargetInfo):
-   network: OpaqueNetwork.Summary
-   networkReservationSupported: Optional[bool] = None
+   network: pyVmomi.vim.OpaqueNetwork.Summary
+   networkReservationSupported: _typing.Optional[bool] = None
 
 class ParallelInfo(TargetInfo):
    pass
 
 
 class PciPassthroughInfo(TargetInfo):
-   pciDevice: PciDevice
+   pciDevice: pyVmomi.vim.host.PciDevice
    systemId: str
 
 class PciSharedGpuPassthroughInfo(TargetInfo):
@@ -1347,11 +1255,11 @@ class PciSharedGpuPassthroughInfo(TargetInfo):
 
 
 class PrecisionClockInfo(TargetInfo):
-   systemClockProtocol: Optional[str] = None
+   systemClockProtocol: _typing.Optional[str] = None
 
 
-class ProfileDetails(DynamicData):
-   class DiskProfileDetails(DynamicData):
+class ProfileDetails(pyVmomi.vmodl.DynamicData):
+   class DiskProfileDetails(pyVmomi.vmodl.DynamicData):
       diskId: int
       profile: list[ProfileSpec] = []
 
@@ -1359,172 +1267,172 @@ class ProfileDetails(DynamicData):
    diskProfileDetails: list[DiskProfileDetails] = []
 
 
-class ProfileRawData(DynamicData):
+class ProfileRawData(pyVmomi.vmodl.DynamicData):
    extensionKey: str
-   objectData: Optional[str] = None
+   objectData: _typing.Optional[str] = None
 
 
-class ProfileSpec(DynamicData):
+class ProfileSpec(pyVmomi.vmodl.DynamicData):
    pass
 
 
-class PropertyRelation(DynamicData):
-   key: DynamicProperty
-   relations: list[DynamicProperty] = []
+class PropertyRelation(pyVmomi.vmodl.DynamicData):
+   key: pyVmomi.vmodl.DynamicProperty
+   relations: list[pyVmomi.vmodl.DynamicProperty] = []
 
 
-class QuestionInfo(DynamicData):
+class QuestionInfo(pyVmomi.vmodl.DynamicData):
    id: str
    text: str
-   choice: ChoiceOption
+   choice: pyVmomi.vim.option.ChoiceOption
    message: list[Message] = []
 
 
-class RelocateSpec(DynamicData):
-   class Transformation(Enum):
-      flat: ClassVar['Transformation'] = 'flat'
-      sparse: ClassVar['Transformation'] = 'sparse'
+class RelocateSpec(pyVmomi.vmodl.DynamicData):
+   class Transformation(pyVmomi.VmomiSupport.Enum):
+      flat: _typing.ClassVar['Transformation'] = 'flat'
+      sparse: _typing.ClassVar['Transformation'] = 'sparse'
 
-   class DiskLocator(DynamicData):
-      class BackingSpec(DynamicData):
-         parent: Optional[BackingSpec] = None
-         crypto: Optional[CryptoSpec] = None
+   class DiskLocator(pyVmomi.vmodl.DynamicData):
+      class BackingSpec(pyVmomi.vmodl.DynamicData):
+         parent: _typing.Optional[BackingSpec] = None
+         crypto: _typing.Optional[pyVmomi.vim.encryption.CryptoSpec] = None
 
       diskId: int
-      datastore: Datastore
-      diskMoveType: Optional[str] = None
-      diskBackingInfo: Optional[VirtualDevice.BackingInfo] = None
+      datastore: pyVmomi.vim.Datastore
+      diskMoveType: _typing.Optional[str] = None
+      diskBackingInfo: _typing.Optional[pyVmomi.vim.vm.device.VirtualDevice.BackingInfo] = None
       profile: list[ProfileSpec] = []
-      backing: Optional[BackingSpec] = None
+      backing: _typing.Optional[BackingSpec] = None
       filterSpec: list[BaseIndependentFilterSpec] = []
 
-   class DiskMoveOptions(Enum):
-      moveAllDiskBackingsAndAllowSharing: ClassVar['DiskMoveOptions'] = 'moveAllDiskBackingsAndAllowSharing'
-      moveAllDiskBackingsAndDisallowSharing: ClassVar['DiskMoveOptions'] = 'moveAllDiskBackingsAndDisallowSharing'
-      moveChildMostDiskBacking: ClassVar['DiskMoveOptions'] = 'moveChildMostDiskBacking'
-      createNewChildDiskBacking: ClassVar['DiskMoveOptions'] = 'createNewChildDiskBacking'
-      moveAllDiskBackingsAndConsolidate: ClassVar['DiskMoveOptions'] = 'moveAllDiskBackingsAndConsolidate'
+   class DiskMoveOptions(pyVmomi.VmomiSupport.Enum):
+      moveAllDiskBackingsAndAllowSharing: _typing.ClassVar['DiskMoveOptions'] = 'moveAllDiskBackingsAndAllowSharing'
+      moveAllDiskBackingsAndDisallowSharing: _typing.ClassVar['DiskMoveOptions'] = 'moveAllDiskBackingsAndDisallowSharing'
+      moveChildMostDiskBacking: _typing.ClassVar['DiskMoveOptions'] = 'moveChildMostDiskBacking'
+      createNewChildDiskBacking: _typing.ClassVar['DiskMoveOptions'] = 'createNewChildDiskBacking'
+      moveAllDiskBackingsAndConsolidate: _typing.ClassVar['DiskMoveOptions'] = 'moveAllDiskBackingsAndConsolidate'
 
-   service: Optional[ServiceLocator] = None
-   folder: Optional[Folder] = None
-   datastore: Optional[Datastore] = None
-   diskMoveType: Optional[str] = None
-   pool: Optional[ResourcePool] = None
-   host: Optional[HostSystem] = None
+   service: _typing.Optional[pyVmomi.vim.ServiceLocator] = None
+   folder: _typing.Optional[pyVmomi.vim.Folder] = None
+   datastore: _typing.Optional[pyVmomi.vim.Datastore] = None
+   diskMoveType: _typing.Optional[str] = None
+   pool: _typing.Optional[pyVmomi.vim.ResourcePool] = None
+   host: _typing.Optional[pyVmomi.vim.HostSystem] = None
    disk: list[DiskLocator] = []
-   transform: Optional[Transformation] = None
-   deviceChange: list[VirtualDeviceSpec] = []
+   transform: _typing.Optional[Transformation] = None
+   deviceChange: list[pyVmomi.vim.vm.device.VirtualDeviceSpec] = []
    profile: list[ProfileSpec] = []
-   cryptoSpec: Optional[CryptoSpec] = None
-   tagSpecs: list[TagSpec] = []
+   cryptoSpec: _typing.Optional[pyVmomi.vim.encryption.CryptoSpec] = None
+   tagSpecs: list[pyVmomi.vim.TagSpec] = []
    vmPlacementPolicies: list[VmPlacementPolicy] = []
 
 
-class ReplicationConfigSpec(DynamicData):
-   class DiskSettings(DynamicData):
+class ReplicationConfigSpec(pyVmomi.vmodl.DynamicData):
+   class DiskSettings(pyVmomi.vmodl.DynamicData):
       key: int
       diskReplicationId: str
 
-   generation: long
+   generation: pyVmomi.VmomiSupport.long
    vmReplicationId: str
    destination: str
    port: int
-   rpo: long
+   rpo: pyVmomi.VmomiSupport.long
    quiesceGuestEnabled: bool
    paused: bool
    oppUpdatesEnabled: bool
-   netCompressionEnabled: Optional[bool] = None
-   netEncryptionEnabled: Optional[bool] = None
-   encryptionDestination: Optional[str] = None
+   netCompressionEnabled: _typing.Optional[bool] = None
+   netEncryptionEnabled: _typing.Optional[bool] = None
+   encryptionDestination: _typing.Optional[str] = None
    additionalEncryptionDestination: list[str] = []
-   encryptionPort: Optional[int] = None
-   remoteCertificateThumbprint: Optional[str] = None
-   dataSetsReplicationEnabled: Optional[bool] = None
-   useHbrProxyHttpPreamble: Optional[bool] = None
+   encryptionPort: _typing.Optional[int] = None
+   remoteCertificateThumbprint: _typing.Optional[str] = None
+   dataSetsReplicationEnabled: _typing.Optional[bool] = None
+   useHbrProxyHttpPreamble: _typing.Optional[bool] = None
    disk: list[DiskSettings] = []
 
 
-class RuntimeInfo(DynamicData):
-   class DasProtectionState(DynamicData):
+class RuntimeInfo(pyVmomi.vmodl.DynamicData):
+   class DasProtectionState(pyVmomi.vmodl.DynamicData):
       dasProtected: bool
 
    device: list[DeviceRuntimeInfo] = []
-   host: Optional[HostSystem] = None
-   connectionState: VirtualMachine.ConnectionState
-   powerState: VirtualMachine.PowerState
-   vmFailoverInProgress: Optional[bool] = None
-   faultToleranceState: VirtualMachine.FaultToleranceState
-   dasVmProtection: Optional[DasProtectionState] = None
+   host: _typing.Optional[pyVmomi.vim.HostSystem] = None
+   connectionState: pyVmomi.vim.VirtualMachine.ConnectionState
+   powerState: pyVmomi.vim.VirtualMachine.PowerState
+   vmFailoverInProgress: _typing.Optional[bool] = None
+   faultToleranceState: pyVmomi.vim.VirtualMachine.FaultToleranceState
+   dasVmProtection: _typing.Optional[DasProtectionState] = None
    toolsInstallerMounted: bool
-   suspendTime: Optional[datetime] = None
-   bootTime: Optional[datetime] = None
-   suspendInterval: Optional[long] = None
-   question: Optional[QuestionInfo] = None
-   memoryOverhead: Optional[long] = None
-   maxCpuUsage: Optional[int] = None
-   maxMemoryUsage: Optional[int] = None
+   suspendTime: _typing.Optional[_datetime.datetime] = None
+   bootTime: _typing.Optional[_datetime.datetime] = None
+   suspendInterval: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   question: _typing.Optional[QuestionInfo] = None
+   memoryOverhead: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   maxCpuUsage: _typing.Optional[int] = None
+   maxMemoryUsage: _typing.Optional[int] = None
    numMksConnections: int
-   recordReplayState: VirtualMachine.RecordReplayState
-   cleanPowerOff: Optional[bool] = None
-   needSecondaryReason: Optional[str] = None
+   recordReplayState: pyVmomi.vim.VirtualMachine.RecordReplayState
+   cleanPowerOff: _typing.Optional[bool] = None
+   needSecondaryReason: _typing.Optional[str] = None
    onlineStandby: bool
-   minRequiredEVCModeKey: Optional[str] = None
+   minRequiredEVCModeKey: _typing.Optional[str] = None
    consolidationNeeded: bool
    offlineFeatureRequirement: list[FeatureRequirement] = []
    featureRequirement: list[FeatureRequirement] = []
-   featureMask: list[FeatureMask] = []
-   vFlashCacheAllocation: Optional[long] = None
-   paused: Optional[bool] = None
-   snapshotInBackground: Optional[bool] = None
-   quiescedForkParent: Optional[bool] = None
-   instantCloneFrozen: Optional[bool] = None
-   cryptoState: Optional[str] = None
-   suspendedToMemory: Optional[bool] = None
-   opNotificationTimeout: Optional[long] = None
-   iommuActive: Optional[bool] = None
-   consolidateWorkTotal: Optional[long] = None
-   consolidateWorkDone: Optional[long] = None
-   diskChainBroken: Optional[bool] = None
+   featureMask: list[pyVmomi.vim.host.FeatureMask] = []
+   vFlashCacheAllocation: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   paused: _typing.Optional[bool] = None
+   snapshotInBackground: _typing.Optional[bool] = None
+   quiescedForkParent: _typing.Optional[bool] = None
+   instantCloneFrozen: _typing.Optional[bool] = None
+   cryptoState: _typing.Optional[str] = None
+   suspendedToMemory: _typing.Optional[bool] = None
+   opNotificationTimeout: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   iommuActive: _typing.Optional[bool] = None
+   consolidateWorkTotal: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   consolidateWorkDone: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   diskChainBroken: _typing.Optional[bool] = None
 
 
-class ScheduledHardwareUpgradeInfo(DynamicData):
-   class HardwareUpgradePolicy(Enum):
-      never: ClassVar['HardwareUpgradePolicy'] = 'never'
-      onSoftPowerOff: ClassVar['HardwareUpgradePolicy'] = 'onSoftPowerOff'
-      always: ClassVar['HardwareUpgradePolicy'] = 'always'
+class ScheduledHardwareUpgradeInfo(pyVmomi.vmodl.DynamicData):
+   class HardwareUpgradePolicy(pyVmomi.VmomiSupport.Enum):
+      never: _typing.ClassVar['HardwareUpgradePolicy'] = 'never'
+      onSoftPowerOff: _typing.ClassVar['HardwareUpgradePolicy'] = 'onSoftPowerOff'
+      always: _typing.ClassVar['HardwareUpgradePolicy'] = 'always'
 
-   class HardwareUpgradeStatus(Enum):
-      none: ClassVar['HardwareUpgradeStatus'] = 'none'
-      pending: ClassVar['HardwareUpgradeStatus'] = 'pending'
-      success: ClassVar['HardwareUpgradeStatus'] = 'success'
-      failed: ClassVar['HardwareUpgradeStatus'] = 'failed'
+   class HardwareUpgradeStatus(pyVmomi.VmomiSupport.Enum):
+      none: _typing.ClassVar['HardwareUpgradeStatus'] = 'none'
+      pending: _typing.ClassVar['HardwareUpgradeStatus'] = 'pending'
+      success: _typing.ClassVar['HardwareUpgradeStatus'] = 'success'
+      failed: _typing.ClassVar['HardwareUpgradeStatus'] = 'failed'
 
-   upgradePolicy: Optional[str] = None
-   versionKey: Optional[str] = None
-   scheduledHardwareUpgradeStatus: Optional[str] = None
-   fault: Optional[MethodFault] = None
+   upgradePolicy: _typing.Optional[str] = None
+   versionKey: _typing.Optional[str] = None
+   scheduledHardwareUpgradeStatus: _typing.Optional[str] = None
+   fault: _typing.Optional[pyVmomi.vmodl.MethodFault] = None
 
 
 class ScsiDiskDeviceInfo(DiskDeviceInfo):
-   disk: Optional[ScsiDisk] = None
-   transportHint: Optional[str] = None
-   lunNumber: Optional[int] = None
+   disk: _typing.Optional[pyVmomi.vim.host.ScsiDisk] = None
+   transportHint: _typing.Optional[str] = None
+   lunNumber: _typing.Optional[int] = None
 
 
 class ScsiPassthroughInfo(TargetInfo):
-   class ScsiClass(Enum):
-      disk: ClassVar['ScsiClass'] = 'disk'
-      tape: ClassVar['ScsiClass'] = 'tape'
-      printer: ClassVar['ScsiClass'] = 'printer'
-      processor: ClassVar['ScsiClass'] = 'processor'
-      worm: ClassVar['ScsiClass'] = 'worm'
-      cdrom: ClassVar['ScsiClass'] = 'cdrom'
-      scanner: ClassVar['ScsiClass'] = 'scanner'
-      optical: ClassVar['ScsiClass'] = 'optical'
-      media: ClassVar['ScsiClass'] = 'media'
-      com: ClassVar['ScsiClass'] = 'com'
-      raid: ClassVar['ScsiClass'] = 'raid'
-      unknown: ClassVar['ScsiClass'] = 'unknown'
+   class ScsiClass(pyVmomi.VmomiSupport.Enum):
+      disk: _typing.ClassVar['ScsiClass'] = 'disk'
+      tape: _typing.ClassVar['ScsiClass'] = 'tape'
+      printer: _typing.ClassVar['ScsiClass'] = 'printer'
+      processor: _typing.ClassVar['ScsiClass'] = 'processor'
+      worm: _typing.ClassVar['ScsiClass'] = 'worm'
+      cdrom: _typing.ClassVar['ScsiClass'] = 'cdrom'
+      scanner: _typing.ClassVar['ScsiClass'] = 'scanner'
+      optical: _typing.ClassVar['ScsiClass'] = 'optical'
+      media: _typing.ClassVar['ScsiClass'] = 'media'
+      com: _typing.ClassVar['ScsiClass'] = 'com'
+      raid: _typing.ClassVar['ScsiClass'] = 'raid'
+      unknown: _typing.ClassVar['ScsiClass'] = 'unknown'
 
    scsiClass: str
    vendor: str
@@ -1534,246 +1442,246 @@ class SerialInfo(TargetInfo):
    pass
 
 
-class SgxInfo(DynamicData):
-   class FlcModes(Enum):
-      locked: ClassVar['FlcModes'] = 'locked'
-      unlocked: ClassVar['FlcModes'] = 'unlocked'
+class SgxInfo(pyVmomi.vmodl.DynamicData):
+   class FlcModes(pyVmomi.VmomiSupport.Enum):
+      locked: _typing.ClassVar['FlcModes'] = 'locked'
+      unlocked: _typing.ClassVar['FlcModes'] = 'unlocked'
 
-   epcSize: long
-   flcMode: Optional[str] = None
-   lePubKeyHash: Optional[str] = None
-   requireAttestation: Optional[bool] = None
+   epcSize: pyVmomi.VmomiSupport.long
+   flcMode: _typing.Optional[str] = None
+   lePubKeyHash: _typing.Optional[str] = None
+   requireAttestation: _typing.Optional[bool] = None
 
 
 class SgxTargetInfo(TargetInfo):
-   maxEpcSize: long
+   maxEpcSize: pyVmomi.VmomiSupport.long
    flcModes: list[str] = []
    lePubKeyHashes: list[str] = []
-   requireAttestationSupported: Optional[bool] = None
+   requireAttestationSupported: _typing.Optional[bool] = None
 
 
-class Snapshot(ExtensibleManagedObject):
+class Snapshot(pyVmomi.vim.ExtensibleManagedObject):
    @property
    def config(self) -> ConfigInfo: ...
    @property
    def childSnapshot(self) -> list[Snapshot]: ...
    @property
-   def vm(self) -> VirtualMachine: ...
+   def vm(self) -> pyVmomi.vim.VirtualMachine: ...
 
-   def Revert(self, host: Optional[HostSystem], suppressPowerOn: Optional[bool]) -> Task: ...
-   def Remove(self, removeChildren: bool, consolidate: Optional[bool]) -> Task: ...
-   def Rename(self, name: Optional[str], description: Optional[str]) -> None: ...
-   def ExportSnapshot(self) -> HttpNfcLease: ...
+   def Revert(self, host: _typing.Optional[pyVmomi.vim.HostSystem], suppressPowerOn: _typing.Optional[bool]) -> pyVmomi.vim.Task: ...
+   def Remove(self, removeChildren: bool, consolidate: _typing.Optional[bool]) -> pyVmomi.vim.Task: ...
+   def Rename(self, name: _typing.Optional[str], description: _typing.Optional[str]) -> None: ...
+   def ExportSnapshot(self) -> pyVmomi.vim.HttpNfcLease: ...
 
 
-class SnapshotInfo(DynamicData):
-   currentSnapshot: Optional[Snapshot] = None
+class SnapshotInfo(pyVmomi.vmodl.DynamicData):
+   currentSnapshot: _typing.Optional[Snapshot] = None
    rootSnapshotList: list[SnapshotTree] = []
 
 
-class SnapshotSelectionSpec(DynamicData):
-   retentionDays: Optional[int] = None
+class SnapshotSelectionSpec(pyVmomi.vmodl.DynamicData):
+   retentionDays: _typing.Optional[int] = None
 
 
-class SnapshotTree(DynamicData):
+class SnapshotTree(pyVmomi.vmodl.DynamicData):
    snapshot: Snapshot
-   vm: VirtualMachine
+   vm: pyVmomi.vim.VirtualMachine
    name: str
    description: str
    id: int
-   createTime: datetime
-   state: VirtualMachine.PowerState
+   createTime: _datetime.datetime
+   state: pyVmomi.vim.VirtualMachine.PowerState
    quiesced: bool
-   backupManifest: Optional[str] = None
+   backupManifest: _typing.Optional[str] = None
    childSnapshotList: list[SnapshotTree] = []
-   replaySupported: Optional[bool] = None
+   replaySupported: _typing.Optional[bool] = None
 
 class SoundInfo(TargetInfo):
    pass
 
 
-class SriovDevicePoolInfo(DynamicData):
+class SriovDevicePoolInfo(pyVmomi.vmodl.DynamicData):
    key: str
 
 
 class SriovInfo(PciPassthroughInfo):
    virtualFunction: bool
-   pnic: Optional[str] = None
-   devicePool: Optional[SriovDevicePoolInfo] = None
+   pnic: _typing.Optional[str] = None
+   devicePool: _typing.Optional[SriovDevicePoolInfo] = None
 
 
 class SriovNetworkDevicePoolInfo(SriovDevicePoolInfo):
-   switchKey: Optional[str] = None
-   switchUuid: Optional[str] = None
+   switchKey: _typing.Optional[str] = None
+   switchUuid: _typing.Optional[str] = None
 
 
-class StorageInfo(DynamicData):
-   class UsageOnDatastore(DynamicData):
-      datastore: Datastore
-      committed: long
-      uncommitted: long
-      unshared: long
+class StorageInfo(pyVmomi.vmodl.DynamicData):
+   class UsageOnDatastore(pyVmomi.vmodl.DynamicData):
+      datastore: pyVmomi.vim.Datastore
+      committed: pyVmomi.VmomiSupport.long
+      uncommitted: pyVmomi.VmomiSupport.long
+      unshared: pyVmomi.VmomiSupport.long
 
    perDatastoreUsage: list[UsageOnDatastore] = []
-   timestamp: datetime
+   timestamp: _datetime.datetime
 
 
 class SubnetInfo(TargetInfo):
-   class FolderInfo(DynamicData):
+   class FolderInfo(pyVmomi.vmodl.DynamicData):
       name: str
-      folder: Folder
+      folder: pyVmomi.vim.Folder
 
    id: str
    subnetFolderInfo: FolderInfo
    vpcFolderInfo: FolderInfo
-   projectFolderInfo: Optional[FolderInfo] = None
+   projectFolderInfo: _typing.Optional[FolderInfo] = None
    rootFolderInfo: FolderInfo
 
 
-class Summary(DynamicData):
-   class ConfigSummary(DynamicData):
+class Summary(pyVmomi.vmodl.DynamicData):
+   class ConfigSummary(pyVmomi.vmodl.DynamicData):
       name: str
       template: bool
       vmPathName: str
-      memorySizeMB: Optional[int] = None
-      cpuReservation: Optional[int] = None
-      memoryReservation: Optional[int] = None
-      numCpu: Optional[int] = None
-      numEthernetCards: Optional[int] = None
-      numVirtualDisks: Optional[int] = None
-      uuid: Optional[str] = None
-      instanceUuid: Optional[str] = None
-      guestId: Optional[str] = None
-      guestFullName: Optional[str] = None
-      annotation: Optional[str] = None
-      product: Optional[ProductInfo] = None
-      installBootRequired: Optional[bool] = None
-      ftInfo: Optional[FaultToleranceConfigInfo] = None
-      managedBy: Optional[ManagedByInfo] = None
-      tpmPresent: Optional[bool] = None
-      numVmiopBackings: Optional[int] = None
-      hwVersion: Optional[str] = None
+      memorySizeMB: _typing.Optional[int] = None
+      cpuReservation: _typing.Optional[int] = None
+      memoryReservation: _typing.Optional[int] = None
+      numCpu: _typing.Optional[int] = None
+      numEthernetCards: _typing.Optional[int] = None
+      numVirtualDisks: _typing.Optional[int] = None
+      uuid: _typing.Optional[str] = None
+      instanceUuid: _typing.Optional[str] = None
+      guestId: _typing.Optional[str] = None
+      guestFullName: _typing.Optional[str] = None
+      annotation: _typing.Optional[str] = None
+      product: _typing.Optional[pyVmomi.vim.vApp.ProductInfo] = None
+      installBootRequired: _typing.Optional[bool] = None
+      ftInfo: _typing.Optional[FaultToleranceConfigInfo] = None
+      managedBy: _typing.Optional[pyVmomi.vim.ext.ManagedByInfo] = None
+      tpmPresent: _typing.Optional[bool] = None
+      numVmiopBackings: _typing.Optional[int] = None
+      hwVersion: _typing.Optional[str] = None
 
-   class QuickStats(DynamicData):
-      class MemoryTierStats(DynamicData):
+   class QuickStats(pyVmomi.vmodl.DynamicData):
+      class MemoryTierStats(pyVmomi.vmodl.DynamicData):
          memoryTierType: str
-         readBandwidth: long
+         readBandwidth: pyVmomi.VmomiSupport.long
 
-      overallCpuUsage: Optional[int] = None
-      overallCpuDemand: Optional[int] = None
-      overallCpuReadiness: Optional[int] = None
-      guestMemoryUsage: Optional[int] = None
-      hostMemoryUsage: Optional[int] = None
-      guestHeartbeatStatus: ManagedEntity.Status
-      distributedCpuEntitlement: Optional[int] = None
-      distributedMemoryEntitlement: Optional[int] = None
-      staticCpuEntitlement: Optional[int] = None
-      staticMemoryEntitlement: Optional[int] = None
-      grantedMemory: Optional[int] = None
-      privateMemory: Optional[int] = None
-      sharedMemory: Optional[int] = None
-      swappedMemory: Optional[int] = None
-      balloonedMemory: Optional[int] = None
-      consumedOverheadMemory: Optional[int] = None
-      ftLogBandwidth: Optional[int] = None
-      ftSecondaryLatency: Optional[int] = None
-      ftLatencyStatus: Optional[ManagedEntity.Status] = None
-      compressedMemory: Optional[long] = None
-      uptimeSeconds: Optional[int] = None
-      ssdSwappedMemory: Optional[long] = None
-      activeMemory: Optional[int] = None
+      overallCpuUsage: _typing.Optional[int] = None
+      overallCpuDemand: _typing.Optional[int] = None
+      overallCpuReadiness: _typing.Optional[int] = None
+      guestMemoryUsage: _typing.Optional[int] = None
+      hostMemoryUsage: _typing.Optional[int] = None
+      guestHeartbeatStatus: pyVmomi.vim.ManagedEntity.Status
+      distributedCpuEntitlement: _typing.Optional[int] = None
+      distributedMemoryEntitlement: _typing.Optional[int] = None
+      staticCpuEntitlement: _typing.Optional[int] = None
+      staticMemoryEntitlement: _typing.Optional[int] = None
+      grantedMemory: _typing.Optional[int] = None
+      privateMemory: _typing.Optional[int] = None
+      sharedMemory: _typing.Optional[int] = None
+      swappedMemory: _typing.Optional[int] = None
+      balloonedMemory: _typing.Optional[int] = None
+      consumedOverheadMemory: _typing.Optional[int] = None
+      ftLogBandwidth: _typing.Optional[int] = None
+      ftSecondaryLatency: _typing.Optional[int] = None
+      ftLatencyStatus: _typing.Optional[pyVmomi.vim.ManagedEntity.Status] = None
+      compressedMemory: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+      uptimeSeconds: _typing.Optional[int] = None
+      ssdSwappedMemory: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+      activeMemory: _typing.Optional[int] = None
       memoryTierStats: list[MemoryTierStats] = []
 
-   class GuestSummary(DynamicData):
-      guestId: Optional[str] = None
-      guestFullName: Optional[str] = None
-      toolsStatus: Optional[GuestInfo.ToolsStatus] = None
-      toolsVersionStatus: Optional[str] = None
-      toolsVersionStatus2: Optional[str] = None
-      toolsRunningStatus: Optional[str] = None
-      hostName: Optional[str] = None
-      ipAddress: Optional[str] = None
-      hwVersion: Optional[str] = None
+   class GuestSummary(pyVmomi.vmodl.DynamicData):
+      guestId: _typing.Optional[str] = None
+      guestFullName: _typing.Optional[str] = None
+      toolsStatus: _typing.Optional[GuestInfo.ToolsStatus] = None
+      toolsVersionStatus: _typing.Optional[str] = None
+      toolsVersionStatus2: _typing.Optional[str] = None
+      toolsRunningStatus: _typing.Optional[str] = None
+      hostName: _typing.Optional[str] = None
+      ipAddress: _typing.Optional[str] = None
+      hwVersion: _typing.Optional[str] = None
 
-   class StorageSummary(DynamicData):
-      committed: long
-      uncommitted: long
-      unshared: long
-      timestamp: datetime
+   class StorageSummary(pyVmomi.vmodl.DynamicData):
+      committed: pyVmomi.VmomiSupport.long
+      uncommitted: pyVmomi.VmomiSupport.long
+      unshared: pyVmomi.VmomiSupport.long
+      timestamp: _datetime.datetime
 
-   vm: Optional[VirtualMachine] = None
+   vm: _typing.Optional[pyVmomi.vim.VirtualMachine] = None
    runtime: RuntimeInfo
-   guest: Optional[GuestSummary] = None
+   guest: _typing.Optional[GuestSummary] = None
    config: ConfigSummary
-   storage: Optional[StorageSummary] = None
+   storage: _typing.Optional[StorageSummary] = None
    quickStats: QuickStats
-   overallStatus: ManagedEntity.Status
-   customValue: list[CustomFieldsManager.Value] = []
+   overallStatus: pyVmomi.vim.ManagedEntity.Status
+   customValue: list[pyVmomi.vim.CustomFieldsManager.Value] = []
 
 
-class TargetInfo(DynamicData):
-   class ConfigurationTag(Enum):
-      compliant: ClassVar['ConfigurationTag'] = 'compliant'
-      clusterWide: ClassVar['ConfigurationTag'] = 'clusterWide'
+class TargetInfo(pyVmomi.vmodl.DynamicData):
+   class ConfigurationTag(pyVmomi.VmomiSupport.Enum):
+      compliant: _typing.ClassVar['ConfigurationTag'] = 'compliant'
+      clusterWide: _typing.ClassVar['ConfigurationTag'] = 'clusterWide'
 
    name: str
    configurationTag: list[str] = []
 
 
-class ToolsConfigInfo(DynamicData):
-   class UpgradePolicy(Enum):
-      manual: ClassVar['UpgradePolicy'] = 'manual'
-      upgradeAtPowerCycle: ClassVar['UpgradePolicy'] = 'upgradeAtPowerCycle'
+class ToolsConfigInfo(pyVmomi.vmodl.DynamicData):
+   class UpgradePolicy(pyVmomi.VmomiSupport.Enum):
+      manual: _typing.ClassVar['UpgradePolicy'] = 'manual'
+      upgradeAtPowerCycle: _typing.ClassVar['UpgradePolicy'] = 'upgradeAtPowerCycle'
 
-   class ToolsLastInstallInfo(DynamicData):
+   class ToolsLastInstallInfo(pyVmomi.vmodl.DynamicData):
       counter: int
-      fault: Optional[MethodFault] = None
+      fault: _typing.Optional[pyVmomi.vmodl.MethodFault] = None
 
-   toolsVersion: Optional[int] = None
-   toolsInstallType: Optional[str] = None
-   afterPowerOn: Optional[bool] = None
-   afterResume: Optional[bool] = None
-   beforeGuestStandby: Optional[bool] = None
-   beforeGuestShutdown: Optional[bool] = None
-   beforeGuestReboot: Optional[bool] = None
-   toolsUpgradePolicy: Optional[str] = None
-   pendingCustomization: Optional[str] = None
-   customizationKeyId: Optional[CryptoKeyId] = None
-   syncTimeWithHostAllowed: Optional[bool] = None
-   syncTimeWithHost: Optional[bool] = None
-   lastInstallInfo: Optional[ToolsLastInstallInfo] = None
+   toolsVersion: _typing.Optional[int] = None
+   toolsInstallType: _typing.Optional[str] = None
+   afterPowerOn: _typing.Optional[bool] = None
+   afterResume: _typing.Optional[bool] = None
+   beforeGuestStandby: _typing.Optional[bool] = None
+   beforeGuestShutdown: _typing.Optional[bool] = None
+   beforeGuestReboot: _typing.Optional[bool] = None
+   toolsUpgradePolicy: _typing.Optional[str] = None
+   pendingCustomization: _typing.Optional[str] = None
+   customizationKeyId: _typing.Optional[pyVmomi.vim.encryption.CryptoKeyId] = None
+   syncTimeWithHostAllowed: _typing.Optional[bool] = None
+   syncTimeWithHost: _typing.Optional[bool] = None
+   lastInstallInfo: _typing.Optional[ToolsLastInstallInfo] = None
 
 
 class UsbInfo(TargetInfo):
-   class Speed(Enum):
-      low: ClassVar['Speed'] = 'low'
-      full: ClassVar['Speed'] = 'full'
-      high: ClassVar['Speed'] = 'high'
-      superSpeed: ClassVar['Speed'] = 'superSpeed'
-      superSpeedPlus: ClassVar['Speed'] = 'superSpeedPlus'
-      superSpeed20Gbps: ClassVar['Speed'] = 'superSpeed20Gbps'
-      unknownSpeed: ClassVar['Speed'] = 'unknownSpeed'
+   class Speed(pyVmomi.VmomiSupport.Enum):
+      low: _typing.ClassVar['Speed'] = 'low'
+      full: _typing.ClassVar['Speed'] = 'full'
+      high: _typing.ClassVar['Speed'] = 'high'
+      superSpeed: _typing.ClassVar['Speed'] = 'superSpeed'
+      superSpeedPlus: _typing.ClassVar['Speed'] = 'superSpeedPlus'
+      superSpeed20Gbps: _typing.ClassVar['Speed'] = 'superSpeed20Gbps'
+      unknownSpeed: _typing.ClassVar['Speed'] = 'unknownSpeed'
 
-   class Family(Enum):
-      audio: ClassVar['Family'] = 'audio'
-      hid: ClassVar['Family'] = 'hid'
-      hid_bootable: ClassVar['Family'] = 'hid_bootable'
-      physical: ClassVar['Family'] = 'physical'
-      communication: ClassVar['Family'] = 'communication'
-      imaging: ClassVar['Family'] = 'imaging'
-      printer: ClassVar['Family'] = 'printer'
-      storage: ClassVar['Family'] = 'storage'
-      hub: ClassVar['Family'] = 'hub'
-      smart_card: ClassVar['Family'] = 'smart_card'
-      security: ClassVar['Family'] = 'security'
-      video: ClassVar['Family'] = 'video'
-      wireless: ClassVar['Family'] = 'wireless'
-      bluetooth: ClassVar['Family'] = 'bluetooth'
-      wusb: ClassVar['Family'] = 'wusb'
-      pda: ClassVar['Family'] = 'pda'
-      vendor_specific: ClassVar['Family'] = 'vendor_specific'
-      other: ClassVar['Family'] = 'other'
-      unknownFamily: ClassVar['Family'] = 'unknownFamily'
+   class Family(pyVmomi.VmomiSupport.Enum):
+      audio: _typing.ClassVar['Family'] = 'audio'
+      hid: _typing.ClassVar['Family'] = 'hid'
+      hid_bootable: _typing.ClassVar['Family'] = 'hid_bootable'
+      physical: _typing.ClassVar['Family'] = 'physical'
+      communication: _typing.ClassVar['Family'] = 'communication'
+      imaging: _typing.ClassVar['Family'] = 'imaging'
+      printer: _typing.ClassVar['Family'] = 'printer'
+      storage: _typing.ClassVar['Family'] = 'storage'
+      hub: _typing.ClassVar['Family'] = 'hub'
+      smart_card: _typing.ClassVar['Family'] = 'smart_card'
+      security: _typing.ClassVar['Family'] = 'security'
+      video: _typing.ClassVar['Family'] = 'video'
+      wireless: _typing.ClassVar['Family'] = 'wireless'
+      bluetooth: _typing.ClassVar['Family'] = 'bluetooth'
+      wusb: _typing.ClassVar['Family'] = 'wusb'
+      pda: _typing.ClassVar['Family'] = 'pda'
+      vendor_specific: _typing.ClassVar['Family'] = 'vendor_specific'
+      other: _typing.ClassVar['Family'] = 'other'
+      unknownFamily: _typing.ClassVar['Family'] = 'unknownFamily'
 
    description: str
    vendor: int
@@ -1781,63 +1689,63 @@ class UsbInfo(TargetInfo):
    physicalPath: str
    family: list[str] = []
    speed: list[str] = []
-   summary: Optional[Summary] = None
+   summary: _typing.Optional[Summary] = None
 
 
-class UsbScanCodeSpec(DynamicData):
-   class ModifierType(DynamicData):
-      leftControl: Optional[bool] = None
-      leftShift: Optional[bool] = None
-      leftAlt: Optional[bool] = None
-      leftGui: Optional[bool] = None
-      rightControl: Optional[bool] = None
-      rightShift: Optional[bool] = None
-      rightAlt: Optional[bool] = None
-      rightGui: Optional[bool] = None
+class UsbScanCodeSpec(pyVmomi.vmodl.DynamicData):
+   class ModifierType(pyVmomi.vmodl.DynamicData):
+      leftControl: _typing.Optional[bool] = None
+      leftShift: _typing.Optional[bool] = None
+      leftAlt: _typing.Optional[bool] = None
+      leftGui: _typing.Optional[bool] = None
+      rightControl: _typing.Optional[bool] = None
+      rightShift: _typing.Optional[bool] = None
+      rightAlt: _typing.Optional[bool] = None
+      rightGui: _typing.Optional[bool] = None
 
-   class KeyEvent(DynamicData):
+   class KeyEvent(pyVmomi.vmodl.DynamicData):
       usbHidCode: int
-      modifiers: Optional[ModifierType] = None
+      modifiers: _typing.Optional[ModifierType] = None
 
    keyEvents: list[KeyEvent] = []
 
 
 class VFlashModuleInfo(TargetInfo):
-   vFlashModule: VFlashManager.VFlashCacheConfigInfo.VFlashModuleConfigOption
+   vFlashModule: pyVmomi.vim.host.VFlashManager.VFlashCacheConfigInfo.VFlashModuleConfigOption
 
 
 class VMotionStunTimeInfo(TargetInfo):
-   migrationBW: long
-   stunTime: long
+   migrationBW: pyVmomi.VmomiSupport.long
+   stunTime: pyVmomi.VmomiSupport.long
 
 
-class VcpuConfig(DynamicData):
-   latencySensitivity: Optional[LatencySensitivity] = None
+class VcpuConfig(pyVmomi.vmodl.DynamicData):
+   latencySensitivity: _typing.Optional[pyVmomi.vim.LatencySensitivity] = None
 
 
 class VendorDeviceGroupInfo(TargetInfo):
-   class ComponentDeviceInfo(DynamicData):
-      class ComponentType(Enum):
-         pciPassthru: ClassVar['ComponentType'] = 'pciPassthru'
-         nvidiaVgpu: ClassVar['ComponentType'] = 'nvidiaVgpu'
-         sriovNic: ClassVar['ComponentType'] = 'sriovNic'
-         dvx: ClassVar['ComponentType'] = 'dvx'
+   class ComponentDeviceInfo(pyVmomi.vmodl.DynamicData):
+      class ComponentType(pyVmomi.VmomiSupport.Enum):
+         pciPassthru: _typing.ClassVar['ComponentType'] = 'pciPassthru'
+         nvidiaVgpu: _typing.ClassVar['ComponentType'] = 'nvidiaVgpu'
+         sriovNic: _typing.ClassVar['ComponentType'] = 'sriovNic'
+         dvx: _typing.ClassVar['ComponentType'] = 'dvx'
 
       type: str
       vendorName: str
       deviceName: str
       isConfigurable: bool
-      device: VirtualDevice
+      device: pyVmomi.vim.vm.device.VirtualDevice
 
    deviceGroupName: str
-   deviceGroupDescription: Optional[str] = None
+   deviceGroupDescription: _typing.Optional[str] = None
    componentDeviceInfo: list[ComponentDeviceInfo] = []
 
 
 class VgpuDeviceInfo(TargetInfo):
    deviceName: str
-   deviceVendorId: long
-   maxFbSizeInGib: long
+   deviceVendorId: pyVmomi.VmomiSupport.long
+   maxFbSizeInGib: pyVmomi.VmomiSupport.long
    timeSlicedCapable: bool
    migCapable: bool
    computeProfileCapable: bool
@@ -1845,26 +1753,26 @@ class VgpuDeviceInfo(TargetInfo):
 
 
 class VgpuProfileInfo(TargetInfo):
-   class ProfileSharing(Enum):
-      timeSliced: ClassVar['ProfileSharing'] = 'timeSliced'
-      mig: ClassVar['ProfileSharing'] = 'mig'
+   class ProfileSharing(pyVmomi.VmomiSupport.Enum):
+      timeSliced: _typing.ClassVar['ProfileSharing'] = 'timeSliced'
+      mig: _typing.ClassVar['ProfileSharing'] = 'mig'
 
-   class ProfileClass(Enum):
-      compute: ClassVar['ProfileClass'] = 'compute'
-      quadro: ClassVar['ProfileClass'] = 'quadro'
+   class ProfileClass(pyVmomi.VmomiSupport.Enum):
+      compute: _typing.ClassVar['ProfileClass'] = 'compute'
+      quadro: _typing.ClassVar['ProfileClass'] = 'quadro'
 
    profileName: str
-   deviceVendorId: long
-   fbSizeInGib: long
+   deviceVendorId: pyVmomi.VmomiSupport.long
+   fbSizeInGib: pyVmomi.VmomiSupport.long
    profileSharing: str
    profileClass: str
    stunTimeEstimates: list[VMotionStunTimeInfo] = []
 
 
-class VirtualDeviceGroups(DynamicData):
-   class DeviceGroup(DynamicData):
+class VirtualDeviceGroups(pyVmomi.vmodl.DynamicData):
+   class DeviceGroup(pyVmomi.vmodl.DynamicData):
       groupInstanceKey: int
-      deviceInfo: Optional[Description] = None
+      deviceInfo: _typing.Optional[pyVmomi.vim.Description] = None
 
    class VendorDeviceGroup(DeviceGroup):
       deviceGroupName: str
@@ -1872,130 +1780,130 @@ class VirtualDeviceGroups(DynamicData):
    deviceGroup: list[DeviceGroup] = []
 
 
-class VirtualDeviceSwap(DynamicData):
-   class DeviceSwapStatus(Enum):
-      none: ClassVar['DeviceSwapStatus'] = 'none'
-      scheduled: ClassVar['DeviceSwapStatus'] = 'scheduled'
-      inprogress: ClassVar['DeviceSwapStatus'] = 'inprogress'
-      failed: ClassVar['DeviceSwapStatus'] = 'failed'
-      completed: ClassVar['DeviceSwapStatus'] = 'completed'
+class VirtualDeviceSwap(pyVmomi.vmodl.DynamicData):
+   class DeviceSwapStatus(pyVmomi.VmomiSupport.Enum):
+      none: _typing.ClassVar['DeviceSwapStatus'] = 'none'
+      scheduled: _typing.ClassVar['DeviceSwapStatus'] = 'scheduled'
+      inprogress: _typing.ClassVar['DeviceSwapStatus'] = 'inprogress'
+      failed: _typing.ClassVar['DeviceSwapStatus'] = 'failed'
+      completed: _typing.ClassVar['DeviceSwapStatus'] = 'completed'
 
-   class DeviceSwapInfo(DynamicData):
-      enabled: Optional[bool] = None
-      applicable: Optional[bool] = None
-      status: Optional[str] = None
+   class DeviceSwapInfo(pyVmomi.vmodl.DynamicData):
+      enabled: _typing.Optional[bool] = None
+      applicable: _typing.Optional[bool] = None
+      status: _typing.Optional[str] = None
 
-   lsiToPvscsi: Optional[DeviceSwapInfo] = None
+   lsiToPvscsi: _typing.Optional[DeviceSwapInfo] = None
 
 
-class VirtualHardware(DynamicData):
-   class MotherboardLayout(Enum):
-      i440bxHostBridge: ClassVar['MotherboardLayout'] = 'i440bxHostBridge'
-      acpiHostBridges: ClassVar['MotherboardLayout'] = 'acpiHostBridges'
+class VirtualHardware(pyVmomi.vmodl.DynamicData):
+   class MotherboardLayout(pyVmomi.VmomiSupport.Enum):
+      i440bxHostBridge: _typing.ClassVar['MotherboardLayout'] = 'i440bxHostBridge'
+      acpiHostBridges: _typing.ClassVar['MotherboardLayout'] = 'acpiHostBridges'
 
    numCPU: int
-   numCoresPerSocket: Optional[int] = None
-   autoCoresPerSocket: Optional[bool] = None
+   numCoresPerSocket: _typing.Optional[int] = None
+   autoCoresPerSocket: _typing.Optional[bool] = None
    memoryMB: int
-   virtualICH7MPresent: Optional[bool] = None
-   virtualSMCPresent: Optional[bool] = None
-   device: list[VirtualDevice] = []
-   motherboardLayout: Optional[str] = None
-   simultaneousThreads: Optional[int] = None
+   virtualICH7MPresent: _typing.Optional[bool] = None
+   virtualSMCPresent: _typing.Optional[bool] = None
+   device: list[pyVmomi.vim.vm.device.VirtualDevice] = []
+   motherboardLayout: _typing.Optional[str] = None
+   simultaneousThreads: _typing.Optional[int] = None
 
 
-class VirtualHardwareOption(DynamicData):
+class VirtualHardwareOption(pyVmomi.vmodl.DynamicData):
    hwVersion: int
-   virtualDeviceOption: list[VirtualDeviceOption] = []
+   virtualDeviceOption: list[pyVmomi.vim.vm.device.VirtualDeviceOption] = []
    deviceListReadonly: bool
    numCPU: list[int] = []
-   numCoresPerSocket: IntOption
-   autoCoresPerSocket: Optional[BoolOption] = None
+   numCoresPerSocket: pyVmomi.vim.option.IntOption
+   autoCoresPerSocket: _typing.Optional[pyVmomi.vim.option.BoolOption] = None
    numCpuReadonly: bool
-   memoryMB: LongOption
-   numPCIControllers: IntOption
-   numIDEControllers: IntOption
-   numUSBControllers: IntOption
-   numUSBXHCIControllers: IntOption
-   numSIOControllers: IntOption
-   numPS2Controllers: IntOption
-   licensingLimit: list[PropertyPath] = []
-   numSupportedWwnPorts: Optional[IntOption] = None
-   numSupportedWwnNodes: Optional[IntOption] = None
-   resourceConfigOption: ResourceConfigOption
-   numNVDIMMControllers: Optional[IntOption] = None
-   numTPMDevices: Optional[IntOption] = None
-   numWDTDevices: Optional[IntOption] = None
-   numPrecisionClockDevices: Optional[IntOption] = None
-   epcMemoryMB: Optional[LongOption] = None
+   memoryMB: pyVmomi.vim.option.LongOption
+   numPCIControllers: pyVmomi.vim.option.IntOption
+   numIDEControllers: pyVmomi.vim.option.IntOption
+   numUSBControllers: pyVmomi.vim.option.IntOption
+   numUSBXHCIControllers: pyVmomi.vim.option.IntOption
+   numSIOControllers: pyVmomi.vim.option.IntOption
+   numPS2Controllers: pyVmomi.vim.option.IntOption
+   licensingLimit: list[pyVmomi.VmomiSupport.PropertyPath] = []
+   numSupportedWwnPorts: _typing.Optional[pyVmomi.vim.option.IntOption] = None
+   numSupportedWwnNodes: _typing.Optional[pyVmomi.vim.option.IntOption] = None
+   resourceConfigOption: pyVmomi.vim.ResourceConfigOption
+   numNVDIMMControllers: _typing.Optional[pyVmomi.vim.option.IntOption] = None
+   numTPMDevices: _typing.Optional[pyVmomi.vim.option.IntOption] = None
+   numWDTDevices: _typing.Optional[pyVmomi.vim.option.IntOption] = None
+   numPrecisionClockDevices: _typing.Optional[pyVmomi.vim.option.IntOption] = None
+   epcMemoryMB: _typing.Optional[pyVmomi.vim.option.LongOption] = None
    acpiHostBridgesFirmware: list[str] = []
-   numCpuSimultaneousThreads: Optional[IntOption] = None
-   numNumaNodes: Optional[IntOption] = None
-   numDeviceGroups: Optional[IntOption] = None
+   numCpuSimultaneousThreads: _typing.Optional[pyVmomi.vim.option.IntOption] = None
+   numNumaNodes: _typing.Optional[pyVmomi.vim.option.IntOption] = None
+   numDeviceGroups: _typing.Optional[pyVmomi.vim.option.IntOption] = None
    deviceGroupTypes: list[type] = []
 
 
-class VirtualNuma(DynamicData):
-   coresPerNumaNode: Optional[int] = None
-   exposeVnumaOnCpuHotadd: Optional[bool] = None
+class VirtualNuma(pyVmomi.vmodl.DynamicData):
+   coresPerNumaNode: _typing.Optional[int] = None
+   exposeVnumaOnCpuHotadd: _typing.Optional[bool] = None
 
 
-class VirtualNumaInfo(DynamicData):
-   coresPerNumaNode: Optional[int] = None
-   autoCoresPerNumaNode: Optional[bool] = None
-   vnumaOnCpuHotaddExposed: Optional[bool] = None
+class VirtualNumaInfo(pyVmomi.vmodl.DynamicData):
+   coresPerNumaNode: _typing.Optional[int] = None
+   autoCoresPerNumaNode: _typing.Optional[bool] = None
+   vnumaOnCpuHotaddExposed: _typing.Optional[bool] = None
 
 
-class VirtualPMem(DynamicData):
-   class SnapshotMode(Enum):
-      independent_persistent: ClassVar['SnapshotMode'] = 'independent_persistent'
-      independent_eraseonrevert: ClassVar['SnapshotMode'] = 'independent_eraseonrevert'
+class VirtualPMem(pyVmomi.vmodl.DynamicData):
+   class SnapshotMode(pyVmomi.VmomiSupport.Enum):
+      independent_persistent: _typing.ClassVar['SnapshotMode'] = 'independent_persistent'
+      independent_eraseonrevert: _typing.ClassVar['SnapshotMode'] = 'independent_eraseonrevert'
 
-   snapshotMode: Optional[str] = None
+   snapshotMode: _typing.Optional[str] = None
 
 
-class VmImportSpec(ImportSpec):
+class VmImportSpec(pyVmomi.vim.ImportSpec):
    configSpec: ConfigSpec
-   resPoolEntity: Optional[ResourcePool] = None
+   resPoolEntity: _typing.Optional[pyVmomi.vim.ResourcePool] = None
 
 
-class VmPlacementPolicy(DynamicData):
-   class VmPlacementPolicyStrictness(Enum):
-      PreferredDuringPlacementPreferredDuringExecution: ClassVar['VmPlacementPolicyStrictness'] = 'PreferredDuringPlacementPreferredDuringExecution'
-      RequiredDuringPlacementPreferredDuringExecution: ClassVar['VmPlacementPolicyStrictness'] = 'RequiredDuringPlacementPreferredDuringExecution'
+class VmPlacementPolicy(pyVmomi.vmodl.DynamicData):
+   class VmPlacementPolicyStrictness(pyVmomi.VmomiSupport.Enum):
+      PreferredDuringPlacementPreferredDuringExecution: _typing.ClassVar['VmPlacementPolicyStrictness'] = 'PreferredDuringPlacementPreferredDuringExecution'
+      RequiredDuringPlacementPreferredDuringExecution: _typing.ClassVar['VmPlacementPolicyStrictness'] = 'RequiredDuringPlacementPreferredDuringExecution'
 
-   class VmPlacementPolicyTopology(Enum):
-      Host: ClassVar['VmPlacementPolicyTopology'] = 'Host'
-      ClusterComputeResource: ClassVar['VmPlacementPolicyTopology'] = 'ClusterComputeResource'
-      VSphereZone: ClassVar['VmPlacementPolicyTopology'] = 'VSphereZone'
+   class VmPlacementPolicyTopology(pyVmomi.VmomiSupport.Enum):
+      Host: _typing.ClassVar['VmPlacementPolicyTopology'] = 'Host'
+      ClusterComputeResource: _typing.ClassVar['VmPlacementPolicyTopology'] = 'ClusterComputeResource'
+      VSphereZone: _typing.ClassVar['VmPlacementPolicyTopology'] = 'VSphereZone'
 
 
 class VmToVmGroupsAntiAffinity(VmPlacementPolicy):
-   selfTag: Optional[TagId] = None
-   antiAffinedVmGroupTags: list[TagId] = []
-   policyStrictness: Optional[str] = None
-   policyTopology: Optional[str] = None
+   selfTag: _typing.Optional[pyVmomi.vim.TagId] = None
+   antiAffinedVmGroupTags: list[pyVmomi.vim.TagId] = []
+   policyStrictness: _typing.Optional[str] = None
+   policyTopology: _typing.Optional[str] = None
 
 
 class VmVmAffinity(VmPlacementPolicy):
-   affinedVmsTag: TagId
-   policyStrictness: Optional[str] = None
-   policyTopology: Optional[str] = None
+   affinedVmsTag: pyVmomi.vim.TagId
+   policyStrictness: _typing.Optional[str] = None
+   policyTopology: _typing.Optional[str] = None
 
 
 class VmVmAntiAffinity(VmPlacementPolicy):
-   antiAffinedVmsTag: TagId
-   policyStrictness: Optional[str] = None
-   policyTopology: Optional[str] = None
+   antiAffinedVmsTag: pyVmomi.vim.TagId
+   policyStrictness: _typing.Optional[str] = None
+   policyTopology: _typing.Optional[str] = None
 
 
 class WindowsQuiesceSpec(GuestQuiesceSpec):
-   class VssBackupContext(Enum):
-      ctx_auto: ClassVar['VssBackupContext'] = 'ctx_auto'
-      ctx_backup: ClassVar['VssBackupContext'] = 'ctx_backup'
-      ctx_file_share_backup: ClassVar['VssBackupContext'] = 'ctx_file_share_backup'
+   class VssBackupContext(pyVmomi.VmomiSupport.Enum):
+      ctx_auto: _typing.ClassVar['VssBackupContext'] = 'ctx_auto'
+      ctx_backup: _typing.ClassVar['VssBackupContext'] = 'ctx_backup'
+      ctx_file_share_backup: _typing.ClassVar['VssBackupContext'] = 'ctx_file_share_backup'
 
-   vssBackupType: Optional[int] = None
-   vssBootableSystemState: Optional[bool] = None
-   vssPartialFileSupport: Optional[bool] = None
-   vssBackupContext: Optional[str] = None
+   vssBackupType: _typing.Optional[int] = None
+   vssBootableSystemState: _typing.Optional[bool] = None
+   vssPartialFileSupport: _typing.Optional[bool] = None
+   vssBackupContext: _typing.Optional[str] = None

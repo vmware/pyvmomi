@@ -6,28 +6,23 @@
 from . import fault as fault
 from . import query as query
 
-from typing import Optional
-
-from pyVmomi.VmomiSupport import DataObject
-from pyVmomi.VmomiSupport import PropertyPath
+import typing as _typing
+import pyVmomi.VmomiSupport
 
 
-class DataObject:
-   pass
 
-
-class DynamicArray(DataObject):
-   dynamicType: Optional[str] = None
+class DynamicArray(pyVmomi.VmomiSupport.DataObject):
+   dynamicType: _typing.Optional[str] = None
    val: list[object] = []
 
 
-class DynamicData(DataObject):
-   dynamicType: Optional[str] = None
+class DynamicData(pyVmomi.VmomiSupport.DataObject):
+   dynamicType: _typing.Optional[str] = None
    dynamicProperty: list[DynamicProperty] = []
 
 
-class DynamicProperty(DataObject):
-   name: PropertyPath
+class DynamicProperty(pyVmomi.VmomiSupport.DataObject):
+   name: pyVmomi.VmomiSupport.PropertyPath
    val: object
 
 class KeyAnyValue(DynamicData):
@@ -38,19 +33,16 @@ class KeyAnyValue(DynamicData):
 class LocalizableMessage(DynamicData):
    key: str
    arg: list[KeyAnyValue] = []
-   message: Optional[str] = None
+   message: _typing.Optional[str] = None
 
 
 class LocalizedMethodFault(DynamicData):
    fault: MethodFault
-   localizedMessage: Optional[str] = None
-
-class ManagedObject:
-   pass
+   localizedMessage: _typing.Optional[str] = None
 
 
-class MethodFault(Exception):
-   faultCause: Optional[MethodFault] = None
+class MethodFault(DynamicData, Exception):
+   faultCause: _typing.Optional[MethodFault] = None
    faultMessage: list[LocalizableMessage] = []
 
 class RuntimeFault(MethodFault):

@@ -3,19 +3,17 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import Optional
-
-from pyVmomi.VmomiSupport import long
-
-from pyVmomi.vmodl import DynamicData
+import typing as _typing
+import pyVmomi.VmomiSupport
+import pyVmomi.vmodl
 
 
 
-class DatastoreSpaceStatistics(DynamicData):
-   profileId: Optional[str] = None
-   physicalTotalInMB: long
-   physicalFreeInMB: long
-   physicalUsedInMB: long
-   logicalLimitInMB: Optional[long] = None
-   logicalFreeInMB: long
-   logicalUsedInMB: long
+class DatastoreSpaceStatistics(pyVmomi.vmodl.DynamicData):
+   profileId: _typing.Optional[str] = None
+   physicalTotalInMB: pyVmomi.VmomiSupport.long
+   physicalFreeInMB: pyVmomi.VmomiSupport.long
+   physicalUsedInMB: pyVmomi.VmomiSupport.long
+   logicalLimitInMB: _typing.Optional[pyVmomi.VmomiSupport.long] = None
+   logicalFreeInMB: pyVmomi.VmomiSupport.long
+   logicalUsedInMB: pyVmomi.VmomiSupport.long

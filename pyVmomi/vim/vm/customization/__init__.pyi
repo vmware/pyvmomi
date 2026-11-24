@@ -3,21 +3,15 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import ClassVar
-from typing import Optional
-
-from pyVmomi.VmomiSupport import Enum
-
-from pyVmomi.VmomiSupport import byte
-
-from pyVmomi.vmodl import DynamicData
-
-from pyVmomi.vim.option import OptionValue
+import typing as _typing
+import pyVmomi.VmomiSupport
+import pyVmomi.vmodl
+import pyVmomi.vim.option
 
 
 
-class AdapterMapping(DynamicData):
-   macAddress: Optional[str] = None
+class AdapterMapping(pyVmomi.vmodl.DynamicData):
+   macAddress: _typing.Optional[str] = None
    adapter: IPSettings
 
 class AutoIpV6Generator(IpV6Generator):
@@ -26,19 +20,19 @@ class AutoIpV6Generator(IpV6Generator):
 
 class CloudinitPrep(IdentitySettings):
    metadata: str
-   userdata: Optional[str] = None
+   userdata: _typing.Optional[str] = None
 
 
 class CustomIpGenerator(IpGenerator):
-   argument: Optional[str] = None
+   argument: _typing.Optional[str] = None
 
 
 class CustomIpV6Generator(IpV6Generator):
-   argument: Optional[str] = None
+   argument: _typing.Optional[str] = None
 
 
 class CustomNameGenerator(NameGenerator):
-   argument: Optional[str] = None
+   argument: _typing.Optional[str] = None
 
 class DhcpIpGenerator(IpGenerator):
    pass
@@ -60,70 +54,70 @@ class FixedName(NameGenerator):
    name: str
 
 
-class GlobalIPSettings(DynamicData):
+class GlobalIPSettings(pyVmomi.vmodl.DynamicData):
    dnsSuffixList: list[str] = []
    dnsServerList: list[str] = []
 
 
-class GuiRunOnce(DynamicData):
+class GuiRunOnce(pyVmomi.vmodl.DynamicData):
    commandList: list[str] = []
 
 
-class GuiUnattended(DynamicData):
-   password: Optional[Password] = None
+class GuiUnattended(pyVmomi.vmodl.DynamicData):
+   password: _typing.Optional[Password] = None
    timeZone: int
    autoLogon: bool
    autoLogonCount: int
 
 
-class IPSettings(DynamicData):
-   class IpV6AddressSpec(DynamicData):
+class IPSettings(pyVmomi.vmodl.DynamicData):
+   class IpV6AddressSpec(pyVmomi.vmodl.DynamicData):
       ip: list[IpV6Generator] = []
       gateway: list[str] = []
 
-   class NetBIOSMode(Enum):
-      enableNetBIOSViaDhcp: ClassVar['NetBIOSMode'] = 'enableNetBIOSViaDhcp'
-      enableNetBIOS: ClassVar['NetBIOSMode'] = 'enableNetBIOS'
-      disableNetBIOS: ClassVar['NetBIOSMode'] = 'disableNetBIOS'
+   class NetBIOSMode(pyVmomi.VmomiSupport.Enum):
+      enableNetBIOSViaDhcp: _typing.ClassVar['NetBIOSMode'] = 'enableNetBIOSViaDhcp'
+      enableNetBIOS: _typing.ClassVar['NetBIOSMode'] = 'enableNetBIOS'
+      disableNetBIOS: _typing.ClassVar['NetBIOSMode'] = 'disableNetBIOS'
 
    ip: IpGenerator
-   subnetMask: Optional[str] = None
+   subnetMask: _typing.Optional[str] = None
    gateway: list[str] = []
-   ipV6Spec: Optional[IpV6AddressSpec] = None
+   ipV6Spec: _typing.Optional[IpV6AddressSpec] = None
    dnsServerList: list[str] = []
-   dnsDomain: Optional[str] = None
-   primaryWINS: Optional[str] = None
-   secondaryWINS: Optional[str] = None
-   netBIOS: Optional[NetBIOSMode] = None
+   dnsDomain: _typing.Optional[str] = None
+   primaryWINS: _typing.Optional[str] = None
+   secondaryWINS: _typing.Optional[str] = None
+   netBIOS: _typing.Optional[NetBIOSMode] = None
 
 
-class Identification(DynamicData):
-   joinWorkgroup: Optional[str] = None
-   joinDomain: Optional[str] = None
-   domainAdmin: Optional[str] = None
-   domainAdminPassword: Optional[Password] = None
-   domainOU: Optional[str] = None
+class Identification(pyVmomi.vmodl.DynamicData):
+   joinWorkgroup: _typing.Optional[str] = None
+   joinDomain: _typing.Optional[str] = None
+   domainAdmin: _typing.Optional[str] = None
+   domainAdminPassword: _typing.Optional[Password] = None
+   domainOU: _typing.Optional[str] = None
 
 
-class IdentitySettings(DynamicData):
+class IdentitySettings(pyVmomi.vmodl.DynamicData):
    pass
 
 
-class IpGenerator(DynamicData):
+class IpGenerator(pyVmomi.vmodl.DynamicData):
    pass
 
 
-class IpV6Generator(DynamicData):
+class IpV6Generator(pyVmomi.vmodl.DynamicData):
    pass
 
 
-class LicenseFilePrintData(DynamicData):
-   class AutoMode(Enum):
-      perServer: ClassVar['AutoMode'] = 'perServer'
-      perSeat: ClassVar['AutoMode'] = 'perSeat'
+class LicenseFilePrintData(pyVmomi.vmodl.DynamicData):
+   class AutoMode(pyVmomi.VmomiSupport.Enum):
+      perServer: _typing.ClassVar['AutoMode'] = 'perServer'
+      perSeat: _typing.ClassVar['AutoMode'] = 'perSeat'
 
    autoMode: AutoMode
-   autoUsers: Optional[int] = None
+   autoUsers: _typing.Optional[int] = None
 
 class LinuxFlexPrep(IdentitySettings):
    pass
@@ -135,24 +129,24 @@ class LinuxOptions(Options):
 class LinuxPrep(IdentitySettings):
    hostName: NameGenerator
    domain: str
-   timeZone: Optional[str] = None
-   hwClockUTC: Optional[bool] = None
-   scriptText: Optional[str] = None
-   compatibleCustomizationMethod: Optional[str] = None
-   resetPassword: Optional[bool] = None
-   password: Optional[Password] = None
-   extraConfig: list[OptionValue] = []
+   timeZone: _typing.Optional[str] = None
+   hwClockUTC: _typing.Optional[bool] = None
+   scriptText: _typing.Optional[str] = None
+   compatibleCustomizationMethod: _typing.Optional[str] = None
+   resetPassword: _typing.Optional[bool] = None
+   password: _typing.Optional[Password] = None
+   extraConfig: list[pyVmomi.vim.option.OptionValue] = []
 
 
-class NameGenerator(DynamicData):
+class NameGenerator(pyVmomi.vmodl.DynamicData):
    pass
 
 
-class Options(DynamicData):
+class Options(pyVmomi.vmodl.DynamicData):
    pass
 
 
-class Password(DynamicData):
+class Password(pyVmomi.vmodl.DynamicData):
    value: str
    plainText: bool
 
@@ -160,12 +154,12 @@ class PrefixNameGenerator(NameGenerator):
    base: str
 
 
-class Specification(DynamicData):
-   options: Optional[Options] = None
+class Specification(pyVmomi.vmodl.DynamicData):
+   options: _typing.Optional[Options] = None
    identity: IdentitySettings
    globalIPSettings: GlobalIPSettings
    nicSettingMap: list[AdapterMapping] = []
-   encryptionKey: list[byte] = []
+   encryptionKey: list[pyVmomi.VmomiSupport.byte] = []
 
 class StatelessIpV6Generator(IpV6Generator):
    pass
@@ -174,12 +168,12 @@ class StatelessIpV6Generator(IpV6Generator):
 class Sysprep(IdentitySettings):
    guiUnattended: GuiUnattended
    userData: UserData
-   guiRunOnce: Optional[GuiRunOnce] = None
+   guiRunOnce: _typing.Optional[GuiRunOnce] = None
    identification: Identification
-   licenseFilePrintData: Optional[LicenseFilePrintData] = None
-   scriptText: Optional[str] = None
-   resetPassword: Optional[bool] = None
-   extraConfig: list[OptionValue] = []
+   licenseFilePrintData: _typing.Optional[LicenseFilePrintData] = None
+   scriptText: _typing.Optional[str] = None
+   resetPassword: _typing.Optional[bool] = None
+   extraConfig: list[pyVmomi.vim.option.OptionValue] = []
 
 class SysprepText(IdentitySettings):
    value: str
@@ -194,7 +188,7 @@ class UnknownNameGenerator(NameGenerator):
    pass
 
 
-class UserData(DynamicData):
+class UserData(pyVmomi.vmodl.DynamicData):
    fullName: str
    orgName: str
    computerName: NameGenerator
@@ -205,14 +199,14 @@ class VirtualMachineNameGenerator(NameGenerator):
 
 
 class WinOptions(Options):
-   class SysprepRebootOption(Enum):
-      reboot: ClassVar['SysprepRebootOption'] = 'reboot'
-      noreboot: ClassVar['SysprepRebootOption'] = 'noreboot'
-      shutdown: ClassVar['SysprepRebootOption'] = 'shutdown'
+   class SysprepRebootOption(pyVmomi.VmomiSupport.Enum):
+      reboot: _typing.ClassVar['SysprepRebootOption'] = 'reboot'
+      noreboot: _typing.ClassVar['SysprepRebootOption'] = 'noreboot'
+      shutdown: _typing.ClassVar['SysprepRebootOption'] = 'shutdown'
 
    changeSID: bool
    deleteAccounts: bool
-   reboot: Optional[SysprepRebootOption] = None
+   reboot: _typing.Optional[SysprepRebootOption] = None
 
 class WindowsFlexPrep(IdentitySettings):
    pass

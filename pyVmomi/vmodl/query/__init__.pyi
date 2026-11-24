@@ -3,53 +3,46 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import ClassVar
-from typing import Optional
-
-from pyVmomi.VmomiSupport import Enum
-from pyVmomi.VmomiSupport import ManagedObject
-from pyVmomi.VmomiSupport import PropertyPath
-
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import DynamicProperty
-from pyVmomi.vmodl import MethodFault
+import typing as _typing
+import pyVmomi.VmomiSupport
+import pyVmomi.vmodl
 
 
 
-class InvalidCollectorVersion(MethodFault):
+class InvalidCollectorVersion(pyVmomi.vmodl.MethodFault):
    pass
 
 
-class InvalidProperty(MethodFault):
-   name: PropertyPath
+class InvalidProperty(pyVmomi.vmodl.MethodFault):
+   name: pyVmomi.VmomiSupport.PropertyPath
 
 
-class PropertyCollector(ManagedObject):
-   class FilterSpec(DynamicData):
+class PropertyCollector(pyVmomi.VmomiSupport.ManagedObject):
+   class FilterSpec(pyVmomi.vmodl.DynamicData):
       propSet: list[PropertySpec] = []
       objectSet: list[ObjectSpec] = []
-      reportMissingObjectsInResults: Optional[bool] = None
+      reportMissingObjectsInResults: _typing.Optional[bool] = None
 
-   class PropertySpec(DynamicData):
+   class PropertySpec(pyVmomi.vmodl.DynamicData):
       type: type
-      all: Optional[bool] = None
-      pathSet: list[PropertyPath] = []
+      all: _typing.Optional[bool] = None
+      pathSet: list[pyVmomi.VmomiSupport.PropertyPath] = []
 
-   class ObjectSpec(DynamicData):
-      obj: ManagedObject
-      skip: Optional[bool] = None
+   class ObjectSpec(pyVmomi.vmodl.DynamicData):
+      obj: pyVmomi.VmomiSupport.ManagedObject
+      skip: _typing.Optional[bool] = None
       selectSet: list[SelectionSpec] = []
 
-   class SelectionSpec(DynamicData):
-      name: Optional[str] = None
+   class SelectionSpec(pyVmomi.vmodl.DynamicData):
+      name: _typing.Optional[str] = None
 
    class TraversalSpec(SelectionSpec):
       type: type
-      path: PropertyPath
-      skip: Optional[bool] = None
+      path: pyVmomi.VmomiSupport.PropertyPath
+      skip: _typing.Optional[bool] = None
       selectSet: list[SelectionSpec] = []
 
-   class Filter(ManagedObject):
+   class Filter(pyVmomi.VmomiSupport.ManagedObject):
       @property
       def spec(self) -> FilterSpec: ...
       @property
@@ -57,60 +50,60 @@ class PropertyCollector(ManagedObject):
 
       def Destroy(self) -> None: ...
 
-   class ObjectContent(DynamicData):
-      obj: ManagedObject
-      propSet: list[DynamicProperty] = []
+   class ObjectContent(pyVmomi.vmodl.DynamicData):
+      obj: pyVmomi.VmomiSupport.ManagedObject
+      propSet: list[pyVmomi.vmodl.DynamicProperty] = []
       missingSet: list[MissingProperty] = []
 
-   class UpdateSet(DynamicData):
+   class UpdateSet(pyVmomi.vmodl.DynamicData):
       version: str
       filterSet: list[FilterUpdate] = []
-      truncated: Optional[bool] = None
+      truncated: _typing.Optional[bool] = None
 
-   class FilterUpdate(DynamicData):
+   class FilterUpdate(pyVmomi.vmodl.DynamicData):
       filter: Filter
       objectSet: list[ObjectUpdate] = []
       missingSet: list[MissingObject] = []
 
-   class ObjectUpdate(DynamicData):
-      class Kind(Enum):
-         modify: ClassVar['Kind'] = 'modify'
-         enter: ClassVar['Kind'] = 'enter'
-         leave: ClassVar['Kind'] = 'leave'
+   class ObjectUpdate(pyVmomi.vmodl.DynamicData):
+      class Kind(pyVmomi.VmomiSupport.Enum):
+         modify: _typing.ClassVar['Kind'] = 'modify'
+         enter: _typing.ClassVar['Kind'] = 'enter'
+         leave: _typing.ClassVar['Kind'] = 'leave'
 
       kind: Kind
-      obj: ManagedObject
+      obj: pyVmomi.VmomiSupport.ManagedObject
       changeSet: list[Change] = []
       missingSet: list[MissingProperty] = []
 
-   class Change(DynamicData):
-      class Op(Enum):
-         add: ClassVar['Op'] = 'add'
-         remove: ClassVar['Op'] = 'remove'
-         assign: ClassVar['Op'] = 'assign'
-         indirectRemove: ClassVar['Op'] = 'indirectRemove'
+   class Change(pyVmomi.vmodl.DynamicData):
+      class Op(pyVmomi.VmomiSupport.Enum):
+         add: _typing.ClassVar['Op'] = 'add'
+         remove: _typing.ClassVar['Op'] = 'remove'
+         assign: _typing.ClassVar['Op'] = 'assign'
+         indirectRemove: _typing.ClassVar['Op'] = 'indirectRemove'
 
-      name: PropertyPath
+      name: pyVmomi.VmomiSupport.PropertyPath
       op: Op
-      val: Optional[object] = None
+      val: _typing.Optional[object] = None
 
-   class MissingProperty(DynamicData):
-      path: PropertyPath
-      fault: MethodFault
+   class MissingProperty(pyVmomi.vmodl.DynamicData):
+      path: pyVmomi.VmomiSupport.PropertyPath
+      fault: pyVmomi.vmodl.MethodFault
 
-   class MissingObject(DynamicData):
-      obj: ManagedObject
-      fault: MethodFault
+   class MissingObject(pyVmomi.vmodl.DynamicData):
+      obj: pyVmomi.VmomiSupport.ManagedObject
+      fault: pyVmomi.vmodl.MethodFault
 
-   class WaitOptions(DynamicData):
-      maxWaitSeconds: Optional[int] = None
-      maxObjectUpdates: Optional[int] = None
+   class WaitOptions(pyVmomi.vmodl.DynamicData):
+      maxWaitSeconds: _typing.Optional[int] = None
+      maxObjectUpdates: _typing.Optional[int] = None
 
-   class RetrieveOptions(DynamicData):
-      maxObjects: Optional[int] = None
+   class RetrieveOptions(pyVmomi.vmodl.DynamicData):
+      maxObjects: _typing.Optional[int] = None
 
-   class RetrieveResult(DynamicData):
-      token: Optional[str] = None
+   class RetrieveResult(pyVmomi.vmodl.DynamicData):
+      token: _typing.Optional[str] = None
       objects: list[ObjectContent] = []
 
    @property
@@ -118,11 +111,11 @@ class PropertyCollector(ManagedObject):
 
    def CreateFilter(self, spec: FilterSpec, partialUpdates: bool) -> Filter: ...
    def RetrieveContents(self, specSet: list[FilterSpec]) -> list[ObjectContent]: ...
-   def CheckForUpdates(self, version: Optional[str]) -> Optional[UpdateSet]: ...
-   def WaitForUpdates(self, version: Optional[str]) -> UpdateSet: ...
+   def CheckForUpdates(self, version: _typing.Optional[str]) -> _typing.Optional[UpdateSet]: ...
+   def WaitForUpdates(self, version: _typing.Optional[str]) -> UpdateSet: ...
    def CancelWaitForUpdates(self) -> None: ...
-   def WaitForUpdatesEx(self, version: Optional[str], options: Optional[WaitOptions]) -> Optional[UpdateSet]: ...
-   def RetrievePropertiesEx(self, specSet: list[FilterSpec], options: RetrieveOptions) -> Optional[RetrieveResult]: ...
+   def WaitForUpdatesEx(self, version: _typing.Optional[str], options: _typing.Optional[WaitOptions]) -> _typing.Optional[UpdateSet]: ...
+   def RetrievePropertiesEx(self, specSet: list[FilterSpec], options: RetrieveOptions) -> _typing.Optional[RetrieveResult]: ...
    def ContinueRetrievePropertiesEx(self, token: str) -> RetrieveResult: ...
    def CancelRetrievePropertiesEx(self, token: str) -> None: ...
    def CreatePropertyCollector(self) -> PropertyCollector: ...

@@ -3,280 +3,240 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import ClassVar
-from typing import Optional
-
-from pyVmomi.VmomiSupport import Enum
-
-from pyVmomi.VmomiSupport import double
-
-from pyVmomi.VmomiSupport import long
-
-from pyVmomi.vim import ClusterComputeResource
-
-from pyVmomi.vim import Datastore
-
-from pyVmomi.vim import Folder
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import ResourcePool
-
-from pyVmomi.vim import StoragePod
-
-from pyVmomi.vim import Task
-
-from pyVmomi.vim import VirtualMachine
-
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import MethodFault
-
-from pyVmomi.vim.cluster import Action
-
-from pyVmomi.vim.cluster import DrsFaults
-
-from pyVmomi.vim.cluster import PlacementSpec
-from pyVmomi.vim.cluster import Recommendation
-
-from pyVmomi.vim.cluster import RuleInfo
-
-from pyVmomi.vim.cluster import RuleSpec
-
-from pyVmomi.vim.option import ArrayUpdateSpec
-from pyVmomi.vim.option import OptionValue
-
-from pyVmomi.vim.vm import CloneSpec
-from pyVmomi.vim.vm import ConfigSpec
-
-from pyVmomi.vim.vm import ProfileSpec
-
-from pyVmomi.vim.vm import RelocateSpec
-
-from pyVmomi.vim.vm.device import VirtualDevice
+import typing as _typing
+import pyVmomi.VmomiSupport
+import pyVmomi.vim
+import pyVmomi.vmodl
+import pyVmomi.vim.cluster
+import pyVmomi.vim.option
+import pyVmomi.vim.vm
+import pyVmomi.vim.vm.device
 
 
 
-class ApplyRecommendationResult(DynamicData):
-   vm: Optional[VirtualMachine] = None
+class ApplyRecommendationResult(pyVmomi.vmodl.DynamicData):
+   vm: _typing.Optional[pyVmomi.vim.VirtualMachine] = None
 
 
-class AutomationConfig(DynamicData):
-   spaceLoadBalanceAutomationMode: Optional[str] = None
-   ioLoadBalanceAutomationMode: Optional[str] = None
-   ruleEnforcementAutomationMode: Optional[str] = None
-   policyEnforcementAutomationMode: Optional[str] = None
-   vmEvacuationAutomationMode: Optional[str] = None
+class AutomationConfig(pyVmomi.vmodl.DynamicData):
+   spaceLoadBalanceAutomationMode: _typing.Optional[str] = None
+   ioLoadBalanceAutomationMode: _typing.Optional[str] = None
+   ruleEnforcementAutomationMode: _typing.Optional[str] = None
+   policyEnforcementAutomationMode: _typing.Optional[str] = None
+   vmEvacuationAutomationMode: _typing.Optional[str] = None
 
 
-class ConfigInfo(DynamicData):
+class ConfigInfo(pyVmomi.vmodl.DynamicData):
    podConfig: PodConfigInfo
    vmConfig: list[VmConfigInfo] = []
 
 
-class ConfigSpec(DynamicData):
-   podConfigSpec: Optional[PodConfigSpec] = None
+class ConfigSpec(pyVmomi.vmodl.DynamicData):
+   podConfigSpec: _typing.Optional[PodConfigSpec] = None
    vmConfigSpec: list[VmConfigSpec] = []
 
 
-class HbrDiskMigrationAction(Action):
+class HbrDiskMigrationAction(pyVmomi.vim.cluster.Action):
    collectionId: str
    collectionName: str
    diskIds: list[str] = []
-   source: Datastore
-   destination: Datastore
-   sizeTransferred: long
-   spaceUtilSrcBefore: Optional[float] = None
-   spaceUtilDstBefore: Optional[float] = None
-   spaceUtilSrcAfter: Optional[float] = None
-   spaceUtilDstAfter: Optional[float] = None
-   ioLatencySrcBefore: Optional[float] = None
-   ioLatencyDstBefore: Optional[float] = None
+   source: pyVmomi.vim.Datastore
+   destination: pyVmomi.vim.Datastore
+   sizeTransferred: pyVmomi.VmomiSupport.long
+   spaceUtilSrcBefore: _typing.Optional[float] = None
+   spaceUtilDstBefore: _typing.Optional[float] = None
+   spaceUtilSrcAfter: _typing.Optional[float] = None
+   spaceUtilDstAfter: _typing.Optional[float] = None
+   ioLatencySrcBefore: _typing.Optional[float] = None
+   ioLatencyDstBefore: _typing.Optional[float] = None
 
 
-class IoLoadBalanceConfig(DynamicData):
-   reservablePercentThreshold: Optional[int] = None
-   reservableIopsThreshold: Optional[int] = None
-   reservableThresholdMode: Optional[str] = None
-   ioLatencyThreshold: Optional[int] = None
-   ioLoadImbalanceThreshold: Optional[int] = None
+class IoLoadBalanceConfig(pyVmomi.vmodl.DynamicData):
+   reservablePercentThreshold: _typing.Optional[int] = None
+   reservableIopsThreshold: _typing.Optional[int] = None
+   reservableThresholdMode: _typing.Optional[str] = None
+   ioLatencyThreshold: _typing.Optional[int] = None
+   ioLoadImbalanceThreshold: _typing.Optional[int] = None
 
 
-class OptionSpec(ArrayUpdateSpec):
-   option: Optional[OptionValue] = None
+class OptionSpec(pyVmomi.vim.option.ArrayUpdateSpec):
+   option: _typing.Optional[pyVmomi.vim.option.OptionValue] = None
 
 
-class PlacementAffinityRule(DynamicData):
-   class RuleType(Enum):
-      affinity: ClassVar['RuleType'] = 'affinity'
-      antiAffinity: ClassVar['RuleType'] = 'antiAffinity'
-      softAffinity: ClassVar['RuleType'] = 'softAffinity'
-      softAntiAffinity: ClassVar['RuleType'] = 'softAntiAffinity'
+class PlacementAffinityRule(pyVmomi.vmodl.DynamicData):
+   class RuleType(pyVmomi.VmomiSupport.Enum):
+      affinity: _typing.ClassVar['RuleType'] = 'affinity'
+      antiAffinity: _typing.ClassVar['RuleType'] = 'antiAffinity'
+      softAffinity: _typing.ClassVar['RuleType'] = 'softAffinity'
+      softAntiAffinity: _typing.ClassVar['RuleType'] = 'softAntiAffinity'
 
-   class RuleScope(Enum):
-      cluster: ClassVar['RuleScope'] = 'cluster'
-      host: ClassVar['RuleScope'] = 'host'
-      storagePod: ClassVar['RuleScope'] = 'storagePod'
-      datastore: ClassVar['RuleScope'] = 'datastore'
+   class RuleScope(pyVmomi.VmomiSupport.Enum):
+      cluster: _typing.ClassVar['RuleScope'] = 'cluster'
+      host: _typing.ClassVar['RuleScope'] = 'host'
+      storagePod: _typing.ClassVar['RuleScope'] = 'storagePod'
+      datastore: _typing.ClassVar['RuleScope'] = 'datastore'
 
    ruleType: str
    ruleScope: str
-   vms: list[VirtualMachine] = []
+   vms: list[pyVmomi.vim.VirtualMachine] = []
    keys: list[str] = []
 
 
-class PlacementRankResult(DynamicData):
+class PlacementRankResult(pyVmomi.vmodl.DynamicData):
    key: str
-   candidate: ClusterComputeResource
-   reservedSpaceMB: long
-   usedSpaceMB: long
-   totalSpaceMB: long
-   utilization: double
-   faults: list[MethodFault] = []
+   candidate: pyVmomi.vim.ClusterComputeResource
+   reservedSpaceMB: pyVmomi.VmomiSupport.long
+   usedSpaceMB: pyVmomi.VmomiSupport.long
+   totalSpaceMB: pyVmomi.VmomiSupport.long
+   utilization: pyVmomi.VmomiSupport.double
+   faults: list[pyVmomi.vmodl.MethodFault] = []
 
 
-class PlacementRankSpec(DynamicData):
-   specs: list[PlacementSpec] = []
-   clusters: list[ClusterComputeResource] = []
+class PlacementRankSpec(pyVmomi.vmodl.DynamicData):
+   specs: list[pyVmomi.vim.cluster.PlacementSpec] = []
+   clusters: list[pyVmomi.vim.ClusterComputeResource] = []
    rules: list[PlacementAffinityRule] = []
    placementRankByVm: list[PlacementRankVmSpec] = []
 
 
-class PlacementRankVmSpec(DynamicData):
-   vmPlacementSpec: PlacementSpec
-   vmClusters: list[ClusterComputeResource] = []
+class PlacementRankVmSpec(pyVmomi.vmodl.DynamicData):
+   vmPlacementSpec: pyVmomi.vim.cluster.PlacementSpec
+   vmClusters: list[pyVmomi.vim.ClusterComputeResource] = []
 
 
-class PodConfigInfo(DynamicData):
-   class Behavior(Enum):
-      manual: ClassVar['Behavior'] = 'manual'
-      automated: ClassVar['Behavior'] = 'automated'
+class PodConfigInfo(pyVmomi.vmodl.DynamicData):
+   class Behavior(pyVmomi.VmomiSupport.Enum):
+      manual: _typing.ClassVar['Behavior'] = 'manual'
+      automated: _typing.ClassVar['Behavior'] = 'automated'
 
    enabled: bool
    ioLoadBalanceEnabled: bool
    defaultVmBehavior: str
-   loadBalanceInterval: Optional[int] = None
-   defaultIntraVmAffinity: Optional[bool] = None
-   spaceLoadBalanceConfig: Optional[SpaceLoadBalanceConfig] = None
-   ioLoadBalanceConfig: Optional[IoLoadBalanceConfig] = None
-   automationOverrides: Optional[AutomationConfig] = None
-   rule: list[RuleInfo] = []
-   option: list[OptionValue] = []
+   loadBalanceInterval: _typing.Optional[int] = None
+   defaultIntraVmAffinity: _typing.Optional[bool] = None
+   spaceLoadBalanceConfig: _typing.Optional[SpaceLoadBalanceConfig] = None
+   ioLoadBalanceConfig: _typing.Optional[IoLoadBalanceConfig] = None
+   automationOverrides: _typing.Optional[AutomationConfig] = None
+   rule: list[pyVmomi.vim.cluster.RuleInfo] = []
+   option: list[pyVmomi.vim.option.OptionValue] = []
 
 
-class PodConfigSpec(DynamicData):
-   enabled: Optional[bool] = None
-   ioLoadBalanceEnabled: Optional[bool] = None
-   defaultVmBehavior: Optional[str] = None
-   loadBalanceInterval: Optional[int] = None
-   defaultIntraVmAffinity: Optional[bool] = None
-   spaceLoadBalanceConfig: Optional[SpaceLoadBalanceConfig] = None
-   ioLoadBalanceConfig: Optional[IoLoadBalanceConfig] = None
-   automationOverrides: Optional[AutomationConfig] = None
-   rule: list[RuleSpec] = []
+class PodConfigSpec(pyVmomi.vmodl.DynamicData):
+   enabled: _typing.Optional[bool] = None
+   ioLoadBalanceEnabled: _typing.Optional[bool] = None
+   defaultVmBehavior: _typing.Optional[str] = None
+   loadBalanceInterval: _typing.Optional[int] = None
+   defaultIntraVmAffinity: _typing.Optional[bool] = None
+   spaceLoadBalanceConfig: _typing.Optional[SpaceLoadBalanceConfig] = None
+   ioLoadBalanceConfig: _typing.Optional[IoLoadBalanceConfig] = None
+   automationOverrides: _typing.Optional[AutomationConfig] = None
+   rule: list[pyVmomi.vim.cluster.RuleSpec] = []
    option: list[OptionSpec] = []
 
 
-class PodSelectionSpec(DynamicData):
-   class VmPodConfig(DynamicData):
-      storagePod: StoragePod
+class PodSelectionSpec(pyVmomi.vmodl.DynamicData):
+   class VmPodConfig(pyVmomi.vmodl.DynamicData):
+      storagePod: pyVmomi.vim.StoragePod
       disk: list[DiskLocator] = []
-      vmConfig: Optional[VmConfigInfo] = None
-      interVmRule: list[RuleInfo] = []
+      vmConfig: _typing.Optional[VmConfigInfo] = None
+      interVmRule: list[pyVmomi.vim.cluster.RuleInfo] = []
 
-   class DiskLocator(DynamicData):
+   class DiskLocator(pyVmomi.vmodl.DynamicData):
       diskId: int
-      diskMoveType: Optional[str] = None
-      diskBackingInfo: Optional[VirtualDevice.BackingInfo] = None
-      profile: list[ProfileSpec] = []
+      diskMoveType: _typing.Optional[str] = None
+      diskBackingInfo: _typing.Optional[pyVmomi.vim.vm.device.VirtualDevice.BackingInfo] = None
+      profile: list[pyVmomi.vim.vm.ProfileSpec] = []
 
    initialVmConfig: list[VmPodConfig] = []
-   storagePod: Optional[StoragePod] = None
+   storagePod: _typing.Optional[pyVmomi.vim.StoragePod] = None
 
 
-class SpaceLoadBalanceConfig(DynamicData):
-   class SpaceThresholdMode(Enum):
-      utilization: ClassVar['SpaceThresholdMode'] = 'utilization'
-      freeSpace: ClassVar['SpaceThresholdMode'] = 'freeSpace'
+class SpaceLoadBalanceConfig(pyVmomi.vmodl.DynamicData):
+   class SpaceThresholdMode(pyVmomi.VmomiSupport.Enum):
+      utilization: _typing.ClassVar['SpaceThresholdMode'] = 'utilization'
+      freeSpace: _typing.ClassVar['SpaceThresholdMode'] = 'freeSpace'
 
-   spaceThresholdMode: Optional[str] = None
-   spaceUtilizationThreshold: Optional[int] = None
-   freeSpaceThresholdGB: Optional[int] = None
-   minSpaceUtilizationDifference: Optional[int] = None
-
-
-class StorageMigrationAction(Action):
-   vm: VirtualMachine
-   relocateSpec: RelocateSpec
-   source: Datastore
-   destination: Datastore
-   sizeTransferred: long
-   spaceUtilSrcBefore: Optional[float] = None
-   spaceUtilDstBefore: Optional[float] = None
-   spaceUtilSrcAfter: Optional[float] = None
-   spaceUtilDstAfter: Optional[float] = None
-   ioLatencySrcBefore: Optional[float] = None
-   ioLatencyDstBefore: Optional[float] = None
+   spaceThresholdMode: _typing.Optional[str] = None
+   spaceUtilizationThreshold: _typing.Optional[int] = None
+   freeSpaceThresholdGB: _typing.Optional[int] = None
+   minSpaceUtilizationDifference: _typing.Optional[int] = None
 
 
-class StoragePlacementAction(Action):
-   vm: Optional[VirtualMachine] = None
-   relocateSpec: RelocateSpec
-   destination: Datastore
-   spaceUtilBefore: Optional[float] = None
-   spaceDemandBefore: Optional[float] = None
-   spaceUtilAfter: Optional[float] = None
-   spaceDemandAfter: Optional[float] = None
-   ioLatencyBefore: Optional[float] = None
+class StorageMigrationAction(pyVmomi.vim.cluster.Action):
+   vm: pyVmomi.vim.VirtualMachine
+   relocateSpec: pyVmomi.vim.vm.RelocateSpec
+   source: pyVmomi.vim.Datastore
+   destination: pyVmomi.vim.Datastore
+   sizeTransferred: pyVmomi.VmomiSupport.long
+   spaceUtilSrcBefore: _typing.Optional[float] = None
+   spaceUtilDstBefore: _typing.Optional[float] = None
+   spaceUtilSrcAfter: _typing.Optional[float] = None
+   spaceUtilDstAfter: _typing.Optional[float] = None
+   ioLatencySrcBefore: _typing.Optional[float] = None
+   ioLatencyDstBefore: _typing.Optional[float] = None
 
 
-class StoragePlacementResult(DynamicData):
-   recommendations: list[Recommendation] = []
-   drsFault: Optional[DrsFaults] = None
-   task: Optional[Task] = None
+class StoragePlacementAction(pyVmomi.vim.cluster.Action):
+   vm: _typing.Optional[pyVmomi.vim.VirtualMachine] = None
+   relocateSpec: pyVmomi.vim.vm.RelocateSpec
+   destination: pyVmomi.vim.Datastore
+   spaceUtilBefore: _typing.Optional[float] = None
+   spaceDemandBefore: _typing.Optional[float] = None
+   spaceUtilAfter: _typing.Optional[float] = None
+   spaceDemandAfter: _typing.Optional[float] = None
+   ioLatencyBefore: _typing.Optional[float] = None
 
 
-class StoragePlacementSpec(DynamicData):
-   class PlacementType(Enum):
-      create: ClassVar['PlacementType'] = 'create'
-      reconfigure: ClassVar['PlacementType'] = 'reconfigure'
-      relocate: ClassVar['PlacementType'] = 'relocate'
-      clone: ClassVar['PlacementType'] = 'clone'
+class StoragePlacementResult(pyVmomi.vmodl.DynamicData):
+   recommendations: list[pyVmomi.vim.cluster.Recommendation] = []
+   drsFault: _typing.Optional[pyVmomi.vim.cluster.DrsFaults] = None
+   task: _typing.Optional[pyVmomi.vim.Task] = None
+
+
+class StoragePlacementSpec(pyVmomi.vmodl.DynamicData):
+   class PlacementType(pyVmomi.VmomiSupport.Enum):
+      create: _typing.ClassVar['PlacementType'] = 'create'
+      reconfigure: _typing.ClassVar['PlacementType'] = 'reconfigure'
+      relocate: _typing.ClassVar['PlacementType'] = 'relocate'
+      clone: _typing.ClassVar['PlacementType'] = 'clone'
 
    type: str
-   priority: Optional[VirtualMachine.MovePriority] = None
-   vm: Optional[VirtualMachine] = None
+   priority: _typing.Optional[pyVmomi.vim.VirtualMachine.MovePriority] = None
+   vm: _typing.Optional[pyVmomi.vim.VirtualMachine] = None
    podSelectionSpec: PodSelectionSpec
-   cloneSpec: Optional[CloneSpec] = None
-   cloneName: Optional[str] = None
-   configSpec: Optional[ConfigSpec] = None
-   relocateSpec: Optional[RelocateSpec] = None
-   resourcePool: Optional[ResourcePool] = None
-   host: Optional[HostSystem] = None
-   folder: Optional[Folder] = None
-   disallowPrerequisiteMoves: Optional[bool] = None
-   resourceLeaseDurationSec: Optional[int] = None
+   cloneSpec: _typing.Optional[pyVmomi.vim.vm.CloneSpec] = None
+   cloneName: _typing.Optional[str] = None
+   configSpec: _typing.Optional[pyVmomi.vim.vm.ConfigSpec] = None
+   relocateSpec: _typing.Optional[pyVmomi.vim.vm.RelocateSpec] = None
+   resourcePool: _typing.Optional[pyVmomi.vim.ResourcePool] = None
+   host: _typing.Optional[pyVmomi.vim.HostSystem] = None
+   folder: _typing.Optional[pyVmomi.vim.Folder] = None
+   disallowPrerequisiteMoves: _typing.Optional[bool] = None
+   resourceLeaseDurationSec: _typing.Optional[int] = None
 
 
-class VirtualDiskAntiAffinityRuleSpec(RuleInfo):
+class VirtualDiskAntiAffinityRuleSpec(pyVmomi.vim.cluster.RuleInfo):
    diskId: list[int] = []
 
 
-class VirtualDiskRuleSpec(RuleInfo):
-   class RuleType(Enum):
-      affinity: ClassVar['RuleType'] = 'affinity'
-      antiAffinity: ClassVar['RuleType'] = 'antiAffinity'
-      disabled: ClassVar['RuleType'] = 'disabled'
+class VirtualDiskRuleSpec(pyVmomi.vim.cluster.RuleInfo):
+   class RuleType(pyVmomi.VmomiSupport.Enum):
+      affinity: _typing.ClassVar['RuleType'] = 'affinity'
+      antiAffinity: _typing.ClassVar['RuleType'] = 'antiAffinity'
+      disabled: _typing.ClassVar['RuleType'] = 'disabled'
 
    diskRuleType: str
    diskId: list[int] = []
 
 
-class VmConfigInfo(DynamicData):
-   vm: Optional[VirtualMachine] = None
-   enabled: Optional[bool] = None
-   behavior: Optional[str] = None
-   intraVmAffinity: Optional[bool] = None
-   intraVmAntiAffinity: Optional[VirtualDiskAntiAffinityRuleSpec] = None
+class VmConfigInfo(pyVmomi.vmodl.DynamicData):
+   vm: _typing.Optional[pyVmomi.vim.VirtualMachine] = None
+   enabled: _typing.Optional[bool] = None
+   behavior: _typing.Optional[str] = None
+   intraVmAffinity: _typing.Optional[bool] = None
+   intraVmAntiAffinity: _typing.Optional[VirtualDiskAntiAffinityRuleSpec] = None
    virtualDiskRules: list[VirtualDiskRuleSpec] = []
 
 
-class VmConfigSpec(ArrayUpdateSpec):
-   info: Optional[VmConfigInfo] = None
+class VmConfigSpec(pyVmomi.vim.option.ArrayUpdateSpec):
+   info: _typing.Optional[VmConfigInfo] = None

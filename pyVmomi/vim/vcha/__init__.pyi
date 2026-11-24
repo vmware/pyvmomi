@@ -3,144 +3,129 @@
 
 # ******* WARNING - AUTO GENERATED CODE - DO NOT EDIT *******
 
-from typing import ClassVar
-from typing import Optional
-
-from pyVmomi.VmomiSupport import Enum
-from pyVmomi.VmomiSupport import ManagedMethod
-from pyVmomi.VmomiSupport import ManagedObject
-
-from pyVmomi.vim import Datastore
-from pyVmomi.vim import Folder
-from pyVmomi.vim import HostSystem
-from pyVmomi.vim import Network
-from pyVmomi.vim import ResourcePool
-from pyVmomi.vim import ServiceLocator
-from pyVmomi.vim import Task
-from pyVmomi.vim import VirtualMachine
-
-from pyVmomi.vmodl import DynamicData
-from pyVmomi.vmodl import LocalizableMessage
-
-from pyVmomi.vim.vm.customization import IPSettings
+import typing as _typing
+import pyVmomi.VmomiSupport
+import pyVmomi.vim
+import pyVmomi.vmodl
+import pyVmomi.vim.vm.customization
 
 
 
-class FailoverClusterConfigurator(ManagedObject):
-   class ClusterNetworkConfigSpec(DynamicData):
-      networkPortGroup: Network
-      ipSettings: IPSettings
+class FailoverClusterConfigurator(pyVmomi.VmomiSupport.ManagedObject):
+   class ClusterNetworkConfigSpec(pyVmomi.vmodl.DynamicData):
+      networkPortGroup: pyVmomi.vim.Network
+      ipSettings: pyVmomi.vim.vm.customization.IPSettings
 
-   class SourceNodeSpec(DynamicData):
-      managementVc: ServiceLocator
-      activeVc: VirtualMachine
+   class SourceNodeSpec(pyVmomi.vmodl.DynamicData):
+      managementVc: pyVmomi.vim.ServiceLocator
+      activeVc: pyVmomi.vim.VirtualMachine
 
-   class NodeNetworkSpec(DynamicData):
-      ipSettings: IPSettings
+   class NodeNetworkSpec(pyVmomi.vmodl.DynamicData):
+      ipSettings: pyVmomi.vim.vm.customization.IPSettings
 
    class PassiveNodeNetworkSpec(NodeNetworkSpec):
-      failoverIpSettings: Optional[IPSettings] = None
+      failoverIpSettings: _typing.Optional[pyVmomi.vim.vm.customization.IPSettings] = None
 
-   class VchaClusterNetworkSpec(DynamicData):
+   class VchaClusterNetworkSpec(pyVmomi.vmodl.DynamicData):
       witnessNetworkSpec: NodeNetworkSpec
       passiveNetworkSpec: PassiveNodeNetworkSpec
 
-   class NodeDeploymentSpec(DynamicData):
-      esxHost: Optional[HostSystem] = None
-      datastore: Optional[Datastore] = None
-      publicNetworkPortGroup: Optional[Network] = None
-      clusterNetworkPortGroup: Optional[Network] = None
-      folder: Folder
-      resourcePool: Optional[ResourcePool] = None
-      managementVc: Optional[ServiceLocator] = None
+   class NodeDeploymentSpec(pyVmomi.vmodl.DynamicData):
+      esxHost: _typing.Optional[pyVmomi.vim.HostSystem] = None
+      datastore: _typing.Optional[pyVmomi.vim.Datastore] = None
+      publicNetworkPortGroup: _typing.Optional[pyVmomi.vim.Network] = None
+      clusterNetworkPortGroup: _typing.Optional[pyVmomi.vim.Network] = None
+      folder: pyVmomi.vim.Folder
+      resourcePool: _typing.Optional[pyVmomi.vim.ResourcePool] = None
+      managementVc: _typing.Optional[pyVmomi.vim.ServiceLocator] = None
       nodeName: str
-      ipSettings: IPSettings
+      ipSettings: pyVmomi.vim.vm.customization.IPSettings
 
    class PassiveNodeDeploymentSpec(NodeDeploymentSpec):
-      failoverIpSettings: Optional[IPSettings] = None
+      failoverIpSettings: _typing.Optional[pyVmomi.vim.vm.customization.IPSettings] = None
 
-   class VchaClusterConfigSpec(DynamicData):
+   class VchaClusterConfigSpec(pyVmomi.vmodl.DynamicData):
       passiveIp: str
       witnessIp: str
 
-   class VchaClusterDeploymentSpec(DynamicData):
+   class VchaClusterDeploymentSpec(pyVmomi.vmodl.DynamicData):
       passiveDeploymentSpec: PassiveNodeDeploymentSpec
       witnessDeploymentSpec: NodeDeploymentSpec
       activeVcSpec: SourceNodeSpec
-      activeVcNetworkConfig: Optional[ClusterNetworkConfigSpec] = None
+      activeVcNetworkConfig: _typing.Optional[ClusterNetworkConfigSpec] = None
 
-   class FailoverNodeInfo(DynamicData):
-      clusterIpSettings: IPSettings
-      failoverIp: Optional[IPSettings] = None
-      biosUuid: Optional[str] = None
+   class FailoverNodeInfo(pyVmomi.vmodl.DynamicData):
+      clusterIpSettings: pyVmomi.vim.vm.customization.IPSettings
+      failoverIp: _typing.Optional[pyVmomi.vim.vm.customization.IPSettings] = None
+      biosUuid: _typing.Optional[str] = None
 
-   class WitnessNodeInfo(DynamicData):
-      ipSettings: IPSettings
-      biosUuid: Optional[str] = None
+   class WitnessNodeInfo(pyVmomi.vmodl.DynamicData):
+      ipSettings: pyVmomi.vim.vm.customization.IPSettings
+      biosUuid: _typing.Optional[str] = None
 
-   class VchaState(Enum):
-      configured: ClassVar['VchaState'] = 'configured'
-      notConfigured: ClassVar['VchaState'] = 'notConfigured'
-      invalid: ClassVar['VchaState'] = 'invalid'
-      prepared: ClassVar['VchaState'] = 'prepared'
+   class VchaState(pyVmomi.VmomiSupport.Enum):
+      configured: _typing.ClassVar['VchaState'] = 'configured'
+      notConfigured: _typing.ClassVar['VchaState'] = 'notConfigured'
+      invalid: _typing.ClassVar['VchaState'] = 'invalid'
+      prepared: _typing.ClassVar['VchaState'] = 'prepared'
 
-   class VchaClusterConfigInfo(DynamicData):
-      failoverNodeInfo1: Optional[FailoverNodeInfo] = None
-      failoverNodeInfo2: Optional[FailoverNodeInfo] = None
-      witnessNodeInfo: Optional[WitnessNodeInfo] = None
+   class VchaClusterConfigInfo(pyVmomi.vmodl.DynamicData):
+      failoverNodeInfo1: _typing.Optional[FailoverNodeInfo] = None
+      failoverNodeInfo2: _typing.Optional[FailoverNodeInfo] = None
+      witnessNodeInfo: _typing.Optional[WitnessNodeInfo] = None
       state: str
 
    @property
-   def disabledConfigureMethod(self) -> list[ManagedMethod]: ...
+   def disabledConfigureMethod(self) -> list[pyVmomi.VmomiSupport.ManagedMethod]: ...
 
-   def Prepare(self, networkSpec: VchaClusterNetworkSpec) -> Task: ...
-   def Deploy(self, deploymentSpec: VchaClusterDeploymentSpec) -> Task: ...
-   def Configure(self, configSpec: VchaClusterConfigSpec) -> Task: ...
-   def CreatePassiveNode(self, passiveDeploymentSpec: PassiveNodeDeploymentSpec, sourceVcSpec: SourceNodeSpec) -> Task: ...
-   def CreateWitnessNode(self, witnessDeploymentSpec: NodeDeploymentSpec, sourceVcSpec: SourceNodeSpec) -> Task: ...
+   def Prepare(self, networkSpec: VchaClusterNetworkSpec) -> pyVmomi.vim.Task: ...
+   def Deploy(self, deploymentSpec: VchaClusterDeploymentSpec) -> pyVmomi.vim.Task: ...
+   def Configure(self, configSpec: VchaClusterConfigSpec) -> pyVmomi.vim.Task: ...
+   def CreatePassiveNode(self, passiveDeploymentSpec: PassiveNodeDeploymentSpec, sourceVcSpec: SourceNodeSpec) -> pyVmomi.vim.Task: ...
+   def CreateWitnessNode(self, witnessDeploymentSpec: NodeDeploymentSpec, sourceVcSpec: SourceNodeSpec) -> pyVmomi.vim.Task: ...
    def GetConfig(self) -> VchaClusterConfigInfo: ...
-   def Destroy(self) -> Task: ...
+   def Destroy(self) -> pyVmomi.vim.Task: ...
 
 
-class FailoverClusterManager(ManagedObject):
-   class VchaNodeRole(Enum):
-      active: ClassVar['VchaNodeRole'] = 'active'
-      passive: ClassVar['VchaNodeRole'] = 'passive'
-      witness: ClassVar['VchaNodeRole'] = 'witness'
+class FailoverClusterManager(pyVmomi.VmomiSupport.ManagedObject):
+   class VchaNodeRole(pyVmomi.VmomiSupport.Enum):
+      active: _typing.ClassVar['VchaNodeRole'] = 'active'
+      passive: _typing.ClassVar['VchaNodeRole'] = 'passive'
+      witness: _typing.ClassVar['VchaNodeRole'] = 'witness'
 
-   class VchaClusterMode(Enum):
-      enabled: ClassVar['VchaClusterMode'] = 'enabled'
-      disabled: ClassVar['VchaClusterMode'] = 'disabled'
-      maintenance: ClassVar['VchaClusterMode'] = 'maintenance'
+   class VchaClusterMode(pyVmomi.VmomiSupport.Enum):
+      enabled: _typing.ClassVar['VchaClusterMode'] = 'enabled'
+      disabled: _typing.ClassVar['VchaClusterMode'] = 'disabled'
+      maintenance: _typing.ClassVar['VchaClusterMode'] = 'maintenance'
 
-   class VchaClusterState(Enum):
-      healthy: ClassVar['VchaClusterState'] = 'healthy'
-      degraded: ClassVar['VchaClusterState'] = 'degraded'
-      isolated: ClassVar['VchaClusterState'] = 'isolated'
+   class VchaClusterState(pyVmomi.VmomiSupport.Enum):
+      healthy: _typing.ClassVar['VchaClusterState'] = 'healthy'
+      degraded: _typing.ClassVar['VchaClusterState'] = 'degraded'
+      isolated: _typing.ClassVar['VchaClusterState'] = 'isolated'
 
-   class VchaNodeState(Enum):
-      up: ClassVar['VchaNodeState'] = 'up'
-      down: ClassVar['VchaNodeState'] = 'down'
+   class VchaNodeState(pyVmomi.VmomiSupport.Enum):
+      up: _typing.ClassVar['VchaNodeState'] = 'up'
+      down: _typing.ClassVar['VchaNodeState'] = 'down'
 
-   class VchaNodeRuntimeInfo(DynamicData):
+   class VchaNodeRuntimeInfo(pyVmomi.vmodl.DynamicData):
       nodeState: str
       nodeRole: str
       nodeIp: str
 
-   class VchaClusterRuntimeInfo(DynamicData):
+   class VchaClusterRuntimeInfo(pyVmomi.vmodl.DynamicData):
       clusterState: str
       nodeInfo: list[VchaNodeRuntimeInfo] = []
       clusterMode: str
 
-   class VchaClusterHealth(DynamicData):
+   class VchaClusterHealth(pyVmomi.vmodl.DynamicData):
       runtimeInfo: VchaClusterRuntimeInfo
-      healthMessages: list[LocalizableMessage] = []
-      additionalInformation: list[LocalizableMessage] = []
+      healthMessages: list[pyVmomi.vmodl.LocalizableMessage] = []
+      additionalInformation: list[pyVmomi.vmodl.LocalizableMessage] = []
 
    @property
-   def disabledClusterMethod(self) -> list[ManagedMethod]: ...
+   def disabledClusterMethod(self) -> list[pyVmomi.VmomiSupport.ManagedMethod]: ...
 
-   def SetClusterMode(self, mode: str) -> Task: ...
+   def SetClusterMode(self, mode: str) -> pyVmomi.vim.Task: ...
    def GetClusterMode(self) -> str: ...
    def GetClusterHealth(self) -> VchaClusterHealth: ...
-   def InitiateFailover(self, planned: bool) -> Task: ...
+   def InitiateFailover(self, planned: bool) -> pyVmomi.vim.Task: ...
