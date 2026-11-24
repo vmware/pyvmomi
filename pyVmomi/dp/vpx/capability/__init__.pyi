@@ -5,4 +5,10 @@
 
 
 class CapabilitySupportLevel:
+   """
+   Enumeration of the support level for a cluster in terms of vSphere Data
+   Protection capabilities.
+   
+   Since: 8.0.0.4
+   """
    pass

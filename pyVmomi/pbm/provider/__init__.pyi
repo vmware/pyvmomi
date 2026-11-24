@@ -8,4 +8,5 @@ import pyVmomi.VmomiSupport
 
 
 class Provider(pyVmomi.VmomiSupport.ManagedObject):
+   """Intended for internal use."""
    pass

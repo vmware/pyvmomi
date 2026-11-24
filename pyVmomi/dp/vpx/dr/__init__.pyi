@@ -5,4 +5,9 @@
 
 
 class SrmWorkflow:
+   """
+   Enumeration of type of SRM workflow.
+   
+   Since: 8.0.0.4
+   """
    pass
